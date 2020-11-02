@@ -65,7 +65,7 @@ while (have_posts()) :
         get_template_part('template-parts/content', 'product-prices', $args);
         ?>
       </div>
- 
+  
       <!-- 5. Dates Content --> 
       <div class="product-content__page tab-content " id="tab-dates">
         <?php
