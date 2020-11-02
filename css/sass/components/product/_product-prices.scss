@@ -1,0 +1,301 @@
+.product-prices {
+    display: grid;
+    grid-template-columns: $page-container;
+    grid-template-rows: minmax(30vh, min-content);
+    position: relative;
+
+
+    @media only screen and (max-width: $bp-large) {
+        grid-template-rows: minmax(22vh, min-content);
+    }
+
+    &::after {
+        //intro background
+        content: "";
+        background-color: $color-grey-light-1;
+        height: 100%;
+        width: 100%;
+        grid-column: full-start / full-end;
+        grid-row: 1 / span 1;
+        z-index: -10;
+        border-bottom: 1px solid $color-grey-light-1a;
+    }
+
+    //Note
+    &__note {
+        grid-column: center-start / center-end;
+    }
+
+    &__btn {
+        grid-column: center-start / center-end;
+        justify-self: center;
+    }
+
+    &__price-group {
+        grid-column: full-start / full-end;
+
+        display: grid;
+        grid-template-columns: $page-container;
+        grid-template-rows: repeat(2, min-content);
+        overflow: hidden;
+        margin-top: 8rem;
+        margin-bottom: 2rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            margin-top: 4rem;
+        }
+
+        &__picture {
+            width: 30rem;
+            //height: 90%;
+            min-height: 60%;
+            grid-column: full-start / span 2;
+            grid-row: 1 / -1;
+            align-self: center;
+            justify-self: end;
+
+            img {
+                object-fit: cover;
+            }
+
+            @media only screen and (max-width: $bp-large) {
+                transform: translateX(-4rem);
+            }
+
+            @media only screen and (max-width: $bp-medium) {
+                //align-self: start;
+                display: none;
+            }
+
+
+            &--flipped {
+                grid-column: col-start 6 / span 2;
+                transform: translateX(10rem);
+                justify-self: start;
+
+                @media only screen and (max-width: $bp-small) {
+                    grid-column: col-start 7 / span 2;
+                    transform: translateX(18rem);
+                }
+            }
+        }
+
+        &__name {
+            grid-column: col-start 3 / center-end;
+            margin-left: 5rem;
+            grid-row: 1 / span 1;
+            // width: 70%;
+            //justify-self: start;
+
+            @media only screen and (max-width: $bp-largest) {
+                margin-left: 16rem;
+            }
+            @media only screen and (max-width: $bp-large) {
+                margin-left: 20rem;
+            }
+            @media only screen and (max-width: $bp-medium) {
+                margin-left: 0rem;
+                text-align: center;
+                grid-column: center-start / center-end;
+            }
+
+            display: grid;
+            grid-template-rows: repeat(2, min-content);
+            align-content: end;
+            column-gap: 3rem;
+
+            &--flipped {
+                margin-left: 0;
+                grid-column: col-start 2 / col-start 6;
+                justify-self: start;
+
+                @media only screen and (max-width: $bp-medium) {
+                    text-align: center;
+                    justify-self: center;
+
+                    grid-column: center-start / center-end;
+                }
+            }
+
+            &__length {
+                font-size: 3rem;
+                font-family: $font-secondary;
+                color: $color-grey-light-2;
+                letter-spacing: 0.2rem;
+                grid-row: 1 / span 1;
+
+                @media only screen and (max-width: $bp-medium) {
+                    font-size: 3rem;
+                }
+            }
+            &__subtitle {
+                grid-row: 2 / span 1;
+                    & h3::after { //hide underline
+                        @media only screen and (max-width: $bp-medium) {
+                            display: none;
+    
+                        }
+                    }             
+            }
+        }
+
+        &__card-group {
+            grid-column: center-start / center-end;
+            grid-row: 2 / span 1;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+            column-gap: 6rem;
+            row-gap: 6rem;
+            margin-bottom: 20rem;
+            justify-self: end;
+            width: 80%;
+            //height: 5rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                width: 100%;
+                margin-bottom: 8rem;
+            }
+
+            &--flipped {
+                justify-self: start;
+            }
+
+            &__card {
+                background-color: $color-white;
+                width: 100%;
+                position: relative;
+                border: 10px solid transparent;
+                box-shadow: inset 0px 0px 0px 2px rgba($color-secondary, 0.2), $shadow-light;
+                box-sizing: border-box; /* Include padding and border in element's width and height */
+                padding: 1rem 2rem;
+
+                display: grid;
+                grid-template-rows: repeat(3, min-content);
+
+                &__year {
+                    justify-self: center;
+                    font-size: 3rem;
+                    padding: 1rem;
+                    letter-spacing: 0.2rem;
+                    color: $color-secondary;
+                }
+                &__season {
+                    justify-self: center;
+                    font-size: 1.6rem;
+                    font-family: $font-secondary;
+                    letter-spacing: 0.2rem;
+                    padding-top: .5rem;
+                    padding-bottom: 2rem;
+                    font-weight: 300;
+                    color: $color-grey-1;
+                    width: 60%;
+
+                    display: grid;
+                    grid-template-columns: 1fr max-content 1fr;
+                    align-items: center;
+                    column-gap: 15px;
+
+                    //lines on both sides effect
+                    &::before {
+                        content: "";
+                        height: 1px;
+                        display: block;
+                        background-color: $color-grey-light-1a;
+                    }
+
+                    &::after {
+                        content: "";
+                        height: 1px;
+                        display: block;
+                        background-color: $color-grey-light-1a;
+                    }
+                }
+
+                &__cabin-list {
+                    display: grid;
+                    justify-items: center;
+                    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+                    column-gap: 1.5rem;
+                    &__item {
+                        margin-bottom: 3rem;
+                        font-size: 1.6rem;
+                        text-align: center;
+
+                        &__cabin {
+                            display: flex;
+                            justify-content: center;
+                            color: $color-secondary;
+                            font-weight: 500;
+                            position: relative;
+                            margin-bottom: 1rem;
+                            display: inline-block;
+                            &::after {
+                                content: "";
+                                height: 1px;
+                                width: 100%;
+                                background-color: $color-grey-light-1a;
+                                position: absolute;
+                                bottom: -0.5rem;
+                                left: 0;
+                            }
+                        }
+
+                        &__prices {
+                            display: flex;
+                            align-items: center;
+                            flex-direction: column;
+                            font-size: 1.8rem;
+                            .single-info {
+                                display: block;
+                                font-size: 1.2rem;
+                                font-style: italic;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__policies-divider {
+        grid-column: center-start / center-end;
+    }
+
+    &__policies {
+        grid-column: center-start / center-end;
+        font-size: 1.4rem;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 4rem;
+        margin-bottom: 6rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-template-columns: 1fr;
+            margin: 0 4rem;
+            margin-bottom: 2rem;
+        }
+
+        &__list-group {
+            @media only screen and (max-width: $bp-medium) {
+                margin-bottom: 5rem;
+                & ul {
+                    margin-left: 2rem;
+                }
+            }
+
+            &__title {
+            }
+
+            &--overall {
+            }
+
+            &--first {
+            }
+
+            &--second {
+            }
+        }
+    }
+}

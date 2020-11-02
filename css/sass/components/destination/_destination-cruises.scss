@@ -1,0 +1,173 @@
+.destination-cruises {
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: $page-container;
+    justify-items: center;
+    //background-color: $color-grey-light-1;
+
+    grid-template-rows: repeat(3, min-content);
+
+    padding: 3rem 0;
+
+    position: relative;
+    z-index: 0;
+
+    transform: translateY(-8rem);
+    &__title {
+        grid-column: center-start / center-end;
+        font-size: 4.5rem;
+        text-align: center;
+        color: $color-secondary;
+        font-family: $font-secondary;
+
+        letter-spacing: 0.2rem;
+
+        z-index: 10;
+        display: grid;
+        grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr); //FIX THIS
+        align-items: center;
+        column-gap: 25px;
+
+        //lines on both sides effect
+        &::before {
+            content: "";
+            height: 1px;
+            display: block;
+            background-color: currentColor;
+        }
+
+        &::after {
+            content: "";
+            height: 1px;
+            display: block;
+            background-color: currentColor;
+        }
+    }
+
+    &__intro-text {
+        grid-column: center-start / center-end;
+        padding: 0 6rem;
+        padding-bottom: 4rem;
+        font-size: 1.4rem;
+        text-align: center;
+
+        z-index: 10;
+    }
+
+    &__grid {
+        grid-column: center-start / center-end;
+        grid-column: 1 / -1;
+        //background-color: brown;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        width: 80%;
+        column-gap: 1rem;
+        row-gap: 5rem;
+
+        &__item {
+            display: grid;
+            row-gap: 2rem;
+            grid-template-columns: 1fr;
+
+            cursor: pointer;
+
+            &:hover {
+                & .destination-cruises__grid__item__cta {
+                    opacity: 1;
+                }
+                &::after {
+                    opacity: 1;
+                }
+            }
+
+            &__cta {
+                grid-column: 1 / span 1;
+                grid-row: 1 / span 1;
+                align-self: center;
+                justify-self: center;
+                z-index: 3;
+                opacity: 0;
+            }
+
+            //overlay gradient
+            &:after {
+                content: "";
+                grid-column: 1 / span 1;
+                grid-row: 1 / span 1;
+
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+                background-image: linear-gradient(to top, rgba($color-black, 0.4), rgba($color-black, 0.4));
+                opacity: 0;
+
+                transition: opacity 0.3s;
+            }
+
+            &__img {
+                grid-column: 1 / span 1;
+                grid-row: 1 / span 1;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+                position: relative;
+                z-index: 0;
+                transition: all 0.2s;
+            }
+
+            &__lower-section {
+                grid-row: 2 / span 1;
+
+                display: grid;
+                grid-template-columns: minmax(min-content / max-content) / 1fr;
+                row-gap: 0.5rem;
+
+                position: relative;
+                &__price {
+                    z-index: 10;
+                    background-color: rgba($color-white, 1);
+                    padding: 0.75rem 1.75rem;
+                    padding-bottom: 1rem;
+                    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
+                    position: absolute;
+                    top: -5rem;
+                    right: 1rem;
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                    color: $color-secondary;
+                }
+
+                &__name {
+                    grid-column: 1 / -1;
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                    letter-spacing: 0.05rem;
+                    color: $color-secondary;
+                }
+
+                &__length {
+                    grid-column: 1 / span 1;
+                    font-size: 1.3rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.2rem;
+                }
+
+                &__stars {
+                    grid-column: 2 / span 1;
+                    display: flex;
+                    justify-content: flex-end;
+
+                    & svg {
+                        height: 1.5rem;
+                        width: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &__all {
+        grid-column: center-start / center-end;
+        margin-top: 8rem;
+    }
+}

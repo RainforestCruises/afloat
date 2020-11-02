@@ -1,0 +1,160 @@
+.product-overview {
+    display: grid;
+    grid-template-columns: $page-container;
+    grid-template-rows: minmax(30vh, min-content);
+    position: relative;
+
+
+
+
+    @media only screen and (max-width: $bp-large) {
+        grid-template-rows: minmax(22vh, min-content);
+    }
+
+
+ 
+
+    &::after {
+        //intro background
+        content: "";
+        background-color: $color-grey-light-1;
+        height: 100%;
+        width: 100%;
+        grid-column: full-start / full-end;
+        grid-row: 1 / span 1;
+        z-index: -10;
+        border-bottom: 1px solid $color-grey-light-1a;
+    }
+
+ 
+
+    //Description
+    &__description {
+        grid-column: full-start / full-end;
+        display: grid;
+        grid-template-columns: $page-container;
+        position: relative;
+        overflow-x: hidden;
+
+        margin-top: 4rem;
+
+        
+
+        &__detail {
+            grid-column: full-start / col-end 4;
+            justify-self: end;
+
+            display: grid;
+            grid-template-rows: min-content min-content;
+            row-gap: 3rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                grid-column: center-start / center-end;
+                grid-row: 1 / span 1;
+                margin-bottom: 4rem;
+            }
+
+            &__picture {        
+                max-width: 60rem;
+                height: 40rem;
+                margin-right: 4rem;
+                margin-left: 4rem;
+                position: relative;
+                display: flex;
+
+                @media only screen and (max-width: $bp-large) {
+                    max-height: 30rem;
+                }
+
+                @media only screen and (max-width: $bp-medium) {
+                    max-width: 100%;
+                    max-height: 50rem;
+                    height: auto;
+                   
+                }
+
+                //overlay gradient  --subtle for title text
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 20rem;
+                    z-index: 1;
+                    background-image: linear-gradient(to top, rgba($color-black, 0.8), rgba($color-black, 0));
+                }
+                & img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: auto;
+                    box-shadow: $shadow-medium-short;
+                    z-index: 0;
+                }
+    
+                &__title {
+                    font-size: 2rem;
+                    position: absolute;
+                    bottom: 2rem;
+                    left: 3rem;
+                    color: $color-white;
+                    z-index: 2;
+                  }
+            }
+
+            &__highlights {        
+                grid-row: 2 / span 1;      
+                font-size: 1.4rem;
+
+                max-width: 48rem;
+                margin: 0 4rem;
+                padding-left: 6rem;
+                position: relative;
+
+                @media only screen and (max-width: $bp-large) {
+                    padding-left: 4rem;
+                }
+
+                @media only screen and (max-width: $bp-medium) {
+                    margin: 0;
+                    margin-top: 2rem;
+                    max-width: 100%;
+                    padding-left: 0;
+
+                    & ul {
+                        margin-left: 4rem;
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -4rem;
+                        height: 1px;
+                        width: 100%;
+                        background-color: $color-grey-light-1a;
+                    }
+                }
+            }
+        }
+      
+
+        &__text {
+            grid-column: col-start 5 / center-end;
+            grid-row: 1 / span 2;
+
+            @media only screen and (max-width: $bp-medium) {
+                grid-column: center-start / center-end;
+                margin-top: 4rem;
+                grid-row: 2 / span 1;
+            }
+
+        }
+
+        
+    }
+
+    &__btn {
+        grid-column: center-start / center-end;
+        justify-self: center;
+    }
+    
+}

@@ -1,0 +1,336 @@
+.product-dates {
+    display: grid;
+    grid-template-columns: $page-container;
+    grid-template-rows: minmax(30vh, min-content);
+    position: relative;
+
+
+    @media only screen and (max-width: $bp-large) {
+        grid-template-rows: minmax(22vh, min-content);
+    }
+
+    &::after {
+        //intro background
+        content: "";
+        background-color: $color-grey-light-1; //DARK MODE HERE
+        height: 100%;
+        width: 100%;
+        grid-column: full-start / full-end;
+        grid-row: 1 / span 1;
+        z-index: -10;
+        border-bottom: 1px solid $color-grey-light-1a;
+    }
+
+    &__title {
+        grid-column: center-start / center-end;
+    }
+
+    &__search-area {
+        grid-column: center-start / center-end;
+
+        display: grid;
+        margin-bottom: 10rem;
+
+        &__controls {
+            margin: 4rem 0;
+            display: grid;
+            grid-template-columns: repeat(3, min-content);
+
+            justify-content: center;
+            column-gap: 3rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                grid-template-columns: repeat(2, min-content);
+                row-gap: 2rem;
+                margin-bottom: 6rem;
+            }
+            @media only screen and (max-width: $bp-small) {
+                grid-template-columns: min-content;
+
+            }
+
+            &__control {
+                display: flex;
+                align-items: center;
+
+                &__label-text {
+                    font-size: 1.5rem;
+                    padding-top: 0.2rem;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    color: $color-secondary;
+                    margin-right: 0.5rem;
+                    @media only screen and (max-width: $bp-largest) {
+                        font-size: 1.8rem;
+                    }
+                }
+
+                & .select2-selection--single {
+                    border: none !important;
+                  }
+            }
+        }
+        &__results {
+            &__itinerary-group {
+                &__itinerary {
+                    display: grid;
+                    grid-template-columns: max-content 1fr max-content;
+                    position: relative;
+                    padding: 4.5rem 3rem;
+                    margin-bottom: 5rem;
+                    box-sizing: border-box;
+                    border-radius: 0.4rem;
+                    box-shadow: $inner-border-dark;
+                    align-items: center;
+
+                    @media only screen and (max-width: $bp-medium) {
+                        grid-template-columns: 1fr;
+                        justify-items: center;
+                        row-gap: 2rem;
+                    }
+
+                    &__title-group {
+                        font-family: $font-secondary;
+                        display: grid;
+                        grid-template-columns: max-content max-content;
+
+                        &__icon {
+                            grid-column: 1 / span 1;
+
+                            justify-self: center;
+                            align-self: center;
+                            margin-right: 1.5rem;
+                            & svg {
+                                height: 5rem;
+                                width: 5rem;
+                                fill: $color-secondary;
+                            }
+                        }
+                        &__text {
+                            grid-column: 2 / span 1;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-self: center;
+                            align-content: center;
+
+                            &__title {
+                                font-size: 3.2rem;
+                                color: $color-secondary;
+                                line-height: 3rem;
+                                font-weight: 600;
+                                letter-spacing: 0.1rem;
+                          
+                            }
+                            &__subtitle {
+                                font-size: 1.4rem;
+                                color: $color-grey-1;
+                                text-transform: uppercase;
+                                letter-spacing: 0.2rem;
+                                font-weight: 600;
+                        
+                            }
+                        }
+                    }
+
+                    &__description {
+                        font-size: 1.6rem;
+                        padding: 0 3rem;
+                    }
+
+                    &__cta {
+                    }
+                }
+                &__departures {
+                    &__departure {
+                        display: grid;
+
+                        position: relative;
+                        width: 100%;
+                        height: auto;
+                        box-sizing: border-box;
+                        border-radius: 0.4rem;
+                        box-shadow: $inner-border-light;
+                        margin-bottom: 3rem;
+                        transition: all 0.3s;
+                        padding: 3rem 3rem;
+
+                        @media only screen and (max-width: $bp-medium) {
+                            margin-bottom: 5rem;
+
+                        }
+
+                        &--active {
+                            box-shadow: $inner-border-dark;
+
+                            & .product-dates__search-area__results__itinerary-group__departures__departure__bottom {
+                                opacity: 1;
+                            }
+
+                            & .departure-expand {
+                                transition: all 0.3s;
+                                transform: rotate(180deg);
+
+                                &::after {
+                                    border: 2px solid $color-secondary;
+                                }
+                            }
+                        }
+
+                        &__top {
+                            display: grid;
+                            grid-template-columns: repeat(3, max-content) 1fr 10rem;
+                            align-items: center;
+                            column-gap: 5rem;
+                            position: relative;
+
+                            @media only screen and (max-width: $bp-medium) {
+                                grid-template-columns: 1fr;
+                                row-gap: 2rem;
+                            }
+
+                            &__date {
+                                font-size: 1.4rem;
+                                font-weight: 700;
+                                text-transform: uppercase;
+                                letter-spacing: 0.2rem;
+                                color: $color-secondary;
+                                display: inline-block;
+                                background-color: $color-white;
+                                position: absolute;
+                                top: -3.9rem;
+                                left: 3rem;
+                                padding: 0 1rem;
+
+                                @media only screen and (max-width: $bp-medium) {
+                                    font-size: 1.7rem;
+                                    top: -4.2rem;
+                                }
+                            }
+
+                            &__icon {
+                                align-items: center;
+
+                                @media only screen and (max-width: $bp-medium) {
+                                    display: none;
+                                }
+
+                                & svg {
+                                    height: 5rem;
+                                    width: 5rem;
+                                    fill: $color-secondary;
+                                }
+                            }
+
+                            &__col {
+                                font-size: 3rem;
+                                color: $color-secondary;
+                                font-weight: 500;
+                                line-height: 3rem;
+               
+                                &__heading {
+                                    font-size: 1.4rem;
+                                    color: $color-grey-1;
+                                    text-transform: uppercase;
+                                    letter-spacing: 0.2rem;
+                                    font-weight: 600;
+                                    display: block;
+                                }
+
+                                &--promo {
+                                    text-align: right;
+                                    padding-right: 4rem;
+                                    @media only screen and (max-width: $bp-medium) {
+                                        text-align: left;
+                                    }
+                                }
+
+                                &--expand {
+                                    text-align: right;
+                                    @media only screen and (max-width: $bp-medium) {
+                                        position: absolute;
+                                        top: 5rem;
+                                        right: 3rem;
+                                        transform: scale(2);
+                                    }
+                                }
+                            }
+                        }
+
+                        &__bottom {
+                            margin-top: 3rem;
+                            border-top: 1px solid $color-grey-light-1a;
+                            display: none;
+                            transition: opacity 0.4s;
+                            opacity: 0;
+
+                            &__info {
+                                display: grid;
+                                grid-template-columns: 2fr 1fr;
+                                margin: 2rem 0;
+                                align-items: center;
+                                row-gap: 2rem;
+
+                                @media only screen and (max-width: $bp-medium) {
+                                    grid-template-columns: 1fr;
+                                }
+
+                                &__description {
+                                    &__title {
+                                        font-size: 4rem;
+                                        font-weight: 500;
+                                        color: $color-secondary;
+                                        @media only screen and (max-width: $bp-medium) {
+                                            font-size: 3.5rem;
+                                        }
+                                    }
+
+                                    &__text {
+                                        font-size: 1.6rem;
+                                    }
+                                }
+                                &__cta {
+                                    justify-self: end;
+                                    @media only screen and (max-width: $bp-medium) {
+                                        justify-self: center;
+                                    }
+                                }
+                            }
+                            &__cabins {
+                                display: grid;
+                                grid-template-columns: 10rem 1fr;
+                                margin-top: 3rem;
+                                border-top: 1px solid $color-grey-light-1a;
+                                padding-top: 3rem;
+
+                                &__icon {
+                                    & svg {
+                                        height: 5rem;
+                                        width: 5rem;
+                                        fill: $color-secondary;
+                                    }
+                                }
+                                &__cabin-group {
+                                    display: grid;
+                                    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+
+                                    column-gap: 3rem;
+                                    row-gap: 2rem;
+                                    &__cabin {
+                                        font-size: 1.8rem;
+                                        font-weight: 500;
+                                        &__heading {
+                                            color: $color-secondary;
+                                            font-size: 1.4rem;
+                                            font-weight: 600;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

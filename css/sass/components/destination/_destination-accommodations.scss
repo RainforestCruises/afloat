@@ -1,0 +1,174 @@
+.destination-accommodations {
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: $page-container;
+    justify-items: center;
+    background-color: $color-grey-light-1;
+    background-image: linear-gradient(to bottom, rgba( $color-grey-light-1, 1), rgba( $color-grey-light-1, 0)), url(img/bg/background-bamboo.jpg);
+
+    padding: 3rem 0;
+    padding-bottom: 8rem;
+
+    position: relative;
+    z-index: 0;
+
+
+    &__title {
+        grid-column: center-start / center-end;
+        font-size: 4.5rem;
+        text-align: center;
+        color: $color-secondary;
+        font-family: $font-secondary;
+
+        letter-spacing: 0.2rem;
+
+        z-index: 10;
+        display: grid;
+        grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr); //FIX THIS
+        align-items: center;
+        column-gap: 25px;
+        //lines on both sides effect
+        &::before {
+            content: "";
+            height: 1px;
+            display: block;
+            background-color: currentColor;
+        }
+
+        &::after {
+            content: "";
+            height: 1px;
+            display: block;
+            background-color: currentColor;
+        }
+    }
+
+    &__intro-text {
+        grid-column: center-start / center-end;
+        padding: 0 6rem;
+        padding-bottom: 4rem;
+        font-size: 1.4rem;
+        text-align: center;
+
+        z-index: 10;
+    }
+
+    &__grid {
+        display: grid;  
+        grid-column: center-start / center-end; 
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2rem; 
+        height: 60rem;
+
+        &__slide {
+            display: grid !important;
+            position: relative;
+            z-index: 0;
+
+            grid-template-rows: min-content min-content;
+
+            cursor: pointer;
+
+            //overlay gradient
+            &:after {
+                content: "";
+                grid-row: 1 / 1;
+                grid-column: 1 / -1;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+                background-image: linear-gradient(to top, rgba($color-black, 0.5), rgba($color-black, 0.5));
+                opacity: 0;
+
+                transition: opacity 0.3s;
+            }
+
+            //SLIDE HOVER
+            &:hover {
+                &:after {
+                    opacity: 1;
+                }
+
+                img {
+                    height: 42rem;
+                }
+
+                & .destination-accommodations__grid__slide__hover-group {
+                    opacity: 1;
+                }
+            }
+
+            &__hover-group {
+                grid-column: 1 / -1;
+                grid-row: 1 / 1;
+                margin-bottom: 1.4rem;
+                align-self: center;
+                display: flex;
+                flex-direction: column;
+                z-index: 5;
+                align-items: center;
+                transition: opacity 0.3s 0.1s;
+                opacity: 0;
+
+                &__cta {
+                    display: block;
+                    font-size: 2rem;
+                    color: $color-white;
+                    letter-spacing: 0.15rem;
+                    margin: 0.3rem 2rem;
+                    font-weight: 400;
+                }
+
+                &__count {
+                    display: block;
+                    font-size: 1.4rem;
+                    color: $color-white;
+                    text-transform: uppercase;
+                    letter-spacing: 0.3rem;
+                    margin-bottom: 2rem;
+                }
+            }
+
+            &__img {
+                grid-column: 1 / -1;
+                grid-row: 1 / span 1;
+                width: 100%;
+                height: 38rem;
+                object-fit: cover;
+                object-position: center;
+                position: relative;
+                z-index: 0;
+                transition: height 0.3s;
+            }
+
+            &__lower-section {
+                grid-column: 1 / -1;
+                grid-row: 2 / span 1;
+
+                padding: 1rem 2rem;
+
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                background-color: $color-white;
+                min-height: 15rem;
+                &__title {
+                    margin: 1rem 0rem;
+                    font-size: 1.6rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.3rem;
+                    color: $color-secondary;
+                }
+                &__text {
+                    font-size: 1.3rem;
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+    }
+
+    &__all {
+        grid-column: center-start / center-end;
+        margin-top: 4rem;
+    }
+}

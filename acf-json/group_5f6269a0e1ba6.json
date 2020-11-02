@@ -1,0 +1,51 @@
+{
+    "key": "group_5f6269a0e1ba6",
+    "title": "Destination Post",
+    "fields": [
+        {
+            "key": "field_5f6269be063ef",
+            "label": "Sub Destinations",
+            "name": "sub_destinations",
+            "type": "relationship",
+            "instructions": "Select one or more sub destinations",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_sub_destinations"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "rfc_destinations"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Extended Fields for Destination Post Types",
+    "modified": 1604341811
+}
