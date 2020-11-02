@@ -29,7 +29,7 @@ while (have_posts()) :
     'monthNames' => $monthNames,
   );
 
-?>
+?> 
 
   <!-- Product Page Container -->
   <div class="product-page">
