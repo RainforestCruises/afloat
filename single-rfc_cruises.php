@@ -56,7 +56,7 @@ while (have_posts()) :
       <div class="product-content__page tab-content " id="tab-cabins">
         <?php
         get_template_part('template-parts/content', 'product-cabins', $args);
-        ?>
+        ?> 
       </div>
 
       <!-- 4. Prices Content -->
