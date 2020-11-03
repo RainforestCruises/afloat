@@ -139,10 +139,10 @@ foreach ($filteredItineraries as $itinerary) {
                         <div class="product-dates__search-area__results__itinerary-group__departures__departure__top__col product-dates__search-area__results__itinerary-group__departures__departure__top__col--expand">
                             <button class="btn-expand btn-expand--down departure-expand">
                                 <svg class="btn-expand--arrow-main">
-                                    <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-chevron-down"></use>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
                                 </svg>
                                 <svg class="btn-expand--arrow-animate">
-                                    <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-chevron-down"></use>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
                                 </svg>
                             </button>
                         </div>

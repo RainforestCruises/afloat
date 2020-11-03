@@ -144,10 +144,10 @@ if ($itineraries) {
                                 </div>
                                 <button class="btn-expand btn-expand--down product-itineraries__itinerary__d2d__days__day__button">
                                     <svg class="btn-expand--arrow-main">
-                                        <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-chevron-down"></use>
+                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
                                     </svg>
                                     <svg class="btn-expand--arrow-animate">
-                                        <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-chevron-down"></use>
+                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
                                     </svg>
                                 </button>
                             </div>
