@@ -1415,7 +1415,8 @@ p {
 
 .related-slider {
   max-width: 80%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  height: 55rem; }
   @media only screen and (max-width: 37.5em) {
     .related-slider {
       max-width: 70%; } }
@@ -1431,13 +1432,16 @@ p {
     align-content: center;
     background-color: #fff;
     position: relative;
-    z-index: 0; }
+    z-index: 0;
+    cursor: pointer; }
+    .related-slider__item:hover img {
+      height: 28rem; }
     .related-slider__item:after {
       content: "";
       grid-row: 1 / 1;
       grid-column: 1 / -1;
       width: 100%;
-      height: 25rem;
+      height: 100%;
       z-index: 2;
       background-image: linear-gradient(to top, rgba(20, 40, 56, 0.5), rgba(20, 40, 56, 0) 70%); }
     .related-slider__item__img {
@@ -1448,7 +1452,8 @@ p {
       object-fit: cover;
       object-position: center;
       position: relative;
-      z-index: 0; }
+      z-index: 0;
+      transition: all .3s; }
     .related-slider__item__title-group {
       grid-column: 1 / -1;
       grid-row: 1 / 1;
@@ -1523,7 +1528,8 @@ p {
         .related-slider__item__bottom__length__text {
           font-size: 1.1rem;
           text-transform: uppercase;
-          margin-left: 0.5rem; }
+          margin-left: 0.5rem;
+          margin-bottom: .2rem; }
         .related-slider__item__bottom__length__numbers {
           font-size: 1.4rem;
           color: #142838; }
@@ -1536,7 +1542,8 @@ p {
           text-align: right;
           font-size: 1.1rem;
           text-transform: uppercase;
-          margin: 0 0.5rem; }
+          margin-right: .5rem;
+          margin-bottom: .2rem; }
         .related-slider__item__bottom__price__numbers {
           font-size: 1.6rem;
           color: #142838; }
@@ -4780,13 +4787,10 @@ p {
       content: "";
       position: absolute;
       height: 1px;
-      width: 50%;
+      width: 100%;
       bottom: 0rem;
       left: 0;
       background-color: #c2c6c9; }
-      @media only screen and (max-width: 62.5em) {
-        .product-intro__info::after {
-          width: 100%; } }
     .product-intro__info__starting-price {
       display: block;
       letter-spacing: 0.1rem;

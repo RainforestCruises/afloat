@@ -65,6 +65,7 @@ if ($itineraries) {
     <!-- TAB CONTENT -->
     <!-- Itineraries -->
     <?php
+     if ($itineraries) {
     $count = 1;
     foreach ($itineraries as $itinerary) {
     ?>
@@ -276,5 +277,5 @@ if ($itineraries) {
             </div>
         </div>
     <?php $count++;
-    } ?>
+    } }?>
 </div>

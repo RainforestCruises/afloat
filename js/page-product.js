@@ -1,7 +1,5 @@
 jQuery(document).ready(function ($) {
 
-
-
   //Product Navigation
   $('.product-nav__tab-list li, .goto-cabins, .goto-itineraries, .goto-prices, .goto-dates').click(function () {
     var tab_id = $(this).attr('data-tab');
@@ -349,10 +347,21 @@ jQuery(document).ready(function ($) {
     ]
   });
 
+
+  var slidesToShow = 4;
+  if(relatedCount > 3 ){
+    slidesToShow = 4;
+  } else if (relatedCount > 1){
+    slidesToShow = 2;
+  } else {
+    slidesToShow = 1;
+  }
+
+
   //Related Products Slider
   $('#related-slider').slick({
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: true,
@@ -362,8 +371,8 @@ jQuery(document).ready(function ($) {
       {
         breakpoint: 1460,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: (slidesToShow < 3) ? slidesToShow : 3,
+          slidesToScroll: (slidesToShow < 3) ? slidesToShow : 3,
           infinite: true,
           dots: true
         }
@@ -371,8 +380,8 @@ jQuery(document).ready(function ($) {
       {
         breakpoint: 1000,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
+          slidesToShow: (slidesToShow < 2) ? slidesToShow : 2,
+          slidesToScroll: (slidesToShow < 2) ? slidesToShow : 2
         }
       },
       {
