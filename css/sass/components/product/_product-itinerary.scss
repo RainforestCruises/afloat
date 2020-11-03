@@ -11,7 +11,7 @@
         grid-template-rows: minmax(22vh, min-content);
     }
 
-    &::after {
+    &::after { 
         //intro background
         content: "";
         background-color: $color-grey-light-1;
