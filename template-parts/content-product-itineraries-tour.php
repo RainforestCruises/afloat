@@ -149,7 +149,7 @@ if ($itineraries) {
                                     <svg class="btn-expand--arrow-animate">
                                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
                                     </svg>
-                                </button>
+                                </button> 
                             </div>
                     <?php
                             $dayCount++;
