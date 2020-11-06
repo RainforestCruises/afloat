@@ -91,9 +91,11 @@ $monthNames = $args['monthNames'];
                 <div class="product-itineraries__itinerary__d2d__days">
                     <?php
                     $days = $itinerary['ItineraryDays'];
+                     
                     $dayImages = $itinerary['DayImageDTOs'];
                     $dayCount = 1;
                     if ($days) :
+                        usort($days , "sortDays");
                         foreach ($days as $day) : ?>
                             <?php
                             $img = null;
@@ -306,3 +308,10 @@ $monthNames = $args['monthNames'];
     <?php $count++;
     } ?>
 </div>
+
+<?php 
+function sortDays($a, $b) {
+    return strcmp($a->DayNumber, $b->DayNumber);
+}
+
+?>

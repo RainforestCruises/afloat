@@ -182,6 +182,22 @@
             "return_format": "object"
         },
         {
+            "key": "field_5f93523a6ac5b",
+            "label": "General Info",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5f627996a57b4",
             "label": "Top Snippet",
             "name": "top_snippet",
@@ -201,27 +217,11 @@
             "new_lines": ""
         },
         {
-            "key": "field_5f93523a6ac5b",
-            "label": "General Info",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
             "key": "field_5f68f3acab0ab",
             "label": "Hero Image",
             "name": "hero_image",
             "type": "image",
-            "instructions": "Hero image for cruise (1920 x 730)",
+            "instructions": "Hero image for cruise (1920 x 730). Boat should be in left side of image, ideally an angled profile.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -248,7 +248,7 @@
             "label": "Featured Image",
             "name": "featured_image",
             "type": "image",
-            "instructions": "Featured Image in cards, search results, etc (750 x 500)",
+            "instructions": "Featured Image in cards, search results, etc (750 x 500). Left facing boat if possible",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -598,7 +598,7 @@
             "key": "field_5f69066367db7",
             "label": "Overview Content",
             "name": "overview_content",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -611,10 +611,10 @@
             "admin_column_post_types": "",
             "admin_column_taxonomies": "",
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 20,
-            "new_lines": "br"
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5f6cffc96e15f",
@@ -1344,5 +1344,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Extended Fields for Cruise Post Types",
-    "modified": 1604341754
+    "modified": 1604680972
 }

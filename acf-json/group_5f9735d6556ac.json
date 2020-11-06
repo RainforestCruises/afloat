@@ -75,6 +75,22 @@
             "return_format": "object"
         },
         {
+            "key": "field_5f9735d665aac",
+            "label": "General Info",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5f9735d667062",
             "label": "Top Snippet",
             "name": "top_snippet",
@@ -92,22 +108,6 @@
             "maxlength": 250,
             "rows": "",
             "new_lines": ""
-        },
-        {
-            "key": "field_5f9735d665aac",
-            "label": "General Info",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
         },
         {
             "key": "field_5f9735d665e90",
@@ -491,7 +491,7 @@
             "key": "field_5f9735d6683d0",
             "label": "Overview Content",
             "name": "overview_content",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -504,10 +504,10 @@
             "admin_column_post_types": "",
             "admin_column_taxonomies": "",
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 20,
-            "new_lines": "br"
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5f9735d6687b8",
@@ -1493,5 +1493,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Extended Fields for Tour Post Types",
-    "modified": 1604341838
+    "modified": 1604681036
 }

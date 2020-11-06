@@ -1324,7 +1324,7 @@ p {
     .product-nav__slick .slick-slide {
       outline: none; }
     .product-nav__slick__item {
-      height: 45rem !important;
+      height: 50vh !important;
       width: 45rem !important;
       padding: 1rem 2rem !important;
       padding-bottom: 4rem !important;
@@ -1469,7 +1469,8 @@ p {
         color: #fff;
         letter-spacing: 0.15rem;
         margin: 0.3rem 2rem;
-        font-weight: 400; }
+        font-weight: 400;
+        text-align: center; }
       .related-slider__item__title-group__country {
         display: block;
         font-size: 1.4;
@@ -2525,13 +2526,9 @@ p {
         margin: 2rem 4rem;
         margin-bottom: 8rem; } }
   .areas-slider__slider-for__item {
-    height: 65vh;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2);
     position: relative;
     display: flex !important; }
-    @media only screen and (max-width: 50em) {
-      .areas-slider__slider-for__item {
-        height: 45vh; } }
     .areas-slider__slider-for__item::after {
       content: "";
       position: absolute;
@@ -4826,7 +4823,6 @@ p {
     grid-row: 2 / span 1;
     margin-bottom: 3rem;
     font-size: 1.6rem;
-    text-align: justify;
     width: 50%; }
     @media only screen and (max-width: 62.5em) {
       .product-intro__caption {

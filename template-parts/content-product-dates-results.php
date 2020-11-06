@@ -14,7 +14,7 @@ $timePhrase = "";
 
 if ($args['selectedYear'] == null && $args['selectedMonth'] == null) { //none selected
     $startDate = strtotime($currentYear . '-' . 01);
-    $endDate = strtotime($currentYear . '-' . 12);
+    $endDate = strtotime(($currentYear + 2 ) . '-' . 12);
     $limitResults = true;
     $timePhrase = " next to depart";
 } else if ($args['selectedYear'] == null) { //month only selected

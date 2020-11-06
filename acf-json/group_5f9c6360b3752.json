@@ -182,6 +182,22 @@
             "return_format": "object"
         },
         {
+            "key": "field_5f9c6360c2756",
+            "label": "General Info",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5f9c6360c3d44",
             "label": "Top Snippet",
             "name": "top_snippet",
@@ -199,22 +215,6 @@
             "maxlength": 250,
             "rows": "",
             "new_lines": ""
-        },
-        {
-            "key": "field_5f9c6360c2756",
-            "label": "General Info",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
         },
         {
             "key": "field_5f9c6360c2997",
@@ -598,7 +598,7 @@
             "key": "field_5f9c6360c5384",
             "label": "Overview Content",
             "name": "overview_content",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -611,10 +611,10 @@
             "admin_column_post_types": "",
             "admin_column_taxonomies": "",
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 20,
-            "new_lines": "br"
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5f9c6360c5852",
@@ -1295,5 +1295,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Extended Fields for Cruise Post Types",
-    "modified": 1604341820
+    "modified": 1604681005
 }

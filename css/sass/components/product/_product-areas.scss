@@ -1,12 +1,6 @@
 .product-areas {
   grid-column: full-start / -1;
-  // display: grid;
-  // grid-template-columns: $page-container;
 
-  // & header {
-  //   grid-column: center-start / center-end;
-  //   grid-row: 1 / span 1;
-  // }
   &__btn {
     display: flex;
     justify-content: center;
@@ -15,8 +9,7 @@
 }
 
 .areas-slider {
-  //grid-row: 2 / span 1;
-  //grid-column: 1 / -1;
+
   max-width: 114rem;
   margin: 6rem auto;
   margin-bottom: 0rem;
@@ -47,13 +40,10 @@
 
 
     &__item {
-      height: 65vh;
       box-shadow: $shadow-medium-short;
       position: relative;
 
-      @media only screen and (max-width: $bp-medium) {
-        height: 45vh;
-      }
+     
 
       //overlay gradient  --subtle for title text
       display: flex !important;

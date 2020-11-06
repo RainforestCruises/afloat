@@ -69,36 +69,14 @@ while (have_posts()) :
 
     </section>
 
-    <!-- Areas -->
-    <div class="page-divider">
+ <!-- Areas -->
+ <div class="page-divider">
       Explore
     </div>
     <section class="product-areas">
-      <div class="areas-slider">
-        <div class="areas-slider__slider-nav" id="areas-slider__slider-nav">
-          <?php
-          $areaImages = get_field('areas_gallery');
-          if ($areaImages) : ?>
-            <?php foreach ($areaImages as $areaImage) : ?>
-              <div class="areas-slider__slider-nav__item">
-                <?php echo esc_html($areaImage['title']); ?>
-              </div>
-            <?php endforeach; ?>
-          <?php endif; ?>
-        </div>
-        <div class="areas-slider__slider-for">
-          <?php
-          if ($areaImages) : ?>
-            <?php foreach ($areaImages as $areaImage) : ?>
-              <div class="areas-slider__slider-for__item" id="areas-slider__slider-for">
-                <img src="<?php echo esc_html($areaImage['url']); ?>" alt="">
-                <div class="areas-slider__slider-for__item__title"><?php echo esc_html($areaImage['title']); ?></div>
-              </div>
-            <?php endforeach; ?>
-          <?php endif; ?>
-        </div>
-      </div>
-
+      <?php
+      get_template_part('template-parts/content', 'product-explore', $args);
+      ?>
     </section>
 
     <!-- Reviews -->
@@ -106,62 +84,19 @@ while (have_posts()) :
       Guest Reviews
     </div>
     <section class="product-reviews">
-      <div class="reviews-slider" id="reviews-slider">
-        <?php
-        $rows = get_field('testimonials');
-        if ($rows) {
-          foreach ($rows as $row) {
-            $guest_thumbnail = $row['guest_thumbnail'];
-            $testimonial_image = $row['testimonial_image'];
-        ?>
-            <div class="reviews-slider__item">
-              <div class="reviews-slider__item__content">
-                <svg class="reviews-slider__item__content__quote">
-                  <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-quote"></use>
-                </svg>
-                <p class="reviews-slider__item__content__text"><?php echo $row['guest_review']; ?></p>
-                <h3 class="reviews-slider__item__content__date"><?php echo $row['review_date']; ?></h3>
-                <div class="reviews-slider__item__content__profile">
-                  <img src="<?php echo esc_html($guest_thumbnail['url']); ?>" alt="" class="reviews-slider__item__content__profile__img">
-                  <div class="reviews-slider__item__content__profile__user">
-                    <div class="reviews-slider__item__content__profile__name">
-                      <?php echo $row['guest_name']; ?>
-                    </div>
-                    <div class="reviews-slider__item__content__profile__location">
-                      <?php echo $row['guest_location']; ?>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <img src="<?php echo esc_html($testimonial_image['url']); ?>" alt="" class="reviews-slider__item__image">
-            </div>
-        <?php
-          }
-        } ?>
-      </div>
+      <?php
+      get_template_part('template-parts/content', 'product-reviews', $args);
+      ?>
     </section>
 
     <!-- Related Travel -->
     <div class="page-divider">
-      Related Cruises
+      Related Tours
     </div>
     <section class="product-related">
-      <div class="related-slider" id="related-slider">
-        <?php
-        $args = array(
-          'post_type' => 'rfc_cruises',
-          'posts_per_page' => 8
-        );
-        $secondary = new WP_Query($args);
-        if ($secondary->have_posts()) :
-          while ($secondary->have_posts()) : $secondary->the_post();
-            get_template_part('template-parts/content', 'related-cruises');
-          endwhile;
-          wp_reset_postdata(); //very important to rest after custom query
-        endif;
-        ?>
-      </div>
+      <?php
+      get_template_part('template-parts/content', 'product-related', $args);
+      ?>
     </section>
   </div>
 
