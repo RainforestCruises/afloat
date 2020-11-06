@@ -126,9 +126,7 @@ jQuery(document).ready(function ($) {
 
   //Dates --------------------------------------
   //Controls
-
   //departure-expand
-
 
   $('#dates-year-select').select2({
     placeholder: "Select Year",
@@ -322,6 +320,7 @@ jQuery(document).ready(function ($) {
     slidesToScroll: 1,
     asNavFor: '.areas-slider__slider-for',
     dots: false,
+    lazyLoad: 'ondemand',
     centerMode: true,
     focusOnSelect: true,
 
@@ -334,6 +333,7 @@ jQuery(document).ready(function ($) {
     slidesToScroll: 1,
     fade: true,
     arrows: true,
+    lazyLoad: 'ondemand',
     prevArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--left reviews-slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-left"></use></svg></button>',
     nextArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--right reviews-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-right"></use></svg></button>',
     responsive: [
@@ -364,6 +364,7 @@ jQuery(document).ready(function ($) {
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
     initialSlide: 0,
+    lazyLoad: 'ondemand',
     arrows: true,
     prevArrow: '<button class="btn-circle btn-dark btn-circle--left related-slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-left"></use></svg></button>',
     nextArrow: '<button class="btn-circle btn-dark btn-circle--right related-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-right"></use></svg></button>',
@@ -401,6 +402,7 @@ jQuery(document).ready(function ($) {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    lazyLoad: 'ondemand',
     initialSlide: 2,
     variableWidth: true,
     focusOnSelect: true,
