@@ -17,6 +17,14 @@
 
 //@import "base/controls/select-box";
 
+//page layout
+@import "pages/global";
+
+@import "pages/home";
+@import "pages/product";
+@import "pages/search";
+@import "pages/destination";
+
 
 @import "components/slider";
 @import "components/overview";
@@ -36,6 +44,12 @@
 @import "components/product/product-areas";
 @import "components/product/product-dates";
 
+//search
+@import "components/search/search-control";
+@import "components/search/search-results";
+@import "components/search/search-sidebar";
+@import "components/search/search-result";
+
 
 //destination
 @import "components/destination/destination-hero";
@@ -49,9 +63,7 @@
 @import "components/home/home-hero";
 @import "components/home/home-intro";
 
-//search
-@import "components/search/search-hero";
-@import "components/search/search-content";
+
 
 //shared
 @import "components/shared/cards";
@@ -61,13 +73,7 @@
 @import "layout/footer";
 
 
-//page layout
-@import "pages/global";
 
-@import "pages/home";
-@import "pages/product";
-@import "pages/search";
-@import "pages/destination";
 
 
 

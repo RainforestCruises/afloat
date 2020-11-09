@@ -1,0 +1,41 @@
+.search-sidebar {
+    grid-column: center-start / span 2;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: center-start / center-end;
+    }
+
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & span {
+            font-size: 1.6rem;
+            color: $color-secondary;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.2rem;
+        }
+
+        & button {
+            border: none;
+            background-color: transparent;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-family: $font-primary;
+            color: $color-grey-1;
+            font-weight: 700;
+            letter-spacing: 0.1rem;
+            padding: 1rem;
+        }
+        position: relative;
+        border-bottom: 1px solid $color-grey-light-1a;
+        padding-bottom: 1rem;
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+    }
+}

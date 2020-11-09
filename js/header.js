@@ -15,7 +15,10 @@ jQuery(document).ready(function ($) {
         $('.header__main').removeClass('header__main--small-nav ');
 
         if ($('.burger-menu').hasClass('burger-menu--active') != true) {
-          $('.header__main').removeClass('header__main--opaque-nav');
+          if (!$("body").hasClass("page-template-template-search")) {
+            $('.header__main').removeClass('header__main--opaque-nav');
+
+          }
         }
       }
     }
@@ -23,21 +26,27 @@ jQuery(document).ready(function ($) {
   window.addEventListener('scroll', fixNav);
 
   //Header Main -- Hover
-  $('.header__main').hover(
-    function () { $('.header__main').addClass('header__main--opaque-nav'); },
-    function () {
+  if (!$("body").hasClass("page-template-template-search")) {
+    $('.header__main').hover(
+      function () { $('.header__main').addClass('header__main--opaque-nav'); },
+      function () {
 
-      //if not small and mega active
-      if ($('.header__main').hasClass('header__main--small-nav') != true) {
+        //if not small and mega active
+        if ($('.header__main').hasClass('header__main--small-nav') != true) {
 
-        if ($('.burger-menu').hasClass('burger-menu--active') != true) {
-          if ($('.nav-mega').hasClass('nav-mega--active') != true) {
-            $('.header__main').removeClass('header__main--opaque-nav');
+          if ($('.burger-menu').hasClass('burger-menu--active') != true) {
+            if ($('.nav-mega').hasClass('nav-mega--active') != true) {
+              $('.header__main').removeClass('header__main--opaque-nav');
+            }
           }
         }
       }
-    }
-  )
+    )
+
+  } else {
+    $('.header__main').addClass('header__main--opaque-nav');
+  }
+
 
 
 
@@ -67,7 +76,7 @@ jQuery(document).ready(function ($) {
 
   //main link -expand mega
   $('#mega--destinations').hover(
-    function () { 
+    function () {
       //$('.nav-mega').addClass('nav-mega--active'); 
     },
   );

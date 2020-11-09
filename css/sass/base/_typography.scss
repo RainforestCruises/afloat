@@ -275,6 +275,12 @@ p {
     &--green {
         background-color: $color-green;
     }
+
+    &--small {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.2rem;
+
+    }
 }
 
 .drop-cap-1 {
@@ -332,5 +338,21 @@ p {
 
 .warning-text {
     color: $color-red;
+}
+
+h3 {
+    color: $color-secondary;
+    font-size: 2rem;
+    display: block;
+    letter-spacing: .1rem;
+    margin-bottom: .5rem;
+}
+
+h4 {
+    color: $color-secondary;
+    font-size: 1.8rem;
+    display: block;
+    letter-spacing: .1rem;
+    margin-bottom: .5rem;
 }
 

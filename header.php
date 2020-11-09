@@ -10,7 +10,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> class="global">
+<body <?php body_class("global"); ?> >
     <!-- Header -->
     <header class="header" id="header">
         <div class="header__main ">
@@ -20,17 +20,6 @@
             </a>
 
             <nav class="header__main__nav" id="mega--destinations">
-                <!-- <ul class="header__main__nav__list">
-                    <li class="header__main__nav__list__item" id="mega--destinations">
-                        Destinations
-                    </li>
-                    <li class="header__main__nav__list__item">
-                        Experiences
-                    </li>
-                    <li class="header__main__nav__list__item">
-                        Deals
-                    </li>
-                </ul> -->
                 <?php wp_nav_menu(array(
                     'theme_location' => 'main_menu',
                     'depth' => 1,

@@ -1,0 +1,17 @@
+.search-control {
+    margin: 2rem 0;
+    width: 100%;
+    &__label-text {
+        font-size: 1.3rem;
+        color: $color-secondary;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        line-height: 4rem;
+    } 
+  
+    & .select2-selection--single {
+        border-radius: 0 !important;
+        //padding: 1rem;
+    }
+  }

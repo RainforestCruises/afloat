@@ -1,24 +1,14 @@
-$(document).ready(function() {
-    $('#destination').select2({
-        width: '100%',
-        //multiple: 'true',
-        //placeholder: 'Select a Destination',
-        //minimumResultsForSearch: -1
-      });
+jQuery(document).ready(function ($) {
+  $('#itinerary-select').select2({
+    width: '100%',
+    minimumResultsForSearch: -1,
+    placeholder: "Select Itinerary",
 
-      $('#sort-by').select2({
-        width: '100%',
-        minimumResultsForSearch: -1
-      });
+  });
 
-
-      $('#travel-type').select2({
-        width: '100%',
-        minimumResultsForSearch: -1
-      });
-
-      $('#travel-style').select2({
-        width: '100%',
-        minimumResultsForSearch: -1
-      });
+  $('#result-sort').select2({
+    width: '100%',
+    minimumResultsForSearch: -1,
+    placeholder: "Select",
+  });
 });

@@ -1,33 +1,24 @@
 .search-page {
   display: grid;
-  grid-row: content-start / content-end;
+  grid-row: nav-end / content-end;
   grid-column: 1 / -1;
-
-  grid-template-rows:
-    [nav-start] 40vh [hero-end content-start]
-    repeat(5, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end];
+  padding-top: 3rem;
 
   grid-template-columns: $page-container;
 
   position: relative;
   z-index: 0;
-  
-  &__section-hero {
-    grid-row: nav-start / hero-end;
-    grid-column: full-start / -1;
-    background-color: $color-black;
-    z-index: 1;
-  }
-
-  &__section-content {
-    grid-column: full-start / -1;
-    grid-row: content-start / span 1;
-    width: 100%;
-    padding: 0 10%;
-    justify-self: center;
-    background-color: $color-white;
-    z-index: 2;
-
-  }
+ 
 }
  
+
+.search-content {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: $page-container;
+  height: 100%;
+  z-index: 3;
+
+}
+
+
