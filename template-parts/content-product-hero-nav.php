@@ -45,9 +45,7 @@ $hero_image = get_field('hero_image');
                 <?php foreach ($images as $image) : ?>
                     <div class="product-nav__slick__item">
                         <img src="<?php echo esc_url($image['url']); ?>" alt="">
-                        <div class="product-nav__slick__item__title">
-                            <?php echo esc_html($image['title']); ?>
-                        </div>
+                        
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
