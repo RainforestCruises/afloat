@@ -16,6 +16,7 @@
         position: relative;
         border-bottom: 1px solid $color-grey-light-1a;
         align-items: center;
+        height: 3.5rem;
         &__result-count {
             font-size: 2rem;
             font-weight: 600;
@@ -24,15 +25,7 @@
 
         //different style for sort control
         &__controls {
-            & .search-control {
-                display: flex;
-                align-items: center;
-                margin: 0;
-            }
-
-            & .select2-selection--single {
-                border: none !important;
-            }
+     
         }
     }
 

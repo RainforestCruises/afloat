@@ -426,6 +426,44 @@ function search_filter_product_search()
 }
 
 
+//Main Search
+add_action('wp_ajax_mainSearch', 'search_filter_main_search'); // wp_ajax_{ACTION HERE} 
+add_action('wp_ajax_nopriv_mainSearch', 'search_filter_main_search');
+
+function search_filter_main_search()
+{
+    //Set up 
+    //Start / End dates
+    //Pass Along Post Id (WP ID of Product)
+
+    //$productId = $_POST['productId'];
+
+
+    // if (isset($_POST['dates-itinerary-select']) && $_POST['dates-itinerary-select'])
+    //     $selectedItinerary = $_POST['dates-itinerary-select'];
+
+    // if (isset($_POST['dates-month-select']) && $_POST['dates-month-select'])
+    //     $selectedMonth = $_POST['dates-month-select'];
+
+    // if (isset($_POST['dates-year-select']) && $_POST['dates-year-select'])
+    //     $selectedYear = $_POST['dates-year-select'];
+
+
+    // $args = array(
+    //     'selectedItinerary' => $selectedItinerary,
+    //     'selectedMonth' => $selectedMonth,
+    //     'selectedYear' => $selectedYear,
+    //     'productId' => $productId,
+    // );
+
+    console_log('xxx');
+    get_template_part('template-parts/content', 'main-search-results');
+
+
+
+    die();
+}
+
 
 //Old One
 add_action('wp_ajax_searchFilter', 'search_filter_function'); // wp_ajax_{ACTION HERE} 

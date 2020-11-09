@@ -1,8 +1,8 @@
 jQuery(document).ready(function ($) {
-  $('#itinerary-select').select2({
+  $('#destination-select').select2({
     width: '100%',
     minimumResultsForSearch: -1,
-    placeholder: "Select Itinerary",
+    placeholder: "Select Destination",
 
   });
 
@@ -11,4 +11,31 @@ jQuery(document).ready(function ($) {
     minimumResultsForSearch: -1,
     placeholder: "Select",
   });
+
+
+  reloadResults(); //first time page loads
+  $('#search-form').submit(function () {
+    reloadResults();
+    return false;
+  });
+
+  //SEARCH FUNCTION
+  function reloadResults() {
+    var searchForm = $('#search-form'); //get form
+    $.ajax({
+      url: searchForm.attr('action'),
+      data: searchForm.serialize(), // form data
+      type: searchForm.attr('method'), // POST
+
+      success: function (data) {
+        $('#response').html(data); // insert data
+  
+      }
+    });
+    //return false;
+  }
+
+
 });
+
+
