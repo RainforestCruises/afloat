@@ -15,8 +15,8 @@
     <header class="header" id="header">
         <div class="header__main ">
             <a href="/page-product.html" class="header__main__logo-area">
-                <img src="<?php echo bloginfo('template_url') ?>/css/img/logo/logo-white-new.png" alt="logo" class="header__main__logo-area__logo" />
-                <img src="<?php echo bloginfo('template_url') ?>/css/img/logo/logo-color-new.png" alt="logo" class="header__main__logo-area__logo--color" />
+                <img src="<?php echo bloginfo('template_url') ?>/css/img/logo/logo-v2-white.png" alt="logo" class="header__main__logo-area__logo" />
+                <img src="<?php echo bloginfo('template_url') ?>/css/img/logo/logo-v2-color.png" alt="logo" class="header__main__logo-area__logo--color" />
             </a>
 
             <nav class="header__main__nav" id="mega--destinations">

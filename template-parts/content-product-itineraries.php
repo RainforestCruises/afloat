@@ -311,7 +311,9 @@ $monthNames = $args['monthNames'];
 
 <?php 
 function sortDays($a, $b) {
-    return strcmp($a->DayNumber, $b->DayNumber);
-}
 
+    if(is_object($a) && is_object($b)){
+        return strcmp($a->DayNumber, $b->DayNumber);
+    }
+}
 ?>

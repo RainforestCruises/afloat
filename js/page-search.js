@@ -12,6 +12,18 @@ jQuery(document).ready(function ($) {
     placeholder: "Select",
   });
 
+  //selection controls
+  $('#destination-select').on('change', function () {
+    var destinationId = $(this).val();
+    console.log(destinationId);
+    $('#search-form').submit();
+  });
+
+  //result-sort
+  $('#result-sort').on('change', function () {
+
+    $('#search-form').submit();
+  });
 
   reloadResults(); //first time page loads
   $('#search-form').submit(function () {
@@ -26,10 +38,12 @@ jQuery(document).ready(function ($) {
       url: searchForm.attr('action'),
       data: searchForm.serialize(), // form data
       type: searchForm.attr('method'), // POST
-
+      beforeSend: function () {
+        $('#response').html('<div class="search-results__grid__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
+      },
       success: function (data) {
         $('#response').html(data); // insert data
-  
+
       }
     });
     //return false;

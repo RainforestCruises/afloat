@@ -6,12 +6,19 @@
     display: grid;
     grid-template-columns: 40% 1fr;
     column-gap: 4rem;
+    cursor: pointer;
+    transition: all .3s;
 
-    &--highlight {
-        box-shadow: $shadow-medium-around;
-        border: none;
-
+    &:link,
+    &:visited{
+        text-decoration: none;
     }
+
+    &:hover{
+        box-shadow: $shadow-medium-around;
+        border: 1px solid transparent;
+    }
+
 
     &__image {
         width: 100%;
@@ -29,7 +36,7 @@
     &__content {
         display: grid;
         position: relative;
-
+        color: $color-grey-1;
         &__tag {
             position: absolute;
             top: 0;

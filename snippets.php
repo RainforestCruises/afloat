@@ -1,17 +1,16 @@
-<!-- Attributes -->
-<div class="product-intro__attributes">
-              <ul class="product-intro__attributes__info-list">
-                <li class="product-intro__attributes__info-list__item">
-                  <span>Service Level:</span>
-                  <span class="list-info"><?php echo $cruise_data['Style'] ?></span>
-                </li>
-                <li class="product-intro__attributes__info-list__item">
-                  <span>Charter Available:</span>
-                  <span class="list-info">Yes</span>
-                </li>
-                <li class="product-intro__attributes__info-list__item">
-                  <span>Itinerary Length:</span>
-                  <span class="list-info"><?php echo $cruise_data['LowestLengthInDays'] ?> - <?php echo $cruise_data['HighestLengthInDays'] ?> Days</span>
-                </li>
-              </ul>
-            </div>
+$destination = '';
+    $postType = 'rfc_cruises';
+    if (isset($_POST['destination-select']) && $_POST['destination-select'])
+        $destination = $_POST['destination-select'];
+        
+    $searchParameters = array(
+        'post_type' => $postType,
+        'destination' => $destination
+    );
+
+
+
+    get_template_part('template-parts/content', 'main-search-results', $searchParameters);
+
+
+    onClick="window.open('<?php echo get_permalink(); ?>')"

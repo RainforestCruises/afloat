@@ -21,8 +21,23 @@ get_header();
                     <select class="search-control__select" id="destination-select" name="destination-select">
                         <option></option>
                         <option value="0">Any</option>
-                        <option value="1">Text</option>
-                        <option value="2">Text 3</option>
+                        <?php
+
+                        if ($destinations = get_posts(array(
+                            'post_type' => 'rfc_destinations',
+                            'posts_per_page' => -1, // to make it simple I use default categories
+                            'orderby' => 'name'
+                        ))) {
+
+                        ?>
+
+                            <?php foreach ($destinations as $destination) { ?>
+
+                                <option value="<?php echo $destination->ID ?>"><?php echo get_the_title($destination) ?></option>
+                        <?php }
+                        } ?>
+
+
                     </select>
                 </label>
             </div>
@@ -37,19 +52,19 @@ get_header();
                 <div class="search-results__top-section__controls">
                     <label class="sort-control" for="result-sort">
                         <span class="sort-control__label-text">Sort</span>
-                        <select class="sort-control__select" id="result-sort" name="result-sort">
+                        <select class="sort-control__select" id="result-sort" name="result-sort" form="search-form">
                             <option></option>
-                            <option value="0">Any</option>
-                            <option value="1">Text</option>
-                            <option value="2">Text 3</option>
+                            <option value="">Relevance</option>
+                            <option value="DESC">High to Low</option>
+                            <option value="ASC">Low to High</option>
                         </select>
                     </label>
                 </div>
             </div>
             <div class="search-results__grid" id="response">
 
-                
-       
+
+
             </div>
             <div class="search-results__bottom-section">
                 <button class="btn-outline ">

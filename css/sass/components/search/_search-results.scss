@@ -33,6 +33,12 @@
         display: grid;
         row-gap: 3rem;
         padding: 3rem 0;
+
+        &__loading {
+            margin: 10rem auto;
+            display: flex;
+            justify-items: center;
+        }
     }
 
     &__bottom-section {

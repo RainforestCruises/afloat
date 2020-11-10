@@ -141,18 +141,18 @@ function my_acf_save_post($post_id)
     if ($dfPropertyId) {
         if ('rfc_cruises' == get_post_type()) {
             refresh_cruise_info($dfPropertyId, $post_id);
-        } 
+        }
         if ('rfc_lodges' == get_post_type()) {
             refresh_cruise_info($dfPropertyId, $post_id);
-        } 
+        }
     }
 
     if ('rfc_tours' == get_post_type()) {
-        if( have_rows('itineraries') ) { //calculate length of itinerary
-            while( have_rows('itineraries') ) {
+        if (have_rows('itineraries')) { //calculate length of itinerary
+            while (have_rows('itineraries')) {
                 the_row();
                 $count = count(get_sub_field('daily_activities'));
-                update_sub_field('length_in_days', $count );
+                update_sub_field('length_in_days', $count);
             }
         }
     }
@@ -188,45 +188,47 @@ function refresh_cruise_info($propertyId, $post_id)
 
 //Make Last_Updated and Cruise_Data and Length in Days read only in Admin -----------------------
 add_filter('acf/load_field/name=last_updated', 'acf_read_only_last_updated');
-function acf_read_only_last_updated($field) {
-	$field['readonly'] = 1;
-	return $field;
+function acf_read_only_last_updated($field)
+{
+    $field['readonly'] = 1;
+    return $field;
 }
 add_filter('acf/load_field/name=cruise_data', 'acf_read_only_cruise_data');
-function acf_read_only_cruise_data($field) {
-	$field['readonly'] = 1;
-	return $field;
+function acf_read_only_cruise_data($field)
+{
+    $field['readonly'] = 1;
+    return $field;
 }
 add_filter('acf/load_field/name=length_in_days', 'acf_read_only_length_in_days');
-function acf_read_only_length_in_days($field) {
+function acf_read_only_length_in_days($field)
+{
     $field['readonly'] = 1;
-	return $field;
+    return $field;
 }
 
 
 //Admin blue separation styling for tour itineraries
-function my_acf_admin_head() {
-    ?>
+function my_acf_admin_head()
+{
+?>
     <style type="text/css">
+        .admin_itinerary_name {
+            font-size: 20px;
+            position: relative;
+        }
 
-    .admin_itinerary_name {
-        font-size: 20px;
-        position: relative;
-    }
-
-    .admin_itinerary_name::after{
-        position: absolute;
-        content: "";
-        height: 2px;
-        width: 100%;
-        background-color: cornflowerblue;
-        top: 0;
-        left: 0;
-        z-index: 10;
-    }
-
+        .admin_itinerary_name::after {
+            position: absolute;
+            content: "";
+            height: 2px;
+            width: 100%;
+            background-color: cornflowerblue;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
     </style>
-    <?php
+<?php
 }
 
 add_action('acf/input/admin_head', 'my_acf_admin_head');
@@ -432,32 +434,26 @@ add_action('wp_ajax_nopriv_mainSearch', 'search_filter_main_search');
 
 function search_filter_main_search()
 {
-    //Set up 
-    //Start / End dates
-    //Pass Along Post Id (WP ID of Product)
 
-    //$productId = $_POST['productId'];
-
-
-    // if (isset($_POST['dates-itinerary-select']) && $_POST['dates-itinerary-select'])
-    //     $selectedItinerary = $_POST['dates-itinerary-select'];
-
-    // if (isset($_POST['dates-month-select']) && $_POST['dates-month-select'])
-    //     $selectedMonth = $_POST['dates-month-select'];
-
-    // if (isset($_POST['dates-year-select']) && $_POST['dates-year-select'])
-    //     $selectedYear = $_POST['dates-year-select'];
+    $args = array(
+        'posts_per_page' => 8,
+        'post_type' => 'rfc_cruises'
+    );
 
 
-    // $args = array(
-    //     'selectedItinerary' => $selectedItinerary,
-    //     'selectedMonth' => $selectedMonth,
-    //     'selectedYear' => $selectedYear,
-    //     'productId' => $productId,
-    // );
+    if (isset($_POST['destination-select']) && $_POST['destination-select'])
+        $args['meta_query'][] = array(
+            'key' => 'destination',
+            'value' => '"' . $_POST['destination-select'] . '"',
+            'compare' => 'LIKE'
+        );
 
-    console_log('xxx');
-    get_template_part('template-parts/content', 'main-search-results');
+
+        
+    $posts = get_posts($args);
+    get_template_part('template-parts/content', 'main-search-results', $posts);
+
+
 
 
 
