@@ -22,24 +22,24 @@ get_header();
                         <option></option>
                         <option value="0">Any</option>
                         <?php
-
                         if ($destinations = get_posts(array(
                             'post_type' => 'rfc_destinations',
                             'posts_per_page' => -1, // to make it simple I use default categories
                             'orderby' => 'name'
                         ))) {
-
                         ?>
-
-                            <?php foreach ($destinations as $destination) { ?>
+                        <?php foreach ($destinations as $destination) { ?>
 
                                 <option value="<?php echo $destination->ID ?>"><?php echo get_the_title($destination) ?></option>
                         <?php }
                         } ?>
-
-
                     </select>
                 </label>
+                <div class="search-control">
+                <span class="search-control__label-text">Travel Dates</span>
+                <input class="search-control__datetimepicker" type="text" name="departure-dates">
+
+                </div>
             </div>
             <!-- Direct to function within functions.php -->
             <input type="hidden" name="action" value="mainSearch">

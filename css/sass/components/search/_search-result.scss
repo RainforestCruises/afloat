@@ -1,5 +1,4 @@
 .search-result {
-    //box-shadow: $shadow-medium;
     border: 1px solid $color-grey-light-1a;
     border-radius: .4rem;
     padding: 1.5rem;
@@ -8,6 +7,13 @@
     column-gap: 4rem;
     cursor: pointer;
     transition: all .3s;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+
+    }
+
 
     &:link,
     &:visited{

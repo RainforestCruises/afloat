@@ -1,5 +1,5 @@
 .search-control {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     width: 100%;
 
     &__label-text {
@@ -12,7 +12,7 @@
     }
 
     & .select2-selection {
-        min-height: 48px;
+        min-height: 4.8rem;
         text-align: left;
     }
 
@@ -21,12 +21,59 @@
         border-color: $color-grey-light-1a;
     }
     & .select2-selection__rendered {
-        margin: 10px;
+        margin: 1rem;
         font-size: 1.5rem !important;
+        line-height: 2.8rem !important;
 
     }
     & .select2-selection__arrow {
-        margin: 10px;
+        margin: 1rem;
+    }
+    & .select2-selection__placeholder {
+        color: $color-grey-2;
+    }
+
+    &__datetimepicker {
+        width: 100%;
+        font-family: $font-primary;
+        color: $color-grey-2;
+        border: 1px solid $color-grey-light-1a;
+        padding: 1.6rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+}
+
+
+.daterangepicker {
+    font-family: $font-primary;
+
+    & td {
+        padding: .5rem 1rem;
+    }
+    & thead {
+        color: $color-secondary;
+    }
+
+    & td.in-range {
+        background-color: $color-supporting-selection;
+    }
+
+    & td.active {
+        background-color: $color-secondary;
+
+        &:hover {
+            background-color: $color-secondary-light;
+
+        }
+    }
+
+    & button {
+        font-family: $font-primary;
+        background-color: transparent;
+        border: 1px solid $color-secondary;
+        border-radius: 4px;
+        padding: .8rem 1.6rem !important;
     }
 }
 

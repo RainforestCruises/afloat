@@ -2,10 +2,11 @@
 $postsFromSearch = $args;
 
 
-
+$count = 0;
 foreach ($postsFromSearch as $post) {
     $featured_image = get_field('featured_image', $post);
     $cruise_data = get_field('cruise_data', $post);
+    $count++;
 ?>
 
     <!-- Result -->

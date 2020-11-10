@@ -11,8 +11,8 @@ function load_scripts()
     wp_enqueue_style('slick-min', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', array(), false, 'all');
 
     wp_enqueue_style('select2-css', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css', array(), false, 'all');
-
     wp_enqueue_style('fancybox-css', get_template_directory_uri() . '/vendor/fancybox/jquery.fancybox-1.3.4.css', array(), false, 'all');
+    wp_enqueue_style('daterangepicker-css', 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css', array(), false, 'all');
 
 
     //wp_enqueue_style('semantic-css', get_template_directory_uri() . '/js/vendor/semantic-ui/semantic.css', array(), false, 'all');
@@ -24,17 +24,15 @@ function load_scripts()
     wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), '3.5.1', true);
     wp_enqueue_script('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', array('jquery'), false, true);
     wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js', array('jquery'), false, true);
+    wp_enqueue_script('fancybox', get_template_directory_uri() . '/vendor/fancybox/jquery.fancybox-1.3.4.js', array('jquery'), false, true);
 
+    wp_enqueue_script('moment', 'https://cdn.jsdelivr.net/momentjs/latest/moment.min.js', array('jquery'), false, true);
 
+    wp_enqueue_script('daterangepicker', 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js', array('jquery'), false, true);
 
-    //wp_enqueue_script('semantic', get_template_directory_uri() . '/js/vendor/semantic-ui/semantic.js', array('jquery'), false, true);
-
+    
     wp_enqueue_script('utility', get_template_directory_uri() . '/js/utilities.js', array('jquery'), false, true);
     wp_enqueue_script('header', get_template_directory_uri() . '/js/header.js', array('jquery'), false, true);
-    //wp_enqueue_script('fancybox', get_template_directory_uri() . '/vendor/fancybox/jquery.mousewheel-3.0.4.pack.js', array('jquery'), false, true);
-
-    wp_enqueue_script('fancybox', get_template_directory_uri() . '/vendor/fancybox/jquery.fancybox-1.3.4.js', array('jquery'), false, true);
-    //./fancybox/jquery.mousewheel-3.0.4.pack.js
 
 }
 

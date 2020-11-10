@@ -25,6 +25,17 @@ jQuery(document).ready(function ($) {
     $('#search-form').submit();
   });
 
+  $(function () {
+    $('input[name="departure-dates"]').daterangepicker({
+      startDate: moment(),
+      endDate: moment().add(1, 'M'),
+      locale: {
+        format: 'MMM DD, YYYY'
+      }
+    });
+  });
+
+
   reloadResults(); //first time page loads
   $('#search-form').submit(function () {
     reloadResults();
@@ -43,7 +54,6 @@ jQuery(document).ready(function ($) {
       },
       success: function (data) {
         $('#response').html(data); // insert data
-
       }
     });
     //return false;

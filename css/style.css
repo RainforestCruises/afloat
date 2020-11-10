@@ -3012,7 +3012,7 @@ h4 {
                 font-weight: 600; }
 
 .search-control {
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   width: 100%; }
   .search-control__label-text {
     font-size: 1.3rem;
@@ -3022,16 +3022,46 @@ h4 {
     font-weight: 700;
     line-height: 4rem; }
   .search-control .select2-selection {
-    min-height: 48px;
+    min-height: 4.8rem;
     text-align: left; }
   .search-control .select2-selection--single {
     border-radius: 0 !important;
     border-color: #e6e6e6; }
   .search-control .select2-selection__rendered {
-    margin: 10px;
-    font-size: 1.5rem !important; }
+    margin: 1rem;
+    font-size: 1.5rem !important;
+    line-height: 2.8rem !important; }
   .search-control .select2-selection__arrow {
-    margin: 10px; }
+    margin: 1rem; }
+  .search-control .select2-selection__placeholder {
+    color: #919598; }
+  .search-control__datetimepicker {
+    width: 100%;
+    font-family: "Metropolis", sans-serif;
+    color: #919598;
+    border: 1px solid #e6e6e6;
+    padding: 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 500; }
+
+.daterangepicker {
+  font-family: "Metropolis", sans-serif; }
+  .daterangepicker td {
+    padding: .5rem 1rem; }
+  .daterangepicker thead {
+    color: #142838; }
+  .daterangepicker td.in-range {
+    background-color: #d4dfe8; }
+  .daterangepicker td.active {
+    background-color: #142838; }
+    .daterangepicker td.active:hover {
+      background-color: #1f3f5a; }
+  .daterangepicker button {
+    font-family: "Metropolis", sans-serif;
+    background-color: transparent;
+    border: 1px solid #142838;
+    border-radius: 4px;
+    padding: .8rem 1.6rem !important; }
 
 .sort-control {
   display: flex;
@@ -3062,7 +3092,7 @@ h4 {
     position: relative;
     border-bottom: 1px solid #e6e6e6;
     align-items: center;
-    height: 3.5rem; }
+    height: 4rem; }
     .search-results__top-section__result-count {
       font-size: 2rem;
       font-weight: 600;
@@ -3081,7 +3111,8 @@ h4 {
     margin-bottom: 5rem; }
 
 .search-sidebar {
-  grid-column: center-start / span 2; }
+  grid-column: center-start / span 2;
+  margin-bottom: 5rem; }
   @media only screen and (max-width: 50em) {
     .search-sidebar {
       grid-column: center-start / center-end; } }
@@ -3089,7 +3120,7 @@ h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 3.5rem;
+    height: 4rem;
     position: relative;
     border-bottom: 1px solid #e6e6e6;
     padding-bottom: 1rem; }
@@ -3110,7 +3141,7 @@ h4 {
       letter-spacing: 0.1rem;
       padding: 1rem; }
   .search-sidebar__controls {
-    display: flex;
+    display: grid;
     align-items: center;
     margin-top: 1rem; }
 
@@ -3123,6 +3154,10 @@ h4 {
   column-gap: 4rem;
   cursor: pointer;
   transition: all .3s; }
+  @media only screen and (max-width: 50em) {
+    .search-result {
+      grid-template-columns: 1fr;
+      row-gap: 2rem; } }
   .search-result:link, .search-result:visited {
     text-decoration: none; }
   .search-result:hover {
