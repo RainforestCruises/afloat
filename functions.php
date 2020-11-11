@@ -434,8 +434,8 @@ function search_filter_main_search()
 {
 
     $args = array(
-        'posts_per_page' => 8,
-        'post_type' => 'rfc_cruises'
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_cruises',
     );
 
 
@@ -449,7 +449,21 @@ function search_filter_main_search()
 
         
     $posts = get_posts($args);
-    get_template_part('template-parts/content', 'main-search-results', $posts);
+
+
+    //---------parameters
+    $sortOrder = '';
+    if (isset($_POST['result-sort']) && $_POST['result-sort'])
+        $sortOrder = $_POST['result-sort'];
+
+
+
+    $postsAndCriteria = new stdClass();
+    $postsAndCriteria->products = $posts;
+    $postsAndCriteria->sortOrder = $sortOrder;
+
+
+    get_template_part('template-parts/content', 'main-search-results', $postsAndCriteria);
 
 
 

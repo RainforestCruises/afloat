@@ -14,3 +14,12 @@ $destination = '';
 
 
     onClick="window.open('<?php echo get_permalink(); ?>')"
+
+
+    $sortOrder = '';
+    if (isset($_POST['result-sort']) && $_POST['result-sort'])
+        $sortOrder = $_POST['result-sort'];
+
+    $destination = '';
+    if (isset($_POST['destination-select']) && $_POST['destination-select'])        $sortOrder = $_POST['result-sort'];
+        $destination = $_POST['destination-select'];
