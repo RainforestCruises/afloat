@@ -30,10 +30,9 @@ function load_scripts()
 
     wp_enqueue_script('daterangepicker', 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js', array('jquery'), false, true);
 
-    
+
     wp_enqueue_script('utility', get_template_directory_uri() . '/js/utilities.js', array('jquery'), false, true);
     wp_enqueue_script('header', get_template_directory_uri() . '/js/header.js', array('jquery'), false, true);
-
 }
 
 add_action('wp_enqueue_scripts', 'load_scripts');
@@ -433,9 +432,16 @@ add_action('wp_ajax_nopriv_mainSearch', 'search_filter_main_search');
 function search_filter_main_search()
 {
 
+    //--------------WP Categories
+    //Travel Type
+
+    //Destination
+
+    //Experience
+
     $args = array(
         'posts_per_page' => -1,
-        'post_type' => 'rfc_cruises',
+        'post_type' => 'rfc_cruises', // change later
     );
 
 
@@ -447,20 +453,43 @@ function search_filter_main_search()
         );
 
 
-        
+
     $posts = get_posts($args);
 
 
-    //---------parameters
+    //Capture Meta Input
+    //-------------Meta Parameters
+    //Length
+    //Sorting
+    //Dates
+    //Budget
+
     $sortOrder = '';
     if (isset($_POST['result-sort']) && $_POST['result-sort'])
         $sortOrder = $_POST['result-sort'];
 
+    $startDate = '';  
+    if (isset($_POST['startDate']) && $_POST['startDate']){
+        $startDate = $_POST['startDate'];
+    }
+    $endDate = '';
+    if (isset($_POST['endDate']) && $_POST['endDate']){
+        $endDate = $_POST['endDate'];
+    }
+       
 
+    console_log($startDate);
+    console_log($endDate);
 
     $postsAndCriteria = new stdClass();
     $postsAndCriteria->products = $posts;
     $postsAndCriteria->sortOrder = $sortOrder;
+    $postsAndCriteria->startDate = $startDate;
+    $postsAndCriteria->endDate = $endDate;
+
+
+    //Loop and filter posts by meta criteria
+    //--
 
 
     get_template_part('template-parts/content', 'main-search-results', $postsAndCriteria);

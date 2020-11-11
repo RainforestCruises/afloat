@@ -32,6 +32,25 @@ jQuery(document).ready(function ($) {
       locale: {
         format: 'MMM DD, YYYY'
       }
+    }), function (start, end) {
+
+    };
+  });
+
+
+  $(function() {
+    $('input[name="departure-dates"]').daterangepicker({
+      startDate: moment(),
+      endDate: moment().add(1, 'M'),
+      locale: {
+        format: 'MMM DD, YYYY'
+      }
+    }, function(start, end, label) {
+      //console.log(start.format('YYYY-MM-DD'));
+      //console.log(end.format('YYYY-MM-DD'));
+      $("#startDate").val(start.format('YYYY-MM-DD'))
+      $("#endDate").val(end.format('YYYY-MM-DD'))
+
     });
   });
 
@@ -45,6 +64,7 @@ jQuery(document).ready(function ($) {
   //SEARCH FUNCTION
   function reloadResults() {
     var searchForm = $('#search-form'); //get form
+    console.log(searchForm);
     $.ajax({
       url: searchForm.attr('action'),
       data: searchForm.serialize(), // form data

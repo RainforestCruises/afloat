@@ -37,12 +37,15 @@ get_header();
                 </label>
                 <div class="search-control">
                 <span class="search-control__label-text">Travel Dates</span>
-                <input class="search-control__datetimepicker" type="text" name="departure-dates">
+                <input class="search-control__datetimepicker" type="text" name="departure-dates" id="departure-dates">
 
                 </div>
             </div>
             <!-- Direct to function within functions.php -->
             <input type="hidden" name="action" value="mainSearch">
+            <input type="hidden" name="startDate" id="startDate" value="">
+            <input type="hidden" name="endDate" id="endDate" value="">
+
         </form>
         <div class="search-results">
             <div class="search-results__top-section">

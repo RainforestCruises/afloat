@@ -3,8 +3,10 @@ $functionArgs = $args;
 
 $postsFromSearch = $functionArgs->products;
 $sortOrder = $functionArgs->sortOrder;
+//$dateRange = $functionArgs->dateRange;
 
-//console_log($sortOrder);
+
+//console_log($dateRange);
 $count = 0;
 
 $results = [];
@@ -29,10 +31,7 @@ if($sortOrder == 'DESC'){
     usort($results, "sortPriceDescending");
 }
 
-//console_log($results);
-// $filteredPosts = [];
-// $filteredPosts = $results['postObject'];
-// console_log($filteredPosts);
+
 
 foreach ($results as $result) {
     $featured_image = get_field('featured_image', $result->postObject);
