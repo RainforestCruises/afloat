@@ -3046,6 +3046,9 @@ h4 {
     font-size: 1.5rem;
     font-weight: 500; }
 
+select.select2-hidden-accessible {
+  visibility: hidden; }
+
 .daterangepicker {
   font-family: "Metropolis", sans-serif; }
   .daterangepicker td {

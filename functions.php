@@ -440,7 +440,7 @@ function search_filter_main_search()
     //Experience
 
     $args = array(
-        'posts_per_page' => -1,
+        'posts_per_page' => 12,
         'post_type' => 'rfc_cruises', // change later
     );
 
