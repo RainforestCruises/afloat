@@ -468,15 +468,17 @@ function search_filter_main_search()
     if (isset($_POST['result-sort']) && $_POST['result-sort'])
         $sortOrder = $_POST['result-sort'];
 
-    $startDate = '';  
-    if (isset($_POST['startDate']) && $_POST['startDate']){
+    $startDate = '';
+    if (isset($_POST['startDate']) && $_POST['startDate']) {
         $startDate = $_POST['startDate'];
     }
     $endDate = '';
-    if (isset($_POST['endDate']) && $_POST['endDate']){
+    if (isset($_POST['endDate']) && $_POST['endDate']) {
         $endDate = $_POST['endDate'];
     }
-       
+
+    
+
 
     console_log($startDate);
     console_log($endDate);
@@ -490,6 +492,8 @@ function search_filter_main_search()
 
     //Loop and filter posts by meta criteria
     //--
+
+
 
 
     get_template_part('template-parts/content', 'main-search-results', $postsAndCriteria);

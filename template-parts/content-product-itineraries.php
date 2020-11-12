@@ -127,10 +127,10 @@ $monthNames = $args['monthNames'];
                                     <?php echo $day['Title']; ?>
                                 </div>
                                 <div class="product-itineraries__itinerary__d2d__days__day__snippet" <?php echo $dayCount == 1 ? 'style="display: none;"' : ''; ?>>
-                                    <?php echo substr($day['Excerpt'], 0, 160); ?>...
+                                    <?php echo htmlentities(substr($day['Excerpt'], 0, 160)); ?>...
                                 </div>
                                 <div class="product-itineraries__itinerary__d2d__days__day__content" <?php echo $dayCount == 1 ? 'style="display: block;"' : ''; ?>>
-                                    <?php echo $day['Excerpt']; ?>
+                                    <?php echo htmlentities($day['Excerpt']); ?>
                                 </div>
                                 <button class="btn-expand btn-expand--down product-itineraries__itinerary__d2d__days__day__button">
                                     <svg class="btn-expand--arrow-main">

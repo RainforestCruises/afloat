@@ -7,9 +7,10 @@ jQuery(document).ready(function ($) {
   });
 
   $('#result-sort').select2({
-    width: '100%',
+    width: 'auto',
+    dropdownAutoWidth: true,
     minimumResultsForSearch: -1,
-    placeholder: "Select",
+    placeholder: "Sort",
   });
 
   //selection controls
@@ -21,7 +22,6 @@ jQuery(document).ready(function ($) {
 
   //result-sort
   $('#result-sort').on('change', function () {
-
     $('#search-form').submit();
   });
 
@@ -45,14 +45,16 @@ jQuery(document).ready(function ($) {
       locale: {
         format: 'MMM DD, YYYY'
       }
-    }, function(start, end, label) {
-      //console.log(start.format('YYYY-MM-DD'));
-      //console.log(end.format('YYYY-MM-DD'));
+    }, function(start, end) {
       $("#startDate").val(start.format('YYYY-MM-DD'))
       $("#endDate").val(end.format('YYYY-MM-DD'))
+      reloadResults();
+      
 
     });
   });
+  $("#startDate").val(moment().format('YYYY-MM-DD'))
+  $("#endDate").val(moment().add(1, 'M').format('YYYY-MM-DD'))
 
 
   reloadResults(); //first time page loads

@@ -32,9 +32,7 @@ $hero_image = get_field('hero_image');
                     </li>
                 <?php } ?>
             </ul>
-
         </div>
-
     </div>
 
     <div class="product-nav__rotate">
@@ -44,8 +42,7 @@ $hero_image = get_field('hero_image');
             if ($images) : ?>
                 <?php foreach ($images as $image) : ?>
                     <div class="product-nav__slick__item">
-                        <img src="<?php echo esc_url($image['url']); ?>" alt="">
-                        
+                        <img src="<?php echo esc_url($image['url']); ?>" alt="">                        
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>

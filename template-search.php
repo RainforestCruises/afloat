@@ -54,12 +54,12 @@ get_header();
                 </div>
                 <div class="search-results__top-section__controls">
                     <label class="sort-control" for="result-sort">
-                        <span class="sort-control__label-text">Sort</span>
+                        <!-- <span class="sort-control__label-text">Sort</span> -->
                         <select class="sort-control__select" id="result-sort" name="result-sort" form="search-form">
                             <option></option>
-                            <option value="">Relevance</option>
-                            <option value="DESC">High to Low</option>
-                            <option value="ASC">Low to High</option>
+                            <option value="REL">Relevance</option>
+                            <option value="DESC">Price: High to Low</option>
+                            <option value="ASC">Price: Low to High</option>
                         </select>
                     </label>
                 </div>

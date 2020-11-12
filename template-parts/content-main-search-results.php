@@ -3,11 +3,9 @@ $functionArgs = $args;
 
 $postsFromSearch = $functionArgs->products;
 $sortOrder = $functionArgs->sortOrder;
-//$dateRange = $functionArgs->dateRange;
+$startDate = $functionArgs->startDate;
+$endDate = $functionArgs->endDate;
 
-
-//console_log($dateRange);
-$count = 0;
 
 $results = [];
 foreach ($postsFromSearch as $post) {
@@ -32,11 +30,27 @@ if($sortOrder == 'DESC'){
 }
 
 
-
+console_log($results);
 foreach ($results as $result) {
     $featured_image = get_field('featured_image', $result->postObject);
     $cruise_data = get_field('cruise_data', $result->postObject);
-    $count++;
+
+    $hasAvailability = false;
+
+    foreach($cruise_data['Itineraries'] as $itinerary){
+        foreach($itinerary['Departures'] as $departure){
+    
+            if( (strtotime($departure['DepartureDate']) >= strtotime($startDate)) && (strtotime($departure['DepartureDate']) <= strtotime($endDate)) ){
+                $hasAvailability = true;
+            }
+
+        }
+    }
+
+    if($hasAvailability == false) { 
+        continue;
+    }
+
 
 ?>
 
