@@ -3037,6 +3037,8 @@ h4 {
     margin: 1rem; }
   .search-control .select2-selection__placeholder {
     color: #919598; }
+  .search-control select {
+    visibility: hidden !important; }
   .search-control__datetimepicker {
     width: 100%;
     font-family: "Metropolis", sans-serif;
@@ -3046,13 +3048,13 @@ h4 {
     font-size: 1.5rem;
     font-weight: 500; }
 
-select.select2-hidden-accessible {
-  visibility: hidden; }
-
 .daterangepicker {
   font-family: "Metropolis", sans-serif; }
   .daterangepicker td {
     padding: .5rem 1rem; }
+    @media only screen and (max-width: 50em) {
+      .daterangepicker td {
+        padding: 0; } }
   .daterangepicker thead {
     color: #142838; }
   .daterangepicker td.in-range {
@@ -3068,7 +3070,7 @@ select.select2-hidden-accessible {
     border-radius: 4px;
     padding: .8rem 1.6rem !important; }
   .daterangepicker .cancelBtn {
-    display: none; }
+    display: none !important; }
 
 .sort-control {
   display: flex;

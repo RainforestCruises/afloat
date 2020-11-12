@@ -32,6 +32,9 @@
     & .select2-selection__placeholder {
         color: $color-grey-2;
     }
+    & select  { 
+        visibility: hidden !important; 
+    }
 
     &__datetimepicker {
         width: 100%;
@@ -44,13 +47,18 @@
     }
 }
 
-select.select2-hidden-accessible { visibility: hidden; }
 
 .daterangepicker {
     font-family: $font-primary;
 
     & td {
+
         padding: .5rem 1rem;
+
+        @media only screen and (max-width: $bp-medium) {
+           padding: 0;
+        }
+
     }
     & thead {
         color: $color-secondary;
@@ -78,7 +86,7 @@ select.select2-hidden-accessible { visibility: hidden; }
     }
 
     & .cancelBtn {
-        display: none;
+        display: none !important;
     }
 }
 
