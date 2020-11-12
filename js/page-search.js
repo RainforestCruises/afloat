@@ -28,6 +28,7 @@ jQuery(document).ready(function ($) {
   $(function () {
     $('input[name="departure-dates"]').daterangepicker({
       ignoreReadonly: true,
+      focusOnShow: false,
       startDate: moment(),
       endDate: moment().add(1, 'M'),
       locale: {

@@ -37,7 +37,7 @@ get_header();
                 </label>
                 <div class="search-control">
                 <span class="search-control__label-text">Travel Dates</span>
-                <input class="search-control__datetimepicker" type="text" name="departure-dates" id="departure-dates">
+                <input class="search-control__datetimepicker" type="text" name="departure-dates" id="departure-dates" readonly>
 
                 </div>
             </div>
