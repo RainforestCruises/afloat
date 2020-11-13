@@ -127,10 +127,14 @@ $monthNames = $args['monthNames'];
                                     <?php echo $day['Title']; ?>
                                 </div>
                                 <div class="product-itineraries__itinerary__d2d__days__day__snippet" <?php echo $dayCount == 1 ? 'style="display: none;"' : ''; ?>>
-                                    <?php echo htmlentities(substr($day['Excerpt'], 0, 160)); ?>...
+                                   <p>
+                                   <?php 
+                                    echo substr(strip_tags($day['Excerpt']), 0, 160);                
+                                    ?>...
+                                   </p> 
                                 </div>
                                 <div class="product-itineraries__itinerary__d2d__days__day__content" <?php echo $dayCount == 1 ? 'style="display: block;"' : ''; ?>>
-                                    <?php echo htmlentities($day['Excerpt']); ?>
+                                    <?php echo $day['Excerpt'] ?>
                                 </div>
                                 <button class="btn-expand btn-expand--down product-itineraries__itinerary__d2d__days__day__button">
                                     <svg class="btn-expand--arrow-main">
@@ -316,4 +320,6 @@ function sortDays($a, $b) {
         return strcmp($a->DayNumber, $b->DayNumber);
     }
 }
+
+
 ?>

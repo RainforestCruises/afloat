@@ -1,8 +1,6 @@
-
-  .search-results {
+.search-results {
     grid-column: col-start 3 / center-end;
     margin-left: 6rem;
-    
 
     @media only screen and (max-width: $bp-medium) {
         grid-column: center-start / center-end;
@@ -24,7 +22,6 @@
 
         //different style for sort control
         &__controls {
-     
         }
     }
 
@@ -37,6 +34,11 @@
             margin: 10rem auto;
             display: flex;
             justify-items: center;
+
+            @media only screen and (max-width: $bp-medium) {
+                margin: 2rem auto;
+
+            }
         }
     }
 

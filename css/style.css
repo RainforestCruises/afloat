@@ -3117,6 +3117,9 @@ h4 {
       margin: 10rem auto;
       display: flex;
       justify-items: center; }
+      @media only screen and (max-width: 50em) {
+        .search-results__grid__loading {
+          margin: 2rem auto; } }
   .search-results__bottom-section {
     display: flex;
     justify-content: center;
@@ -3159,13 +3162,13 @@ h4 {
 
 .search-result {
   border: 1px solid #e6e6e6;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   padding: 1.5rem;
   display: grid;
   grid-template-columns: 40% 1fr;
   column-gap: 4rem;
   cursor: pointer;
-  transition: all .3s; }
+  transition: all 0.3s; }
   @media only screen and (max-width: 50em) {
     .search-result {
       grid-template-columns: 1fr;
@@ -3182,8 +3185,12 @@ h4 {
       object-fit: cover;
       width: 100%;
       height: 100%;
-      border-top-left-radius: .3rem;
-      border-bottom-left-radius: .3rem; }
+      border-top-left-radius: 0.3rem;
+      border-bottom-left-radius: 0.3rem; }
+      @media only screen and (max-width: 50em) {
+        .search-result__image img {
+          border-top-right-radius: 0.3rem;
+          border-bottom-right-radius: 0.3rem; } }
   .search-result__content {
     display: grid;
     position: relative;
@@ -3197,7 +3204,7 @@ h4 {
       font-weight: 600;
       text-transform: uppercase;
       align-self: end;
-      letter-spacing: .2rem; }
+      letter-spacing: 0.2rem; }
     .search-result__content__title {
       font-size: 2.5rem;
       font-weight: 600;
@@ -3212,11 +3219,11 @@ h4 {
         display: grid;
         grid-template-columns: repeat(3, max-content);
         align-items: end;
-        column-gap: .5rem; }
+        column-gap: 0.5rem; }
         .search-result__content__info__price__starting {
           font-size: 1.4rem;
           font-weight: 500;
-          padding-bottom: .8rem; }
+          padding-bottom: 0.8rem; }
         .search-result__content__info__price__amount {
           font-size: 3rem;
           font-weight: 600;
@@ -3224,12 +3231,12 @@ h4 {
         .search-result__content__info__price__currency {
           text-transform: uppercase;
           color: #142838;
-          padding-bottom: .8rem;
+          padding-bottom: 0.8rem;
           font-weight: 600; }
       .search-result__content__info__icons {
         justify-self: end;
         align-self: end;
-        padding-bottom: .8rem; }
+        padding-bottom: 0.8rem; }
 
 .destination-hero {
   overflow-x: hidden;
