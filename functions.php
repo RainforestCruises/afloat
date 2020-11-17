@@ -429,14 +429,15 @@ function search_filter_main_search()
 
     //--------------WP Categories
     //Travel Type
+    $travelType = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
+    if (isset($_POST['travel-select']) && $_POST['travel-select'])
+        $travelType = $_POST['travel-select'];
 
-    //Destination
 
-    //Experience
 
     $args = array(
         'posts_per_page' => 12,
-        'post_type' => 'rfc_cruises', // change later
+        'post_type' => $travelType, // change later
     );
 
 
@@ -489,15 +490,7 @@ function search_filter_main_search()
     $postsAndCriteria->maxLength = $maxLength;
 
 
-    //Loop and filter posts by meta criteria
-    //--
-
-
-
-
     get_template_part('template-parts/content', 'main-search-results', $postsAndCriteria);
-
-
 
 
 

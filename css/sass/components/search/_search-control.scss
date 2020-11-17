@@ -108,6 +108,10 @@
     & .select2-selection__rendered {
         font-size: 1.5rem !important;
     }
+
+    & select {
+        visibility: hidden !important;
+    }
 }
 .irs {
     font-family: $font-primary !important;

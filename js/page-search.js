@@ -32,7 +32,7 @@ jQuery(document).ready(function ($) {
     width: 'auto',
     dropdownAutoWidth: true,
     minimumResultsForSearch: -1,
-    placeholder: "Sort",
+    placeholder: "Sort By",
   });
   $('#result-sort').on('change', function () {
     $('#search-form').submit();
@@ -46,12 +46,20 @@ jQuery(document).ready(function ($) {
 
   });
   $('#destination-select').on('change', function () {
-    var destinationId = $(this).val();
     $('#search-form').submit();
   });
 
 
+  //Travel Type 
+  $('#travel-select').select2({
+    width: '100%',
+    minimumResultsForSearch: -1,
+    placeholder: "Select Travel Type",
 
+  });
+  $('#travel-select').on('change', function () {
+    $('#search-form').submit();
+  });
 
   //Date Range Picker
   $(function () {

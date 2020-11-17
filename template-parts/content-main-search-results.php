@@ -14,17 +14,23 @@ foreach ($postsFromSearch as $post) {
     $cruise_data = get_field('cruise_data', $post);
     $lowest = $cruise_data['LowestPrice'];
     $highest = $cruise_data['HighestPrice'];
+    $postType = get_post_type($post);
+    if ($postType == 'rfc_tours') {
+        $lowest = '5000';
+    }
 
     $results[] = (object) array(
         'postObject' => $post,
         'cruise_data' => get_field('cruise_data', $post),
         'lowestPrice' => $lowest,
         'highestPrice' => $highest,
+        'postType' => $postType,
+
     );
 }
 if ($sortOrder == 'ASC') {
     usort($results, "sortPrice");
-} 
+}
 
 if ($sortOrder == 'DESC') {
     usort($results, "sortPriceDescending");
@@ -37,24 +43,30 @@ foreach ($results as $result) {
 
     $hasAvailability = false;
     $hasRange = false;
-    foreach ($cruise_data['Itineraries'] as $itinerary) {
-        //Loop
 
 
-        if (($itinerary['LengthInDays'] >= $minLength) && ($itinerary['LengthInDays'] <= $maxLength)) {
-            $hasRange = true;
-        }
 
-        foreach ($itinerary['Departures'] as $departure) {
 
-            if ((strtotime($departure['DepartureDate']) >= strtotime($startDate)) && (strtotime($departure['DepartureDate']) <= strtotime($endDate))) {
-                $hasAvailability = true;
+    if ($result->postType == 'rfc_tours') {
+    } else {
+        foreach ($cruise_data['Itineraries'] as $itinerary) {
+
+            //Range
+            if (($itinerary['LengthInDays'] >= $minLength) && ($itinerary['LengthInDays'] <= $maxLength)) {
+                $hasRange = true;
+            }
+
+            //Availability
+            foreach ($itinerary['Departures'] as $departure) {
+                if ((strtotime($departure['DepartureDate']) >= strtotime($startDate)) && (strtotime($departure['DepartureDate']) <= strtotime($endDate))) {
+                    $hasAvailability = true;
+                }
             }
         }
-    }
 
-    if ($hasAvailability == false || $hasRange == false) {
-        continue;
+        if ($hasAvailability == false || $hasRange == false) {
+            continue;
+        }
     }
 
 
@@ -63,7 +75,7 @@ foreach ($results as $result) {
 
 
     <!-- Result -->
-    <a class="search-result" href="<?php echo get_permalink($result->postObject); ?>" target="_blank">
+    <a class="search-result" href="<?php echo get_permalink($result->postObject); ?>" >
         <div class="search-result__image">
             <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
         </div>
@@ -74,7 +86,13 @@ foreach ($results as $result) {
                 </div>
             </div>
             <div class="search-result__content__length">
-                <?php echo $cruise_data['LowestLengthInDays']; ?>-<?php echo $cruise_data['HighestLengthInDays']; ?> Day Cruise
+                <?php if ($result->postType == 'rfc_tours') { ?>
+                    Tour Package
+                <?php } else if ($result->postType == 'rfc_cruises') { ?>
+                    <?php echo $cruise_data['LowestLengthInDays']; ?>-<?php echo $cruise_data['HighestLengthInDays']; ?> Day Cruise
+                <?php } else if ($result->postType == 'rfc_lodges') { ?>
+                    Lodge & Land Tour
+                <?php } ?>
             </div>
             <div class="search-result__content__title">
                 <?php echo get_the_title($result->postObject) ?>
@@ -88,7 +106,7 @@ foreach ($results as $result) {
                         Starting from
                     </div>
                     <div class="search-result__content__info__price__amount">
-                        <?php echo "$" . number_format($cruise_data['LowestPrice'], 0);  ?>
+                        <?php echo "$" . number_format($result->lowestPrice, 0);  ?>
                     </div>
                     <div class="search-result__content__info__price__currency">
                         USD
@@ -101,8 +119,16 @@ foreach ($results as $result) {
         </div>
     </a>
 
+
+
 <?php }
 ?>
+
+
+
+
+
+
 
 
 

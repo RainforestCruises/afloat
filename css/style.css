@@ -3090,6 +3090,8 @@ h4 {
     border: none !important; }
   .sort-control .select2-selection__rendered {
     font-size: 1.5rem !important; }
+  .sort-control select {
+    visibility: hidden !important; }
 
 .irs {
   font-family: "Metropolis", sans-serif !important; }
