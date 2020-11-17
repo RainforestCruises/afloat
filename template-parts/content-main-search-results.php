@@ -24,7 +24,7 @@ foreach ($postsFromSearch as $post) {
 }
 if ($sortOrder == 'ASC') {
     usort($results, "sortPrice");
-}
+} 
 
 if ($sortOrder == 'DESC') {
     usort($results, "sortPriceDescending");
