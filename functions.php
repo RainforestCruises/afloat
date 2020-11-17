@@ -13,9 +13,7 @@ function load_scripts()
     wp_enqueue_style('select2-css', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css', array(), false, 'all');
     wp_enqueue_style('fancybox-css', get_template_directory_uri() . '/vendor/fancybox/jquery.fancybox-1.3.4.css', array(), false, 'all');
     wp_enqueue_style('daterangepicker-css', 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css', array(), false, 'all');
-
-
-    //wp_enqueue_style('semantic-css', get_template_directory_uri() . '/js/vendor/semantic-ui/semantic.css', array(), false, 'all');
+    wp_enqueue_style('ion-css', get_template_directory_uri() . '/vendor/ion-range-slider/css/ion.rangeSlider.min.css', array(), false, 'all');
 
 
     wp_enqueue_style('template', get_template_directory_uri() . '/css/style.css', array(), false, 'all');
@@ -25,9 +23,10 @@ function load_scripts()
     wp_enqueue_script('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', array('jquery'), false, true);
     wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js', array('jquery'), false, true);
     wp_enqueue_script('fancybox', get_template_directory_uri() . '/vendor/fancybox/jquery.fancybox-1.3.4.js', array('jquery'), false, true);
+    wp_enqueue_script('ion-js', get_template_directory_uri() . '/vendor/ion-range-slider/js/ion.rangeSlider.min.js', array('jquery'), false, true);
+
 
     wp_enqueue_script('moment', 'https://cdn.jsdelivr.net/momentjs/latest/moment.min.js', array('jquery'), false, true);
-
     wp_enqueue_script('daterangepicker', 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js', array('jquery'), false, true);
 
 
@@ -37,11 +36,9 @@ function load_scripts()
 
 add_action('wp_enqueue_scripts', 'load_scripts');
 
-//remove_filter( 'the_content', 'wpautop' );
 
 function afloat_config()
 {
-
     //Registering our menus
     register_nav_menus(
         array(
@@ -49,8 +46,6 @@ function afloat_config()
             'footer_menu' => 'Footer Menu'
         )
     );
-
-
 
     add_theme_support('post-thumbnails');
     add_theme_support('post-formats', array('video', 'image'));
@@ -476,18 +471,22 @@ function search_filter_main_search()
     if (isset($_POST['endDate']) && $_POST['endDate']) {
         $endDate = $_POST['endDate'];
     }
-
-    
-
-
-    console_log($startDate);
-    console_log($endDate);
+    $minLength = '';
+    if (isset($_POST['minLength']) && $_POST['minLength']) {
+        $minLength = $_POST['minLength'];
+    }
+    $maxLength = '';
+    if (isset($_POST['maxLength']) && $_POST['maxLength']) {
+        $maxLength = $_POST['maxLength'];
+    }
 
     $postsAndCriteria = new stdClass();
     $postsAndCriteria->products = $posts;
     $postsAndCriteria->sortOrder = $sortOrder;
     $postsAndCriteria->startDate = $startDate;
     $postsAndCriteria->endDate = $endDate;
+    $postsAndCriteria->minLength = $minLength;
+    $postsAndCriteria->maxLength = $maxLength;
 
 
     //Loop and filter posts by meta criteria

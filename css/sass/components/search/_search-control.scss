@@ -1,3 +1,4 @@
+//Dropdowns
 .search-control {
     margin: 1.5rem 0;
     width: 100%;
@@ -24,7 +25,6 @@
         margin: 1rem;
         font-size: 1.5rem !important;
         line-height: 2.8rem !important;
-
     }
     & .select2-selection__arrow {
         margin: 1rem;
@@ -32,8 +32,8 @@
     & .select2-selection__placeholder {
         color: $color-grey-2;
     }
-    & select  { 
-        visibility: hidden !important; 
+    & select {
+        visibility: hidden !important;
     }
 
     &__datetimepicker {
@@ -47,18 +47,16 @@
     }
 }
 
-
+//Date Range
 .daterangepicker {
     font-family: $font-primary;
 
     & td {
-
-        padding: .5rem 1rem;
+        padding: 0.5rem 1rem;
 
         @media only screen and (max-width: $bp-medium) {
-           padding: 0;
+            padding: 0;
         }
-
     }
     & thead {
         color: $color-secondary;
@@ -73,7 +71,6 @@
 
         &:hover {
             background-color: $color-secondary-light;
-
         }
     }
 
@@ -82,7 +79,7 @@
         background-color: transparent;
         border: 1px solid $color-secondary;
         border-radius: 4px;
-        padding: .8rem 1.6rem !important;
+        padding: 0.8rem 1.6rem !important;
     }
 
     & .cancelBtn {
@@ -90,6 +87,7 @@
     }
 }
 
+//Sort Control
 .sort-control {
     display: flex;
     align-items: center;
@@ -107,8 +105,48 @@
         border: none !important;
     }
 
-
     & .select2-selection__rendered {
         font-size: 1.5rem !important;
     }
 }
+.irs {
+    font-family: $font-primary !important;
+
+    &--round {
+        & span {
+            font-size: 1.2rem !important;
+    
+        }
+        & .irs-single {
+            background-color: $color-secondary !important;
+            &::before {
+                border-top-color: $color-secondary !important;
+    
+            }
+        }
+        & .irs-handle {
+            border: 3px solid $color-secondary;
+        }
+    
+        & .irs-bar {
+            background-color: $color-secondary;
+        }
+    
+        & .irs-from {
+            background-color: $color-secondary;
+            &::before {
+                border-top-color: $color-secondary !important;
+    
+            }
+        }
+    
+        & .irs-to {
+            background-color: $color-secondary;
+            &::before {
+                border-top-color: $color-secondary !important;
+    
+            }
+        }
+    }
+}
+

@@ -25,10 +25,11 @@ get_header();
                         if ($destinations = get_posts(array(
                             'post_type' => 'rfc_destinations',
                             'posts_per_page' => -1, // to make it simple I use default categories
-                            'orderby' => 'name'
+                            'orderby' => 'title',
+                            'order' => 'ASC',
                         ))) {
                         ?>
-                        <?php foreach ($destinations as $destination) { ?>
+                            <?php foreach ($destinations as $destination) { ?>
 
                                 <option value="<?php echo $destination->ID ?>"><?php echo get_the_title($destination) ?></option>
                         <?php }
@@ -36,16 +37,20 @@ get_header();
                     </select>
                 </label>
                 <div class="search-control">
-                <span class="search-control__label-text">Travel Dates</span>
-                <input class="search-control__datetimepicker" type="text" name="departure-dates" id="departure-dates" readonly>
-
+                    <span class="search-control__label-text">Travel Dates</span>
+                    <input class="search-control__datetimepicker" type="text" name="departure-dates" id="departure-dates" readonly>
+                </div>
+                <div class="search-control">
+                    <span class="search-control__label-text">Itinerary Length</span>
+                    <input class="search-control__range-slider" type="text" name="range-slider" id="range-slider">
                 </div>
             </div>
             <!-- Direct to function within functions.php -->
             <input type="hidden" name="action" value="mainSearch">
             <input type="hidden" name="startDate" id="startDate" value="">
             <input type="hidden" name="endDate" id="endDate" value="">
-
+            <input type="hidden" name="minLength" id="minLength" value="">
+            <input type="hidden" name="maxLength" id="maxLength" value="">
         </form>
         <div class="search-results">
             <div class="search-results__top-section">

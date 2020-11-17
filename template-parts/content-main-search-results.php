@@ -5,6 +5,8 @@ $postsFromSearch = $functionArgs->products;
 $sortOrder = $functionArgs->sortOrder;
 $startDate = $functionArgs->startDate;
 $endDate = $functionArgs->endDate;
+$minLength = $functionArgs->minLength;
+$maxLength = $functionArgs->maxLength;
 
 
 $results = [];
@@ -14,21 +16,19 @@ foreach ($postsFromSearch as $post) {
     $highest = $cruise_data['HighestPrice'];
 
     $results[] = (object) array(
-        'postObject' => $post, 
+        'postObject' => $post,
         'cruise_data' => get_field('cruise_data', $post),
         'lowestPrice' => $lowest,
         'highestPrice' => $highest,
     );
-
 }
-if($sortOrder == 'ASC'){
+if ($sortOrder == 'ASC') {
     usort($results, "sortPrice");
 }
 
-if($sortOrder == 'DESC'){
+if ($sortOrder == 'DESC') {
     usort($results, "sortPriceDescending");
 }
-
 
 console_log($results);
 foreach ($results as $result) {
@@ -36,18 +36,24 @@ foreach ($results as $result) {
     $cruise_data = get_field('cruise_data', $result->postObject);
 
     $hasAvailability = false;
+    $hasRange = false;
+    foreach ($cruise_data['Itineraries'] as $itinerary) {
+        //Loop
 
-    foreach($cruise_data['Itineraries'] as $itinerary){
-        foreach($itinerary['Departures'] as $departure){
-    
-            if( (strtotime($departure['DepartureDate']) >= strtotime($startDate)) && (strtotime($departure['DepartureDate']) <= strtotime($endDate)) ){
+
+        if (($itinerary['LengthInDays'] >= $minLength) && ($itinerary['LengthInDays'] <= $maxLength)) {
+            $hasRange = true;
+        }
+
+        foreach ($itinerary['Departures'] as $departure) {
+
+            if ((strtotime($departure['DepartureDate']) >= strtotime($startDate)) && (strtotime($departure['DepartureDate']) <= strtotime($endDate))) {
                 $hasAvailability = true;
             }
-
         }
     }
 
-    if($hasAvailability == false) { 
+    if ($hasAvailability == false || $hasRange == false) {
         continue;
     }
 
@@ -100,16 +106,17 @@ foreach ($results as $result) {
 
 
 
-<?php 
-function sortPrice($a, $b) {
-    if(is_object($a) && is_object($b)){
+<?php
+function sortPrice($a, $b)
+{
+    if (is_object($a) && is_object($b)) {
         return strcmp($a->lowestPrice, $b->lowestPrice);
     }
 }
-function sortPriceDescending($a, $b) {
-    if(is_object($a) && is_object($b)){
+function sortPriceDescending($a, $b)
+{
+    if (is_object($a) && is_object($b)) {
         return strcmp($b->lowestPrice, $a->lowestPrice);
     }
 }
 ?>
-

@@ -3054,7 +3054,7 @@ h4 {
 .daterangepicker {
   font-family: "Metropolis", sans-serif; }
   .daterangepicker td {
-    padding: .5rem 1rem; }
+    padding: 0.5rem 1rem; }
     @media only screen and (max-width: 50em) {
       .daterangepicker td {
         padding: 0; } }
@@ -3071,7 +3071,7 @@ h4 {
     background-color: transparent;
     border: 1px solid #142838;
     border-radius: 4px;
-    padding: .8rem 1.6rem !important; }
+    padding: 0.8rem 1.6rem !important; }
   .daterangepicker .cancelBtn {
     display: none !important; }
 
@@ -3090,6 +3090,27 @@ h4 {
     border: none !important; }
   .sort-control .select2-selection__rendered {
     font-size: 1.5rem !important; }
+
+.irs {
+  font-family: "Metropolis", sans-serif !important; }
+  .irs--round span {
+    font-size: 1.2rem !important; }
+  .irs--round .irs-single {
+    background-color: #142838 !important; }
+    .irs--round .irs-single::before {
+      border-top-color: #142838 !important; }
+  .irs--round .irs-handle {
+    border: 3px solid #142838; }
+  .irs--round .irs-bar {
+    background-color: #142838; }
+  .irs--round .irs-from {
+    background-color: #142838; }
+    .irs--round .irs-from::before {
+      border-top-color: #142838 !important; }
+  .irs--round .irs-to {
+    background-color: #142838; }
+    .irs--round .irs-to::before {
+      border-top-color: #142838 !important; }
 
 .search-results {
   grid-column: col-start 3 / center-end;
