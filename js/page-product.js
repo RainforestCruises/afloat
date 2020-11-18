@@ -1,5 +1,9 @@
 jQuery(document).ready(function ($) {
 
+  //NOTES
+  //Anchor behavior
+  //https://www.adventuresmithexplorations.com/cruises/mediterranean/dalmatian-coast-cruise/#Testimonials
+
   //Product Navigation
   $('.product-nav__tab-list li, .goto-cabins, .goto-itineraries, .goto-prices, .goto-dates').click(function () {
     var tab_id = $(this).attr('data-tab');

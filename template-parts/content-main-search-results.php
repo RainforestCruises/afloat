@@ -69,7 +69,10 @@ foreach ($results as $result) {
         }
     }
 
-
+//NOTES
+//loop all to get count 
+//create filtered list
+//use for pagination
 ?>
 
 

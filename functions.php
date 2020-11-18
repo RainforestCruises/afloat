@@ -436,7 +436,7 @@ function search_filter_main_search()
 
 
     $args = array(
-        'posts_per_page' => 12,
+        'posts_per_page' => -1,
         'post_type' => $travelType, // change later
     );
 

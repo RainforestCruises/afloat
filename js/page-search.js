@@ -1,4 +1,6 @@
 jQuery(document).ready(function ($) {
+  //On Change parameters update URL string
+  //On Load, read url parameters
 
   $("#startDate").val(moment().format('YYYY-MM-DD'))
   $("#endDate").val(moment().add(1, 'M').format('YYYY-MM-DD'))
