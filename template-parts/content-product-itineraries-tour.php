@@ -61,7 +61,7 @@ if ($itineraries) {
             </ul>
         </div>
     </div>
-    <div id="sentinal-tab-itineraries"></div>
+    <div id="sentinal-itineraries"></div>
     <!-- TAB CONTENT -->
     <!-- Itineraries -->
     <?php

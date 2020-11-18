@@ -22,7 +22,7 @@ $currentYear = $args['currentYear'];
 
     </div>
 
-    <div id="sentinal-tab-prices"></div>
+    <div id="sentinal-prices"></div>
     <div class="page-divider u-margin-bottom-none">
         Price List
     </div>
@@ -153,7 +153,7 @@ $currentYear = $args['currentYear'];
 
     <?php if (get_post_type() == 'rfc_cruises') { ?>
         <div class="product-prices__btn  u-margin-bottom-medium u-margin-top-medium">
-            <button class="btn-outline goto-dates" data-tab="tab-dates">View Availability</button>
+            <button class="btn-outline goto-dates" href="#dates">View Availability</button>
         </div>
 
     <?php } ?>

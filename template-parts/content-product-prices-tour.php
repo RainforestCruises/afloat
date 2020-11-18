@@ -21,7 +21,7 @@ $currentYear = $args['currentYear'];
 
     </div>
 
-    <div id="sentinal-tab-prices"></div>
+    <div id="sentinal-prices"></div>
     <div class="page-divider u-margin-bottom-none">
         Price List
     </div>

@@ -1,39 +1,55 @@
 jQuery(document).ready(function ($) {
 
-  //NOTES
-  //Anchor behavior
-  //https://www.adventuresmithexplorations.com/cruises/mediterranean/dalmatian-coast-cruise/#Testimonials
 
-  //Product Navigation
-  $('.product-nav__tab-list li, .goto-cabins, .goto-itineraries, .goto-prices, .goto-dates').click(function () {
-    var tab_id = $(this).attr('data-tab');
-    changeTabs(tab_id);
+  //Anchor behavior
+  //on load
+  var identifier = window.location.hash;
+  if ($(identifier).length)         
+  {
+        changeTabs(identifier);
+  }
+
+  //fires when anchor changed
+  window.addEventListener('hashchange', function () {
+    var identifier = window.location.hash;
+    if ($(identifier).length)         
+    {
+          changeTabs(identifier);
+    }
+  })
+
+  //Navigation Events - change anchor
+  $('.product-nav__tab-list__item__link, .goto-cabins, .goto-itineraries, .goto-prices, .goto-dates').click(function (event) {
+    event.preventDefault();
+    var tab_id = $(this).attr('href');
+    window.location.hash = tab_id;
 
   })
-  //End Product Nav
 
-  function changeTabs(tab_id) {
+
+  //Change Tabs Function
+  function changeTabs(identifier) {
+    tab_id = identifier.substring(1); //remove hash
 
     $('.product-nav__tab-list__item').removeClass('current');
     $('.product-content__page.tab-content').removeClass('current');
 
-    $("." + tab_id).addClass('current'); //by class to get both original / clone (sticky) -- class is same name as data-tab id
-    $("#" + tab_id).addClass('current'); //by id for tab content
+    $(".tab-" + tab_id).addClass('current'); //apply to both original / clone (sticky) -- class is same name as data-tab id
+    $("#" + tab_id).addClass('current'); //apply to tab content
 
     //tab jump marks and offsets
     var offset = 0;
-    console.log('prodnav')
 
     //responsive @ 1000
     if ($(window).width() > 1000) {
       offset = 120;
-      if (tab_id == "tab-itineraries") {
+      if (tab_id == "itineraries") {
         offset = 180
       }
     }
     else {
       offset = 90;
-      if (tab_id == "tab-itineraries") {
+      if (tab_id == "itineraries") {
         offset = 140
       }
     }
@@ -41,16 +57,19 @@ jQuery(document).ready(function ($) {
     //if the sticky nav is visible
     var elementExists = document.getElementById("page-nav");
     if (elementExists != null) {
-
+      console.log('yes')
       $([document.documentElement, document.body]).animate({
         scrollTop: $("#sentinal-" + tab_id).offset().top - offset
       }, 300);
-    } 
+    } else {
+      console.log('no')
+
+    }
   }
 
 
-
-  //On Start
+  
+  //Date and Price Grid Time Config
   //display Itinerary Side Info for current year only
   $('.date-grid').hide();
   $('.date-grid__' + currentYear).show();
@@ -59,6 +78,8 @@ jQuery(document).ready(function ($) {
   $('.price-grid__' + currentYear).show();
 
 
+
+  //Image Lightboxes
   $("a#map-lightbox").fancybox(
     {
       'overlayShow': true,
@@ -200,40 +221,17 @@ jQuery(document).ready(function ($) {
 
         //Product Navigation
         $('.results-goto-itineraries').click(function () {
+          var tab_id = $(this).attr('href');
+          window.location.hash = tab_id;
 
-          //goto Itineraries tab
-          $('.product-nav__tab-list__item').removeClass('current');
-          $('.product-content__page.tab-content').removeClass('current');
 
-          $(".tab-itineraries").addClass('current'); //by class to get both original / clone (sticky) -- class is same name as data-tab id
-          $("#tab-itineraries").addClass('current'); //by id for tab content
-
-          //tab jump marks and offsets
-          var offset = 0;
-          //responsive @ 1000
-          if ($(window).width() > 1000) {
-            offset = 180
-          } else {
-            offset = 140
-          }
-
-          //if the sticky nav is visible
-          var elementExists = document.getElementById("page-nav");
-          if (elementExists != null) {
-
-            $([document.documentElement, document.body]).animate({
-              scrollTop: $("#sentinal-tab-itineraries").offset().top - offset
-            }, 300);
-          }
-
-          //5-Day, 8-Day, etc sub-tab
-          var tab_id = $(this).attr('data-tab');
+          var subTabId = $(this).attr('data-tab');
 
           $('.product-intro__nav__list__item').removeClass('current');
           $('.product-itineraries__itinerary.tab-content').removeClass('current');
 
-          $("#" + tab_id + "-nav").addClass('current'); //add current class to both nav tab and content
-          $("#" + tab_id).addClass('current');
+          $("#" + subTabId + "-nav").addClass('current'); //add current class to both nav tab and content
+          $("#" + subTabId).addClass('current');
         })
         //End Product Nav
 
@@ -353,9 +351,9 @@ jQuery(document).ready(function ($) {
 
 
   var slidesToShow = 4;
-  if(relatedCount > 3 ){
+  if (relatedCount > 3) {
     slidesToShow = 4;
-  } else if (relatedCount > 1){
+  } else if (relatedCount > 1) {
     slidesToShow = 2;
   } else {
     slidesToShow = 1;

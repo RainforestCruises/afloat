@@ -24,7 +24,7 @@ $monthNames = $args['monthNames'];
         </div>
 
     </div>
-    <div id="sentinal-tab-dates"></div>
+    <div id="sentinal-dates"></div>
 
     <div class="product-dates__title page-divider u-margin-bottom-none">
         Availability

@@ -39,7 +39,7 @@ if ($itineraries) {
 
 
     </div>
-    <div id="sentinal-tab-cabins"></div>
+    <div id="sentinal-cabins"></div>
     <div class="page-divider u-margin-bottom-small">
         Tour Accommodations
     </div>

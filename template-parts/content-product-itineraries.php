@@ -43,7 +43,7 @@ $monthNames = $args['monthNames'];
             </ul>
         </div>
     </div>
-    <div id="sentinal-tab-itineraries"></div>
+    <div id="sentinal-itineraries"></div>
     <!-- TAB CONTENT -->
     <!-- Itineraries -->
     <?php
@@ -204,7 +204,7 @@ $monthNames = $args['monthNames'];
                                 <div class="product-itineraries__itinerary__side-content__detail__widget__legend__item product-itineraries__itinerary__side-content__detail__widget__legend__item--sold-out">
                                     Sold Out
                                 </div>
-                                <button class="product-itineraries__itinerary__side-content__detail__widget__legend__item product-itineraries__itinerary__side-content__detail__widget__legend__item--button text-button goto-dates" data-tab="tab-dates">
+                                <button class="product-itineraries__itinerary__side-content__detail__widget__legend__item product-itineraries__itinerary__side-content__detail__widget__legend__item--button text-button goto-dates" href="#dates">
                                     View Dates
                                     <svg>
                                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>

@@ -14,21 +14,25 @@ $hero_image = get_field('hero_image');
         <h2 class="product-nav__caption__subtitle"><?php echo get_field('top_snippet') ?></h2>
         <div class="product-nav__sticky-wrapper" id="template-nav">
             <ul class="product-nav__tab-list">
-                <li class="product-nav__tab-list__item tab-overview current" data-tab="tab-overview">
-                    Overview
+                <li class="product-nav__tab-list__item tab-overview current">
+                    <a href="#overview" class="product-nav__tab-list__item__link">Overview</a>
                 </li>
-                <li class="product-nav__tab-list__item tab-itineraries " data-tab="tab-itineraries">
-                    Itineraries
+                <li class="product-nav__tab-list__item tab-itineraries ">
+                    <a href="#itineraries" class="product-nav__tab-list__item__link">Itineraries</a>
                 </li>
-                <li class="product-nav__tab-list__item tab-cabins" data-tab="tab-cabins">
-                    <?php echo (get_post_type() == 'rfc_cruises') ? ('Cabins') : ('Accommodations'); ?>
+                <li class="product-nav__tab-list__item tab-cabins">
+                    <a href="#cabins" class="product-nav__tab-list__item__link"><?php echo (get_post_type() == 'rfc_cruises') ? ('Cabins') : ('Accommodations'); ?></a>
+
+
                 </li>
                 <li class="product-nav__tab-list__item tab-prices" data-tab="tab-prices">
-                    Prices
+                    <a href="#prices" class="product-nav__tab-list__item__link">Prices</a>
+
                 </li>
                 <?php if (get_post_type() == 'rfc_cruises') { ?>
                     <li class="product-nav__tab-list__item tab-dates" data-tab="tab-dates">
-                        Dates
+                        <a href="#dates" class="product-nav__tab-list__item__link">Dates</a>
+
                     </li>
                 <?php } ?>
             </ul>
@@ -42,11 +46,11 @@ $hero_image = get_field('hero_image');
             if ($images) : ?>
                 <?php foreach ($images as $image) : ?>
                     <div class="product-nav__slick__item">
-                        <img src="<?php echo esc_url($image['url']); ?>" alt="">                        
+                        <img src="<?php echo esc_url($image['url']); ?>" alt="">
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
     </div>
-    
+
 </section>

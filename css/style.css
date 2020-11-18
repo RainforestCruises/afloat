@@ -1401,7 +1401,7 @@ h4 {
       display: block;
       max-width: 80%;
       padding-bottom: 2rem;
-      padding-top: .8rem; }
+      padding-top: 0.8rem; }
   @media only screen and (max-width: 62.5em) {
     .product-nav {
       display: grid;
@@ -1428,53 +1428,49 @@ h4 {
       .product-nav__sticky-wrapper--active .product-nav__tab-list {
         position: relative;
         grid-column: center-start / -1;
-        font-weight: 500;
-        font-size: 1.32rem;
         margin-bottom: 0rem;
         opacity: 1;
-        grid-row: 2 / span 1;
-        color: rgba(20, 40, 56, 0.6); }
+        grid-row: 2 / span 1; }
         @media only screen and (max-width: 50em) {
           .product-nav__sticky-wrapper--active .product-nav__tab-list {
             justify-content: center; } }
-        .product-nav__sticky-wrapper--active .product-nav__tab-list__item {
-          transition: color .3s; }
-          .product-nav__sticky-wrapper--active .product-nav__tab-list__item:hover {
+        .product-nav__sticky-wrapper--active .product-nav__tab-list__item__link {
+          transition: color 0.3s;
+          font-weight: 500;
+          font-size: 1.32rem;
+          color: rgba(20, 40, 56, 0.6); }
+          .product-nav__sticky-wrapper--active .product-nav__tab-list__item__link:hover {
             color: #305a7c; }
-          .product-nav__sticky-wrapper--active .product-nav__tab-list__item::after {
-            content: "";
-            opacity: 0;
-            position: absolute;
-            height: 1rem;
-            width: 1rem;
-            bottom: -2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50%;
-            background-color: #fff;
-            border: 1px solid #c2c6c9;
-            transition: opacity .3s; }
-          .product-nav__sticky-wrapper--active .product-nav__tab-list__item.current {
-            color: #40739c; }
-            .product-nav__sticky-wrapper--active .product-nav__tab-list__item.current::after {
-              content: "";
-              opacity: 1;
-              position: absolute;
-              height: 1rem;
-              width: 1rem;
-              bottom: -2rem;
-              left: 50%;
-              transform: translateX(-50%);
-              transform-origin: center;
-              border-radius: 50%;
-              background-color: #fff;
-              border: 1px solid #c2c6c9; }
+        .product-nav__sticky-wrapper--active .product-nav__tab-list__item::after {
+          content: "";
+          opacity: 0;
+          position: absolute;
+          height: 1rem;
+          width: 1rem;
+          bottom: -2rem;
+          left: 50%;
+          transform: translateX(-50%);
+          border-radius: 50%;
+          background-color: #fff;
+          border: 1px solid #c2c6c9;
+          transition: opacity 0.3s; }
+        .product-nav__sticky-wrapper--active .product-nav__tab-list__item.current a {
+          color: #40739c; }
+        .product-nav__sticky-wrapper--active .product-nav__tab-list__item.current::after {
+          content: "";
+          opacity: 1;
+          position: absolute;
+          height: 1rem;
+          width: 1rem;
+          bottom: -2rem;
+          left: 50%;
+          transform: translateX(-50%);
+          transform-origin: center;
+          border-radius: 50%;
+          background-color: #fff;
+          border: 1px solid #c2c6c9; }
   .product-nav__tab-list {
     grid-row: 3 / span 1;
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.3rem;
-    text-transform: uppercase;
     align-self: center;
     margin-bottom: 1rem;
     width: 100%;
@@ -1497,6 +1493,14 @@ h4 {
       position: relative;
       cursor: pointer;
       display: block; }
+      .product-nav__tab-list__item__link {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 0.3rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #fff; }
       .product-nav__tab-list__item::after {
         content: "";
         position: absolute;

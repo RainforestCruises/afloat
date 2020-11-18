@@ -25,7 +25,7 @@ $startingPrice = 0;
         </div>
 
     </div>
-    <div id="sentinal-tab-overview"></div>
+    <div id="sentinal-overview"></div>
     <div class="page-divider u-margin-bottom-none">
         <?php echo $args['propertyType'] ?> Overview
     </div>
@@ -62,6 +62,6 @@ $startingPrice = 0;
     </div>
 
     <div class="product-overview__btn  u-margin-bottom-medium">
-        <button class="btn-outline goto-itineraries" data-tab="tab-itineraries">View Itineraries</button>
+        <button class="btn-outline goto-itineraries" href="#itineraries">View Itineraries</button>
     </div>
 </div>

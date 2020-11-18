@@ -4,7 +4,7 @@
     display: flex;
     grid-row: nav-start / hero-end;
     grid-column: center-start / -1;
-    
+
     user-select: none;
     z-index: 3;
 
@@ -13,7 +13,7 @@
         width: 100%;
         display: grid; //for tabs
         grid-template-rows: 1fr min-content [nav-start] 6.5rem [nav-end];
-        max-height: 100%; 
+        max-height: 100%;
 
         &__title {
             font-size: 6rem;
@@ -22,8 +22,7 @@
             display: block;
             align-self: end;
             line-height: 6.5rem;
-            
-            
+
             @media only screen and (max-width: $bp-medium) {
                 font-size: 4rem;
             }
@@ -34,14 +33,14 @@
                 font-size: 1.3rem;
                 font-weight: 600;
                 letter-spacing: 0.2rem;
-                color: rgba($color-supporting, .8);
+                color: rgba($color-supporting, 0.8);
                 text-transform: uppercase;
                 display: flex;
                 line-height: 1.3rem;
 
                 justify-content: flex-end;
                 padding: 1.5rem 4rem;
-                
+
                 padding-right: 4rem;
                 align-items: center;
                 height: 100%;
@@ -52,8 +51,6 @@
                 @media only screen and (max-width: $bp-medium) {
                     display: none;
                 }
-
-        
 
                 &::before {
                     content: "";
@@ -73,7 +70,7 @@
             display: block;
             max-width: 80%;
             padding-bottom: 2rem;
-            padding-top: .8rem;
+            padding-top: 0.8rem;
         }
     }
 
@@ -99,42 +96,44 @@
             display: grid;
             grid-column: 1 / -1;
             grid-template-columns:
-            [full-start] minmax(max-content, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
-            [center-end] minmax(6rem, 1fr) [full-end];
-    
+                [full-start] minmax(max-content, 1fr) [center-start] repeat(
+                    8,
+                    [col-start] minmax(min-content, 14rem) [col-end]
+                )
+                [center-end] minmax(6rem, 1fr) [full-end];
+
             align-content: center;
             align-items: center;
-    
-            border-bottom: 1px solid rgba($color-grey-light-2, .9); //alpha 0 to prevent pixel jump
-    
+
+            border-bottom: 1px solid rgba($color-grey-light-2, 0.9); //alpha 0 to prevent pixel jump
+
             background-color: rgba($color-white, 0.9);
             -webkit-backdrop-filter: blur(8px);
             backdrop-filter: blur(8px);
 
-       
-
             & .product-nav__tab-list {
                 position: relative;
                 grid-column: center-start / -1;
-                font-weight: 500;
-                font-size: 1.32rem;
+
                 margin-bottom: 0rem;
                 opacity: 1;
                 grid-row: 2 / span 1;
-                color: rgba($color-secondary, 0.6);
 
-                
                 @media only screen and (max-width: $bp-medium) {
                     justify-content: center;
                 }
-    
-    
+
                 &__item {
-                    transition: color .3s;
-                    &:hover {
-                        color: $color-supporting;
+                    &__link {
+                        transition: color 0.3s;
+                        font-weight: 500;
+                        font-size: 1.32rem;
+                        color: rgba($color-secondary, 0.6);
+                        &:hover {
+                            color: $color-supporting;
+                        }
                     }
-                    
+
                     &::after {
                         content: "";
                         opacity: 0;
@@ -147,11 +146,14 @@
                         border-radius: 50%;
                         background-color: $color-white;
                         border: 1px solid $color-grey-light-2;
-                        transition: opacity .3s;
+                        transition: opacity 0.3s;
                     }
-    
+
                     &.current {
-                        color: $color-supporting-light;
+                        & a {
+                            color: $color-supporting-light;
+
+                        }
                         &::after {
                             content: "";
                             opacity: 1;
@@ -169,17 +171,13 @@
                     }
                 }
             }
-    
         }
     }
 
     &__tab-list {
         //--is child of caption
         grid-row: 3 / span 1;
-        font-size: 1.2rem;
-        font-weight: 600;
-        letter-spacing: 0.3rem;
-        text-transform: uppercase;
+
         align-self: center;
         margin-bottom: 1rem;
         width: 100%;
@@ -191,7 +189,6 @@
         grid-gap: 4rem;
         align-content: start;
         padding: 1.5rem 0;
-
 
         & .current {
             &::after {
@@ -209,6 +206,16 @@
             position: relative;
             cursor: pointer;
             display: block;
+
+            &__link {
+                display: block;
+                font-size: 1.2rem;
+                font-weight: 600;
+                letter-spacing: 0.3rem;
+                text-transform: uppercase;
+                text-decoration: none;
+                color: $color-white;
+            }
 
             &::after {
                 content: "";
@@ -276,8 +283,6 @@
                 transition: all 0.5s;
                 box-shadow: $shadow-medium-bottom;
                 position: relative;
-
-                
             }
             &::after {
                 content: "";
@@ -292,7 +297,6 @@
                 background-image: linear-gradient(to right, rgba($color-secondary, 0.6), rgba($color-secondary, 0.6));
             }
 
-           
             &__title {
                 grid-row: 1 / -1;
                 grid-column: 1 / -1;
@@ -308,10 +312,10 @@
                 display: flex;
                 align-items: flex-end;
                 //justify-content: center;
-            
+
                 transition: all 0.5s;
                 position: absolute;
-                background-image: linear-gradient(to top, rgba($color-black, 0.6), rgba($color-black, 0.0) 20%);
+                background-image: linear-gradient(to top, rgba($color-black, 0.6), rgba($color-black, 0) 20%);
             }
         }
 
@@ -333,9 +337,8 @@
 }
 
 .product-slick-enlarge {
-    //applied by js 
+    //applied by js
     .product-nav__slick__item {
-       
         img {
             height: 100%;
         }
@@ -343,7 +346,6 @@
             height: 100%;
             opacity: 1;
         }
-
 
         &::after {
             height: 100%;

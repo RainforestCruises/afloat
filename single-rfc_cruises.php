@@ -39,35 +39,35 @@ while (have_posts()) :
     <section class="product-content">
 
       <!-- 1. Overview Content -->
-      <div class="product-content__page tab-content current" id="tab-overview">
+      <div class="product-content__page tab-content current" id="overview">
         <?php
         get_template_part('template-parts/content', 'product-overview', $args);
         ?>
       </div>
 
       <!-- 2. Itineraries Content -->
-      <div class="product-content__page tab-content " id="tab-itineraries">
+      <div class="product-content__page tab-content " id="itineraries">
         <?php
         get_template_part('template-parts/content', 'product-itineraries', $args);
         ?>
       </div>
 
       <!-- 3. Cabins Content -->
-      <div class="product-content__page tab-content " id="tab-cabins">
+      <div class="product-content__page tab-content " id="cabins">
         <?php
         get_template_part('template-parts/content', 'product-cabins', $args);
         ?>
       </div>
 
       <!-- 4. Prices Content -->
-      <div class="product-content__page tab-content " id="tab-prices">
+      <div class="product-content__page tab-content " id="prices">
         <?php
         get_template_part('template-parts/content', 'product-prices', $args);
         ?>
       </div>
 
       <!-- 5. Dates Content -->
-      <div class="product-content__page tab-content " id="tab-dates">
+      <div class="product-content__page tab-content " id="dates">
         <?php
         get_template_part('template-parts/content', 'product-dates', $args);
         ?>

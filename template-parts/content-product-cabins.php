@@ -24,7 +24,7 @@ $deck_plan = get_field('deck_plan');
 
 
     </div>
-    <div id="sentinal-tab-cabins"></div>
+    <div id="sentinal-cabins"></div>
     <div class="page-divider u-margin-bottom-small">
         Suites & Cabins
     </div>
@@ -78,7 +78,7 @@ $deck_plan = get_field('deck_plan');
                     </div>
                     <?php echo ($cabins[$cabinCount]['Features']); ?>
                     <div class="product-cabins__cabin__content__cta">
-                        <button class="btn-outline goto-prices" data-tab="tab-prices">Check Prices</button>
+                        <button class="btn-outline goto-prices" href="#prices">Check Prices</button>
                     </div>
                 </div>
             </div>

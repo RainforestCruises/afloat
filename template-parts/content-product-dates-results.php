@@ -96,7 +96,7 @@ foreach ($filteredItineraries as $itinerary) {
                 </span>
             </div>
             <div class="product-dates__search-area__results__itinerary-group__itinerary__cta">
-                <button class="btn-outline btn-outline--dark results-goto-itineraries" data-tab="tab-itinerary-<?php echo $itineraryCount ?>">Learn More</button>
+                <button class="btn-outline btn-outline--dark results-goto-itineraries" href="#itineraries" data-tab="tab-itinerary-<?php echo $itineraryCount ?>">Learn More</button>
             </div>
         </div>
 
