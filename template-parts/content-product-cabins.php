@@ -89,7 +89,7 @@ $deck_plan = get_field('deck_plan');
     <?php endif; ?>
 
     <?php if (get_post_type() == 'rfc_cruises') { ?>
-        <div class="page-divider">
+        <div class="page-divider product-cabins__page-divider">
             Technical Information
         </div>
         <div class="product-cabins__deckplan u-margin-bottom-big">

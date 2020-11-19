@@ -30,33 +30,45 @@
 
         grid-template-columns:
             [full-start] minmax(6rem, 1fr) [center-start] minmax(50rem, 70rem) [col-mid] minmax(min-content, 42rem)
-            [center-end] minmax(6rem, 1fr) [full-end]; //140px each column -- 1120px / 8 col
+            [center-end] minmax(6rem, 1fr) [full-end];
 
         grid-template-rows: repeat(3, min-content);
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-template-rows: repeat(2, min-content);
+            grid-template-columns:  [center-start]  1fr  [center-end] ; 
+            margin: 0 6rem;
+        }
+        @media only screen and (max-width: $bp-small) {
+            margin: 0 3rem;
+        }
+
 
         &__title {
             grid-column: center-start / center-end;
             grid-row: 1 / span 1;
-            position: relative;
+            //display: grid;
+            margin-bottom: 4.5rem;
+
+            &__main {
+                margin-bottom: 0;
+                line-height: 6rem;
+            }
+
             &__subtitle {
                 color: rgba($color-supporting, 0.6);
                 letter-spacing: 0.4rem;
                 font-family: $font-secondary;
                 font-size: 1.6rem;
                 text-transform: uppercase;
-                position: absolute;
+                justify-self: center;
+                text-align: center;
                 bottom: 2.5rem;
                 left: 50%;
-                transform: translateX(-50%);
                 font-weight: 400;
-
                 padding-top: 0.5rem;
-                @media only screen and (max-width: $bp-medium) {
-                    padding-top: 0.2rem;
-                }
-                @media only screen and (max-width: $bp-small) {
-                    padding-top: 0;
-                }
+           
+     
             }
         }
 

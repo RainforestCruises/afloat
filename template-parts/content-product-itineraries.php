@@ -53,7 +53,7 @@ $monthNames = $args['monthNames'];
         <!-- Itinerary -->
         <div class="product-itineraries__itinerary  tab-content <?php echo ($count == 1 ? 'current' : ''); ?>" id="tab-itinerary-<?php echo $count ?>">
             <div class="product-itineraries__itinerary__title">
-                <div class="page-divider">
+                <div class="page-divider product-itineraries__itinerary__title__main">
                     <?php echo $itinerary['Name'] ?>
                 </div>
                 <div class="product-itineraries__itinerary__title__subtitle">

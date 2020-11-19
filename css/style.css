@@ -1359,7 +1359,7 @@ h4 {
         justify-items: center;
         text-align: center;
         grid-row: nav-start / hero-end;
-        grid-template-rows: 1fr min-content [nav-start] 7.5rem [nav-end]; } }
+        grid-template-rows: 1fr min-content [nav-start] min-content [nav-end]; } }
     .product-nav__caption__title {
       font-size: 6rem;
       font-weight: 300;
@@ -1369,13 +1369,12 @@ h4 {
       line-height: 6.5rem; }
       @media only screen and (max-width: 62.5em) {
         .product-nav__caption__title {
-          font-size: 8rem;
-          margin-bottom: 1.2rem; } }
+          font-size: 8rem; } }
       .product-nav__caption__title--sticky {
         grid-column: 1 / span 1;
         grid-row: 2 / span 1;
         user-select: none;
-        font-size: 1.3rem;
+        font-size: 1.32rem;
         font-weight: 600;
         letter-spacing: 0.2rem;
         color: rgba(48, 90, 124, 0.8);
@@ -1433,6 +1432,14 @@ h4 {
       background-color: rgba(255, 255, 255, 0.9);
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px); }
+      @media only screen and (max-width: 37.5em) {
+        .product-nav__sticky-wrapper--active .page-nav__button {
+          display: flex; } }
+      @media only screen and (max-width: 37.5em) {
+        .product-nav__sticky-wrapper--active .page-nav__collapse {
+          grid-column: 1 / -1;
+          justify-content: center;
+          text-align: center; } }
       .product-nav__sticky-wrapper--active .product-nav__tab-list {
         position: relative;
         grid-column: center-start / -1;
@@ -1442,6 +1449,9 @@ h4 {
         @media only screen and (max-width: 50em) {
           .product-nav__sticky-wrapper--active .product-nav__tab-list {
             justify-content: center; } }
+        @media only screen and (max-width: 37.5em) {
+          .product-nav__sticky-wrapper--active .product-nav__tab-list {
+            display: none !important; } }
         .product-nav__sticky-wrapper--active .product-nav__tab-list__item__link {
           transition: color 0.3s;
           font-weight: 500;
@@ -1489,6 +1499,13 @@ h4 {
     grid-gap: 4rem;
     align-content: start;
     padding: 1.5rem 0; }
+    @media only screen and (max-width: 37.5em) {
+      .product-nav__tab-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 3rem;
+        padding: 1.5rem 3rem; } }
     .product-nav__tab-list .current::after {
       content: "";
       position: absolute;
@@ -1905,28 +1922,33 @@ h4 {
     animation: fadein 0.8s;
     grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] minmax(50rem, 70rem) [col-mid] minmax(min-content, 42rem) [center-end] minmax(6rem, 1fr) [full-end];
     grid-template-rows: repeat(3, min-content); }
+    @media only screen and (max-width: 50em) {
+      .product-itineraries__itinerary {
+        grid-template-rows: repeat(2, min-content);
+        grid-template-columns: [center-start] 1fr [center-end];
+        margin: 0 6rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .product-itineraries__itinerary {
+        margin: 0 3rem; } }
     .product-itineraries__itinerary__title {
       grid-column: center-start / center-end;
       grid-row: 1 / span 1;
-      position: relative; }
+      margin-bottom: 4.5rem; }
+      .product-itineraries__itinerary__title__main {
+        margin-bottom: 0;
+        line-height: 6rem; }
       .product-itineraries__itinerary__title__subtitle {
         color: rgba(48, 90, 124, 0.6);
         letter-spacing: 0.4rem;
         font-family: "Old Standard TT", serif;
         font-size: 1.6rem;
         text-transform: uppercase;
-        position: absolute;
+        justify-self: center;
+        text-align: center;
         bottom: 2.5rem;
         left: 50%;
-        transform: translateX(-50%);
         font-weight: 400;
         padding-top: 0.5rem; }
-        @media only screen and (max-width: 50em) {
-          .product-itineraries__itinerary__title__subtitle {
-            padding-top: 0.2rem; } }
-        @media only screen and (max-width: 37.5em) {
-          .product-itineraries__itinerary__title__subtitle {
-            padding-top: 0; } }
     .product-itineraries__itinerary__intro {
       grid-row: 2 / span 1;
       grid-column: center-start / col-mid;
@@ -2333,47 +2355,22 @@ h4 {
             padding-top: 3.5rem; } }
   .product-cabins__note {
     grid-column: center-start / center-end; }
+  @media only screen and (max-width: 50em) {
+    .product-cabins__page-divider {
+      font-size: 2.5rem; } }
   .product-cabins__deckplan {
     grid-column: center-start / center-end;
     display: grid;
-    grid-template-columns: min-content 1fr;
+    grid-template-columns: 1fr 1fr;
     column-gap: 8rem;
     row-gap: 4rem; }
     @media only screen and (max-width: 50em) {
       .product-cabins__deckplan {
-        grid-column: full-start / full-end; } }
+        grid-template-columns: 1fr; } }
     .product-cabins__deckplan__picture__img {
       object-fit: contain;
-      width: 50rem;
+      width: 100%;
       height: auto; }
-    @media only screen and (max-width: 62.5em) {
-      .product-cabins__deckplan__picture {
-        display: flex;
-        flex-direction: column; }
-        .product-cabins__deckplan__picture__title {
-          margin-bottom: 2rem;
-          display: inline-block;
-          margin-left: 6rem; }
-        .product-cabins__deckplan__picture__img {
-          height: 70rem;
-          width: auto;
-          margin: 0 6rem; } }
-    @media only screen and (max-width: 50em) {
-      .product-cabins__deckplan__picture__img {
-        height: 60rem; } }
-    @media only screen and (max-width: 37.5em) {
-      .product-cabins__deckplan__picture__img {
-        height: 50rem; } }
-    @media only screen and (max-width: 62.5em) {
-      .product-cabins__deckplan__picture {
-        grid-column: 1 / -1;
-        justify-content: center; } }
-    @media only screen and (max-width: 62.5em) {
-      .product-cabins__deckplan__content {
-        grid-column: 1 / -1;
-        justify-self: center;
-        width: 85%;
-        margin: 0 auto; } }
     .product-cabins__deckplan__content ul {
       list-style: none; }
     .product-cabins__deckplan__content li {

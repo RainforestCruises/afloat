@@ -15,6 +15,9 @@ jQuery(document).ready(function ($) {
     if ($(identifier).length)         
     {
           changeTabs(identifier);
+    }else {
+      changeTabs('#overview');
+
     }
   })
 
@@ -248,10 +251,26 @@ jQuery(document).ready(function ($) {
     //return false;
   }
 
+  //Burger
+  //Burger Menu -- click
+  $(".page-nav__button").on("click", function () {
+
+    $('.page-nav__button').toggleClass('page-nav__button--active');
+    $('.page-nav__collapse').toggleClass('page-nav__collapse--active');
+
+  });
+
+  //Burger Menu -- resize window -- remove collapse menu over 1000
+  $(window).resize(function () {
+    if ($(window).width() > 600) {
+      $('.page-nav__collapse').removeClass('page-nav__collapse--active');
+      $('.page-nav__button').removeClass('page-nav__button--active');
+
+    } 
+  });
 
 
-
-  //Page Nav -- Sticky (CAN COMBINE as UTIL)
+  //Page Nav -- Sticky 
   var navbar = document.querySelector('#template-nav');
   var subnavTitle = document.querySelector('#template-nav-title');
 

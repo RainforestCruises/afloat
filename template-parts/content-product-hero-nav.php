@@ -36,6 +36,26 @@ $hero_image = get_field('hero_image');
                     </li>
                 <?php } ?>
             </ul>
+            <div class="page-nav__button">
+                Delfin III
+                <svg>
+                    <use xlink:href="img/sprite.svg#icon-chevron-right"></use>
+                </svg>
+            </div>
+            <!-- page-nav__collapse--active -->
+            <nav class="page-nav__collapse ">
+                <ul class="page-nav__collapse__list">
+                    <li class="page-nav__collapse__list__item" href="#tours">
+                        <a href="#overview">Overview</a>
+                    </li>
+                    <li class="page-nav__collapse__list__item" href="#cruises">
+                        <a href="#itineraries">Itineraries</a>
+                    </li>
+                    <li class="page-nav__collapse__list__item" href="#accommodations">
+                        <a href="#cabins">Cabins</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 

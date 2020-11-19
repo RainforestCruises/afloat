@@ -34,7 +34,6 @@
 
         @media only screen and (max-width: $bp-medium) {
             row-gap: 4rem;
-
         }
 
         &__picture {
@@ -115,9 +114,6 @@
                     color: rgba($color-secondary, $alpha: 0.1);
                     font-size: 3.5rem;
                     z-index: -1;
-
-                
-                  
                 }
             }
 
@@ -178,69 +174,39 @@
         grid-column: center-start / center-end;
     }
 
+    &__page-divider {
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 2.5rem;
+        }
+    }
+
     &__deckplan {
         grid-column: center-start / center-end;
 
         display: grid;
-        grid-template-columns: min-content 1fr;
+        grid-template-columns: 1fr 1fr;
         column-gap: 8rem;
-        //margin-top: 2rem;
 
         row-gap: 4rem;
 
         @media only screen and (max-width: $bp-medium) {
-            grid-column: full-start / full-end;
+
+            grid-template-columns: 1fr;
         }
+
+
 
         &__picture {
             &__img {
                 object-fit: contain;
-                width: 50rem;
+                width: 100%;
                 height: auto;
             }
 
-            @media only screen and (max-width: $bp-large) {
-                display: flex;
-                flex-direction: column;
-
-                &__title {
-                    margin-bottom: 2rem;
-                    display: inline-block;
-                    margin-left: 6rem;
-                }
-
-                &__img {
-                    height: 70rem;
-                    width: auto;
-                    margin: 0 6rem;
-                    //align-self: flex-start;
-                }
-            }
-
-            @media only screen and (max-width: $bp-medium) {
-                &__img {
-                    height: 60rem;
-                }
-            }
-            @media only screen and (max-width: $bp-small) {
-                &__img {
-                    height: 50rem;
-                }
-            }
-
-            @media only screen and (max-width: $bp-large) {
-                grid-column: 1 / -1;
-                justify-content: center;
-            }
         }
 
         &__content {
-            @media only screen and (max-width: $bp-large) {
-                grid-column: 1 / -1;
-                justify-self: center;
-                width: 85%;
-                margin: 0 auto;
-            }
+
             ul {
                 list-style: none;
             }
