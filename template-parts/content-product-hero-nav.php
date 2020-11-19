@@ -39,21 +39,29 @@ $hero_image = get_field('hero_image');
             <div class="page-nav__button">
                 Delfin III
                 <svg>
-                    <use xlink:href="img/sprite.svg#icon-chevron-right"></use>
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
                 </svg>
             </div>
             <!-- page-nav__collapse--active -->
             <nav class="page-nav__collapse ">
                 <ul class="page-nav__collapse__list">
-                    <li class="page-nav__collapse__list__item" href="#tours">
-                        <a href="#overview">Overview</a>
+                    <li class="page-nav__collapse__list__item">
+                        <a class="page-nav__collapse__list__item__link" href="#overview">Overview</a>
                     </li>
-                    <li class="page-nav__collapse__list__item" href="#cruises">
-                        <a href="#itineraries">Itineraries</a>
+                    <li class="page-nav__collapse__list__item">
+                        <a class="page-nav__collapse__list__item__link" href="#itineraries">Itineraries</a>
                     </li>
-                    <li class="page-nav__collapse__list__item" href="#accommodations">
-                        <a href="#cabins">Cabins</a>
+                    <li class="page-nav__collapse__list__item" >
+                        <a class="page-nav__collapse__list__item__link" href="#cabins"><?php echo (get_post_type() == 'rfc_cruises') ? ('Cabins') : ('Accommodations'); ?></a>
                     </li>
+                    <li class="page-nav__collapse__list__item" >
+                        <a class="page-nav__collapse__list__item__link" href="#prices">Prices</a>
+                    </li>
+                    <?php if (get_post_type() == 'rfc_cruises') { ?>
+                    <li class="page-nav__collapse__list__item" >
+                        <a class="page-nav__collapse__list__item__link" href="#dates">Dates</a>
+                    </li>
+                    <?php } ?>
                 </ul>
             </nav>
         </div>

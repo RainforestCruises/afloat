@@ -26,7 +26,7 @@ $startingPrice = 0;
 
     </div>
     <div id="sentinal-overview"></div>
-    <div class="page-divider u-margin-bottom-none">
+    <div class="page-divider  u-margin-bottom-none product-overview__divider">
         <?php echo $args['propertyType'] ?> Overview
     </div>
     <!-- Description -->

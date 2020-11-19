@@ -4,15 +4,18 @@
     grid-template-rows: minmax(30vh, min-content);
     position: relative;
 
-
-
+    &__divider {
+        // @media only screen and (max-width: $bp-small) {
+        //     font-size: 3rem;
+        //     line-height: 4rem;
+        // }
+    }
 
     @media only screen and (max-width: $bp-large) {
         grid-template-rows: minmax(22vh, min-content);
     }
 
 
- 
 
     &::after {
         //intro background
@@ -26,8 +29,6 @@
         border-bottom: 1px solid $color-grey-light-1a;
     }
 
- 
-
     //Description
     &__description {
         grid-column: full-start / full-end;
@@ -39,6 +40,14 @@
         margin-top: 4rem;
 
         
+        @media only screen and (max-width: $bp-small) {
+            grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(
+                8,
+                [col-start] minmax(min-content, 14rem) [col-end] 
+              ) [center-end] minmax(3rem, 1fr) [full-end]; 
+        }
+
+
 
         &__detail {
             grid-column: full-start / col-end 4;
@@ -53,8 +62,12 @@
                 grid-row: 1 / span 1;
                 margin-bottom: 4rem;
             }
+            @media only screen and (max-width: $bp-small) {
 
-            &__picture {        
+                margin-bottom: 2rem;
+            }
+
+            &__picture {
                 max-width: 60rem;
                 height: 40rem;
                 margin-right: 4rem;
@@ -70,7 +83,6 @@
                     max-width: 100%;
                     max-height: 50rem;
                     height: auto;
-                   
                 }
 
                 //overlay gradient  --subtle for title text
@@ -90,7 +102,7 @@
                     box-shadow: $shadow-medium-short;
                     z-index: 0;
                 }
-    
+
                 &__title {
                     font-size: 2rem;
                     position: absolute;
@@ -98,11 +110,11 @@
                     left: 3rem;
                     color: $color-white;
                     z-index: 2;
-                  }
+                }
             }
 
-            &__highlights {        
-                grid-row: 2 / span 1;      
+            &__highlights {
+                grid-row: 2 / span 1;
                 font-size: 1.4rem;
 
                 max-width: 48rem;
@@ -121,7 +133,8 @@
                     padding-left: 0;
 
                     & ul {
-                        margin-left: 4rem;
+                        //margin-left: 4rem;
+                        
                     }
 
                     &::after {
@@ -135,7 +148,6 @@
                 }
             }
         }
-      
 
         &__text {
             grid-column: col-start 5 / center-end;
@@ -146,15 +158,11 @@
                 margin-top: 4rem;
                 grid-row: 2 / span 1;
             }
-
         }
-
-        
     }
 
     &__btn {
         grid-column: center-start / center-end;
         justify-self: center;
     }
-    
 }

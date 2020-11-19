@@ -1,0 +1,102 @@
+.page-nav {
+
+    &__button {
+        display: none;
+       
+        letter-spacing: .4rem;
+        text-transform: uppercase;
+        justify-content: center;
+        align-items: center;
+        grid-column: 1 / -1;
+        
+        font-size: 1.6rem;
+        font-weight: 800;
+        height:  6.5rem;
+
+        cursor: pointer;
+
+        transform: translateX(2rem);
+
+        color: $color-secondary;
+
+        & svg {
+            height: 2rem;
+            width: 2rem;
+            fill: currentColor;
+            transition: all .2s;
+            opacity: 0;
+        }
+
+        &--active {
+
+            svg {
+                transform: rotate(90deg);
+                opacity: 1;
+            }
+        }
+        
+    }
+
+    &__collapse {
+       display: none;
+        position: relative;
+       &--active {
+           display: flex;
+
+           &::after {
+            content: "";
+            position: absolute;
+            height: 1000%;
+            width: 100%;
+            background-color: rgba($color-black, 0.3);
+            bottom: -1000%;
+            left: 0;
+            z-index: 40;
+        }
+       }
+
+        &__list {
+            //color: red;
+            list-style: none;
+            font-size: 1.6rem;
+            letter-spacing: .4rem;
+            text-transform: uppercase;
+            font-weight: 600;
+
+            width: 100%;
+
+            transition: all .2s;
+            
+            &__item {
+                &__link {
+                    display: block;
+                    padding: 2rem 0;
+
+                    &:link,
+                    &:visited {
+                        
+                        text-decoration: none;
+                        color: $color-secondary;
+                        cursor: pointer;
+                        &:not(:last-child){
+                            border-bottom: 1px solid rgba($color-grey-light-2, 0.9); 
+                        }
+        
+                        &:first-child {
+                            border-top: 1px solid rgba($color-grey-light-2, 0.9); 
+        
+                        }
+                    }
+                   
+    
+                    &:hover {
+                        color: $color-supporting-light;
+                    }
+                }
+                
+            }
+        }
+
+    }
+    
+}

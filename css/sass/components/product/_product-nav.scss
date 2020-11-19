@@ -81,7 +81,7 @@
             padding-bottom: 2rem;
             padding-top: 0.8rem;
             @media only screen and (max-width: $bp-large) {
-                padding-bottom: 10rem;
+                padding-bottom: 6rem;
                 font-size: 1.8rem;
             }
             // @media only screen and (max-width: $bp-small) {
@@ -225,6 +225,12 @@
         grid-gap: 4rem;
         align-content: start;
         padding: 1.5rem 0;
+
+        @media only screen and (max-width: $bp-large) {
+            margin-bottom: 2rem;
+
+
+        }
 
         @media only screen and (max-width: $bp-small) {
             display: flex;

@@ -49,6 +49,11 @@ jQuery(document).ready(function ($) {
       if (tab_id == "itineraries") {
         offset = 180
       }
+    } else if ($(window).width() < 600){
+      offset = 105;
+      if (tab_id == "itineraries") {
+        offset = 155
+      }
     }
     else {
       offset = 90;
@@ -283,6 +288,8 @@ jQuery(document).ready(function ($) {
 
     if (isElementInView) {
       $('#page-nav').remove();
+      $('.page-nav__collapse').removeClass('page-nav__collapse--active');
+      $('.page-nav__button').removeClass('page-nav__button--active');
     } else { //if template nav is out of view
 
 
@@ -309,7 +316,19 @@ jQuery(document).ready(function ($) {
     }
   }
 
+ //SCROLLING
+  //Navigation Jump -- add url #anchor modification
+  $('#template-nav-title, .page-nav__collapse__list__item__link').click(function (event) {
+    event.preventDefault();
+    $('.page-nav__collapse').removeClass('page-nav__collapse--active');
+    $('.page-nav__button').removeClass('page-nav__button--active');
 
+    var tab_id = $(this).attr('href');
+    window.location.hash = tab_id;
+
+
+  })
+  //End Product Nav
 
 
 
