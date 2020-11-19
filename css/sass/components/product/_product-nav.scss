@@ -222,7 +222,7 @@
         grid-auto-flow: column;
         list-style: none;
         justify-content: start;
-        grid-gap: 4rem;
+        column-gap: 4rem;
         align-content: start;
         padding: 1.5rem 0;
 
@@ -236,8 +236,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            row-gap: 3rem;
-            padding: 1.5rem 3rem;
+            padding: 0rem 2rem;
 
         }
 
@@ -258,9 +257,14 @@
             cursor: pointer;
             display: block;
          
+            @media only screen and (max-width: $bp-small) {
+                margin: 2rem 2rem;
+    
+            }
 
             &__link {
                 display: block;
+                
                 font-size: 1.2rem;
                 font-weight: 600;
                 letter-spacing: 0.3rem;
@@ -271,6 +275,8 @@
                 @media only screen and (max-width: $bp-large) {
                     font-size: 1.5rem;
                 }
+
+      
             }
 
             &::after {
