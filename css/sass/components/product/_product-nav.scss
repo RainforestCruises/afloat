@@ -13,7 +13,15 @@
         width: 100%;
         display: grid; //for tabs
         grid-template-rows: 1fr min-content [nav-start] 6.5rem [nav-end];
-        max-height: 100%;
+        //max-height: 100%;
+
+        @media only screen and (max-width: $bp-large) {
+            justify-items: center;
+            text-align: center;  
+            grid-row: nav-start / hero-end;
+            grid-template-rows: 1fr min-content [nav-start] 7.5rem [nav-end];
+
+        }
 
         &__title {
             font-size: 6rem;
@@ -23,8 +31,9 @@
             align-self: end;
             line-height: 6.5rem;
 
-            @media only screen and (max-width: $bp-medium) {
-                font-size: 4rem;
+            @media only screen and (max-width: $bp-large) {
+                font-size: 8rem;
+                margin-bottom: 1.2rem;
             }
             &--sticky {
                 grid-column: 1 / span 1;
@@ -71,19 +80,22 @@
             max-width: 80%;
             padding-bottom: 2rem;
             padding-top: 0.8rem;
+            @media only screen and (max-width: $bp-large) {
+                padding-bottom: 10rem;
+                font-size: 1.8rem;
+
+            }
         }
     }
 
     @media only screen and (max-width: $bp-large) {
         display: grid;
         align-self: end;
+        height: 100%;
 
         grid-column: center-start / center-end;
 
-        &__caption {
-            justify-items: center;
-            text-align: center;
-        }
+  
     }
 
     @media only screen and (max-width: $bp-small) {
@@ -190,6 +202,8 @@
         align-content: start;
         padding: 1.5rem 0;
 
+
+
         & .current {
             &::after {
                 content: "";
@@ -206,6 +220,7 @@
             position: relative;
             cursor: pointer;
             display: block;
+         
 
             &__link {
                 display: block;
@@ -215,6 +230,10 @@
                 text-transform: uppercase;
                 text-decoration: none;
                 color: $color-white;
+
+                @media only screen and (max-width: $bp-large) {
+                    font-size: 1.5rem;
+                }
             }
 
             &::after {

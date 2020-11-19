@@ -886,10 +886,10 @@ h4 {
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
   @media only screen and (max-width: 62.5em) {
     .product-page {
-      grid-template-rows: [nav-start] 40vh [hero-end content-start] repeat(7, min-content) [content-end footer-start] min-content [footer-end]; } }
+      grid-template-rows: [nav-start] 60vh [hero-end content-start] repeat(7, min-content) [content-end footer-start] min-content [footer-end]; } }
   @media only screen and (max-width: 50em) {
     .product-page {
-      grid-template-rows: [nav-start] 35vh [hero-end content-start] repeat(7, min-content) [content-end footer-start] min-content [footer-end]; } }
+      grid-template-rows: [nav-start] 50vh [hero-end content-start] repeat(7, min-content) [content-end footer-start] min-content [footer-end]; } }
 
 .product-content {
   grid-row: content-start / span 1;
@@ -1353,8 +1353,13 @@ h4 {
     color: #f8f8f8;
     width: 100%;
     display: grid;
-    grid-template-rows: 1fr min-content [nav-start] 6.5rem [nav-end];
-    max-height: 100%; }
+    grid-template-rows: 1fr min-content [nav-start] 6.5rem [nav-end]; }
+    @media only screen and (max-width: 62.5em) {
+      .product-nav__caption {
+        justify-items: center;
+        text-align: center;
+        grid-row: nav-start / hero-end;
+        grid-template-rows: 1fr min-content [nav-start] 7.5rem [nav-end]; } }
     .product-nav__caption__title {
       font-size: 6rem;
       font-weight: 300;
@@ -1362,9 +1367,10 @@ h4 {
       display: block;
       align-self: end;
       line-height: 6.5rem; }
-      @media only screen and (max-width: 50em) {
+      @media only screen and (max-width: 62.5em) {
         .product-nav__caption__title {
-          font-size: 4rem; } }
+          font-size: 8rem;
+          margin-bottom: 1.2rem; } }
       .product-nav__caption__title--sticky {
         grid-column: 1 / span 1;
         grid-row: 2 / span 1;
@@ -1402,14 +1408,16 @@ h4 {
       max-width: 80%;
       padding-bottom: 2rem;
       padding-top: 0.8rem; }
+      @media only screen and (max-width: 62.5em) {
+        .product-nav__caption__subtitle {
+          padding-bottom: 10rem;
+          font-size: 1.8rem; } }
   @media only screen and (max-width: 62.5em) {
     .product-nav {
       display: grid;
       align-self: end;
-      grid-column: center-start / center-end; }
-      .product-nav__caption {
-        justify-items: center;
-        text-align: center; } }
+      height: 100%;
+      grid-column: center-start / center-end; } }
   @media only screen and (max-width: 37.5em) {
     .product-nav {
       grid-column: 1 / -1; } }
@@ -1501,6 +1509,9 @@ h4 {
         text-transform: uppercase;
         text-decoration: none;
         color: #fff; }
+        @media only screen and (max-width: 62.5em) {
+          .product-nav__tab-list__item__link {
+            font-size: 1.5rem; } }
       .product-nav__tab-list__item::after {
         content: "";
         position: absolute;

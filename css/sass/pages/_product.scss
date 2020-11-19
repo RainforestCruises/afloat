@@ -11,13 +11,13 @@
 
   @media only screen and (max-width: $bp-large) {
     grid-template-rows:
-      [nav-start] 40vh [hero-end content-start] repeat(7, min-content)
+      [nav-start] 60vh [hero-end content-start] repeat(7, min-content)
       [content-end footer-start] min-content [footer-end];
   }
 
   @media only screen and (max-width: $bp-medium) {
     grid-template-rows:
-      [nav-start] 35vh [hero-end content-start] repeat(7, min-content)
+      [nav-start] 50vh [hero-end content-start] repeat(7, min-content)
       [content-end footer-start] min-content [footer-end];
   }
 }
