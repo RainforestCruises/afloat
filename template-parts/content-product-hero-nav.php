@@ -10,8 +10,11 @@ $hero_image = get_field('hero_image');
 <!-- Nav -->
 <section class="product-nav">
     <div class="product-nav__caption">
-        <h1 class="product-nav__caption__title" id="template-nav-title" href="#top"><?php echo get_the_title() ?></h1>
-        <h2 class="product-nav__caption__subtitle"><?php echo get_field('top_snippet') ?></h2>
+        <div class="product-nav__caption__title-group">
+            <h1 class="product-nav__caption__title-group__title" id="template-nav-title"><?php echo get_the_title() ?></h1>
+            <h2 class="product-nav__caption__title-group__subtitle"><?php echo get_field('top_snippet') ?></h2>
+        </div>
+
         <div class="product-nav__sticky-wrapper" id="template-nav">
             <ul class="product-nav__tab-list">
                 <li class="product-nav__tab-list__item tab-overview current">
@@ -51,16 +54,16 @@ $hero_image = get_field('hero_image');
                     <li class="page-nav__collapse__list__item">
                         <a class="page-nav__collapse__list__item__link" href="#itineraries">Itineraries</a>
                     </li>
-                    <li class="page-nav__collapse__list__item" >
+                    <li class="page-nav__collapse__list__item">
                         <a class="page-nav__collapse__list__item__link" href="#cabins"><?php echo (get_post_type() == 'rfc_cruises') ? ('Cabins') : ('Accommodations'); ?></a>
                     </li>
-                    <li class="page-nav__collapse__list__item" >
+                    <li class="page-nav__collapse__list__item">
                         <a class="page-nav__collapse__list__item__link" href="#prices">Prices</a>
                     </li>
                     <?php if (get_post_type() == 'rfc_cruises') { ?>
-                    <li class="page-nav__collapse__list__item" >
-                        <a class="page-nav__collapse__list__item__link" href="#dates">Dates</a>
-                    </li>
+                        <li class="page-nav__collapse__list__item">
+                            <a class="page-nav__collapse__list__item__link" href="#dates">Dates</a>
+                        </li>
                     <?php } ?>
                 </ul>
             </nav>

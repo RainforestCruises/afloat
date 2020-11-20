@@ -309,7 +309,7 @@ jQuery(document).ready(function ($) {
         if (elementExists == null) {
           var newTitle = $(subnavTitle).clone(true);
           newTitle.attr('id', 'page-nav-title')
-          $(newTitle).addClass('product-nav__caption__title--sticky'); //create common style
+          $(newTitle).addClass('product-nav__caption__title-group__title--sticky'); //create common style
           $('#page-nav').append(newTitle);
         }
       }
