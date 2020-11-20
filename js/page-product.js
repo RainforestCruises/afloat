@@ -341,12 +341,13 @@ jQuery(document).ready(function ($) {
     arrows: true,
     fade: true,
     centerMode: true,
+    lazyLoad: 'ondemand',
     asNavFor: '.areas-slider__slider-nav',
     prevArrow: '<button class="btn-circle btn-dark btn-circle--left areas-slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-left"></use></svg></button>',
     nextArrow: '<button class="btn-circle btn-dark btn-circle--right areas-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-right"></use></svg></button>',
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 1000,
         settings: {
           arrows: false,
 
@@ -360,10 +361,17 @@ jQuery(document).ready(function ($) {
     slidesToScroll: 1,
     asNavFor: '.areas-slider__slider-for',
     dots: false,
-    lazyLoad: 'ondemand',
     centerMode: true,
     focusOnSelect: true,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
 
+        }
+      }
+    ]
   });
 
   //Reviews Slider
@@ -380,7 +388,6 @@ jQuery(document).ready(function ($) {
       {
         breakpoint: 600,
         settings: {
-          arrows: false
 
         }
       }
@@ -406,6 +413,7 @@ jQuery(document).ready(function ($) {
     initialSlide: 0,
     lazyLoad: 'ondemand',
     arrows: true,
+    dots: false,
     prevArrow: '<button class="btn-circle btn-dark btn-circle--left related-slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-left"></use></svg></button>',
     nextArrow: '<button class="btn-circle btn-dark btn-circle--right related-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-arrow-right"></use></svg></button>',
     responsive: [
@@ -415,7 +423,6 @@ jQuery(document).ready(function ($) {
           slidesToShow: (slidesToShow < 3) ? slidesToShow : 3,
           slidesToScroll: (slidesToShow < 3) ? slidesToShow : 3,
           infinite: true,
-          dots: true
         }
       },
       {
@@ -429,7 +436,9 @@ jQuery(document).ready(function ($) {
         breakpoint: 680,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          arrows: false,
+
         }
       }
     ]

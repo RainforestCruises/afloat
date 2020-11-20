@@ -97,7 +97,14 @@ $deck_plan = get_field('deck_plan');
                 <div class="product-cabins__deckplan__picture__title">
                     <div class="heading-3 heading-3--underline">Deck Plan</div>
                 </div>
-                <img src="<?php echo esc_url($deck_plan['url']); ?>" alt="" class="product-cabins__deckplan__picture__img">
+                <a class="product-cabins__deckplan__picture" id="map-lightbox" href="<?php echo esc_url($deck_plan['url']); ?>" title="Deckplan">
+                    <?php if ($deck_plan) : ?>
+                        <img class="product-cabins__deckplan__picture__img" src="<?php echo esc_url($deck_plan['url']); ?>" alt="">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
+                        </svg>
+                    <?php endif ?>
+                </a>
             </div>
             <div class="product-cabins__deckplan__content">
                 <div class="product-cabins__deckplan__content__title">

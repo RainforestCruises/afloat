@@ -33,16 +33,7 @@ $monthNames = $args['monthNames'];
     <div class="product-dates__search-area">
         <!-- Controls -->
         <form class="product-dates__search-area__controls" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">
-            <label class="product-dates__search-area__controls__control" for="dates-itinerary-select">
-                <span class="product-dates__search-area__controls__control__label-text">Itinerary</span>
-                <select id="dates-itinerary-select" name="dates-itinerary-select" data-tab="<?php echo $count; ?>">
-                    <option></option>
-                    <option value="0">Any</option>
-                    <?php foreach ($cruise_data['Itineraries'] as $itinerary) { ?>
-                        <option value="<?php echo $itinerary['Id'] ?>"><?php echo $itinerary['Name'] . ' - ' . $itinerary['ShortName'] ?></option>
-                    <?php } ?>
-                </select>
-            </label>
+      
 
             <label class="product-dates__search-area__controls__control" for="dates-month-select">
                 <span class="product-dates__search-area__controls__control__label-text">Month</span>
@@ -67,7 +58,16 @@ $monthNames = $args['monthNames'];
                     <?php } ?>
                 </select>
             </label>
-
+      <label class="product-dates__search-area__controls__control" for="dates-itinerary-select">
+                <span class="product-dates__search-area__controls__control__label-text">Itinerary</span>
+                <select id="dates-itinerary-select" name="dates-itinerary-select" data-tab="<?php echo $count; ?>">
+                    <option></option>
+                    <option value="0">Any</option>
+                    <?php foreach ($cruise_data['Itineraries'] as $itinerary) { ?>
+                        <option value="<?php echo $itinerary['Id'] ?>"><?php echo $itinerary['Name'] . ' - ' . $itinerary['ShortName'] ?></option>
+                    <?php } ?>
+                </select>
+            </label>
 
             <!-- Direct to function within functions.php -->
             <input type="hidden" name="action" value="productSearch">

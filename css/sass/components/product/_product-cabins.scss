@@ -42,6 +42,11 @@
         row-gap: 8rem;
         align-items: center;
 
+        @media only screen and (max-width: $bp-large) {
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+                }
+
         @media only screen and (max-width: $bp-medium) {
             row-gap: 4rem;
         }
@@ -51,30 +56,22 @@
         &__picture {
             grid-column: full-start / col-end 4;
             justify-self: end;
-
             max-width: 60rem;
-            height: 40rem;
             margin-right: 4rem;
             margin-left: 4rem;
             position: relative;
             display: flex;
 
-            @media only screen and (max-width: $bp-large) {
-                height: 30rem;
-            }
+
 
             //stack
             @media only screen and (max-width: $bp-medium) {
                 grid-column: full-start / full-end;
                 grid-row: 1 / span 1;
                 justify-self: center;
-
                 max-width: 100%;
-                height: 45rem;
             }
-            @media only screen and (max-width: $bp-small) {
-                height: 35rem;
-            }
+
 
             &--flipped {
                 grid-column: col-start 5 / full-end;
@@ -86,12 +83,9 @@
             }
 
             img {
-                object-fit: cover;
+                object-fit: contain;
                 width: 100%;
                 height: auto;
-                box-shadow: $shadow-light;
-
-              
             }
         }
 
@@ -214,10 +208,26 @@
 
 
         &__picture {
+            position: relative;
             &__img {
                 object-fit: contain;
                 width: 100%;
                 height: auto;
+            }
+            & svg {
+                position: absolute;
+                bottom: 2rem;
+                left: 2rem;
+                fill: $color-secondary;
+                height: 2rem;
+                width: 2rem;
+                opacity: 0;
+                transition: all .3s;
+            }
+            &:hover{
+                & svg {
+                    opacity: 1;
+                }
             }
 
         }

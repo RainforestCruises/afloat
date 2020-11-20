@@ -21,7 +21,7 @@
     height: 55rem;
 
     @media only screen and (max-width: $bp-small) {
-        max-width: 70%; //media query       
+        max-width: 100%; //media query       
     }
 
     .slick-track {

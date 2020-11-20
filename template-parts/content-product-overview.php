@@ -55,7 +55,7 @@ $startingPrice = 0;
                 </ul>
             </div>
         </div>
-        <div class="product-overview__description__text drop-cap-1  u-margin-bottom-medium">
+        <div class="product-overview__description__text drop-cap-1 ">
             <p> <?php echo get_field('overview_content') ?>
             </p>
         </div>

@@ -112,45 +112,43 @@
     & select {
         visibility: hidden !important;
     }
+
+  
 }
+
 .irs {
     font-family: $font-primary !important;
 
     &--round {
         & span {
             font-size: 1.2rem !important;
-    
         }
         & .irs-single {
             background-color: $color-secondary !important;
             &::before {
                 border-top-color: $color-secondary !important;
-    
             }
         }
         & .irs-handle {
             border: 3px solid $color-secondary;
         }
-    
+
         & .irs-bar {
             background-color: $color-secondary;
         }
-    
+
         & .irs-from {
             background-color: $color-secondary;
             &::before {
                 border-top-color: $color-secondary !important;
-    
             }
         }
-    
+
         & .irs-to {
             background-color: $color-secondary;
             &::before {
                 border-top-color: $color-secondary !important;
-    
             }
         }
     }
 }
-

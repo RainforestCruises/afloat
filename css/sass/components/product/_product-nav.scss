@@ -4,7 +4,7 @@
     display: flex;
     grid-row: nav-start / hero-end;
     grid-column: center-start / -1;
-    
+
     user-select: none;
     z-index: 3;
 
@@ -19,7 +19,7 @@
 
             @media only screen and (max-width: $bp-large) {
                 justify-items: center;
-                text-align: center;     
+                text-align: center;
             }
 
             &__title {
@@ -29,7 +29,6 @@
                 display: block;
                 align-self: end;
                 line-height: 6.5rem;
-
 
                 &--sticky {
                     grid-column: 1 / span 1;
@@ -79,8 +78,6 @@
                 @media only screen and (max-width: $bp-large) {
                     text-align: center;
                     max-width: 100%;
-
-
                 }
             }
         }
@@ -218,7 +215,6 @@
         @media only screen and (max-width: $bp-large) {
             margin-bottom: 2rem;
             justify-content: center;
-
         }
 
         @media only screen and (max-width: $bp-small) {
@@ -226,7 +222,6 @@
             flex-wrap: wrap;
             padding: 0rem 2rem;
         }
-
 
         & .current {
             &::after {
@@ -291,20 +286,25 @@
     &__rotate {
         width: 100%; // change with media query to 100% - min-width: 50rem;
         align-self: flex-end;
-        transform: translateY(55%);
+        transform: translateY(60%);
         z-index: 4;
+
+        @media only screen and (max-width: $bp-largest) {
+            transform: translateY(70%);
+
+        }
     }
 
     &__slick {
         display: grid;
         align-items: start;
+        height: 55vh;
+        z-index: 20;
+
 
         @media only screen and (max-width: $bp-large) {
             display: none;
         }
-
-        height: 55vh;
-        z-index: 20;
 
         .slick-slide {
             outline: none;
@@ -318,6 +318,11 @@
             color: white; //text
             font-size: 2rem;
             position: relative;
+
+            @media only screen and (max-width: $bp-largest) {
+                height: 40vh !important;
+                width: 45rem !important;
+            }
 
             display: grid !important;
 

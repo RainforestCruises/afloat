@@ -113,34 +113,6 @@ jQuery(document).ready(function ($) {
 
 
 
-
-
-  // $("#destination-select").select2().on("select2-open", () => {
-  //   let oldSearchBox = $(".select2-focused")[0]; //Get the current search box
-  //   let parent = oldSearchBox.parentNode; //The parent of the search box (i.e. the element that holds it)
-
-  //   let search = document.createElement("input"); //Create a new input box
-  //   search.classList.add("select2-input"); //Make it look like the old one
-  //   search.addEventListener("keyup", () => { //Whenever someone releases a key, filter the results
-  //     let results = parent.parentNode.getElementsByClassName("select2-result"); //Get all of the select box options
-  //     let query = search.value.toLowerCase(); //Get what the user has typed (in lower case so search is case-insensitive)
-  //     for (let result of results) { //Loop through all of the select box options
-  //       let resultText = result.children[0].childNodes[1].nodeValue.toLowerCase(); //Get the text for that option (also in lower case)
-  //       result.style.display = (resultText.indexOf(query) == -1) ? "none" : "block"; //If the result text contains the search, it is displayed, otherwise it is hidden
-  //     }
-  //   })
-
-  //   parent.appendChild(search); //Add the new search box to the page
-  //   oldSearchBox.remove(); //Remove the old one
-  // });
-
-  // $("#destination-select").select2().on("select2-close", () => {
-  //   setTimeout(() => {
-  //     $(":focus").blur();
-  //   }, 50);
-  // });
-
-
 });
 
 

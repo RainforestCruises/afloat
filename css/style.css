@@ -92,6 +92,9 @@ body {
   font-size: 3.6rem;
   color: #142838;
   display: inline-block; }
+  @media only screen and (max-width: 37.5em) {
+    .heading-3 {
+      font-size: 2.5rem; } }
   .heading-3--underline::after {
     content: "";
     height: 2px;
@@ -891,6 +894,9 @@ h4 {
   @media only screen and (max-width: 50em) {
     .product-page {
       grid-template-rows: [nav-start] 50vh [hero-end content-start] repeat(7, min-content) [content-end footer-start] min-content [footer-end]; } }
+  @media only screen and (max-width: 37.5em) {
+    .product-page {
+      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
 
 .product-content {
   grid-row: content-start / span 1;
@@ -1551,8 +1557,11 @@ h4 {
   .product-nav__rotate {
     width: 100%;
     align-self: flex-end;
-    transform: translateY(55%);
+    transform: translateY(60%);
     z-index: 4; }
+    @media only screen and (max-width: 75em) {
+      .product-nav__rotate {
+        transform: translateY(70%); } }
   .product-nav__slick {
     display: grid;
     align-items: start;
@@ -1572,6 +1581,10 @@ h4 {
       font-size: 2rem;
       position: relative;
       display: grid !important; }
+      @media only screen and (max-width: 75em) {
+        .product-nav__slick__item {
+          height: 40vh !important;
+          width: 45rem !important; } }
       .product-nav__slick__item img {
         grid-row: 1 / -1;
         grid-column: 1 / -1;
@@ -1659,7 +1672,7 @@ h4 {
   height: 55rem; }
   @media only screen and (max-width: 37.5em) {
     .related-slider {
-      max-width: 70%; } }
+      max-width: 100%; } }
   .related-slider .slick-track {
     padding-bottom: 8rem;
     width: 100%; }
@@ -1807,6 +1820,9 @@ h4 {
   @media only screen and (max-width: 62.5em) {
     .product-overview {
       grid-template-rows: minmax(22vh, min-content); } }
+  @media only screen and (max-width: 37.5em) {
+    .product-overview {
+      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
   .product-overview::after {
     content: "";
     background-color: #f8f8f8;
@@ -1854,7 +1870,9 @@ h4 {
           .product-overview__description__detail__picture {
             max-width: 100%;
             max-height: 50rem;
-            height: auto; } }
+            height: auto;
+            margin-right: 0rem;
+            margin-left: 0rem; } }
         .product-overview__description__detail__picture::after {
           content: "";
           position: absolute;
@@ -1919,6 +1937,9 @@ h4 {
   @media only screen and (max-width: 62.5em) {
     .product-itineraries {
       grid-template-rows: minmax(22vh, min-content); } }
+  @media only screen and (max-width: 37.5em) {
+    .product-itineraries {
+      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
   .product-itineraries::after {
     content: "";
     background-color: #f8f8f8;
@@ -2139,6 +2160,8 @@ h4 {
         .product-itineraries__itinerary__side-content__detail__widget {
           position: relative;
           margin-bottom: 8rem; }
+          .product-itineraries__itinerary__side-content__detail__widget select {
+            visibility: hidden !important; }
           .product-itineraries__itinerary__side-content__detail__widget__top-section {
             display: flex;
             justify-content: space-between;
@@ -2274,6 +2297,10 @@ h4 {
     padding-bottom: 8rem;
     row-gap: 8rem;
     align-items: center; }
+    @media only screen and (max-width: 62.5em) {
+      .product-cabins__cabin {
+        padding-top: 2rem;
+        padding-bottom: 3rem; } }
     @media only screen and (max-width: 50em) {
       .product-cabins__cabin {
         row-gap: 4rem; } }
@@ -2281,24 +2308,16 @@ h4 {
       grid-column: full-start / col-end 4;
       justify-self: end;
       max-width: 60rem;
-      height: 40rem;
       margin-right: 4rem;
       margin-left: 4rem;
       position: relative;
       display: flex; }
-      @media only screen and (max-width: 62.5em) {
-        .product-cabins__cabin__picture {
-          height: 30rem; } }
       @media only screen and (max-width: 50em) {
         .product-cabins__cabin__picture {
           grid-column: full-start / full-end;
           grid-row: 1 / span 1;
           justify-self: center;
-          max-width: 100%;
-          height: 45rem; } }
-      @media only screen and (max-width: 37.5em) {
-        .product-cabins__cabin__picture {
-          height: 35rem; } }
+          max-width: 100%; } }
       .product-cabins__cabin__picture--flipped {
         grid-column: col-start 5 / full-end;
         justify-self: start; }
@@ -2306,10 +2325,9 @@ h4 {
           .product-cabins__cabin__picture--flipped {
             grid-column: full-start / full-end; } }
       .product-cabins__cabin__picture img {
-        object-fit: cover;
+        object-fit: contain;
         width: 100%;
-        height: auto;
-        box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.13); }
+        height: auto; }
     .product-cabins__cabin__content {
       grid-column: col-start 5 / center-end;
       grid-row: 1 / span 1; }
@@ -2384,10 +2402,23 @@ h4 {
     @media only screen and (max-width: 50em) {
       .product-cabins__deckplan {
         grid-template-columns: 1fr; } }
-    .product-cabins__deckplan__picture__img {
-      object-fit: contain;
-      width: 100%;
-      height: auto; }
+    .product-cabins__deckplan__picture {
+      position: relative; }
+      .product-cabins__deckplan__picture__img {
+        object-fit: contain;
+        width: 100%;
+        height: auto; }
+      .product-cabins__deckplan__picture svg {
+        position: absolute;
+        bottom: 2rem;
+        left: 2rem;
+        fill: #142838;
+        height: 2rem;
+        width: 2rem;
+        opacity: 0;
+        transition: all .3s; }
+      .product-cabins__deckplan__picture:hover svg {
+        opacity: 1; }
     .product-cabins__deckplan__content ul {
       list-style: none; }
     .product-cabins__deckplan__content li {
@@ -2414,6 +2445,9 @@ h4 {
   @media only screen and (max-width: 62.5em) {
     .product-prices {
       grid-template-rows: minmax(22vh, min-content); } }
+  @media only screen and (max-width: 37.5em) {
+    .product-prices {
+      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
   .product-prices::after {
     content: "";
     background-color: #f8f8f8;
@@ -2654,7 +2688,7 @@ h4 {
       @media only screen and (max-width: 37.5em) {
         .reviews-slider__item__content {
           margin: 0rem auto;
-          padding: 0rem 3rem; } }
+          padding: 0rem 0rem; } }
       .reviews-slider__item__content__quote {
         position: absolute;
         height: 5rem;
@@ -2670,7 +2704,7 @@ h4 {
         @media only screen and (max-width: 37.5em) {
           .reviews-slider__item__content__quote {
             top: -.5rem;
-            left: 3rem; } }
+            left: 0rem; } }
       .reviews-slider__item__content__text {
         line-height: 3rem;
         font-style: italic;
@@ -2690,7 +2724,8 @@ h4 {
         align-items: center; }
         @media only screen and (max-width: 37.5em) {
           .reviews-slider__item__content__profile {
-            margin-bottom: 4rem; } }
+            margin-bottom: 4rem;
+            margin-left: 2rem; } }
         .reviews-slider__item__content__profile__img {
           height: 8rem;
           width: 8rem;
@@ -2760,10 +2795,26 @@ h4 {
       .areas-slider__slider-for .slick-slide {
         margin: 2rem 4rem;
         margin-bottom: 8rem; } }
+    @media only screen and (max-width: 25em) {
+      .areas-slider__slider-for .slick-slide {
+        margin-bottom: 5rem; } }
   .areas-slider__slider-for__item {
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2);
     position: relative;
+    height: 75vh;
     display: flex !important; }
+    @media only screen and (max-width: 75em) {
+      .areas-slider__slider-for__item {
+        height: 65vh; } }
+    @media only screen and (max-width: 50em) {
+      .areas-slider__slider-for__item {
+        height: 50vh; } }
+    @media only screen and (max-width: 37.5em) {
+      .areas-slider__slider-for__item {
+        height: 35vh; } }
+    @media only screen and (max-width: 25em) {
+      .areas-slider__slider-for__item {
+        height: 25vh; } }
     .areas-slider__slider-for__item::after {
       content: "";
       position: absolute;
@@ -2789,6 +2840,9 @@ h4 {
     color: #142838;
     font-size: 1.6rem;
     overflow: hidden; }
+    @media only screen and (max-width: 25em) {
+      .areas-slider__slider-nav {
+        font-size: 1.4rem; } }
     .areas-slider__slider-nav .slick-slide {
       outline: none; }
     .areas-slider__slider-nav .slick-current {
@@ -2801,6 +2855,9 @@ h4 {
       font-weight: 700;
       letter-spacing: 0.1rem;
       transition: all 0.5s; }
+    .areas-slider__slider-nav div[aria-hidden="true"] {
+      transition: opacity .3s;
+      opacity: 0 !important; }
   .areas-slider__btn--left {
     position: absolute;
     top: 40%;
@@ -2820,6 +2877,9 @@ h4 {
   @media only screen and (max-width: 62.5em) {
     .product-dates {
       grid-template-rows: minmax(22vh, min-content); } }
+  @media only screen and (max-width: 37.5em) {
+    .product-dates {
+      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
   .product-dates::after {
     content: "";
     background-color: #f8f8f8;
@@ -2836,22 +2896,15 @@ h4 {
     display: grid;
     margin-bottom: 10rem; }
     .product-dates__search-area__controls {
-      margin: 4rem 0;
-      display: grid;
-      grid-template-columns: repeat(3, min-content);
-      justify-content: center;
-      column-gap: 3rem; }
-      @media only screen and (max-width: 50em) {
-        .product-dates__search-area__controls {
-          grid-template-columns: repeat(2, min-content);
-          row-gap: 2rem;
-          margin-bottom: 6rem; } }
-      @media only screen and (max-width: 37.5em) {
-        .product-dates__search-area__controls {
-          grid-template-columns: min-content; } }
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; }
       .product-dates__search-area__controls__control {
         display: flex;
-        align-items: center; }
+        align-items: center;
+        padding: 1rem 2rem; }
         .product-dates__search-area__controls__control__label-text {
           font-size: 1.5rem;
           padding-top: 0.2rem;
@@ -2864,6 +2917,8 @@ h4 {
               font-size: 1.8rem; } }
         .product-dates__search-area__controls__control .select2-selection--single {
           border: none !important; }
+        .product-dates__search-area__controls__control select {
+          visibility: hidden !important; }
     .product-dates__search-area__results__itinerary-group__itinerary {
       display: grid;
       grid-template-columns: max-content 1fr max-content;
@@ -2879,6 +2934,9 @@ h4 {
           grid-template-columns: 1fr;
           justify-items: center;
           row-gap: 2rem; } }
+      @media only screen and (max-width: 37.5em) {
+        .product-dates__search-area__results__itinerary-group__itinerary {
+          padding: 2rem; } }
       .product-dates__search-area__results__itinerary-group__itinerary__title-group {
         font-family: "Old Standard TT", serif;
         display: grid;
@@ -2914,6 +2972,9 @@ h4 {
       .product-dates__search-area__results__itinerary-group__itinerary__description {
         font-size: 1.6rem;
         padding: 0 3rem; }
+        @media only screen and (max-width: 50em) {
+          .product-dates__search-area__results__itinerary-group__itinerary__description {
+            padding: 0; } }
     .product-dates__search-area__results__itinerary-group__departures__departure {
       display: grid;
       position: relative;
@@ -2998,6 +3059,9 @@ h4 {
                 top: 5rem;
                 right: 3rem;
                 transform: scale(2); } }
+            @media only screen and (max-width: 25em) {
+              .product-dates__search-area__results__itinerary-group__departures__departure__top__col--expand {
+                top: 2rem; } }
       .product-dates__search-area__results__itinerary-group__departures__departure__bottom {
         margin-top: 3rem;
         border-top: 1px solid #e6e6e6;

@@ -26,7 +26,7 @@
 
   &__slider-for {
     
-    
+
     .slick-slide {
       margin: 8rem 8rem;
       margin-top: 2rem;
@@ -35,7 +35,9 @@
         margin: 2rem 4rem;
         margin-bottom: 8rem;
       }
-
+      @media only screen and (max-width: $bp-xsmall) {
+        margin-bottom: 5rem;
+      }
     }
 
 
@@ -43,7 +45,20 @@
       box-shadow: $shadow-medium-short;
       position: relative;
     
+      height: 75vh;
 
+      @media only screen and (max-width: $bp-largest) {
+        height: 65vh;
+      }
+      @media only screen and (max-width: $bp-medium) {
+        height: 50vh;
+      }
+      @media only screen and (max-width: $bp-small) {
+        height: 35vh;
+      }
+      @media only screen and (max-width: $bp-xsmall) {
+        height: 25vh;
+      }
       //overlay gradient  --subtle for title text
       display: flex !important;
       &::after {
@@ -62,6 +77,9 @@
         object-fit: cover;
         background-position: center;
         z-index: 0;
+        // object-fit: contain;
+        // width: 100%;
+        // height: auto;
       }
 
       &__title {
@@ -80,6 +98,10 @@
     font-size: 1.6rem;
     overflow: hidden;
 
+    @media only screen and (max-width: $bp-xsmall) {
+      font-size: 1.4rem;
+    }
+
     & .slick-slide {
       outline: none; // this one
     }
@@ -94,8 +116,13 @@
       cursor: pointer;
       font-weight: 700;
       letter-spacing: 0.1rem;
-
       transition: all 0.5s;
+    }
+
+    & div[aria-hidden="true"]{
+      //display: none !important;
+      transition: opacity .3s;
+      opacity: 0 !important;
     }
   }
 

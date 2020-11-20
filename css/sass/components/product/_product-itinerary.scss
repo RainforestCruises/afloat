@@ -10,6 +10,9 @@
     @media only screen and (max-width: $bp-large) {
         grid-template-rows: minmax(22vh, min-content);
     }
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: $page-container-small;
+    }
 
     &::after { 
         //intro background
@@ -329,7 +332,9 @@
                 &__widget {
                     position: relative;
                     margin-bottom: 8rem;
-
+                    & select {
+                        visibility: hidden !important;
+                    }
                     &__top-section {
                         display: flex;
                         justify-content: space-between;
@@ -481,104 +486,4 @@
         }
     }
 }
-
-// .accordion {
-//     .accordion-item {
-//         //padding: 1rem 0 ;
-//         border-bottom: 1px solid $color-grey-light-2;
-//         button[aria-expanded="true"] {
-//             border-bottom: 1px solid $color-supporting-light;
-//         }
-//     }
-//     button {
-//         position: relative;
-//         display: block;
-//         text-align: left;
-//         width: 100%;
-//         padding: 2rem 0;
-//         color: $color-secondary;
-//         font-size: 1.15rem;
-//         font-weight: 400;
-//         border: none;
-//         background: none;
-//         outline: none;
-//         &:hover,
-//         &:focus {
-//             cursor: pointer;
-//             color: $color-supporting-light;
-//             &::after {
-//                 cursor: pointer;
-//                 color: $color-supporting-light;
-//                 border: 1px solid $color-supporting-light;
-//             }
-//         }
-//         .accordion-title {
-//             //padding: 2rem 2rem 2rem 0;
-//             padding-right: 3rem;
-//             font-size: 1.6rem;
-//             font-family: $font-primary;
-//         }
-//         .icon {
-//             display: inline-block;
-//             position: absolute;
-//             //top: 18px;
-//             right: 0;
-//             width: 22px;
-//             height: 22px;
-//             border: 1px solid;
-//             border-radius: 22px;
-//             &::before {
-//                 display: block;
-//                 position: absolute;
-//                 content: "";
-//                 top: 9px;
-//                 left: 5px;
-//                 width: 10px;
-//                 height: 2px;
-//                 background: currentColor;
-//             }
-//             &::after {
-//                 display: block;
-//                 position: absolute;
-//                 content: "";
-//                 top: 5px;
-//                 left: 9px;
-//                 width: 2px;
-//                 height: 10px;
-//                 background: currentColor;
-//             }
-//         }
-//     }
-//     button[aria-expanded="true"] {
-//         color: $color-supporting-light;
-//         .icon {
-//             &::after {
-//                 width: 0;
-//             }
-//         }
-//         + .accordion-content {
-//             opacity: 1;
-//             max-height: 120rem;
-//             transition: all 0.3s ease-out;
-//             will-change: opacity, max-height;
-//         }
-//     }
-//     .accordion-content {
-//         opacity: 0;
-//         max-height: 0;
-//         overflow: hidden;
-//         transition: opacity 200ms linear, max-height 200ms linear;
-//         will-change: opacity, max-height;
-//         p {
-//             font-size: 1.4rem;
-//             font-weight: 300;
-//             margin: 2em 0;
-
-//             @media only screen and (max-width: $bp-largest) {
-//                 font-size: 1.6rem;
-//             }
-//         }
-//     }
-// }
-
 
