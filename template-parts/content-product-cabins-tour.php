@@ -1,20 +1,8 @@
 <?php
 
-$itineraries = get_field('itineraries');
-$properties = [];
-if ($itineraries) {
-    foreach ($itineraries as $itinerary) {
-        $itineraryProperties = $itinerary['properties'];
-        if ($itineraryProperties) {
-            foreach ($itineraryProperties as $itineraryProperty) {
+$properties = get_field('properties');
 
-                if (!in_array($itineraryProperty, $properties)) {
-                    $properties[] = $itineraryProperty;
-                }
-            }
-        }
-    }
-}
+
 
 ?>
 
@@ -74,30 +62,7 @@ if ($itineraries) {
                         <?php echo $propertySnippet; ?>
                         <?php echo $propertyIntro; ?>
                     </div>
-                    <div class="product-cabins__cabin__content__listing">
-                        <?php
-                        if ($itineraries) {
-                            echo '<span>Available In: </span>';
-                            $first = true;
-                            foreach ($itineraries as $itinerary) {
-
-                                //if this property is in this itinerary, display name of iten
-                                $itineraryProperties = $itinerary['properties'];
-
-
-                                if (in_array($property, $itineraryProperties)) {
-                                    if ($first == false) {
-                                        echo ', ';
-                                    }
-                                    echo $itinerary['length_in_days'] . '-Day';
-
-                                    console_log($itinerary);
-                                    $first = false;
-                                }
-                            }
-                        }
-                        ?>
-                    </div>
+                    
 
                     <div class="product-cabins__cabin__content__cta">
                         <a href="<?php echo get_site_url() . '/cruises/' . get_post_field('post_name', $property); ?>" target="_blank" class="btn-outline" data-tab="tab-prices">Learn More</a>

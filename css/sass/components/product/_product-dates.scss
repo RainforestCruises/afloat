@@ -159,6 +159,10 @@
                         @media only screen and (max-width: $bp-medium) {
                             margin-bottom: 5rem;
                         }
+                        @media only screen and (max-width: $bp-xsmall) {
+                            padding: 2rem 2rem;
+
+                        }
 
                         &--active {
                             box-shadow: $inner-border-dark;
@@ -190,7 +194,7 @@
                             }
 
                             &__date {
-                                font-size: 1.4rem;
+                                font-size: 1.5rem;
                                 font-weight: 700;
                                 text-transform: uppercase;
                                 letter-spacing: 0.2rem;
@@ -205,6 +209,13 @@
                                 @media only screen and (max-width: $bp-medium) {
                                     font-size: 1.7rem;
                                     top: -4.2rem;
+                                }
+                                @media only screen and (max-width: $bp-xsmall) {
+                                    font-size: 1.8rem;
+                                    top: -3.2rem;
+
+                                    padding: 0rem;
+
                                 }
                             }
 

@@ -61,29 +61,31 @@ $monthNames = $args['monthNames'];
                 </div>
             </div>
 
-            <!-- Intro -->
-            <div class="product-itineraries__itinerary__intro drop-cap-1">
-                <?php echo $itinerary['Summary'] ?>
-            </div>
+            <?php if ($itinerary['HasSummary'] == true) { ?>
+                <!-- Intro -->
+                <div class="product-itineraries__itinerary__intro drop-cap-1">
+                    <?php echo $itinerary['Summary'] ?>
+                </div>
 
-            <!-- Map -->
-            <?php $itineraryImages = $itinerary['MapImageDTOs']; ?>
+                <!-- Map -->
+                <?php $itineraryImages = $itinerary['MapImageDTOs']; ?>
+                <a class="product-itineraries__itinerary__map" id="map-lightbox" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
+                    <?php if ($itineraryImages) : ?>
+                        <img src="<?php echo $itineraryImages[0]['ImageUrl']; ?>" alt="">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
+                        </svg>
+                    <?php endif ?>
+                </a>
+                <div class="product-itineraries__itinerary__divider"></div>
 
-            <a class="product-itineraries__itinerary__map" id="map-lightbox" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
-                <?php if ($itineraryImages) : ?>
-                    <img src="<?php echo $itineraryImages[0]['ImageUrl']; ?>" alt="">
-                    <svg>
-                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
-                    </svg>
-                <?php endif ?>
-            </a>
+            <?php } ?>
 
-            <div class="product-itineraries__itinerary__divider"></div>
 
             <!-- D2D -->
             <div class="product-itineraries__itinerary__d2d">
                 <h3 class="heading-3">
-                <?php echo $args['propertyType'] ?> Itinerary
+                    <?php echo $args['propertyType'] ?> Itinerary
                 </h3>
                 <!-- Days  -->
                 <!-- First Day style set inline for slide toggle to function correctly -->
@@ -91,11 +93,11 @@ $monthNames = $args['monthNames'];
                 <div class="product-itineraries__itinerary__d2d__days">
                     <?php
                     $days = $itinerary['ItineraryDays'];
-                     
+
                     $dayImages = $itinerary['DayImageDTOs'];
                     $dayCount = 1;
                     if ($days) :
-                        usort($days , "sortDays");
+                        usort($days, "sortDays");
                         foreach ($days as $day) : ?>
                             <?php
                             $img = null;
@@ -111,12 +113,15 @@ $monthNames = $args['monthNames'];
 
                                 <?php if ($img != null) { ?>
                                     <div class="product-itineraries__itinerary__d2d__days__day__image-content" <?php echo $dayCount == 1 ? 'style="display: block;"' : ''; ?>>
-                                        <div class="product-itineraries__itinerary__d2d__days__day__image-content__count-badge">
-                                            <span>Day <?php echo $day['DayNumber']; ?></span> / <?php echo $itinerary['LengthInDays']; ?>
+                                        <div class="product-itineraries__itinerary__d2d__days__day__image-content__badges">
+                                            <div class="product-itineraries__itinerary__d2d__days__day__image-content__badges__count-badge">
+                                                <span>Day <?php echo $day['DayNumber']; ?></span> / <?php echo $itinerary['LengthInDays']; ?>
+                                            </div>
+                                            <div class="product-itineraries__itinerary__d2d__days__day__image-content__badges__location-badge">
+                                                <?php echo $day['Location']; ?>
+                                            </div>
                                         </div>
-                                        <div class="product-itineraries__itinerary__d2d__days__day__image-content__location-badge">
-                                            <?php echo $day['Location']; ?>
-                                        </div>
+
                                         <?php echo '<img src="' . $img['ImageUrl'] . '" alt="' . $img['AltText'] . '" class="product-itineraries__itinerary__d2d__days__day__image-content__img">'; ?>
                                     </div>
                                 <?php } ?>
@@ -127,11 +132,11 @@ $monthNames = $args['monthNames'];
                                     <?php echo $day['Title']; ?>
                                 </div>
                                 <div class="product-itineraries__itinerary__d2d__days__day__snippet" <?php echo $dayCount == 1 ? 'style="display: none;"' : ''; ?>>
-                                   <p>
-                                   <?php 
-                                    echo substr(strip_tags($day['Excerpt']), 0, 160);                
-                                    ?>...
-                                   </p> 
+                                    <p>
+                                        <?php
+                                        echo substr(strip_tags($day['Excerpt']), 0, 160);
+                                        ?>...
+                                    </p>
                                 </div>
                                 <div class="product-itineraries__itinerary__d2d__days__day__content" <?php echo $dayCount == 1 ? 'style="display: block;"' : ''; ?>>
                                     <?php echo $day['Excerpt'] ?>
@@ -156,6 +161,31 @@ $monthNames = $args['monthNames'];
             <div class="product-itineraries__itinerary__side-content">
                 <!-- Details - Availability / Prices -->
                 <div class="product-itineraries__itinerary__side-content__detail">
+
+                    <?php if ($itinerary['HasSummary'] == false) { ?>
+                        <div class="product-itineraries__itinerary__side-content__detail__widget">
+                            <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
+                                <h3 class="heading-4">
+                                    Route Map
+                                </h3>
+
+                            </div>
+                            <!-- Map -->
+                            <?php $itineraryImages = $itinerary['MapImageDTOs']; ?>
+                            <a class="product-itineraries__itinerary__map product-itineraries__itinerary__map--no-summary" id="map-lightbox" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
+                                <?php if ($itineraryImages) : ?>
+                                    <img src="<?php echo $itineraryImages[0]['ImageUrl']; ?>" alt="">
+                                    <svg>
+                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
+                                    </svg>
+                                <?php endif ?>
+                            </a>
+
+
+                        </div>
+
+
+                    <?php } ?>
                     <?php if (get_post_type() == 'rfc_cruises') { ?>
                         <!-- Dates -->
                         <div class="product-itineraries__itinerary__side-content__detail__widget">
@@ -313,10 +343,11 @@ $monthNames = $args['monthNames'];
     } ?>
 </div>
 
-<?php 
-function sortDays($a, $b) {
+<?php
+function sortDays($a, $b)
+{
 
-    if(is_object($a) && is_object($b)){
+    if (is_object($a) && is_object($b)) {
         return strcmp($a->DayNumber, $b->DayNumber);
     }
 }

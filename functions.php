@@ -140,14 +140,12 @@ function my_acf_save_post($post_id)
     }
 
     if ('rfc_tours' == get_post_type()) {
-        if (have_rows('itineraries')) { //calculate length of itinerary
-            while (have_rows('itineraries')) {
-                the_row();
-                $count = count(get_sub_field('daily_activities'));
-                update_sub_field('length_in_days', $count);
-            }
-        }
+ 
+                $count = count(get_field('daily_activities'));
+                update_field('length_in_days', $count);
+   
     }
+    
 }
 function refresh_cruise_info($propertyId, $post_id)
 {
@@ -200,30 +198,7 @@ function acf_read_only_length_in_days($field)
 
 
 //Admin blue separation styling for tour itineraries
-function my_acf_admin_head()
-{
-?>
-    <style type="text/css">
-        .admin_itinerary_name {
-            font-size: 20px;
-            position: relative;
-        }
 
-        .admin_itinerary_name::after {
-            position: absolute;
-            content: "";
-            height: 2px;
-            width: 100%;
-            background-color: cornflowerblue;
-            top: 0;
-            left: 0;
-            z-index: 10;
-        }
-    </style>
-<?php
-}
-
-add_action('acf/input/admin_head', 'my_acf_admin_head');
 //----------------------------------------------------------------------------
 
 

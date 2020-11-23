@@ -21,7 +21,7 @@ $hero_image = get_field('hero_image');
                     <a href="#overview" class="product-nav__tab-list__item__link">Overview</a>
                 </li>
                 <li class="product-nav__tab-list__item tab-itineraries ">
-                    <a href="#itineraries" class="product-nav__tab-list__item__link">Itineraries</a>
+                    <a href="#itineraries" class="product-nav__tab-list__item__link"><?php echo (get_post_type() == 'rfc_cruises') ? ('Itineraries') : ('Itinerary'); ?></a>
                 </li>
                 <li class="product-nav__tab-list__item tab-cabins">
                     <a href="#cabins" class="product-nav__tab-list__item__link"><?php echo (get_post_type() == 'rfc_cruises') ? ('Cabins') : ('Accommodations'); ?></a>

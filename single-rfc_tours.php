@@ -15,10 +15,8 @@ while (have_posts()) :
 
 
   $priceList = [];
-  $itineraries = get_field('itineraries');
-  if ($itineraries) {
-    foreach ($itineraries as $itinerary) {
-      $price_packages = $itinerary['price_packages'];
+
+      $price_packages = get_field('price_packages');
       if ($price_packages) {
         foreach ($price_packages as $price_package) {
           if ($price_package['year'] >= $currentYear) {
@@ -26,8 +24,7 @@ while (have_posts()) :
           }
         }
       }
-    }
-  }
+
 
   $lowestPrice = 0;
   if ($priceList) {

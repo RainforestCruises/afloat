@@ -1565,7 +1565,6 @@ h4 {
   .product-nav__slick {
     display: grid;
     align-items: start;
-    height: 55vh;
     z-index: 20; }
     @media only screen and (max-width: 62.5em) {
       .product-nav__slick {
@@ -2008,7 +2007,9 @@ h4 {
         height: 2rem;
         width: 2rem;
         opacity: 0;
-        transition: all .3s; }
+        transition: all 0.3s; }
+      .product-itineraries__itinerary__map--no-summary svg {
+        display: none; }
       .product-itineraries__itinerary__map:hover svg {
         opacity: 1; }
       @media only screen and (max-width: 50em) {
@@ -2059,7 +2060,7 @@ h4 {
           border-radius: 0.4rem;
           box-shadow: inset 0px 0px 0px 1px #e6e6e6;
           margin-bottom: 4rem;
-          transition: all .3s; }
+          transition: all 0.3s; }
           .product-itineraries__itinerary__d2d__days__day--active {
             box-shadow: inset 0px 0px 0px 2px #142838; }
             .product-itineraries__itinerary__d2d__days__day--active .product-itineraries__itinerary__d2d__days__day__count {
@@ -2070,43 +2071,47 @@ h4 {
                 border: 2px solid #142838; }
           .product-itineraries__itinerary__d2d__days__day__image-content {
             position: relative;
-            height: 40rem;
             display: none; }
             .product-itineraries__itinerary__d2d__days__day__image-content__img {
-              height: 100%;
+              height: auto;
               width: 100%;
-              object-fit: cover;
-              border-top-left-radius: .4rem;
-              border-top-right-radius: .4rem; }
-            .product-itineraries__itinerary__d2d__days__day__image-content__count-badge {
-              padding: .5rem 1rem;
-              padding-bottom: .2rem;
-              border-radius: 2rem;
-              background-color: #fff;
+              object-fit: contain;
+              border-top-left-radius: 0.4rem;
+              border-top-right-radius: 0.4rem; }
+            .product-itineraries__itinerary__d2d__days__day__image-content__badges {
               position: absolute;
-              left: 3rem;
-              bottom: 3rem;
-              transition: all .3s;
-              font-size: 1.3rem;
-              font-weight: 700;
-              text-transform: uppercase;
-              letter-spacing: 0.2rem; }
-              .product-itineraries__itinerary__d2d__days__day__image-content__count-badge span {
-                color: #142838; }
-            .product-itineraries__itinerary__d2d__days__day__image-content__location-badge {
-              padding: .5rem 1rem;
-              padding-bottom: .2rem;
-              border-radius: 2rem;
-              color: #fff;
-              background-color: #40739c;
-              position: absolute;
-              right: 3rem;
-              bottom: 3rem;
-              transition: all .3s;
-              font-size: 1.3rem;
-              font-weight: 700;
-              text-transform: uppercase;
-              letter-spacing: 0.2rem; }
+              bottom: 2rem;
+              display: flex;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              width: 100%; }
+              .product-itineraries__itinerary__d2d__days__day__image-content__badges__count-badge {
+                display: inline-block;
+                margin: 1rem 3rem;
+                white-space: nowrap;
+                padding: 0.5rem 1rem;
+                padding-bottom: 0.2rem;
+                border-radius: 2rem;
+                background-color: #fff;
+                font-size: 1.3rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.2rem; }
+                .product-itineraries__itinerary__d2d__days__day__image-content__badges__count-badge span {
+                  color: #142838; }
+              .product-itineraries__itinerary__d2d__days__day__image-content__badges__location-badge {
+                display: inline-block;
+                margin: 1rem 3rem;
+                white-space: nowrap;
+                padding: 0.5rem 1rem;
+                padding-bottom: 0.2rem;
+                border-radius: 2rem;
+                color: #fff;
+                background-color: #40739c;
+                font-size: 1.3rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.2rem; }
           .product-itineraries__itinerary__d2d__days__day__content {
             font-size: 1.6rem;
             padding: 0 3rem;
@@ -2126,7 +2131,7 @@ h4 {
             display: inline-block;
             background-color: #fff;
             position: absolute;
-            top: -.8rem;
+            top: -0.8rem;
             left: 3rem;
             padding: 0 1rem; }
             .product-itineraries__itinerary__d2d__days__day__count span {
@@ -2134,7 +2139,7 @@ h4 {
           .product-itineraries__itinerary__d2d__days__day__header {
             font-size: 2rem;
             text-decoration: none;
-            letter-spacing: .1rem;
+            letter-spacing: 0.1rem;
             font-weight: 600;
             cursor: pointer;
             color: #142838;
@@ -2186,8 +2191,8 @@ h4 {
                 left: 0;
                 transform: translateY(-50%);
                 background-color: currentColor;
-                height: .6rem;
-                width: .6rem;
+                height: 0.6rem;
+                width: 0.6rem;
                 border-radius: 4rem; }
               .product-itineraries__itinerary__side-content__detail__widget__legend__item--available {
                 color: #142838; }
@@ -2642,6 +2647,8 @@ h4 {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 4rem;
     margin-bottom: 6rem; }
+    .product-prices__policies--single-layout {
+      grid-template-columns: 1fr; }
     @media only screen and (max-width: 50em) {
       .product-prices__policies {
         grid-template-columns: 1fr;
@@ -2991,6 +2998,9 @@ h4 {
       @media only screen and (max-width: 50em) {
         .product-dates__search-area__results__itinerary-group__departures__departure {
           margin-bottom: 5rem; } }
+      @media only screen and (max-width: 25em) {
+        .product-dates__search-area__results__itinerary-group__departures__departure {
+          padding: 2rem 2rem; } }
       .product-dates__search-area__results__itinerary-group__departures__departure--active {
         box-shadow: inset 0px 0px 0px 2px #142838; }
         .product-dates__search-area__results__itinerary-group__departures__departure--active .product-dates__search-area__results__itinerary-group__departures__departure__bottom {
@@ -3011,7 +3021,7 @@ h4 {
             grid-template-columns: 1fr;
             row-gap: 2rem; } }
         .product-dates__search-area__results__itinerary-group__departures__departure__top__date {
-          font-size: 1.4rem;
+          font-size: 1.5rem;
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.2rem;
@@ -3026,6 +3036,11 @@ h4 {
             .product-dates__search-area__results__itinerary-group__departures__departure__top__date {
               font-size: 1.7rem;
               top: -4.2rem; } }
+          @media only screen and (max-width: 25em) {
+            .product-dates__search-area__results__itinerary-group__departures__departure__top__date {
+              font-size: 1.8rem;
+              top: -3.2rem;
+              padding: 0rem; } }
         .product-dates__search-area__results__itinerary-group__departures__departure__top__icon {
           align-items: center; }
           @media only screen and (max-width: 50em) {

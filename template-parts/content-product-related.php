@@ -17,38 +17,27 @@
 
             if (get_post_type() != 'rfc_cruises') {
 
+                $lowest = get_field('length_in_days');
+                $highest = get_field('length_in_days');
+
                 $priceList = [];
-                $lengthList = [];
-                $itineraries = get_field('itineraries');
-                if ($itineraries) {
-                    foreach ($itineraries as $itinerary) {
-                        $price_packages = $itinerary['price_packages'];
-                        $lengthList[] = $itinerary['length_in_days'];
-                        if ($price_packages) {
-                            foreach ($price_packages as $price_package) {
-                                if ($price_package['year'] >= $currentYear) {
-                                    $priceList[] = $price_package['price'];
-                                }
-                            }
+                $price_packages = get_field('price_packages');
+
+                if ($price_packages) {
+                    foreach ($price_packages as $price_package) {
+                        if ($price_package['year'] >= date("Y")) {
+                            $priceList[] = $price_package['price'];
                         }
                     }
                 }
-
-                $lowest = 0;
-                $highest = 0;
+           
                 $lowestPrice = 0;
-
                 if ($priceList) {
                     sort($priceList);
                     $lowestPrice = $priceList[0];
                 }
 
-                if ($lengthList) {
-                    sort($lengthList);
-                    $lowest = $lengthList[0];
-                    rsort($lengthList);
-                    $highest = $lengthList[0];
-                }
+               
             } else {
                 $lowest = $cruise_data['LowestLengthInDays'];
                 $highest = $cruise_data['HighestLengthInDays'];
@@ -57,7 +46,7 @@
 
     ?>
 
-            <div class="related-slider__item" onClick="parent.location='<?php echo get_permalink(); ?>'"  >
+            <div class="related-slider__item" onClick="parent.location='<?php echo get_permalink(); ?>'">
                 <div class="related-slider__item__title-group">
                     <div class="related-slider__item__title-group__name">
                         <?php echo get_the_title() ?>
@@ -117,4 +106,4 @@
 
 <script>
     var relatedCount = '<?php echo $relatedCount; ?>';
-  </script>
+</script>

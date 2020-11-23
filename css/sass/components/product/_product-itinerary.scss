@@ -5,8 +5,6 @@
     grid-template-rows: minmax(35vh, min-content);
     position: relative;
 
-
-
     @media only screen and (max-width: $bp-large) {
         grid-template-rows: minmax(22vh, min-content);
     }
@@ -14,7 +12,7 @@
         grid-template-columns: $page-container-small;
     }
 
-    &::after { 
+    &::after {
         //intro background
         content: "";
         background-color: $color-grey-light-1;
@@ -39,13 +37,12 @@
 
         @media only screen and (max-width: $bp-medium) {
             grid-template-rows: repeat(2, min-content);
-            grid-template-columns:  [center-start]  1fr  [center-end] ; 
+            grid-template-columns: [center-start] 1fr [center-end];
             margin: 0 6rem;
         }
         @media only screen and (max-width: $bp-small) {
             margin: 0 3rem;
         }
-
 
         &__title {
             grid-column: center-start / center-end;
@@ -70,8 +67,6 @@
                 left: 50%;
                 font-weight: 400;
                 padding-top: 0.5rem;
-           
-     
             }
         }
 
@@ -84,7 +79,6 @@
             @media only screen and (max-width: $bp-medium) {
                 grid-column: center-start / center-end;
                 margin-right: 0rem;
-
             }
         }
 
@@ -106,14 +100,21 @@
                 position: absolute;
                 bottom: 7rem;
                 left: 2rem;
+                //transform: translateY(-12rem) translateX(4rem);
                 fill: $color-secondary;
                 height: 2rem;
                 width: 2rem;
                 opacity: 0;
-                transition: all .3s;
+                transition: all 0.3s;
             }
 
-            &:hover{
+            &--no-summary {
+                & svg {
+                    display: none;
+                }
+            }
+
+            &:hover {
                 & svg {
                     opacity: 1;
                 }
@@ -127,7 +128,7 @@
                 width: 100%;
                 margin-bottom: 5rem;
                 & svg {
-                    bottom: 10rem;                   
+                    bottom: 10rem;
                 }
             }
         }
@@ -162,7 +163,6 @@
                 grid-row: 4 / span 1;
                 grid-column: center-start / center-end;
                 margin-right: 0rem;
-
             }
 
             &__days {
@@ -181,78 +181,85 @@
                     // border-top-left-radius: .5rem;
                     //         border-top-right-radius: .5rem;
 
-                    box-shadow:inset 0px 0px 0px 1px $color-grey-light-1a;
+                    box-shadow: inset 0px 0px 0px 1px $color-grey-light-1a;
                     margin-bottom: 4rem;
-                    transition: all .3s;
+                    transition: all 0.3s;
 
                     &--active {
-                        box-shadow:inset 0px 0px 0px 2px $color-secondary;
+                        box-shadow: inset 0px 0px 0px 2px $color-secondary;
                         & .product-itineraries__itinerary__d2d__days__day__count {
                             display: none;
                         }
-               
-                  
-                        & .product-itineraries__itinerary__d2d__days__day__button {                    
+
+                        & .product-itineraries__itinerary__d2d__days__day__button {
                             transform: rotate(180deg) translateX(50%);
                             &::after {
-                               
                                 border: 2px solid $color-secondary;
-                              }                    
+                            }
                         }
                     }
 
                     &__image-content {
                         position: relative;
-                        height: 40rem;
-                        display: none ;
-                        
+                        //height: 40rem;
+                        display: none;
 
                         &__img {
-                            height: 100%;
+                            height: auto;
                             width: 100%;
-                            object-fit: cover;
-                            border-top-left-radius: .4rem;
-                            border-top-right-radius: .4rem;
-
+                            //max-height: 40rem;
+                            object-fit: contain;
+                            border-top-left-radius: 0.4rem;
+                            border-top-right-radius: 0.4rem;
                         }
 
-                        &__count-badge {
-                            padding: .5rem 1rem;
-                            padding-bottom: .2rem;
-                            border-radius: 2rem;
-                            background-color: $color-white;
+                        &__badges {
                             position: absolute;
-                            left: 3rem;
-                            bottom: 3rem;
-                            transition: all .3s;
+                            bottom: 2rem;
+                            display: flex;
+                            justify-content: space-between;
+                            flex-wrap: wrap;
+                            width: 100%;
+                           
+                            //justify-content: space-between;
 
-                            font-size: 1.3rem;
-                            font-weight: 700;
-                            text-transform: uppercase;
-                            letter-spacing: 0.2rem;
-                            & span {
-                                color: $color-secondary;
-                            }                        
-                        }
-                        &__location-badge {
-                            padding: .5rem 1rem;
-                            padding-bottom: .2rem;
-                            border-radius: 2rem;
-                            color: $color-white;
-                            background-color: $color-supporting-light;
-                            position: absolute;
-                            right: 3rem;
-                            bottom: 3rem;
-                            transition: all .3s;
+                            //padding: 2rem;
+                            &__count-badge {
+                                display: inline-block;
+                                margin: 1rem 3rem;
+                                white-space: nowrap;
 
-                            font-size: 1.3rem;
-                            font-weight: 700;
-                            text-transform: uppercase;
-                            letter-spacing: 0.2rem;
-                                              
+                                padding: 0.5rem 1rem;
+                                padding-bottom: 0.2rem;
+                                border-radius: 2rem;
+                                background-color: $color-white;
+
+                                font-size: 1.3rem;
+                                font-weight: 700;
+                                text-transform: uppercase;
+                                letter-spacing: 0.2rem;
+                                & span {
+                                    color: $color-secondary;
+                                }
+                            }
+                            &__location-badge {
+                                display: inline-block;
+                                margin: 1rem 3rem;
+                                white-space: nowrap;
+
+                                padding: 0.5rem 1rem;
+                                padding-bottom: 0.2rem;
+                                border-radius: 2rem;
+                                color: $color-white;
+                                background-color: $color-supporting-light;
+
+                                font-size: 1.3rem;
+                                font-weight: 700;
+                                text-transform: uppercase;
+                                letter-spacing: 0.2rem;
+                            }
                         }
                     }
-
 
                     &__content {
                         font-size: 1.6rem;
@@ -260,16 +267,13 @@
                         padding-top: 1rem;
                         padding-bottom: 3rem;
                         display: none;
-                        
                     }
 
-                    
                     &__snippet {
                         font-size: 1.6rem;
                         padding: 0 3rem;
                         padding-top: 1rem;
                         padding-bottom: 3rem;
-                        
                     }
 
                     &__count {
@@ -283,7 +287,7 @@
                         display: inline-block;
                         background-color: $color-white;
                         position: absolute;
-                        top: -.8rem;
+                        top: -0.8rem;
                         left: 3rem;
                         padding: 0 1rem;
                     }
@@ -291,7 +295,7 @@
                     &__header {
                         font-size: 2rem;
                         text-decoration: none;
-                        letter-spacing: .1rem;
+                        letter-spacing: 0.1rem;
                         font-weight: 600;
                         cursor: pointer;
                         color: $color-secondary;
@@ -300,10 +304,9 @@
 
                         &:hover {
                             color: $color-supporting-light;
-                        }                  
+                        }
                     }
 
-            
                     &__button {
                         position: absolute;
                         bottom: -2.5rem;
@@ -311,7 +314,6 @@
                         transform: translateX(-50%);
                     }
                 }
-
             }
         }
 
@@ -361,8 +363,8 @@
                                 left: 0;
                                 transform: translateY(-50%);
                                 background-color: currentColor;
-                                height: .6rem;
-                                width: .6rem;
+                                height: 0.6rem;
+                                width: 0.6rem;
                                 border-radius: 4rem;
                             }
                             &--available {
@@ -371,18 +373,17 @@
 
                             &--sold-out {
                                 color: $color-red;
-                            } 
+                            }
                             &--button {
                                 justify-self: end;
-                                
+
                                 &::after {
                                     content: none;
                                 }
-                            }                        
-                        }                  
+                            }
+                        }
                     }
                 }
-
 
                 @media only screen and (max-width: $bp-medium) {
                     margin: auto;
@@ -479,11 +480,7 @@
             &__button {
                 font-size: 1.4rem;
                 font-weight: 700;
-      
-
-                
             }
         }
     }
 }
-
