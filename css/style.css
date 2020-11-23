@@ -2296,14 +2296,16 @@ h4 {
     padding-top: 4rem;
     padding-bottom: 8rem;
     row-gap: 8rem;
-    align-items: center; }
+    align-items: center;
+    grid-template-rows: min-content; }
     @media only screen and (max-width: 62.5em) {
       .product-cabins__cabin {
         padding-top: 2rem;
         padding-bottom: 3rem; } }
     @media only screen and (max-width: 50em) {
       .product-cabins__cabin {
-        row-gap: 4rem; } }
+        row-gap: 4rem;
+        grid-template-rows: min-content min-content; } }
     .product-cabins__cabin__picture {
       grid-column: full-start / col-end 4;
       justify-self: end;

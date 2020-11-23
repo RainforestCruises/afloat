@@ -41,6 +41,7 @@
         padding-bottom: 8rem;
         row-gap: 8rem;
         align-items: center;
+        grid-template-rows: min-content;
 
         @media only screen and (max-width: $bp-large) {
             padding-top: 2rem;
@@ -49,7 +50,9 @@
 
         @media only screen and (max-width: $bp-medium) {
             row-gap: 4rem;
-        }
+            grid-template-rows: min-content min-content;
+
+        } 
 
         
 
