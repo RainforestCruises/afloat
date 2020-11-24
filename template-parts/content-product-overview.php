@@ -32,12 +32,12 @@ $featured_image = get_field('featured_image');
     <!-- Description  -->
     <div class="product-overview__description u-margin-bottom-medium">
         <div class="product-overview__description__detail">
-            <figure class="product-overview__description__detail__picture">
+            <div class="product-overview__description__detail__picture">
                 <img class="product-overview__description__detail__picture__img" src="<?php echo esc_url($featured_image['url']); ?>" alt="">
-                <figcaption class="product-overview__description__detail__picture__title">
+                <div class="product-overview__description__detail__picture__title">
                     <?php echo get_the_title() ?>
-                </figcaption>
-            </figure>
+                </div>
+            </div>
             <!-- Highlights ACF REPEATER -->
             <aside class="product-overview__description__detail__highlights">
                 <h3 class="heading-3 heading-3--underline">Highlights</h3>

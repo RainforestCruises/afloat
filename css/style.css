@@ -3048,7 +3048,6 @@ h5 {
               top: -4.2rem; } }
           @media only screen and (max-width: 25em) {
             .product-dates__search-area__results__itinerary-group__departures__departure__top__date {
-              font-size: 1.8rem;
               top: -3.2rem;
               padding: 0rem; } }
         .product-dates__search-area__results__itinerary-group__departures__departure__top__icon {
@@ -3106,11 +3105,14 @@ h5 {
               grid-template-columns: 1fr; } }
           .product-dates__search-area__results__itinerary-group__departures__departure__bottom__info__description__title {
             font-size: 4rem;
+            line-height: 5rem;
+            margin-bottom: 1.5rem;
             font-weight: 500;
             color: #142838; }
             @media only screen and (max-width: 50em) {
               .product-dates__search-area__results__itinerary-group__departures__departure__bottom__info__description__title {
-                font-size: 3.5rem; } }
+                font-size: 3.5rem;
+                line-height: 4rem; } }
           .product-dates__search-area__results__itinerary-group__departures__departure__bottom__info__description__text {
             font-size: 1.6rem; }
           .product-dates__search-area__results__itinerary-group__departures__departure__bottom__info__cta {
@@ -3124,10 +3126,16 @@ h5 {
           margin-top: 3rem;
           border-top: 1px solid #e6e6e6;
           padding-top: 3rem; }
+          @media only screen and (max-width: 50em) {
+            .product-dates__search-area__results__itinerary-group__departures__departure__bottom__cabins {
+              grid-template-columns: 1fr; } }
           .product-dates__search-area__results__itinerary-group__departures__departure__bottom__cabins__icon svg {
             height: 5rem;
             width: 5rem;
             fill: #142838; }
+            @media only screen and (max-width: 50em) {
+              .product-dates__search-area__results__itinerary-group__departures__departure__bottom__cabins__icon svg {
+                display: none; } }
           .product-dates__search-area__results__itinerary-group__departures__departure__bottom__cabins__cabin-group {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));

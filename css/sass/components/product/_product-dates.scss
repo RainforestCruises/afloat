@@ -213,7 +213,6 @@
                                     top: -4.2rem;
                                 }
                                 @media only screen and (max-width: $bp-xsmall) {
-                                    font-size: 1.8rem;
                                     top: -3.2rem;
 
                                     padding: 0rem;
@@ -293,10 +292,14 @@
                                 &__description {
                                     &__title {
                                         font-size: 4rem;
+                                        line-height: 5rem;
+                                        margin-bottom: 1.5rem;
+
                                         font-weight: 500;
                                         color: $color-secondary;
                                         @media only screen and (max-width: $bp-medium) {
                                             font-size: 3.5rem;
+                                            line-height: 4rem;
                                         }
                                     }
 
@@ -318,11 +321,19 @@
                                 border-top: 1px solid $color-grey-light-1a;
                                 padding-top: 3rem;
 
+                                @media only screen and (max-width: $bp-medium) {
+                                    grid-template-columns: 1fr;
+                                }
+
                                 &__icon {
                                     & svg {
                                         height: 5rem;
                                         width: 5rem;
                                         fill: $color-secondary;
+
+                                        @media only screen and (max-width: $bp-medium) {
+                                            display: none;
+                                        }
                                     }
                                 }
                                 &__cabin-group {
