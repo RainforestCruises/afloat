@@ -23,7 +23,7 @@ $currentYear = $args['currentYear'];
     </div>
 
     <div id="sentinal-prices"></div>
-    <div class="page-divider u-margin-bottom-none">
+    <div class="page-divider ">
         Price List
     </div>
 
@@ -41,7 +41,7 @@ $currentYear = $args['currentYear'];
             } ?>
 
             <!-- Price Group -->
-            <div class="product-prices__price-group u-margin-top-medium">
+            <div class="product-prices__price-group <?php echo ($itinerariesCount == 0) ? ('') : ('u-margin-top-medium') ?>">
                 <div class="product-prices__price-group__picture product-prices__price-group__picture<?php echo $flipClass ?>">
                     <img src="<?php echo esc_html($pricesImagery[$itinerariesCount]['url']); ?>" alt="">
                 </div>

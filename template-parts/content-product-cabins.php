@@ -40,16 +40,16 @@ $deck_plan = get_field('deck_plan');
                 $occupancy = $occupancy + $cabins[$cabinCount]['SecondaryOccupancy'];
             }
 
+            //For Flip, every other row, just change picture and content with --flipped
             $flipClass = "";
             if ($cabinCount % 2 != 0) {
                 $flipClass = "--flipped";
             }
 
-            //For Flip, just change picture and content with --flipped
             ?>
             <div class="product-cabins__cabin ">
                 <div class="product-cabins__cabin__picture product-cabins__cabin__picture<?php echo $flipClass ?>">
-                    <img src="<?php echo esc_html($cabins[$cabinCount]['ImageDTOs'][0]['ImageUrl']); ?>" alt="">
+                    <img class="product-cabins__cabin__picture__img" src="<?php echo esc_html($cabins[$cabinCount]['ImageDTOs'][0]['ImageUrl']); ?>" alt="">
                 </div>
                 <div class="product-cabins__cabin__content product-cabins__cabin__content<?php echo $flipClass ?>">
                     <div class="product-cabins__cabin__content__title">

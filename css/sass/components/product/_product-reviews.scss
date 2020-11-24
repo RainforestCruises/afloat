@@ -8,7 +8,7 @@
 .reviews-slider  {
   max-width: 114rem; //media query
   margin: 0 auto;
-  position: relative;
+  position: relative !important;
 
 
   @media only screen and (max-width: $bp-medium) {
@@ -24,7 +24,7 @@
 
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
-
+    position: relative;
 
 
     @media only screen and (max-width: $bp-small) {
@@ -153,9 +153,8 @@
 
       @media only screen and (max-width: $bp-medium) {
         bottom: 0;
-        right: -5rem;
+        right: -10rem;
       }
-
     
 
     }

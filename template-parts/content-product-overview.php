@@ -33,7 +33,7 @@ $startingPrice = 0;
     <div class="product-overview__description u-margin-bottom-medium">
         <div class="product-overview__description__detail">
             <div class="product-overview__description__detail__picture">
-                <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
+                <img class="product-overview__description__detail__picture__img" src="<?php echo esc_url($featured_image['url']); ?>" alt="">
                 <div class="product-overview__description__detail__picture__title">
                     <?php echo get_the_title() ?>
                 </div>
@@ -56,8 +56,7 @@ $startingPrice = 0;
             </div>
         </div>
         <div class="product-overview__description__text drop-cap-1 ">
-            <p> <?php echo get_field('overview_content') ?>
-            </p>
+           <?php echo get_field('overview_content') ?>     
         </div>
     </div>
 

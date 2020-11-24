@@ -47,12 +47,14 @@
         &__title {
             grid-column: center-start / center-end;
             grid-row: 1 / span 1;
-            //display: grid;
             margin-bottom: 4.5rem;
+
+            @media only screen and (max-width: $bp-small) {
+                margin-bottom: 2.5rem;
+            }
 
             &__main {
                 margin-bottom: 0;
-                line-height: 6rem;
             }
 
             &__subtitle {
@@ -66,7 +68,6 @@
                 bottom: 2.5rem;
                 left: 50%;
                 font-weight: 400;
-                padding-top: 0.5rem;
             }
         }
 
@@ -201,13 +202,11 @@
 
                     &__image-content {
                         position: relative;
-                        //height: 40rem;
                         display: none;
 
                         &__img {
                             height: auto;
                             width: 100%;
-                            //max-height: 40rem;
                             object-fit: contain;
                             border-top-left-radius: 0.4rem;
                             border-top-right-radius: 0.4rem;
@@ -220,14 +219,15 @@
                             justify-content: space-between;
                             flex-wrap: wrap;
                             width: 100%;
-                           
-                            //justify-content: space-between;
 
-                            //padding: 2rem;
                             &__count-badge {
                                 display: inline-block;
                                 margin: 1rem 3rem;
                                 white-space: nowrap;
+
+                                @media only screen and (max-width: $bp-small) {
+                                    margin: .5rem 1.5rem;
+                                }
 
                                 padding: 0.5rem 1rem;
                                 padding-bottom: 0.2rem;
@@ -246,6 +246,10 @@
                                 display: inline-block;
                                 margin: 1rem 3rem;
                                 white-space: nowrap;
+
+                                @media only screen and (max-width: $bp-small) {
+                                    margin: .5rem 1.5rem;
+                                }
 
                                 padding: 0.5rem 1rem;
                                 padding-bottom: 0.2rem;
@@ -325,6 +329,7 @@
             @media only screen and (max-width: $bp-medium) {
                 grid-row: 5 / span 1;
                 grid-column: center-start / center-end;
+                margin-top: 6rem;
             }
 
             &__detail {
@@ -333,7 +338,12 @@
 
                 &__widget {
                     position: relative;
-                    margin-bottom: 8rem;
+                    margin-bottom: 4rem;
+
+                    &:not(:last-child){
+                        margin-bottom: 8rem;
+                    }
+
                     & select {
                         visibility: hidden !important;
                     }

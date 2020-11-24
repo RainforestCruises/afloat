@@ -32,7 +32,10 @@
         grid-column: center-start / center-end;
 
         display: grid;
-        margin-bottom: 10rem;
+        margin-bottom: 4rem;
+        @media only screen and (max-width: $bp-medium) {
+            margin-bottom: 0rem;
+        }
 
         &__controls {
             margin-top: 2rem;
@@ -91,8 +94,7 @@
 
                     &__title-group {
                         font-family: $font-secondary;
-                        display: grid;
-                        grid-template-columns: max-content max-content;
+                        display: flex;
 
                         &__icon {
                             grid-column: 1 / span 1;
@@ -113,6 +115,7 @@
                             justify-content: center;
                             align-self: center;
                             align-content: center;
+                            flex-wrap: wrap;
 
                             &__title {
                                 font-size: 3.2rem;
@@ -161,7 +164,6 @@
                         }
                         @media only screen and (max-width: $bp-xsmall) {
                             padding: 2rem 2rem;
-
                         }
 
                         &--active {
@@ -215,7 +217,6 @@
                                     top: -3.2rem;
 
                                     padding: 0rem;
-
                                 }
                             }
 

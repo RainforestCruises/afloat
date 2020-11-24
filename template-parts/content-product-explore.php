@@ -15,7 +15,7 @@
         if ($areaImages) : ?>
             <?php foreach ($areaImages as $areaImage) : ?>
                 <div class="areas-slider__slider-for__item" id="areas-slider__slider-for">
-                    <img src="<?php echo esc_html($areaImage['url']); ?>" alt="">
+                    <img class="areas-slider__slider-for__item__img" src="<?php echo esc_html($areaImage['url']); ?>" alt="">
                     <div class="areas-slider__slider-for__item__title"><?php echo esc_html($areaImage['title']); ?></div>
                 </div>
             <?php endforeach; ?>
