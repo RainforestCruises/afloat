@@ -1872,7 +1872,8 @@ h5 {
           grid-row: 1 / span 1;
           margin-bottom: 4rem;
           margin-right: 0rem;
-          margin-left: 0rem; } }
+          margin-left: 0rem;
+          display: block; } }
       @media only screen and (max-width: 37.5em) {
         .product-overview__description__detail {
           margin-bottom: 2rem; } }
