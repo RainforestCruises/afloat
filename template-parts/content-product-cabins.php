@@ -25,9 +25,13 @@ $deck_plan = get_field('deck_plan');
 
     </div>
     <div id="sentinal-cabins"></div>
-    <div class="page-divider u-margin-bottom-small">
+
+    <!-- H2 Title -->
+    <h2 class="page-divider u-margin-bottom-small">
         Suites & Cabins
-    </div>
+    </h2>
+
+    <!-- Cabins -->
     <?php
     $cabins = $cruise_data['CabinDTOs'];
     $cabinCount = 0;
@@ -54,25 +58,25 @@ $deck_plan = get_field('deck_plan');
                 <div class="product-cabins__cabin__content product-cabins__cabin__content<?php echo $flipClass ?>">
                     <div class="product-cabins__cabin__content__title">
                         <span><?php echo ($cabinCount + 1); ?></span>
-                        <div class="heading-3 heading-3--underline"><?php echo ($cabins[$cabinCount]['Name']); ?></div>
+                        <h3 class="heading-3 heading-3--underline"><?php echo ($cabins[$cabinCount]['Name']); ?></h3>
                     </div>
                     <div class="product-cabins__cabin__content__feature-grid">
                         <div class="product-cabins__cabin__content__feature-item">
-                            <div class="product-cabins__cabin__content__feature-item__title">
+                            <h5 class="product-cabins__cabin__content__feature-item__title">
                                 Guests
-                            </div>
+                            </h5>
                             <span><?php echo $occupancy; ?></span>
                         </div>
                         <div class="product-cabins__cabin__content__feature-item">
-                            <div class="product-cabins__cabin__content__feature-item__title">
+                            <h5 class="product-cabins__cabin__content__feature-item__title">
                                 Size
-                            </div>
+                            </h5>
                             <span><?php echo ($cabins[$cabinCount]['Size']); ?></span>
                         </div>
                         <div class="product-cabins__cabin__content__feature-item">
-                            <div class="product-cabins__cabin__content__feature-item__title">
+                            <h5 class="product-cabins__cabin__content__feature-item__title">
                                 Beds
-                            </div>
+                            </h5>
                             <span><?php echo ($cabins[$cabinCount]['Beds']); ?></span>
                         </div>
                     </div>
@@ -91,14 +95,14 @@ $deck_plan = get_field('deck_plan');
     <?php if (get_post_type() == 'rfc_cruises') { ?>
 
         <?php if ($deck_plan) { ?>
-            <div class="page-divider product-cabins__page-divider">
-            Technical Information
-        </div>
+            <h2 class="page-divider product-cabins__page-divider">
+                Technical Information
+            </h2>
             <div class="product-cabins__deckplan u-margin-bottom-big">
 
                 <div class="product-cabins__deckplan__picture">
                     <div class="product-cabins__deckplan__picture__title">
-                        <div class="heading-3 heading-3--underline">Deck Plan</div>
+                        <h3 class="heading-3 heading-3--underline">Deck Plan</h3>
                     </div>
                     <a class="product-cabins__deckplan__picture" id="map-lightbox" href="<?php echo esc_url($deck_plan['url']); ?>" title="Deckplan">
                         <img class="product-cabins__deckplan__picture__img" src="<?php echo esc_url($deck_plan['url']); ?>" alt="">
@@ -111,7 +115,7 @@ $deck_plan = get_field('deck_plan');
 
                 <div class="product-cabins__deckplan__content">
                     <div class="product-cabins__deckplan__content__title">
-                        <div class="heading-3 heading-3--underline">Features</div>
+                        <h3 class="heading-3 heading-3--underline">Features</h3>
                     </div>
 
                     <?php

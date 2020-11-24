@@ -348,6 +348,9 @@ p {
     color: $color-red;
 }
 
+
+
+//fallback styles
 h3 {
     color: $color-secondary;
     font-size: 2rem;
@@ -357,6 +360,14 @@ h3 {
 }
 
 h4 {
+    color: $color-secondary;
+    font-size: 1.8rem;
+    display: block;
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.5rem;
+}
+
+h5 {
     color: $color-secondary;
     font-size: 1.8rem;
     display: block;

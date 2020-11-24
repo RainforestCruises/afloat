@@ -330,6 +330,13 @@ h4 {
   letter-spacing: 0.1rem;
   margin-bottom: 0.5rem; }
 
+h5 {
+  color: #142838;
+  font-size: 1.8rem;
+  display: block;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem; }
+
 .u-center-text {
   text-align: center !important; }
 
@@ -2551,10 +2558,9 @@ h4 {
         font-family: "Old Standard TT", serif;
         color: #c2c6c9;
         letter-spacing: 0.2rem;
-        grid-row: 1 / span 1; }
-        @media only screen and (max-width: 50em) {
-          .product-prices__price-group__name__length {
-            font-size: 3rem; } }
+        grid-row: 1 / span 1;
+        font-weight: 300;
+        line-height: 3.5rem; }
       .product-prices__price-group__name__subtitle {
         grid-row: 2 / span 1; }
         @media only screen and (max-width: 50em) {

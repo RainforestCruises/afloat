@@ -28,7 +28,7 @@ $monthNames = $args['monthNames'];
         </div>
 
         <!-- Attributes -->
-        <div class="product-intro__nav">
+        <nav class="product-intro__nav">
             <ul class="product-intro__nav__list">
                 <?php
                 $count = 1;
@@ -41,7 +41,7 @@ $monthNames = $args['monthNames'];
                     $count++;
                 } ?>
             </ul>
-        </div>
+        </nav>
     </div>
     <div id="sentinal-itineraries"></div>
     <!-- TAB CONTENT -->
@@ -53,12 +53,12 @@ $monthNames = $args['monthNames'];
         <!-- Itinerary -->
         <div class="product-itineraries__itinerary  tab-content <?php echo ($count == 1 ? 'current' : ''); ?>" id="tab-itinerary-<?php echo $count ?>">
             <div class="product-itineraries__itinerary__title">
-                <div class="page-divider product-itineraries__itinerary__title__main">
+                <h2 class="page-divider product-itineraries__itinerary__title__main">
                     <?php echo $itinerary['Name'] ?>
-                </div>
-                <div class="product-itineraries__itinerary__title__subtitle">
+                </h2>
+                <h3 class="product-itineraries__itinerary__title__subtitle">
                     <?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night
-                </div>
+                </h3>
             </div>
 
             <?php if ($itinerary['HasSummary'] == true) { ?>
@@ -128,9 +128,9 @@ $monthNames = $args['monthNames'];
                                 <div class="product-itineraries__itinerary__d2d__days__day__count">
                                     <span>Day <?php echo $day['DayNumber']; ?></span> / <?php echo $itinerary['LengthInDays']; ?>
                                 </div>
-                                <div class="product-itineraries__itinerary__d2d__days__day__header">
+                                <h5 class="product-itineraries__itinerary__d2d__days__day__header">
                                     <?php echo $day['Title']; ?>
-                                </div>
+                                </h5>
                                 <div class="product-itineraries__itinerary__d2d__days__day__snippet" <?php echo $dayCount == 1 ? 'style="display: none;"' : ''; ?>>
                                     <p>
                                         <?php
@@ -158,16 +158,16 @@ $monthNames = $args['monthNames'];
                 </div>
             </div>
 
-            <div class="product-itineraries__itinerary__side-content">
+            <aside class="product-itineraries__itinerary__side-content">
                 <!-- Details - Availability / Prices -->
                 <div class="product-itineraries__itinerary__side-content__detail">
 
                     <?php if ($itinerary['HasSummary'] == false) { ?>
                         <div class="product-itineraries__itinerary__side-content__detail__widget">
                             <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
-                                <h3 class="heading-4">
+                                <h4 class="heading-4">
                                     Route Map
-                                </h3>
+                                </h4>
 
                             </div>
                             <!-- Map -->
@@ -191,9 +191,9 @@ $monthNames = $args['monthNames'];
                         <div class="product-itineraries__itinerary__side-content__detail__widget">
                             <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
                                 <!-- Title -->
-                                <h3 class="heading-4">
+                                <h4 class="heading-4">
                                     Availability
-                                </h3>
+                                </h4>
                                 <!-- Select-Box -->
                                 <div class="itinerary-year-select-group">
                                     <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
@@ -248,9 +248,9 @@ $monthNames = $args['monthNames'];
                     <!-- Prices -->
                     <div class="product-itineraries__itinerary__side-content__detail__widget">
                         <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
-                            <h3 class="heading-4">
+                            <h4 class="heading-4">
                                 Prices
-                            </h3>
+                            </h4>
                             <?php if (get_post_type() == 'rfc_lodges') { ?>
                                 <?php $yearCount = 0; ?>
                                 <!-- Select-Box -->
@@ -287,9 +287,9 @@ $monthNames = $args['monthNames'];
                     <!-- Inclusions -->
                     <div class="product-itineraries__itinerary__side-content__detail__widget">
                         <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
-                            <h3 class="heading-4" id="InclusionsTitle" data-tab="<?php echo $count; ?>">
+                            <h4 class="heading-4" id="InclusionsTitle" data-tab="<?php echo $count; ?>">
                                 What's Included
-                            </h3>
+                            </h4>
                         </div>
                         <div class="inclusions-area">
                             <!-- Inclusions List -->
@@ -337,7 +337,7 @@ $monthNames = $args['monthNames'];
                         </div>
                     </div>
                 </div>
-            </div>
+            </aside>
         </div>
     <?php $count++;
     } ?>

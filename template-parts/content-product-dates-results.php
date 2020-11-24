@@ -83,10 +83,10 @@ foreach ($filteredItineraries as $itinerary) {
                     </svg>
                 </div>
                 <div class="product-dates__search-area__results__itinerary-group__itinerary__title-group__text">
-                    <div class="product-dates__search-area__results__itinerary-group__itinerary__title-group__text__title">
+                    <h3 class="product-dates__search-area__results__itinerary-group__itinerary__title-group__text__title">
                         <?php echo $itinerary['Name'] ?>
-                    </div>
-                    <div class="product-dates__search-area__results__itinerary-group__itinerary__title-group__text__subtitle"><?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night</div>
+                    </h3>
+                    <h4 class="product-dates__search-area__results__itinerary-group__itinerary__title-group__text__subtitle"><?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night</h4>
                 </div>
 
             </div>
@@ -108,10 +108,9 @@ foreach ($filteredItineraries as $itinerary) {
                 <div class="product-dates__search-area__results__itinerary-group__departures__departure">
                     <!-- Top -->
                     <div class="product-dates__search-area__results__itinerary-group__departures__departure__top">
-                        <div class="product-dates__search-area__results__itinerary-group__departures__departure__top__date">
-
+                        <h5 class="product-dates__search-area__results__itinerary-group__departures__departure__top__date">
                             <?php echo date("M j", strtotime($result['DepartureDate'])); ?> - <?php echo date("M j, Y", strtotime($result['DepartureDate']  . ' + ' . $itinerary['LengthInNights'] . ' days')); ?>
-                        </div>
+                        </h5>
                         <div class="product-dates__search-area__results__itinerary-group__departures__departure__top__icon">
                             <svg>
                                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ship"></use>

@@ -21,9 +21,9 @@ $currentYear = $args['currentYear'];
     </div>
 
     <div id="sentinal-prices"></div>
-    <div class="page-divider ">
+    <h2 class="page-divider ">
         Price List
-    </div>
+    </h2>
 
     <?php
     //$itineraries = get_field('itineraries');
@@ -39,9 +39,9 @@ $currentYear = $args['currentYear'];
             <img src="<?php echo esc_html($pricesImagery[0]['url']); ?>" alt="">
         </div>
         <div class="product-prices__price-group__name ">
-            <div class="product-prices__price-group__name__length">
+            <h4 class="product-prices__price-group__name__length">
                 <?php echo get_field('length_in_days'); ?> Day / <?php echo (get_field('length_in_days') - 1) ?> Night
-            </div>
+            </h4>
             <div class="product-prices__price-group__name__subtitle">
                 <h3 class="heading-3 heading-3--underline">
                     <?php echo get_field('itinerary_name'); ?>

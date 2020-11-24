@@ -7,14 +7,17 @@ $hero_image = get_field('hero_image');
     <img src="<?php echo esc_url($hero_image['url']); ?>" alt="">
 </section>
 
-<!-- Nav -->
+<!-- Page Title/Nav -->
 <section class="product-nav">
     <div class="product-nav__caption">
+
+        <!-- H1 Title / H2 Subtitle-->
         <div class="product-nav__caption__title-group">
             <h1 class="product-nav__caption__title-group__title" id="template-nav-title"><?php echo get_the_title() ?></h1>
             <h2 class="product-nav__caption__title-group__subtitle"><?php echo get_field('top_snippet') ?></h2>
         </div>
 
+        <!-- Navigation Wrapper -->
         <div class="product-nav__sticky-wrapper" id="template-nav">
             <ul class="product-nav__tab-list">
                 <li class="product-nav__tab-list__item tab-overview current">
@@ -25,17 +28,13 @@ $hero_image = get_field('hero_image');
                 </li>
                 <li class="product-nav__tab-list__item tab-cabins">
                     <a href="#cabins" class="product-nav__tab-list__item__link"><?php echo (get_post_type() == 'rfc_cruises') ? ('Cabins') : ('Accommodations'); ?></a>
-
-
                 </li>
                 <li class="product-nav__tab-list__item tab-prices" data-tab="tab-prices">
                     <a href="#prices" class="product-nav__tab-list__item__link">Prices</a>
-
                 </li>
                 <?php if (get_post_type() == 'rfc_cruises') { ?>
                     <li class="product-nav__tab-list__item tab-dates" data-tab="tab-dates">
                         <a href="#dates" class="product-nav__tab-list__item__link">Dates</a>
-
                     </li>
                 <?php } ?>
             </ul>

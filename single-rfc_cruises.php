@@ -77,9 +77,9 @@ while (have_posts()) :
     </section>
 
     <!-- Areas -->
-    <div class="page-divider">
+    <h2 class="page-divider">
       Explore
-    </div>
+    </h2>
     <section class="product-areas">
       <?php
       get_template_part('template-parts/content', 'product-explore', $args);
@@ -87,9 +87,9 @@ while (have_posts()) :
     </section>
 
     <!-- Reviews -->
-    <div class="page-divider">
+    <h2 class="page-divider">
       Guest Reviews
-    </div>
+    </h2>
     <section class="product-reviews">
       <?php
       get_template_part('template-parts/content', 'product-reviews', $args);
@@ -97,9 +97,9 @@ while (have_posts()) :
     </section>
 
     <!-- Related Travel -->
-    <div class="page-divider">
+    <h2 class="page-divider">
       Related Cruises
-    </div>
+    </h2>
     <section class="product-related">
     <?php
       get_template_part('template-parts/content', 'product-related', $args);

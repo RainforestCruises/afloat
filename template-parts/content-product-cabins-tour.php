@@ -28,9 +28,9 @@ $properties = get_field('properties');
 
     </div>
     <div id="sentinal-cabins"></div>
-    <div class="page-divider u-margin-bottom-small">
+    <h2 class="page-divider u-margin-bottom-small">
         Tour Accommodations
-    </div>
+    </h2>
     <?php
     $propertyCount = 0;
     if ($properties) : ?>
@@ -56,7 +56,7 @@ $properties = get_field('properties');
                 <div class="product-cabins__cabin__content product-cabins__cabin__content<?php echo $flipClass ?>">
                     <div class="product-cabins__cabin__content__title">
                         <span><?php echo ($propertyCount + 1); ?></span>
-                        <div class="heading-3 heading-3--underline"><?php echo $propertyTitle; ?></div>
+                        <h3 class="heading-3 heading-3--underline"><?php echo $propertyTitle; ?></h3>
                     </div>
                     <div class="product-cabins__cabin__content__description">
                         <?php echo $propertySnippet; ?>

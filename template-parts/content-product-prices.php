@@ -23,9 +23,9 @@ $currentYear = $args['currentYear'];
     </div>
 
     <div id="sentinal-prices"></div>
-    <div class="page-divider ">
+    <h2 class="page-divider ">
         Price List
-    </div>
+    </h2>
 
     <?php
     $itineraries = $cruise_data['Itineraries'];
@@ -46,9 +46,9 @@ $currentYear = $args['currentYear'];
                     <img src="<?php echo esc_html($pricesImagery[$itinerariesCount]['url']); ?>" alt="">
                 </div>
                 <div class="product-prices__price-group__name product-prices__price-group__name<?php echo $flipClass ?>">
-                    <div class="product-prices__price-group__name__length">
+                    <h4 class="product-prices__price-group__name__length">
                         <?php echo ($itineraries[$itinerariesCount]['LengthInDays']); ?> Day / <?php echo ($itineraries[$itinerariesCount]['LengthInNights']); ?> Night
-                    </div>
+                    </h4>
                     <div class="product-prices__price-group__name__subtitle">
                         <h3 class="heading-3 heading-3--underline">
                             <?php echo ($itineraries[$itinerariesCount]['Name']); ?>

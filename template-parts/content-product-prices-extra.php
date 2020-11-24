@@ -18,9 +18,9 @@ $currentYear = $args['currentYear'];
     <?php } ?>
     <!-- Policies -->
     <div class="product-prices__policies-divider">
-        <div class="page-divider">
+        <h2 class="page-divider">
             Policies
-        </div>
+        </h2>
     </div>
     <?php
     $policies = get_field('policies');
@@ -30,9 +30,9 @@ $currentYear = $args['currentYear'];
     ?>
     <div class="product-prices__policies <?php echo ($display_yearly == false) ? ('product-prices__policies--single-layout') : ('false'); ?>">
         <div class="product-prices__policies__list-group product-prices__policies__list-group--overall">
-            <div class="product-prices__policies__list-group__title heading-3 heading-3--underline">
+            <h3 class="product-prices__policies__list-group__title heading-3 heading-3--underline">
                 Pricing Policies
-            </div>
+            </h3>
             <ul class="list-svg">
 
                 <?php if ($overall_policies != false) :
@@ -51,9 +51,9 @@ $currentYear = $args['currentYear'];
         </div>
         <?php if($display_yearly == true) { ?>
             <div class="product-prices__policies__list-group product-prices__policies__list-group--first">
-            <div class="product-prices__policies__list-group__title-overall heading-3 heading-3--underline">
+            <h3 class="product-prices__policies__list-group__title-overall heading-3 heading-3--underline">
                 <?php echo $currentYear; ?>
-            </div>
+            </h3>
             <ul class="list-svg">
                 <?php
                 $current_year_policies = $policies['current_year_policies'];
@@ -72,9 +72,9 @@ $currentYear = $args['currentYear'];
             </ul>
         </div>
         <div class="product-prices__policies__list-group product-prices__policies__list-group--second">
-            <div class="product-prices__policies__list-group__title heading-3 heading-3--underline">
+            <h3 class="product-prices__policies__list-group__title heading-3 heading-3--underline">
                 <?php echo ($currentYear + 1); ?>
-            </div>
+            </h3>
             <ul class="list-svg">
                 <?php
                 $next_year_policies = $policies['next_year_policies'];

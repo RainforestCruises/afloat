@@ -108,9 +108,9 @@ $highest;
                             <div class="product-itineraries__itinerary__d2d__days__day__count">
                                 <span>Day <?php echo $dayCount; ?></span> / <?php echo get_field('length_in_days'); ?>
                             </div>
-                            <div class="product-itineraries__itinerary__d2d__days__day__header">
+                            <h5 class="product-itineraries__itinerary__d2d__days__day__header">
                                 <?php echo $day['day_title']; ?>
-                            </div>
+                            </h5>
                             <div class="product-itineraries__itinerary__d2d__days__day__snippet" <?php echo $dayCount == 1 ? 'style="display: none;"' : ''; ?>>
                                 <p>
                                     <?php
@@ -138,7 +138,7 @@ $highest;
             </div>
         </div>
 
-        <div class="product-itineraries__itinerary__side-content">
+        <aside class="product-itineraries__itinerary__side-content">
             <!-- Details - Availability / Prices -->
             <div class="product-itineraries__itinerary__side-content__detail">
 
@@ -147,9 +147,9 @@ $highest;
 
                     <?php $yearCount = 0; ?>
                     <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
-                        <h3 class="heading-4">
+                        <h4 class="heading-4">
                             Prices
-                        </h3>
+                        </h4>
                         <!-- Select-Box -->
                         <div class="itinerary-year-select-group">
                             <select class="itinerary-year-select" data-tab="1">
@@ -200,9 +200,9 @@ $highest;
                 <!-- Inclusions -->
                 <div class="product-itineraries__itinerary__side-content__detail__widget">
                     <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
-                        <h3 class="heading-4" id="InclusionsTitle" data-tab="1">
+                        <h4 class="heading-4" id="InclusionsTitle" data-tab="1">
                             What's Included
-                        </h3>
+                        </h4>
                     </div>
                     <div class="inclusions-area">
                         <!-- Inclusions List -->
@@ -260,7 +260,7 @@ $highest;
                     </div>
                 </div>
             </div>
-        </div>
+        </aside>
     </div>
 
 </div>
