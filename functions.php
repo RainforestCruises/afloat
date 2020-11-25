@@ -101,7 +101,7 @@ function refresh_cruise_info_all()
     //get property_id of each rfc_cruises post types
 
     $args = array(
-        'post_type' => 'rfc_cruises',
+        'post_type' => array('rfc_cruises', 'rfc_lodges'),
     );
 
     $the_query = new WP_Query($args);
@@ -129,23 +129,19 @@ function refresh_cruise_info_all()
 add_action('acf/save_post', 'my_acf_save_post');
 function my_acf_save_post($post_id)
 {
-    $dfPropertyId = get_field('property_id', $post_id); //get property data from DF
-    if ($dfPropertyId) {
-        if ('rfc_cruises' == get_post_type()) {
-            refresh_cruise_info($dfPropertyId, $post_id);
-        }
-        if ('rfc_lodges' == get_post_type()) {
-            refresh_cruise_info($dfPropertyId, $post_id);
-        }
+    if ('rfc_cruises' == get_post_type()) {
+        $dfPropertyId = get_field('property_id', $post_id); //get property data from DF
+        refresh_cruise_info($dfPropertyId, $post_id);
+    }
+    if ('rfc_lodges' == get_post_type()) {
+        $dfPropertyId = get_field('property_id', $post_id); //get property data from DF
+        refresh_cruise_info($dfPropertyId, $post_id);
     }
 
     if ('rfc_tours' == get_post_type()) {
- 
-                $count = count(get_field('daily_activities'));
-                update_field('length_in_days', $count);
-   
+        $count = count(get_field('daily_activities'));
+        update_field('length_in_days', $count);
     }
-    
 }
 function refresh_cruise_info($propertyId, $post_id)
 {
