@@ -141,6 +141,8 @@
   svg {
     height: 40%;
     width: 40%;
+    stroke-width: 2;
+    stroke: currentColor;
   }
 
  
@@ -215,7 +217,7 @@
     height: 95%;
     width: 95%;
     border-radius: 50%;
-    border: 1px solid $color-secondary;
+    border: 2px solid $color-secondary;
   }
 
   &:hover::after {

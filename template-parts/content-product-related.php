@@ -1,3 +1,5 @@
+
+
 <div class="related-slider" id="related-slider">
     <?php
     $queryArgs = array(

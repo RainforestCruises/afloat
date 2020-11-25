@@ -492,7 +492,9 @@ h5 {
   color: #142838; }
   .btn-circle svg {
     height: 40%;
-    width: 40%; }
+    width: 40%;
+    stroke-width: 2;
+    stroke: currentColor; }
   .btn-circle--small {
     width: 3rem;
     height: 3rem; }
@@ -539,7 +541,7 @@ h5 {
     height: 95%;
     width: 95%;
     border-radius: 50%;
-    border: 1px solid #142838; }
+    border: 2px solid #142838; }
   .btn-circle:hover::after {
     height: 85%;
     width: 85%; }
@@ -907,6 +909,7 @@ h5 {
       grid-template-rows: [nav-start] 50vh [hero-end content-start] repeat(7, min-content) [content-end footer-start] min-content [footer-end]; } }
   @media only screen and (max-width: 37.5em) {
     .product-page {
+      grid-template-rows: [nav-start] 60vh [hero-end content-start] repeat(7, min-content) [content-end footer-start] min-content [footer-end];
       grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
 
 .product-content {
@@ -1387,7 +1390,8 @@ h5 {
         line-height: 6.5rem; }
         @media only screen and (max-width: 37.5em) {
           .product-nav__caption__title-group__title {
-            margin-bottom: 1.5rem; } }
+            margin-bottom: 1.5rem;
+            font-size: 4rem; } }
         .product-nav__caption__title-group__title--sticky {
           grid-column: 1 / span 1;
           grid-row: 2 / span 1;
@@ -1529,7 +1533,7 @@ h5 {
       .product-nav__tab-list {
         display: flex;
         flex-wrap: wrap;
-        padding: 0rem 2rem; } }
+        padding: 0rem 1rem; } }
     .product-nav__tab-list .current::after {
       content: "";
       position: absolute;
@@ -1705,6 +1709,9 @@ h5 {
     cursor: pointer; }
     .related-slider__item:hover img {
       height: 28rem; }
+    @media only screen and (max-width: 37.5em) {
+      .related-slider__item:hover img {
+        height: 25rem; } }
     .related-slider__item:after {
       content: "";
       grid-row: 1 / 1;
