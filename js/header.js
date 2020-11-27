@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
   //HEADER --------------
   //Header Main -- Scroll
   const nav = document.querySelector('#header');
-  const topOfNav = 180; //change to 0 for absolute top of page
+  const topOfNav = 60; //change to 0 for absolute top of page
 
   function fixNav() {
     if (window.scrollY >= topOfNav) {

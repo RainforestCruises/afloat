@@ -1,6 +1,14 @@
 .search-sidebar {
     grid-column: center-start / span 2;
     margin-bottom: 5rem;
+
+    & .search-sticky-wrapper {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 12rem;
+      }
+
+
     @media only screen and (max-width: $bp-medium) {
         grid-column: center-start / center-end;
     }

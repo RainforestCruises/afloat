@@ -1,31 +1,81 @@
 .search-page {
-  display: grid;
+  display: grid; //fits into global grid
   grid-row: nav-end / content-end;
   grid-column: 1 / -1;
-  padding-top: 3rem;
-
   grid-template-columns: $page-container;
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns:$page-container-small;
+  }
 
   position: relative;
   z-index: 0;
+
+  &__intro {
+    grid-column: center-start / center-end;
+    padding: 2rem 0;
+
+    &__breadcrumb {
+      display: flex;
+      list-style: none;
+      font-size: 1.5rem;
+      font-weight: 500;
+      
+      & li {
+        display: inline-block;
+        color: $color-grey-1;
+
+        &:not(:last-child):after{
+          content: "/";
+          padding-left: 1px;
+          padding-right: 4px;
+        }
+
+        & a {
+          text-decoration: none;
+          color: currentColor;
+          &:hover {
+            color: $color-supporting-light;
+          }
+        }
+      }
+    }
+
+    &__title {
+      font-size: 3rem;
+      color: $color-secondary;
+      cursor: pointer;
+      transition: .3s all;
+      font-weight: 600;
+      &:hover {
+        color: $color-supporting;
+      }
+    }
+    &__text {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: $page-container;
+
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns:$page-container-small;
+    }
+
+    height: 100%;
+    z-index: 3;
+    margin-top: 3rem;
+  }
+
  
-}
- 
 
-.search-content {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: $page-container;
-  height: 100%;
-  z-index: 3;
-
-
-  @media only screen and (max-width: $bp-small) {
-    grid-template-columns:  [full-start] minmax(2rem, 1fr) [center-start] repeat(
-      8,
-      [col-start] minmax(min-content, 14rem) [col-end] 
-    ) [center-end] minmax(2rem, 1fr) [full-end]; 
-}
+  &__bottom {
+    grid-column: center-start / center-end;
+    height: 50rem;
+    background-color: yellowgreen;
+  }
 
 }
 

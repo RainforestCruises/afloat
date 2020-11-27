@@ -110,9 +110,22 @@ jQuery(document).ready(function ($) {
 
 
 
+  //intro expand/hide
+  $(".search-page__intro__title").on("click", function (e) {
+    e.preventDefault();
+    let $this = $(this);
+
+
+    $this.parent().find('.search-page__intro__text').slideToggle(350);
+
+  });
 
 
 
+
+
+
+//closing jquery tag
 });
 
 

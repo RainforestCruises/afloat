@@ -8,7 +8,7 @@
     cursor: pointer;
     transition: all 0.3s;
 
-    @media only screen and (max-width: $bp-medium) {
+    @media only screen and (max-width: $bp-small) {
         grid-template-columns: 1fr;
         row-gap: 2rem;
     }
