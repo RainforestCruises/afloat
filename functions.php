@@ -139,7 +139,12 @@ function my_acf_save_post($post_id)
     }
 
     if ('rfc_tours' == get_post_type()) {
-        $count = count(get_field('daily_activities'));
+
+        $dailyActivities = get_field('daily_activities');
+        $count = 1;
+        if($dailyActivities){
+            $count = count($dailyActivities);
+        }
         update_field('length_in_days', $count);
     }
 }

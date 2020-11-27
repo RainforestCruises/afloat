@@ -223,7 +223,9 @@ jQuery(document).ready(function ($) {
       url: searchForm.attr('action'),
       data: searchForm.serialize(), // form data
       type: searchForm.attr('method'), // POST
-
+      beforeSend: function () {
+        $('#response').html('<div class="product-dates__search-area__results__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
+      },
       success: function (data) {
         $('#response').html(data); // insert data
 

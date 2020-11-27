@@ -71,6 +71,13 @@
             }
         }
         &__results {
+
+            &__loading {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20rem;
+                margin-top: 4rem;
+            }
             &__itinerary-group {
                 &__itinerary {
                     display: grid;
