@@ -28,28 +28,9 @@
             "ui": 1
         },
         {
-            "key": "field_5f627387f2c5e",
-            "label": "Area",
-            "name": "area",
-            "type": "text",
-            "instructions": "Area of the region km2",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5f6273bbf2c60",
-            "label": "Population",
-            "name": "population",
+            "key": "field_5fc52e9ebd0f9",
+            "label": "Intro Title",
+            "name": "intro_title",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -59,6 +40,22 @@
                 "class": "",
                 "id": ""
             },
+            "admin_column_enabled": 0,
+            "admin_column_post_types": [
+                "post",
+                "page",
+                "rfc_cruises",
+                "rfc_tours",
+                "rfc_lodges",
+                "rfc_locations",
+                "rfc_destinations",
+                "rfc_countries"
+            ],
+            "admin_column_taxonomies": [
+                "category",
+                "post_tag",
+                "link_category"
+            ],
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -66,68 +63,11 @@
             "maxlength": ""
         },
         {
-            "key": "field_5f6273b3f2c5f",
-            "label": "Major Cities",
-            "name": "major_cities",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5f6273c5f2c61",
-            "label": "Languages",
-            "name": "languages",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5f6273ccf2c62",
-            "label": "Best Time",
-            "name": "best_time",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5f6271fab95ef",
-            "label": "Tour Package Text",
-            "name": "tour_package_text",
+            "key": "field_5fc535b17cb44",
+            "label": "Intro Text",
+            "name": "intro_text",
             "type": "textarea",
-            "instructions": "Short descriptive text in the Tour Packages header, preceding the slider",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -135,18 +75,21 @@
                 "class": "",
                 "id": ""
             },
+            "admin_column_enabled": 0,
+            "admin_column_post_types": "",
+            "admin_column_taxonomies": "",
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
-            "rows": 4,
+            "rows": "",
             "new_lines": ""
         },
         {
-            "key": "field_5f62723db95f0",
-            "label": "Cruises Text",
-            "name": "cruises_text",
-            "type": "textarea",
-            "instructions": "Short descriptive text in the Cruises header, preceding the slider",
+            "key": "field_5fc52eadbd0fa",
+            "label": "Background Map",
+            "name": "background_map",
+            "type": "image",
+            "instructions": "Black and white outline map",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -154,11 +97,19 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 4,
-            "new_lines": ""
+            "admin_column_enabled": 0,
+            "admin_column_post_types": "",
+            "admin_column_taxonomies": "",
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -175,8 +126,10 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": true,
     "description": "Extended Fields for Destination Pages",
-    "modified": 1604341800
+    "modified": 1606759882
 }

@@ -154,34 +154,6 @@
             "return_format": "object"
         },
         {
-            "key": "field_5f6276a42ee75",
-            "label": "Country",
-            "name": "country",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 1,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
-            "post_type": [
-                "rfc_countries"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
-        },
-        {
             "key": "field_5f93523a6ac5b",
             "label": "General Info",
             "name": "",
@@ -1366,5 +1338,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Extended Fields for Cruise Post Types",
-    "modified": 1606163994
+    "modified": 1606760099
 }

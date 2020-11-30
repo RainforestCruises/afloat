@@ -291,9 +291,6 @@ function create_post_type_rfc_destinations()
             'rewrite' => array('slug' => 'destinations'),
             'supports' => array(
                 'title',
-                'editor',
-                'thumbnail',
-
             )
         )
     );
@@ -301,49 +298,47 @@ function create_post_type_rfc_destinations()
 add_action('init', 'create_post_type_rfc_destinations');
 
 
-// Custom Post Type - Sub Destinations
-function create_post_type_rfc_sub_destinations()
+// Custom Post Type - Locations
+function create_post_type_rfc_locations()
 {
     register_post_type(
-        'rfc_sub_destinations',
+        'rfc_locations',
         array(
             'labels' => array(
-                'name' => __('Sub Destinations'),
-                'singular_name' => __('Sub Destination'),
+                'name' => __('Locations'),
+                'singular_name' => __('Location'),
             ),
             'public' => true,
-            'rewrite' => array('slug' => 'sub-destinations'),
+            'rewrite' => array('slug' => 'locations'),
             'supports' => array(
                 'title',
-                'thumbnail',
             )
         )
     );
 }
-add_action('init', 'create_post_type_rfc_sub_destinations');
+add_action('init', 'create_post_type_rfc_locations');
 
 
-// Custom Post Type - Countries
-function create_post_type_rfc_countries()
+// Custom Post Type - Regions
+function create_post_type_rfc_regions()
 {
     register_post_type(
-        'rfc_countries',
+        'rfc_regions',
         array(
             'labels' => array(
-                'name' => __('Countries'),
-                'singular_name' => __('Country'),
+                'name' => __('Regions'),
+                'singular_name' => __('Region'),
             ),
             'public' => true,
-            'rewrite' => array('slug' => 'countries'),
+            'rewrite' => array('slug' => 'regions'),
             'supports' => array(
                 'title',
-                'editor',
-                'thumbnail',
             )
         )
     );
 }
-add_action('init', 'create_post_type_rfc_countries');
+add_action('init', 'create_post_type_rfc_regions');
+
 
 
 

@@ -1,6 +1,6 @@
 {
     "key": "group_5f627056cd767",
-    "title": "Sub Destination Post",
+    "title": "Location Post",
     "fields": [
         {
             "key": "field_5f627060127ca",
@@ -109,7 +109,7 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "min": "",
+            "min": 1,
             "max": "",
             "step": ""
         }
@@ -119,7 +119,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "rfc_sub_destinations"
+                "value": "rfc_locations"
             }
         ]
     ],
@@ -131,5 +131,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Extended Fields for Sub Destination Post Types",
-    "modified": 1604341829
+    "modified": 1606758712
 }

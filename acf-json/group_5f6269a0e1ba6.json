@@ -4,10 +4,10 @@
     "fields": [
         {
             "key": "field_5f6269be063ef",
-            "label": "Sub Destinations",
-            "name": "sub_destinations",
+            "label": "Locations",
+            "name": "locations",
             "type": "relationship",
-            "instructions": "Select one or more sub destinations",
+            "instructions": "Select one or more locations (sub destinations)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,15 +15,42 @@
                 "class": "",
                 "id": ""
             },
+            "admin_column_enabled": 0,
+            "admin_column_post_types": "",
+            "admin_column_taxonomies": "",
             "post_type": [
-                "rfc_sub_destinations"
+                "rfc_locations"
             ],
             "taxonomy": "",
             "filters": [
-                "search",
-                "post_type",
-                "taxonomy"
+                "search"
             ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
+            "key": "field_5fc53363628e2",
+            "label": "Region",
+            "name": "region",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "admin_column_enabled": 0,
+            "admin_column_post_types": "",
+            "admin_column_taxonomies": "",
+            "post_type": [
+                "rfc_regions"
+            ],
+            "taxonomy": "",
+            "filters": "",
             "elements": "",
             "min": "",
             "max": "",
@@ -47,5 +74,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Extended Fields for Destination Post Types",
-    "modified": 1604341811
+    "modified": 1606759315
 }

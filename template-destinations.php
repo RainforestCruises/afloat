@@ -11,12 +11,14 @@ get_header();
 ?>
 
 <?php
-$selectedDestination = get_field('destination_post');
-$subDestinations = get_field('sub_destinations', $selectedDestination->ID); //selector, post ID
+$destination = get_field('destination_post');
+$locations = get_field('locations', $destination->ID); //selector, post ID
+console_log($destination);
+console_log($locations);
 
-$destinationCount = count($subDestinations);
+$destinationCount = count($locations);
 
-usort($subDestinations, function($a, $b)
+usort($locations, function($a, $b)
 {
     return strcmp($a->importance, $b->importance);
 });
@@ -32,23 +34,16 @@ usort($subDestinations, function($a, $b)
 
             <div class="destination-hero__breadcrumb">
                 <div class="destination-hero__breadcrumb__path">
-                    Destinations > <?php echo ($selectedDestination->post_title) ?>
+                    Destinations > <?php echo ($destination->post_title) ?>
                 </div>
             </div>
 
-            <!-- play -->
-            <div class="destination-hero__play">
-                <a href="#video-popup" class="btn-icon destination-hero__play__button">
-                    <svg>
-                        <use xlink:href="<?php echo bloginfo('template_url')?>/css/img/sprite.svg#icon-controller-play"></use>
-                    </svg>
-                </a>
-            </div>
+
 
             <!-- destination-nav-->
             <nav class="destination-hero__page-nav">
                 <div class="destination-hero__page-nav__title" id="template-nav-title" href="#top">
-                <?php echo ($selectedDestination->post_title) ?>
+                <?php echo ($destination->post_title) ?>
                 </div>
 
                 <!-- sticky wrapper -->
@@ -117,20 +112,18 @@ usort($subDestinations, function($a, $b)
 
             <!-- BG Slider -->
             <div class="destination-hero__bg" id="destination-hero__bg">
-
-                <?php foreach ($subDestinations as $s) : ?>
+                <?php foreach ($locations as $s) : ?>
                     <div class="destination-hero__bg__slide">
                         <img src="<?php echo wp_get_attachment_url($s->hero_image); ?>" alt="">
                     </div>
                 <?php endforeach; ?>
-
             </div>
 
             <!-- Content Slider -->
             <div class="destination-hero__content" id="destination-hero__content">
                 <!-- Content -->
 
-                <?php foreach ($subDestinations as $s) : ?>
+                <?php foreach ($locations as $s) : ?>
                     <div class="destination-hero__content__slide">
                         <div class="destination-hero__content__slide__subtitle">
                             <?php echo ($s->hero_sub_title); ?>
@@ -150,7 +143,7 @@ usort($subDestinations, function($a, $b)
                             </a>
                             <a href="#" class="destination-hero__content__slide__cta__more">
                                 <span>
-                                    More <?php echo ($selectedDestination->post_title) ?>
+                                    More <?php echo ($destination->post_title) ?>
                                 </span>
                             </a>
                         </div>
@@ -163,7 +156,7 @@ usort($subDestinations, function($a, $b)
 
             <!-- Nav Slider -->
             <div class="destination-hero__nav" id="destination-hero__nav">
-                <?php foreach ($subDestinations as $s) : ?>
+                <?php foreach ($locations as $s) : ?>
                     <div class="destination-hero__nav__slide">
                         <span><?php echo ($s->post_title); ?></span>
                     </div>
