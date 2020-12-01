@@ -49,7 +49,7 @@ jQuery(document).ready(function ($) {
                     var newNav = $(navbar).clone(true); //clone the nav and append it to header (pass true to clone events also)
                     newNav.attr('id', 'page-nav');
 
-                    $(newNav).addClass('destination-hero__page-nav__sticky-wrapper--active');
+                    $(newNav).addClass('destination-hero__content__page-nav__sticky-wrapper--active');
                     $('#header').append(newNav);
                 }
 
@@ -57,7 +57,7 @@ jQuery(document).ready(function ($) {
                 if (elementExists == null) {
                     var newTitle = $(subnavTitle).clone(true);
                     newTitle.attr('id', 'page-nav-title')
-                    $(newTitle).addClass('destination-hero__page-nav__title--sticky'); //create common style
+                    $(newTitle).addClass('destination-hero__content__page-nav__title--sticky'); //create common style
                     $('#page-nav').append(newTitle);
                 }
             }
@@ -69,7 +69,7 @@ jQuery(document).ready(function ($) {
 
     //SCROLLING
     //Navigation Jump -- add url #anchor modification
-    $('.destination-hero__page-nav__list__item__link, #template-nav-title, .page-nav__collapse__list__item, #down-arrow-button').click(function (event) {
+    $('.destination-hero__content__page-nav__list__item__link, #template-nav-title, .page-nav__collapse__list__item, #down-arrow-button').click(function (event) {
         var id = $(this).attr('href');
         var target = $(id).offset().top;
         $('.page-nav__collapse').removeClass('page-nav__collapse--active');
@@ -99,7 +99,7 @@ jQuery(document).ready(function ($) {
         isSelected($(window).scrollTop())
     });
 
-    var sections = $('.destination-hero__page-nav__list__item__link');
+    var sections = $('.destination-hero__content__page-nav__list__item__link');
 
     function isSelected(scrolledTo) {
         var threshold = 200;
@@ -113,7 +113,7 @@ jQuery(document).ready(function ($) {
                 var sectionHref = $(section).attr('href');
                 var active = $('a[href="' + sectionHref + '"]');
 
-                $('.destination-hero__page-nav__list__item__link').removeClass("current");
+                $('.destination-hero__content__page-nav__list__item__link').removeClass("current");
                 active.addClass("current");
             }
         };
@@ -156,12 +156,7 @@ jQuery(document).ready(function ($) {
         fade: true,
         responsive: [
             {
-                breakpoint: 1000,
-                settings: {
-                    arrows: true,
-                    draggable: false,
-
-                }
+              
             }
         ]
     });
@@ -185,7 +180,15 @@ jQuery(document).ready(function ($) {
         focusOnSelect: true,
         arrows: true,
         asNavFor: '#destination-hero__content, #destination-hero__bg',
+        responsive: [
+            {
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 1,
 
+                }
+            }
+        ]
 
     });
 

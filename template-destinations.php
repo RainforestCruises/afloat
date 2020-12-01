@@ -58,30 +58,32 @@ usort($locations, function ($a, $b) {
 
                     <!-- sticky wrapper -->
                     <nav class="destination-hero__content__page-nav__sticky-wrapper" id="template-nav">
-
+                        <div class="destination-hero__content__page-nav__title" id="template-nav-title" href="#top">
+                            <?php echo ($destination->post_title) ?>
+                        </div>
                         <ul class="destination-hero__content__page-nav__list">
-                            <div class="destination-hero__content__page-nav__list__item">
+                            <li class="destination-hero__content__page-nav__list__item">
                                 <a href="#tours" class="destination-hero__content__page-nav__list__item__link ">Tours</a>
-                            </div>
-                            <div class="destination-hero__content__page-nav__list__item">
+                            </li>
+                            <li class="destination-hero__content__page-nav__list__item">
                                 <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
-                            </div>
-                            <div class="destination-hero__content__page-nav__list__item">
+                            </li>
+                            <li class="destination-hero__content__page-nav__list__item">
                                 <a href="#accommodations" class="destination-hero__content__page-nav__list__item__link">Accommodations</a>
-                            </div>
+                            </li>
 
-                            <div class="destination-hero__content__page-nav__list__item">
+                            <li class="destination-hero__content__page-nav__list__item">
                                 <a href="#travel-guides" class="destination-hero__content__page-nav__list__item__link">Travel Guides</a>
-                            </div>
-                            <div class="destination-hero__content__page-nav__list__item">
+                            </li>
+                            <li class="destination-hero__content__page-nav__list__item">
                                 <a href="#reviews" class="destination-hero__content__page-nav__list__item__link">Reviews</a>
-                            </div>
-                            <div class="destination-hero__content__page-nav__list__item">
+                            </li>
+                            <li class="destination-hero__content__page-nav__list__item">
                                 <a href="#faq" class="destination-hero__content__page-nav__list__item__link">FAQ</a>
-                            </div>
+                            </li>
                         </ul>
                         <div class="page-nav__button">
-                            Peru
+                        <?php echo ($destination->post_title) ?>
                             <svg>
                                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
                             </svg>
