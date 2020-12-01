@@ -1,7 +1,7 @@
 .destination-page {
     display: grid;
     grid-template-rows:
-        [nav-start] 100vh [hero-end content-start]
+        [nav-start] min-content [hero-end content-start]
         repeat(5, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end];
 
     grid-template-columns: $page-container;
@@ -12,7 +12,6 @@
     &__section-hero {
         grid-row: nav-start / hero-end;
         grid-column: full-start / -1;
-        background-color: $color-black;
     }
 
     &__section-intro {

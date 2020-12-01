@@ -1,5 +1,5 @@
-<?php
-/*Template Name: Destinations*/
+<?php 
+/*Template Name: Old Destinations*/
 wp_enqueue_script('page-destination', get_template_directory_uri() . '/js/page-destination.js', array('jquery'), false, true);
 
 ?>
@@ -18,7 +18,8 @@ console_log($locations);
 
 $destinationCount = count($locations);
 
-usort($locations, function ($a, $b) {
+usort($locations, function($a, $b)
+{
     return strcmp($a->importance, $b->importance);
 });
 
@@ -30,120 +31,138 @@ usort($locations, function ($a, $b) {
 
         <!-- Destination Hero -->
         <div class="destination-hero">
-            <div class="destination-hero__bg-slide" id="destination-hero__bg">
-                <?php foreach ($locations as $s) : ?>
-                    <img src="<?php echo wp_get_attachment_url($s->hero_image); ?>" alt="">
 
-                <?php endforeach; ?>
+            <div class="destination-hero__breadcrumb">
+                <div class="destination-hero__breadcrumb__path">
+                    Destinations > <?php echo ($destination->post_title) ?>
+                </div>
             </div>
-            <div class="destination-hero__content">
-                <div class="destination-hero__content__breadcrumb">
-                    <ol class="destination-hero__content__breadcrumb__path">
-                        <li>
-                            <a href="#">Destinations</a>
-                        </li>
-                        <li>
-                            <?php echo ($destination->post_title) ?>
-                        </li>
-                    </ol>
-                </div>
-                <div class="destination-hero__content__title">
-                    Peru Vacations
+
+
+
+            <!-- destination-nav-->
+            <nav class="destination-hero__page-nav">
+                <div class="destination-hero__page-nav__title" id="template-nav-title" href="#top">
+                <?php echo ($destination->post_title) ?>
                 </div>
 
+                <!-- sticky wrapper -->
+                <nav class="destination-hero__page-nav__sticky-wrapper" id="template-nav">
 
-                <div class="destination-hero__content__page-nav">
-
-
-
-                    <!-- sticky wrapper -->
-                    <nav class="destination-hero__content__page-nav__sticky-wrapper" id="template-nav">
-
-                        <ul class="destination-hero__content__page-nav__list">
-                            <div class="destination-hero__content__page-nav__list__item">
-                                <a href="#tours" class="destination-hero__content__page-nav__list__item__link ">Tours</a>
-                            </div>
-                            <div class="destination-hero__content__page-nav__list__item">
-                                <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
-                            </div>
-                            <div class="destination-hero__content__page-nav__list__item">
-                                <a href="#accommodations" class="destination-hero__content__page-nav__list__item__link">Accommodations</a>
-                            </div>
-
-                            <div class="destination-hero__content__page-nav__list__item">
-                                <a href="#travel-guides" class="destination-hero__content__page-nav__list__item__link">Travel Guides</a>
-                            </div>
-                            <div class="destination-hero__content__page-nav__list__item">
-                                <a href="#reviews" class="destination-hero__content__page-nav__list__item__link">Reviews</a>
-                            </div>
-                            <div class="destination-hero__content__page-nav__list__item">
-                                <a href="#faq" class="destination-hero__content__page-nav__list__item__link">FAQ</a>
-                            </div>
-                        </ul>
-                        <div class="page-nav__button">
-                            Peru
-                            <svg>
-                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                            </svg>
+                    <ul class="destination-hero__page-nav__list">
+                        <div class="destination-hero__page-nav__list__item">
+                            <a href="#tours" class="destination-hero__page-nav__list__item__link ">Tours</a>
                         </div>
-                        <!-- page-nav__collapse--active -->
-                        <nav class="page-nav__collapse ">
-                            <ul class="page-nav__collapse__list">
-                                <li class="page-nav__collapse__list__item" href="#tours">
-                                    Tours
-                                </li>
-                                <li class="page-nav__collapse__list__item" href="#cruises">
-                                    Cruises
-                                </li>
-                                <li class="page-nav__collapse__list__item" href="#accommodations">
-                                    Accommodations
-                                </li>
-                            </ul>
-                        </nav>
+                        <div class="destination-hero__page-nav__list__item">
+                            <a href="#cruises" class="destination-hero__page-nav__list__item__link ">Cruises</a>
+                        </div>
+                        <div class="destination-hero__page-nav__list__item">
+                            <a href="#accommodations" class="destination-hero__page-nav__list__item__link">Accommodations</a>
+                        </div>
 
-
-
+                        <div class="destination-hero__page-nav__list__item">
+                            <a href="#travel-guides" class="destination-hero__page-nav__list__item__link">Travel Guides</a>
+                        </div>
+                        <div class="destination-hero__page-nav__list__item">
+                            <a href="#reviews" class="destination-hero__page-nav__list__item__link">Reviews</a>
+                        </div>
+                        <div class="destination-hero__page-nav__list__item">
+                            <a href="#faq" class="destination-hero__page-nav__list__item__link">FAQ</a>
+                        </div>
+                    </ul>
+                    <div class="page-nav__button">
+                        Peru
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url')?>/css/img/sprite.svg#icon-chevron-right"></use>
+                        </svg>
+                    </div>
+                    <!-- page-nav__collapse--active -->
+                    <nav class="page-nav__collapse ">
+                        <ul class="page-nav__collapse__list">
+                            <li class="page-nav__collapse__list__item" href="#tours">
+                                Tours
+                            </li>
+                            <li class="page-nav__collapse__list__item" href="#cruises">
+                                Cruises
+                            </li>
+                            <li class="page-nav__collapse__list__item" href="#accommodations">
+                                Accommodations
+                            </li>
+                        </ul>
                     </nav>
 
 
 
-                    <div class="destination-hero__content__page-nav__arrow">
-                        <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#tours">
-                            <svg class="btn-circle--arrow-main">
-                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
-                            </svg>
-                            <svg class="btn-circle--arrow-animate">
-                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
-                            </svg></button>
-                    </div>
+                </nav>
 
 
 
-
+                <div class="destination-hero__page-nav__arrow">
+                    <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#tours">
+                        <svg class="btn-circle--arrow-main">
+                            <use xlink:href="<?php echo bloginfo('template_url')?>/css/img/sprite.svg#icon-arrow-down"></use>
+                        </svg>
+                        <svg class="btn-circle--arrow-animate">
+                            <use xlink:href="<?php echo bloginfo('template_url')?>/css/img/sprite.svg#icon-arrow-down"></use>
+                        </svg></button>
                 </div>
+            </nav>
 
 
-                <div class="destination-hero__content__location-slider">
-                    <div class="destination-hero__content__location-slider__main" id="destination-hero__content">
-                        <?php foreach ($locations as $s) : ?>
-                            <div class="destination-hero__content__location-slider__main__item">
-                                <div class="destination-hero__content__location-slider__main__item__title">
-                                    <?php echo ($s->hero_title); ?>
-                                </div>
-                                <div class="destination-hero__content__location-slider__main__item__text">
-                                    <?php echo ($s->hero_short_text); ?>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
 
-
+            <!-- BG Slider -->
+            <div class="destination-hero__bg" id="destination-hero__bg">
+                <?php foreach ($locations as $s) : ?>
+                    <div class="destination-hero__bg__slide">
+                        <img src="<?php echo wp_get_attachment_url($s->hero_image); ?>" alt="">
                     </div>
-                    <div class="destination-hero__content__location-slider__nav" id="destination-hero__nav">
-                        <?php foreach ($locations as $s) : ?>
-                            <div class="destination-hero__content__location-slider__nav__item"><?php echo ($s->post_title); ?></div>
-                        <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
+
+            <!-- Content Slider -->
+            <div class="destination-hero__content" id="destination-hero__content">
+                <!-- Content -->
+
+                <?php foreach ($locations as $s) : ?>
+                    <div class="destination-hero__content__slide">
+                        <div class="destination-hero__content__slide__subtitle">
+                            <?php echo ($s->hero_sub_title); ?>
+                        </div>
+                        <div class="destination-hero__content__slide__title">
+                            <?php echo ($s->hero_title); ?>
+                        </div>
+                        <p class="destination-hero__content__slide__text">
+                            <?php echo ($s->hero_short_text); ?>
+                        </p>
+                        <div class="destination-hero__content__slide__cta">
+                            <a href="#" class="destination-hero__content__slide__cta__explore">
+                                <span>Explore <?php echo ($s->post_title); ?></span>
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url')?>/css/img/sprite.svg#icon-chevron-right"></use>
+                                </svg>
+                            </a>
+                            <a href="#" class="destination-hero__content__slide__cta__more">
+                                <span>
+                                    More <?php echo ($destination->post_title) ?>
+                                </span>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                <?php endforeach; ?>
+
+
+
+            </div>
+
+            <!-- Nav Slider -->
+            <div class="destination-hero__nav" id="destination-hero__nav">
+                <?php foreach ($locations as $s) : ?>
+                    <div class="destination-hero__nav__slide">
+                        <span><?php echo ($s->post_title); ?></span>
+                    </div>
+                <?php endforeach; ?>
+
+
 
 
             </div>
@@ -152,7 +171,19 @@ usort($locations, function ($a, $b) {
     </section>
 
 
-
+    <div class="video-popup" id="video-popup">
+        <div class="video-popup__content">
+            <video controls id="destination-video">
+                <source src="https://player.vimeo.com/external/153249004.sd.mp4?s=226e013691679ff208dafe8f5f3435818810178a&profile_id=165" type="video/mp4">
+                Your browser doesn't support HTML5 video tag.
+            </video>
+        </div>
+        <a href="#" class="video-popup__close">
+            <svg>
+                <use xlink:href="<?php echo bloginfo('template_url')?>/css/img/sprite.svg#icon-x"></use>
+            </svg>
+        </a>
+    </div>
 
     <div class="destination-page__section-intro" id="tours">
         <div class="destination-intro">
@@ -725,7 +756,8 @@ usort($locations, function ($a, $b) {
 <?php get_footer(); ?>
 
 
-<script>
-    var destinationCount = <?php echo json_encode($destinationCount); ?>;
-    var templateUrl = "<?php echo bloginfo('template_url') ?>";
-</script>
+<script> 
+var destinationCount = <?php echo json_encode($destinationCount); ?>; 
+var templateUrl = "<?php echo bloginfo('template_url')?>";
+ 
+</script> 
