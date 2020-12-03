@@ -149,3 +149,96 @@
         }
     }
 }
+
+
+.product-card {
+    display: grid !important;
+    align-content: center;
+    background-color: $color-white;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+    width: 45rem;
+    border-radius: .5rem;
+    border: 1px solid $color-grey-light-1a;
+    grid-template-rows: 30rem 20rem;
+    outline: none;
+    &:link,
+    &:visited {
+        text-decoration: none;
+        color: $color-grey-1;
+
+    }
+
+    &__image {
+        grid-row: 1 / span 1;
+        & img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            border-top-left-radius: .5rem;
+            border-top-right-radius: .5rem;
+
+        }
+    }
+
+    &__bottom {
+        grid-row: 2 / span 1;
+        padding: 1rem;
+        display: grid;
+        row-gap: 1rem;
+        position: relative;
+        
+
+        &__title-group {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: $color-secondary;
+            display: grid;
+            grid-template-columns: 1fr max-content;
+
+            &__product-name {
+
+            }
+
+            &__price {
+
+                & .from-price {
+                    font-size: 1.4rem;
+                    color: $color-grey-1;
+                }
+
+                & .currency-price {
+                    font-size: 1.4rem;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        &__text {
+            font-size: 1.3rem;
+            padding-bottom: 1rem;
+        }
+
+        &__info {
+            position: relative;
+            padding-top: 1.5rem;
+            font-weight: 500;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: .2rem;
+            text-align: center;
+            &::before {
+                content: "";
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: $color-grey-light-1a;
+            }
+        }
+    }
+
+
+}

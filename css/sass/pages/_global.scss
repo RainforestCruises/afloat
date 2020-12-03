@@ -3,5 +3,5 @@
     grid-template-rows:
         [nav-start content-start] 9rem [nav-end] min-content [content-end footer-start] min-content [footer-end];
 
-    grid-template-columns: $page-container;
+    grid-template-columns: [full-start] 1fr [full-end];
 }

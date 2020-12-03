@@ -881,7 +881,7 @@ h5 {
 .global {
   display: grid;
   grid-template-rows: [nav-start content-start] 9rem [nav-end] min-content [content-end footer-start] min-content [footer-end];
-  grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
+  grid-template-columns: [full-start] 1fr [full-end]; }
 
 .home-page {
   display: grid;
@@ -3905,126 +3905,37 @@ h5 {
     right: -7rem; }
 
 .destination-cruises {
-  overflow-x: hidden;
   display: grid;
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-  justify-items: center;
-  grid-template-rows: repeat(3, min-content);
-  padding: 3rem 0;
   position: relative;
-  z-index: 0;
-  transform: translateY(-8rem); }
-  .destination-cruises__title {
-    grid-column: center-start / center-end;
-    font-size: 4.5rem;
-    text-align: center;
-    color: #142838;
-    font-family: "Old Standard TT", serif;
-    letter-spacing: 0.2rem;
-    z-index: 10;
-    display: grid;
-    grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr);
-    align-items: center;
-    column-gap: 25px; }
-    .destination-cruises__title::before {
-      content: "";
-      height: 1px;
-      display: block;
-      background-color: currentColor; }
-    .destination-cruises__title::after {
-      content: "";
-      height: 1px;
-      display: block;
-      background-color: currentColor; }
-  .destination-cruises__intro-text {
-    grid-column: center-start / center-end;
-    padding: 0 6rem;
-    padding-bottom: 4rem;
-    font-size: 1.4rem;
-    text-align: center;
-    z-index: 10; }
-  .destination-cruises__grid {
-    grid-column: center-start / center-end;
+  grid-column: 1 / -1;
+  margin-bottom: 6rem;
+  outline: none; }
+  .destination-cruises__header {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    width: 80%;
-    column-gap: 1rem;
-    row-gap: 5rem; }
-    .destination-cruises__grid__item {
-      display: grid;
-      row-gap: 2rem;
-      grid-template-columns: 1fr;
-      cursor: pointer; }
-      .destination-cruises__grid__item:hover .destination-cruises__grid__item__cta {
-        opacity: 1; }
-      .destination-cruises__grid__item:hover::after {
-        opacity: 1; }
-      .destination-cruises__grid__item__cta {
-        grid-column: 1 / span 1;
-        grid-row: 1 / span 1;
-        align-self: center;
-        justify-self: center;
-        z-index: 3;
-        opacity: 0; }
-      .destination-cruises__grid__item:after {
-        content: "";
-        grid-column: 1 / span 1;
-        grid-row: 1 / span 1;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-        background-image: linear-gradient(to top, rgba(30, 30, 30, 0.4), rgba(30, 30, 30, 0.4));
-        opacity: 0;
-        transition: opacity 0.3s; }
-      .destination-cruises__grid__item__img {
-        grid-column: 1 / span 1;
-        grid-row: 1 / span 1;
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-        position: relative;
-        z-index: 0;
-        transition: all 0.2s; }
-      .destination-cruises__grid__item__lower-section {
-        grid-row: 2 / span 1;
-        display: grid;
-        grid-template-columns: minmax(min-content/max-content)/1fr;
-        row-gap: 0.5rem;
-        position: relative; }
-        .destination-cruises__grid__item__lower-section__price {
-          z-index: 10;
-          background-color: white;
-          padding: 0.75rem 1.75rem;
-          padding-bottom: 1rem;
-          box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
-          position: absolute;
-          top: -5rem;
-          right: 1rem;
-          font-size: 1.6rem;
-          font-weight: 600;
-          color: #142838; }
-        .destination-cruises__grid__item__lower-section__name {
-          grid-column: 1 / -1;
-          font-size: 1.6rem;
-          font-weight: 600;
-          letter-spacing: 0.05rem;
-          color: #142838; }
-        .destination-cruises__grid__item__lower-section__length {
-          grid-column: 1 / span 1;
-          font-size: 1.3rem;
-          text-transform: uppercase;
-          letter-spacing: 0.2rem; }
-        .destination-cruises__grid__item__lower-section__stars {
-          grid-column: 2 / span 1;
-          display: flex;
-          justify-content: flex-end; }
-          .destination-cruises__grid__item__lower-section__stars svg {
-            height: 1.5rem;
-            width: 1.5rem; }
-  .destination-cruises__all {
-    grid-column: center-start / center-end;
-    margin-top: 8rem; }
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    margin-bottom: 6rem; }
+    .destination-cruises__header__title {
+      margin: 0; }
+    .destination-cruises__header__sub-text {
+      grid-column: center-start / center-end;
+      font-size: 1.6rem;
+      text-align: center; }
+  .destination-cruises__best-selling {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6rem; }
+    .destination-cruises__best-selling__slider {
+      max-width: 114rem;
+      margin: 0 6rem; }
+      .destination-cruises__best-selling__slider .slick-slide {
+        margin: 0 1.5rem; }
+  .destination-cruises__btn {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center; }
 
 .destination-accommodations {
   overflow-x: hidden;
@@ -4154,266 +4065,75 @@ h5 {
 .destination-intro {
   display: grid;
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-  background-image: linear-gradient(to bottom, #838f94 30%, #fff);
-  position: relative;
-  row-gap: 2rem;
-  padding-bottom: 6rem; }
+  overflow: hidden;
+  position: relative; }
   .destination-intro::before {
     content: "";
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to top, #1e1e1e 30%, transparent), linear-gradient(to left, #1e1e1e 30%, transparent), url(img/bg/topo-1-inverse.png);
-    mix-blend-mode: exclusion;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(img/bg/topo-1.png) linear-gradient(to top, white 30%, transparent);
     opacity: 0.35;
     top: 0;
     left: 0; }
-  .destination-intro::after {
-    content: "";
+  .destination-intro__bg {
+    z-index: 2;
     position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(to top, white, transparent 30%);
-    bottom: 0;
-    left: 0; }
+    top: 0;
+    right: 0;
+    transform: translateX(20%); }
   .destination-intro__content {
-    grid-column: full-start / col-start 8;
-    margin-left: 10vw;
-    margin-top: 5rem;
-    overflow: hidden;
+    grid-column: center-start / center-end;
     grid-row: 1 / span 1;
-    color: #fff;
-    z-index: 5;
+    z-index: 10;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 12rem; }
-    @media only screen and (max-width: 62.5em) {
-      .destination-intro__content {
-        grid-column: full-start / -1;
-        margin-right: 8vw;
-        margin-left: 8vw; } }
-    .destination-intro__content__title {
-      color: currentColor;
-      font-size: 3rem;
-      letter-spacing: 0.3rem;
-      font-weight: 700;
-      align-self: center;
-      grid-column: 1 / -1; }
-    .destination-intro__content__text {
-      grid-column: 1 / span 1;
-      position: relative; }
-      @media only screen and (max-width: 62.5em) {
-        .destination-intro__content__text {
-          grid-column: 1 / -1;
-          grid-row: 2 / span 1;
-          text-align: justify; } }
-    .destination-intro__content__stats {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(max-content, 20rem));
-      grid-template-rows: repeat(3, min-content);
-      row-gap: 3rem;
-      column-gap: 5rem;
-      grid-column: 2 / span 1;
-      grid-row: 2 / span 1; }
-      @media only screen and (max-width: 62.5em) {
-        .destination-intro__content__stats {
-          grid-column: 1 / -1;
-          grid-row: 3 / span 1;
-          grid-template-columns: repeat(3, minmax(max-content, 20rem));
-          margin: 6rem;
-          margin-top: 3rem;
-          margin-bottom: 3rem;
-          justify-self: center; } }
-      @media only screen and (max-width: 37.5em) {
-        .destination-intro__content__stats {
-          grid-template-columns: repeat(2, minmax(max-content, 20rem));
-          grid-template-rows: repeat(3, min-content);
-          grid-auto-flow: dense;
-          column-gap: 3rem; } }
-      .destination-intro__content__stats__item__title {
-        font-family: "Old Standard TT", serif;
-        font-size: 1.3rem;
-        letter-spacing: 0.2rem;
-        font-weight: 300;
-        display: inline-block; }
-        @media only screen and (max-width: 62.5em) {
-          .destination-intro__content__stats__item__title {
-            font-size: 1.5rem; } }
-        .destination-intro__content__stats__item__title::after {
-          content: "";
-          height: 1px;
-          width: 100%;
-          display: block;
-          background-color: rgba(255, 255, 255, 0.3);
-          z-index: 9; }
-      .destination-intro__content__stats__item__text {
-        font-size: 1.8rem;
-        letter-spacing: 0.2rem;
-        font-weight: 700; }
-  .destination-intro__map {
-    grid-row: 1 / span 2;
-    grid-column: col-start 6 / full-end;
-    z-index: 1;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    position: relative; }
-    @media only screen and (max-width: 62.5em) {
-      .destination-intro__map {
-        grid-column: col-start 5 / full-end; } }
-    .destination-intro__map img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0; }
-      @media only screen and (max-width: 62.5em) {
-        .destination-intro__map img {
-          transform: scale(0.8) translateY(-20rem) translateX(-12rem); } }
-      @media only screen and (max-width: 37.5em) {
-        .destination-intro__map img {
-          transform: scale(0.7) translateY(-32rem) translateX(-22rem); } }
-  .destination-intro__tours {
-    grid-row: 2 / span 1;
-    grid-column: 1 / -1;
-    z-index: 20;
-    color: #fff;
-    margin: 0 10vw; }
-    @media only screen and (max-width: 62.5em) {
-      .destination-intro__tours {
-        margin: 0 8vw; } }
-    .destination-intro__tours__title {
-      font-size: 2rem;
-      color: currentColor;
+    column-gap: 8rem;
+    padding: 8rem 0; }
+    .destination-intro__content__description__title {
+      font-size: 4rem;
+      color: #142838;
       letter-spacing: 0.2rem;
       font-weight: 700;
-      align-self: center;
       margin-bottom: 2rem; }
-    .destination-intro__tours__content {
-      display: flex;
-      justify-content: space-between; }
-      .destination-intro__tours__content__subtitle {
-        max-width: 70%; }
-        @media only screen and (max-width: 37.5em) {
-          .destination-intro__tours__content__subtitle {
-            max-width: 60%;
-            text-align: justify; } }
-      .destination-intro__tours__content__all {
-        margin-right: 5rem; }
-        @media only screen and (max-width: 62.5em) {
-          .destination-intro__tours__content__all {
-            margin-right: 0; } }
-        @media only screen and (max-width: 37.5em) {
-          .destination-intro__tours__content__all {
-            align-self: center; } }
-    .destination-intro__tours__slider {
-      grid-column: 1 / -1;
-      margin: auto;
-      transform: translateX(-0.5rem);
-      z-index: 50; }
-      .destination-intro__tours__slider .slick-track {
-        height: 56rem; }
-      .destination-intro__tours__slider .slick-slide {
-        padding: 0 .5rem; }
-      .destination-intro__tours__slider__slide {
-        display: grid !important;
-        align-content: center;
-        background-color: #fff;
-        position: relative;
-        z-index: 0;
-        grid-template-rows: min-content min-content;
-        cursor: pointer; }
-        .destination-intro__tours__slider__slide:after {
-          content: "";
-          grid-row: 1 / 1;
-          grid-column: 1 / -1;
-          width: 100%;
-          height: 100%;
-          z-index: 2;
-          background-image: linear-gradient(to top, rgba(30, 30, 30, 0.5), rgba(30, 30, 30, 0.5));
-          opacity: 0;
-          transition: opacity 0.3s; }
-        .destination-intro__tours__slider__slide:hover:after {
-          opacity: 1; }
-        .destination-intro__tours__slider__slide:hover img {
-          height: 35rem; }
-        .destination-intro__tours__slider__slide:hover .destination-intro__tours__slider__slide__hover-group {
-          opacity: 1; }
-        .destination-intro__tours__slider__slide__hover-group {
-          grid-column: 1 / -1;
-          grid-row: 1 / 1;
-          margin-bottom: 1.4rem;
-          align-self: center;
-          display: flex;
-          flex-direction: column;
-          z-index: 5;
-          align-items: center;
-          transition: opacity 0.3s 0.1s;
-          opacity: 0; }
-          .destination-intro__tours__slider__slide__hover-group__cta {
-            display: block;
-            font-size: 2rem;
-            color: #fff;
-            letter-spacing: 0.15rem;
-            margin: 0.3rem 2rem;
-            font-weight: 400; }
-          .destination-intro__tours__slider__slide__hover-group__count {
-            display: block;
-            font-size: 1.4rem;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 0.3rem;
-            margin-bottom: 2rem; }
-        .destination-intro__tours__slider__slide__img {
-          grid-column: 1 / -1;
-          grid-row: 1 / span 1;
-          width: 100%;
-          height: 30rem;
-          object-fit: cover;
-          object-position: center;
-          position: relative;
-          z-index: 0;
-          transition: height 0.3s; }
-        .destination-intro__tours__slider__slide__lower-section {
-          grid-column: 1 / -1;
-          grid-row: 2 / span 1;
-          padding: 1rem 2rem;
-          display: flex;
-          flex-direction: column;
-          text-align: center;
-          min-height: 15rem; }
-          .destination-intro__tours__slider__slide__lower-section__title {
-            margin: 1rem 0rem;
-            font-size: 1.6rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3rem;
-            color: #142838; }
-          .destination-intro__tours__slider__slide__lower-section__text {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: #919598; }
-    .destination-intro__tours__btn--left {
-      position: absolute;
-      z-index: 10;
-      top: 17rem;
-      left: -7rem; }
-      @media only screen and (max-width: 50em) {
-        .destination-intro__tours__btn--left {
-          left: -6rem; } }
-      @media only screen and (max-width: 37.5em) {
-        .destination-intro__tours__btn--left {
-          left: -2rem; } }
-    .destination-intro__tours__btn--right {
-      position: absolute;
-      z-index: 10;
-      top: 17rem;
-      right: -7rem; }
-      @media only screen and (max-width: 50em) {
-        .destination-intro__tours__btn--right {
-          right: -6rem; } }
-      @media only screen and (max-width: 37.5em) {
-        .destination-intro__tours__btn--right {
-          right: -2rem; } }
-    .destination-intro__tours__all {
-      text-align: center; }
+    .destination-intro__content__description__text {
+      font-size: 1.6rem; }
+    .destination-intro__content__locations {
+      font-size: 1.4rem; }
+      .destination-intro__content__locations__title {
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: #142838; }
+      .destination-intro__content__locations__list {
+        list-style: none;
+        color: #919598;
+        margin-bottom: 2rem; }
+        .destination-intro__content__locations__list li:not(:last-child) {
+          margin-bottom: 1rem; }
+        .destination-intro__content__locations__list li a {
+          padding: 1rem 0;
+          text-decoration: none;
+          color: currentColor; }
+          .destination-intro__content__locations__list li a:hover {
+            color: #9ea0a4; }
+  .destination-intro__tours {
+    grid-column: 1 / -1;
+    grid-row: 2 / span 1;
+    z-index: 10; }
+    .destination-intro__tours__header {
+      display: grid;
+      grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+      margin-bottom: 6rem; }
+      .destination-intro__tours__header__title {
+        margin: 0; }
+      .destination-intro__tours__header__sub-text {
+        grid-column: center-start / center-end;
+        font-size: 1.6rem;
+        text-align: center; }
+    .destination-intro__tours__best-selling {
+      height: 40rem; }
 
 .home-hero {
   display: grid;
@@ -4686,6 +4406,67 @@ h5 {
       .card-square__bottom__price__numbers {
         font-size: 1.6rem;
         color: #142838; }
+
+.product-card {
+  display: grid !important;
+  align-content: center;
+  background-color: #fff;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  width: 45rem;
+  border-radius: .5rem;
+  border: 1px solid #e6e6e6;
+  grid-template-rows: 30rem 20rem;
+  outline: none; }
+  .product-card:link, .product-card:visited {
+    text-decoration: none;
+    color: #9ea0a4; }
+  .product-card__image {
+    grid-row: 1 / span 1; }
+    .product-card__image img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      border-top-left-radius: .5rem;
+      border-top-right-radius: .5rem; }
+  .product-card__bottom {
+    grid-row: 2 / span 1;
+    padding: 1rem;
+    display: grid;
+    row-gap: 1rem;
+    position: relative; }
+    .product-card__bottom__title-group {
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: #142838;
+      display: grid;
+      grid-template-columns: 1fr max-content; }
+      .product-card__bottom__title-group__price .from-price {
+        font-size: 1.4rem;
+        color: #9ea0a4; }
+      .product-card__bottom__title-group__price .currency-price {
+        font-size: 1.4rem;
+        text-transform: uppercase; }
+    .product-card__bottom__text {
+      font-size: 1.3rem;
+      padding-bottom: 1rem; }
+    .product-card__bottom__info {
+      position: relative;
+      padding-top: 1.5rem;
+      font-weight: 500;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: .2rem;
+      text-align: center; }
+      .product-card__bottom__info::before {
+        content: "";
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #e6e6e6; }
 
 .lds-dual-ring {
   display: inline-block;

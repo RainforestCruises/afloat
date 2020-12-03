@@ -51,9 +51,7 @@ usort($locations, function ($a, $b) {
                     Peru Vacations
                 </div>
 
-
                 <div class="destination-hero__content__page-nav">
-
 
 
                     <!-- sticky wrapper -->
@@ -83,7 +81,7 @@ usort($locations, function ($a, $b) {
                             </li>
                         </ul>
                         <div class="page-nav__button">
-                        <?php echo ($destination->post_title) ?>
+                            <?php echo ($destination->post_title) ?>
                             <svg>
                                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
                             </svg>
@@ -158,484 +156,126 @@ usort($locations, function ($a, $b) {
 
     <div class="destination-page__section-intro" id="tours">
         <div class="destination-intro">
+            <img class="destination-intro__bg" src="<?php echo bloginfo('template_url') ?>/css/img/test-images/map-peru-outline.png" alt="">
+
+            <!-- Intro -->
             <div class="destination-intro__content">
-                <div class=" destination-intro__content__title heading-3 heading-3--underline-white">
-                    Travel in Peru
+                <div class="destination-intro__content__description">
+                    <div class="destination-intro__content__description__title">
+                        Travel In Peru
+                    </div>
+                    <div class="destination-intro__content__description__text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ipsam tempore ullam illo quasi quod. Totam libero doloremque accusantium iusto vero distinctio ipsa consequuntur in nulla? Consectetur sit deleniti dolor.
+                    </div>
                 </div>
-                <p class="destination-intro__content__text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum placeat qui nam sapiente consequuntur
-                    commodi! Culpa quasi voluptas error asperiores quae illum reiciendis cum, quod animi distinctio ullam ipsam
-                    at. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima doloremque harum adipisci fugiat libero
-                    consequuntur ipsa ab recusandae. Rem aut mollitia hic voluptatibus unde autem dignissimos fugiat?
-                    Praesentium,
-                    enim nesciunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat saepe distinctio at
-                    excepturi alias veritatis consequatur sit sint autem corporis ipsam officia tempore expedita culpa libero,
-                    deserunt, id eveniet nam!
-                </p>
-
-                <div class="destination-intro__content__stats">
-                    <div class="destination-intro__content__stats__item">
-                        <div class="destination-intro__content__stats__item__title">
-                            Area
-                        </div>
-                        <div class="destination-intro__content__stats__item__text">
-                            1,285,216 km2
-                        </div>
+                <div class="destination-intro__content__locations">
+                    <div class="destination-intro__content__locations__title">
+                        Destinations
                     </div>
-                    <div class="destination-intro__content__stats__item">
-                        <div class="destination-intro__content__stats__item__title">
-                            Population
-                        </div>
-                        <div class="destination-intro__content__stats__item__text">
-                            31,151,643
-                        </div>
+                    <ul class="destination-intro__content__locations__list">
+                        <?php foreach ($locations as $s) : ?>
+                            <li>
+                                <a href="#"><?php echo ($s->post_title); ?></a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <div class="destination-intro__content__locations__title">
+                        Explore All
                     </div>
-                    <div class="destination-intro__content__stats__item">
-                        <div class="destination-intro__content__stats__item__title">
-                            Major Cities
-                        </div>
-                        <div class="destination-intro__content__stats__item__text">
-                            Lima
-                        </div>
-                    </div>
-                    <div class="destination-intro__content__stats__item">
-                        <div class="destination-intro__content__stats__item__title">
-                            Languages
-                        </div>
-                        <div class="destination-intro__content__stats__item__text">
-                            Spanish, Quechua
-                        </div>
-                    </div>
-                    <div class="destination-intro__content__stats__item">
-                        <div class="destination-intro__content__stats__item__title">
-                            Best Time to Visit
-                        </div>
-                        <div class="destination-intro__content__stats__item__text">
-                            All year
-                        </div>
-                    </div>
-
                 </div>
             </div>
-            <div class="destination-intro__map">
-                <img src="img/bg/map-sa-light-lg-fade-2.png" alt="">
-            </div>
 
+            <!-- Tours -->
             <div class="destination-intro__tours">
-                <div class="destination-intro__tours__title">
-                    Tour Packages
-                </div>
-                <div class="destination-intro__tours__content">
-                    <p class="destination-intro__tours__content__subtitle">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos eos iste ut, aspernatur obcaecati
-                        facere quod mollitia reprehenderit earum delectus culpa quibusdam itaque placeat fugit. Incidunt ullam
-                        ipsa
-                        illum expedita.
-                    </p>
-                    <div class="destination-intro__tours__content__all">
-                        <button class="btn-outline btn-white">View All</button>
+                <div class="destination-intro__tours__header">
+                    <div class="destination-intro__tours__header__title page-divider">
+                        Tour Packages
+                    </div>
+                    <div class="destination-intro__tours__header__sub-text">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
                     </div>
                 </div>
 
-                <div class="destination-intro__tours__slider" id="destination-intro__tours__slider">
-                    <div class="destination-intro__tours__slider__slide">
-                        <div class="destination-intro__tours__slider__slide__hover-group">
-                            <div class="destination-intro__tours__slider__slide__hover-group__count">21 Tours Available</div>
-                            <div class="destination-intro__tours__slider__slide__hover-group__cta">
-                                <button class="btn-outline btn-white">Explore</button>
-                            </div>
-                        </div>
-                        <img src="img/tours-slider/amazon-01.jpg" class="destination-intro__tours__slider__slide__img" alt="">
-
-                        <div class="destination-intro__tours__slider__slide__lower-section">
-                            <div class="destination-intro__tours__slider__slide__lower-section__title">
-                                Amazon Tours
-                            </div>
-                            <div class="destination-intro__tours__slider__slide__lower-section__text">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed ad hic at blanditiis. Lorem ipsum dolor
-                                sit
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="destination-intro__tours__slider__slide">
-                        <div class="destination-intro__tours__slider__slide__hover-group">
-                            <div class="destination-intro__tours__slider__slide__hover-group__count">28 Tours Available</div>
-                            <div class="destination-intro__tours__slider__slide__hover-group__cta">
-                                <button class="btn-outline btn-white">Explore</button>
-                            </div>
-                        </div>
-                        <img src="img/tours-slider/luxury-01.jpg" class="destination-intro__tours__slider__slide__img" alt="">
-                        <div class="destination-intro__tours__slider__slide__lower-section">
-                            <div class="destination-intro__tours__slider__slide__lower-section__title">
-                                Luxury Tours
-                            </div>
-                            <div class="destination-intro__tours__slider__slide__lower-section__text">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed ad hic at blanditiis. Lorem ipsum dolor
-                                sit
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="destination-intro__tours__slider__slide">
-                        <div class="destination-intro__tours__slider__slide__hover-group">
-                            <div class="destination-intro__tours__slider__slide__hover-group__count">14 Tours Available</div>
-                            <div class="destination-intro__tours__slider__slide__hover-group__cta">
-                                <button class="btn-outline btn-white">Explore</button>
-                            </div>
-                        </div>
-                        <img src="img/tours-slider/wildlife-02.jpg" class="destination-intro__tours__slider__slide__img" alt="">
-                        <div class="destination-intro__tours__slider__slide__lower-section">
-                            <div class="destination-intro__tours__slider__slide__lower-section__title">
-                                Wildlife Tours
-                            </div>
-                            <div class="destination-intro__tours__slider__slide__lower-section__text">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed ad hic at blanditiis. Lorem ipsum dolor
-                                sit
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="destination-intro__tours__slider__slide">
-                        <div class="destination-intro__tours__slider__slide__hover-group">
-                            <div class="destination-intro__tours__slider__slide__hover-group__count">17 Tours Available</div>
-                            <div class="destination-intro__tours__slider__slide__hover-group__cta">
-                                <button class="btn-outline btn-white">Explore</button>
-                            </div>
-                        </div>
-                        <img src="img/tours-slider/cultural-01.jpg" class="destination-intro__tours__slider__slide__img" alt="">
-                        <div class="destination-intro__tours__slider__slide__lower-section">
-                            <div class="destination-intro__tours__slider__slide__lower-section__title">
-                                Cultural Tours
-                            </div>
-                            <div class="destination-intro__tours__slider__slide__lower-section__text">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed ad hic at blanditiis. Lorem ipsum dolor
-                                sit
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="destination-intro__tours__slider__slide">
-                        <div class="destination-intro__tours__slider__slide__hover-group">
-                            <div class="destination-intro__tours__slider__slide__hover-group__count">11 Tours Available</div>
-                            <div class="destination-intro__tours__slider__slide__hover-group__cta">
-                                <button class="btn-outline btn-white">Explore</button>
-                            </div>
-                        </div>
-                        <img src="img/tours-slider/adventure-01.jpg" class="destination-intro__tours__slider__slide__img" alt="">
-                        <div class="destination-intro__tours__slider__slide__lower-section">
-                            <div class="destination-intro__tours__slider__slide__lower-section__title">
-                                Adventure Tours
-                            </div>
-                            <div class="destination-intro__tours__slider__slide__lower-section__text">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed ad hic at blanditiis. Lorem ipsum dolor
-                                sit
-                            </div>
-
-                        </div>
+                <div class="destination-intro__tours__best-selling">
+                    <div class="destination-intro__tours__best-selling__item">
+                        <div class="destination-intro__tours__best-selling__item__img"></div>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
 
 
     <!-- Cruises-->
     <section class="destination-page__section-cruises" id="cruises">
+
         <div class="destination-cruises">
-            <div class="destination-cruises__title">
-                Cruises
-            </div>
-            <div class="destination-cruises__intro-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui rem in minus! Voluptatum, praesentium
-                atque obcaecati quod consequatur debitis. Iure, aliquid. Quam cupiditate sequi impedit. Quasi nihil voluptates
-                ipsam!
-            </div>
-            <div class="destination-cruises__grid">
-
-                <div class="destination-cruises__grid__item">
-
-                    <div class="destination-cruises__grid__item__cta">
-                        <button class="btn-outline btn-white btn-outline--small">View</button>
-                    </div>
-
-
-                    <img src="img/products/Aria-Amazon.jpg" class="destination-cruises__grid__item__img">
-                    <div class="destination-cruises__grid__item__lower-section">
-                        <div class="destination-cruises__grid__item__lower-section__price">
-                            $5,159
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__name">
-                            Aria Amazon
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__length">
-                            5 - 7 Day Cruises
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__stars">
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                        </div>
-                    </div>
+            <div class="destination-cruises__header">
+                <div class="destination-cruises__header__title page-divider">
+                    Cruises
                 </div>
-                <div class="destination-cruises__grid__item">
-                    <div class="destination-cruises__grid__item__cta">
-                        <button class="btn-outline btn-white btn-outline--small">View</button>
-                    </div>
-                    <img src="img/products/Delfin-I-Boat.jpg" class="destination-cruises__grid__item__img">
-                    <div class="destination-cruises__grid__item__lower-section">
-                        <div class="destination-cruises__grid__item__lower-section__price">
-                            $3,405
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__name">
-                            Delfin I
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__length">
-                            5 - 8 Day Cruises
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__stars">
-                            <svg class="star-grey">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                        </div>
-                    </div>
+                <div class="destination-cruises__header__sub-text">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
                 </div>
-                <div class="destination-cruises__grid__item">
-                    <div class="destination-cruises__grid__item__cta">
-                        <button class="btn-outline btn-white btn-outline--small">View</button>
-                    </div>
-                    <img src="img/products/clipper-premium-amazon-brazil.jpg" class="destination-cruises__grid__item__img">
-                    <div class="destination-cruises__grid__item__lower-section">
-                        <div class="destination-cruises__grid__item__lower-section__price">
-                            $4,405
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__name">
-                            Clipper Premium
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__length">
-                            3 - 8 Day Cruises
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__stars">
-                            <svg class="star-grey">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-grey">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="destination-cruises__grid__item">
-                    <div class="destination-cruises__grid__item__cta">
-                        <button class="btn-outline btn-white btn-outline--small">View</button>
-                    </div>
-                    <img src="img/products/zafiro-cruise-amazon.jpg" class="destination-cruises__grid__item__img">
-                    <div class="destination-cruises__grid__item__lower-section">
-                        <div class="destination-cruises__grid__item__lower-section__price">
-                            $3,885
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__name">
-                            Zafiro
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__length">
-                            6 - 9 Day Cruises
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__stars">
-                            <svg class="star-grey">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="destination-cruises__grid__item">
-                    <div class="destination-cruises__grid__item__cta">
-                        <button class="btn-outline btn-white btn-outline--small">View</button>
-                    </div>
-                    <img src="img/products/Aria-Amazon.jpg" class="destination-cruises__grid__item__img">
-                    <div class="destination-cruises__grid__item__lower-section">
-                        <div class="destination-cruises__grid__item__lower-section__price">
-                            $5,159
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__name">
-                            Aria Amazon
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__length">
-                            5 - 7 Day Cruises
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__stars">
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="destination-cruises__grid__item">
-                    <div class="destination-cruises__grid__item__cta">
-                        <button class="btn-outline btn-white btn-outline--small">View</button>
-                    </div>
-                    <img src="img/products/Delfin-I-Boat.jpg" class="destination-cruises__grid__item__img">
-                    <div class="destination-cruises__grid__item__lower-section">
-                        <div class="destination-cruises__grid__item__lower-section__price">
-                            $3,405
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__name">
-                            Delfin I
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__length">
-                            5 - 8 Day Cruises
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__stars">
-                            <svg class="star-grey">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="destination-cruises__grid__item">
-                    <div class="destination-cruises__grid__item__cta">
-                        <button class="btn-outline btn-white btn-outline--small">View</button>
-                    </div>
-                    <img src="img/products/clipper-premium-amazon-brazil.jpg" class="destination-cruises__grid__item__img">
-                    <div class="destination-cruises__grid__item__lower-section">
-                        <div class="destination-cruises__grid__item__lower-section__price">
-                            $4,405
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__name">
-                            Clipper Premium
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__length">
-                            3 - 8 Day Cruises
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__stars">
-                            <svg class="star-grey">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-grey">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="destination-cruises__grid__item">
-                    <div class="destination-cruises__grid__item__cta">
-                        <button class="btn-outline btn-white btn-outline--small">View</button>
-                    </div>
-                    <img src="img/products/zafiro-cruise-amazon.jpg" class="destination-cruises__grid__item__img">
-                    <div class="destination-cruises__grid__item__lower-section">
-                        <div class="destination-cruises__grid__item__lower-section__price">
-                            $3,885
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__name">
-                            Zafiro
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__length">
-                            6 - 9 Day Cruises
-                        </div>
-                        <div class="destination-cruises__grid__item__lower-section__stars">
-                            <svg class="star-grey">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                            <svg class="star-gold">
-                                <use xlink:href="img/sprite.svg#icon-star"></use>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
-            <div class="destination-cruises__all">
-                <button class="btn-outline btn-grey">All Peru Cruises</button>
+            <?php
+            $args = array(
+                'posts_per_page' => 6,
+                'post_type' => 'rfc_cruises',
+                'meta_query' => array(
+                    array(
+                        'key' => 'destination', // name of custom field
+                        'value' => '"' . $destination->ID . '"',
+                        'compare' => 'LIKE'
+                    )
+                )
+            );
+            $cruisePosts = get_posts($args);
+            console_log($cruisePosts);
+            ?>
+
+            <div class="destination-cruises__best-selling">
+
+                <div class="destination-cruises__best-selling__slider" id="cruises-slider">
+                    <?php foreach ($cruisePosts as $c) : ?>
+                        <?php
+                        $featured_image = get_field('featured_image', $c);
+                        $cruise_data = get_field('cruise_data', $c);
+                        $lowest = $cruise_data['LowestPrice'];
+                        ?>
+                        <!-- Card -->
+
+                        <a class="product-card" href="<?php echo get_permalink($c); ?>">
+                            <div class="product-card__image">
+                                <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
+                            </div>
+                            <div class="product-card__bottom">
+                                <div class="product-card__bottom__title-group">
+                                    <div class="product-card__bottom__title-group__product-name">
+                                        <?php echo get_the_title($c) ?>
+                                    </div>
+                                    <div class="product-card__bottom__title-group__price">
+                                        <span class="from-price">From</span> <?php echo "$" . number_format($lowest, 0);  ?> <span class="currency-price">USD</span>
+                                    </div>
+                                </div>
+                                <div class="product-card__bottom__text">
+                                    <?php echo get_field('top_snippet', $c) ?>
+                                </div>
+                                <div class="product-card__bottom__info">
+                                    6 - 9 Day Cruises
+                                </div>
+                            </div>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+
+
+
+            </div>
+            <div class="destination-cruises__btn ">
+                <button class="btn-outline " href="#">View All Cruises</button>
             </div>
         </div>
     </section>
