@@ -145,48 +145,52 @@ jQuery(document).ready(function ($) {
     });
 
     //destination-hero-content
-    $('#destination-hero__content').slick({
+    $('#destination-hero__content__location__slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
         asNavFor: '#destination-hero__bg',
         centerMode: false,
-        arrows: false,
+        arrows: true,
         draggable: false,
         fade: true,
+
+        prevArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+        nextArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+        
         
     });
 
 
-    //destination-hero__nav - slider config based on number of sub location slides
-    navSlidesToShow = 1;
-    if (destinationCount == 3) {
-        navSlidesToShow = 2;
-    } else if (destinationCount > 3) {
-        navSlidesToShow = 3;
-    }
+    // //destination-hero__nav - slider config based on number of sub location slides
+    // navSlidesToShow = 1;
+    // if (destinationCount == 3) {
+    //     navSlidesToShow = 2;
+    // } else if (destinationCount > 3) {
+    //     navSlidesToShow = 3;
+    // }
 
-    //destination-hero__nav
-    $('#destination-hero__nav').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        dots: false,
-        centerMode: true,
-        centerPadding: 0,
-        focusOnSelect: true,
-        arrows: true,
-        asNavFor: '#destination-hero__content, #destination-hero__bg',
-        responsive: [
-            {
-                breakpoint: 1000,
-                settings: {
-                    slidesToShow: 1,
+    // //destination-hero__nav
+    // $('#destination-hero__nav').slick({
+    //     slidesToShow: 3,
+    //     slidesToScroll: 1,
+    //     dots: false,
+    //     centerMode: true,
+    //     centerPadding: 0,
+    //     focusOnSelect: true,
+    //     arrows: true,
+    //     asNavFor: '#destination-hero__content, #destination-hero__bg',
+    //     responsive: [
+    //         {
+    //             breakpoint: 1000,
+    //             settings: {
+    //                 slidesToShow: 1,
 
-                }
-            }
-        ]
+    //             }
+    //         }
+    //     ]
 
-    });
+    // });
 
 
 

@@ -98,14 +98,18 @@ usort($locations, function ($a, $b) {
                                 <li class="page-nav__collapse__list__item" href="#accommodations">
                                     Accommodations
                                 </li>
+                                <li class="page-nav__collapse__list__item" href="#travel-guides">
+                                    Travel Guides
+                                </li>
+                                <li class="page-nav__collapse__list__item" href="#reviews">
+                                    Reviews
+                                </li>
+                                <li class="page-nav__collapse__list__item" href="#faq">
+                                    FAQ
+                                </li>
                             </ul>
                         </nav>
-
-
-
                     </nav>
-
-
 
                     <div class="destination-hero__content__page-nav__arrow">
                         <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#tours">
@@ -116,21 +120,17 @@ usort($locations, function ($a, $b) {
                                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
                             </svg></button>
                     </div>
-
-
-
-
                 </div>
 
 
-                <div class="destination-hero__content__location-slider">
-                    <div class="destination-hero__content__location-slider__main" id="destination-hero__content">
+                <div class="destination-hero__content__location">
+                    <div class="destination-hero__content__location__slider" id="destination-hero__content__location__slider">
                         <?php foreach ($locations as $s) : ?>
-                            <div class="destination-hero__content__location-slider__main__item">
-                                <div class="destination-hero__content__location-slider__main__item__title">
+                            <div class="destination-hero__content__location__slider__item">
+                                <div class="destination-hero__content__location__slider__item__title">
                                     <?php echo ($s->hero_title); ?>
                                 </div>
-                                <div class="destination-hero__content__location-slider__main__item__text">
+                                <div class="destination-hero__content__location__slider__item__text">
                                     <?php echo ($s->hero_short_text); ?>
                                 </div>
                             </div>
@@ -138,23 +138,16 @@ usort($locations, function ($a, $b) {
 
 
                     </div>
-                    <div class="destination-hero__content__location-slider__nav" id="destination-hero__nav">
-                        <?php foreach ($locations as $s) : ?>
-                            <div class="destination-hero__content__location-slider__nav__item"><?php echo ($s->post_title); ?></div>
-                        <?php endforeach; ?>
-                    </div>
+                  
                 </div>
-
-
             </div>
         </div>
-
     </section>
 
 
 
 
-    <div class="destination-page__section-intro" id="tours">
+    <div class="destination-page__section-intro"  id="tours">
         <div class="destination-intro">
             <img class="destination-intro__bg" src="<?php echo bloginfo('template_url') ?>/css/img/test-images/map-peru-outline.png" alt="">
 
@@ -208,7 +201,7 @@ usort($locations, function ($a, $b) {
 
 
     <!-- Cruises-->
-    <section class="destination-page__section-cruises" id="cruises">
+    <section class="destination-page__section-cruises" style="display: none;" id="cruises">
 
         <div class="destination-cruises">
             <div class="destination-cruises__header">
@@ -281,82 +274,8 @@ usort($locations, function ($a, $b) {
     </section>
 
     <!-- Accommodations -->
-    <section class="destination-page__section-accommodations" id="accommodations">
-        <div class="destination-accommodations">
-            <div class="destination-accommodations__title">
-                Accommodations
-            </div>
-            <div class="destination-accommodations__intro-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui rem in minus! Voluptatum, praesentium
-                atque obcaecati quod consequatur debitis. Iure, aliquid. Quam cupiditate sequi impedit. Quasi nihil voluptates
-                ipsam!
-            </div>
-
-            <div class="destination-accommodations__grid">
-                <div class="destination-accommodations__grid__slide">
-                    <div class="destination-accommodations__grid__slide__hover-group">
-                        <div class="destination-accommodations__grid__slide__hover-group__count">17 Available</div>
-                        <div class="destination-accommodations__grid__slide__hover-group__cta">
-                            <button class="btn-outline btn-white">See All</button>
-                        </div>
-                    </div>
-                    <img src="img/accommodations/hotel-01.jpg" class="destination-accommodations__grid__slide__img" alt="">
-                    <div class="destination-accommodations__grid__slide__lower-section">
-                        <div class="destination-accommodations__grid__slide__lower-section__title">
-                            Hotels in Peru
-                        </div>
-                        <div class="destination-accommodations__grid__slide__lower-section__text">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed ad hic at blanditiis. Lorem ipsum dolor
-                            sit
-                        </div>
-
-                    </div>
-                </div>
-                <div class="destination-accommodations__grid__slide">
-                    <div class="destination-accommodations__grid__slide__hover-group">
-                        <div class="destination-accommodations__grid__slide__hover-group__count">8 Available</div>
-                        <div class="destination-accommodations__grid__slide__hover-group__cta">
-                            <button class="btn-outline btn-white">See All</button>
-                        </div>
-                    </div>
-                    <img src="img/accommodations/lodge-01.jpg" class="destination-accommodations__grid__slide__img" alt="">
-                    <div class="destination-accommodations__grid__slide__lower-section">
-                        <div class="destination-accommodations__grid__slide__lower-section__title">
-                            Lodges in Peru
-                        </div>
-                        <div class="destination-accommodations__grid__slide__lower-section__text">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed ad hic at blanditiis. Lorem ipsum dolor
-                            sit
-                        </div>
-
-                    </div>
-                </div>
-                <div class="destination-accommodations__grid__slide">
-                    <div class="destination-accommodations__grid__slide__hover-group">
-                        <div class="destination-accommodations__grid__slide__hover-group__count">23 Available</div>
-                        <div class="destination-accommodations__grid__slide__hover-group__cta">
-                            <button class="btn-outline btn-white">See All</button>
-                        </div>
-                    </div>
-                    <img src="img/accommodations/cruise-01.jpg" class="destination-accommodations__grid__slide__img" alt="">
-                    <div class="destination-accommodations__grid__slide__lower-section">
-                        <div class="destination-accommodations__grid__slide__lower-section__title">
-                            Cruise Ships in Peru
-                        </div>
-                        <div class="destination-accommodations__grid__slide__lower-section__text">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed ad hic at blanditiis. Lorem ipsum dolor
-                            sit
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="destination-accommodations__all">
-                <button class="btn-outline btn-grey">All Peru Accommodations</button>
-            </div>
-        </div>
-    </section>
+    <section class="destination-page__section-accommodations" style="display: none;"  id="accommodations">
+     </section>
 
     <section class="destination-page__section-travel-guides" id="travel-guides"></section>
     <section class="destination-page__section-reviews" id="reviews"></section>

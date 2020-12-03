@@ -3462,6 +3462,9 @@ h5 {
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
   grid-template-rows: 9rem 1fr;
   min-height: 80rem; }
+  @media only screen and (max-width: 50em) {
+    .destination-hero {
+      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
   .destination-hero__bg-slide {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
@@ -3505,12 +3508,24 @@ h5 {
     column-gap: 15rem;
     row-gap: 2rem;
     margin-bottom: 6rem; }
+    @media only screen and (max-width: 62.5em) {
+      .destination-hero__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center; } }
     .destination-hero__content__breadcrumb {
       font-size: 1.4rem;
       letter-spacing: 0.4rem;
       grid-column: 1 / span 1;
       align-self: end;
       font-weight: 600; }
+      @media only screen and (max-width: 62.5em) {
+        .destination-hero__content__breadcrumb {
+          margin-top: 6rem;
+          display: inline-block;
+          align-self: center;
+          justify-self: center; } }
       .destination-hero__content__breadcrumb__path {
         display: inline-block;
         position: relative;
@@ -3556,6 +3571,13 @@ h5 {
         width: 65%;
         height: 2px;
         background-color: #fff; }
+      @media only screen and (max-width: 62.5em) {
+        .destination-hero__content__title {
+          text-align: center;
+          margin: 4rem 0; }
+          .destination-hero__content__title::after {
+            left: 50%;
+            transform: translateX(-50%); } }
     .destination-hero__content__page-nav {
       user-select: none;
       grid-column: 1 / span 1;
@@ -3565,6 +3587,12 @@ h5 {
       font-weight: 300;
       line-height: 3rem;
       z-index: 10; }
+      @media only screen and (max-width: 62.5em) {
+        .destination-hero__content__page-nav {
+          align-self: center;
+          text-align: center;
+          font-size: 1.8rem;
+          font-weight: 500; } }
       .destination-hero__content__page-nav__sticky-wrapper {
         user-select: none; }
         .destination-hero__content__page-nav__sticky-wrapper--active {
@@ -3700,7 +3728,7 @@ h5 {
             .destination-hero__content__page-nav__list__item__link:link::after, .destination-hero__content__page-nav__list__item__link:visited::after {
               content: "";
               position: absolute;
-              height: 1px;
+              height: 2px;
               width: 0%;
               bottom: -0.5rem;
               left: 0;
@@ -3728,44 +3756,49 @@ h5 {
       .destination-hero__content__page-nav__arrow {
         margin-top: 2rem;
         transform: translateX(-1rem); }
-    .destination-hero__content__location-slider {
+        @media only screen and (max-width: 62.5em) {
+          .destination-hero__content__page-nav__arrow {
+            transform: translateX(0) scale(1.5);
+            margin-bottom: 2rem; } }
+    .destination-hero__content__location {
       grid-column: 2 / span 1;
       grid-row: 2 / -1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       height: 100%;
       width: 40vw; }
-      .destination-hero__content__location-slider__main {
+      @media only screen and (max-width: 62.5em) {
+        .destination-hero__content__location {
+          grid-column: 1 / span 1;
+          display: none; } }
+      .destination-hero__content__location__slider {
         width: 100%;
         text-transform: none;
         font-size: 1.6rem;
-        margin-top: 6rem; }
-        .destination-hero__content__location-slider__main__item__title {
+        margin-top: 6rem;
+        position: relative; }
+        .destination-hero__content__location__slider__item__title {
           text-transform: uppercase;
           letter-spacing: 0.3rem;
           font-size: 2.5rem;
           position: relative;
           display: inline-block;
           margin-bottom: 1rem; }
-          .destination-hero__content__location-slider__main__item__title::after {
+          .destination-hero__content__location__slider__item__title::after {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
             height: 2px;
             background-color: #fff; }
-        .destination-hero__content__location-slider__main__item__text {
+        .destination-hero__content__location__slider__item__text {
           line-height: 3.5rem; }
-      .destination-hero__content__location-slider__nav {
-        letter-spacing: 0.3rem;
-        font-size: 1.6rem;
-        margin: 2.5rem;
-        margin-top: 10rem;
-        margin-bottom: 0; }
-        .destination-hero__content__location-slider__nav__item {
-          text-align: center;
-          display: block; }
+        .destination-hero__content__location__slider__arrow-left {
+          position: absolute;
+          bottom: -7.5rem;
+          right: 15rem; }
+        .destination-hero__content__location__slider__arrow-right {
+          position: absolute;
+          bottom: -7.5rem;
+          right: 10rem; }
 
 .destination-tours {
   overflow-x: hidden;

@@ -6,6 +6,11 @@
     grid-template-rows: 9rem 1fr;
     min-height: 80rem;
 
+    
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: $page-container-small;
+    }
+
     &__bg-slide {
         grid-column: 1 / -1;
         grid-row: 1 / -1;
@@ -71,12 +76,27 @@
         row-gap: 2rem;
         margin-bottom: 6rem;
 
+        @media only screen and (max-width: $bp-large) {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         &__breadcrumb {
             font-size: 1.4rem;
             letter-spacing: 0.4rem;
             grid-column: 1 / span 1;
             align-self: end;
             font-weight: 600;
+
+            @media only screen and (max-width: $bp-large) {
+                margin-top: 6rem;
+                display: inline-block;
+                align-self: center;
+                justify-self: center;
+            } 
 
             &__path {
                 display: inline-block;
@@ -125,6 +145,7 @@
             align-self: center;
             position: relative;
             margin-bottom: 1rem;
+
             &::after {
                 content: "";
                 position: absolute;
@@ -133,6 +154,16 @@
                 width: 65%;
                 height: 2px;
                 background-color: $color-white;
+            }
+
+            @media only screen and (max-width: $bp-large) {
+                text-align: center;
+                margin: 4rem 0;
+                &::after {
+                    left: 50%;
+                    transform: translateX(-50%);
+                  
+                }
             }
         }
 
@@ -146,6 +177,14 @@
             font-weight: 300;
             line-height: 3rem;
             z-index: 10;
+
+            @media only screen and (max-width: $bp-large) {
+                align-self: center;
+                text-align: center;
+                font-size: 1.8rem;
+                font-weight: 500;
+
+            }
 
             &__sticky-wrapper {
                 user-select: none;
@@ -337,7 +376,7 @@
                         &::after {
                             content: "";
                             position: absolute;
-                            height: 1px;
+                            height: 2px;
                             width: 0%;
                             bottom: -0.5rem;
                             left: 0;
@@ -377,28 +416,35 @@
             &__arrow {
                 margin-top: 2rem;
                 transform: translateX(-1rem);
-
+                @media only screen and (max-width: $bp-large) {
+                    transform: translateX(0) scale(1.5);
+                    margin-bottom: 2rem;
+                    
+                }
                
             }
         }
 
-        &__location-slider {
+        &__location {
             grid-column: 2 / span 1;
             grid-row: 2 / -1;
             //background-color: rgba(red, 0.4);
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
             height: 100%;
             width: 40vw;
 
+
+            @media only screen and (max-width: $bp-large) {
+                grid-column: 1 / span 1;
+                display: none;
+            }
+ 
             //top content
-            &__main {
+            &__slider {
                 width: 100%;
                 text-transform: none;
                 font-size: 1.6rem;
                 margin-top: 6rem;
+                position: relative;
                 &__item {
                     &__title {
                         text-transform: uppercase;
@@ -421,19 +467,21 @@
                         line-height: 3.5rem;
                     }
                 }
-            }
 
-            &__nav {
-                letter-spacing: 0.3rem;
-                font-size: 1.6rem;
-                margin: 2.5rem;
-                margin-top: 10rem;
-                margin-bottom: 0;
-                &__item {
-                    text-align: center;
-                    display: block;
+                &__arrow-left {
+
+                    position: absolute;
+                    bottom: -7.5rem;
+                    right: 15rem;
+                }
+                &__arrow-right {
+                    position: absolute;
+                    bottom: -7.5rem;
+                    right: 10rem;
                 }
             }
+
+            
         }
     }
 }
