@@ -162,36 +162,14 @@ jQuery(document).ready(function ($) {
     });
 
 
-    // //destination-hero__nav - slider config based on number of sub location slides
-    // navSlidesToShow = 1;
-    // if (destinationCount == 3) {
-    //     navSlidesToShow = 2;
-    // } else if (destinationCount > 3) {
-    //     navSlidesToShow = 3;
-    // }
-
-    // //destination-hero__nav
-    // $('#destination-hero__nav').slick({
-    //     slidesToShow: 3,
-    //     slidesToScroll: 1,
-    //     dots: false,
-    //     centerMode: true,
-    //     centerPadding: 0,
-    //     focusOnSelect: true,
-    //     arrows: true,
-    //     asNavFor: '#destination-hero__content, #destination-hero__bg',
-    //     responsive: [
-    //         {
-    //             breakpoint: 1000,
-    //             settings: {
-    //                 slidesToShow: 1,
-
-    //             }
-    //         }
-    //     ]
-
-    // });
-
+    $('#tours-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        centerMode: true
+       
+    });
 
 
 
@@ -201,15 +179,12 @@ jQuery(document).ready(function ($) {
         dots: false,
         arrows: true,
         prevArrow: '<button class="btn-circle btn-dark btn-circle--left related-slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-        nextArrow: '<button class="btn-circle btn-dark btn-circle--right related-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
-        
+        nextArrow: '<button class="btn-circle btn-dark btn-circle--right related-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',   
         responsive: [
             {
                 breakpoint: 1000,
                 settings: {
                     slidesToShow: 2,
-
-                    //centerMode: true,
                 }
             }
         ]
@@ -218,13 +193,13 @@ jQuery(document).ready(function ($) {
 
 
 
-    $('.destination-hero__play__button').on('click', function () {
-        $('#destination-video')[0].play();
-    })
+    // $('.destination-hero__play__button').on('click', function () {
+    //     $('#destination-video')[0].play();
+    // })
 
-    $('.video-popup__close').on('click', function () {
-        $('#destination-video')[0].pause();
-    })
+    // $('.video-popup__close').on('click', function () {
+    //     $('#destination-video')[0].pause();
+    // })
 
 
 });

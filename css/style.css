@@ -4099,7 +4099,8 @@ h5 {
   display: grid;
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  margin-bottom: 8rem; }
   .destination-intro::before {
     content: "";
     position: absolute;
@@ -4166,7 +4167,22 @@ h5 {
         font-size: 1.6rem;
         text-align: center; }
     .destination-intro__tours__best-selling {
-      height: 40rem; }
+      display: flex;
+      justify-content: center;
+      margin-bottom: 6rem; }
+      .destination-intro__tours__best-selling__slider {
+        max-width: 114rem;
+        width: 100%;
+        margin: 0 6rem; }
+        .destination-intro__tours__best-selling__slider .slick-slide {
+          margin: 0 1.5rem; }
+  .destination-intro__categories {
+    z-index: 20;
+    grid-column: center-start / center-end;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-self: center; }
 
 .home-hero {
   display: grid;
@@ -4448,7 +4464,7 @@ h5 {
   z-index: 0;
   cursor: pointer;
   width: 45rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   border: 1px solid #e6e6e6;
   grid-template-rows: 30rem 20rem;
   outline: none; }
@@ -4461,8 +4477,8 @@ h5 {
       object-fit: cover;
       height: 100%;
       width: 100%;
-      border-top-left-radius: .5rem;
-      border-top-right-radius: .5rem; }
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem; }
   .product-card__bottom {
     grid-row: 2 / span 1;
     padding: 1rem;
@@ -4490,7 +4506,7 @@ h5 {
       font-weight: 500;
       font-size: 1.4rem;
       text-transform: uppercase;
-      letter-spacing: .2rem;
+      letter-spacing: 0.2rem;
       text-align: center; }
       .product-card__bottom__info::before {
         content: "";
@@ -4500,6 +4516,90 @@ h5 {
         top: 0;
         left: 0;
         background-color: #e6e6e6; }
+
+.tours-card {
+  display: grid !important;
+  width: 80rem;
+  height: 45rem;
+  display: grid; }
+  .tours-card__image {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1; }
+    .tours-card__image img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%; }
+  .tours-card__content {
+    margin: 4rem 6rem;
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    z-index: 5;
+    display: grid;
+    grid-template-rows: 1fr min-content; }
+    .tours-card__content__tag-area {
+      grid-row: 1 / span 1; }
+      .tours-card__content__tag-area__tag {
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        display: inline-block;
+        color: #1e1e1e;
+        background-color: #fff;
+        padding: 0.5rem 1.5rem;
+        padding-top: 0.7rem;
+        border-radius: 3rem;
+        font-weight: 700; }
+    .tours-card__content__title-area {
+      color: #fff;
+      grid-row: 2 / span 1; }
+      .tours-card__content__title-area__country {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem; }
+      .tours-card__content__title-area__title {
+        font-family: "Old Standard TT", serif;
+        font-size: 4rem;
+        letter-spacing: 0.5rem;
+        text-transform: uppercase; }
+      .tours-card__content__title-area__price {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        font-weight: 700; }
+
+.category-card {
+  width: 50rem;
+  height: 15rem;
+  background-color: gainsboro;
+  border-radius: .5rem;
+  display: grid;
+  margin: 1rem; }
+  .category-card__image {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    width: 50rem;
+    height: 15rem; }
+    .category-card__image img {
+      border-radius: .5rem;
+      object-fit: cover;
+      height: 100%;
+      width: 100%; }
+  .category-card__content {
+    padding: 1rem 2rem;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .category-card__content__title {
+      font-size: 2.5rem;
+      letter-spacing: 0.3rem; }
+    .category-card__content__availability {
+      font-size: 1.5rem;
+      letter-spacing: 0.2rem; }
 
 .lds-dual-ring {
   display: inline-block;

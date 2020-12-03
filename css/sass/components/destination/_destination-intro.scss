@@ -3,7 +3,7 @@
     grid-template-columns: $page-container;
     overflow: hidden;
     position: relative;
-    
+    margin-bottom: 8rem;
     &::before {
         content: "";
         position: absolute;
@@ -104,8 +104,35 @@
         }
 
         &__best-selling {
-            height: 40rem;
-            //background-color: cyan;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 6rem;
+
+            &__slider {
+                max-width: 114rem;
+                width: 100%;
+                margin: 0 6rem;
+                // @media only screen and (max-width: $bp-large) {
+                    
+                // }
+    
+                .slick-slide {
+                    margin: 0 1.5rem;
+                }
+            }
         }
+
+       
+    }
+
+    &__categories {
+        z-index: 20;
+        grid-column: center-start / center-end;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        justify-self: center;
+  
+        
     }
 }

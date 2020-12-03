@@ -138,7 +138,7 @@ usort($locations, function ($a, $b) {
 
 
                     </div>
-                  
+
                 </div>
             </div>
         </div>
@@ -173,7 +173,7 @@ usort($locations, function ($a, $b) {
                         <?php endforeach; ?>
                     </ul>
                     <div class="destination-intro__content__locations__title">
-                        Explore All
+                        See All
                     </div>
                 </div>
             </div>
@@ -190,18 +190,143 @@ usort($locations, function ($a, $b) {
                 </div>
 
                 <div class="destination-intro__tours__best-selling">
-                    <div class="destination-intro__tours__best-selling__item">
-                        <div class="destination-intro__tours__best-selling__item__img"></div>
+                    <div class="destination-intro__tours__best-selling__slider" id="tours-slider">
+                        <!-- Tour Card -->
+                        <div class="tours-card">
+                            <div class="tours-card__image">
+                                <img src="<?php echo bloginfo('template_url') ?>/css/img/test-images/classic-peru-hero.jpg" alt="">
+                            </div>
+                            <div class="tours-card__content">
+                                <div class="tours-card__content__tag-area">
+                                    <div class="tours-card__content__tag-area__tag">
+                                        Best Seller
+                                    </div>
+                                </div>
+                                <div class="tours-card__content__title-area">
+                                    <div class="tours-card__content__title-area__country">
+                                        Cambodia
+                                    </div>
+                                    <div class="tours-card__content__title-area__title">
+                                        7-Day Classic Peru
+                                    </div>
+                                    <div class="tours-card__content__title-area__price">
+                                        From $4,000
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tour Card -->
+                        <div class="tours-card">
+                            <div class="tours-card__image">
+                                <img src="<?php echo bloginfo('template_url') ?>/css/img/test-images/classic-peru-hero.jpg" alt="">
+                            </div>
+                            <div class="tours-card__content">
+                                <div class="tours-card__content__tag-area">
+                                    <div class="tours-card__content__tag-area__tag">
+                                        Best Seller
+                                    </div>
+                                </div>
+                                <div class="tours-card__content__title-area">
+                                    <div class="tours-card__content__title-area__country">
+                                        Cambodia
+                                    </div>
+                                    <div class="tours-card__content__title-area__title">
+                                        7-Day Classic Peru
+                                    </div>
+                                    <div class="tours-card__content__title-area__price">
+                                        From $4,000
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tour Card -->
+                        <div class="tours-card">
+                            <div class="tours-card__image">
+                                <img src="<?php echo bloginfo('template_url') ?>/css/img/test-images/classic-peru-hero.jpg" alt="">
+                            </div>
+                            <div class="tours-card__content">
+                                <div class="tours-card__content__tag-area">
+                                    <div class="tours-card__content__tag-area__tag">
+                                        Best Seller
+                                    </div>
+                                </div>
+                                <div class="tours-card__content__title-area">
+                                    <div class="tours-card__content__title-area__country">
+                                        Cambodia
+                                    </div>
+                                    <div class="tours-card__content__title-area__title">
+                                        7-Day Classic Peru
+                                    </div>
+                                    <div class="tours-card__content__title-area__price">
+                                        From $4,000
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tour Card -->
+                        <div class="tours-card">
+                            <div class="tours-card__image">
+                                <img src="<?php echo bloginfo('template_url') ?>/css/img/test-images/classic-peru-hero.jpg" alt="">
+                            </div>
+                            <div class="tours-card__content">
+                                <div class="tours-card__content__tag-area">
+                                    <div class="tours-card__content__tag-area__tag">
+                                        Best Seller
+                                    </div>
+                                </div>
+                                <div class="tours-card__content__title-area">
+                                    <div class="tours-card__content__title-area__country">
+                                        Cambodia
+                                    </div>
+                                    <div class="tours-card__content__title-area__title">
+                                        7-Day Classic Peru
+                                    </div>
+                                    <div class="tours-card__content__title-area__price">
+                                        From $4,000
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
+            <!-- Categories -->
+            <div class="destination-intro__categories">
+                <div class="category-card">
+                    <div class="category-card__image">
+                        <img src="<?php echo bloginfo('template_url') ?>/css/img/test-images/classic-peru-hero.jpg" alt="">
+                    </div>
+                    <div class="category-card__content">
+                        <div class="category-card__content__title">
+                            Adventure Tours
+                        </div>
+                        <div class="category-card__content__availability">
+                            4 Tours Available
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    Item
+                </div>
+                <div class="category-card">
+                    Item
+                </div>
+                <div class="category-card">
+                    Item
+                </div>
+                <div class="category-card">
+                    Item
+                </div>
+            </div>
         </div>
     </div>
 
 
     <!-- Cruises-->
-    <section class="destination-page__section-cruises" style="display: none;" id="cruises">
+    <section class="destination-page__section-cruises" id="cruises">
 
         <div class="destination-cruises">
             <div class="destination-cruises__header">
@@ -274,8 +399,8 @@ usort($locations, function ($a, $b) {
     </section>
 
     <!-- Accommodations -->
-    <section class="destination-page__section-accommodations" style="display: none;"  id="accommodations">
-     </section>
+    <section class="destination-page__section-accommodations" style="display: none;" id="accommodations">
+    </section>
 
     <section class="destination-page__section-travel-guides" id="travel-guides"></section>
     <section class="destination-page__section-reviews" id="reviews"></section>
