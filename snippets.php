@@ -3,3 +3,6 @@
                             <div class="destination-hero__content__location-slider__nav__item"><?php echo ($s->post_title); ?></div>
                         <?php endforeach; ?>
                     </div>
+
+                    font-size: 4rem;
+                line-height: 5rem;

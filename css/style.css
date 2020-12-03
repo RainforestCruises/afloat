@@ -3510,22 +3510,18 @@ h5 {
     margin-bottom: 6rem; }
     @media only screen and (max-width: 62.5em) {
       .destination-hero__content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center; } }
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr max-content; } }
     .destination-hero__content__breadcrumb {
       font-size: 1.4rem;
       letter-spacing: 0.4rem;
-      grid-column: 1 / span 1;
       align-self: end;
       font-weight: 600; }
       @media only screen and (max-width: 62.5em) {
         .destination-hero__content__breadcrumb {
-          margin-top: 6rem;
-          display: inline-block;
-          align-self: center;
-          justify-self: center; } }
+          margin-top: 2rem;
+          justify-self: center;
+          grid-column: 1 / -1; } }
       .destination-hero__content__breadcrumb__path {
         display: inline-block;
         position: relative;
@@ -3574,10 +3570,15 @@ h5 {
       @media only screen and (max-width: 62.5em) {
         .destination-hero__content__title {
           text-align: center;
-          margin: 4rem 0; }
+          margin: 4rem 0;
+          margin-bottom: 8rem; }
           .destination-hero__content__title::after {
             left: 50%;
             transform: translateX(-50%); } }
+      @media only screen and (max-width: 37.5em) {
+        .destination-hero__content__title {
+          font-size: 4rem;
+          line-height: 5rem; } }
     .destination-hero__content__page-nav {
       user-select: none;
       grid-column: 1 / span 1;
@@ -3758,7 +3759,7 @@ h5 {
         transform: translateX(-1rem); }
         @media only screen and (max-width: 62.5em) {
           .destination-hero__content__page-nav__arrow {
-            transform: translateX(0) scale(1.5);
+            transform: translateX(0);
             margin-bottom: 2rem; } }
     .destination-hero__content__location {
       grid-column: 2 / span 1;
@@ -3767,7 +3768,6 @@ h5 {
       width: 40vw; }
       @media only screen and (max-width: 62.5em) {
         .destination-hero__content__location {
-          grid-column: 1 / span 1;
           display: none; } }
       .destination-hero__content__location__slider {
         width: 100%;

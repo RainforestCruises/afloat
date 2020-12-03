@@ -78,24 +78,29 @@
 
         @media only screen and (max-width: $bp-large) {
 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr max-content;
+
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: space-between;
+            // align-items: center;
         }
 
         &__breadcrumb {
             font-size: 1.4rem;
             letter-spacing: 0.4rem;
-            grid-column: 1 / span 1;
+            //grid-column: 1 / span 1;
             align-self: end;
             font-weight: 600;
 
             @media only screen and (max-width: $bp-large) {
-                margin-top: 6rem;
-                display: inline-block;
-                align-self: center;
+
+                margin-top: 2rem;
                 justify-self: center;
+
+                grid-column: 1 / -1;
+
             } 
 
             &__path {
@@ -157,14 +162,22 @@
             }
 
             @media only screen and (max-width: $bp-large) {
+                //grid-column: 1 / -1;
+
                 text-align: center;
                 margin: 4rem 0;
+                margin-bottom: 8rem;
                 &::after {
                     left: 50%;
-                    transform: translateX(-50%);
-                  
+                    transform: translateX(-50%);          
                 }
             }
+
+            @media only screen and (max-width: $bp-small) {
+                font-size: 4rem;
+                line-height: 5rem;
+            }
+
         }
 
         // left nav main
@@ -179,6 +192,8 @@
             z-index: 10;
 
             @media only screen and (max-width: $bp-large) {
+                //grid-column: 1 / -1;
+
                 align-self: center;
                 text-align: center;
                 font-size: 1.8rem;
@@ -417,7 +432,7 @@
                 margin-top: 2rem;
                 transform: translateX(-1rem);
                 @media only screen and (max-width: $bp-large) {
-                    transform: translateX(0) scale(1.5);
+                    transform: translateX(0);
                     margin-bottom: 2rem;
                     
                 }
@@ -432,9 +447,11 @@
             height: 100%;
             width: 40vw;
 
+            // @media only screen and (max-width: $bp-largest) {
+            //     width: 35vw;
+            // }
 
             @media only screen and (max-width: $bp-large) {
-                grid-column: 1 / span 1;
                 display: none;
             }
  
