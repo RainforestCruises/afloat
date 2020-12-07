@@ -499,6 +499,11 @@ h5 {
     width: 40%;
     stroke-width: 2;
     stroke: currentColor; }
+  .btn-circle--large {
+    width: 8rem;
+    height: 8rem; }
+    .btn-circle--large svg {
+      stroke-width: 1; }
   .btn-circle--small {
     width: 3rem;
     height: 3rem; }
@@ -651,7 +656,7 @@ h5 {
   border: none;
   cursor: pointer;
   font-size: 1.32rem;
-  letter-spacing: .1rem; }
+  letter-spacing: 0.1rem; }
   .btn-underline::after {
     content: "";
     position: absolute;
@@ -679,14 +684,14 @@ h5 {
   .text-button:hover {
     color: #4381b3; }
   .text-button svg {
-    margin-left: .1rem;
+    margin-left: 0.1rem;
     height: 1.2rem;
     width: 1.2rem;
     fill: currentColor; }
   .text-button--large {
     font-size: 1.4rem; }
     .text-button--large svg {
-      margin-left: .2rem;
+      margin-left: 0.2rem;
       height: 1.4rem;
       width: 1.4rem; }
 
@@ -3959,9 +3964,15 @@ h5 {
     grid-column: 1 / -1;
     display: flex;
     justify-content: center;
+    margin: 0 10rem;
     margin-bottom: 6rem; }
+    @media only screen and (max-width: 37.5em) {
+      .destination-cruises__best-selling {
+        margin: 0;
+        margin-bottom: 6rem; } }
     .destination-cruises__best-selling__slider {
       max-width: 114rem;
+      width: 100%;
       margin: 0 6rem; }
       .destination-cruises__best-selling__slider .slick-slide {
         margin: 0 1.5rem; }
@@ -4155,11 +4166,12 @@ h5 {
   .destination-intro__tours {
     grid-column: 1 / -1;
     grid-row: 2 / span 1;
-    z-index: 10; }
+    z-index: 10;
+    margin-bottom: 6rem; }
     .destination-intro__tours__header {
       display: grid;
       grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-      margin-bottom: 6rem; }
+      margin-bottom: 4rem; }
       .destination-intro__tours__header__title {
         margin: 0; }
       .destination-intro__tours__header__sub-text {
@@ -4171,11 +4183,30 @@ h5 {
       justify-content: center;
       margin-bottom: 6rem; }
       .destination-intro__tours__best-selling__slider {
-        max-width: 114rem;
+        max-width: 140rem;
         width: 100%;
-        margin: 0 6rem; }
+        margin: 0 6rem;
+        position: relative; }
+        .destination-intro__tours__best-selling__slider__btn-left {
+          transform: translateY(-50%);
+          position: absolute;
+          top: 50%;
+          left: 8vw;
+          z-index: 20; }
+        .destination-intro__tours__best-selling__slider__btn-right {
+          transform: translateY(-50%);
+          position: absolute;
+          top: 50%;
+          right: 8vw;
+          z-index: 20; }
         .destination-intro__tours__best-selling__slider .slick-slide {
           margin: 0 1.5rem; }
+        .destination-intro__tours__best-selling__slider .slick-list {
+          padding: 0 25% !important; }
+        .destination-intro__tours__best-selling__slider .slick-current .tours-card__content {
+          opacity: 1; }
+        .destination-intro__tours__best-selling__slider .slick-current .tours-card::after {
+          opacity: 0; }
   .destination-intro__categories {
     z-index: 20;
     grid-column: center-start / center-end;
@@ -4521,7 +4552,8 @@ h5 {
   display: grid !important;
   width: 80rem;
   height: 45rem;
-  display: grid; }
+  display: grid;
+  position: relative; }
   .tours-card__image {
     grid-row: 1 / -1;
     grid-column: 1 / -1; }
@@ -4535,7 +4567,9 @@ h5 {
     grid-column: 1 / -1;
     z-index: 5;
     display: grid;
-    grid-template-rows: 1fr min-content; }
+    opacity: 0;
+    grid-template-rows: 1fr min-content;
+    transition: opacity .3s; }
     .tours-card__content__tag-area {
       grid-row: 1 / span 1; }
       .tours-card__content__tag-area__tag {
@@ -4565,6 +4599,15 @@ h5 {
         font-size: 1.6rem;
         text-transform: uppercase;
         font-weight: 700; }
+  .tours-card::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(20, 40, 56, 0.6), rgba(20, 40, 56, 0.6));
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    opacity: 1;
+    transition: opacity .3s; }
 
 .category-card {
   width: 50rem;

@@ -69,7 +69,7 @@ jQuery(document).ready(function ($) {
 
     //SCROLLING
     //Navigation Jump -- add url #anchor modification
-    $('.destination-hero__content__page-nav__list__item__link, #template-nav-title, .page-nav__collapse__list__item, #down-arrow-button').click(function (event) {
+    $('.destination-hero__content__page-nav__list__item__link, #template-nav-title,  #down-arrow-button').click(function (event) {
         var id = $(this).attr('href');
         var target = $(id).offset().top;
         $('.page-nav__collapse').removeClass('page-nav__collapse--active');
@@ -112,9 +112,9 @@ jQuery(document).ready(function ($) {
             if (scrolledTo > target - threshold && scrolledTo < target + threshold) {
                 var sectionHref = $(section).attr('href');
                 var active = $('a[href="' + sectionHref + '"]');
-
+                
                 $('.destination-hero__content__page-nav__list__item__link').removeClass("current");
-                active.addClass("current");
+                //active.addClass("current");
             }
         };
     }
@@ -167,7 +167,10 @@ jQuery(document).ready(function ($) {
         slidesToScroll: 1,
         dots: false,
         arrows: true,
-        centerMode: true
+        centerMode: true,
+        prevArrow: '<button class="btn-circle btn-white btn-circle--left btn-circle--large destination-intro__tours__best-selling__slider__btn-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+        nextArrow: '<button class="btn-circle btn-white btn-circle--right btn-circle--large destination-intro__tours__best-selling__slider__btn-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',   
+       
        
     });
 
@@ -181,12 +184,26 @@ jQuery(document).ready(function ($) {
         prevArrow: '<button class="btn-circle btn-dark btn-circle--left related-slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
         nextArrow: '<button class="btn-circle btn-dark btn-circle--right related-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',   
         responsive: [
+
             {
                 breakpoint: 1000,
                 settings: {
                     slidesToShow: 2,
                 }
-            }
+            },
+            {
+                breakpoint: 700,
+                settings: {
+                    slidesToShow: 1,
+                    arrows: false,
+                }
+            },
+            // {
+            //     breakpoint: 600,
+            //     settings: {
+            //         arrows: false,
+            //     }
+            // }
         ]
     });
 

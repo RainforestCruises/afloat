@@ -60,6 +60,8 @@ $inner-border-light: inset 0px 0px 0px 1px $color-grey-light-1a;
 // FONT VARIABLES
 $font-primary: "Metropolis", sans-serif;
 $font-secondary: "Old Standard TT", serif;
+//$font-secondary: "Merriweather", serif;
+
 $font-tertiary: "Montserrat", sans-serif;
 
 //shadows
@@ -78,7 +80,7 @@ $bp-largest: 75em; // 1200px / 8px text
 $bp-large: 62.5em; // 1000px
 $bp-medium: 50em; // 800px
 $bp-small: 37.5em; // 600px
-$bp-xsmall: 25em; // 600px
+$bp-xsmall: 25em; // 400px
 
 //GRID TEMPLATES
 $page-container: [full-start] minmax(6rem, 1fr) [center-start]

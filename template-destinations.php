@@ -48,7 +48,7 @@ usort($locations, function ($a, $b) {
                     </ol>
                 </div>
                 <div class="destination-hero__content__title">
-                    Peru Vacations
+                    <?php echo get_the_title(); ?>
                 </div>
 
                 <div class="destination-hero__content__page-nav">

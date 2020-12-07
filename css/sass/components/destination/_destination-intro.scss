@@ -86,10 +86,11 @@
         grid-column: 1 / -1;
         grid-row: 2 / span 1;
         z-index: 10;
+        margin-bottom: 6rem;
         &__header {
             display: grid;
             grid-template-columns: $page-container;
-            margin-bottom: 6rem;
+            margin-bottom: 4rem;
 
             &__title {
                 margin: 0;
@@ -109,16 +110,52 @@
             margin-bottom: 6rem;
 
             &__slider {
-                max-width: 114rem;
+                max-width: 140rem;
                 width: 100%;
                 margin: 0 6rem;
-                // @media only screen and (max-width: $bp-large) {
-                    
-                // }
-    
-                .slick-slide {
-                    margin: 0 1.5rem;
+                position: relative;
+
+
+                &__btn-left {
+                    transform: translateY(-50%);
+                    position: absolute;
+                    top: 50%;
+                    left: 8vw;
+                    z-index: 20;
                 }
+
+                &__btn-right {
+                    transform: translateY(-50%);
+
+                    position: absolute;
+                    top: 50%;
+                    right: 8vw;
+                    z-index: 20;
+
+
+                }
+     
+    
+                & .slick-slide {
+                    margin: 0 1.5rem;            
+                }
+
+                & .slick-list {
+                    padding:0 25% !important; 
+                }
+
+                & .slick-current {
+
+                    & .tours-card__content {
+                        opacity: 1;
+                    }
+                    
+                    & .tours-card::after {
+                        opacity: 0;
+                    }
+                }
+
+                
             }
         }
 

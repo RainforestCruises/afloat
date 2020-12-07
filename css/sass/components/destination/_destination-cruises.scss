@@ -27,13 +27,18 @@
         grid-column: 1 / -1;
         display: flex;
         justify-content: center;
+        margin: 0 10rem;
         margin-bottom: 6rem;
+
+        @media only screen and (max-width: $bp-small) {
+            margin: 0;
+            margin-bottom: 6rem;
+
+        }
         &__slider {
             max-width: 114rem;
+            width: 100%;
             margin: 0 6rem;
-            // @media only screen and (max-width: $bp-large) {
-                
-            // }
 
             .slick-slide {
                 margin: 0 1.5rem;
