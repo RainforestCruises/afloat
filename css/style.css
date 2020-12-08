@@ -3238,10 +3238,10 @@ h5 {
     @media only screen and (max-width: 62.5em) {
       .destination-hero__content {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr min-content max-content; } }
-    @media only screen and (max-width: 37.5em) {
+        grid-template-rows: 1fr min-content minmax(max-content, 2fr); } }
+    @media only screen and (max-width: 25em) {
       .destination-hero__content {
-        grid-template-rows: max-content min-content minmax(max-content, 1fr); } }
+        grid-template-rows: minmax(min-content, 30%) min-content minmax(max-content, 1fr); } }
     .destination-hero__content__breadcrumb {
       font-size: 1.4rem;
       letter-spacing: 0.4rem;
@@ -3322,7 +3322,6 @@ h5 {
       z-index: 10; }
       @media only screen and (max-width: 62.5em) {
         .destination-hero__content__page-nav {
-          align-self: center;
           text-align: center;
           font-size: 1.8rem;
           font-weight: 500; } }
@@ -3565,7 +3564,8 @@ h5 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 8rem;
-    padding: 8rem 0; }
+    padding: 8rem 0;
+    font-size: 1.6rem; }
     @media only screen and (max-width: 50em) {
       .destination-tours__intro {
         grid-template-columns: 1fr;
@@ -3579,9 +3579,8 @@ h5 {
       font-weight: 700;
       margin-bottom: 2rem; }
     .destination-tours__intro__description__text {
-      font-size: 1.6rem; }
+      line-height: 3.2rem; }
     .destination-tours__intro__lists {
-      font-size: 1.4rem;
       display: grid;
       grid-template-columns: 1fr 1fr; }
       .destination-tours__intro__lists__locations__title {
@@ -4152,7 +4151,7 @@ h5 {
   width: 45rem;
   border-radius: 0.5rem;
   border: 1px solid #e6e6e6;
-  grid-template-rows: 30rem 20rem;
+  grid-template-rows: 30rem 18rem;
   outline: none; }
   .product-card:link, .product-card:visited {
     text-decoration: none;
@@ -4170,7 +4169,8 @@ h5 {
     padding: 1rem;
     display: grid;
     row-gap: 1rem;
-    position: relative; }
+    position: relative;
+    grid-template-rows: min-content 1fr 4rem; }
     .product-card__bottom__title-group {
       font-size: 1.9rem;
       font-weight: 600;
@@ -4184,8 +4184,9 @@ h5 {
         font-size: 1.4rem;
         text-transform: uppercase; }
     .product-card__bottom__text {
-      font-size: 1.3rem;
-      padding-bottom: 1rem; }
+      font-size: 1.5rem;
+      padding-bottom: 1rem;
+      display: flex; }
     .product-card__bottom__info {
       position: relative;
       padding-top: 1.5rem;

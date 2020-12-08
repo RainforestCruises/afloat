@@ -160,7 +160,7 @@
     width: 45rem;
     border-radius: 0.5rem;
     border: 1px solid $color-grey-light-1a;
-    grid-template-rows: 30rem 20rem;
+    grid-template-rows: 30rem 18rem;
     outline: none;
     &:link,
     &:visited {
@@ -185,6 +185,7 @@
         display: grid;
         row-gap: 1rem;
         position: relative;
+        grid-template-rows: min-content 1fr 4rem;
 
         &__title-group {
             font-size: 1.9rem;
@@ -210,8 +211,10 @@
         }
 
         &__text {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             padding-bottom: 1rem;
+            display: flex;
+            //align-items: center;
         }
 
         &__info {

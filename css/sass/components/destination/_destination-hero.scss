@@ -82,10 +82,11 @@
 
         @media only screen and (max-width: $bp-large) {
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr min-content max-content;
+            grid-template-rows: 1fr min-content minmax(max-content, 2fr);
         }
-        @media only screen and (max-width: $bp-small) {
-            grid-template-rows: max-content min-content minmax(max-content, 1fr);
+
+        @media only screen and (max-width: $bp-xsmall) {
+            grid-template-rows: minmax(min-content, 30%) min-content minmax(max-content, 1fr);
         }
 
         &__breadcrumb {
@@ -194,7 +195,7 @@
             @media only screen and (max-width: $bp-large) {
                 //grid-column: 1 / -1;
 
-                align-self: center;
+                //align-self: center;
                 text-align: center;
                 font-size: 1.8rem;
                 font-weight: 500;
