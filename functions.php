@@ -8,6 +8,7 @@ require_once( __DIR__ . '/includes/utilities.php');
 require_once( __DIR__ . '/includes/custom-post-types.php');
 require_once( __DIR__ . '/includes/searches.php');
 require_once( __DIR__ . '/includes/tour-functions.php');
+require_once( __DIR__ . '/includes/property-functions.php');
 
 
 
