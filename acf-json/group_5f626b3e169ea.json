@@ -3,6 +3,22 @@
     "title": "Destination Page",
     "fields": [
         {
+            "key": "field_5fd0062bdc890",
+            "label": "General",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5f626b4459727",
             "label": "Destination Post",
             "name": "destination_post",
@@ -185,9 +201,25 @@
             ]
         },
         {
+            "key": "field_5fd00616dc88f",
+            "label": "Accommodations",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5fce842ca3ff7",
-            "label": "Accommodation Cruise Image",
-            "name": "accommodations_cruise_image",
+            "label": "Cruises Image",
+            "name": "cruises_image",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -213,8 +245,8 @@
         },
         {
             "key": "field_5fce8465a3ff8",
-            "label": "Accommodation Lodge Image",
-            "name": "accommodations_lodge_image",
+            "label": "Lodges Image",
+            "name": "lodges_image",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -252,6 +284,65 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_5fd0064fdc891",
+            "label": "Cruises Snippet",
+            "name": "cruises_snippet",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "admin_column_enabled": 0,
+            "admin_column_post_types": "",
+            "admin_column_taxonomies": "",
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": ""
+        },
+        {
+            "key": "field_5fd006a6dc892",
+            "label": "Lodges Snippet",
+            "name": "lodges_snippet",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "admin_column_enabled": 0,
+            "admin_column_post_types": [
+                "post",
+                "page",
+                "rfc_cruises",
+                "rfc_tours",
+                "rfc_lodges",
+                "rfc_destinations",
+                "rfc_locations",
+                "rfc_regions",
+                "rfc_countries",
+                "rfc_experiences"
+            ],
+            "admin_column_taxonomies": [
+                "category",
+                "post_tag",
+                "link_category"
+            ],
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": ""
         }
     ],
     "location": [
@@ -273,5 +364,5 @@
     ],
     "active": true,
     "description": "Extended Fields for Destination Pages",
-    "modified": 1607369863
+    "modified": 1607468750
 }

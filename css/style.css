@@ -3629,7 +3629,7 @@ h5 {
     .destination-tours__packages__header {
       display: grid;
       grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-      margin-bottom: 4rem; }
+      margin-bottom: 6rem; }
       @media only screen and (max-width: 37.5em) {
         .destination-tours__packages__header {
           grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
@@ -3755,129 +3755,51 @@ h5 {
     justify-content: center; }
 
 .destination-accommodations {
-  overflow-x: hidden;
   display: grid;
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-  justify-items: center;
-  background-color: #f8f8f8;
-  background-image: linear-gradient(to bottom, #f8f8f8, rgba(248, 248, 248, 0)), url(img/bg/background-bamboo.jpg);
-  padding: 3rem 0;
-  padding-bottom: 8rem;
   position: relative;
-  z-index: 0; }
-  .destination-accommodations__title {
-    grid-column: center-start / center-end;
-    font-size: 4.5rem;
-    text-align: center;
-    color: #142838;
-    font-family: "Old Standard TT", serif;
-    letter-spacing: 0.2rem;
-    z-index: 10;
+  grid-column: 1 / -1;
+  margin-bottom: 6rem;
+  outline: none; }
+  @media only screen and (max-width: 37.5em) {
+    .destination-accommodations {
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
+  .destination-accommodations__header {
+    grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr);
-    align-items: center;
-    column-gap: 25px; }
-    .destination-accommodations__title::before {
-      content: "";
-      height: 1px;
-      display: block;
-      background-color: currentColor; }
-    .destination-accommodations__title::after {
-      content: "";
-      height: 1px;
-      display: block;
-      background-color: currentColor; }
-  .destination-accommodations__intro-text {
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    margin-bottom: 6rem; }
+    @media only screen and (max-width: 37.5em) {
+      .destination-accommodations__header {
+        grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
+    .destination-accommodations__header__title {
+      margin: 0; }
+      @media only screen and (max-width: 37.5em) {
+        .destination-accommodations__header__title {
+          margin-bottom: 2rem; } }
+    .destination-accommodations__header__sub-text {
+      grid-column: center-start / center-end;
+      font-size: 1.6rem;
+      text-align: center; }
+  .destination-accommodations__group {
     grid-column: center-start / center-end;
-    padding: 0 6rem;
-    padding-bottom: 4rem;
-    font-size: 1.4rem;
-    text-align: center;
-    z-index: 10; }
-  .destination-accommodations__grid {
-    display: grid;
-    grid-column: center-start / center-end;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 2rem;
-    height: 60rem; }
-    .destination-accommodations__grid__slide {
-      display: grid !important;
-      position: relative;
-      z-index: 0;
-      grid-template-rows: min-content min-content;
-      cursor: pointer; }
-      .destination-accommodations__grid__slide:after {
-        content: "";
-        grid-row: 1 / 1;
-        grid-column: 1 / -1;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-        background-image: linear-gradient(to top, rgba(30, 30, 30, 0.5), rgba(30, 30, 30, 0.5));
-        opacity: 0;
-        transition: opacity 0.3s; }
-      .destination-accommodations__grid__slide:hover:after {
-        opacity: 1; }
-      .destination-accommodations__grid__slide:hover img {
-        height: 42rem; }
-      .destination-accommodations__grid__slide:hover .destination-accommodations__grid__slide__hover-group {
-        opacity: 1; }
-      .destination-accommodations__grid__slide__hover-group {
-        grid-column: 1 / -1;
-        grid-row: 1 / 1;
-        margin-bottom: 1.4rem;
-        align-self: center;
-        display: flex;
-        flex-direction: column;
-        z-index: 5;
-        align-items: center;
-        transition: opacity 0.3s 0.1s;
-        opacity: 0; }
-        .destination-accommodations__grid__slide__hover-group__cta {
-          display: block;
-          font-size: 2rem;
-          color: #fff;
-          letter-spacing: 0.15rem;
-          margin: 0.3rem 2rem;
-          font-weight: 400; }
-        .destination-accommodations__grid__slide__hover-group__count {
-          display: block;
-          font-size: 1.4rem;
-          color: #fff;
-          text-transform: uppercase;
-          letter-spacing: 0.3rem;
-          margin-bottom: 2rem; }
-      .destination-accommodations__grid__slide__img {
-        grid-column: 1 / -1;
-        grid-row: 1 / span 1;
-        width: 100%;
-        height: 38rem;
-        object-fit: cover;
-        object-position: center;
-        position: relative;
-        z-index: 0;
-        transition: height 0.3s; }
-      .destination-accommodations__grid__slide__lower-section {
-        grid-column: 1 / -1;
-        grid-row: 2 / span 1;
-        padding: 1rem 2rem;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        background-color: #fff;
-        min-height: 15rem; }
-        .destination-accommodations__grid__slide__lower-section__title {
-          margin: 1rem 0rem;
-          font-size: 1.6rem;
-          text-transform: uppercase;
-          letter-spacing: 0.3rem;
-          color: #142838; }
-        .destination-accommodations__grid__slide__lower-section__text {
-          font-size: 1.3rem;
-          margin-bottom: 2rem; }
-  .destination-accommodations__all {
-    grid-column: center-start / center-end;
-    margin-top: 4rem; }
+    grid-row: 2 / span 1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    justify-items: center;
+    align-items: start;
+    margin-bottom: 6rem; }
+    @media only screen and (max-width: 62.5em) {
+      .destination-accommodations__group {
+        grid-template-columns: 1fr; } }
+  .destination-accommodations__btn {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center; }
 
 .home-hero {
   display: grid;
@@ -4237,7 +4159,7 @@ h5 {
     opacity: 0;
     grid-template-rows: 1fr;
     position: relative;
-    transition: opacity .3s; }
+    transition: opacity 0.3s; }
     @media only screen and (max-width: 37.5em) {
       .tours-card__content {
         margin: 1.5rem 2rem; } }
@@ -4272,7 +4194,7 @@ h5 {
         list-style: none;
         display: flex; }
         .tours-card__content__text-area__country li:not(:first-child) {
-          margin-left: .8rem;
+          margin-left: 0.8rem;
           position: relative; }
           .tours-card__content__text-area__country li:not(:first-child)::before {
             content: " / "; }
@@ -4290,7 +4212,7 @@ h5 {
         font-size: 1.6rem;
         text-transform: uppercase;
         font-weight: 700;
-        letter-spacing: .2rem;
+        letter-spacing: 0.2rem;
         display: flex;
         justify-content: space-between; }
         .tours-card__content__text-area__info__price span {
@@ -4303,7 +4225,7 @@ h5 {
     grid-row: 1 / -1;
     grid-column: 1 / -1;
     opacity: 1;
-    transition: opacity .3s; }
+    transition: opacity 0.3s; }
   .tours-card::before {
     content: "";
     grid-row: 1 / -1;
@@ -4317,7 +4239,7 @@ h5 {
   min-width: 30rem;
   min-height: 15rem;
   background-color: gainsboro;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   display: grid !important;
   margin: 1rem 1.5rem;
   flex: 1 0 33%;
@@ -4327,7 +4249,7 @@ h5 {
     grid-row: 1 / -1;
     position: relative; }
     .category-card__image img {
-      border-radius: .5rem;
+      border-radius: 0.5rem;
       object-fit: cover;
       height: 100%;
       width: 100%;
@@ -4361,8 +4283,56 @@ h5 {
       width: 100%;
       height: 100%;
       background-image: linear-gradient(to right, rgba(30, 30, 30, 0.4), rgba(30, 30, 30, 0.4));
-      border-radius: .5rem;
+      border-radius: 0.5rem;
       z-index: 1; }
+
+.accommodations-card {
+  min-width: 30rem;
+  min-height: 15rem;
+  margin: 1rem 1.5rem;
+  flex: 1 0 33%;
+  /* explanation below */
+  display: grid !important;
+  align-content: center;
+  background-color: #fff;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: 1px solid #e6e6e6;
+  grid-template-rows: min-content minmax(23rem, min-content);
+  outline: none; }
+  .accommodations-card:link, .accommodations-card:visited {
+    text-decoration: none;
+    color: #919598; }
+  .accommodations-card:hover .accommodations-card__bottom__title {
+    color: #40739c; }
+  .accommodations-card__image {
+    grid-row: 1 / span 1;
+    height: 30rem; }
+    .accommodations-card__image img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem; }
+  .accommodations-card__bottom {
+    grid-row: 2 / span 1;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    display: grid;
+    position: relative;
+    text-align: center;
+    grid-template-rows: max-content 1fr; }
+    .accommodations-card__bottom__title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #142838;
+      padding: 2rem;
+      transition: all .3s; }
+    .accommodations-card__bottom__text {
+      font-size: 1.6rem;
+      display: flex; }
 
 .lds-dual-ring {
   display: inline-block;

@@ -68,9 +68,6 @@ $args = array(
         ?>
     </section>
 
-
-
-
     <div class="destination-page__section-tours" id="tours">
         <?php
         get_template_part('template-parts/content', 'destination-tours', $args);
@@ -83,12 +80,13 @@ $args = array(
         <?php
         get_template_part('template-parts/content', 'destination-cruises', $args);
         ?>
-
- 
     </section>
 
     <!-- Accommodations -->
-    <section class="destination-page__section-accommodations" style="display: none;" id="accommodations">
+    <section class="destination-page__section-accommodations" id="accommodations">
+    <?php
+        get_template_part('template-parts/content', 'destination-accommodations', $args);
+        ?>
     </section>
 
     <section class="destination-page__section-travel-guides" id="travel-guides"></section>

@@ -140,7 +140,7 @@
         &__header {
             display: grid;
             grid-template-columns: $page-container;
-            margin-bottom: 4rem;
+            margin-bottom: 6rem;
 
             @media only screen and (max-width: $bp-small) {
                 grid-template-columns: $page-container-small; 
