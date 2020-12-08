@@ -44,10 +44,10 @@ $currentYear = date("Y");
                 </div>
                 <ul class="destination-tours__intro__lists__experiences__list">
                     <?php if (have_rows('tour_experiences')) : ?>
-                        <?php while (have_rows('tour_experiences')) : the_row(); 
-                        $experience = get_sub_field('experience'); 
+                        <?php while (have_rows('tour_experiences')) : the_row();
+                            $experience = get_sub_field('experience');
                         ?>
-                            <li>       
+                            <li>
                                 <a href="#"><?php echo get_the_title($experience); ?></a>
                             </li>
                         <?php endwhile; ?>
@@ -125,20 +125,39 @@ $currentYear = date("Y");
 
     <!-- Categories -->
     <div class="destination-tours__categories">
-        <div class="category-card">
-            <div class="category-card__image">
-                <img src="<?php echo bloginfo('template_url') ?>/css/img/test-images/classic-peru-hero.jpg" alt="">
-            </div>
-            <div class="category-card__content">
-                <div class="category-card__content__title">
-                    Adventure Tours
-                </div>
-                <div class="category-card__content__availability">
-                    4 Tours Available
-                </div>
-            </div>
-        </div>
+        <?php
+        if ($tour_experiences) {
+            foreach ($tour_experiences as $e) {
+                $experience = $e['experience'];
+                $background_image = $e['background_image'];
+        ?>
 
-      
+                <div class="category-card">
+                    <div class="category-card__image">
+                        <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
+                    </div>
+
+
+
+                    <div class="category-card__content">
+                        <div class="category-card__content__title">
+                            <?php echo get_the_title($experience); ?> Tours
+                        </div>
+                        <div class="category-card__content__availability">
+                            <?php echo tours_available($destination, $experience); ?> Tours Available
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+        <?php
+            }
+        }
+
+        ?>
+
     </div>
 </div>

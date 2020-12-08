@@ -1,8 +1,9 @@
-<div class="destination-hero__content__location-slider__nav" id="destination-hero__nav">
-                        <?php foreach ($locations as $s) : ?>
-                            <div class="destination-hero__content__location-slider__nav__item"><?php echo ($s->post_title); ?></div>
-                        <?php endforeach; ?>
-                    </div>
-
-                    font-size: 4rem;
-                line-height: 5rem;
+<?php if (have_rows('tour_experiences')) : ?>
+                        <?php while (have_rows('tour_experiences')) : the_row(); 
+                        $experience = get_sub_field('experience'); 
+                        ?>
+                            <li>       
+                                <a href="#"><?php echo get_the_title($experience); ?></a>
+                            </li>
+                        <?php endwhile; ?>
+                    <?php endif; ?>

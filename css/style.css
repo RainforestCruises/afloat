@@ -1104,287 +1104,6 @@ h5 {
   .destination-page__section-accommodations {
     grid-column: full-start / -1; }
 
-.slider {
-  height: 100%;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent 20%), linear-gradient(to top, rgba(30, 30, 30, 0.3), rgba(30, 30, 30, 0.1)), url("img/slider-images/peru-01.jpg");
-  background-position: center;
-  background-size: cover;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-top: 25rem;
-  align-items: center;
-  color: #f8f8f8; }
-  .slider__title {
-    padding: 12rem;
-    display: block; }
-    .slider__title--large {
-      font-family: "Metropolis", sans-serif;
-      font-size: 6rem;
-      font-weight: 300;
-      line-height: 8rem;
-      letter-spacing: 1rem;
-      text-transform: uppercase; }
-    .slider__title--subtext {
-      font-size: 2rem;
-      font-weight: 300;
-      letter-spacing: .6rem;
-      text-transform: uppercase; }
-  .slider__form {
-    display: grid;
-    width: 80%;
-    grid-template-columns: 2fr 1fr;
-    column-gap: 3rem; }
-  .slider__form-group {
-    padding-bottom: 2.5rem; }
-  .slider__input {
-    font-size: 1.5rem;
-    padding: 1.5rem 2rem;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.6);
-    color: #142838;
-    width: 100%;
-    border: none;
-    font-family: inherit;
-    display: block;
-    box-shadow: 0 1rem 2rem rgba(20, 40, 56, 0.3); }
-  .slider__label {
-    font-size: 1.8rem;
-    letter-spacing: .2rem;
-    padding-bottom: 1rem;
-    font-weight: 200;
-    display: block;
-    transition: all 0.3s; }
-  .slider__button {
-    background-color: #142838;
-    color: #c2c6c9;
-    padding: 1.3rem 4rem;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: all .2s; }
-    .slider__button:hover {
-      background-color: #1f3f5a; }
-
-.overview {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 12rem 0 0 0; }
-  .overview__content {
-    background-color: #fff;
-    display: grid;
-    padding: 12rem 14rem;
-    grid-template-rows: 1fr minmax(9rem, min-content) minmax(16rem, min-content) 1fr;
-    justify-content: center; }
-    .overview__content__pretitle {
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      align-self: flex-end; }
-    .overview__content__title {
-      font-size: 3rem;
-      font-weight: 400;
-      text-transform: uppercase;
-      color: #142838; }
-    .overview__content__text {
-      font-size: 1.6rem; }
-    .overview__content__btn {
-      align-self: start;
-      justify-self: start;
-      background-color: #142838;
-      color: #c2c6c9;
-      padding: 1.3rem 4rem;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      transition: all .2s; }
-      .overview__content__btn:hover {
-        background-color: #1f3f5a; }
-  .overview__imagery {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    column-gap: 3rem; }
-    .overview__imagery__display {
-      background-image: url(img/river-cruise.jpg);
-      background-position: center;
-      background-size: cover;
-      box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.13); }
-    .overview__imagery__next {
-      background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(img/galapagos-home-square-1.jpg);
-      background-position: left;
-      background-size: cover;
-      box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.13); }
-
-.sites {
-  width: 100%;
-  display: grid;
-  grid-template-rows: repeat(2, min-content); }
-  .sites__top {
-    grid-row: 1 / span 1;
-    padding: 8rem 14rem;
-    display: grid;
-    grid-template-columns: minmax(40rem, max-content) max-content; }
-    .sites__top__title {
-      grid-column: 1 / span 1; }
-    .sites__top__count {
-      grid-column: 2 / span 1; }
-  .sites__rotate {
-    grid-row: 2 / span 1;
-    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.13); }
-  .sites__slick__item {
-    position: relative;
-    transform: translateX(10vw);
-    height: 60vh;
-    display: grid !important;
-    grid-template-rows: 8fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 10rem; }
-    .sites__slick__item img {
-      grid-row: 1 / -1;
-      grid-column: 1 / -1;
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      display: block;
-      z-index: 0; }
-    .sites__slick__item__overlay {
-      grid-row: 1 / -1;
-      grid-column: 1 / -1;
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      display: block;
-      z-index: 1;
-      background-image: linear-gradient(to top, rgba(20, 40, 56, 0.5), rgba(20, 40, 56, 0.2)); }
-      .sites__slick__item__overlay::after {
-        content: "";
-        grid-row: 1 / -1;
-        grid-column: 1 / -1;
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        display: block;
-        z-index: 2;
-        background-image: linear-gradient(to top, rgba(20, 40, 56, 0.6), rgba(20, 40, 56, 0.6));
-        opacity: 0;
-        transition: opacity 1s; }
-    .sites__slick__item__title {
-      grid-row: 1 / span 1;
-      grid-column: 1 / span 1;
-      align-self: end;
-      margin-left: 8rem;
-      color: #f8f8f8;
-      z-index: 9; }
-    .sites__slick__item__caption {
-      grid-row: 1 / span 1;
-      grid-column: 2 / span 1;
-      align-self: end;
-      color: #f8f8f8;
-      font-size: 2.5rem;
-      z-index: 9;
-      width: 50%; }
-      .sites__slick__item__caption__title::after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        display: block;
-        background-color: #f8f8f8;
-        margin: 1rem 0;
-        z-index: 9; }
-      .sites__slick__item__caption p {
-        font-size: 1.5rem; }
-
-.sites__side-overlay .sites__slick__item__overlay::after {
-  opacity: 1; }
-
-.products {
-  display: grid;
-  grid-template-rows: repeat(2, min-content);
-  margin: 6rem 0; }
-  .products__top {
-    grid-row: 1 / span 1;
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: 1fr 1fr; }
-    .products__top__title {
-      grid-row: 2 / span 1;
-      text-transform: uppercase;
-      font-size: 2.5rem;
-      color: #142838;
-      letter-spacing: .3rem;
-      font-weight: 400; }
-      .products__top__title::after {
-        content: "";
-        height: 2px;
-        width: 12rem;
-        display: block;
-        background-color: #c2c6c9;
-        margin: 1.5rem 0;
-        z-index: 9; }
-    .products__top__subtitle {
-      grid-row: 1 / span 1;
-      letter-spacing: .15rem;
-      font-size: 1.4rem;
-      align-self: end;
-      text-transform: uppercase; }
-    .products__top__view-all {
-      font-size: 1.6rem;
-      align-self: end;
-      justify-self: end;
-      grid-row: 2 / span 1;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid #c2c6c9;
-      letter-spacing: .1rem; }
-  .products__grid {
-    margin: 3rem 0;
-    grid-row: 2 / span 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    grid-gap: 3rem;
-    row-gap: 6rem; }
-
-.product {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-content: center; }
-  .product__img {
-    width: 100%;
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-    z-index: 1;
-    padding-bottom: 1.4rem; }
-  .product__like {
-    fill: #142838;
-    grid-row: 1 / 2;
-    grid-column: 2 / 3;
-    height: 2.5rem;
-    width: 2.5rem;
-    z-index: 2;
-    justify-self: end;
-    margin: 1rem; }
-  .product__type {
-    font-size: 1.6rem;
-    color: #142838; }
-  .product__price {
-    font-size: 1.6rem;
-    color: #00a84b;
-    justify-self: end; }
-  .product__name {
-    font-size: 2.5rem;
-    color: #142838;
-    grid-column: 1 / -1;
-    grid-row: 3 / span 1; }
-  .product__length {
-    font-size: 1.6rem;
-    grid-row: 4 / span 1; }
-  .product__rating {
-    font-size: 1.6rem;
-    color: #142838;
-    justify-self: end;
-    grid-row: 4 / span 1;
-    grid-column: 2 / span 1; }
-  .product__btn {
-    grid-column: 1 / -1; }
-
 .product-hero {
   grid-column: full-start / -1;
   grid-row: nav-start / hero-end;
@@ -4538,7 +4257,8 @@ h5 {
       border-radius: .5rem;
       object-fit: cover;
       height: 100%;
-      width: 100%; }
+      width: 100%;
+      z-index: 0; }
   .category-card__content {
     padding: 1rem 2rem;
     grid-column: 1 / -1;
@@ -4549,13 +4269,27 @@ h5 {
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
-    justify-content: center; }
+    justify-content: center;
+    position: relative; }
     .category-card__content__title {
       font-size: 2.5rem;
-      letter-spacing: 0.3rem; }
+      letter-spacing: 0.3rem;
+      font-weight: 600;
+      z-index: 2; }
     .category-card__content__availability {
       font-size: 1.5rem;
-      letter-spacing: 0.2rem; }
+      letter-spacing: 0.2rem;
+      z-index: 2; }
+    .category-card__content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, rgba(30, 30, 30, 0.4), rgba(30, 30, 30, 0.4));
+      border-radius: .5rem;
+      z-index: 1; }
 
 .lds-dual-ring {
   display: inline-block;
