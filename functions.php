@@ -7,6 +7,7 @@ require_once( __DIR__ . '/includes/post-meta-scripts.php');
 require_once( __DIR__ . '/includes/utilities.php');
 require_once( __DIR__ . '/includes/custom-post-types.php');
 require_once( __DIR__ . '/includes/searches.php');
+require_once( __DIR__ . '/includes/price-calculations.php');
 
 
 

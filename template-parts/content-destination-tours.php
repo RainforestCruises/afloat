@@ -3,6 +3,7 @@ $destination = $args['destination'];
 $locations = $args['locations'];
 $tours = $args['tours'];
 $tour_experiences = $args['tour_experiences'];
+$currentYear = date("Y");
 
 ?>
 
@@ -80,7 +81,9 @@ $tour_experiences = $args['tour_experiences'];
                     <?php
                     $hero_image = get_field('hero_image', $t);
                     $countries  = get_field('countries', $t);
-                    $lowest = 1000;
+                    $price_packages = get_field('price_packages', $t);
+                    $lowest = lowest_tour_price($price_packages, $currentYear);
+
                     ?>
                     <!-- Tour Card -->
                     <div class="tours-card">
@@ -106,7 +109,7 @@ $tour_experiences = $args['tour_experiences'];
                                     <?php echo get_field('length', $t) ?>-Day <?php echo get_field('tour_name', $t) ?>
                                 </div>
                                 <div class="tours-card__content__title-area__price">
-                                    From $4,000
+                                    From <?php echo "$" . number_format($lowest, 0); ?>
                                 </div>
                             </div>
                         </div>
@@ -136,17 +139,6 @@ $tour_experiences = $args['tour_experiences'];
             </div>
         </div>
 
-        <div class="category-card">
-            Item
-        </div>
-        <div class="category-card">
-            Item
-        </div>
-        <div class="category-card">
-            Item
-        </div>
-        <div class="category-card">
-            Item
-        </div>
+      
     </div>
 </div>

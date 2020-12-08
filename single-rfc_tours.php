@@ -14,23 +14,11 @@ while (have_posts()) :
   $monthNames = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 
 
-  $priceList = [];
-
-      $price_packages = get_field('price_packages');
-      if ($price_packages) {
-        foreach ($price_packages as $price_package) {
-          if ($price_package['year'] >= $currentYear) {
-            $priceList[] = $price_package['price'];
-          }
-        }
-      }
 
 
-  $lowestPrice = 0;
-  if ($priceList) {
-    sort($priceList);
-    $lowestPrice = $priceList[0];
-  }
+  $price_packages = get_field('price_packages');
+  $lowestPrice = lowest_tour_price($price_packages, $currentYear);
+
 
 
   $args = array(
