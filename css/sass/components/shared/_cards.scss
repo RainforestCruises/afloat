@@ -252,6 +252,7 @@
         }
 
     }
+                    margin: 0 1.5rem;
 
     &__content {
         margin: 4rem 6rem;
@@ -264,6 +265,11 @@
         grid-template-rows: 1fr min-content;
 
         transition: opacity .3s;
+
+        @media only screen and (max-width: $bp-small) {
+            margin: 1.5rem 2rem;
+
+        }
 
         &__tag-area {
             grid-row: 1 / span 1;
@@ -306,6 +312,11 @@
                 letter-spacing: 0.5rem;
                 text-transform: uppercase;
                 line-height: 5rem;
+
+                @media only screen and (max-width: $bp-small) {
+                    font-size: 2.2rem;
+                    line-height: 3rem;
+                }
             }
 
             &__price {
@@ -343,19 +354,17 @@
 }
 
 .category-card {
-    width: 50rem;
-    height: 15rem;
+    min-width: 30rem;
+    min-height: 15rem;
     background-color: gainsboro;
     border-radius: .5rem;
-    display: grid;
-    margin: 1rem;
+    display: grid !important;
+    margin: 1rem 1.5rem;
+    flex: 1 0 33%; /* explanation below */
     &__image {
         grid-column: 1 / -1;
         grid-row: 1 / -1;
-        width: 50rem;
-
-        height: 15rem;
-        //position: relative;
+        position: relative;
         & img {
             border-radius: .5rem;
 

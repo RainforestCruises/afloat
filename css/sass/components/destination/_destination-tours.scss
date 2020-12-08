@@ -3,7 +3,14 @@
     grid-template-columns: $page-container;
     overflow: hidden;
     position: relative;
-    margin-bottom: 8rem;
+    padding-bottom: 8rem;
+    margin-bottom: 2rem;
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: $page-container-small;
+
+    }
+
     &::before {
         content: "";
         position: absolute;
@@ -18,7 +25,7 @@
     //after -- fade white up
 
     &__bg {
-        z-index: 2;
+        z-index: 0;
         grid-column: col-end 4 / -1;
         grid-row: 1 / span 3;
 
@@ -129,14 +136,20 @@
         grid-column: 1 / -1;
         grid-row: 2 / span 1;
         z-index: 10;
-        margin-bottom: 3rem;
         &__header {
             display: grid;
             grid-template-columns: $page-container;
             margin-bottom: 4rem;
 
+            @media only screen and (max-width: $bp-small) {
+                grid-template-columns: $page-container-small; 
+            }
+
             &__title {
                 margin: 0;
+                @media only screen and (max-width: $bp-small) {
+                    margin-bottom: 2rem;
+                }
             }
 
             &__sub-text {
@@ -150,7 +163,7 @@
             display: flex;
             justify-content: center;
             margin-bottom: 6rem;
-
+            
             &__slider {
                 max-width: 140rem;
                 width: 100%;
@@ -163,6 +176,14 @@
                     top: 50%;
                     left: 8vw;
                     z-index: 20;
+
+                    @media only screen and (max-width: $bp-large) {
+                        left: 2vw;
+                    }
+                    @media only screen and (max-width: $bp-medium) {
+                        left: 0vw;
+                        transform: translateY(-50%) scale(.75);
+                    }
                 }
 
                 &__btn-right {
@@ -172,14 +193,34 @@
                     top: 50%;
                     right: 8vw;
                     z-index: 20;
+
+                    @media only screen and (max-width: $bp-large) {
+                        right: 2vw;
+                    }
+                    @media only screen and (max-width: $bp-medium) {
+                        right: 0vw;
+                        transform: translateY(-50%) scale(.75);
+                    }
                 }
 
                 & .slick-slide {
                     margin: 0 1.5rem;
+
+                    @media only screen and (max-width: $bp-medium) {
+                        margin: 0 .75rem;
+
+                    }
                 }
 
                 & .slick-list {
                     padding: 0 25% !important;
+
+                    @media only screen and (max-width: $bp-large) {
+                        padding: 0 15% !important;
+                    }
+                    @media only screen and (max-width: $bp-small) {
+                        padding: 0 10% !important;
+                    }
                 }
 
                 & .slick-current {
@@ -195,13 +236,15 @@
         }
     }
 
-    &__categories {
-        z-index: 20;
-        grid-column: center-start / center-end;
+    &__experiences {
+
         grid-row: 3 / span 1;
+        grid-column: center-start / center-end;
+        height: 100%;
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        justify-self: center;
+        flex-wrap: wrap;
+        //overflow: visible;
+        
     }
 }

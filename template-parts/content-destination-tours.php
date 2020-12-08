@@ -87,9 +87,12 @@ $currentYear = date("Y");
                     ?>
                     <!-- Tour Card -->
                     <div class="tours-card">
-                        <div class="tours-card__image">
-                            <img src="<?php echo esc_url($hero_image['url']); ?>" alt="">
-                        </div>
+                        <?php if ($hero_image) { ?>
+                            <div class="tours-card__image">
+                                <img src="<?php echo esc_url($hero_image['url']); ?>" alt="">
+                            </div>
+                        <?php } ?>
+
                         <div class="tours-card__content">
                             <div class="tours-card__content__tag-area">
                                 <div class="tours-card__content__tag-area__tag">
@@ -123,8 +126,8 @@ $currentYear = date("Y");
 
     </div>
 
-    <!-- Categories -->
-    <div class="destination-tours__categories">
+    <!-- experiences -->
+    <div class="destination-tours__experiences">
         <?php
         if ($tour_experiences) {
             foreach ($tour_experiences as $e) {
@@ -158,6 +161,5 @@ $currentYear = date("Y");
         }
 
         ?>
-
     </div>
 </div>

@@ -170,9 +170,37 @@ jQuery(document).ready(function ($) {
         centerMode: true,
         prevArrow: '<button class="btn-circle btn-white btn-circle--left btn-circle--large destination-tours__packages__best-selling__slider__btn-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
         nextArrow: '<button class="btn-circle btn-white btn-circle--right btn-circle--large destination-tours__packages__best-selling__slider__btn-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',   
-       
-       
+        responsive: [
+            {
+                breakpoint: 700,
+                settings: {
+                    arrows: false,
+                }
+            },
+   
+        ]
     });
+
+    // $('#experiences-slider').slick({
+    //     slidesToShow: 2,
+    //     slidesToScroll: 1,
+    //     dots: false,
+    //     arrows: true,
+    //     prevArrow: '<button class="btn-circle btn-dark btn-circle--left destination-tours__experiences__slider__btn-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+    //     nextArrow: '<button class="btn-circle btn-dark btn-circle--right destination-tours__experiences__slider__btn-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',   
+    //     responsive: [
+
+
+    //         {
+    //             breakpoint: 700,
+    //             settings: {
+    //                 slidesToShow: 1,
+    //                 arrows: false,
+    //             }
+    //         },
+   
+    //     ]
+    // });
 
 
 
@@ -198,25 +226,12 @@ jQuery(document).ready(function ($) {
                     arrows: false,
                 }
             },
-            // {
-            //     breakpoint: 600,
-            //     settings: {
-            //         arrows: false,
-            //     }
-            // }
+   
         ]
     });
 
 
 
-
-    // $('.destination-hero__play__button').on('click', function () {
-    //     $('#destination-video')[0].play();
-    // })
-
-    // $('.video-popup__close').on('click', function () {
-    //     $('#destination-video')[0].pause();
-    // })
 
 
 });

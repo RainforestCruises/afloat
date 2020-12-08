@@ -919,7 +919,7 @@ h5 {
   @media only screen and (max-width: 37.5em) {
     .product-page {
       grid-template-rows: [nav-start] 60vh [hero-end content-start] repeat(7, min-content) [content-end footer-start] min-content [footer-end];
-      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
 
 .product-content {
   grid-row: content-start / span 1;
@@ -1039,7 +1039,7 @@ h5 {
   z-index: 0; }
   @media only screen and (max-width: 37.5em) {
     .search-page {
-      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
   .search-page__intro {
     grid-column: center-start / center-end;
     padding: 2rem 0; }
@@ -1079,7 +1079,7 @@ h5 {
     margin-top: 3rem; }
     @media only screen and (max-width: 37.5em) {
       .search-page__content {
-        grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
+        grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
   .search-page__bottom {
     grid-column: center-start / center-end;
     height: 50rem;
@@ -1608,7 +1608,7 @@ h5 {
       grid-template-rows: minmax(22vh, min-content); } }
   @media only screen and (max-width: 37.5em) {
     .product-overview {
-      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
   .product-overview::after {
     content: "";
     background-color: #f8f8f8;
@@ -1710,7 +1710,7 @@ h5 {
       grid-template-rows: minmax(22vh, min-content); } }
   @media only screen and (max-width: 37.5em) {
     .product-itineraries {
-      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
   .product-itineraries::after {
     content: "";
     background-color: #f8f8f8;
@@ -2247,7 +2247,7 @@ h5 {
       grid-template-rows: minmax(22vh, min-content); } }
   @media only screen and (max-width: 37.5em) {
     .product-prices {
-      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
   .product-prices::after {
     content: "";
     background-color: #f8f8f8;
@@ -2273,7 +2273,7 @@ h5 {
         overflow: visible; } }
     @media only screen and (max-width: 37.5em) {
       .product-prices__price-group {
-        grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
+        grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
     .product-prices__price-group__picture {
       width: 30rem;
       min-height: 60%;
@@ -2671,7 +2671,7 @@ h5 {
       grid-template-rows: minmax(22vh, min-content); } }
   @media only screen and (max-width: 37.5em) {
     .product-dates {
-      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
   .product-dates::after {
     content: "";
     background-color: #f8f8f8;
@@ -3188,7 +3188,7 @@ h5 {
   min-height: 80rem; }
   @media only screen and (max-width: 50em) {
     .destination-hero {
-      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
   @media only screen and (max-width: 37.5em) {
     .destination-hero {
       min-height: 0rem; } }
@@ -3239,6 +3239,9 @@ h5 {
       .destination-hero__content {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr min-content max-content; } }
+    @media only screen and (max-width: 37.5em) {
+      .destination-hero__content {
+        grid-template-rows: max-content min-content minmax(max-content, 1fr); } }
     .destination-hero__content__breadcrumb {
       font-size: 1.4rem;
       letter-spacing: 0.4rem;
@@ -3246,7 +3249,7 @@ h5 {
       font-weight: 600; }
       @media only screen and (max-width: 62.5em) {
         .destination-hero__content__breadcrumb {
-          margin-top: 2rem;
+          margin-top: 4rem;
           justify-self: center;
           grid-column: 1 / -1; } }
       .destination-hero__content__breadcrumb__path {
@@ -3306,8 +3309,8 @@ h5 {
         .destination-hero__content__title {
           font-size: 4rem;
           line-height: 5rem;
-          margin: 3rem 0;
-          margin-bottom: 3rem; } }
+          margin-top: 1rem;
+          margin-bottom: 2rem; } }
     .destination-hero__content__page-nav {
       user-select: none;
       grid-column: 1 / span 1;
@@ -3534,7 +3537,11 @@ h5 {
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
   overflow: hidden;
   position: relative;
-  margin-bottom: 8rem; }
+  padding-bottom: 8rem;
+  margin-bottom: 2rem; }
+  @media only screen and (max-width: 37.5em) {
+    .destination-tours {
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
   .destination-tours::before {
     content: "";
     position: absolute;
@@ -3545,7 +3552,7 @@ h5 {
     top: 0;
     left: 0; }
   .destination-tours__bg {
-    z-index: 2;
+    z-index: 0;
     grid-column: col-end 4 / -1;
     grid-row: 1 / span 3; }
     @media only screen and (max-width: 50em) {
@@ -3616,14 +3623,19 @@ h5 {
   .destination-tours__packages {
     grid-column: 1 / -1;
     grid-row: 2 / span 1;
-    z-index: 10;
-    margin-bottom: 3rem; }
+    z-index: 10; }
     .destination-tours__packages__header {
       display: grid;
       grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
       margin-bottom: 4rem; }
+      @media only screen and (max-width: 37.5em) {
+        .destination-tours__packages__header {
+          grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
       .destination-tours__packages__header__title {
         margin: 0; }
+        @media only screen and (max-width: 37.5em) {
+          .destination-tours__packages__header__title {
+            margin-bottom: 2rem; } }
       .destination-tours__packages__header__sub-text {
         grid-column: center-start / center-end;
         font-size: 1.6rem;
@@ -3643,28 +3655,50 @@ h5 {
           top: 50%;
           left: 8vw;
           z-index: 20; }
+          @media only screen and (max-width: 62.5em) {
+            .destination-tours__packages__best-selling__slider__btn-left {
+              left: 2vw; } }
+          @media only screen and (max-width: 50em) {
+            .destination-tours__packages__best-selling__slider__btn-left {
+              left: 0vw;
+              transform: translateY(-50%) scale(0.75); } }
         .destination-tours__packages__best-selling__slider__btn-right {
           transform: translateY(-50%);
           position: absolute;
           top: 50%;
           right: 8vw;
           z-index: 20; }
+          @media only screen and (max-width: 62.5em) {
+            .destination-tours__packages__best-selling__slider__btn-right {
+              right: 2vw; } }
+          @media only screen and (max-width: 50em) {
+            .destination-tours__packages__best-selling__slider__btn-right {
+              right: 0vw;
+              transform: translateY(-50%) scale(0.75); } }
         .destination-tours__packages__best-selling__slider .slick-slide {
           margin: 0 1.5rem; }
+          @media only screen and (max-width: 50em) {
+            .destination-tours__packages__best-selling__slider .slick-slide {
+              margin: 0 .75rem; } }
         .destination-tours__packages__best-selling__slider .slick-list {
           padding: 0 25% !important; }
+          @media only screen and (max-width: 62.5em) {
+            .destination-tours__packages__best-selling__slider .slick-list {
+              padding: 0 15% !important; } }
+          @media only screen and (max-width: 37.5em) {
+            .destination-tours__packages__best-selling__slider .slick-list {
+              padding: 0 10% !important; } }
         .destination-tours__packages__best-selling__slider .slick-current .tours-card__content {
           opacity: 1; }
         .destination-tours__packages__best-selling__slider .slick-current .tours-card::after {
           opacity: 0; }
-  .destination-tours__categories {
-    z-index: 20;
-    grid-column: center-start / center-end;
+  .destination-tours__experiences {
     grid-row: 3 / span 1;
+    grid-column: center-start / center-end;
+    height: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    justify-self: center; }
+    flex-wrap: wrap; }
 
 .destination-cruises {
   display: grid;
@@ -3678,8 +3712,14 @@ h5 {
     display: grid;
     grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
     margin-bottom: 6rem; }
+    @media only screen and (max-width: 37.5em) {
+      .destination-cruises__header {
+        grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
     .destination-cruises__header__title {
       margin: 0; }
+      @media only screen and (max-width: 37.5em) {
+        .destination-cruises__header__title {
+          margin-bottom: 2rem; } }
     .destination-cruises__header__sub-text {
       grid-column: center-start / center-end;
       font-size: 1.6rem;
@@ -4168,7 +4208,8 @@ h5 {
   width: 80rem;
   height: 45rem;
   display: grid;
-  position: relative; }
+  position: relative;
+  margin: 0 1.5rem; }
   .tours-card__image {
     grid-row: 1 / -1;
     grid-column: 1 / -1; }
@@ -4185,6 +4226,9 @@ h5 {
     opacity: 0;
     grid-template-rows: 1fr min-content;
     transition: opacity .3s; }
+    @media only screen and (max-width: 37.5em) {
+      .tours-card__content {
+        margin: 1.5rem 2rem; } }
     .tours-card__content__tag-area {
       grid-row: 1 / span 1; }
       .tours-card__content__tag-area__tag {
@@ -4218,6 +4262,10 @@ h5 {
         letter-spacing: 0.5rem;
         text-transform: uppercase;
         line-height: 5rem; }
+        @media only screen and (max-width: 37.5em) {
+          .tours-card__content__title-area__title {
+            font-size: 2.2rem;
+            line-height: 3rem; } }
       .tours-card__content__title-area__price {
         font-size: 1.6rem;
         text-transform: uppercase;
@@ -4242,17 +4290,18 @@ h5 {
     z-index: 4; }
 
 .category-card {
-  width: 50rem;
-  height: 15rem;
+  min-width: 30rem;
+  min-height: 15rem;
   background-color: gainsboro;
   border-radius: .5rem;
-  display: grid;
-  margin: 1rem; }
+  display: grid !important;
+  margin: 1rem 1.5rem;
+  flex: 1 0 33%;
+  /* explanation below */ }
   .category-card__image {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
-    width: 50rem;
-    height: 15rem; }
+    position: relative; }
     .category-card__image img {
       border-radius: .5rem;
       object-fit: cover;
