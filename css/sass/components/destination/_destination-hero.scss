@@ -10,6 +10,10 @@
     @media only screen and (max-width: $bp-medium) {
         grid-template-columns: $page-container-small;
     }
+    @media only screen and (max-width: $bp-small) {
+        min-height: 0rem;
+
+    }
 
     &__bg-slide {
         grid-column: 1 / -1;
@@ -79,12 +83,9 @@
         @media only screen and (max-width: $bp-large) {
 
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr max-content;
+            grid-template-rows: 1fr min-content max-content;
 
-            // display: flex;
-            // flex-direction: column;
-            // justify-content: space-between;
-            // align-items: center;
+
         }
 
         &__breadcrumb {
@@ -162,7 +163,6 @@
             }
 
             @media only screen and (max-width: $bp-large) {
-                //grid-column: 1 / -1;
 
                 text-align: center;
                 margin: 4rem 0;
@@ -176,6 +176,8 @@
             @media only screen and (max-width: $bp-small) {
                 font-size: 4rem;
                 line-height: 5rem;
+                margin: 3rem 0;
+                margin-bottom: 3rem;
             }
 
         }

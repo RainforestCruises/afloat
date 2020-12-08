@@ -1,196 +1,207 @@
 .destination-tours {
-    overflow-x: hidden;
     display: grid;
     grid-template-columns: $page-container;
-    justify-items: center;
-    background-color: $color-grey-light-1;
-
-    padding: 3rem 0;
-    padding-bottom: 8rem;
-
+    overflow: hidden;
     position: relative;
-    z-index: 0;
+    margin-bottom: 8rem;
+    &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(to top, rgba($color-white, 0.8), rgba($color-white, 0.8)),
+            linear-gradient(to top, rgba($color-white, 1) 30%, transparent), url(img/bg/topo-1.png);
+        opacity: 0.35;
+        top: 0;
+        left: 0;
+    }
+    //after -- fade white up
 
+    &__bg {
+        z-index: 2;
+        grid-column: col-end 4 / -1;
+        grid-row: 1 / span 3;
 
+        @media only screen and (max-width: $bp-medium) {
+            display: none;
+        }
+    }
 
-    &__title {
+    &__intro {
         grid-column: center-start / center-end;
-        font-size: 4.5rem;
-        text-align: center;
-        color: $color-secondary;
-        font-family: $font-secondary;
-
-        letter-spacing: 0.2rem;
+        grid-row: 1 / span 1;
 
         z-index: 10;
         display: grid;
-        grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr); //FIX THIS
-        align-items: center;
-        column-gap: 25px;
-        //lines on both sides effect
-        &::before {
-            content: "";
-            height: 1px;
-            display: block;
-            background-color: currentColor;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 8rem;
+        padding: 8rem 0;
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-template-columns: 1fr;
+            row-gap: 4rem;
+            text-align: center;
+            padding: 4rem 0;
         }
 
-        &::after {
-            content: "";
-            height: 1px;
-            display: block;
-            background-color: currentColor;
-        }
-    }
+        &__description {
+            &__title {
+                font-size: 4rem;
+                color: $color-secondary;
+                letter-spacing: 0.2rem;
+                font-weight: 700;
+                margin-bottom: 2rem;
+            }
 
-    &__intro-text {
-        grid-column: center-start / center-end;
-        padding: 0 6rem;
-        padding-bottom: 4rem;
-        font-size: 1.4rem;
-        text-align: center;
-
-        z-index: 10;
-    }
-
-    &__slider {
-        grid-column: 1 / -1;
-        max-width: 75%;
-        margin: auto;
-        height: 52rem;
-
-        z-index: 50;
-        .slick-slide {
-            margin: 0rem 0.5rem;
+            &__text {
+                font-size: 1.6rem;
+            }
         }
 
-        &__slide {
-            display: grid !important;
-            align-content: center;
-            background-color: $color-white;
+        &__lists {
+            font-size: 1.4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
 
-            position: relative;
-            z-index: 0;
-
-            grid-template-rows: min-content min-content;
-
-            cursor: pointer;
-
-            //overlay gradient
-            &:after {
-                content: "";
-                grid-row: 1 / 1;
-                grid-column: 1 / -1;
-                width: 100%;
-                height: 100%;
-                z-index: 2;
-                background-image: linear-gradient(to top, rgba($color-black, 0.5), rgba($color-black, 0.5));
-                opacity: 0;
-
-                transition: opacity 0.3s;
-            }
-
-            //SLIDE HOVER
-            &:hover {
-                &:after {
-                    opacity: 1;
-                }
-
-                img {
-                    height: 42rem;
-                }
-
-                & .destination-tours__slider__slide__hover-group {
-                    opacity: 1;
-                }
-            }
-
-            &__hover-group {
-                grid-column: 1 / -1;
-                grid-row: 1 / 1;
-                margin-bottom: 1.4rem;
-                align-self: center;
-                display: flex;
-                flex-direction: column;
-                z-index: 5;
-                align-items: center;
-                transition: opacity 0.3s 0.1s;
-                opacity: 0;
-
-                &__cta {
-                    display: block;
-                    font-size: 2rem;
-                    color: $color-white;
-                    letter-spacing: 0.15rem;
-                    margin: 0.3rem 2rem;
-                    font-weight: 400;
-                }
-
-                &__count {
-                    display: block;
-                    font-size: 1.4rem;
-                    color: $color-white;
-                    text-transform: uppercase;
-                    letter-spacing: 0.3rem;
-                    margin-bottom: 2rem;
-                }
-            }
-
-            &__img {
-                grid-column: 1 / -1;
-                grid-row: 1 / span 1;
-                width: 100%;
-                height: 38rem;
-                object-fit: cover;
-                object-position: center;
-                position: relative;
-                z-index: 0;
-                transition: height 0.3s;
-            }
-
-            &__lower-section {
-                grid-column: 1 / -1;
-                grid-row: 2 / span 1;
-
-                padding: 1rem 2rem;
-
-                display: flex;
-                flex-direction: column;
-                text-align: center;
-
-                min-height: 15rem;
+            &__locations {
                 &__title {
-                    margin: 1rem 0rem;
-                    font-size: 1.6rem;
                     text-transform: uppercase;
-                    letter-spacing: 0.3rem;
+                    letter-spacing: 0.2rem;
+                    font-weight: 700;
+                    margin-bottom: 2rem;
                     color: $color-secondary;
                 }
-                &__text {
-                    font-size: 1.3rem;
+
+                &__list {
+                    list-style: none;
+                    color: $color-grey-2;
                     margin-bottom: 2rem;
+                    & li {
+                        &:not(:last-child) {
+                            margin-bottom: 1rem;
+                        }
+                        & a {
+                            padding: 1rem 0;
+                            text-decoration: none;
+                            color: currentColor;
+
+                            &:hover {
+                                color: $color-grey-1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__experiences {
+                &__title {
+                    text-transform: uppercase;
+                    letter-spacing: 0.2rem;
+                    font-weight: 700;
+                    margin-bottom: 2rem;
+                    color: $color-secondary;
+                }
+
+                &__list {
+                    list-style: none;
+                    color: $color-grey-2;
+                    margin-bottom: 2rem;
+                    & li {
+                        &:not(:last-child) {
+                            margin-bottom: 1rem;
+                        }
+                        & a {
+                            padding: 1rem 0;
+                            text-decoration: none;
+                            color: currentColor;
+
+                            &:hover {
+                                color: $color-grey-1;
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 
-    &__all {
-        grid-column: center-start / center-end;
-        margin-top: 8rem;
+    &__packages {
+        grid-column: 1 / -1;
+        grid-row: 2 / span 1;
+        z-index: 10;
+        margin-bottom: 3rem;
+        &__header {
+            display: grid;
+            grid-template-columns: $page-container;
+            margin-bottom: 4rem;
+
+            &__title {
+                margin: 0;
+            }
+
+            &__sub-text {
+                grid-column: center-start / center-end;
+                font-size: 1.6rem;
+                text-align: center;
+            }
+        }
+
+        &__best-selling {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 6rem;
+
+            &__slider {
+                max-width: 140rem;
+                width: 100%;
+                margin: 0 6rem;
+                position: relative;
+
+                &__btn-left {
+                    transform: translateY(-50%);
+                    position: absolute;
+                    top: 50%;
+                    left: 8vw;
+                    z-index: 20;
+                }
+
+                &__btn-right {
+                    transform: translateY(-50%);
+
+                    position: absolute;
+                    top: 50%;
+                    right: 8vw;
+                    z-index: 20;
+                }
+
+                & .slick-slide {
+                    margin: 0 1.5rem;
+                }
+
+                & .slick-list {
+                    padding: 0 25% !important;
+                }
+
+                & .slick-current {
+                    & .tours-card__content {
+                        opacity: 1;
+                    }
+
+                    & .tours-card::after {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
     }
 
-    &__btn {
-        &--left {
-            position: absolute;
-            z-index: 10;
-            top: 17rem;
-            left: -7rem;
-        }
-        &--right {
-            position: absolute;
-            z-index: 10;
-            top: 17rem;
-            right: -7rem;
-        }
+    &__categories {
+        z-index: 20;
+        grid-column: center-start / center-end;
+        grid-row: 3 / span 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        justify-self: center;
     }
 }
