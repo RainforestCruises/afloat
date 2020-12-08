@@ -421,7 +421,7 @@ h5 {
   background-color: transparent;
   padding: 1.5rem 3rem;
   border: none;
-  margin: 0.5rem;
+  margin: 1rem;
   letter-spacing: 0.2rem;
   cursor: pointer;
   outline: none;
@@ -430,7 +430,8 @@ h5 {
   text-transform: uppercase;
   font-weight: 700;
   position: relative;
-  text-decoration: none; }
+  text-decoration: none;
+  white-space: nowrap; }
   .btn-outline::after {
     content: "";
     transition: all 0.15s;
@@ -447,6 +448,8 @@ h5 {
     width: 95%; }
   .btn-outline--small {
     padding: 1rem 2rem; }
+  .btn-outline--dark::after {
+    border: 1px solid #142838; }
 
 .btn-icon {
   width: 5rem;
@@ -3185,7 +3188,7 @@ h5 {
   display: grid;
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
   grid-template-rows: 9rem 1fr;
-  min-height: 80rem; }
+  min-height: 82rem; }
   @media only screen and (max-width: 50em) {
     .destination-hero {
       grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
@@ -3234,7 +3237,7 @@ h5 {
     text-transform: uppercase;
     column-gap: 15rem;
     row-gap: 2rem;
-    margin-bottom: 6rem; }
+    padding-bottom: 6rem; }
     @media only screen and (max-width: 62.5em) {
       .destination-hero__content {
         grid-template-columns: 1fr;
@@ -3536,8 +3539,7 @@ h5 {
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
   overflow: hidden;
   position: relative;
-  padding-bottom: 8rem;
-  margin-bottom: 2rem; }
+  margin-bottom: 3rem; }
   @media only screen and (max-width: 37.5em) {
     .destination-tours {
       grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
@@ -3598,9 +3600,10 @@ h5 {
         .destination-tours__intro__lists__locations__list li a {
           padding: 1rem 0;
           text-decoration: none;
-          color: currentColor; }
+          color: currentColor;
+          transition: all .3s; }
           .destination-tours__intro__lists__locations__list li a:hover {
-            color: #9ea0a4; }
+            color: #40739c; }
       .destination-tours__intro__lists__experiences__title {
         text-transform: uppercase;
         letter-spacing: 0.2rem;
@@ -3695,6 +3698,13 @@ h5 {
     grid-row: 3 / span 1;
     grid-column: center-start / center-end;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; }
+  .destination-tours__lengths {
+    margin-top: 4rem;
+    grid-row: 4 / span 1;
+    grid-column: center-start / center-end;
     display: flex;
     justify-content: center;
     flex-wrap: wrap; }
@@ -4225,14 +4235,20 @@ h5 {
     z-index: 5;
     display: grid;
     opacity: 0;
-    grid-template-rows: 1fr min-content;
+    grid-template-rows: 1fr;
+    position: relative;
     transition: opacity .3s; }
     @media only screen and (max-width: 37.5em) {
       .tours-card__content {
         margin: 1.5rem 2rem; } }
     .tours-card__content__tag-area {
-      grid-row: 1 / span 1; }
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap; }
       .tours-card__content__tag-area__tag {
+        white-space: nowrap;
         font-size: 1.3rem;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
@@ -4243,35 +4259,42 @@ h5 {
         padding-top: 0.7rem;
         border-radius: 3rem;
         font-weight: 700; }
-    .tours-card__content__title-area {
+        .tours-card__content__tag-area__tag--length {
+          color: #fff;
+          background-color: #305a7c; }
+    .tours-card__content__text-area {
       color: #fff;
       grid-row: 2 / span 1; }
-      .tours-card__content__title-area__country {
+      .tours-card__content__text-area__country {
         font-size: 1.4rem;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
         list-style: none;
         display: flex; }
-        .tours-card__content__title-area__country li:not(:first-child) {
+        .tours-card__content__text-area__country li:not(:first-child) {
           margin-left: .8rem;
           position: relative; }
-          .tours-card__content__title-area__country li:not(:first-child)::before {
+          .tours-card__content__text-area__country li:not(:first-child)::before {
             content: " / "; }
-      .tours-card__content__title-area__title {
+      .tours-card__content__text-area__title {
         font-family: "Old Standard TT", serif;
         font-size: 4rem;
         letter-spacing: 0.5rem;
         text-transform: uppercase;
         line-height: 5rem; }
         @media only screen and (max-width: 37.5em) {
-          .tours-card__content__title-area__title {
+          .tours-card__content__text-area__title {
             font-size: 2.2rem;
             line-height: 3rem; } }
-      .tours-card__content__title-area__price {
+      .tours-card__content__text-area__info {
         font-size: 1.6rem;
         text-transform: uppercase;
         font-weight: 700;
-        letter-spacing: .2rem; }
+        letter-spacing: .2rem;
+        display: flex;
+        justify-content: space-between; }
+        .tours-card__content__text-area__info__price span {
+          font-size: 1.2rem; }
   .tours-card::after {
     content: "";
     width: 100%;

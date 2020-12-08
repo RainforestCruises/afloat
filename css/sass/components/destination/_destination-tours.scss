@@ -3,8 +3,8 @@
     grid-template-columns: $page-container;
     overflow: hidden;
     position: relative;
-    padding-bottom: 8rem;
-    margin-bottom: 2rem;
+    //padding-bottom: 8rem;
+    margin-bottom: 3rem;
 
     @media only screen and (max-width: $bp-small) {
         grid-template-columns: $page-container-small;
@@ -92,9 +92,9 @@
                             padding: 1rem 0;
                             text-decoration: none;
                             color: currentColor;
-
+                            transition: all .3s;
                             &:hover {
-                                color: $color-grey-1;
+                                color: $color-supporting-light;
                             }
                         }
                     }
@@ -245,7 +245,15 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        //overflow: visible;
         
+    }
+
+    &__lengths {
+        margin-top: 4rem;
+        grid-row: 4 / span 1;
+        grid-column: center-start / center-end;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 }

@@ -699,31 +699,6 @@
             "delay": 0
         },
         {
-            "key": "field_5f9738670ae31",
-            "label": "Length In Days (Auto)",
-            "name": "length_in_days",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": "",
-            "readonly": 1
-        },
-        {
             "key": "field_5f9738090ae2f",
             "label": "Overview",
             "name": "overview",
@@ -771,109 +746,6 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_5f9738a50ae32",
-            "label": "Price Packages",
-            "name": "price_packages",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_5f98a5b0106ee",
-                    "label": "Year",
-                    "name": "year",
-                    "type": "number",
-                    "instructions": "(Example: 2020)",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": "",
-                    "admin_column_taxonomies": "",
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": "",
-                    "max": "",
-                    "step": ""
-                },
-                {
-                    "key": "field_5f9738d40ae33",
-                    "label": "Name",
-                    "name": "name",
-                    "type": "text",
-                    "instructions": "Name of Price Package (Example: 4-star, 5-star)",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": [
-                        "post",
-                        "page",
-                        "rfc_cruises",
-                        "rfc_tours",
-                        "rfc_destinations",
-                        "rfc_sub_destinations",
-                        "rfc_countries"
-                    ],
-                    "admin_column_taxonomies": [
-                        "category",
-                        "post_tag",
-                        "link_category"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5f9738f80ae34",
-                    "label": "Price",
-                    "name": "price",
-                    "type": "number",
-                    "instructions": "(Example: 4995)",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": "",
-                    "admin_column_taxonomies": "",
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": 0,
-                    "max": 99999,
-                    "step": ""
-                }
-            ]
         },
         {
             "key": "field_5f973a143287d",
@@ -990,6 +862,31 @@
             ]
         },
         {
+            "key": "field_5f9738670ae31",
+            "label": "Length In Days (Auto)",
+            "name": "length_in_days",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "admin_column_enabled": 0,
+            "admin_column_post_types": "",
+            "admin_column_taxonomies": "",
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "readonly": 1
+        },
+        {
             "key": "field_5f98a8d30263f",
             "label": "Inclusions",
             "name": "inclusions",
@@ -1100,32 +997,6 @@
             ]
         },
         {
-            "key": "field_5f9b003fc67f2",
-            "label": "Properties",
-            "name": "properties",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
-            "post_type": [
-                "rfc_cruises"
-            ],
-            "taxonomy": "",
-            "filters": "",
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
-        },
-        {
             "key": "field_5f9735d669398",
             "label": "Accommodations Tab",
             "name": "",
@@ -1175,6 +1046,32 @@
             "delay": 0
         },
         {
+            "key": "field_5f9b003fc67f2",
+            "label": "Properties",
+            "name": "properties",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "admin_column_enabled": 0,
+            "admin_column_post_types": "",
+            "admin_column_taxonomies": "",
+            "post_type": [
+                "rfc_cruises"
+            ],
+            "taxonomy": "",
+            "filters": "",
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
             "key": "field_5f9735d66a315",
             "label": "Prices Tab",
             "name": "",
@@ -1222,6 +1119,109 @@
             "toolbar": "full",
             "media_upload": 0,
             "delay": 0
+        },
+        {
+            "key": "field_5f9738a50ae32",
+            "label": "Price Packages",
+            "name": "price_packages",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5f98a5b0106ee",
+                    "label": "Year",
+                    "name": "year",
+                    "type": "number",
+                    "instructions": "(Example: 2020)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "admin_column_enabled": 0,
+                    "admin_column_post_types": "",
+                    "admin_column_taxonomies": "",
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5f9738d40ae33",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "Name of Price Package (Example: 4-star, 5-star)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "admin_column_enabled": 0,
+                    "admin_column_post_types": [
+                        "post",
+                        "page",
+                        "rfc_cruises",
+                        "rfc_tours",
+                        "rfc_destinations",
+                        "rfc_sub_destinations",
+                        "rfc_countries"
+                    ],
+                    "admin_column_taxonomies": [
+                        "category",
+                        "post_tag",
+                        "link_category"
+                    ],
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5f9738f80ae34",
+                    "label": "Price",
+                    "name": "price",
+                    "type": "number",
+                    "instructions": "(Example: 4995)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "admin_column_enabled": 0,
+                    "admin_column_post_types": "",
+                    "admin_column_taxonomies": "",
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": 0,
+                    "max": 99999,
+                    "step": ""
+                }
+            ]
         },
         {
             "key": "field_5f9735d66aad4",
@@ -1568,5 +1568,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Extended Fields for Tour Post Types",
-    "modified": 1607383734
+    "modified": 1607456792
 }

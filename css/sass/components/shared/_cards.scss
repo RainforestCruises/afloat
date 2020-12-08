@@ -265,8 +265,8 @@
 
         display: grid; 
         opacity: 0; //change here
-        grid-template-rows: 1fr min-content;
-
+        grid-template-rows: 1fr;
+        position: relative;
         transition: opacity .3s;
 
         @media only screen and (max-width: $bp-small) {
@@ -275,8 +275,15 @@
         }
 
         &__tag-area {
-            grid-row: 1 / span 1;
+            position: absolute;     
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
             &__tag {
+          
+                white-space: nowrap;
+
                 font-size: 1.3rem;
                 text-transform: uppercase;
                 letter-spacing: 0.2rem;
@@ -287,10 +294,18 @@
                 padding-top: 0.7rem;
                 border-radius: 3rem;
                 font-weight: 700;
+
+                &--length {
+                    color: $color-white;
+                    background-color: $color-supporting;
+                }
             }
+            
+
+            
         }
 
-        &__title-area {
+        &__text-area {
             color: $color-white;
             grid-row: 2 / span 1;
 
@@ -322,12 +337,22 @@
                 }
             }
 
-            &__price {
+            &__info {
                 font-size: 1.6rem;
                 text-transform: uppercase;
                 font-weight: 700;
                 letter-spacing: .2rem;
+                display: flex;
+                justify-content: space-between;
+
+                &__price {
+                    & span {
+                        font-size: 1.2rem;
+                    }
+                }
             }
+
+          
         }
     }
 

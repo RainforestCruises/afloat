@@ -125,9 +125,6 @@ $args = array(
                         </a>
                     <?php endforeach; ?>
                 </div>
-
-
-
             </div>
             <div class="destination-cruises__btn ">
                 <button class="btn-outline " href="#">View All Cruises</button>

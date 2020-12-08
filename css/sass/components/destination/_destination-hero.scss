@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: $page-container;
     grid-template-rows: 9rem 1fr;
-    min-height: 80rem;
+    min-height: 82rem;
 
     
     @media only screen and (max-width: $bp-medium) {
@@ -78,7 +78,7 @@
 
         column-gap: 15rem;
         row-gap: 2rem;
-        margin-bottom: 6rem;
+        padding-bottom: 6rem;
 
         @media only screen and (max-width: $bp-large) {
             grid-template-columns: 1fr;

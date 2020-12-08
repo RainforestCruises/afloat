@@ -98,9 +98,10 @@ $currentYear = date("Y");
                                 <div class="tours-card__content__tag-area__tag">
                                     Best Seller
                                 </div>
+
                             </div>
-                            <div class="tours-card__content__title-area">
-                                <div class="tours-card__content__title-area__country">
+                            <div class="tours-card__content__text-area">
+                                <div class="tours-card__content__text-area__country">
                                     <?php foreach ($countries as $c) : ?>
                                         <li>
                                             <?php echo get_the_title($c); ?>
@@ -108,11 +109,17 @@ $currentYear = date("Y");
 
                                     <?php endforeach; ?>
                                 </div>
-                                <div class="tours-card__content__title-area__title">
-                                    <?php echo get_field('length', $t) ?>-Day <?php echo get_field('tour_name', $t) ?>
+                                <div class="tours-card__content__text-area__title">
+                                    <?php echo get_field('tour_name', $t) ?>
                                 </div>
-                                <div class="tours-card__content__title-area__price">
-                                    From <?php echo "$" . number_format($lowest, 0); ?>
+                                <div class="tours-card__content__text-area__info">
+                                    <div class="tours-card__content__text-area__info__length">
+                                        <?php echo get_field('length', $t) ?>-Day Tour
+                                    </div>
+                                    <div class="tours-card__content__text-area__info__price">
+                                        From <?php echo "$" . number_format($lowest, 0); ?> <span>USD</span>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -161,5 +168,12 @@ $currentYear = date("Y");
         }
 
         ?>
+    </div>
+
+    <div class="destination-tours__lengths">
+        <button class="btn-outline " href="#">7-Day</button>
+        <button class="btn-outline " href="#">10-Day</button>
+        <button class="btn-outline " href="#">14-Day</button>
+        <button class="btn-outline btn-outline--dark " href="#">View All Tours</button>
     </div>
 </div>
