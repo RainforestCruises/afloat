@@ -84,14 +84,31 @@ $args = array(
 
     <!-- Accommodations -->
     <section class="destination-page__section-accommodations" id="accommodations">
-    <?php
+        <?php
         get_template_part('template-parts/content', 'destination-accommodations', $args);
         ?>
     </section>
 
-    <section class="destination-page__section-travel-guides" id="travel-guides"></section>
-    <section class="destination-page__section-reviews" id="reviews"></section>
-    <section class="destination-page__section-faq" id="faq"></section>
+    <!-- Travel Guides -->
+    <section class="destination-page__section-travel-guides" id="travel-guides">
+        <?php
+        get_template_part('template-parts/content', 'destination-guides', $args);
+        ?>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="destination-page__section-testimonials" id="testimonials">
+        <?php
+        get_template_part('template-parts/content', 'destination-testimonials', $args);
+        ?>
+    </section>
+
+    <!-- FAQ -->
+    <section class="destination-page__section-faq" id="faq">
+        <?php
+        get_template_part('template-parts/content', 'destination-faq', $args);
+        ?>
+    </section>
 
 </div>
 

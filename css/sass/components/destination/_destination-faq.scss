@@ -1,0 +1,31 @@
+.destination-faq {
+    display: grid;
+    grid-template-columns: $page-container;
+    position: relative;
+    grid-column: 1 / -1;
+    margin-bottom: 6rem;
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: $page-container-small;
+    }
+
+    &__header {
+    }
+    &__slider-container {
+        grid-column: 1 / -1;
+        display: flex;
+        margin: 0 6rem;
+        justify-content: center;
+
+        @media only screen and (max-width: $bp-small) {
+            margin: 0 2rem;
+        }
+
+        &__slider {
+            max-width: 114rem;
+            height: 50rem;
+            background-color: cyan;
+        }
+    }
+
+}

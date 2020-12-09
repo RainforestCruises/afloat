@@ -24,7 +24,6 @@ $currentYear = date("Y");
                 $featured_image = get_field('featured_image', $c);
                 $cruise_data = get_field('cruise_data', $c);
                 $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear);
-                //$rangeLow = $cruise_data['LowestLengthInDays'];
                 ?>
                 <!-- Card -->
 

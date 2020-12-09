@@ -1,3 +1,4 @@
+//Book Now
 .btn-cta-round {
   background-color: $color-secondary;
   font-family: $font-primary;
@@ -39,7 +40,7 @@
   pointer-events: none;
 }
 
-// Text Outline Button
+// Primary Button
 .btn-outline {
   color: $color-secondary;
   background-color: transparent;
@@ -131,7 +132,7 @@
   }
 }
 
-// Arrow Outline Button
+// Primary Circle Button with SVG in center
 .btn-circle {
   width: 4.5rem;
   height: 4.5rem;
@@ -409,6 +410,8 @@
   }
 }
 
+//Text with arrow to Right
+//view dates
 .text-button {
   font-size: 1.2rem;
   font-family: $font-primary;
@@ -439,4 +442,41 @@
       width: 1.4rem;
     }
   }
+}
+
+//Read More
+.goto-button {
+  font-size: 1.8rem;
+  font-family: $font-primary;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  color: currentColor;
+  cursor: pointer;
+  outline: none;
+  
+  display: flex;
+  align-content: center;
+
+  text-transform: uppercase;
+  letter-spacing: .3rem;
+  font-weight: 600;
+  padding: 1.5rem 0;
+
+  &:hover {
+    & svg {
+      transform: translateX(.3rem) translateY(-.2rem);
+    
+    }
+  }
+  & svg {
+    margin-left: 0.5rem;
+    transform: translateY(-.2rem);
+    height: 1.8rem;
+    width: 1.8rem;
+    fill: currentColor;
+    transition: all .2s;
+  }
+
+
 }

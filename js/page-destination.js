@@ -177,30 +177,8 @@ jQuery(document).ready(function ($) {
                     arrows: false,
                 }
             },
-   
         ]
     });
-
-    // $('#experiences-slider').slick({
-    //     slidesToShow: 2,
-    //     slidesToScroll: 1,
-    //     dots: false,
-    //     arrows: true,
-    //     prevArrow: '<button class="btn-circle btn-dark btn-circle--left destination-tours__experiences__slider__btn-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-    //     nextArrow: '<button class="btn-circle btn-dark btn-circle--right destination-tours__experiences__slider__btn-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',   
-    //     responsive: [
-
-
-    //         {
-    //             breakpoint: 700,
-    //             settings: {
-    //                 slidesToShow: 1,
-    //                 arrows: false,
-    //             }
-    //         },
-   
-    //     ]
-    // });
 
 
 
@@ -212,7 +190,6 @@ jQuery(document).ready(function ($) {
         prevArrow: '<button class="btn-circle btn-dark btn-circle--left related-slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
         nextArrow: '<button class="btn-circle btn-dark btn-circle--right related-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',   
         responsive: [
-
             {
                 breakpoint: 1000,
                 settings: {
@@ -231,7 +208,15 @@ jQuery(document).ready(function ($) {
     });
 
 
-
+    $('#testimonials-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
+        arrows: true,
+        prevArrow: '<button class="btn-circle btn-dark btn-circle--left destination-testimonials__slider-container__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+        nextArrow: '<button class="btn-circle btn-dark btn-circle--right destination-testimonials__slider-container__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',   
+       
+    });
 
 
 });

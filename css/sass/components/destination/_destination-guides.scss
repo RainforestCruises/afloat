@@ -1,0 +1,199 @@
+.destination-guides {
+    display: grid;
+    grid-template-columns: $page-container;
+    position: relative;
+    grid-column: 1 / -1;
+    margin-bottom: 6rem;
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: $page-container-small;
+    }
+
+    &__header {
+    }
+
+    &__grid-container {
+        grid-column: 1 / -1;
+        display: flex;
+        margin: 0 6rem;
+        justify-content: center;
+
+        @media only screen and (max-width: $bp-small) {
+            margin: 0 2rem;
+        }
+
+        &__grid {
+            max-width: 140rem;
+            background-color: burlywood;
+            height: 105rem;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+
+            @media only screen and (max-width: $bp-large) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @media only screen and (max-width: $bp-small) {
+                grid-template-columns: 1fr;
+
+                grid-template-rows: repeat(6, 1fr);
+                height: 210rem;
+            }
+
+            &__item {
+                display: grid;
+                height: 100%;
+                width: 100%;
+                
+                & img {
+                    grid-column: 1 / -1;
+                    grid-row: 1 / -1;
+                    z-index: 0;
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                }
+
+                &__content {
+                    grid-column: 1 / -1;
+                    grid-row: 1 / -1;
+                    z-index: 2;
+                    display: grid;
+                    grid-template-rows: min-content min-content 1fr;
+                    background-image: linear-gradient(to top, rgba($color-black, 0.4), rgba($color-black, 0.1) 20%), linear-gradient(to bottom, rgba($color-black, 0.4), rgba($color-black, 0.1) 20%);
+                    height: 100%;
+                    width: 100%;
+                    color: rgba($color-white, .9);
+
+                    padding: 4rem;
+
+                    @media only screen and (max-width: $bp-large) {
+                        padding: 3rem;
+                    }
+
+                    @media only screen and (max-width: $bp-medium) {
+                        padding: 2rem;
+                    }
+                    &__category {
+                        font-size: 1.8rem;
+                        text-transform: uppercase;
+                        letter-spacing: .3rem;
+                        font-weight: 600;
+                        margin-bottom: 3rem;
+                        @media only screen and (max-width: $bp-medium) {
+                            margin-bottom: 1rem;
+                        }
+                    }
+
+                    &__title {
+                        font-size: 4.5rem;
+                        font-family: $font-secondary;
+                        letter-spacing: .4rem;
+                        font-weight: 400;
+                        line-height: 5.5rem;
+
+                        @media only screen and (max-width: $bp-medium) {
+                            font-size: 3.5rem;
+                            line-height: 4.5rem;
+
+                        }
+                    }
+
+                    &__link {
+                        font-size: 1.8rem;
+                        text-transform: uppercase;
+                        letter-spacing: .3rem;
+                        font-weight: 600;
+                        align-self: end;
+                    }
+                }
+
+                &--first {
+                    grid-column: 1 / span 1;
+                    grid-row: 1 / span 2;
+                    background-color: cadetblue;
+
+                    @media only screen and (max-width: $bp-large) {
+                        grid-column: 1 / span 1;
+                        grid-row: 1 / span 1;
+                    }
+                    @media only screen and (max-width: $bp-small) {
+                        grid-column: 1 / span 1;
+                        grid-row: 1 / span 1;
+                    }
+                }
+                &--second {
+                    grid-column: 2 / span 1;
+                    grid-row: 1 / span 1;
+                    background-color: chartreuse;
+
+                    @media only screen and (max-width: $bp-large) {
+                        grid-column: 2 / span 1;
+                        grid-row: 1 / span 1;
+                    }
+                    @media only screen and (max-width: $bp-small) {
+                        grid-column: 1 / span 1;
+                        grid-row: 2 / span 1;
+                    }
+                }
+                &--third {
+                    grid-column: 3 / span 1;
+                    grid-row: 1 / span 1;
+                    background-color: chocolate;
+
+                    @media only screen and (max-width: $bp-large) {
+                        grid-column: 1 / span 1;
+                        grid-row: 2 / span 1;
+                    }
+                    @media only screen and (max-width: $bp-small) {
+                        grid-column: 1 / span 1;
+                        grid-row: 3 / span 1;
+                    }
+                }
+                &--fourth {
+                    grid-column: 2 / span 1;
+                    grid-row: 2 / span 1;
+                    background-color: cornflowerblue;
+
+                    @media only screen and (max-width: $bp-large) {
+                        grid-column: 2 / span 1;
+                        grid-row: 2 / span 1;
+                    }
+                    @media only screen and (max-width: $bp-small) {
+                        grid-column: 1 / span 1;
+                        grid-row: 4 / span 1;
+                    }
+                }
+                &--fifth {
+                    grid-column: 3 / span 1;
+                    grid-row: 2 / span 1;
+                    background-color: crimson;
+
+                    @media only screen and (max-width: $bp-large) {
+                        grid-column: 1 / span 1;
+                        grid-row: 3 / span 1;
+                    }
+                    @media only screen and (max-width: $bp-small) {
+                        grid-column: 1 / span 1;
+                        grid-row: 5 / span 1;
+                    }
+                }
+                &--sixth {
+                    grid-column: 1 / span 3;
+                    grid-row: 3 / span 1;
+                    background-color: darkgray;
+
+                    @media only screen and (max-width: $bp-large) {
+                        grid-column: 2 / span 1;
+                        grid-row: 3 / span 1;
+                    }
+                    @media only screen and (max-width: $bp-small) {
+                        grid-column: 1 / span 1;
+                        grid-row: 6 / span 1;
+                    }
+                }
+            }
+        }
+    }
+}
