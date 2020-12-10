@@ -319,7 +319,7 @@ jQuery(document).ready(function ($) {
   }
 
  //SCROLLING
-  //Navigation Jump -- add url #anchor modification
+  //Navigation Jump 
   $('#template-nav-title, .page-nav__collapse__list__item__link').click(function (event) {
     event.preventDefault();
     $('.page-nav__collapse').removeClass('page-nav__collapse--active');

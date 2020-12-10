@@ -1115,7 +1115,7 @@ h5 {
 
 .destination-page {
   display: grid;
-  grid-template-rows: [nav-start] min-content [hero-end content-start] repeat(5, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end];
+  grid-template-rows: [nav-start] min-content [hero-end content-start] repeat(8, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end];
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
   grid-row: content-start / content-end;
   grid-column: 1 / -1; }
@@ -4004,6 +4004,7 @@ h5 {
     grid-column: 1 / -1;
     display: flex;
     margin: 0 6rem;
+    margin-top: 6rem;
     justify-content: center; }
     @media only screen and (max-width: 37.5em) {
       .destination-testimonials__slider-container {
@@ -4118,18 +4119,69 @@ h5 {
   @media only screen and (max-width: 37.5em) {
     .destination-faq {
       grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
-  .destination-faq__slider-container {
-    grid-column: 1 / -1;
+  .destination-faq__grid-container {
+    grid-column: center-start / center-end;
     display: flex;
-    margin: 0 6rem;
-    justify-content: center; }
+    flex-direction: column;
+    align-items: center;
+    margin: 6rem 0; }
     @media only screen and (max-width: 37.5em) {
-      .destination-faq__slider-container {
+      .destination-faq__grid-container {
         margin: 0 2rem; } }
-    .destination-faq__slider-container__slider {
-      max-width: 114rem;
-      height: 50rem;
-      background-color: cyan; }
+    .destination-faq__grid-container__faq {
+      width: 80%; }
+      @media only screen and (max-width: 50em) {
+        .destination-faq__grid-container__faq {
+          width: 100%; } }
+      .destination-faq__grid-container__faq__question {
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+        font-weight: 600;
+        color: #142838;
+        position: relative;
+        margin-bottom: 2.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: all .3s; }
+        .destination-faq__grid-container__faq__question::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          background-color: #e6e6e6;
+          bottom: -1rem;
+          left: 0; }
+        .destination-faq__grid-container__faq__question:hover {
+          color: #40739c; }
+        .destination-faq__grid-container__faq__question--active {
+          color: #40739c; }
+      .destination-faq__grid-container__faq__answer {
+        font-size: 1.6rem;
+        margin-bottom: 3rem; }
+
+.plus-minus-toggle {
+  cursor: pointer;
+  height: 20px;
+  position: relative;
+  width: 20px;
+  transform: translateY(1rem); }
+  .plus-minus-toggle:before, .plus-minus-toggle:after {
+    background: currentColor;
+    content: '';
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 20px;
+    transition: transform .3s ease; }
+  .plus-minus-toggle:after {
+    transform-origin: center; }
+  .plus-minus-toggle.plus-collapsed:after {
+    transform: rotate(90deg); }
+  .plus-minus-toggle.plus-collapsed:before {
+    transform: rotate(180deg); }
 
 .home-hero {
   display: grid;
@@ -5154,7 +5206,7 @@ h5 {
 
 .page-nav__button {
   display: none;
-  letter-spacing: .4rem;
+  letter-spacing: 0.4rem;
   text-transform: uppercase;
   justify-content: center;
   align-items: center;
@@ -5169,7 +5221,7 @@ h5 {
     height: 2rem;
     width: 2rem;
     fill: currentColor;
-    transition: all .2s;
+    transition: all 0.2s;
     opacity: 0; }
   .page-nav__button--active svg {
     transform: rotate(90deg);
@@ -5179,7 +5231,7 @@ h5 {
   display: none;
   position: relative; }
   .page-nav__collapse--active {
-    display: flex; }
+    display: block; }
     .page-nav__collapse--active::after {
       content: "";
       position: absolute;
@@ -5192,11 +5244,11 @@ h5 {
   .page-nav__collapse__list {
     list-style: none;
     font-size: 1.6rem;
-    letter-spacing: .4rem;
+    letter-spacing: 0.4rem;
     text-transform: uppercase;
     font-weight: 600;
     width: 100%;
-    transition: all .2s; }
+    transition: all 0.2s; }
     .page-nav__collapse__list__item__link {
       display: block;
       padding: 2rem 0; }

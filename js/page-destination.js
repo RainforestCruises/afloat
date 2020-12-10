@@ -1,6 +1,13 @@
 
 jQuery(document).ready(function ($) {
 
+    //Anchor behavior
+    //on load
+    var identifier = window.location.hash;
+    if ($(identifier).length) {
+        changePosition(identifier);
+    }
+
 
     //Burger
     //Burger Menu -- click
@@ -53,13 +60,7 @@ jQuery(document).ready(function ($) {
                     $('#header').append(newNav);
                 }
 
-                var elementExists = document.getElementById("page-nav-title"); //clone / append title
-                if (elementExists == null) {
-                    var newTitle = $(subnavTitle).clone(true);
-                    newTitle.attr('id', 'page-nav-title')
-                    $(newTitle).addClass('destination-hero__content__page-nav__title--sticky'); //create common style
-                    $('#page-nav').append(newTitle);
-                }
+               
             }
 
         }
@@ -69,13 +70,18 @@ jQuery(document).ready(function ($) {
 
     //SCROLLING
     //Navigation Jump -- add url #anchor modification
-    $('.destination-hero__content__page-nav__list__item__link, #template-nav-title,  #down-arrow-button').click(function (event) {
+    $('.destination-hero__content__page-nav__list__item__link, .page-nav__collapse__list__item__link, #template-nav-title,  #down-arrow-button').click(function (event) {
         var id = $(this).attr('href');
+        changePosition(id)
+        event.preventDefault();
+
+    })
+    //End Product Nav
+    function changePosition(id) {
         var target = $(id).offset().top;
         $('.page-nav__collapse').removeClass('page-nav__collapse--active');
         $('.page-nav__button').removeClass('page-nav__button--active');
 
-        console.log(id);
 
         if (id != "#tours") {
             target = target - 200;
@@ -85,11 +91,9 @@ jQuery(document).ready(function ($) {
         }
 
         $('html, body').animate({ scrollTop: target }, 500);
-        event.preventDefault();
 
-    })
-    //End Product Nav
-
+        window.location.hash = id;
+    }
 
 
 
@@ -112,9 +116,9 @@ jQuery(document).ready(function ($) {
             if (scrolledTo > target - threshold && scrolledTo < target + threshold) {
                 var sectionHref = $(section).attr('href');
                 var active = $('a[href="' + sectionHref + '"]');
-                
+
                 $('.destination-hero__content__page-nav__list__item__link').removeClass("current");
-                //active.addClass("current");
+                active.addClass("current");
             }
         };
     }
@@ -157,8 +161,8 @@ jQuery(document).ready(function ($) {
 
         prevArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
         nextArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
-        
-        
+
+
     });
 
 
@@ -169,7 +173,7 @@ jQuery(document).ready(function ($) {
         arrows: true,
         centerMode: true,
         prevArrow: '<button class="btn-circle btn-white btn-circle--left btn-circle--large destination-tours__packages__best-selling__slider__btn-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-        nextArrow: '<button class="btn-circle btn-white btn-circle--right btn-circle--large destination-tours__packages__best-selling__slider__btn-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',   
+        nextArrow: '<button class="btn-circle btn-white btn-circle--right btn-circle--large destination-tours__packages__best-selling__slider__btn-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
         responsive: [
             {
                 breakpoint: 700,
@@ -188,7 +192,7 @@ jQuery(document).ready(function ($) {
         dots: false,
         arrows: true,
         prevArrow: '<button class="btn-circle btn-dark btn-circle--left related-slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-        nextArrow: '<button class="btn-circle btn-dark btn-circle--right related-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',   
+        nextArrow: '<button class="btn-circle btn-dark btn-circle--right related-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
         responsive: [
             {
                 breakpoint: 1000,
@@ -203,7 +207,7 @@ jQuery(document).ready(function ($) {
                     arrows: false,
                 }
             },
-   
+
         ]
     });
 
@@ -214,8 +218,18 @@ jQuery(document).ready(function ($) {
         fade: true,
         arrows: true,
         prevArrow: '<button class="btn-circle btn-dark btn-circle--left destination-testimonials__slider-container__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-        nextArrow: '<button class="btn-circle btn-dark btn-circle--right destination-testimonials__slider-container__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',   
-       
+        nextArrow: '<button class="btn-circle btn-dark btn-circle--right destination-testimonials__slider-container__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+
+    });
+
+    //intro expand/hide
+    $(".destination-faq__grid-container__faq__question").on("click", function (e) {
+        e.preventDefault();
+        let $this = $(this);
+        $this.parent().find('.destination-faq__grid-container__faq__answer').slideToggle(350);
+        $this.parent().find('.plus-minus-toggle').toggleClass('plus-collapsed');
+        $this.parent().find('.destination-faq__grid-container__faq__question').toggleClass('destination-faq__grid-container__faq__question--active');
+
     });
 
 

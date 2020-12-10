@@ -1,10 +1,9 @@
-  
-<?php
-$destination = $args['destination'];
-$locations = $args['locations'];
+  <?php
+    $destination = $args['destination'];
+    $locations = $args['locations'];
 
-?>
-  
+    ?>
+
   <!-- Destination Hero -->
   <div class="destination-hero">
       <div class="destination-hero__bg-slide" id="destination-hero__bg">
@@ -36,7 +35,7 @@ $locations = $args['locations'];
                   <div class="destination-hero__content__page-nav__title" id="template-nav-title" href="#top">
                       <?php echo ($destination->post_title) ?>
                   </div>
-                  <ul class="destination-hero__content__page-nav__list">
+                  <ul class="destination-hero__content__page-nav__list" >
                       <li class="destination-hero__content__page-nav__list__item">
                           <a href="#tours" class="destination-hero__content__page-nav__list__item__link ">Tours</a>
                       </li>
@@ -51,7 +50,7 @@ $locations = $args['locations'];
                           <a href="#travel-guides" class="destination-hero__content__page-nav__list__item__link">Travel Guides</a>
                       </li>
                       <li class="destination-hero__content__page-nav__list__item">
-                          <a href="#reviews" class="destination-hero__content__page-nav__list__item__link">Reviews</a>
+                          <a href="#testimonials" class="destination-hero__content__page-nav__list__item__link">Testimonials</a>
                       </li>
                       <li class="destination-hero__content__page-nav__list__item">
                           <a href="#faq" class="destination-hero__content__page-nav__list__item__link">FAQ</a>
@@ -66,23 +65,24 @@ $locations = $args['locations'];
                   <!-- page-nav__collapse--active -->
                   <nav class="page-nav__collapse ">
                       <ul class="page-nav__collapse__list">
-                          <li class="page-nav__collapse__list__item" href="#tours">
-                              Tours
+                          <li class="page-nav__collapse__list__item">
+                              <a href="#tours" class="page-nav__collapse__list__item__link">Tours</a>
                           </li>
-                          <li class="page-nav__collapse__list__item" href="#cruises">
-                              Cruises
+                          <li class="page-nav__collapse__list__item">
+                              <a href="#cruises" class="page-nav__collapse__list__item__link">Cruises</a>
                           </li>
-                          <li class="page-nav__collapse__list__item" href="#accommodations">
-                              Accommodations
+                          <li class="page-nav__collapse__list__item">
+                              <a href="#accommodations" class="page-nav__collapse__list__item__link">Accommodations</a>
                           </li>
-                          <li class="page-nav__collapse__list__item" href="#travel-guides">
-                              Travel Guides
+                          <li class="page-nav__collapse__list__item">
+                              <a href="#travel-guides" class="page-nav__collapse__list__item__link">Travel Guides</a>
+
                           </li>
-                          <li class="page-nav__collapse__list__item" href="#reviews">
-                              Reviews
+                          <li class="page-nav__collapse__list__item">
+                              <a href="#testimonials" class="page-nav__collapse__list__item__link">Testimonials</a>
                           </li>
                           <li class="page-nav__collapse__list__item" href="#faq">
-                              FAQ
+                              <a href="#faq" class="page-nav__collapse__list__item__link">FAQ</a>
                           </li>
                       </ul>
                   </nav>

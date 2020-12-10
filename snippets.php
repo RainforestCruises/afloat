@@ -1,9 +1,59 @@
-<?php if (have_rows('tour_experiences')) : ?>
-                        <?php while (have_rows('tour_experiences')) : the_row(); 
-                        $experience = get_sub_field('experience'); 
-                        ?>
-                            <li>       
-                                <a href="#"><?php echo get_the_title($experience); ?></a>
-                            </li>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
+<?php
+$cruises_image = get_field('cruises_image');
+$testimonials = get_field('testimonials');
+
+
+console_log($testimonials);
+?>
+
+<div class="destination-testimonials">
+    <div class="destination-testimonials__header page-divider">
+        Testimonials
+    </div>
+    <div class="destination-testimonials__slider-container">
+        <div class="destination-testimonials__slider-container__slider" id="testimonials-slider">
+
+            <?php foreach ($testimonials as $item) { 
+                $testimonialImage = get_field('image', $item); 
+                $testimonial = get_field('testimonial', $item); 
+                $person = get_field('person', $item); 
+                console_log('xx');
+                ?>
+                <!-- Slide -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-slide__text">
+                        <div class="testimonial-slide__text__stars">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-star"></use>
+                            </svg>
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-star"></use>
+                            </svg>
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-star"></use>
+                            </svg>
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-star"></use>
+                            </svg>
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-star"></use>
+                            </svg>
+                        </div>
+                        <div class="testimonial-slide__text__review">
+                            <?php echo $testimonial; ?>
+                        </div>
+                        <div class="testimonial-slide__text__reviewer">
+                            - <?php echo $person; ?>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide__image">
+                        <img src="<?php echo esc_url($testimonialImage['url']); ?>" alt="">
+                    </div>
+           
+                </div>
+            <?php } ?>
+
+
+        </div>
+    </div>
+</div>
