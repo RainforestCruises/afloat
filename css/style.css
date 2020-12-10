@@ -4127,7 +4127,7 @@ h5 {
     margin: 6rem 0; }
     @media only screen and (max-width: 37.5em) {
       .destination-faq__grid-container {
-        margin: 0 2rem; } }
+        margin: 4rem 2rem; } }
     .destination-faq__grid-container__faq {
       width: 80%; }
       @media only screen and (max-width: 50em) {

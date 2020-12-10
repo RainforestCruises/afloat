@@ -12,9 +12,9 @@ jQuery(document).ready(function ($) {
     //Burger
     //Burger Menu -- click
     $(".page-nav__button").on("click", function () {
-
-        $('.page-nav__button').toggleClass('page-nav__button--active');
-        $('.page-nav__collapse').toggleClass('page-nav__collapse--active');
+        //within #pagenav
+        $('.page-nav__button').first().toggleClass('page-nav__button--active');
+        $('.page-nav__collapse').first().toggleClass('page-nav__collapse--active');
 
     });
 
@@ -59,8 +59,6 @@ jQuery(document).ready(function ($) {
                     $(newNav).addClass('destination-hero__content__page-nav__sticky-wrapper--active');
                     $('#header').append(newNav);
                 }
-
-               
             }
 
         }
@@ -82,12 +80,10 @@ jQuery(document).ready(function ($) {
         $('.page-nav__collapse').removeClass('page-nav__collapse--active');
         $('.page-nav__button').removeClass('page-nav__button--active');
 
-
         if (id != "#tours") {
-            target = target - 200;
+            target = target - 140;
         } else {
             target = target - 80;
-
         }
 
         $('html, body').animate({ scrollTop: target }, 500);
