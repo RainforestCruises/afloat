@@ -81,7 +81,7 @@
             &__itinerary-group {
                 &__itinerary {
                     display: grid;
-                    grid-template-columns: max-content 1fr max-content;
+                    grid-template-columns: minmax(min-content, 1fr) 2fr max-content; //adjust
                     position: relative;
                     padding: 4.5rem 3rem;
                     margin-bottom: 5rem;

@@ -160,7 +160,7 @@
     width: 45rem;
     border-radius: 0.5rem;
     border: 1px solid $color-grey-light-1a;
-    grid-template-rows: 30rem 18rem;
+    grid-template-rows: 30rem minmax(20rem, min-content);
     outline: none;
     &:link,
     &:visited {
