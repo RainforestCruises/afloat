@@ -51,6 +51,7 @@ jQuery(document).ready(function ($) {
             //and if burger menu isnt active
             if ($(".burger-menu").hasClass('burger-menu--active') != true) {
 
+                //Page Nav
                 var elementExists = document.getElementById("page-nav"); //and not already there
                 if (elementExists == null) {
                     var newNav = $(navbar).clone(true); //clone the nav and append it to header (pass true to clone events also)
@@ -59,7 +60,18 @@ jQuery(document).ready(function ($) {
                     $(newNav).addClass('destination-hero__content__page-nav__sticky-wrapper--active');
                     $('#header').append(newNav);
                 }
+
+                //Title
+                var elementExists = document.getElementById("page-nav-title"); //clone / append title
+                if (elementExists == null) {
+                    var newTitle = $(subnavTitle).clone(true);
+                    newTitle.attr('id', 'page-nav-title')
+                    $(newTitle).addClass('destination-hero__content__page-nav__title--sticky'); //create common style
+                    $('#page-nav').append(newTitle);
+                }
             }
+
+         
 
         }
     }
