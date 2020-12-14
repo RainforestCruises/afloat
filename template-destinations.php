@@ -7,54 +7,177 @@ wp_enqueue_script('page-destination', get_template_directory_uri() . '/js/page-d
 get_header();
 ?>
 
-
 <?php
-$destination = get_field('destination_post');
-$locations = get_field('locations', $destination->ID);
+$destination_type = get_field('destination_type');
+$destinationTitle = '';
+$region= '';
+$destination= '';
+$destinations= '';
+$locations= '';
+$sliderContent = [];
+
 $tour_experiences = get_field('tour_experiences');
-$destinationCount = count($locations);
+$destinationCount = 0;
 
-//TOURS
-$tourCriteria = array(
-    'posts_per_page' => 6,
-    'post_type' => 'rfc_tours',
-    'meta_query' => array(
-        array(
-            'key' => 'destination',
-            'value' => '"' . $destination->ID . '"',
-            'compare' => 'LIKE'
+
+//DESTINATION
+//-single destintion -multiple locations
+//-tours/cruises from single destination
+if ($destination_type == 'destination') {
+
+    //DESTINATION
+    $destination = get_field('destination_post');
+
+    //LOCATIONS
+    $locationCriteria = array(
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_locations',
+        "meta_key" => "destination",
+        "meta_value" => $destination->ID
+    );
+    $locations = get_posts($locationCriteria);
+    usort($locations, function ($a, $b) { //sort locations by importance
+        return strcmp($a->importance, $b->importance);
+    });
+    $destinationCount = count($locations); //pass count to JS
+
+    //TOURS
+    $tourCriteria = array(
+        'posts_per_page' => 6,
+        'post_type' => 'rfc_tours',
+        'meta_query' => array(
+            array(
+                'key' => 'destination',
+                'value' => '"' . $destination->ID . '"',
+                'compare' => 'LIKE'
+            )
         )
-    )
-);
-$tours = get_posts($tourCriteria);
+    );
+    $tours = get_posts($tourCriteria);
 
-//CRUISES
-$cruiseCriteria = array(
-    'posts_per_page' => 6,
-    'post_type' => 'rfc_cruises',
-    'meta_query' => array(
-        array(
-            'key' => 'destination', // name of custom field
-            'value' => '"' . $destination->ID . '"',
-            'compare' => 'LIKE'
+    //CRUISES
+    $cruiseCriteria = array(
+        'posts_per_page' => 6,
+        'post_type' => 'rfc_cruises',
+        'meta_query' => array(
+            array(
+                'key' => 'destination', // name of custom field
+                'value' => '"' . $destination->ID . '"',
+                'compare' => 'LIKE'
+            )
         )
-    )
-);
-$cruises = get_posts($cruiseCriteria);
+    );
+    $cruises = get_posts($cruiseCriteria);
 
-//LOCATIONS
-//sort locations by importance
-usort($locations, function ($a, $b) {
-    return strcmp($a->importance, $b->importance);
-});
+    //Build Slider Content
+    $destinationSlide = array(
+        'hero_image' => get_field('hero_image', $destination),
+        'hero_title' => get_field('hero_title', $destination),
+        'hero_short_text' => get_field('hero_short_text', $destination),
+    );
+    $sliderContent[] = $destinationSlide;
+    foreach ($locations as $l) {
+        $locationSlide = array(
+            'hero_image' => get_field('hero_image', $l),
+            'hero_title' => get_field('hero_title', $l),
+            'hero_short_text' => get_field('hero_short_text', $l),
+        );
+        $sliderContent[] = $locationSlide;
+    }
+
+    //Title (Destination)
+    $destinationTitle = $destination->post_title;
+
+
+    //REGION
+    //-single region -multiple destinations
+    //-tours/cruises from multiple destination
+} else if ($destination_type == 'region') {
+
+    //REGION
+    $region = get_field('region_post');
+
+    //DESTINATIONS
+    $destinationCriteria = array(
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_destinations',
+        "meta_key" => "region",
+        "meta_value" => $region->ID
+    );
+    $destinations = get_posts($destinationCriteria);
+    usort($destinations, function ($a, $b) { //sort locations by importance
+        return strcmp($a->importance, $b->importance);
+    });
+    $destinationCount = count($destinations); //pass count to JS
+
+
+    //get destination IDs
+    $destinationIds = [];
+    foreach ($destinations as $d) {
+        $destinationIds[] = $d->ID;
+    }
+
+    //build meta query criteria
+    $queryargs = array();
+    $queryargs['relation'] = 'OR';
+    foreach ($destinationIds as $d) {
+        $queryargs[] = array(
+            'key'     => 'destination',
+            'value'   => serialize(strval($d)),
+            'compare' => 'LIKE'
+        );
+    }
+
+    //TOURS
+    $tourCriteria = array(
+        'posts_per_page' => 6,
+        'post_type' => 'rfc_tours',
+        'meta_query' => $queryargs
+    );
+    $tours = get_posts($tourCriteria);
+
+    //CRUISES
+    $cruiseCriteria = array(
+        'posts_per_page' => 6,
+        'post_type' => 'rfc_cruises',
+        'meta_query' => $queryargs
+    );
+    $cruises = get_posts($cruiseCriteria);
+
+    //Build Slider Content
+    $regionSlide = array(
+        'hero_image' => get_field('hero_image', $region),
+        'hero_title' => get_field('hero_title', $region),
+        'hero_short_text' => get_field('hero_short_text', $region),
+    );
+    $sliderContent[] = $regionSlide;
+    foreach ($destinations as $d) {
+        $destinationSlide = array(
+            'hero_image' => get_field('hero_image', $d),
+            'hero_title' => get_field('hero_title', $d),
+            'hero_short_text' => get_field('hero_short_text', $d),
+        );
+        $sliderContent[] = $destinationSlide;
+    }
+
+    //Title (Region)
+    $destinationTitle = $region->post_title;
+}
+
 
 
 $args = array(
     'destination' => $destination,
+    'destinations' => $destinations,
+    'region' => $region,
+
     'locations' => $locations,
     'tours' => $tours,
     'tour_experiences' => $tour_experiences,
     'cruises' => $cruises,
+    'sliderContent' => $sliderContent,
+    'destinationTitle' => $destinationTitle,
+    'destination_type' => $destination_type,
 
 );
 

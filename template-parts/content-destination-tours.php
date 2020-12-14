@@ -1,24 +1,31 @@
 <?php
 $destination = $args['destination'];
+$region = $args['region'];
+
 $locations = $args['locations'];
+$destinations = $args['destinations'];
+
 $tours = $args['tours'];
 $tour_experiences = $args['tour_experiences'];
 $currentYear = date("Y");
+$destination_type = $args['destination_type'];
 
+$background_map = get_field('background_map');
 ?>
 
 <div class="destination-tours">
 
     <!-- Map Background -->
     <div class="destination-tours__bg">
-        <img src="<?php echo bloginfo('template_url') ?>/css/img/test-images/map-peru-outline.png" alt="">
+        <img src="<?php echo esc_url($background_map['url']); ?>" alt="">
     </div>
 
     <!-- Intro -->
     <div class="destination-tours__intro">
         <div class="destination-tours__intro__description">
             <div class="destination-tours__intro__description__title">
-                Travel In Peru
+                <?php echo get_field('intro_title') ?>
+
             </div>
             <div class="destination-tours__intro__description__text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ipsam tempore ullam illo quasi quod. Totam libero doloremque accusantium iusto vero distinctio ipsa consequuntur in nulla? Consectetur sit deleniti dolor.
@@ -30,11 +37,20 @@ $currentYear = date("Y");
                     Destinations
                 </div>
                 <ul class="destination-tours__intro__lists__locations__list">
-                    <?php foreach ($locations as $s) : ?>
-                        <li>
-                            <a href="#"><?php echo ($s->post_title); ?></a>
-                        </li>
-                    <?php endforeach; ?>
+                    <?php if ($destination_type == 'destination') {
+                        foreach ($locations as $s) : ?>
+                            <li>
+                                <a href="#"><?php echo ($s->hero_title); ?></a>
+                            </li>
+                        <?php endforeach;
+                    } else if ($destination_type == 'region') {
+                        foreach ($destinations as $d) : ?>
+                            <li>
+                                <a href="#"><?php echo ($d->hero_title); ?></a>
+                            </li>
+                    <?php endforeach;
+                    } ?>
+
                 </ul>
 
             </div>
@@ -141,32 +157,27 @@ $currentYear = date("Y");
                 $experience = $e['experience'];
                 $background_image = $e['background_image'];
         ?>
-
                 <div class="category-card">
                     <div class="category-card__image">
                         <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
                     </div>
-
-
 
                     <div class="category-card__content">
                         <div class="category-card__content__title">
                             <?php echo get_the_title($experience); ?> Tours
                         </div>
                         <div class="category-card__content__availability">
-                            <?php echo tours_available($destination, $experience); ?> Tours Available
+                            <?php if ($destination_type == 'region') {
+                                echo tours_available_region($region, $experience) . ' Tours Available';
+                            } else if ($destination_type == 'destination') {
+                                echo tours_available($destination, $experience) . ' Tours Available';
+                            } ?>
                         </div>
                     </div>
-
-
-
-
-
                 </div>
         <?php
             }
         }
-
         ?>
     </div>
 

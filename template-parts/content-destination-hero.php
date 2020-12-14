@@ -1,15 +1,19 @@
   <?php
     $destination = $args['destination'];
     $locations = $args['locations'];
+    $sliderContent = $args['sliderContent'];
+    $destinationTitle = $args['destinationTitle'];
+
 
     ?>
 
   <!-- Destination Hero -->
   <div class="destination-hero">
       <div class="destination-hero__bg-slide" id="destination-hero__bg">
-          <?php foreach ($locations as $s) : ?>
-              <img src="<?php echo wp_get_attachment_url($s->hero_image); ?>" alt="">
-
+          <?php foreach ($sliderContent as $s) :
+                $sliderImage = $s['hero_image'];
+            ?>
+              <img src="<?php echo esc_url($sliderImage['url']); ?>" alt="">
           <?php endforeach; ?>
       </div>
       <div class="destination-hero__content">
@@ -19,7 +23,7 @@
                       <a href="#">Destinations</a>
                   </li>
                   <li>
-                      <?php echo ($destination->post_title) ?>
+                      <?php echo $destinationTitle ?>
                   </li>
               </ol>
           </div>
@@ -33,9 +37,9 @@
               <!-- sticky wrapper -->
               <nav class="destination-hero__content__page-nav__sticky-wrapper" id="template-nav">
                   <div class="destination-hero__content__page-nav__title" id="template-nav-title" href="#top">
-                      <?php echo ($destination->post_title) ?>
+                  <?php echo $destinationTitle ?>
                   </div>
-                  <ul class="destination-hero__content__page-nav__list" >
+                  <ul class="destination-hero__content__page-nav__list">
                       <li class="destination-hero__content__page-nav__list__item">
                           <a href="#tours" class="destination-hero__content__page-nav__list__item__link ">Tours</a>
                       </li>
@@ -57,7 +61,7 @@
                       </li>
                   </ul>
                   <div class="page-nav__button">
-                      <?php echo ($destination->post_title) ?>
+                  <?php echo $destinationTitle ?>
                       <svg>
                           <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
                       </svg>
@@ -102,13 +106,13 @@
 
           <div class="destination-hero__content__location">
               <div class="destination-hero__content__location__slider" id="destination-hero__content__location__slider">
-                  <?php foreach ($locations as $s) : ?>
+                  <?php foreach ($sliderContent as $s) : ?>
                       <div class="destination-hero__content__location__slider__item">
                           <div class="destination-hero__content__location__slider__item__title">
-                              <?php echo ($s->hero_title); ?>
+                              <?php echo $s['hero_title']; ?>
                           </div>
                           <div class="destination-hero__content__location__slider__item__text">
-                              <?php echo ($s->hero_short_text); ?>
+                              <?php echo $s['hero_short_text']; ?>
                           </div>
                       </div>
                   <?php endforeach; ?>

@@ -4,8 +4,6 @@
     display: grid;
     grid-template-columns: $page-container;
     grid-template-rows: 9rem 1fr;
-    min-height: 82rem;
-
     
     @media only screen and (max-width: $bp-medium) {
         grid-template-columns: $page-container-small;
@@ -71,7 +69,7 @@
 
         display: grid;
         grid-template-columns: 1fr 2fr;
-        grid-template-rows: 1fr 1fr 30rem;
+        grid-template-rows: minmax(max-content, 30%) 1fr 30rem;
 
         color: rgba($color-white, 0.9);
         text-transform: uppercase;
@@ -82,7 +80,7 @@
 
         @media only screen and (max-width: $bp-large) {
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr min-content minmax(max-content, 2fr);
+            grid-template-rows: minmax(min-content, 30%) min-content minmax(max-content, 2fr);
         }
 
         @media only screen and (max-width: $bp-xsmall) {
@@ -94,14 +92,18 @@
             letter-spacing: 0.4rem;
             align-self: end;
             font-weight: 600;
-
+            margin-top: 1rem;
             @media only screen and (max-width: $bp-large) {
-
                 margin-top: 4rem;
                 justify-self: center;
                 grid-column: 1 / -1;
-
             } 
+            @media only screen and (max-width: $bp-medium) {
+                margin-top: 3rem;
+            } 
+            @media only screen and (max-width: $bp-xsmall) {
+                margin-top: 2rem;
+            }
 
             &__path {
                 display: inline-block;

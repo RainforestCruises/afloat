@@ -3217,8 +3217,7 @@ h5 {
   height: 100vh;
   display: grid;
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-  grid-template-rows: 9rem 1fr;
-  min-height: 82rem; }
+  grid-template-rows: 9rem 1fr; }
   @media only screen and (max-width: 50em) {
     .destination-hero {
       grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
@@ -3262,7 +3261,7 @@ h5 {
     z-index: 5;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr 30rem;
+    grid-template-rows: minmax(max-content, 30%) 1fr 30rem;
     color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
     column-gap: 15rem;
@@ -3271,7 +3270,7 @@ h5 {
     @media only screen and (max-width: 62.5em) {
       .destination-hero__content {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr min-content minmax(max-content, 2fr); } }
+        grid-template-rows: minmax(min-content, 30%) min-content minmax(max-content, 2fr); } }
     @media only screen and (max-width: 25em) {
       .destination-hero__content {
         grid-template-rows: minmax(min-content, 30%) min-content minmax(max-content, 1fr); } }
@@ -3279,12 +3278,19 @@ h5 {
       font-size: 1.4rem;
       letter-spacing: 0.4rem;
       align-self: end;
-      font-weight: 600; }
+      font-weight: 600;
+      margin-top: 1rem; }
       @media only screen and (max-width: 62.5em) {
         .destination-hero__content__breadcrumb {
           margin-top: 4rem;
           justify-self: center;
           grid-column: 1 / -1; } }
+      @media only screen and (max-width: 50em) {
+        .destination-hero__content__breadcrumb {
+          margin-top: 3rem; } }
+      @media only screen and (max-width: 25em) {
+        .destination-hero__content__breadcrumb {
+          margin-top: 2rem; } }
       .destination-hero__content__breadcrumb__path {
         display: inline-block;
         position: relative;
