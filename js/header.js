@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
         $('.header__main').removeClass('header__main--small-nav ');
 
         if ($('.burger-menu').hasClass('burger-menu--active') != true) {
-          if (!$("body").hasClass("page-template-template-search")) {
+          if (!$("body").hasClass("page-template-template-search-region") && !$("body").hasClass("page-template-template-search-destination")) {
             $('.header__main').removeClass('header__main--opaque-nav');
 
           }
@@ -26,7 +26,7 @@ jQuery(document).ready(function ($) {
   window.addEventListener('scroll', fixNav);
 
   //Header Main -- Hover
-  if (!$("body").hasClass("page-template-template-search")) {
+  if (!$("body").hasClass("page-template-template-search-region") && !$("body").hasClass("page-template-template-search-destination")) {
     $('.header__main').hover(
       function () { $('.header__main').addClass('header__main--opaque-nav'); },
       function () {

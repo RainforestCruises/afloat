@@ -230,7 +230,7 @@ jQuery(document).ready(function ($) {
 
     });
 
-    //intro expand/hide
+    //faq expand/hide
     $(".destination-faq__grid-container__faq__question").on("click", function (e) {
         e.preventDefault();
         let $this = $(this);

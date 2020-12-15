@@ -51,6 +51,18 @@ jQuery(document).ready(function ($) {
     $('#search-form').submit();
   });
 
+  
+  //Location 
+  $('#location-select').select2({
+    width: '100%',
+    minimumResultsForSearch: -1,
+    placeholder: "Select Location",
+
+  });
+  $('#location-select').on('change', function () {
+    $('#search-form').submit();
+  });
+
 
   //Travel Type 
   $('#travel-select').select2({
@@ -111,10 +123,12 @@ jQuery(document).ready(function ($) {
 
 
   //intro expand/hide
-  $(".search-page__intro__title").on("click", function (e) {
+  $(".search-intro__title").on("click", function (e) {
     e.preventDefault();
     let $this = $(this);
-    $this.parent().find('.search-page__intro__text').slideToggle(350);
+    $this.parent().find('.search-intro__text').slideToggle(350);
+    $this.toggleClass('search-intro__title--collapsed');
+
   });
 
 

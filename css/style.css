@@ -911,6 +911,9 @@ h5 {
   border: none;
   box-shadow: 0px 0px 0px 1px #aaa; }
 
+.select2-dropdown--below {
+  top: 3.2rem; }
+
 .global {
   display: grid;
   grid-template-rows: [nav-start content-start] 9rem [nav-end] min-content [content-end footer-start] min-content [footer-end];
@@ -1068,36 +1071,6 @@ h5 {
   @media only screen and (max-width: 37.5em) {
     .search-page {
       grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
-  .search-page__intro {
-    grid-column: center-start / center-end;
-    padding: 2rem 0; }
-    .search-page__intro__breadcrumb {
-      display: flex;
-      list-style: none;
-      font-size: 1.5rem;
-      font-weight: 500; }
-      .search-page__intro__breadcrumb li {
-        display: inline-block;
-        color: #9ea0a4; }
-        .search-page__intro__breadcrumb li:not(:last-child):after {
-          content: "/";
-          padding-left: 1px;
-          padding-right: 4px; }
-        .search-page__intro__breadcrumb li a {
-          text-decoration: none;
-          color: currentColor; }
-          .search-page__intro__breadcrumb li a:hover {
-            color: #40739c; }
-    .search-page__intro__title {
-      font-size: 3rem;
-      color: #142838;
-      cursor: pointer;
-      transition: .3s all;
-      font-weight: 600; }
-      .search-page__intro__title:hover {
-        color: #305a7c; }
-    .search-page__intro__text {
-      font-size: 1.5rem; }
   .search-page__content {
     display: grid;
     grid-column: 1 / -1;
@@ -2962,6 +2935,49 @@ h5 {
                 color: #142838;
                 font-size: 1.4rem;
                 font-weight: 600; }
+
+.search-intro {
+  grid-column: center-start / center-end;
+  padding: 2rem 0; }
+  .search-intro__breadcrumb {
+    display: flex;
+    list-style: none;
+    font-size: 1.5rem;
+    font-weight: 500; }
+    .search-intro__breadcrumb li {
+      display: inline-block;
+      color: #9ea0a4; }
+      .search-intro__breadcrumb li:not(:last-child):after {
+        content: "/";
+        padding-left: 1px;
+        padding-right: 4px; }
+      .search-intro__breadcrumb li a {
+        text-decoration: none;
+        color: currentColor; }
+        .search-intro__breadcrumb li a:hover {
+          color: #40739c; }
+  .search-intro__title {
+    font-size: 3rem;
+    color: #142838;
+    cursor: pointer;
+    transition: .3s all;
+    font-weight: 600;
+    display: flex;
+    align-items: center; }
+    .search-intro__title:hover {
+      color: #305a7c; }
+    .search-intro__title span {
+      margin-right: 1rem; }
+    .search-intro__title svg {
+      height: 4.5rem;
+      width: 4.5rem;
+      fill: #9ea0a4;
+      transform: rotate(-90deg);
+      transition: all .3s; }
+    .search-intro__title--collapsed svg {
+      transform: rotate(90deg); }
+  .search-intro__text {
+    font-size: 1.5rem; }
 
 .search-control {
   margin: 1.5rem 0;
