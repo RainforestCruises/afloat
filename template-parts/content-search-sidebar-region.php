@@ -56,5 +56,8 @@ $region = $args['region'];
         <input type="hidden" name="endDate" id="endDate" value="">
         <input type="hidden" name="minLength" id="minLength" value="">
         <input type="hidden" name="maxLength" id="maxLength" value="">
+        <input type="hidden" name="region" id="region" value="<?php echo $region->ID ?>">
+        <input type="hidden" name="searchType" id="searchType" value="region">
+
     </div>
 </form>

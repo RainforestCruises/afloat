@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 //Product Date Search
@@ -55,20 +55,104 @@ function search_filter_main_search()
 
     $args = array(
         'posts_per_page' => -1,
-        'post_type' => $travelType, 
+        'post_type' => $travelType,
     );
 
 
-    if (isset($_POST['destination-select']) && $_POST['destination-select'])
-        $args['meta_query'][] = array(
-            'key' => 'destination',
-            'value' => '"' . $_POST['destination-select'] . '"',
-            'compare' => 'LIKE'
-        );
+
+    //Get destinations by destination
+    if ($_POST['searchType'] == 'destination') { //DESTINATION
+        if (isset($_POST['location-select']) && $_POST['location-select']) {
+            //- Get specific location if location selected
+            $locationId = $_POST['location-select'];
+
+            $args['meta_query'][] = array(
+                'key' => 'locations',
+                'value' => '"' . $locationId . '"',
+                'compare' => 'LIKE'
+            );
+            console_log($locationId);
+
+            console_log('boom');
+        } else {
+            //- Get all from peru
+            $destinationId = $_POST['destination'];
+
+            $args['meta_query'][] = array(
+                'key' => 'destination',
+                'value' => '"' . $destinationId . '"',
+                'compare' => 'LIKE'
+            );
+            console_log('xx');
+        }
+    } else { //REGION 
+        if (isset($_POST['destination-select']) && $_POST['destination-select']) {
+            //- Get specific destination if destination selected
+            $args['meta_query'][] = array(
+                'key' => 'destination',
+                'value' => '"' . $_POST['destination-select'] . '"',
+                'compare' => 'LIKE'
+            );
+            console_log('boom');
+        } else {
+            //- Get destinations by region if nothing selected, then get all products in those destinations
+            $regionId = $_POST['region'];
+            $destinationCriteria = array(
+                'posts_per_page' => -1,
+                'post_type' => 'rfc_destinations',
+                "meta_key" => "region",
+                "meta_value" => $regionId
+            );
+            $destinations = get_posts($destinationCriteria);
+
+
+            //build meta query criteria
+            $queryargs = array();
+            $queryargs['relation'] = 'OR';
+            foreach ($destinations as $d) {
+                $queryargs[] = array(
+                    'key'     => 'destination',
+                    'value'   => serialize(strval($d->ID)),
+                    'compare' => 'LIKE'
+                );
+            }
+
+            $args['meta_query'][] = $queryargs;
+            console_log('xx');
+        }
+    }
 
 
 
     $posts = get_posts($args);
+
+    ////ONE WAY
+    // $newCollection = [];
+    // if ($_POST['region']){
+    //     $regionId = $_POST['region'];
+    //     foreach($posts as $p){
+    //         $destinationPosts = get_field('destination', $p);
+    //         if($destinationPosts){
+    //             $added = false;
+    //             foreach($destinationPosts as $dp){
+
+    //                 $destinationPostRegion = get_field('region', $dp);
+
+    //                 $destinationPostRegionID = $destinationPostRegion->ID;
+    //                 if(($destinationPostRegionID == $regionId) && $added == false){
+    //                     $newCollection[] = $p;
+    //                     $added = true;
+
+    //                 }
+    //             }
+    //         }
+
+
+    //     }
+    //     console_log('nc');
+    //     console_log($newCollection);
+    //     $posts = $newCollection;
+    // }
 
 
     //Capture Meta Input
@@ -114,7 +198,3 @@ function search_filter_main_search()
 
     die();
 }
-
-
-
-?>

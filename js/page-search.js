@@ -105,7 +105,6 @@ jQuery(document).ready(function ($) {
   //SEARCH FUNCTION
   function reloadResults() {
     var searchForm = $('#search-form'); //get form
-    console.log(searchForm);
     $.ajax({
       url: searchForm.attr('action'),
       data: searchForm.serialize(), // form data
@@ -114,6 +113,8 @@ jQuery(document).ready(function ($) {
         $('#response').html('<div class="search-results__grid__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
       },
       success: function (data) {
+   
+
         $('#response').html(data); // insert data
       }
     });

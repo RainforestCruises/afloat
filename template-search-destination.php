@@ -7,12 +7,12 @@ wp_enqueue_script('page-search', get_template_directory_uri() . '/js/page-search
 get_header();
 ?>
 
-<?php 
+<?php
 $destination = get_field('destination');
 $title = get_field('hero_title', $destination);
 $region = get_field('region', $destination);
 $regionTitle = get_field('hero_title', $region);
-
+$parentPage = get_field('parent_page');
 
 $args = array(
     'destination' => $destination,
@@ -29,7 +29,7 @@ $args = array(
                 <a href="#">Home</a>
             </li>
             <li>
-                <a href="#"><?php echo $regionTitle ?></a>
+                <a href=" <?php echo $parentPage  ?>"><?php echo $regionTitle ?></a>
             </li>
             <li>
                 <?php echo $title ?>
@@ -42,7 +42,7 @@ $args = array(
             </svg>
         </div>
         <div class="search-intro__text" style="display: block;">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam incidunt velit laudantium atque. Doloribus saepe officia, laborum provident deserunt sed, et nisi magnam alias obcaecati reprehenderit quam cumque, vitae nostrum.
+            <?php echo get_field('snippet') ?>
         </div>
     </div>
 

@@ -58,9 +58,9 @@
         },
         {
             "key": "field_5fd8e12e71956",
-            "label": "Itinerary Length",
-            "name": "itinerary_length",
-            "type": "range",
+            "label": "Itinerary Length Min",
+            "name": "itinerary_length_min",
+            "type": "number",
             "instructions": "For preselected itinerary lengths",
             "required": 0,
             "conditional_logic": 0,
@@ -73,11 +73,34 @@
             "admin_column_post_types": "",
             "admin_column_taxonomies": "",
             "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
             "min": 1,
             "max": 14,
-            "step": "",
-            "prepend": "",
-            "append": ""
+            "step": ""
+        },
+        {
+            "key": "field_5fd925e97c8f1",
+            "label": "Snippet",
+            "name": "snippet",
+            "type": "wysiwyg",
+            "instructions": "Text to appear at top before search results",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "admin_column_enabled": 0,
+            "admin_column_post_types": "",
+            "admin_column_taxonomies": "",
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
         }
     ],
     "location": [
@@ -97,5 +120,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1608049045
+    "modified": 1608066788
 }

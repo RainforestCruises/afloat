@@ -57,5 +57,8 @@ $destination = $args['destination'];
         <input type="hidden" name="endDate" id="endDate" value="">
         <input type="hidden" name="minLength" id="minLength" value="">
         <input type="hidden" name="maxLength" id="maxLength" value="">
+        <input type="hidden" name="destination" id="destination" value="<?php echo $destination->ID ?>">
+        <input type="hidden" name="searchType" id="searchType" value="destination">
+
     </div>
 </form>
