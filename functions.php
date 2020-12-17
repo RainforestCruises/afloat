@@ -12,6 +12,10 @@ require_once( __DIR__ . '/includes/property-functions.php');
 
 
 
+//ACP local files system storage
+add_filter( 'acp/storage/file/directory', function() {
+    // Use a writable path, directory will be created for you
+    return get_stylesheet_directory() . '/acp-settings';
+} );
 
-
-
+add_filter( 'acp/storage/file/directory/migrate', '__return_true' );
