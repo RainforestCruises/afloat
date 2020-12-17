@@ -28,11 +28,11 @@
             "ui": 1
         },
         {
-            "key": "field_5f627060127ca",
-            "label": "Hero Title",
-            "name": "hero_title",
+            "key": "field_5fdbaf1c2e28e",
+            "label": "Navigation Title",
+            "name": "navigation_title",
             "type": "text",
-            "instructions": "Title to appear as in hero texts and search options",
+            "instructions": "Name as it will appear in navigation lists and titles- ex: Lima, Cusco, Peruvian Amazon",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -40,9 +40,25 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5f627060127ca",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "instructions": "Title displayed above hero snippet",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -54,7 +70,7 @@
             "label": "Hero Short Text",
             "name": "hero_short_text",
             "type": "textarea",
-            "instructions": "Short text to appear in hero area under title\/sub-title",
+            "instructions": "Short text to appear in hero area snippet",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -62,9 +78,6 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "default_value": "",
             "placeholder": "",
             "maxlength": 350,
@@ -76,7 +89,7 @@
             "label": "Hero Image",
             "name": "hero_image",
             "type": "image",
-            "instructions": "",
+            "instructions": "1920 x 1080 fullscreen image for slider",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -84,9 +97,6 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "return_format": "array",
             "preview_size": "medium",
             "library": "all",
@@ -166,5 +176,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Extended Fields for Sub Destination Post Types",
-    "modified": 1608130433
+    "modified": 1608235044
 }

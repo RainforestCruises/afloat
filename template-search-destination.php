@@ -1,5 +1,5 @@
 <?php
-/*Template Name: Search Destination*/
+/*Template Name: Search - Destination*/
 wp_enqueue_script('page-search', get_template_directory_uri() . '/js/page-search.js', array('jquery'), false, true);
 ?>
 

@@ -4,6 +4,7 @@ $cruises_image = get_field('cruises_image');
 $lodges_image = get_field('lodges_image');
 $cruises_snippet = get_field('cruises_snippet');
 $lodges_snippet = get_field('lodges_snippet');
+$title = $args['title'];
 
 
 ?>
@@ -24,7 +25,7 @@ $lodges_snippet = get_field('lodges_snippet');
             </div>
             <div class="accommodations-card__bottom">
                 <div class="accommodations-card__bottom__title">
-                    Lodges in Peru
+                <?php echo $title; ?> Lodges
                 </div>
                 <div class="accommodations-card__bottom__text">
                     <?php echo $lodges_snippet; ?>
@@ -38,7 +39,7 @@ $lodges_snippet = get_field('lodges_snippet');
             </div>
             <div class="accommodations-card__bottom">
                 <div class="accommodations-card__bottom__title">
-                    Cruises in Peru
+                <?php echo $title; ?> Cruises
                 </div>
                 <div class="accommodations-card__bottom__text">
                     <?php echo $cruises_snippet; ?>

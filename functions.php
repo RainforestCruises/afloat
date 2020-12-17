@@ -18,4 +18,3 @@ add_filter( 'acp/storage/file/directory', function() {
     return get_stylesheet_directory() . '/acp-settings';
 } );
 
-add_filter( 'acp/storage/file/directory/migrate', '__return_true' );

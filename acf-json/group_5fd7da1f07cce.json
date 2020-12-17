@@ -3,11 +3,11 @@
     "title": "Region Post",
     "fields": [
         {
-            "key": "field_5fd7da1f0f519",
-            "label": "Hero Title",
-            "name": "hero_title",
+            "key": "field_5fdbae096391e",
+            "label": "Navigation Title",
+            "name": "navigation_title",
             "type": "text",
-            "instructions": "",
+            "instructions": "Name as it will appear in navigation lists and titles. Make as short and concise as possible - ex: Asia, Americas",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,24 +15,25 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": [
-                "post",
-                "page",
-                "rfc_cruises",
-                "rfc_tours",
-                "rfc_lodges",
-                "rfc_destinations",
-                "rfc_locations",
-                "rfc_regions",
-                "rfc_countries",
-                "rfc_experiences"
-            ],
-            "admin_column_taxonomies": [
-                "category",
-                "post_tag",
-                "link_category"
-            ],
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5fd7da1f0f519",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "instructions": "Text that will appear in hero slider title",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -44,7 +45,7 @@
             "label": "Hero Short Text",
             "name": "hero_short_text",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Text that will appear in hero slider snippet under the title,",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -52,9 +53,6 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
@@ -130,5 +128,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Extended Fields for Destination Post Types",
-    "modified": 1607981633
+    "modified": 1608233906
 }

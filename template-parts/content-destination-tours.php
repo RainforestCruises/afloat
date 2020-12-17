@@ -8,7 +8,7 @@ $destinations = $args['destinations'];
 $tours = $args['tours'];
 $tour_experiences = $args['tour_experiences'];
 $currentYear = date("Y");
-$destination_type = $args['destination_type'];
+$destinationType = $args['destinationType'];
 
 $background_map = get_field('background_map');
 ?>
@@ -37,13 +37,13 @@ $background_map = get_field('background_map');
                     Destinations
                 </div>
                 <ul class="destination-tours__intro__lists__locations__list">
-                    <?php if ($destination_type == 'destination') {
+                    <?php if ($destinationType == 'destination') {
                         foreach ($locations as $s) : ?>
                             <li>
                                 <a href="#"><?php echo ($s->hero_title); ?></a>
                             </li>
                         <?php endforeach;
-                    } else if ($destination_type == 'region') {
+                    } else if ($destinationType == 'region') {
                         foreach ($destinations as $d) : ?>
                             <li>
                                 <a href="#"><?php echo ($d->hero_title); ?></a>
@@ -167,9 +167,9 @@ $background_map = get_field('background_map');
                             <?php echo get_the_title($experience); ?> Tours
                         </div>
                         <div class="category-card__content__availability">
-                            <?php if ($destination_type == 'region') {
+                            <?php if ($destinationType == 'region') {
                                 echo tours_available_region($region, $experience) . ' Tours Available';
-                            } else if ($destination_type == 'destination') {
+                            } else if ($destinationType == 'destination') {
                                 echo tours_available($destination, $experience) . ' Tours Available';
                             } ?>
                         </div>

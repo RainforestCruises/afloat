@@ -2,10 +2,10 @@
 
 return array (
   'version' => '5.4',
-  'title' => 'Locations',
-  'type' => 'rfc_locations',
-  'id' => '5fdb90a756a47',
-  'updated' => 1608235341,
+  'title' => 'Destinations',
+  'type' => 'rfc_destinations',
+  'id' => '5fdbb28b974a8',
+  'updated' => 1608235425,
   'columns' => 
   array (
     'title' => 
@@ -20,13 +20,13 @@ return array (
       'bulk_edit' => 'on',
       'search' => 'on',
     ),
-    '5fdb90ee2855a' => 
+    '5fdbb2c07cd75' => 
     array (
       'type' => 'column-acf_field',
       'label' => 'Navigation Title',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_5fdbaf1c2e28e',
+      'field' => 'field_5fdbaeda25a3a',
       'character_limit' => '20',
       'export' => 'off',
       'sort' => 'on',
@@ -36,13 +36,13 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
-    '5fdbb94d663c8' => 
+    '5fdbb9a14ad94' => 
     array (
       'type' => 'column-acf_field',
       'label' => 'Hero Title',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_5f627060127ca',
+      'field' => 'field_5fd7aed3430d5',
       'character_limit' => '20',
       'export' => 'off',
       'sort' => 'on',
@@ -52,13 +52,13 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
-    '5fdbb94d663cd' => 
+    '5fdbb9a14ad99' => 
     array (
       'type' => 'column-acf_field',
       'label' => 'Hero Short Text',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_5f6270ea127cc',
+      'field' => 'field_5fd7aee9430d6',
       'excerpt_length' => '20',
       'export' => 'off',
       'sort' => 'on',
@@ -68,13 +68,13 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
-    '5fdbb435d64e6' => 
+    '5fdbb3da5fa0c' => 
     array (
       'type' => 'column-acf_field',
       'label' => 'Hero Image',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_5f63c308d92b9',
+      'field' => 'field_5fd7af0a430d7',
       'image_size' => 'cpac-custom',
       'image_size_w' => '60',
       'image_size_h' => '60',
@@ -86,13 +86,13 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
-    '5fdb90ee28556' => 
+    '5fdbb2c07cd7a' => 
     array (
       'type' => 'column-acf_field',
-      'label' => 'Destination',
+      'label' => 'Region',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_5fd7ac2ebb604',
+      'field' => 'field_5fc53363628e2',
       'post_property_display' => 'title',
       'post_link_to' => 'edit_post',
       'export' => 'off',
@@ -103,13 +103,13 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
-    '5fdbb94d663cf' => 
+    '5fdbb9a14ad9c' => 
     array (
       'type' => 'column-acf_field',
       'label' => 'Importance',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_5f63cd57780c7',
+      'field' => 'field_5fd7af24430d8',
       'number_format' => '',
       'export' => 'off',
       'sort' => 'on',

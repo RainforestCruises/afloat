@@ -2,7 +2,11 @@
     $destination = $args['destination'];
     $locations = $args['locations'];
     $sliderContent = $args['sliderContent'];
-    $destinationTitle = $args['destinationTitle'];
+    //$destinationTitle = $args['destinationTitle'];
+    //$regionTitle = $args['regionTitle'];
+    $title = $args['title'];
+
+    $destinationType = $args['destinationType'];
 
 
     ?>
@@ -23,7 +27,7 @@
                       <a href="#">Destinations</a>
                   </li>
                   <li>
-                      <?php echo $destinationTitle ?>
+                      <?php echo $title  ?>
                   </li>
               </ol>
           </div>
@@ -37,7 +41,7 @@
               <!-- sticky wrapper -->
               <nav class="destination-hero__content__page-nav__sticky-wrapper" id="template-nav">
                   <div class="destination-hero__content__page-nav__title" id="template-nav-title" href="#top">
-                  <?php echo $destinationTitle ?>
+                  <?php echo $title  ?>
                   </div>
                   <ul class="destination-hero__content__page-nav__list">
                       <li class="destination-hero__content__page-nav__list__item">
@@ -61,7 +65,7 @@
                       </li>
                   </ul>
                   <div class="page-nav__button">
-                  <?php echo $destinationTitle ?>
+                  <?php echo $title  ?>
                       <svg>
                           <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
                       </svg>

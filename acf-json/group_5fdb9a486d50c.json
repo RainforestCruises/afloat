@@ -1,9 +1,9 @@
 {
-    "key": "group_5f626b3e169ea",
-    "title": "Destination Page - Destination",
+    "key": "group_5fdb9a486d50c",
+    "title": "Destination Page - Region",
     "fields": [
         {
-            "key": "field_5fd0062bdc890",
+            "key": "field_5fdb9a4877830",
             "label": "General",
             "name": "",
             "type": "tab",
@@ -19,18 +19,18 @@
             "endpoint": 0
         },
         {
-            "key": "field_5f626b4459727",
-            "label": "Destination Post",
-            "name": "destination_post",
+            "key": "field_5fdb9a487831b",
+            "label": "Region Post",
+            "name": "region_post",
             "type": "post_object",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5fd7b1e6a48a0",
+                        "field": "field_5fdb9a4877c17",
                         "operator": "==",
-                        "value": "destination"
+                        "value": "region"
                     }
                 ]
             ],
@@ -43,7 +43,7 @@
             "admin_column_post_types": "",
             "admin_column_taxonomies": "",
             "post_type": [
-                "rfc_destinations"
+                "rfc_regions"
             ],
             "taxonomy": "",
             "allow_null": 0,
@@ -52,7 +52,7 @@
             "ui": 1
         },
         {
-            "key": "field_5fc52e9ebd0f9",
+            "key": "field_5fdb9a48787d2",
             "label": "Intro Title",
             "name": "intro_title",
             "type": "text",
@@ -87,7 +87,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5fc535b17cb44",
+            "key": "field_5fdb9a4878bbf",
             "label": "Intro Text",
             "name": "intro_text",
             "type": "textarea",
@@ -109,7 +109,7 @@
             "new_lines": ""
         },
         {
-            "key": "field_5fc52eadbd0fa",
+            "key": "field_5fdb9a4878f98",
             "label": "Background Map",
             "name": "background_map",
             "type": "image",
@@ -136,7 +136,7 @@
             "mime_types": ""
         },
         {
-            "key": "field_5fce8379a3ff4",
+            "key": "field_5fdb9a4879399",
             "label": "Tour Experiences",
             "name": "tour_experiences",
             "type": "repeater",
@@ -155,7 +155,7 @@
             "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5fce8395a3ff5",
+                    "key": "field_5fdb9a4891bcc",
                     "label": "Experience",
                     "name": "experience",
                     "type": "post_object",
@@ -180,7 +180,7 @@
                     "ui": 1
                 },
                 {
-                    "key": "field_5fce83dba3ff6",
+                    "key": "field_5fdb9a4891fcc",
                     "label": "Background Image",
                     "name": "background_image",
                     "type": "image",
@@ -209,7 +209,7 @@
             ]
         },
         {
-            "key": "field_5fd2537294a08",
+            "key": "field_5fdb9a4879778",
             "label": "Testimonials",
             "name": "testimonials",
             "type": "repeater",
@@ -228,7 +228,7 @@
             "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5fd2538294a09",
+                    "key": "field_5fdb9a489d239",
                     "label": "Person",
                     "name": "person",
                     "type": "text",
@@ -265,7 +265,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5fd253e494a0a",
+                    "key": "field_5fdb9a489d5a6",
                     "label": "Testimonial",
                     "name": "testimonial",
                     "type": "textarea",
@@ -287,7 +287,7 @@
                     "new_lines": ""
                 },
                 {
-                    "key": "field_5fd2564b0d377",
+                    "key": "field_5fdb9a489da0b",
                     "label": "Image",
                     "name": "image",
                     "type": "image",
@@ -316,7 +316,7 @@
             ]
         },
         {
-            "key": "field_5fd2543594a0d",
+            "key": "field_5fdb9a4879b47",
             "label": "FAQs",
             "name": "faqs",
             "type": "repeater",
@@ -335,7 +335,7 @@
             "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5fd2544694a0e",
+                    "key": "field_5fdb9a48ab9a6",
                     "label": "Question",
                     "name": "question",
                     "type": "text",
@@ -372,7 +372,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5fd2545494a0f",
+                    "key": "field_5fdb9a48abd8e",
                     "label": "Answer",
                     "name": "answer",
                     "type": "textarea",
@@ -396,7 +396,7 @@
             ]
         },
         {
-            "key": "field_5fd00616dc88f",
+            "key": "field_5fdb9a4879f2b",
             "label": "Accommodations",
             "name": "",
             "type": "tab",
@@ -412,7 +412,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_5fce842ca3ff7",
+            "key": "field_5fdb9a487a310",
             "label": "Cruises Image",
             "name": "cruises_image",
             "type": "image",
@@ -439,7 +439,7 @@
             "mime_types": ""
         },
         {
-            "key": "field_5fce8465a3ff8",
+            "key": "field_5fdb9a487a716",
             "label": "Lodges Image",
             "name": "lodges_image",
             "type": "image",
@@ -481,7 +481,7 @@
             "mime_types": ""
         },
         {
-            "key": "field_5fd0064fdc891",
+            "key": "field_5fdb9a487aaeb",
             "label": "Cruises Snippet",
             "name": "cruises_snippet",
             "type": "textarea",
@@ -503,7 +503,7 @@
             "new_lines": ""
         },
         {
-            "key": "field_5fd006a6dc892",
+            "key": "field_5fdb9a487aec1",
             "label": "Lodges Snippet",
             "name": "lodges_snippet",
             "type": "textarea",
@@ -545,7 +545,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "template-destinations-destination.php"
+                "value": "template-destinations-region.php"
             }
         ]
     ],
@@ -559,5 +559,5 @@
     ],
     "active": true,
     "description": "Extended Fields for Destination Pages",
-    "modified": 1608231268
+    "modified": 1608227439
 }

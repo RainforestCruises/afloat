@@ -28,11 +28,11 @@
             "ui": 1
         },
         {
-            "key": "field_5fd7aed3430d5",
-            "label": "Hero Title",
-            "name": "hero_title",
+            "key": "field_5fdbaeda25a3a",
+            "label": "Navigation Title",
+            "name": "navigation_title",
             "type": "text",
-            "instructions": "",
+            "instructions": "Name as it will appear in navigation lists and titles. Make as short and concise as possible - ex: Peru, Amazon, Galapagos",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -40,24 +40,25 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": [
-                "post",
-                "page",
-                "rfc_cruises",
-                "rfc_tours",
-                "rfc_lodges",
-                "rfc_destinations",
-                "rfc_locations",
-                "rfc_regions",
-                "rfc_countries",
-                "rfc_experiences"
-            ],
-            "admin_column_taxonomies": [
-                "category",
-                "post_tag",
-                "link_category"
-            ],
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5fd7aed3430d5",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "instructions": "Title displayed above hero snippet",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -69,7 +70,7 @@
             "label": "Hero Short Text",
             "name": "hero_short_text",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Short text to appear in hero slider snippet",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -77,9 +78,6 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
@@ -91,7 +89,7 @@
             "label": "Hero Image",
             "name": "hero_image",
             "type": "image",
-            "instructions": "",
+            "instructions": "1920 x 1080 fullscreen image for slider",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -99,9 +97,6 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "return_format": "array",
             "preview_size": "medium",
             "library": "all",
@@ -136,6 +131,25 @@
             "min": "",
             "max": 99,
             "step": ""
+        },
+        {
+            "key": "field_5fdbaf61814b6",
+            "label": "Default Search Link",
+            "name": "default_search_link",
+            "type": "page_link",
+            "instructions": "Default page to link for search results - ex: Peru (post type) points to Peru Travel (search page)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "taxonomy": "",
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
         }
     ],
     "location": [
@@ -155,5 +169,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Extended Fields for Destination Post Types",
-    "modified": 1607970625
+    "modified": 1608233807
 }
