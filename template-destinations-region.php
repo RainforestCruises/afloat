@@ -79,7 +79,7 @@ foreach ($destinations as $d) {
     $destinationSlide = array(
         'hero_image' => get_field('hero_image', $d),
         'hero_title' => get_field('hero_title', $d),
-        'hero_short_text' => get_field('hero_short_text', $d),
+        'hero_short_text' => get_field('hero_short_text_region', $d),
     );
     $sliderContent[] = $destinationSlide;
 }

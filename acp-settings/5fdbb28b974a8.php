@@ -5,7 +5,7 @@ return array (
   'title' => 'Destinations',
   'type' => 'rfc_destinations',
   'id' => '5fdbb28b974a8',
-  'updated' => 1608235425,
+  'updated' => 1608245344,
   'columns' => 
   array (
     'title' => 
@@ -68,6 +68,22 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
+    '5fdbe00b3c522' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Hero Short Text (Region)',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_5fdbdf6781833',
+      'excerpt_length' => '20',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'off',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+    ),
     '5fdbb3da5fa0c' => 
     array (
       'type' => 'column-acf_field',
@@ -103,14 +119,13 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
-    '5fdbb9a14ad9c' => 
+    '5fdbe00b3c529' => 
     array (
       'type' => 'column-acf_field',
-      'label' => 'Importance',
+      'label' => 'Is Country',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_5fd7af24430d8',
-      'number_format' => '',
+      'field' => 'field_5fdbdeec81832',
       'export' => 'off',
       'sort' => 'on',
       'edit' => 'off',

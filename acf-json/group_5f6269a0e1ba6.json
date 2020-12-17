@@ -28,6 +28,25 @@
             "ui": 1
         },
         {
+            "key": "field_5fdbdeec81832",
+            "label": "Is Country",
+            "name": "is_country",
+            "type": "true_false",
+            "instructions": "Check if this destination is also a country",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5fdbaeda25a3a",
             "label": "Navigation Title",
             "name": "navigation_title",
@@ -71,6 +90,25 @@
             "name": "hero_short_text",
             "type": "textarea",
             "instructions": "Short text to appear in hero slider snippet",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5fdbdf6781833",
+            "label": "Hero Short Text (Region)",
+            "name": "hero_short_text_region",
+            "type": "textarea",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -169,5 +207,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Extended Fields for Destination Post Types",
-    "modified": 1608233807
+    "modified": 1608246311
 }

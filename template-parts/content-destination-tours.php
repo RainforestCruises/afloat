@@ -40,13 +40,13 @@ $background_map = get_field('background_map');
                     <?php if ($destinationType == 'destination') {
                         foreach ($locations as $s) : ?>
                             <li>
-                                <a href="#"><?php echo ($s->hero_title); ?></a>
+                                <a href="#"><?php echo ($s->navigation_title); ?></a>
                             </li>
                         <?php endforeach;
                     } else if ($destinationType == 'region') {
                         foreach ($destinations as $d) : ?>
                             <li>
-                                <a href="#"><?php echo ($d->hero_title); ?></a>
+                                <a href="#"><?php echo ($d->navigation_title); ?></a>
                             </li>
                     <?php endforeach;
                     } ?>
