@@ -1,4 +1,4 @@
-<?php 
+<?php
 //Get lowest price (Price From)
 function lowest_property_price($cruise_data, $fromLength, $fromYear)
 {
@@ -6,29 +6,27 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
     $prices = [];
 
     $itineraries = $cruise_data['Itineraries'];
-    foreach($itineraries as $i){
-        if($i['LengthInDays'] >= $fromLength){
-            $rateYears = $i['RateYears'];   
-            foreach($rateYears as $r){
-                if($r['Year'] >= $fromYear) {
+    foreach ($itineraries as $i) {
+        if ($i['LengthInDays'] >= $fromLength) {
+            $rateYears = $i['RateYears'];
+            foreach ($rateYears as $r) {
+                if ($r['Year'] >= $fromYear) {
                     $rates = $r['Rates'];
                     $rateValues = [];
-                    foreach($rates as $rate){
+                    foreach ($rates as $rate) {
                         $rateValues[] = $rate['WebAmount'];
                     }
-                    if($rateValues){
+                    if ($rateValues) {
                         $prices[] = min($rateValues);
                     }
-                    
-                }     
-            }  
+                }
+            }
         }
-         
     }
 
 
     $lowestPrice = min($prices);
- 
+
     return $lowestPrice;
 }
 
@@ -39,18 +37,62 @@ function itineraryRange($cruise_data, $separator)
     $itineraries = $cruise_data['Itineraries'];
     $itineraryValues  = [];
 
-    foreach($itineraries as $i){
-        $itineraryValues[] = $i['LengthInDays'];       
+    foreach ($itineraries as $i) {
+        $itineraryValues[] = $i['LengthInDays'];
     }
 
     $rangeFrom = min($itineraryValues);
     $rangeTo = max($itineraryValues);
     $returnString = "";
-    if($rangeFrom != $rangeTo){
+    if ($rangeFrom != $rangeTo) {
         $returnString = $rangeFrom . $separator . $rangeTo;
     } else {
         $returnString = $rangeFrom;
     }
 
     return $returnString;
+}
+
+function countriesInDestinations($destinations, $separator)
+{
+
+    $count = 0;
+    if ($destinations) {
+        foreach ($destinations as $r) {
+            if ($r) {
+                $isCountry = get_field('is_country', $r);
+                if ($isCountry == true) {
+                    $title = get_the_title($r);
+                    if ($count != 0) {
+                        echo " $separator " . $title;
+                    } else {
+                        echo $title;
+                    }
+                    $count++;
+                }
+            }
+        }
+    }
+}
+
+function productType($property) {
+    $postType = get_post_type($property);
+
+    if($postType == 'rfc_tours'){
+        echo 'Tour Package';
+    }else if ($postType == 'rfc_lodges'){
+        echo 'Lodge';
+
+    }else if ($postType == 'rfc_cruises'){
+
+        $cruiseType = get_field('cruise_type', $property);
+        if($cruiseType == 'river'){
+            echo 'River Cruise';
+        }else {
+            echo 'Costal Cruise';
+
+        }
+        
+
+    }
 }

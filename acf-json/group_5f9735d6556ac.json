@@ -20,10 +20,10 @@
         },
         {
             "key": "field_5f9735d666c72",
-            "label": "Destination",
-            "name": "destination",
+            "label": "Destinations",
+            "name": "destinations",
             "type": "relationship",
-            "instructions": "",
+            "instructions": "Include all that apply",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -31,11 +31,33 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 1,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "post_type": [
                 "rfc_destinations"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
+            "key": "field_5fdce47a7322a",
+            "label": "Locations",
+            "name": "locations",
+            "type": "relationship",
+            "instructions": "Include all that apply (Location - Parent Destination)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_locations"
             ],
             "taxonomy": "",
             "filters": [
@@ -64,34 +86,6 @@
             "admin_column_taxonomies": "",
             "post_type": [
                 "rfc_experiences"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
-        },
-        {
-            "key": "field_5fce5df365350",
-            "label": "Countries",
-            "name": "countries",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
-            "post_type": [
-                "rfc_countries"
             ],
             "taxonomy": "",
             "filters": [
@@ -1567,6 +1561,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Extended Fields for Tour Post Types",
-    "modified": 1607456792
+    "description": "Tour - CPT",
+    "modified": 1608319300
 }

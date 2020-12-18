@@ -33,7 +33,7 @@
             "name": "navigation_title",
             "type": "text",
             "instructions": "Name as it will appear in navigation lists and titles- ex: Lima, Cusco, Peruvian Amazon",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -52,7 +52,7 @@
             "name": "hero_title",
             "type": "text",
             "instructions": "Title displayed above hero snippet",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -114,16 +114,13 @@
             "name": "importance",
             "type": "number",
             "instructions": "Lower numbers will appear first in lists.",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 1,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "default_value": 1,
             "placeholder": "",
             "prepend": "",
@@ -175,6 +172,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Extended Fields for Sub Destination Post Types",
-    "modified": 1608235044
+    "description": "Locations - CPT",
+    "modified": 1608318875
 }

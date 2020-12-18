@@ -28,6 +28,25 @@
             "ui": 1
         },
         {
+            "key": "field_5fdbaeda25a3a",
+            "label": "Navigation Title",
+            "name": "navigation_title",
+            "type": "text",
+            "instructions": "Name as it will appear in navigation lists and titles. Make as short and concise as possible - ex: Peru, Amazon, Galapagos",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5fdbdeec81832",
             "label": "Is Country",
             "name": "is_country",
@@ -47,31 +66,12 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5fdbaeda25a3a",
-            "label": "Navigation Title",
-            "name": "navigation_title",
-            "type": "text",
-            "instructions": "Name as it will appear in navigation lists and titles. Make as short and concise as possible - ex: Peru, Amazon, Galapagos",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5fd7aed3430d5",
             "label": "Hero Title",
             "name": "hero_title",
             "type": "text",
             "instructions": "Title displayed above hero snippet",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -206,6 +206,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Extended Fields for Destination Post Types",
-    "modified": 1608246311
+    "description": "Destinations - CPT",
+    "modified": 1608318974
 }

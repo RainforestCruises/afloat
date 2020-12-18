@@ -8,7 +8,7 @@
             "name": "navigation_title",
             "type": "text",
             "instructions": "Name as it will appear in navigation lists and titles. Make as short and concise as possible - ex: Asia, Americas",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -27,7 +27,7 @@
             "name": "hero_title",
             "type": "text",
             "instructions": "Text that will appear in hero slider title",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -127,6 +127,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Extended Fields for Destination Post Types",
-    "modified": 1608233906
+    "description": "Regions - CPT",
+    "modified": 1608319003
 }

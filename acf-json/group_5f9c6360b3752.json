@@ -127,10 +127,10 @@
         },
         {
             "key": "field_5f9c6360c3969",
-            "label": "Destination",
-            "name": "destination",
+            "label": "Destinations",
+            "name": "destinations",
             "type": "relationship",
-            "instructions": "",
+            "instructions": "Include all that apply",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -138,9 +138,6 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 1,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "post_type": [
                 "rfc_destinations"
             ],
@@ -152,6 +149,25 @@
             "min": "",
             "max": "",
             "return_format": "object"
+        },
+        {
+            "key": "field_5fdd0167fe054",
+            "label": "Locations",
+            "name": "locations",
+            "type": "text",
+            "instructions": "Include all that apply (Location - Parent Destination)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_5fce601646fff",
@@ -171,34 +187,6 @@
             "admin_column_taxonomies": "",
             "post_type": [
                 "rfc_experiences"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
-        },
-        {
-            "key": "field_5fce5e535ded2",
-            "label": "Countries",
-            "name": "countries",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
-            "post_type": [
-                "rfc_countries"
             ],
             "taxonomy": "",
             "filters": [
@@ -1344,6 +1332,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Extended Fields for Cruise Post Types",
-    "modified": 1607360571
+    "description": "Lodge - CPT",
+    "modified": 1608319366
 }

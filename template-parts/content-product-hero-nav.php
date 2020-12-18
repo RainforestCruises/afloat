@@ -39,6 +39,7 @@ $hero_image = get_field('hero_image');
                 <?php } ?>
             </ul>
             <div class="page-nav__button">
+            <!-- for tour name Tour Name -->
             <?php echo get_the_title() ?>
                 <svg>
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>

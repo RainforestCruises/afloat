@@ -1,29 +1,51 @@
+<?php
+$queryArgs = array(
+    'post_type' => get_post_type(),
+    'posts_per_page' => -1
+);
 
+
+//build meta query criteria
+$queryArgsDestination = array();
+$queryArgsDestination['relation'] = 'OR';
+
+$destinations = get_field('destinations');
+
+foreach ($destinations as $d) {
+    $queryArgsDestination[] = array(
+        'key'     => 'destinations',
+        'value'   => serialize(strval($d->ID)),
+        'compare' => 'LIKE'
+    );
+}
+$queryArgs['meta_query'][] = $queryArgsDestination;
+
+
+
+$posts = get_posts($queryArgs);
+$relatedCount = 0;
+?>
 
 <div class="related-slider" id="related-slider">
+
     <?php
-    $queryArgs = array(
-        'post_type' => get_post_type(),
-        'posts_per_page' => 8
-    );
-    $secondary = new WP_Query($queryArgs);
-    $relatedCount = 0;
-    if ($secondary->have_posts()) :
-        while ($secondary->have_posts()) : $secondary->the_post();
+    if ($posts) :
+        foreach ($posts as $p) {
+
             $relatedCount++;
 
-            $featured_image = get_field('featured_image');
-            $cruise_data = get_field('cruise_data');
-            $countries = get_field('country');
-            $top_snippet = get_field('top_snippet');
+            $featured_image = get_field('featured_image', $p);
+            $cruise_data = get_field('cruise_data', $p);
+            $relatedItemDestinations = get_field('destinations', $p);
+            $top_snippet = get_field('top_snippet', $p);
 
-            if (get_post_type() != 'rfc_cruises') {
+            if (get_post_type($p) != 'rfc_cruises') {
 
-                $lowest = get_field('length_in_days');
-                $highest = get_field('length_in_days');
+                $lowest = get_field('length_in_days', $p);
+                $highest = get_field('length_in_days', $p);
 
                 $priceList = [];
-                $price_packages = get_field('price_packages');
+                $price_packages = get_field('price_packages', $p);
 
                 if ($price_packages) {
                     foreach ($price_packages as $price_package) {
@@ -32,48 +54,34 @@
                         }
                     }
                 }
-           
+
                 $lowestPrice = 0;
                 if ($priceList) {
                     sort($priceList);
                     $lowestPrice = $priceList[0];
                 }
-
-               
             } else {
                 $lowest = $cruise_data['LowestLengthInDays'];
                 $highest = $cruise_data['HighestLengthInDays'];
                 $lowestPrice = $cruise_data['LowestPrice'];
             }
-
     ?>
 
             <div class="related-slider__item" onClick="parent.location='<?php echo get_permalink(); ?>'">
                 <div class="related-slider__item__title-group">
                     <div class="related-slider__item__title-group__name">
-                        <?php echo get_the_title() ?>
+                        <?php echo get_the_title($p) ?>
                     </div>
                     <div class="related-slider__item__title-group__country">
                         <?php
-                        $count = 0;
-                        if ($countries) {
-                            foreach ($countries as $country) {
-                                $title = get_the_title($country->ID);
-                                if ($count != 0) {
-                                    echo " / " . $title;
-                                } else {
-                                    echo $title;
-                                }
-                                $count++;
-                            }
-                        }
+                        echo countriesInDestinations($relatedItemDestinations, '/')
                         ?>
                     </div>
                 </div>
                 <img src="<?php echo esc_url($featured_image['url']); ?>" alt="product" class="related-slider__item__img">
                 <div class="related-slider__item__bottom">
                     <div class="related-slider__item__bottom__header">
-                        River Cruise
+                       <?php productType($p) ?>
                     </div>
                     <div class="related-slider__item__bottom__description">
                         <?php echo $top_snippet; ?>
@@ -96,12 +104,18 @@
                 </div>
             </div>
 
+    <?php
+
+        }
+    endif;
+    ?>
+
+
+
 
 
     <?php
-        endwhile;
-        wp_reset_postdata(); //very important to rest after custom query
-    endif;
+
     ?>
 </div>
 

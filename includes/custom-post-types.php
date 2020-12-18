@@ -127,25 +127,6 @@ function create_post_type_rfc_regions()
 add_action('init', 'create_post_type_rfc_regions');
 
 
-// Custom Post Type - countries
-function create_post_type_rfc_countries()
-{
-    register_post_type(
-        'rfc_countries',
-        array(
-            'labels' => array(
-                'name' => __('Countries'),
-                'singular_name' => __('Country'),
-            ),
-            'public' => true,
-            'rewrite' => array('slug' => 'countries'),
-            'supports' => array(
-                'title',
-            )
-        )
-    );
-}
-add_action('init', 'create_post_type_rfc_countries');
 
 // Custom Post Type - experiences
 function create_post_type_rfc_experiences()
