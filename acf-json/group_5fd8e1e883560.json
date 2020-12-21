@@ -93,14 +93,11 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "post_type": [
                 "page"
             ],
             "taxonomy": [
-                "category:search-region"
+                "category:search"
             ],
             "allow_null": 0,
             "allow_archives": 0,
@@ -149,5 +146,5 @@
     ],
     "active": true,
     "description": "Search (Destination) - Page",
-    "modified": 1608319226
+    "modified": 1608570050
 }
