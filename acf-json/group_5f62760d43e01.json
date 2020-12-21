@@ -176,6 +176,31 @@
             "return_format": "object"
         },
         {
+            "key": "field_5fe125080a48b",
+            "label": "Activities",
+            "name": "activities",
+            "type": "relationship",
+            "instructions": "Include all that apply",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_activities"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
             "key": "field_5fce5fbdd6afb",
             "label": "Experiences",
             "name": "experiences",
@@ -1415,5 +1440,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Cruise - CPT",
-    "modified": 1608319081
+    "modified": 1608590669
 }

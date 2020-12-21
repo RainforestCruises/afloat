@@ -2,10 +2,10 @@
 
 return array (
   'version' => '5.4',
-  'title' => 'Tours',
-  'type' => 'rfc_tours',
-  'id' => '5fdce4309e743',
-  'updated' => 1608591542,
+  'title' => 'Lodges',
+  'type' => 'rfc_lodges',
+  'id' => '5fe1233faaaa4',
+  'updated' => 1608591568,
   'columns' => 
   array (
     'title' => 
@@ -20,13 +20,31 @@ return array (
       'bulk_edit' => 'on',
       'search' => 'on',
     ),
-    '5fdce577c60ef' => 
+    '5fe123c305c0b' => 
     array (
       'type' => 'column-acf_field',
-      'label' => 'Tour Name',
+      'label' => 'Destinations',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_5f975c6168c7d',
+      'field' => 'field_5f9c6360c3969',
+      'post_property_display' => 'title',
+      'post_link_to' => 'edit_post',
+      'number_of_items' => '10',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+    ),
+    '5fe123c305c11' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Locations',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_5fdd0167fe054',
       'character_limit' => '20',
       'export' => 'off',
       'sort' => 'on',
@@ -36,65 +54,13 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
-    '5fdce577c60fa' => 
-    array (
-      'type' => 'column-acf_field',
-      'label' => 'Length (Days)',
-      'width' => '',
-      'width_unit' => '%',
-      'field' => 'field_5fce65e403cb9',
-      'number_format' => '',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'on',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-    ),
-    '5fdce46352681' => 
-    array (
-      'type' => 'column-acf_field',
-      'label' => 'Destinations',
-      'width' => '',
-      'width_unit' => '%',
-      'field' => 'field_5f9735d666c72',
-      'post_property_display' => 'title',
-      'post_link_to' => 'edit_post',
-      'number_of_items' => '10',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'on',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-    ),
-    '5fdce577c60fe' => 
-    array (
-      'type' => 'column-acf_field',
-      'label' => 'Locations',
-      'width' => '',
-      'width_unit' => '%',
-      'field' => 'field_5fdce47a7322a',
-      'post_property_display' => 'title',
-      'post_link_to' => 'edit_post',
-      'number_of_items' => '10',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'on',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-    ),
-    '5fe128b65b244' => 
+    '5fe128d042ec1' => 
     array (
       'type' => 'column-acf_field',
       'label' => 'Activities',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_5fe1282229469',
+      'field' => 'field_5fe1286a92430',
       'post_property_display' => 'title',
       'post_link_to' => 'edit_post',
       'number_of_items' => '10',
@@ -106,13 +72,13 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
-    '5fdce46352684' => 
+    '5fe123c305c12' => 
     array (
       'type' => 'column-acf_field',
       'label' => 'Experiences',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_5fce605f5e5ab',
+      'field' => 'field_5fce601646fff',
       'post_property_display' => 'title',
       'post_link_to' => 'edit_post',
       'number_of_items' => '10',
@@ -124,28 +90,13 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
-    '5fdce577c6105' => 
-    array (
-      'type' => 'column-acf_field',
-      'label' => 'Best Selling',
-      'width' => '',
-      'width_unit' => '%',
-      'field' => 'field_5fcea1da5f0a3',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'on',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-    ),
-    '5fdce577c6108' => 
+    '5fe123c305c14' => 
     array (
       'type' => 'column-acf_field',
       'label' => 'Featured Image',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_5f9735d66627b',
+      'field' => 'field_5f9c6360c2d6a',
       'image_size' => 'cpac-custom',
       'image_size_w' => '60',
       'image_size_h' => '60',
@@ -157,13 +108,13 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
-    '5fdce577c610a' => 
+    '5fe123c305c13' => 
     array (
       'type' => 'column-acf_field',
       'label' => 'Hero Image',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_5f9735d665e90',
+      'field' => 'field_5f9c6360c2997',
       'image_size' => 'cpac-custom',
       'image_size_w' => '60',
       'image_size_h' => '60',
@@ -175,7 +126,7 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
-    '5fdce577c610d' => 
+    '5fe123c305c15' => 
     array (
       'type' => 'column-author_name',
       'label' => 'Author',

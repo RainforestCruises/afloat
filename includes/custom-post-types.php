@@ -63,6 +63,65 @@ function create_post_type_rfc_lodges()
 add_action('init', 'create_post_type_rfc_lodges');
 
 
+// Custom Post Type - experiences
+function create_post_type_rfc_experiences()
+{
+    register_post_type(
+        'rfc_experiences',
+        array(
+            'labels' => array(
+                'name' => __('Experiences'),
+                'singular_name' => __('Experience'),
+            ),
+            'public' => true,
+            'rewrite' => array('slug' => 'experiences'),
+            'supports' => array(
+                'title',
+            )
+        )
+    );
+}
+add_action('init', 'create_post_type_rfc_experiences');
+
+// Custom Post Type - activities
+function create_post_type_rfc_activities()
+{
+    register_post_type(
+        'rfc_activities',
+        array(
+            'labels' => array(
+                'name' => __('Activities'),
+                'singular_name' => __('Activity'),
+            ),
+            'public' => true,
+            'rewrite' => array('slug' => 'activities'),
+            'supports' => array(
+                'title',
+            )
+        )
+    );
+}
+add_action('init', 'create_post_type_rfc_activities');
+
+// Custom Post Type - Regions
+function create_post_type_rfc_regions()
+{
+    register_post_type(
+        'rfc_regions',
+        array(
+            'labels' => array(
+                'name' => __('Regions'),
+                'singular_name' => __('Region'),
+            ),
+            'public' => true,
+            'rewrite' => array('slug' => 'regions'),
+            'supports' => array(
+                'title',
+            )
+        )
+    );
+}
+add_action('init', 'create_post_type_rfc_regions');
 
 // Custom Post Type - Destinations
 function create_post_type_rfc_destinations()
@@ -106,46 +165,8 @@ function create_post_type_rfc_locations()
 add_action('init', 'create_post_type_rfc_locations');
 
 
-// Custom Post Type - Regions
-function create_post_type_rfc_regions()
-{
-    register_post_type(
-        'rfc_regions',
-        array(
-            'labels' => array(
-                'name' => __('Regions'),
-                'singular_name' => __('Region'),
-            ),
-            'public' => true,
-            'rewrite' => array('slug' => 'regions'),
-            'supports' => array(
-                'title',
-            )
-        )
-    );
-}
-add_action('init', 'create_post_type_rfc_regions');
 
 
 
-// Custom Post Type - experiences
-function create_post_type_rfc_experiences()
-{
-    register_post_type(
-        'rfc_experiences',
-        array(
-            'labels' => array(
-                'name' => __('Experiences'),
-                'singular_name' => __('Experience'),
-            ),
-            'public' => true,
-            'rewrite' => array('slug' => 'experiences'),
-            'supports' => array(
-                'title',
-            )
-        )
-    );
-}
-add_action('init', 'create_post_type_rfc_experiences');
 
 

@@ -154,7 +154,7 @@
             "key": "field_5fdd0167fe054",
             "label": "Locations",
             "name": "locations",
-            "type": "text",
+            "type": "relationship",
             "instructions": "Include all that apply (Location - Parent Destination)",
             "required": 0,
             "conditional_logic": 0,
@@ -163,11 +163,42 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "post_type": [
+                "rfc_locations"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
+            "key": "field_5fe1286a92430",
+            "label": "Activities",
+            "name": "activities",
+            "type": "relationship",
+            "instructions": "Select all that apply",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_activities"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
         },
         {
             "key": "field_5fce601646fff",
@@ -1333,5 +1364,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Lodge - CPT",
-    "modified": 1608319366
+    "modified": 1608591671
 }
