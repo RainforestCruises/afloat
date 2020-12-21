@@ -3,31 +3,6 @@
     "title": "Activity Post",
     "fields": [
         {
-            "key": "field_5fe10551ddef0",
-            "label": "Destinations",
-            "name": "destinations",
-            "type": "relationship",
-            "instructions": "Select all that apply",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "rfc_destinations"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
-        },
-        {
             "key": "field_5fe10551de30a",
             "label": "Navigation Title",
             "name": "navigation_title",
@@ -147,5 +122,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Activities - CPT",
-    "modified": 1608583459
+    "modified": 1608591983
 }

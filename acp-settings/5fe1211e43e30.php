@@ -5,7 +5,7 @@ return array (
   'title' => 'Activities',
   'type' => 'rfc_activities',
   'id' => '5fe1211e43e30',
-  'updated' => 1608590022,
+  'updated' => 1608592181,
   'columns' => 
   array (
     'title' => 
@@ -19,24 +19,6 @@ return array (
       'edit' => 'off',
       'bulk_edit' => 'on',
       'search' => 'on',
-    ),
-    '5fe1214886816' => 
-    array (
-      'type' => 'column-acf_field',
-      'label' => 'Destinations',
-      'width' => '',
-      'width_unit' => '%',
-      'field' => 'field_5fe10551ddef0',
-      'post_property_display' => 'title',
-      'post_link_to' => 'edit_post',
-      'number_of_items' => '10',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'on',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
     ),
     '5fe121fd07a2f' => 
     array (
