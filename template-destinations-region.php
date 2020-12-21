@@ -71,7 +71,7 @@ $cruises = get_posts($cruiseCriteria);
 //Build Slider Content
 $regionSlide = array(
     'hero_image' => get_field('hero_image', $region),
-    'hero_title' => get_field('hero_title', $region),
+    'hero_title' => '',
     'hero_short_text' => get_field('hero_short_text', $region),
 );
 $sliderContent[] = $regionSlide;

@@ -2,8 +2,6 @@
     $destination = $args['destination'];
     $locations = $args['locations'];
     $sliderContent = $args['sliderContent'];
-    //$destinationTitle = $args['destinationTitle'];
-    //$regionTitle = $args['regionTitle'];
     $title = $args['title'];
 
     $destinationType = $args['destinationType'];
