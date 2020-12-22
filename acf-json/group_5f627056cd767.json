@@ -32,7 +32,7 @@
             "label": "Navigation Title",
             "name": "navigation_title",
             "type": "text",
-            "instructions": "Name as it will appear in navigation lists and titles- ex: Lima, Cusco, Peruvian Amazon",
+            "instructions": "Name as it will appear in navigation lists and titles- ex: Peru, Lima, Cusco",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -51,7 +51,7 @@
             "label": "Hero Title",
             "name": "hero_title",
             "type": "text",
-            "instructions": "Title displayed above hero snippet",
+            "instructions": "Title displayed above hero snippet, ex: Peruvian Amazon, Cusco, Lima",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -173,5 +173,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Locations - CPT",
-    "modified": 1608601318
+    "modified": 1608602947
 }
