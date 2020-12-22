@@ -19,6 +19,8 @@ $currentYear = date("Y");
 $destinationType = $args['destinationType'];
 
 $background_map = get_field('background_map');
+
+$highlights = get_field('highlights');
 ?>
 
 <div class="destination-main">
@@ -38,6 +40,20 @@ $background_map = get_field('background_map');
             <div class="destination-main__intro__description__text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ipsam tempore ullam illo quasi quod. Totam libero doloremque accusantium iusto vero distinctio ipsa consequuntur in nulla? Consectetur sit deleniti dolor.
             </div>
+
+            <ul class="destination-main__intro__description__highlights">
+                <?php  if($highlights) : 
+                    foreach ($highlights as $h) : ?>
+                    <li>
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                        </svg>
+                        <span>
+                            <?php echo $h['highlight'] ?>
+                        </span>
+                    </li>
+                <?php endforeach; endif; ?>
+            </ul>
         </div>
         <div class="destination-main__intro__lists">
             <div class="destination-main__intro__lists__locations">
@@ -68,10 +84,10 @@ $background_map = get_field('background_map');
                 </div>
                 <ul class="destination-main__intro__lists__experiences__list">
                     <?php foreach ($activities as $a) : ?>
-                            <li>
-                                <a href="#"><?php echo ($a->navigation_title); ?></a>
-                            </li>
-                        <?php endforeach; ?>
+                        <li>
+                            <a href="#"><?php echo ($a->navigation_title); ?></a>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
 
             </div>
@@ -107,7 +123,7 @@ $background_map = get_field('background_map');
 
                     ?>
                     <!-- Tour Card -->
-                    <div class="tours-card">
+                    <a class="tours-card" href="<?php echo get_permalink($c); ?>">
                         <?php if ($hero_image) { ?>
                             <div class="tours-card__image">
                                 <img src="<?php echo esc_url($hero_image['url']); ?>" alt="">
@@ -130,7 +146,7 @@ $background_map = get_field('background_map');
                                 </div>
                                 <div class="tours-card__content__text-area__info">
                                     <div class="tours-card__content__text-area__info__length">
-                                    <?php echo itineraryRange($cruise_data, " - ") ?> Day Cruises
+                                        <?php echo itineraryRange($cruise_data, " - ") ?> Day Cruises
                                     </div>
                                     <div class="tours-card__content__text-area__info__price">
                                         From <?php echo "$" . number_format($lowest, 0); ?> <span>USD</span>
@@ -139,7 +155,7 @@ $background_map = get_field('background_map');
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 <?php endforeach; ?>
 
 
@@ -167,8 +183,8 @@ $background_map = get_field('background_map');
                             <?php echo get_field('navigation_title', $location); ?> Cruises
                         </div>
                         <div class="category-card__content__availability">
-                            <?php 
-                                echo cruises_available_location($location) . ' Cruises Available';
+                            <?php
+                            echo cruises_available_location($location) . ' Cruises Available';
                             ?>
                         </div>
                     </div>

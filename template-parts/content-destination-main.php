@@ -11,6 +11,9 @@ $currentYear = date("Y");
 $destinationType = $args['destinationType'];
 
 $background_map = get_field('background_map');
+
+$highlights = get_field('highlights');
+
 ?>
 
 <div class="destination-main">
@@ -30,6 +33,19 @@ $background_map = get_field('background_map');
             <div class="destination-main__intro__description__text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ipsam tempore ullam illo quasi quod. Totam libero doloremque accusantium iusto vero distinctio ipsa consequuntur in nulla? Consectetur sit deleniti dolor.
             </div>
+            <ul class="destination-main__intro__description__highlights">
+                <?php if($highlights) :
+                foreach ($highlights as $h) : ?>
+                    <li>
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                        </svg>
+                        <span>
+                            <?php echo $h['highlight'] ?>
+                        </span>
+                    </li>
+                <?php endforeach; endif; ?>
+            </ul>
         </div>
         <div class="destination-main__intro__lists">
             <div class="destination-main__intro__lists__locations">
@@ -99,10 +115,10 @@ $background_map = get_field('background_map');
                     $countries  = get_field('countries', $t);
                     $price_packages = get_field('price_packages', $t);
                     $lowest = lowest_tour_price($price_packages, $currentYear);
-
+ 
                     ?>
                     <!-- Tour Card -->
-                    <div class="tours-card">
+                    <a class="tours-card" href="<?php echo get_permalink($t); ?>">
                         <?php if ($hero_image) { ?>
                             <div class="tours-card__image">
                                 <img src="<?php echo esc_url($hero_image['url']); ?>" alt="">
@@ -139,7 +155,7 @@ $background_map = get_field('background_map');
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 <?php endforeach; ?>
 
 

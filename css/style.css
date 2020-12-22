@@ -3295,10 +3295,12 @@ h5 {
       letter-spacing: 0.4rem;
       align-self: end;
       font-weight: 600;
-      margin-top: 1rem; }
+      margin-top: 1rem;
+      margin-bottom: 1.5rem; }
       @media only screen and (max-width: 62.5em) {
         .destination-hero__content__breadcrumb {
           margin-top: 4rem;
+          margin-bottom: 0rem;
           justify-self: center;
           grid-column: 1 / -1; } }
       @media only screen and (max-width: 50em) {
@@ -3505,7 +3507,7 @@ h5 {
             right: 2rem; }
       .destination-hero__content__page-nav__list {
         list-style: none;
-        color: rgba(255, 255, 255, 0.9); }
+        color: white; }
         .destination-hero__content__page-nav__list__item {
           margin-top: 1rem; }
           .destination-hero__content__page-nav__list__item__link:link, .destination-hero__content__page-nav__list__item__link:visited {
@@ -3521,10 +3523,8 @@ h5 {
               left: 0;
               background-color: #f8f8f8;
               transition: all 0.3s; }
-          .destination-hero__content__page-nav__list__item__link:hover, .destination-hero__content__page-nav__list__item__link:active {
-            color: white; }
-            .destination-hero__content__page-nav__list__item__link:hover::after, .destination-hero__content__page-nav__list__item__link:active::after {
-              width: 100%; }
+          .destination-hero__content__page-nav__list__item__link:hover::after, .destination-hero__content__page-nav__list__item__link:active::after {
+            width: 100%; }
           .destination-hero__content__page-nav__list__item.current {
             color: #40739c; }
             .destination-hero__content__page-nav__list__item.current::after {
@@ -3633,7 +3633,22 @@ h5 {
       font-weight: 700;
       margin-bottom: 2rem; }
     .destination-main__intro__description__text {
-      line-height: 3.2rem; }
+      line-height: 3.2rem;
+      margin-bottom: 2.5rem; }
+    .destination-main__intro__description__highlights {
+      line-height: 3.2rem;
+      list-style: none; }
+      .destination-main__intro__description__highlights li {
+        display: flex;
+        align-items: center; }
+        .destination-main__intro__description__highlights li svg {
+          margin-right: .5rem;
+          height: 2rem;
+          width: 2rem;
+          fill: #142838; }
+        @media only screen and (max-width: 50em) {
+          .destination-main__intro__description__highlights li {
+            justify-content: center; } }
     .destination-main__intro__lists {
       display: grid;
       grid-template-columns: 1fr 1fr; }
@@ -4543,6 +4558,7 @@ h5 {
   height: 45rem;
   display: grid;
   position: relative;
+  text-decoration: none;
   margin: 0 1.5rem; }
   .tours-card__image {
     grid-row: 1 / -1;

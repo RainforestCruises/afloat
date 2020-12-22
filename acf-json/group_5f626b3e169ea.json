@@ -109,6 +109,46 @@
             "new_lines": ""
         },
         {
+            "key": "field_5fe21b5dc19d6",
+            "label": "Highlights",
+            "name": "highlights",
+            "type": "repeater",
+            "instructions": "Highlights to appear under intro paragraph",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5fe21b74c19d7",
+                    "label": "Highlight",
+                    "name": "highlight",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
             "key": "field_5fc52eadbd0fa",
             "label": "Background Map",
             "name": "background_map",
@@ -559,5 +599,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1608319127
+    "modified": 1608653770
 }

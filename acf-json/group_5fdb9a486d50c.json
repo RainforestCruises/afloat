@@ -109,6 +109,46 @@
             "new_lines": ""
         },
         {
+            "key": "field_5fe21bd97f39b",
+            "label": "Highlights",
+            "name": "highlights",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5fe21be67f39c",
+                    "label": "Highlight",
+                    "name": "highlight",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
             "key": "field_5fdb9a4878f98",
             "label": "Background Map",
             "name": "background_map",
@@ -559,5 +599,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1608319141
+    "modified": 1608653817
 }

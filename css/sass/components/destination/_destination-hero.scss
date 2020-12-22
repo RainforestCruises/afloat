@@ -93,8 +93,10 @@
             align-self: end;
             font-weight: 600;
             margin-top: 1rem;
+            margin-bottom: 1.5rem;
             @media only screen and (max-width: $bp-large) {
                 margin-top: 4rem;
+                margin-bottom: 0rem;
                 justify-self: center;
                 grid-column: 1 / -1;
             } 
@@ -103,6 +105,7 @@
             } 
             @media only screen and (max-width: $bp-xsmall) {
                 margin-top: 2rem;
+                
             }
 
             &__path {
@@ -382,7 +385,7 @@
             }
             &__list {
                 list-style: none;
-                color: rgba($color-white, .9);
+                color: rgba($color-white, 1);
                 
                 &__item {
                         margin-top: 1rem;
@@ -408,7 +411,6 @@
 
                     &__link:hover,
                     &__link:active {
-                        color: rgba($color-white, 1);
                         &::after {
                             width: 100%;
                         }
