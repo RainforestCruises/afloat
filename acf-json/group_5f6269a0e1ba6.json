@@ -123,6 +123,25 @@
             "new_lines": ""
         },
         {
+            "key": "field_5fe13cbfe166c",
+            "label": "Hero Short Text (Cruise)",
+            "name": "hero_short_text_cruise",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_5fd7af0a430d7",
             "label": "Hero Image",
             "name": "hero_image",
@@ -232,5 +251,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Destinations - CPT",
-    "modified": 1608590811
+    "modified": 1608596718
 }

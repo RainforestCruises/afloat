@@ -96,3 +96,27 @@ function productType($property) {
 
     }
 }
+
+
+function cruises_available_location($location)
+{
+
+    $postCriteria = array(
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_cruises',
+    );
+
+    $postCriteria['meta_query'][] = array(
+        'key' => 'locations',
+        'value' => '"' . $location->ID . '"',
+        'compare' => 'LIKE'
+    );
+
+    $count = 0;
+
+
+    $cruisePosts = get_posts($postCriteria);
+    $count = count($cruisePosts);
+    return $count;
+
+}

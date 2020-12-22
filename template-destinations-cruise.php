@@ -1,5 +1,5 @@
 <?php
-/*Template Name: Destinations - Destination*/
+/*Template Name: Destinations - Cruise*/
 wp_enqueue_script('page-destination', get_template_directory_uri() . '/js/page-destination.js', array('jquery'), false, true);
 ?>
 
@@ -8,16 +8,21 @@ get_header();
 ?>
 
 <?php
-$destinationType = 'destination';
+$destinationType = 'cruise';
 $title = '';
 $region = '';
 $destination = '';
 $destinations = '';
 $locations = '';
+$activities = '';
+
 $sliderContent = [];
 
 $tour_experiences = get_field('tour_experiences');
 $destinationCount = 0;
+
+
+
 
 
 //DESTINATION
@@ -38,6 +43,10 @@ usort($locations, function ($a, $b) { //sort locations by importance
     return strcmp($a->importance, $b->importance);
 });
 $destinationCount = count($locations); //pass count to JS
+
+
+//Activities
+$activities = get_field('activities', $destination);
 
 //TOURS
 $tourCriteria = array(
@@ -70,8 +79,8 @@ $cruises = get_posts($cruiseCriteria);
 //Build Slider Content
 $destinationSlide = array(
     'hero_image' => get_field('hero_image', $destination),
-    'hero_title' => get_field('hero_title', $destination),
-    'hero_short_text' => get_field('hero_short_text', $destination),
+    'hero_title' => '',
+    'hero_short_text' => get_field('hero_short_text_cruise', $destination),
 );
 $sliderContent[] = $destinationSlide;
 foreach ($locations as $l) {
@@ -83,6 +92,15 @@ foreach ($locations as $l) {
     $sliderContent[] = $locationSlide;
 }
 
+foreach ($activities as $a) {
+    $activitySlide = array(
+        'hero_image' => get_field('hero_image', $a),
+        'hero_title' => get_field('hero_title', $a),
+        'hero_short_text' => get_field('hero_short_text', $a),
+    );
+    $sliderContent[] = $activitySlide;
+}
+
 //Title (Destination)
 $title = $destination->post_title;
 
@@ -92,7 +110,7 @@ $args = array(
     'destination' => $destination,
     'destinations' => $destinations,
     'region' => $region,
-
+    'activities' => $activities,
     'locations' => $locations,
     'tours' => $tours,
     'tour_experiences' => $tour_experiences,
@@ -112,26 +130,21 @@ $args = array(
         ?>
     </section>
 
-    <div class="destination-page__section-main" id="tours">
+    <!-- Cruises -->
+    <div class="destination-page__section-main" id="cruises">
         <?php
-        get_template_part('template-parts/content', 'destination-main', $args);
+        get_template_part('template-parts/content', 'destination-main-cruise', $args);
         ?>
     </div>
 
 
-    <!-- Cruises-->
-    <section class="destination-page__section-secondary" id="cruises">
+    <!-- Tours-->
+    <section class="destination-page__section-secondary" id="tours">
         <?php
-        get_template_part('template-parts/content', 'destination-secondary', $args);
+        get_template_part('template-parts/content', 'destination-secondary-cruise', $args);
         ?>
     </section>
 
-    <!-- Accommodations -->
-    <section class="destination-page__section-accommodations" id="accommodations">
-        <?php
-        get_template_part('template-parts/content', 'destination-accommodations', $args);
-        ?>
-    </section>
 
     <!-- Travel Guides -->
     <section class="destination-page__section-travel-guides" id="travel-guides">

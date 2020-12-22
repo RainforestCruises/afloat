@@ -5,7 +5,7 @@ return array (
   'title' => 'Destinations',
   'type' => 'rfc_destinations',
   'id' => '5fdbb28b974a8',
-  'updated' => 1608592029,
+  'updated' => 1608596767,
   'columns' => 
   array (
     'title' => 
@@ -75,6 +75,22 @@ return array (
       'width' => '',
       'width_unit' => '%',
       'field' => 'field_5fdbdf6781833',
+      'excerpt_length' => '20',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+    ),
+    '5fe13d1fa5b25' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Hero Short Text (Cruise)',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_5fe13cbfe166c',
       'excerpt_length' => '20',
       'export' => 'off',
       'sort' => 'on',

@@ -1,4 +1,4 @@
-.destination-tours {
+.destination-main {
     display: grid;
     grid-template-columns: $page-container;
     overflow: hidden;
@@ -209,7 +209,7 @@
                     @media only screen and (max-width: $bp-medium) {
                         margin: 0 .75rem;
 
-                    }
+                    } 
                 }
 
                 & .slick-list {

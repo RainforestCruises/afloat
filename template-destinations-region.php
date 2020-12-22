@@ -113,17 +113,17 @@ $args = array(
         ?>
     </section>
 
-    <div class="destination-page__section-tours" id="tours">
+    <div class="destination-page__section-main" id="tours">
         <?php
-        get_template_part('template-parts/content', 'destination-tours', $args);
+        get_template_part('template-parts/content', 'destination-main', $args);
         ?>
     </div>
 
 
     <!-- Cruises-->
-    <section class="destination-page__section-cruises" id="cruises">
+    <section class="destination-page__section-secondary" id="cruises">
         <?php
-        get_template_part('template-parts/content', 'destination-cruises', $args);
+        get_template_part('template-parts/content', 'destination-secondary', $args);
         ?>
     </section>
 

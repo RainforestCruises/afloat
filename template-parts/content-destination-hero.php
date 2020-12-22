@@ -39,18 +39,30 @@
               <!-- sticky wrapper -->
               <nav class="destination-hero__content__page-nav__sticky-wrapper" id="template-nav">
                   <div class="destination-hero__content__page-nav__title" id="template-nav-title" href="#top">
-                  <?php echo $title  ?>
+                      <?php echo $title  ?>
                   </div>
                   <ul class="destination-hero__content__page-nav__list">
-                      <li class="destination-hero__content__page-nav__list__item">
-                          <a href="#tours" class="destination-hero__content__page-nav__list__item__link ">Tours</a>
-                      </li>
-                      <li class="destination-hero__content__page-nav__list__item">
-                          <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
-                      </li>
-                      <li class="destination-hero__content__page-nav__list__item">
-                          <a href="#accommodations" class="destination-hero__content__page-nav__list__item__link">Accommodations</a>
-                      </li>
+                      <!-- Order depending on template type -->
+                      <?php if ($destinationType == 'region' || $destinationType == 'destination') { ?>
+                          <li class="destination-hero__content__page-nav__list__item">
+                              <a href="#tours" class="destination-hero__content__page-nav__list__item__link ">Tours</a>
+                          </li>
+                          <li class="destination-hero__content__page-nav__list__item">
+                              <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
+                          </li>
+                          <li class="destination-hero__content__page-nav__list__item">
+                              <a href="#accommodations" class="destination-hero__content__page-nav__list__item__link">Accommodations</a>
+                          </li>
+                      <?php } else if ($destinationType == 'cruise') { ?>
+                          <li class="destination-hero__content__page-nav__list__item">
+                              <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
+                          </li>
+                          <li class="destination-hero__content__page-nav__list__item">
+                              <a href="#tours" class="destination-hero__content__page-nav__list__item__link ">Tours</a>
+                          </li>
+                      <?php } ?>
+
+
 
                       <li class="destination-hero__content__page-nav__list__item">
                           <a href="#travel-guides" class="destination-hero__content__page-nav__list__item__link">Travel Guides</a>
@@ -63,7 +75,7 @@
                       </li>
                   </ul>
                   <div class="page-nav__button">
-                  <?php echo $title  ?>
+                      <?php echo $title  ?>
                       <svg>
                           <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
                       </svg>
@@ -71,15 +83,26 @@
                   <!-- page-nav__collapse--active -->
                   <nav class="page-nav__collapse ">
                       <ul class="page-nav__collapse__list">
-                          <li class="page-nav__collapse__list__item">
-                              <a href="#tours" class="page-nav__collapse__list__item__link">Tours</a>
-                          </li>
-                          <li class="page-nav__collapse__list__item">
-                              <a href="#cruises" class="page-nav__collapse__list__item__link">Cruises</a>
-                          </li>
-                          <li class="page-nav__collapse__list__item">
-                              <a href="#accommodations" class="page-nav__collapse__list__item__link">Accommodations</a>
-                          </li>
+                          <!-- Order depending on template type -->
+                          <?php if ($destinationType == 'region' || $destinationType == 'destination') { ?>
+                              <li class="page-nav__collapse__list__item">
+                                  <a href="#tours" class="page-nav__collapse__list__item__link">Tours</a>
+                              </li>
+                              <li class="page-nav__collapse__list__item">
+                                  <a href="#cruises" class="page-nav__collapse__list__item__link">Cruises</a>
+                              </li>
+                              <li class="page-nav__collapse__list__item">
+                                  <a href="#accommodations" class="page-nav__collapse__list__item__link">Accommodations</a>
+                              </li>
+                          <?php } else if ($destinationType == 'cruise') { ?>
+                              <li class="page-nav__collapse__list__item">
+                                  <a href="#cruises" class="page-nav__collapse__list__item__link">Cruises</a>
+                              </li>
+                              <li class="page-nav__collapse__list__item">
+                                  <a href="#tours" class="page-nav__collapse__list__item__link">Tours</a>
+                              </li>
+                          <?php } ?>
+
                           <li class="page-nav__collapse__list__item">
                               <a href="#travel-guides" class="page-nav__collapse__list__item__link">Travel Guides</a>
 

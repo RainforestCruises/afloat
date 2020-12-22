@@ -13,30 +13,30 @@ $destinationType = $args['destinationType'];
 $background_map = get_field('background_map');
 ?>
 
-<div class="destination-tours">
+<div class="destination-main">
 
     <!-- Map Background -->
-    <div class="destination-tours__bg">
+    <div class="destination-main__bg">
         <img src="<?php echo esc_url($background_map['url']); ?>" alt="">
     </div>
 
     <!-- Intro -->
-    <div class="destination-tours__intro">
-        <div class="destination-tours__intro__description">
-            <div class="destination-tours__intro__description__title">
+    <div class="destination-main__intro">
+        <div class="destination-main__intro__description">
+            <div class="destination-main__intro__description__title">
                 <?php echo get_field('intro_title') ?>
 
             </div>
-            <div class="destination-tours__intro__description__text">
+            <div class="destination-main__intro__description__text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ipsam tempore ullam illo quasi quod. Totam libero doloremque accusantium iusto vero distinctio ipsa consequuntur in nulla? Consectetur sit deleniti dolor.
             </div>
         </div>
-        <div class="destination-tours__intro__lists">
-            <div class="destination-tours__intro__lists__locations">
-                <div class="destination-tours__intro__lists__locations__title">
+        <div class="destination-main__intro__lists">
+            <div class="destination-main__intro__lists__locations">
+                <div class="destination-main__intro__lists__locations__title">
                     Destinations
                 </div>
-                <ul class="destination-tours__intro__lists__locations__list">
+                <ul class="destination-main__intro__lists__locations__list">
                     <?php if ($destinationType == 'destination') {
                         foreach ($locations as $s) : ?>
                             <li>
@@ -54,11 +54,11 @@ $background_map = get_field('background_map');
                 </ul>
 
             </div>
-            <div class="destination-tours__intro__lists__experiences">
-                <div class="destination-tours__intro__lists__experiences__title">
+            <div class="destination-main__intro__lists__experiences">
+                <div class="destination-main__intro__lists__experiences__title">
                     Experiences
                 </div>
-                <ul class="destination-tours__intro__lists__experiences__list">
+                <ul class="destination-main__intro__lists__experiences__list">
                     <?php if (have_rows('tour_experiences')) : ?>
                         <?php while (have_rows('tour_experiences')) : the_row();
                             $experience = get_sub_field('experience');
@@ -76,12 +76,12 @@ $background_map = get_field('background_map');
     </div>
 
     <!-- Packages -->
-    <div class="destination-tours__packages">
-        <div class="destination-tours__packages__header">
-            <div class="destination-tours__packages__header__title page-divider">
+    <div class="destination-main__packages">
+        <div class="destination-main__packages__header">
+            <div class="destination-main__packages__header__title page-divider">
                 Tour Packages
             </div>
-            <div class="destination-tours__packages__header__sub-text">
+            <div class="destination-main__packages__header__sub-text">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
             </div>
         </div>
@@ -89,8 +89,8 @@ $background_map = get_field('background_map');
 
 
         <!-- Best Selling -->
-        <div class="destination-tours__packages__best-selling">
-            <div class="destination-tours__packages__best-selling__slider" id="tours-slider">
+        <div class="destination-main__packages__best-selling">
+            <div class="destination-main__packages__best-selling__slider" id="main-slider">
 
 
                 <?php foreach ($tours as $t) : ?>
@@ -150,7 +150,7 @@ $background_map = get_field('background_map');
     </div>
 
     <!-- experiences -->
-    <div class="destination-tours__experiences">
+    <div class="destination-main__experiences">
         <?php
         if ($tour_experiences) {
             foreach ($tour_experiences as $e) {
@@ -181,7 +181,7 @@ $background_map = get_field('background_map');
         ?>
     </div>
 
-    <div class="destination-tours__lengths">
+    <div class="destination-main__lengths">
         <button class="btn-outline " href="#">7-Day</button>
         <button class="btn-outline " href="#">10-Day</button>
         <button class="btn-outline " href="#">14-Day</button>
