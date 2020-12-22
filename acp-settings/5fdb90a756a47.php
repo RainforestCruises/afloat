@@ -5,7 +5,7 @@ return array (
   'title' => 'Locations',
   'type' => 'rfc_locations',
   'id' => '5fdb90a756a47',
-  'updated' => 1608600862,
+  'updated' => 1608602344,
   'columns' => 
   array (
     'title' => 
@@ -75,39 +75,6 @@ return array (
       'width' => '',
       'width_unit' => '%',
       'field' => 'field_5f63c308d92b9',
-      'image_size' => 'cpac-custom',
-      'image_size_w' => '60',
-      'image_size_h' => '60',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'on',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-    ),
-    '5fe14d1ed1391' => 
-    array (
-      'type' => 'column-acf_field',
-      'label' => 'Is Country',
-      'width' => '',
-      'width_unit' => '%',
-      'field' => 'field_5fe14ca2978ef',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'off',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-    ),
-    '5fe14b55ce715' => 
-    array (
-      'type' => 'column-acf_field',
-      'label' => 'Category Image',
-      'width' => '',
-      'width_unit' => '%',
-      'field' => 'field_5fe14a88364ff',
       'image_size' => 'cpac-custom',
       'image_size_w' => '60',
       'image_size_h' => '60',
