@@ -20,3 +20,11 @@ add_filter( 'acp/storage/file/directory', function() {
 
 //enable migrations
 add_filter( 'acp/storage/file/directory/migrate', '__return_true' );
+
+
+function sortImportance($a, $b)
+{
+    if (is_object($a) && is_object($b)) {
+        return strcmp($a->importance, $b->importance);
+    }
+}

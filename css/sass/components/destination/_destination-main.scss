@@ -73,9 +73,11 @@
 
                 & li {
                     display: flex;
-                    align-items: center;
+
                     & svg {
+                        align-self: flex-start;
                         margin-right: .5rem;
+                        margin-top: .5rem;
                         height: 2rem;
                         width: 2rem;
                         fill: $color-secondary;
@@ -259,11 +261,52 @@
                 }
             }
         }
+
+      
+    }
+    &__experiences-title {
+
+        grid-column: center-start / center-end;
+        text-align: center;
+        margin: 4rem 0;
+    
+    
+        display: grid;
+        grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr); //FIX THIS
+        align-items: center;
+        column-gap: 2.5rem;
+    
+
+        font-size: 2rem;
+        text-transform: uppercase;
+        color: $color-secondary;
+        letter-spacing: .3rem;
+        font-weight: 600;
+        z-index: 10;
+    
+        //lines on both sides effect
+        &::before {
+            content: "";
+            height: 1px;
+            display: block;
+            background-color: currentColor;
+        }
+    
+        &::after {
+            content: "";
+            height: 1px;
+            display: block;
+            background-color: currentColor;
+        }
+
+
+
+        
     }
 
     &__experiences {
 
-        grid-row: 3 / span 1;
+        //grid-row: 3 / span 1;
         grid-column: center-start / center-end;
         height: 100%;
         display: flex;
@@ -274,7 +317,7 @@
 
     &__lengths {
         margin-top: 4rem;
-        grid-row: 4 / span 1;
+        //grid-row: 4 / span 1;
         grid-column: center-start / center-end;
         display: flex;
         justify-content: center;

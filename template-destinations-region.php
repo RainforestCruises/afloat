@@ -9,9 +9,14 @@ get_header();
 
 <?php
 $destinationType = 'region';
+
 $title = '';
 $region= '';
+$destination= '';
 $destinations= '';
+$activities = '';
+$locations = '';
+
 $sliderContent = [];
 
 $tour_experiences = get_field('tour_experiences');
@@ -96,11 +101,14 @@ $args = array(
     'title' => $title,
 
     'locations' => $locations,
+    'activities' => $activities,
+
     'tours' => $tours,
     'tour_experiences' => $tour_experiences,
     'cruises' => $cruises,
     'sliderContent' => $sliderContent,
     'destinationType' => $destinationType,
+
 );
 
 ?>

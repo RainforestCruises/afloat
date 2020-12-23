@@ -5,22 +5,21 @@ $region = $args['region'];
 $locations = $args['locations'];
 $destinations = $args['destinations'];
 $activities = $args['activities'];
+
 $cruise_locations = get_field('cruise_countries');
-//activities
 
 
 $cruises = $args['cruises'];
 $currentYear = date("Y");
 
 
-$tours = $args['tours'];
-$tour_experiences = $args['tour_experiences'];
 $currentYear = date("Y");
 $destinationType = $args['destinationType'];
 
 $background_map = get_field('background_map');
-
 $highlights = get_field('highlights');
+
+$cruise_experiences = get_field('cruise_experiences');
 ?>
 
 <div class="destination-main">
@@ -41,19 +40,7 @@ $highlights = get_field('highlights');
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ipsam tempore ullam illo quasi quod. Totam libero doloremque accusantium iusto vero distinctio ipsa consequuntur in nulla? Consectetur sit deleniti dolor.
             </div>
 
-            <ul class="destination-main__intro__description__highlights">
-                <?php  if($highlights) : 
-                    foreach ($highlights as $h) : ?>
-                    <li>
-                        <svg>
-                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                        </svg>
-                        <span>
-                            <?php echo $h['highlight'] ?>
-                        </span>
-                    </li>
-                <?php endforeach; endif; ?>
-            </ul>
+
         </div>
         <div class="destination-main__intro__lists">
             <div class="destination-main__intro__lists__locations">
@@ -80,7 +67,7 @@ $highlights = get_field('highlights');
             </div>
             <div class="destination-main__intro__lists__experiences">
                 <div class="destination-main__intro__lists__experiences__title">
-                    Experiences
+                    Things to do
                 </div>
                 <ul class="destination-main__intro__lists__experiences__list">
                     <?php foreach ($activities as $a) : ?>
@@ -89,7 +76,6 @@ $highlights = get_field('highlights');
                         </li>
                     <?php endforeach; ?>
                 </ul>
-
             </div>
 
         </div>
@@ -108,54 +94,47 @@ $highlights = get_field('highlights');
 
 
 
-        <!-- Best Selling -->
-        <div class="destination-main__packages__best-selling">
-            <div class="destination-main__packages__best-selling__slider" id="main-slider">
+        <!-- Best Selling - use secondary slider-->
+        <div class="destination-secondary__best-selling">
+            <div class="destination-secondary__best-selling__slider" id="secondary-slider">
 
 
                 <?php foreach ($cruises as $c) : ?>
                     <?php
-                    $hero_image = get_field('hero_image', $c);
+                    $featured_image = get_field('featured_image', $c);
                     $destinations  = get_field('destinations', $c);
-                    //$price_packages = get_field('price_packages', $c);
                     $cruise_data = get_field('cruise_data', $c);
                     $lowest = lowest_property_price($cruise_data, 0, $currentYear);
-
                     ?>
                     <!-- Tour Card -->
-                    <a class="tours-card" href="<?php echo get_permalink($c); ?>">
-                        <?php if ($hero_image) { ?>
-                            <div class="tours-card__image">
-                                <img src="<?php echo esc_url($hero_image['url']); ?>" alt="">
+
+
+
+                    <a class="product-card" href="<?php echo get_permalink($c); ?>">
+                        <?php if ($featured_image) { ?>
+                            <div class="product-card__image">
+                                <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
                             </div>
                         <?php } ?>
-
-                        <div class="tours-card__content">
-                            <div class="tours-card__content__tag-area">
-                                <div class="tours-card__content__tag-area__tag">
-                                    Best Seller
-                                </div>
-
-                            </div>
-                            <div class="tours-card__content__text-area">
-                                <div class="tours-card__content__text-area__country">
-                                    <?php countriesInDestinations($destinations, " / ") ?>
-                                </div>
-                                <div class="tours-card__content__text-area__title">
+                        <div class="product-card__bottom">
+                            <div class="product-card__bottom__title-group">
+                                <div class="product-card__bottom__title-group__product-name">
                                     <?php echo get_the_title($c) ?>
                                 </div>
-                                <div class="tours-card__content__text-area__info">
-                                    <div class="tours-card__content__text-area__info__length">
-                                        <?php echo itineraryRange($cruise_data, " - ") ?> Day Cruises
-                                    </div>
-                                    <div class="tours-card__content__text-area__info__price">
-                                        From <?php echo "$" . number_format($lowest, 0); ?> <span>USD</span>
-                                    </div>
-
+                                <div class="product-card__bottom__title-group__price">
+                                    <span class="from-price">From</span> <?php echo "$" . number_format($lowest, 0);  ?> <span class="currency-price">USD</span>
                                 </div>
+                            </div>
+                            <div class="product-card__bottom__text">
+                                <?php echo get_field('top_snippet', $c) ?>
+                            </div>
+                            <div class="product-card__bottom__info">
+                                <?php echo itineraryRange($cruise_data, " - ") ?> Day Cruises
                             </div>
                         </div>
                     </a>
+
+
                 <?php endforeach; ?>
 
 
@@ -165,7 +144,10 @@ $highlights = get_field('highlights');
 
     </div>
 
-    <!-- experiences -->
+    <!-- countries -->
+    <div class="destination-main__experiences-title">
+        Countries
+    </div>
     <div class="destination-main__experiences">
         <?php
         if ($cruise_locations) {
@@ -185,6 +167,37 @@ $highlights = get_field('highlights');
                         <div class="category-card__content__availability">
                             <?php
                             echo cruises_available_location($location) . ' Cruises Available';
+                            ?>
+                        </div>
+                    </div>
+                </div>
+        <?php
+            }
+        }
+        ?>
+    </div>
+    <!-- experiences -->
+    <div class="destination-main__experiences-title">
+        Experiences
+    </div>
+    <div class="destination-main__experiences">
+        <?php
+        if ($cruise_experiences) {
+            foreach ($cruise_experiences as $e) {
+                $experience = $e['cruise_experience'];
+                $background_image = $e['background_image'];
+        ?>
+                <div class="category-card">
+                    <div class="category-card__image">
+                        <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
+                    </div>
+
+                    <div class="category-card__content">
+                        <div class="category-card__content__title">
+                            <?php echo get_the_title($experience); ?> Cruises
+                        </div>
+                        <div class="category-card__content__availability">
+                            <?php echo cruises_available_experience($destination, $experience) . ' Cruises Available';
                             ?>
                         </div>
                     </div>

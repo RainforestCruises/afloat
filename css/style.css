@@ -3276,11 +3276,11 @@ h5 {
     grid-column: center-start / center-end;
     z-index: 5;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 3fr;
     grid-template-rows: minmax(max-content, 30%) 1fr 30rem;
     color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
-    column-gap: 15rem;
+    column-gap: 12rem;
     row-gap: 2rem;
     padding-bottom: 6rem; }
     @media only screen and (max-width: 62.5em) {
@@ -3296,7 +3296,8 @@ h5 {
       align-self: end;
       font-weight: 600;
       margin-top: 1rem;
-      margin-bottom: 1.5rem; }
+      margin-bottom: 1.5rem;
+      width: min-content; }
       @media only screen and (max-width: 62.5em) {
         .destination-hero__content__breadcrumb {
           margin-top: 4rem;
@@ -3310,13 +3311,14 @@ h5 {
         .destination-hero__content__breadcrumb {
           margin-top: 2rem; } }
       .destination-hero__content__breadcrumb__path {
-        display: inline-block;
+        display: flex;
         position: relative;
-        padding: 0.5rem 1.5rem;
+        padding: 0.75rem 2rem;
         padding-top: 0.6rem;
         list-style: none; }
         .destination-hero__content__breadcrumb__path li {
-          display: inline-block; }
+          display: inline-block;
+          width: max-content; }
           .destination-hero__content__breadcrumb__path li:not(:last-child):after {
             content: ">";
             padding-left: 1px;
@@ -3639,10 +3641,11 @@ h5 {
       line-height: 3.2rem;
       list-style: none; }
       .destination-main__intro__description__highlights li {
-        display: flex;
-        align-items: center; }
+        display: flex; }
         .destination-main__intro__description__highlights li svg {
+          align-self: flex-start;
           margin-right: .5rem;
+          margin-top: .5rem;
           height: 2rem;
           width: 2rem;
           fill: #142838; }
@@ -3761,8 +3764,31 @@ h5 {
           opacity: 1; }
         .destination-main__packages__best-selling__slider .slick-current .tours-card::after {
           opacity: 0; }
+  .destination-main__experiences-title {
+    grid-column: center-start / center-end;
+    text-align: center;
+    margin: 4rem 0;
+    display: grid;
+    grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr);
+    align-items: center;
+    column-gap: 2.5rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #142838;
+    letter-spacing: .3rem;
+    font-weight: 600;
+    z-index: 10; }
+    .destination-main__experiences-title::before {
+      content: "";
+      height: 1px;
+      display: block;
+      background-color: currentColor; }
+    .destination-main__experiences-title::after {
+      content: "";
+      height: 1px;
+      display: block;
+      background-color: currentColor; }
   .destination-main__experiences {
-    grid-row: 3 / span 1;
     grid-column: center-start / center-end;
     height: 100%;
     display: flex;
@@ -3770,7 +3796,6 @@ h5 {
     flex-wrap: wrap; }
   .destination-main__lengths {
     margin-top: 4rem;
-    grid-row: 4 / span 1;
     grid-column: center-start / center-end;
     display: flex;
     justify-content: center;

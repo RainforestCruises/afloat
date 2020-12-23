@@ -5,7 +5,7 @@ return array (
   'title' => 'Activities',
   'type' => 'rfc_activities',
   'id' => '5fe1211e43e30',
-  'updated' => 1608592181,
+  'updated' => 1608661112,
   'columns' => 
   array (
     'title' => 
@@ -78,6 +78,22 @@ return array (
       'image_size' => 'cpac-custom',
       'image_size_w' => '60',
       'image_size_h' => '60',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+    ),
+    '5fe23878455a5' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Importance',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_5fe10551df2a6',
+      'number_format' => '',
       'export' => 'off',
       'sort' => 'on',
       'edit' => 'on',

@@ -120,3 +120,30 @@ function cruises_available_location($location)
     return $count;
 
 }
+
+
+function cruises_available_experience($destination, $experience)
+{
+    $count = 0;
+    $postCriteria = array(
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_cruises',
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key' => 'destination', // name of custom field
+                'value' => '"' . $destination->ID . '"',
+                'compare' => 'LIKE'
+            ),
+            array(
+                'key' => 'experiences', // name of custom field
+                'value' => '"' . $experience->ID . '"',
+                'compare' => 'LIKE'
+            )
+        )
+    );
+    $cruisesPosts = get_posts($postCriteria);
+    $count = count($cruisesPosts);
+
+    return $count;
+}

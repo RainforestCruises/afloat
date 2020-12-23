@@ -9,15 +9,19 @@ get_header();
 
 <?php
 $destinationType = 'destination';
+
 $title = '';
 $region = '';
 $destination = '';
 $destinations = '';
 $locations = '';
+$activities = '';
+
 $sliderContent = [];
 
 $tour_experiences = get_field('tour_experiences');
 $destinationCount = 0;
+
 
 
 //DESTINATION
@@ -25,6 +29,9 @@ $destinationCount = 0;
 //-tours/cruises from single destination
 //DESTINATION
 $destination = get_field('destination_post');
+
+//Activities
+$activities = get_field('activities', $destination);
 
 //LOCATIONS
 $locationCriteria = array(
@@ -94,12 +101,15 @@ $args = array(
     'region' => $region,
 
     'locations' => $locations,
+    'activities' => $activities,
+
     'tours' => $tours,
     'tour_experiences' => $tour_experiences,
     'cruises' => $cruises,
     'sliderContent' => $sliderContent,
     'title' => $title,
     'destinationType' => $destinationType,
+
 );
 
 ?>
@@ -118,20 +128,23 @@ $args = array(
         ?>
     </div>
 
-
     <!-- Cruises-->
-    <section class="destination-page__section-secondary" id="cruises">
-        <?php
-        get_template_part('template-parts/content', 'destination-secondary', $args);
-        ?>
-    </section>
+    <?php if (get_field('hide_cruises') == false) { ?>
+        <section class="destination-page__section-secondary" id="cruises">
+            <?php
+            get_template_part('template-parts/content', 'destination-secondary', $args);
+            ?>
+        </section>
+    <?php } ?>
 
     <!-- Accommodations -->
+    <?php if (get_field('hide_accommodations') == false) { ?>
     <section class="destination-page__section-accommodations" id="accommodations">
         <?php
         get_template_part('template-parts/content', 'destination-accommodations', $args);
         ?>
     </section>
+    <?php } ?>
 
     <!-- Travel Guides -->
     <section class="destination-page__section-travel-guides" id="travel-guides">

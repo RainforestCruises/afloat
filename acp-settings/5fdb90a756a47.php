@@ -5,7 +5,7 @@ return array (
   'title' => 'Locations',
   'type' => 'rfc_locations',
   'id' => '5fdb90a756a47',
-  'updated' => 1608602344,
+  'updated' => 1608660973,
   'columns' => 
   array (
     'title' => 
@@ -95,6 +95,22 @@ return array (
       'field' => 'field_5fd7ac2ebb604',
       'post_property_display' => 'title',
       'post_link_to' => 'edit_post',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+    ),
+    '5fe237ed7b66f' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Importance',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_5f63cd57780c7',
+      'number_format' => '',
       'export' => 'off',
       'sort' => 'on',
       'edit' => 'on',

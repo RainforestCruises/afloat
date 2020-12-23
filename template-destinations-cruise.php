@@ -22,9 +22,6 @@ $tour_experiences = get_field('tour_experiences');
 $destinationCount = 0;
 
 
-
-
-
 //DESTINATION
 //-single destintion -multiple locations
 //-tours/cruises from single destination
@@ -39,9 +36,7 @@ $locationCriteria = array(
     "meta_value" => $destination->ID
 );
 $locations = get_posts($locationCriteria);
-usort($locations, function ($a, $b) { //sort locations by importance
-    return strcmp($a->importance, $b->importance);
-});
+
 $destinationCount = count($locations); //pass count to JS
 
 
@@ -81,6 +76,8 @@ $destinationSlide = array(
     'hero_image' => get_field('hero_image', $destination),
     'hero_title' => '',
     'hero_short_text' => get_field('hero_short_text_cruise', $destination),
+    'importance' => 0
+
 );
 $sliderContent[] = $destinationSlide;
 foreach ($locations as $l) {
@@ -88,6 +85,7 @@ foreach ($locations as $l) {
         'hero_image' => get_field('hero_image', $l),
         'hero_title' => get_field('hero_title', $l),
         'hero_short_text' => get_field('hero_short_text', $l),
+        'importance' => 4
     );
     $sliderContent[] = $locationSlide;
 }
@@ -97,9 +95,11 @@ foreach ($activities as $a) {
         'hero_image' => get_field('hero_image', $a),
         'hero_title' => get_field('hero_title', $a),
         'hero_short_text' => get_field('hero_short_text', $a),
+        'importance' => 3
     );
     $sliderContent[] = $activitySlide;
 }
+
 
 //Title (Destination)
 $title = $destination->post_title;
@@ -176,3 +176,4 @@ $args = array(
     var destinationCount = <?php echo json_encode($destinationCount); ?>;
     var templateUrl = "<?php echo bloginfo('template_url') ?>";
 </script>
+

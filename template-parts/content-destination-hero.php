@@ -47,12 +47,35 @@
                           <li class="destination-hero__content__page-nav__list__item">
                               <a href="#tours" class="destination-hero__content__page-nav__list__item__link ">Tours</a>
                           </li>
-                          <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
-                          </li>
-                          <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#accommodations" class="destination-hero__content__page-nav__list__item__link">Accommodations</a>
-                          </li>
+
+                          <?php if ($destinationType == 'destination') {
+                                $hide_cruises = get_field('hide_cruises');
+                                if (!$hide_cruises) { ?>
+                                  <li class="destination-hero__content__page-nav__list__item">
+                                      <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
+                                  </li>
+                              <?php }
+                            } else { ?>
+                              <li class="destination-hero__content__page-nav__list__item">
+                                  <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
+                              </li>
+                          <?php } ?>
+
+
+                          <?php if ($destinationType == 'destination') {
+                                $hide_accommodations = get_field('hide_accommodations');
+                                if (!$hide_accommodations) { ?>
+                                  <li class="destination-hero__content__page-nav__list__item">
+                                      <a href="#accommodations" class="destination-hero__content__page-nav__list__item__link">Accommodations</a>
+                                  </li>
+                              <?php }
+                            } else { ?>
+                              <li class="destination-hero__content__page-nav__list__item">
+                                  <a href="#accommodations" class="destination-hero__content__page-nav__list__item__link">Accommodations</a>
+                              </li>
+                          <?php } ?>
+
+
                       <?php } else if ($destinationType == 'cruise') { ?>
                           <li class="destination-hero__content__page-nav__list__item">
                               <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
@@ -88,12 +111,34 @@
                               <li class="page-nav__collapse__list__item">
                                   <a href="#tours" class="page-nav__collapse__list__item__link">Tours</a>
                               </li>
-                              <li class="page-nav__collapse__list__item">
-                                  <a href="#cruises" class="page-nav__collapse__list__item__link">Cruises</a>
-                              </li>
-                              <li class="page-nav__collapse__list__item">
-                                  <a href="#accommodations" class="page-nav__collapse__list__item__link">Accommodations</a>
-                              </li>
+                              <?php if ($destinationType == 'destination') {
+                                    $hide_cruises = get_field('hide_cruises');
+                                    if (!$hide_cruises) { ?>
+                                      <li class="page-nav__collapse__list__item">
+                                          <a href="#cruises" class="page-nav__collapse__list__item__link">Cruises</a>
+                                      </li>
+                                  <?php }
+                                } else { ?>
+                                  <li class="page-nav__collapse__list__item">
+                                      <a href="#cruises" class="page-nav__collapse__list__item__link">Cruises</a>
+                                  </li>
+                              <?php } ?>
+
+                              <?php if ($destinationType == 'destination') {
+                                    $hide_accommodations = get_field('hide_accommodations');
+                                    if (!$hide_accommodations) { ?>
+                                      <li class="page-nav__collapse__list__item">
+                                          <a href="#accommodations" class="page-nav__collapse__list__item__link">Accommodations</a>
+                                      </li>
+                                  <?php }
+                                } else { ?>
+                                  <li class="page-nav__collapse__list__item">
+                                      <a href="#accommodations" class="page-nav__collapse__list__item__link">Accommodations</a>
+                                  </li>
+                              <?php } ?>
+
+
+
                           <?php } else if ($destinationType == 'cruise') { ?>
                               <li class="page-nav__collapse__list__item">
                                   <a href="#cruises" class="page-nav__collapse__list__item__link">Cruises</a>

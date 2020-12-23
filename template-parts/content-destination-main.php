@@ -4,6 +4,7 @@ $region = $args['region'];
 
 $locations = $args['locations'];
 $destinations = $args['destinations'];
+$activities = $args['activities'];
 
 $tours = $args['tours'];
 $tour_experiences = $args['tour_experiences'];
@@ -11,6 +12,7 @@ $currentYear = date("Y");
 $destinationType = $args['destinationType'];
 
 $background_map = get_field('background_map');
+
 
 $highlights = get_field('highlights');
 
@@ -33,19 +35,26 @@ $highlights = get_field('highlights');
             <div class="destination-main__intro__description__text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ipsam tempore ullam illo quasi quod. Totam libero doloremque accusantium iusto vero distinctio ipsa consequuntur in nulla? Consectetur sit deleniti dolor.
             </div>
-            <ul class="destination-main__intro__description__highlights">
-                <?php if($highlights) :
-                foreach ($highlights as $h) : ?>
-                    <li>
-                        <svg>
-                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                        </svg>
-                        <span>
-                            <?php echo $h['highlight'] ?>
-                        </span>
-                    </li>
-                <?php endforeach; endif; ?>
-            </ul>
+
+            <?php
+            if ($destinationType == 'region') :
+                if ($highlights) : ?>
+                    <ul class="destination-main__intro__description__highlights">
+                        <?php
+                        foreach ($highlights as $h) : ?>
+                            <li>
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                                </svg>
+                                <span>
+                                    <?php echo $h['highlight'] ?>
+                                </span>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+            <?php endif;
+            endif; ?>
+
         </div>
         <div class="destination-main__intro__lists">
             <div class="destination-main__intro__lists__locations">
@@ -56,13 +65,13 @@ $highlights = get_field('highlights');
                     <?php if ($destinationType == 'destination') {
                         foreach ($locations as $s) : ?>
                             <li>
-                                <a href="#"><?php echo ($s->navigation_title); ?></a>
+                                <?php echo ($s->navigation_title); ?>
                             </li>
                         <?php endforeach;
                     } else if ($destinationType == 'region') {
                         foreach ($destinations as $d) : ?>
                             <li>
-                                <a href="#"><?php echo ($d->navigation_title); ?></a>
+                                <?php echo ($d->navigation_title); ?>
                             </li>
                     <?php endforeach;
                     } ?>
@@ -72,20 +81,28 @@ $highlights = get_field('highlights');
             </div>
             <div class="destination-main__intro__lists__experiences">
                 <div class="destination-main__intro__lists__experiences__title">
-                    Experiences
+                   <?php echo ($destinationType == 'destination') ? 'Things to do' : 'Experiences'?>
                 </div>
                 <ul class="destination-main__intro__lists__experiences__list">
-                    <?php if (have_rows('tour_experiences')) : ?>
-                        <?php while (have_rows('tour_experiences')) : the_row();
-                            $experience = get_sub_field('experience');
-                        ?>
+                 
+                    <?php if ($destinationType == 'destination') {
+                           foreach ($activities as $a) : ?>
                             <li>
-                                <a href="#"><?php echo get_the_title($experience); ?></a>
+                                <?php echo ($a->navigation_title); ?>
                             </li>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php } else if ($destinationType == 'region') {
+                         if (have_rows('tour_experiences')) : ?>
+                            <?php while (have_rows('tour_experiences')) : the_row();
+                                $experience = get_sub_field('experience');
+                            ?>
+                                <li>
+                                    <?php echo get_the_title($experience); ?>
+                                </li>
+                            <?php endwhile; ?>
+                        <?php endif; 
+                    } ?>
                 </ul>
-
             </div>
 
         </div>
@@ -115,7 +132,7 @@ $highlights = get_field('highlights');
                     $countries  = get_field('countries', $t);
                     $price_packages = get_field('price_packages', $t);
                     $lowest = lowest_tour_price($price_packages, $currentYear);
- 
+
                     ?>
                     <!-- Tour Card -->
                     <a class="tours-card" href="<?php echo get_permalink($t); ?>">
