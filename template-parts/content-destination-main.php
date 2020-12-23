@@ -33,8 +33,8 @@ $highlights = get_field('highlights');
 
             </div>
             <div class="destination-main__intro__description__text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ipsam tempore ullam illo quasi quod. Totam libero doloremque accusantium iusto vero distinctio ipsa consequuntur in nulla? Consectetur sit deleniti dolor.
-            </div>
+            <?php echo get_field('intro_text') ?>
+                        </div>
 
             <?php
             if ($destinationType == 'region') :
