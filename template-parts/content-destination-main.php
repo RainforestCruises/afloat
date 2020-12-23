@@ -13,7 +13,7 @@ $destinationType = $args['destinationType'];
 
 $background_map = get_field('background_map');
 
-
+console_log($tours);
 $highlights = get_field('highlights');
 
 ?>
@@ -128,6 +128,7 @@ $highlights = get_field('highlights');
 
                 <?php foreach ($tours as $t) : ?>
                     <?php
+                    
                     $hero_image = get_field('hero_image', $t);
                     $countries  = get_field('countries', $t);
                     $price_packages = get_field('price_packages', $t);

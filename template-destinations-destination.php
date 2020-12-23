@@ -52,7 +52,7 @@ $tourCriteria = array(
     'post_type' => 'rfc_tours',
     'meta_query' => array(
         array(
-            'key' => 'destination',
+            'key' => 'destinations',
             'value' => '"' . $destination->ID . '"',
             'compare' => 'LIKE'
         )
