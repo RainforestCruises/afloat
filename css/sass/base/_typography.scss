@@ -311,6 +311,22 @@ p {
     }
 }
 
+
+.drop-cap-1a {
+    p:nth-child(2):first-letter {
+        font-size: 400%;
+        border: 1px solid #d4d5d7;
+        padding: 0 2rem;
+        padding-top: 5px;
+        display: inline-block;
+        top: 2px;
+        float: left;
+        line-height: 1;
+        margin-right: 1rem;
+        font-weight: 300;
+    }
+}
+
 .drop-cap-2 {
     p:first-child:first-letter {
         font-weight: 400;
@@ -334,11 +350,9 @@ p {
         margin-right: 0.07em;
         margin-bottom: -0.07em;
     }
-
-    // p:first-child:first-line {
-    //     font-weight: 600;
-    // }
 }
+
+
 
 .star-gold {
     fill: $color-gold;
