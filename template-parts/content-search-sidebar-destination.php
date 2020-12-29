@@ -16,20 +16,15 @@ $destination = $args['destination'];
                     <option value="0">Any</option>
                     <?php
                     console_log($destination->ID);
-                    if ($locations = get_posts(array(
-                        'post_type' => 'rfc_locations',
-                        'posts_per_page' => -1, // to make it simple I use default categories
-                        'orderby' => 'title',
-                        'order' => 'ASC',
-                        "meta_key" => "destination",
-                        "meta_value" => $destination->ID,
-                    ))) {
-                    ?>
-                        <?php foreach ($locations as $location) { ?>
+                    $locations = get_field('locations', $destination);
+                    console_log($locations);
 
-                            <option value="<?php echo $location->ID ?>"><?php echo get_field('hero_title', $location) ?></option>
+                    ?>
+                    <?php foreach ($locations as $location) { ?>
+
+                        <option value="<?php echo $location->ID ?>"><?php echo get_field('navigation_title', $location) ?></option>
                     <?php }
-                    } ?>
+                    ?>
                 </select>
             </label>
             <div class="search-control">

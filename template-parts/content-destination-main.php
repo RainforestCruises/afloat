@@ -1,9 +1,6 @@
 <?php
 $destination = $args['destination'];
-$region = $args['region'];
-
 $locations = $args['locations'];
-$destinations = $args['destinations'];
 $activities = $args['activities'];
 
 $tours = $args['tours'];
@@ -13,7 +10,6 @@ $destinationType = $args['destinationType'];
 
 $background_map = get_field('background_map');
 
-console_log($tours);
 $highlights = get_field('highlights');
 
 ?>
@@ -33,8 +29,8 @@ $highlights = get_field('highlights');
 
             </div>
             <div class="destination-main__intro__description__text">
-            <?php echo get_field('intro_text') ?>
-                        </div>
+                <?php echo get_field('intro_text') ?>
+            </div>
 
             <?php
             if ($destinationType == 'region') :
@@ -62,37 +58,36 @@ $highlights = get_field('highlights');
                     Destinations
                 </div>
                 <ul class="destination-main__intro__lists__locations__list">
-                    <?php if ($destinationType == 'destination') {
+                    <?php
+                    if ($locations) :
                         foreach ($locations as $s) : ?>
                             <li>
                                 <?php echo ($s->navigation_title); ?>
                             </li>
-                        <?php endforeach;
-                    } else if ($destinationType == 'region') {
-                        foreach ($destinations as $d) : ?>
-                            <li>
-                                <?php echo ($d->navigation_title); ?>
-                            </li>
                     <?php endforeach;
-                    } ?>
+                    endif;
+
+                    ?>
 
                 </ul>
 
             </div>
             <div class="destination-main__intro__lists__experiences">
                 <div class="destination-main__intro__lists__experiences__title">
-                   <?php echo ($destinationType == 'destination') ? 'Things to do' : 'Experiences'?>
+                    <?php echo ($destinationType == 'destination') ? 'Things to do' : 'Experiences' ?>
                 </div>
                 <ul class="destination-main__intro__lists__experiences__list">
-                 
+
                     <?php if ($destinationType == 'destination') {
-                           foreach ($activities as $a) : ?>
-                            <li>
-                                <?php echo ($a->navigation_title); ?>
-                            </li>
-                        <?php endforeach; ?>
-                    <?php } else if ($destinationType == 'region') {
-                         if (have_rows('tour_experiences')) : ?>
+                        if ($activities) :
+                            foreach ($activities as $a) : ?>
+                                <li>
+                                    <?php echo ($a->navigation_title); ?>
+                                </li>
+                        <?php endforeach;
+                        endif; ?>
+                        <?php } else if ($destinationType == 'region') {
+                        if (have_rows('tour_experiences')) : ?>
                             <?php while (have_rows('tour_experiences')) : the_row();
                                 $experience = get_sub_field('experience');
                             ?>
@@ -100,7 +95,7 @@ $highlights = get_field('highlights');
                                     <?php echo get_the_title($experience); ?>
                                 </li>
                             <?php endwhile; ?>
-                        <?php endif; 
+                    <?php endif;
                     } ?>
                 </ul>
             </div>
@@ -128,7 +123,7 @@ $highlights = get_field('highlights');
 
                 <?php foreach ($tours as $t) : ?>
                     <?php
-                    
+
                     $hero_image = get_field('hero_image', $t);
                     $countries  = get_field('countries', $t);
                     $price_packages = get_field('price_packages', $t);
@@ -202,7 +197,7 @@ $highlights = get_field('highlights');
                         </div>
                         <div class="category-card__content__availability">
                             <?php if ($destinationType == 'region') {
-                                echo tours_available_region($region, $experience) . ' Tours Available';
+                                echo tours_available_region($destination, $experience) . ' Tours Available';
                             } else if ($destinationType == 'destination') {
                                 echo tours_available($destination, $experience) . ' Tours Available';
                             } ?>

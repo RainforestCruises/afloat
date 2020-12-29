@@ -20,89 +20,6 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
-        },
-        {
-            "key": "field_5fe10551de6f9",
-            "label": "Hero Title",
-            "name": "hero_title",
-            "type": "text",
-            "instructions": "Title displayed above hero snippet, ex: River Kayaking",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": 20
-        },
-        {
-            "key": "field_5fe10551dead8",
-            "label": "Hero Short Text",
-            "name": "hero_short_text",
-            "type": "textarea",
-            "instructions": "Short text to appear in hero area snippet",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": 350,
-            "rows": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_5fe10551dee13",
-            "label": "Hero Image",
-            "name": "hero_image",
-            "type": "image",
-            "instructions": "1920 x 1080 fullscreen image for slider",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 1920,
-            "min_height": 1080,
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_5fe10551df2a6",
-            "label": "Importance",
-            "name": "importance",
-            "type": "number",
-            "instructions": "Lower numbers will appear first in lists.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 1,
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": 1,
-            "max": "",
-            "step": ""
         }
     ],
     "location": [
@@ -122,5 +39,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Activities - CPT",
-    "modified": 1608602875
+    "modified": 1609186392
 }

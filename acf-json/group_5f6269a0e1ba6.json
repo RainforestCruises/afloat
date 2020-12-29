@@ -66,30 +66,11 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5fd7aed3430d5",
-            "label": "Hero Title",
-            "name": "hero_title",
-            "type": "text",
-            "instructions": "Title displayed above hero snippet",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5fd7aee9430d6",
-            "label": "Hero Short Text",
-            "name": "hero_short_text",
-            "type": "textarea",
-            "instructions": "Short text to appear in hero slider snippet",
+            "key": "field_5fea3a88df109",
+            "label": "Locations",
+            "name": "locations",
+            "type": "relationship",
+            "instructions": "Select all locations",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -97,73 +78,17 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_5fdbdf6781833",
-            "label": "Hero Short Text (Region)",
-            "name": "hero_short_text_region",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_5fe13cbfe166c",
-            "label": "Hero Short Text (Cruise)",
-            "name": "hero_short_text_cruise",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_5fd7af0a430d7",
-            "label": "Hero Image",
-            "name": "hero_image",
-            "type": "image",
-            "instructions": "1920 x 1080 fullscreen image for slider",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "post_type": [
+                "rfc_locations"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
         },
         {
             "key": "field_5fe125b203346",
@@ -189,30 +114,6 @@
             "min": "",
             "max": "",
             "return_format": "object"
-        },
-        {
-            "key": "field_5fd7af24430d8",
-            "label": "Importance",
-            "name": "importance",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
-            "default_value": 1,
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": 99,
-            "step": ""
         },
         {
             "key": "field_5fdbaf61814b6",
@@ -251,5 +152,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Destinations - CPT",
-    "modified": 1608596718
+    "modified": 1609186124
 }

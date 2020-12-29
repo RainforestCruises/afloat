@@ -10,41 +10,23 @@ get_header();
 <?php
 $destinationType = 'destination';
 
-$title = '';
-$region = '';
-$destination = '';
-$destinations = '';
-$locations = '';
-$activities = '';
+$destination = get_field('destination_post');
+$activities = get_field('activities', $destination);
+usort($activities, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
 
-$sliderContent = [];
+$locations = get_field('locations', $destination);
+usort($locations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+
+$destinationCount = 0;
+if($locations){
+    $destinationCount = count($locations); //pass count to JS
+}
 
 $tour_experiences = get_field('tour_experiences');
-$destinationCount = 0;
+$sliderContent = get_field('hero_slider');
 
-
-
-//DESTINATION
-//-single destintion -multiple locations
-//-tours/cruises from single destination
-//DESTINATION
-$destination = get_field('destination_post');
-
-//Activities
-$activities = get_field('activities', $destination);
-
-//LOCATIONS
-$locationCriteria = array(
-    'posts_per_page' => -1,
-    'post_type' => 'rfc_locations',
-    "meta_key" => "destination",
-    "meta_value" => $destination->ID
-);
-$locations = get_posts($locationCriteria);
-usort($locations, function ($a, $b) { //sort locations by importance
-    return strcmp($a->importance, $b->importance);
-});
-$destinationCount = count($locations); //pass count to JS
+//Title (Destination)
+$title = $destination->post_title;
 
 //TOURS
 $tourCriteria = array(
@@ -74,32 +56,9 @@ $cruiseCriteria = array(
 );
 $cruises = get_posts($cruiseCriteria);
 
-//Build Slider Content
-$destinationSlide = array(
-    'hero_image' => get_field('hero_image', $destination),
-    'hero_title' => get_field('hero_title', $destination),
-    'hero_short_text' => get_field('hero_short_text', $destination),
-);
-$sliderContent[] = $destinationSlide;
-foreach ($locations as $l) {
-    $locationSlide = array(
-        'hero_image' => get_field('hero_image', $l),
-        'hero_title' => get_field('hero_title', $l),
-        'hero_short_text' => get_field('hero_short_text', $l),
-    );
-    $sliderContent[] = $locationSlide;
-}
-
-//Title (Destination)
-$title = $destination->post_title;
-
-
 
 $args = array(
     'destination' => $destination,
-    'destinations' => $destinations,
-    'region' => $region,
-
     'locations' => $locations,
     'activities' => $activities,
 

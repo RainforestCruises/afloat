@@ -1,13 +1,10 @@
 <?php
 $destination = $args['destination'];
-$region = $args['region'];
 
 $locations = $args['locations'];
-$destinations = $args['destinations'];
 $activities = $args['activities'];
 
 $cruise_locations = get_field('cruise_countries');
-
 
 $cruises = $args['cruises'];
 $currentYear = date("Y");

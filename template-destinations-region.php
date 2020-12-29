@@ -9,18 +9,16 @@ get_header();
 
 <?php
 $destinationType = 'region';
+$destination = get_field('region_post'); //actually a region
+$activities = get_field('activities', $destination);
+usort($activities, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
 
-$title = '';
-$region= '';
-$destination= '';
-$destinations= '';
-$activities = '';
-$locations = '';
-
-$sliderContent = [];
 
 $tour_experiences = get_field('tour_experiences');
-$destinationCount = 0;
+$sliderContent = get_field('hero_slider');
+
+//Title (Destination)
+$title = $destination->post_title;
 
 
 //REGION
@@ -31,18 +29,17 @@ $destinationCriteria = array(
     'posts_per_page' => -1,
     'post_type' => 'rfc_destinations',
     "meta_key" => "region",
-    "meta_value" => $region->ID
+    "meta_value" => $destination->ID
 );
-$destinations = get_posts($destinationCriteria);
-usort($destinations, function ($a, $b) { //sort locations by importance
-    return strcmp($a->importance, $b->importance);
-});
-$destinationCount = count($destinations); //pass count to JS
+$locations = get_posts($destinationCriteria); //actually destinations
+usort($locations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+
+$destinationCount = count($locations); //pass count to JS
 
 
 //get destination IDs
 $destinationIds = [];
-foreach ($destinations as $d) {
+foreach ($locations as $d) {
     $destinationIds[] = $d->ID;
 }
 
@@ -73,33 +70,15 @@ $cruiseCriteria = array(
 );
 $cruises = get_posts($cruiseCriteria);
 
-//Build Slider Content
-$regionSlide = array(
-    'hero_image' => get_field('hero_image', $region),
-    'hero_title' => '',
-    'hero_short_text' => get_field('hero_short_text', $region),
-);
-$sliderContent[] = $regionSlide;
-foreach ($destinations as $d) {
-    $destinationSlide = array(
-        'hero_image' => get_field('hero_image', $d),
-        'hero_title' => get_field('hero_title', $d),
-        'hero_short_text' => get_field('hero_short_text_region', $d),
-    );
-    $sliderContent[] = $destinationSlide;
-}
 
 //Title (Region)
-$title = $region->post_title;
+$title = $destination->post_title;
+
 
 
 
 $args = array(
     'destination' => $destination,
-    'destinations' => $destinations,
-    'region' => $region,
-    'title' => $title,
-
     'locations' => $locations,
     'activities' => $activities,
 
@@ -107,6 +86,7 @@ $args = array(
     'tour_experiences' => $tour_experiences,
     'cruises' => $cruises,
     'sliderContent' => $sliderContent,
+    'title' => $title,
     'destinationType' => $destinationType,
 
 );

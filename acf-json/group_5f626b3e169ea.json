@@ -52,6 +52,89 @@
             "ui": 1
         },
         {
+            "key": "field_5fea3d89c55ed",
+            "label": "Hero Slider",
+            "name": "hero_slider",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5fea3db9c55ee",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "1080 x 1920 image",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": 1080,
+                    "min_height": 1920,
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5fea3ddbc55ef",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "Title above the caption",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5fea3e04c55f0",
+                    "label": "Caption",
+                    "name": "caption",
+                    "type": "textarea",
+                    "instructions": "Short blurb about the content",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                }
+            ]
+        },
+        {
             "key": "field_5fc52e9ebd0f9",
             "label": "Intro Title",
             "name": "intro_title",
@@ -587,5 +670,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1608741219
+    "modified": 1609187008
 }

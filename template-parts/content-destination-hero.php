@@ -13,7 +13,7 @@
   <div class="destination-hero">
       <div class="destination-hero__bg-slide" id="destination-hero__bg">
           <?php foreach ($sliderContent as $s) :
-                $sliderImage = $s['hero_image'];
+                $sliderImage = $s['image'];
             ?>
               <img src="<?php echo esc_url($sliderImage['url']); ?>" alt="">
           <?php endforeach; ?>
@@ -179,10 +179,10 @@
                   <?php foreach ($sliderContent as $s) : ?>
                       <div class="destination-hero__content__location__slider__item">
                           <div class="destination-hero__content__location__slider__item__title">
-                              <?php echo $s['hero_title']; ?>
+                              <?php echo $s['title']; ?>
                           </div>
                           <div class="destination-hero__content__location__slider__item__text">
-                              <?php echo $s['hero_short_text']; ?>
+                              <?php echo $s['caption']; ?>
                           </div>
                       </div>
                   <?php endforeach; ?>
