@@ -11,7 +11,7 @@ get_header();
 $destinationType = 'region';
 $destination = get_field('region_post'); //actually a region
 $activities = get_field('activities', $destination);
-usort($activities, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+//usort($activities, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
 
 
 $tour_experiences = get_field('tour_experiences');
@@ -32,7 +32,7 @@ $destinationCriteria = array(
     "meta_value" => $destination->ID
 );
 $locations = get_posts($destinationCriteria); //actually destinations
-usort($locations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+//usort($locations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
 
 $destinationCount = count($locations); //pass count to JS
 

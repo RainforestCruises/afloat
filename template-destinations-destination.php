@@ -12,10 +12,10 @@ $destinationType = 'destination';
 
 $destination = get_field('destination_post');
 $activities = get_field('activities', $destination);
-usort($activities, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+//usort($activities, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
 
 $locations = get_field('locations', $destination);
-usort($locations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+//usort($locations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
 
 $destinationCount = 0;
 if($locations){
