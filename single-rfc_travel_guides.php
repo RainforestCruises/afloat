@@ -34,7 +34,7 @@ while (have_posts()) :
             <button>
               Please read our disclaimer
               <svg>
-                <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-right"></use>
+                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
               </svg>
             </button>
           </div>
@@ -52,7 +52,7 @@ while (have_posts()) :
         <button class="travel-guide__question__button">
           Ask us a question
           <svg>
-            <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-right"></use>
+            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
           </svg>
         </button>
       </div>
