@@ -146,6 +146,8 @@
 
   color: $color-secondary;
 
+
+
   svg {
     height: 40%;
     width: 40%;
@@ -245,6 +247,14 @@
       background-color: rgba($color-white, 0.95);
     }
   }
+
+  &--white {
+    color: rgba($color-white, 0.95);
+    &::after {
+      border: 2px solid rgba($color-white, 0.95);
+    }
+  }
+
 }
 
 // Chevron Expand Button
@@ -480,7 +490,7 @@
 
   &--small {
     font-size: 1.3rem;
-    letter-spacing: .1rem;
+    letter-spacing: .2rem;
 
     & svg {
 

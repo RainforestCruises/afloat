@@ -4,6 +4,9 @@
 
     display: grid;
     grid-template-columns: $page-container;
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: $page-container-small;
+    }
 
     position: relative;
     z-index: 0;
@@ -15,6 +18,9 @@
 
     height: 100%;
     z-index: 3;
+
+    justify-items: center;
+
     &__category {
         font-size: 1.6rem;
         letter-spacing: 0.2rem;
@@ -52,6 +58,7 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 6rem;
+
         & p:first-of-type {
             font-size: 2.5rem;
             text-align: center;
@@ -127,7 +134,305 @@
             font-weight: 600;
             margin-top: 3rem;
             margin-bottom: 6rem;
+        }
+    }
 
+    &__question {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        max-width: 80rem;
+        position: relative;
+        padding: 3rem 10rem;
+        text-align: center;
+        align-items: center;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 3rem 0rem;
+        }
+
+        &__title {
+            font-size: 3rem;
+            font-weight: 600;
+            color: $color-secondary;
+        }
+        &__text {
+            font-size: 1.6rem;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+        &__button {
+            font-size: 1.3rem;
+            font-family: $font-primary;
+            color: $color-secondary;
+            background-color: transparent;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            outline: none;
+            width: 30rem;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            font-weight: 600;
+            padding: 1.5rem 0;
+            text-align: center;
+
+            &:hover {
+                & svg {
+                    transform: translateX(0.2rem) translateY(-0.1rem);
+                }
+            }
+            & svg {
+                margin-left: 0.5rem;
+                transform: translateY(-0.1rem);
+                height: 1.3rem;
+                width: 1.3rem;
+                fill: currentColor;
+                transition: all 0.2s;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background-color: $color-grey-light-1a;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background-color: $color-grey-light-1a;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__entry {
+        font-size: 1.6rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        color: $color-secondary;
+    }
+
+    &__social {
+        display: flex;
+        & svg {
+            height: 3rem;
+            width: 3rem;
+            fill: $color-secondary;
+            margin: 0 0.5rem;
+        }
+        margin-bottom: 6rem;
+    }
+}
+
+.travel-guide-related {
+    grid-column: 1 / -1;
+
+    background-color: $color-secondary;
+
+    display: grid;
+    justify-content: center;
+    padding: 0 10rem;
+    padding-bottom: 8rem;
+    width: 100%;
+    grid-template-columns: $page-container;
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: $page-container-small;
+        padding: 0 2rem;
+    }
+
+    &__title {
+        grid-column: 1 / -1;
+
+        text-align: center;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        font-weight: 500;
+        color: $color-white;
+        margin-top: 6rem;
+        margin-bottom: 5rem;
+        width: 100%;
+    }
+
+    &__slider-area {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        &__slider {
+            max-width: 114rem;
+            width: 100%;
+            margin: 0 6rem;
+            .slick-slide {
+                margin: 0 1.5rem;
+            }
+
+            &__item {
+                display: grid !important;
+                grid-template-rows: 25rem minmax(25rem, min-content);
+
+                //height: min-content;
+                width: 100%;
+
+                color: white;
+
+                &__image {
+                    grid-column: 1 / -1;
+                    grid-row: 1 / span 1;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    position: relative;
+                }
+
+                &__content {
+                    grid-column: 1 / -1;
+                    grid-row: 2 / span 1;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+
+                    &__title {
+                        font-size: 3rem;
+                        line-height: 3.5rem;
+                        margin-top: 2.5rem;
+                    }
+                    &__text {
+                        font-size: 1.6rem;
+                        margin-top: 1rem;
+                    }
+                    &__cta {
+                        font-size: 1.6rem;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.travel-guide-newsletter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: center-start / center-end;
+    margin: 6rem 0;
+    column-gap: 6rem;
+    width: 100%;
+    padding: 8rem;
+
+    @media only screen and (max-width: $bp-large) {
+        padding: 4rem;
+    }
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: 1fr;
+    }
+    @media only screen and (max-width: $bp-medium) {
+        padding: 0rem;
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        //padding-top: 6rem;
+
+        &__title {
+            font-size: 5rem;
+            line-height: 5.8rem;
+            font-family: $font-secondary;
+            color: $color-secondary;
+            margin-bottom: 4rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                text-align: center;
+            }
+        }
+
+        &__text {
+            color: $color-secondary;
+
+            font-size: 1.6rem;
+            margin-bottom: 9rem;
+            @media only screen and (max-width: $bp-medium) {
+                margin-bottom: 6rem;
+                text-align: center;
+            }
+        }
+        &__email {
+            display: flex;
+            //justify-content: space-between;
+            flex-wrap: wrap;
+
+            @media only screen and (max-width: $bp-medium) {
+                justify-content: center;
+            }
+
+            &__input {
+                font-size: 1.5rem;
+                padding: 2rem 3rem;
+                border: none;
+                letter-spacing: 0.1rem;
+                font-family: $font-primary;
+                box-shadow: inset 0px 0px 0px 2px $color-secondary;
+                margin-right: 1rem;
+                
+                min-width: 22rem;
+                margin-bottom: 2rem;
+                height: 6rem;
+                @media only screen and (max-width: $bp-small) {
+                    width: 90%;
+                }
+            }
+
+            &__button {
+                padding: 2rem 3rem;
+                font-family: $font-primary;
+                background-color: $color-secondary;
+                color: $color-white;
+                letter-spacing: 0.3rem;
+                font-size: 1.5rem;
+                border: none;
+                text-transform: uppercase;
+                height: 6rem;
+                @media only screen and (max-width: $bp-small) {
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+    &__image {
+        width: 100%;
+        min-width: 40rem;
+        height: 60rem;
+        background-color: yellow;
+        @media only screen and (max-width: $bp-medium) {
+            display: none;
+        }
+
+        & img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            position: relative;
         }
     }
 }
@@ -145,6 +450,14 @@
     display: grid;
     grid-template-columns: max-content 1fr;
     column-gap: 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        width: 100%;
+        row-gap: 1rem;
+        text-align: center;
+    }
 
     & svg {
         height: 5rem;
@@ -172,6 +485,10 @@
             letter-spacing: 0.1rem;
             font-weight: 600;
             padding: 1.5rem 0;
+
+            @media only screen and (max-width: $bp-small) {
+                justify-self: center;
+            }
 
             &:hover {
                 & svg {
