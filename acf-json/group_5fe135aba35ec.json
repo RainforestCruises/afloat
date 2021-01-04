@@ -173,7 +173,7 @@
             "key": "field_5fe135abb05c4",
             "label": "Intro Text",
             "name": "intro_text",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -182,14 +182,11 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5fe135abb09a1",
@@ -698,5 +695,5 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1609203198
+    "modified": 1609524713
 }
