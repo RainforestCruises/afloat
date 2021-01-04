@@ -1322,7 +1322,6 @@ h5 {
   justify-content: center;
   padding: 0 10rem;
   padding-bottom: 8rem;
-  width: 100%;
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
   @media only screen and (max-width: 37.5em) {
     .travel-guide-related {
@@ -1386,7 +1385,6 @@ h5 {
   grid-column: center-start / center-end;
   margin: 6rem 0;
   column-gap: 6rem;
-  width: 100%;
   padding: 8rem; }
   @media only screen and (max-width: 62.5em) {
     .travel-guide-newsletter {
@@ -1420,11 +1418,14 @@ h5 {
           margin-bottom: 6rem;
           text-align: center; } }
     .travel-guide-newsletter__content__email {
-      display: flex;
-      flex-wrap: wrap; }
+      display: flex; }
       @media only screen and (max-width: 50em) {
         .travel-guide-newsletter__content__email {
           justify-content: center; } }
+      @media only screen and (max-width: 37.5em) {
+        .travel-guide-newsletter__content__email {
+          flex-direction: column;
+          align-items: center; } }
       .travel-guide-newsletter__content__email__input {
         font-size: 1.5rem;
         padding: 2rem 3rem;
@@ -1433,9 +1434,7 @@ h5 {
         font-family: "Metropolis", sans-serif;
         box-shadow: inset 0px 0px 0px 2px #142838;
         margin-right: 1rem;
-        min-width: 22rem;
-        margin-bottom: 2rem;
-        height: 6rem; }
+        min-width: 22rem; }
         @media only screen and (max-width: 37.5em) {
           .travel-guide-newsletter__content__email__input {
             width: 90%; } }
@@ -1447,11 +1446,11 @@ h5 {
         letter-spacing: 0.3rem;
         font-size: 1.5rem;
         border: none;
-        text-transform: uppercase;
-        height: 6rem; }
+        text-transform: uppercase; }
         @media only screen and (max-width: 37.5em) {
           .travel-guide-newsletter__content__email__button {
-            width: 50%; } }
+            width: 50%;
+            margin-top: 4rem; } }
   .travel-guide-newsletter__image {
     width: 100%;
     min-width: 40rem;
