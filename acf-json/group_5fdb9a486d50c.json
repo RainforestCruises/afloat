@@ -135,6 +135,49 @@
             ]
         },
         {
+            "key": "field_5ff34872dd15c",
+            "label": "Destinations List",
+            "name": "destinations_list",
+            "type": "repeater",
+            "instructions": "List of destination to appear below the fold",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5ff34890dd15d",
+                    "label": "Destination",
+                    "name": "destination",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "rfc_destinations"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "",
+                    "ui": 1
+                }
+            ]
+        },
+        {
             "key": "field_5fdb9a48787d2",
             "label": "Intro Title",
             "name": "intro_title",
@@ -679,5 +722,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1609524490
+    "modified": 1609779431
 }

@@ -9,7 +9,6 @@ $currentYear = date("Y");
 $destinationType = $args['destinationType'];
 
 $background_map = get_field('background_map');
-
 $highlights = get_field('highlights');
 
 ?>
@@ -60,9 +59,10 @@ $highlights = get_field('highlights');
                 <ul class="destination-main__intro__lists__locations__list">
                     <?php
                     if ($locations) :
-                        foreach ($locations as $s) : ?>
+                        foreach ($locations as $l) : ?>
+                            <?php $location = ($destinationType == 'region') ? $l['destination'] : $l['location'] ?>
                             <li>
-                                <?php echo ($s->navigation_title); ?>
+                                <?php echo get_the_title($location) ?>
                             </li>
                     <?php endforeach;
                     endif;
@@ -81,8 +81,9 @@ $highlights = get_field('highlights');
                     <?php if ($destinationType == 'destination') {
                         if ($activities) :
                             foreach ($activities as $a) : ?>
+                                <?php $activity = $a['activity'] ?>
                                 <li>
-                                    <?php echo ($a->navigation_title); ?>
+                                    <?php echo get_the_title($activity) ?>
                                 </li>
                         <?php endforeach;
                         endif; ?>

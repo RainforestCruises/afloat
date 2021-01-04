@@ -189,6 +189,92 @@
             "delay": 0
         },
         {
+            "key": "field_5ff34508ed26b",
+            "label": "Locations List",
+            "name": "locations_list",
+            "type": "repeater",
+            "instructions": "List of locations to appear below the fold, right of the intro",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5ff34547ed26c",
+                    "label": "Location",
+                    "name": "location",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "rfc_locations"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "",
+                    "ui": 1
+                }
+            ]
+        },
+        {
+            "key": "field_5ff345a9ed26e",
+            "label": "Activities List",
+            "name": "activities_list",
+            "type": "repeater",
+            "instructions": "List of activities to appear below the fold, right of the intro",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5ff345a9ed26f",
+                    "label": "Activity",
+                    "name": "activity",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "rfc_activities"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                }
+            ]
+        },
+        {
             "key": "field_5fc52eadbd0fa",
             "label": "Background Map",
             "name": "background_map",
@@ -667,5 +753,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1609524457
+    "modified": 1609778656
 }

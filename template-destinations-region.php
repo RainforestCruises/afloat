@@ -11,7 +11,7 @@ get_header();
 $destinationType = 'region';
 $destination = get_field('region_post'); //actually a region
 $activities = get_field('activities', $destination);
-//usort($activities, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+$locations = get_field('destinations_list'); //locations (actually destinations) list 
 
 
 $tour_experiences = get_field('tour_experiences');
@@ -24,22 +24,20 @@ $title = $destination->post_title;
 //REGION
 $region = get_field('region_post');
 
-//DESTINATIONS
+
+//DESTINATIONS - for slider criterias
 $destinationCriteria = array(
     'posts_per_page' => -1,
     'post_type' => 'rfc_destinations',
     "meta_key" => "region",
     "meta_value" => $destination->ID
 );
-$locations = get_posts($destinationCriteria); //actually destinations
-//usort($locations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
-
-$destinationCount = count($locations); //pass count to JS
-
+$destinations = get_posts($destinationCriteria); 
+$destinationCount = count($destinations); //pass count to JS?
 
 //get destination IDs
 $destinationIds = [];
-foreach ($locations as $d) {
+foreach ($destinations as $d) {
     $destinationIds[] = $d->ID;
 }
 
@@ -149,6 +147,5 @@ $args = array(
 
 
 <script>
-    var destinationCount = <?php echo json_encode($destinationCount); ?>;
     var templateUrl = "<?php echo bloginfo('template_url') ?>";
 </script>

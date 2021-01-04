@@ -34,7 +34,7 @@ $cruise_experiences = get_field('cruise_experiences');
 
             </div>
             <div class="destination-main__intro__description__text">
-            <?php echo get_field('intro_text') ?>            
+                <?php echo get_field('intro_text') ?>
             </div>
 
 
@@ -45,19 +45,14 @@ $cruise_experiences = get_field('cruise_experiences');
                     Destinations
                 </div>
                 <ul class="destination-main__intro__lists__locations__list">
-                    <?php if ($destinationType == 'destination' || $destinationType == 'cruise') {
-                        foreach ($locations as $s) : ?>
+                    <?php if ($locations) : ?>
+                        <?php foreach ($locations as $l) : ?>
+                            <?php $location =  $l['location']; ?>
                             <li>
-                                <a href="#"><?php echo ($s->navigation_title); ?></a>
-                            </li>
-                        <?php endforeach;
-                    } else if ($destinationType == 'region') {
-                        foreach ($destinations as $d) : ?>
-                            <li>
-                                <a href="#"><?php echo ($d->navigation_title); ?></a>
+                                <a href="#"><?php echo ($location->navigation_title); ?></a>
                             </li>
                     <?php endforeach;
-                    } ?>
+                    endif; ?>
 
                 </ul>
 
@@ -67,11 +62,14 @@ $cruise_experiences = get_field('cruise_experiences');
                     Things to do
                 </div>
                 <ul class="destination-main__intro__lists__experiences__list">
-                    <?php foreach ($activities as $a) : ?>
-                        <li>
-                            <a href="#"><?php echo ($a->navigation_title); ?></a>
-                        </li>
-                    <?php endforeach; ?>
+                    <?php if ($activites) : ?>
+                        <?php foreach ($activities as $a) : ?>
+                            <?php $activity =  $a['activity']; ?>
+                            <li>
+                                <a href="#"><?php echo ($activity->navigation_title); ?></a>
+                            </li>
+                    <?php endforeach;
+                    endif; ?>
                 </ul>
             </div>
 

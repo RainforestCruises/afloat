@@ -11,16 +11,9 @@ get_header();
 $destinationType = 'destination';
 
 $destination = get_field('destination_post');
-$activities = get_field('activities', $destination);
-//usort($activities, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+$activities = get_field('activities_list');
 
-$locations = get_field('locations', $destination);
-//usort($locations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
-
-$destinationCount = 0;
-if($locations){
-    $destinationCount = count($locations); //pass count to JS
-}
+$locations = get_field('locations_list');
 
 $tour_experiences = get_field('tour_experiences');
 $sliderContent = get_field('hero_slider');
@@ -132,6 +125,5 @@ $args = array(
 
 
 <script>
-    var destinationCount = <?php echo json_encode($destinationCount); ?>;
     var templateUrl = "<?php echo bloginfo('template_url') ?>";
 </script>

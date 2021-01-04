@@ -135,6 +135,92 @@
             ]
         },
         {
+            "key": "field_5ff34bec49cfb",
+            "label": "Locations List",
+            "name": "locations_list",
+            "type": "repeater",
+            "instructions": "List below the folder, right of intro",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5ff34c0649cfc",
+                    "label": "Location",
+                    "name": "location",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "rfc_locations"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                }
+            ]
+        },
+        {
+            "key": "field_5ff34c2f49cfd",
+            "label": "Activities List",
+            "name": "activities_list",
+            "type": "repeater",
+            "instructions": "List below the folder, right of intro",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5ff34c2f49cfe",
+                    "label": "Activity",
+                    "name": "activity",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "rfc_activities"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                }
+            ]
+        },
+        {
             "key": "field_5fe135abb01cf",
             "label": "Intro Title",
             "name": "intro_title",
@@ -695,5 +781,5 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1609524713
+    "modified": 1609780894
 }

@@ -12,19 +12,11 @@ $destinationType = 'cruise';
 
 $destination = get_field('destination_post');
 
-$activities = get_field('activities', $destination);
-//usort($activities, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
-
-$locations = get_field('locations', $destination);
-$destinationCount = 0;
-if($locations){
-    //usort($locations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
-    $destinationCount = count($locations); //pass count to JS
-}
+$activities = get_field('activities_list');
+$locations = get_field('locations_list');
 
 $tour_experiences = get_field('tour_experiences');
 $sliderContent = get_field('hero_slider');
-
 
 
 //TOURS
@@ -129,7 +121,6 @@ $args = array(
 
 
 <script>
-    var destinationCount = <?php echo json_encode($destinationCount); ?>;
     var templateUrl = "<?php echo bloginfo('template_url') ?>";
 </script>
 
