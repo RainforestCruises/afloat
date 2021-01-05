@@ -62,7 +62,7 @@ $highlights = get_field('highlights');
                         foreach ($locations as $l) : ?>
                             <?php $location = ($destinationType == 'region') ? $l['destination'] : $l['location'] ?>
                             <li>
-                                <?php echo get_the_title($location) ?>
+                                <?php echo get_field('navigation_title', $location); ?>
                             </li>
                     <?php endforeach;
                     endif;
@@ -83,7 +83,7 @@ $highlights = get_field('highlights');
                             foreach ($activities as $a) : ?>
                                 <?php $activity = $a['activity'] ?>
                                 <li>
-                                    <?php echo get_the_title($activity) ?>
+                                    <?php echo get_field('navigation_title', $activity); ?>
                                 </li>
                         <?php endforeach;
                         endif; ?>
