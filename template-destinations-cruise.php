@@ -53,7 +53,6 @@ $cruises = get_posts($cruiseCriteria);
 $title = $destination->post_title;
 
 
-
 $args = array(
     'destination' => $destination,
     'locations' => $locations,

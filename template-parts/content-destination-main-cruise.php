@@ -17,6 +17,8 @@ $background_map = get_field('background_map');
 $highlights = get_field('highlights');
 
 $cruise_experiences = get_field('cruise_experiences');
+console_log($activities);
+
 ?>
 
 <div class="destination-main">
@@ -49,7 +51,7 @@ $cruise_experiences = get_field('cruise_experiences');
                         <?php foreach ($locations as $l) : ?>
                             <?php $location =  $l['location']; ?>
                             <li>
-                                <a href="#"><?php echo ($location->navigation_title); ?></a>
+                                <a href="#"><?php echo $location; ?></a>
                             </li>
                     <?php endforeach;
                     endif; ?>
@@ -62,7 +64,7 @@ $cruise_experiences = get_field('cruise_experiences');
                     Things to do
                 </div>
                 <ul class="destination-main__intro__lists__experiences__list">
-                    <?php if ($activites) : ?>
+                    <?php if ($activities) : ?>
                         <?php foreach ($activities as $a) : ?>
                             <?php $activity =  $a['activity']; ?>
                             <li>

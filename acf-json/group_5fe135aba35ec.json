@@ -157,8 +157,8 @@
                     "key": "field_5ff34c0649cfc",
                     "label": "Location",
                     "name": "location",
-                    "type": "post_object",
-                    "instructions": "",
+                    "type": "text",
+                    "instructions": "Free entry, enter name of destination, location, etc.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -166,14 +166,11 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [
-                        "rfc_locations"
-                    ],
-                    "taxonomy": "",
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "return_format": "object",
-                    "ui": 1
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         },
@@ -781,5 +778,5 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1609780894
+    "modified": 1609965013
 }
