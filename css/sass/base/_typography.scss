@@ -153,6 +153,7 @@ p {
     font-family: $font-secondary;
     color: $color-secondary;
     font-size: 6rem;
+    line-height: 7rem;
     letter-spacing: 0.3rem;
     font-weight: 500;
 
@@ -163,10 +164,14 @@ p {
 
     @media only screen and (max-width: $bp-medium) {
         font-size: 5rem;
+        line-height: 6rem;
+
     }
 
     @media only screen and (max-width: $bp-small) {
         font-size: 3rem;
+        line-height: 4rem;
+
     }
 
     @media only screen and (max-width: $bp-xsmall) {

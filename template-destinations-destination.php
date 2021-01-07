@@ -91,7 +91,7 @@ $args = array(
 
     <!-- Accommodations -->
     <?php if (get_field('hide_accommodations') == false) { ?>
-    <section class="destination-page__section-accommodations" id="accommodations">
+    <section class="destination-page__section-accommodations" id="accommodation">
         <?php
         get_template_part('template-parts/content', 'destination-accommodations', $args);
         ?>

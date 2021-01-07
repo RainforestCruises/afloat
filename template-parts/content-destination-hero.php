@@ -66,12 +66,12 @@
                                 $hide_accommodations = get_field('hide_accommodations');
                                 if (!$hide_accommodations) { ?>
                                   <li class="destination-hero__content__page-nav__list__item">
-                                      <a href="#accommodations" class="destination-hero__content__page-nav__list__item__link">Accommodations</a>
+                                      <a href="#accommodation" class="destination-hero__content__page-nav__list__item__link">Accommodation</a>
                                   </li>
                               <?php }
                             } else { ?>
                               <li class="destination-hero__content__page-nav__list__item">
-                                  <a href="#accommodations" class="destination-hero__content__page-nav__list__item__link">Accommodations</a>
+                                  <a href="#accommodation" class="destination-hero__content__page-nav__list__item__link">Accommodation</a>
                               </li>
                           <?php } ?>
 
@@ -128,12 +128,12 @@
                                     $hide_accommodations = get_field('hide_accommodations');
                                     if (!$hide_accommodations) { ?>
                                       <li class="page-nav__collapse__list__item">
-                                          <a href="#accommodations" class="page-nav__collapse__list__item__link">Accommodations</a>
+                                          <a href="#accommodation" class="page-nav__collapse__list__item__link">Accommodation</a>
                                       </li>
                                   <?php }
                                 } else { ?>
                                   <li class="page-nav__collapse__list__item">
-                                      <a href="#accommodations" class="page-nav__collapse__list__item__link">Accommodations</a>
+                                      <a href="#accommodation" class="page-nav__collapse__list__item__link">Accommodation</a>
                                   </li>
                               <?php } ?>
 
