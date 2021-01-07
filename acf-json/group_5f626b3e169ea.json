@@ -193,7 +193,7 @@
             "label": "Locations List",
             "name": "locations_list",
             "type": "repeater",
-            "instructions": "List of locations to appear below the fold, right of the intro",
+            "instructions": "List of locations to appear below the fold, right of the intro. Conventionally ordered alphabetically",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -306,7 +306,7 @@
             "label": "Tour Experiences",
             "name": "tour_experiences",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Experience tiles below the vacation packages slider. Family, Adventure, etc",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -753,5 +753,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1609778656
+    "modified": 1610057195
 }

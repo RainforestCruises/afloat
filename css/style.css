@@ -4010,7 +4010,7 @@ h5 {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), linear-gradient(to top, white 30%, transparent), url(img/bg/topo-1.png);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8)), linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), linear-gradient(to top, white 30%, transparent), url(img/bg/topo-1.png);
     opacity: 0.35;
     top: 0;
     left: 0; }
@@ -4176,11 +4176,12 @@ h5 {
     grid-column: center-start / center-end;
     text-align: center;
     margin: 4rem 0;
+    margin-bottom: 2rem;
     display: grid;
     grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr);
     align-items: center;
     column-gap: 2.5rem;
-    font-size: 2rem;
+    font-size: 3rem;
     text-transform: uppercase;
     color: #142838;
     letter-spacing: .3rem;
@@ -4196,6 +4197,11 @@ h5 {
       height: 1px;
       display: block;
       background-color: currentColor; }
+  .destination-main__experiences-sub-text {
+    grid-column: center-start / center-end;
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 2rem; }
   .destination-main__experiences {
     grid-column: center-start / center-end;
     height: 100%;
@@ -5523,6 +5529,10 @@ h5 {
   color: #fff;
   font-size: 1.6rem;
   position: relative; }
+  @media only screen and (max-width: 50em) {
+    .footer {
+      grid-template-rows: 15rem repeat(5, min-content);
+      justify-items: center; } }
   .footer::after {
     content: "";
     grid-column: 1 / -1;
@@ -5561,6 +5571,9 @@ h5 {
         width: 3rem;
         fill: currentColor;
         margin: 0rem 1rem; }
+      @media only screen and (max-width: 37.5em) {
+        .footer__first__social {
+          display: none; } }
   .footer__tagline {
     grid-row: 2 / span 1;
     grid-column: center-start / col-end 6;
@@ -5573,6 +5586,11 @@ h5 {
       .footer__tagline {
         font-size: 6rem;
         line-height: 7rem; } }
+    @media only screen and (max-width: 50em) {
+      .footer__tagline {
+        grid-row: 2 / span 1;
+        grid-column: center-start / center-end;
+        text-align: center; } }
   .footer__explore {
     grid-row: 2 / span 1;
     grid-column: col-end 6 / center-end;
@@ -5580,6 +5598,15 @@ h5 {
     flex-direction: column;
     align-content: center;
     justify-content: center; }
+    @media only screen and (max-width: 50em) {
+      .footer__explore {
+        grid-row: 3 / span 1;
+        grid-column: center-start / center-end;
+        max-width: 80%;
+        margin-top: 4rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .footer__explore {
+        max-width: 95%; } }
     .footer__explore__button {
       background-color: transparent;
       border: 2px solid #d9a402;
@@ -5596,6 +5623,11 @@ h5 {
       transition: all .2s; }
       .footer__explore__button:hover {
         border: 2px solid #fff; }
+      @media only screen and (max-width: 37.5em) {
+        .footer__explore__button {
+          white-space: normal;
+          line-height: 3rem;
+          font-size: 1.8rem; } }
     .footer__explore__phone {
       display: flex;
       justify-content: center;
@@ -5605,9 +5637,22 @@ h5 {
   .footer__navigation {
     grid-row: 3 / span 1;
     grid-column: center-start / center-end;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     margin: 6rem 0; }
+    @media only screen and (max-width: 50em) {
+      .footer__navigation {
+        grid-row: 4 / span 1;
+        grid-column: center-start / center-end;
+        justify-content: space-between;
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 3rem;
+        text-align: center; } }
+    @media only screen and (max-width: 37.5em) {
+      .footer__navigation {
+        grid-template-columns: 1fr;
+        row-gap: 5rem; } }
     .footer__navigation__group__title {
       color: #d9a402;
       text-transform: uppercase;
@@ -5624,6 +5669,9 @@ h5 {
           font-weight: 300;
           color: #fff;
           position: relative; }
+          @media only screen and (max-width: 37.5em) {
+            .footer__navigation__group__nav__list__item a:link, .footer__navigation__group__nav__list__item a:visited {
+              font-size: 1.8rem; } }
         .footer__navigation__group__nav__list__item a::after {
           content: "";
           position: absolute;
@@ -5641,6 +5689,11 @@ h5 {
     grid-column: center-start / span 2;
     display: flex;
     align-items: center; }
+    @media only screen and (max-width: 50em) {
+      .footer__logo {
+        grid-row: 5 / span 1;
+        grid-column: center-start / center-end;
+        margin-bottom: 3rem; } }
     .footer__logo img {
       height: 10rem;
       width: auto; }
@@ -5653,6 +5706,12 @@ h5 {
     letter-spacing: 0.1rem;
     font-size: 1.5rem;
     font-weight: 300; }
+    @media only screen and (max-width: 50em) {
+      .footer__copyright {
+        grid-row: 6 / span 1;
+        grid-column: center-start / center-end;
+        margin: 1rem 0;
+        text-align: center; } }
 
 .page-nav__button {
   display: none;

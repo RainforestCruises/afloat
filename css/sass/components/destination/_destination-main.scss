@@ -3,7 +3,6 @@
     grid-template-columns: $page-container;
     overflow: hidden;
     position: relative;
-    //padding-bottom: 8rem;
     margin-bottom: 5rem;
 
     @media only screen and (max-width: $bp-small) {
@@ -15,7 +14,8 @@
         position: absolute;
         height: 100%;
         width: 100%;
-        background-image: linear-gradient(to top, rgba($color-white, 0.8), rgba($color-white, 0.8)),
+        background-image: linear-gradient(to right, rgba($color-white, 0), rgba($color-white, 0.8) ),
+            linear-gradient(to top, rgba($color-white, 0.8), rgba($color-white, 0.8)),
             linear-gradient(to top, rgba($color-white, 1) 30%, transparent), url(img/bg/topo-1.png);
         opacity: 0.35;
         top: 0;
@@ -260,16 +260,15 @@
                     }
                 }
             }
-        }
-
-      
+        } 
     }
+
     &__experiences-title {
 
         grid-column: center-start / center-end;
         text-align: center;
         margin: 4rem 0;
-    
+        margin-bottom: 2rem;
     
         display: grid;
         grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr); //FIX THIS
@@ -277,7 +276,7 @@
         column-gap: 2.5rem;
     
 
-        font-size: 2rem;
+        font-size: 3rem;
         text-transform: uppercase;
         color: $color-secondary;
         letter-spacing: .3rem;
@@ -298,16 +297,19 @@
             display: block;
             background-color: currentColor;
         }
-
-
-
         
+    }
+
+    &__experiences-sub-text {
+        grid-column: center-start / center-end;
+        text-align: center;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
     }
 
     &__experiences {
 
-        //grid-row: 3 / span 1;
-        grid-column: center-start / center-end;
+        grid-column: center-start / center-end; 
         height: 100%;
         display: flex;
         justify-content: center;

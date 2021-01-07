@@ -25,7 +25,7 @@
                       <a href="#">Destinations</a>
                   </li>
                   <li>
-                      <?php echo $title  ?>
+                      <?php echo $title?>
                   </li>
               </ol>
           </div>

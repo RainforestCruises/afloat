@@ -1,5 +1,6 @@
 <?php
 $destination = $args['destination'];
+$title = $args['title'];
 
 $locations = $args['locations'];
 $activities = $args['activities'];
@@ -82,7 +83,7 @@ console_log($activities);
     <div class="destination-main__packages">
         <div class="destination-main__packages__header">
             <div class="destination-main__packages__header__title page-divider">
-                Cruises
+                <?php echo $title ?> Cruises
             </div>
             <div class="destination-main__packages__header__sub-text">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
@@ -143,7 +144,10 @@ console_log($activities);
 
     <!-- countries -->
     <div class="destination-main__experiences-title">
-        Countries
+        Destinations
+    </div>
+    <div class="destination-main__experiences-sub-text">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
     </div>
     <div class="destination-main__experiences">
         <?php
@@ -176,6 +180,9 @@ console_log($activities);
     <!-- experiences -->
     <div class="destination-main__experiences-title">
         Experiences
+    </div>
+    <div class="destination-main__experiences-sub-text">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
     </div>
     <div class="destination-main__experiences">
         <?php

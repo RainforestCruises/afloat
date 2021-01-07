@@ -139,7 +139,7 @@
             "label": "Destinations List",
             "name": "destinations_list",
             "type": "repeater",
-            "instructions": "List of destination to appear below the fold",
+            "instructions": "List of destination to appear below the fold. Conventionally ordered alphabetically",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -722,5 +722,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1609779431
+    "modified": 1610057531
 }

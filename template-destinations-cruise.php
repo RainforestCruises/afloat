@@ -17,6 +17,7 @@ $locations = get_field('locations_list');
 
 $tour_experiences = get_field('tour_experiences');
 $sliderContent = get_field('hero_slider');
+$title = $destination->post_title;
 
 
 //TOURS

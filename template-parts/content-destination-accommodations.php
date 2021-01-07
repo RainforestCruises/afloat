@@ -11,7 +11,7 @@ $title = $args['title'];
 <div class="destination-accommodations">
     <div class="destination-accommodations__header">
         <div class="destination-accommodations__header__title page-divider">
-            Accommodations
+            Accommodation
         </div>
         <div class="destination-accommodations__header__sub-text">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?

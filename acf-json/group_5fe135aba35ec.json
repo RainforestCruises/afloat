@@ -139,7 +139,7 @@
             "label": "Locations List",
             "name": "locations_list",
             "type": "repeater",
-            "instructions": "List below the folder, right of intro",
+            "instructions": "List below the folder, right of intro. Conventionally ordered alphabetically",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -303,7 +303,7 @@
             "label": "Cruise Countries",
             "name": "cruise_countries",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Tiles below the cruises slider",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -322,7 +322,7 @@
                     "label": "Country",
                     "name": "country",
                     "type": "post_object",
-                    "instructions": "Select Locations (countries) that should appear in this Destination. (Location - Destination)",
+                    "instructions": "Select Locations (countries) that should appear in this Destination.",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -396,7 +396,7 @@
             "label": "Cruise Experiences",
             "name": "cruise_experiences",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Tiles below cruise slider, below country tiles. Adventure, Family, etc.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -778,5 +778,5 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1609965013
+    "modified": 1610057454
 }

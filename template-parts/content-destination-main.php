@@ -2,6 +2,7 @@
 $destination = $args['destination'];
 $locations = $args['locations'];
 $activities = $args['activities'];
+$title = $args['title'];
 
 $tours = $args['tours'];
 $tour_experiences = $args['tour_experiences'];
@@ -10,6 +11,8 @@ $destinationType = $args['destinationType'];
 
 $background_map = get_field('background_map');
 $highlights = get_field('highlights');
+
+console_log($locations);
 
 ?>
 
@@ -108,7 +111,7 @@ $highlights = get_field('highlights');
     <div class="destination-main__packages">
         <div class="destination-main__packages__header">
             <div class="destination-main__packages__header__title page-divider">
-                Tour Packages
+                <?php echo $title ?> Vacation Packages
             </div>
             <div class="destination-main__packages__header__sub-text">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
