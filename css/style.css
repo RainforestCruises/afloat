@@ -3165,7 +3165,9 @@ h5 {
           .product-dates__search-area__results__itinerary-group__itinerary__title-group__icon svg {
             height: 5rem;
             width: 5rem;
-            fill: #142838; }
+            color: #142838 !important;
+            fill: #142838;
+            stroke-width: 2.5; }
         .product-dates__search-area__results__itinerary-group__itinerary__title-group__text {
           grid-column: 2 / span 1;
           display: flex;
@@ -3256,7 +3258,9 @@ h5 {
           .product-dates__search-area__results__itinerary-group__departures__departure__top__icon svg {
             height: 5rem;
             width: 5rem;
-            fill: #142838; }
+            fill: #142838;
+            color: #142838 !important;
+            stroke-width: 1.5; }
         .product-dates__search-area__results__itinerary-group__departures__departure__top__col {
           font-size: 3rem;
           color: #142838;
@@ -3328,9 +3332,11 @@ h5 {
             .product-dates__search-area__results__itinerary-group__departures__departure__bottom__cabins {
               grid-template-columns: 1fr; } }
           .product-dates__search-area__results__itinerary-group__departures__departure__bottom__cabins__icon svg {
-            height: 5rem;
-            width: 5rem;
-            fill: #142838; }
+            height: 4rem;
+            width: 4rem;
+            fill: #142838;
+            color: #142838 !important;
+            stroke-width: 3; }
             @media only screen and (max-width: 50em) {
               .product-dates__search-area__results__itinerary-group__departures__departure__bottom__cabins__icon svg {
                 display: none; } }
@@ -3733,7 +3739,7 @@ h5 {
           .destination-hero__content__breadcrumb__path li:not(:last-child):after {
             content: ">";
             padding-left: 1px;
-            padding-right: 2px; }
+            padding-right: 3px; }
           .destination-hero__content__breadcrumb__path li a {
             text-decoration: none;
             color: currentColor; }
@@ -4029,7 +4035,7 @@ h5 {
     grid-row: 1 / span 1;
     z-index: 10;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
     column-gap: 8rem;
     padding: 8rem 0;
     font-size: 1.6rem; }
@@ -4059,13 +4065,17 @@ h5 {
           margin-top: .5rem;
           height: 2rem;
           width: 2rem;
-          fill: #142838; }
+          fill: #142838 !important; }
         @media only screen and (max-width: 50em) {
           .destination-main__intro__description__highlights li {
             justify-content: center; } }
     .destination-main__intro__lists {
       display: grid;
-      grid-template-columns: 1fr 1fr; }
+      grid-template-columns: 1fr;
+      row-gap: 3rem; }
+      @media only screen and (max-width: 50em) {
+        .destination-main__intro__lists {
+          grid-template-columns: 1fr 1fr; } }
       .destination-main__intro__lists__locations__title {
         text-transform: uppercase;
         letter-spacing: 0.2rem;
@@ -4319,11 +4329,20 @@ h5 {
   @media only screen and (max-width: 37.5em) {
     .destination-guides {
       grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
+  .destination-guides__header {
+    margin-bottom: 0rem; }
+  .destination-guides__sub-text {
+    grid-column: center-start / center-end;
+    text-align: center;
+    font-size: 1.6rem;
+    margin: 1rem;
+    margin-bottom: 4rem; }
   .destination-guides__grid-container {
     grid-column: 1 / -1;
     display: flex;
     margin: 0 6rem;
-    justify-content: center; }
+    justify-content: center;
+    margin-bottom: 8rem; }
     @media only screen and (max-width: 37.5em) {
       .destination-guides__grid-container {
         margin: 0 2rem; } }
@@ -4466,6 +4485,10 @@ h5 {
             .destination-guides__grid-container__grid__item--sixth {
               grid-column: 1 / span 1;
               grid-row: 6 / span 1; } }
+  .destination-guides__btn {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center; }
 
 .destination-testimonials {
   display: grid;

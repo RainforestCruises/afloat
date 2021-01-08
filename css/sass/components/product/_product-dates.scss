@@ -112,7 +112,9 @@
                             & svg {
                                 height: 5rem;
                                 width: 5rem;
+                                color: $color-secondary !important;
                                 fill: $color-secondary;
+                                stroke-width: 2.5;
                             }
                         }
                         &__text {
@@ -237,6 +239,8 @@
                                     height: 5rem;
                                     width: 5rem;
                                     fill: $color-secondary;
+                                    color: $color-secondary !important;
+                                    stroke-width: 1.5;
                                 }
                             }
 
@@ -334,10 +338,12 @@
 
                                 &__icon {
                                     & svg {
-                                        height: 5rem;
-                                        width: 5rem;
+                                        height: 4rem;
+                                        width: 4rem;
                                         fill: $color-secondary;
-
+                                        color: $color-secondary !important;
+                                        stroke-width: 3;
+                                        
                                         @media only screen and (max-width: $bp-medium) {
                                             display: none;
                                         }

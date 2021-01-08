@@ -6,7 +6,10 @@ $cruises_image = get_field('cruises_image');
 
 <div class="destination-guides">
     <div class="destination-guides__header page-divider">
-        Travel Guides
+        Travel Guide
+    </div>
+    <div class="destination-guides__sub-text">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, velit? Optio sint nulla, molestiae repudiandae sunt, repellat possimus at blanditiis sed explicabo maxime, beatae eveniet perferendis voluptate exercitationem ea asperiores?
     </div>
     <div class="destination-guides__grid-container">
         <div class="destination-guides__grid-container__grid">
@@ -47,6 +50,8 @@ $cruises_image = get_field('cruises_image');
             </div>
         </div>
     </div>
-
+    <div class="destination-guides__btn ">
+        <button class="btn-outline  " href="#">View All Travel Guide</button>
+    </div>
 
 </div>

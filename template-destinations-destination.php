@@ -74,7 +74,7 @@ $args = array(
         ?>
     </section>
 
-    <div class="destination-page__section-main" id="tours">
+    <div class="destination-page__section-main" id="packages">
         <?php
         get_template_part('template-parts/content', 'destination-main', $args);
         ?>
@@ -99,7 +99,7 @@ $args = array(
     <?php } ?>
 
     <!-- Travel Guides -->
-    <section class="destination-page__section-travel-guides" id="travel-guides">
+    <section class="destination-page__section-travel-guides" id="travel-guide">
         <?php
         get_template_part('template-parts/content', 'destination-guides', $args);
         ?>

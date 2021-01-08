@@ -5,14 +5,13 @@ $currentYear = date("Y");
 
 $destination = get_field('destination_post');
 $tour_experiences = get_field('tour_experiences');
-console_log($destination);
 ?>
 
 
 <div class="destination-secondary">
     <div class="destination-secondary__header">
         <div class="destination-secondary__header__title page-divider">
-            Vacation Packages
+            Cruise Packages
         </div>
         <div class="destination-secondary__header__sub-text">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
@@ -73,33 +72,7 @@ console_log($destination);
             </div>
         </div>
     </div>
-    <!-- experiences -->
-    <div class="destination-main__experiences">
-        <?php
-        if ($tour_experiences) {
-            foreach ($tour_experiences as $e) {
-                $experience = $e['tour_experience'];
-                $background_image = $e['background_image'];
-        ?>
-                <div class="category-card">
-                    <div class="category-card__image">
-                        <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
-                    </div>
-
-                    <div class="category-card__content">
-                        <div class="category-card__content__title">
-                            <?php echo get_the_title($experience); ?> Tours
-                        </div>
-                        <div class="category-card__content__availability">
-                            <?php echo tours_available($destination, $experience) . ' Tours Available'; ?>
-                        </div>
-                    </div>
-                </div>
-        <?php
-            }
-        }
-        ?>
-    </div>
+    
 
     <div class="destination-main__lengths">
         <button class="btn-outline " href="#">7-Day</button>

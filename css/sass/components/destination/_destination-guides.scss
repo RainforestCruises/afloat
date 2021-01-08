@@ -10,6 +10,15 @@
     }
 
     &__header {
+        margin-bottom: 0rem;
+    }
+
+    &__sub-text {
+        grid-column: center-start / center-end;
+        text-align: center;
+        font-size: 1.6rem;
+        margin: 1rem;
+        margin-bottom: 4rem;
     }
 
     &__grid-container {
@@ -17,7 +26,7 @@
         display: flex;
         margin: 0 6rem;
         justify-content: center;
-
+        margin-bottom: 8rem;
         @media only screen and (max-width: $bp-small) {
             margin: 0 2rem;
         }
@@ -194,5 +203,12 @@
                 }
             }
         }
+    }
+
+    
+    &__btn {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
     }
 }

@@ -79,7 +79,7 @@ foreach ($filteredItineraries as $itinerary) {
             <div class="product-dates__search-area__results__itinerary-group__itinerary__title-group">
                 <div class="product-dates__search-area__results__itinerary-group__itinerary__title-group__icon">
                     <svg>
-                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass"></use>
+                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
                     </svg>
                 </div>
                 <div class="product-dates__search-area__results__itinerary-group__itinerary__title-group__text">
@@ -113,7 +113,7 @@ foreach ($filteredItineraries as $itinerary) {
                         </h5>
                         <div class="product-dates__search-area__results__itinerary-group__departures__departure__top__icon">
                             <svg>
-                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ship"></use>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-boat-front"></use>
                             </svg>
                         </div>
                         <div class="product-dates__search-area__results__itinerary-group__departures__departure__top__col">
@@ -165,7 +165,7 @@ foreach ($filteredItineraries as $itinerary) {
                         <div class="product-dates__search-area__results__itinerary-group__departures__departure__bottom__cabins">
                             <div class="product-dates__search-area__results__itinerary-group__departures__departure__bottom__cabins__icon">
                                 <svg>
-                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-single_bed"></use>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-bed-23"></use>
                                 </svg>
                             </div>
                             <div class="product-dates__search-area__results__itinerary-group__departures__departure__bottom__cabins__cabin-group">

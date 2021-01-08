@@ -42,7 +42,7 @@ console_log($locations);
                         foreach ($highlights as $h) : ?>
                             <li>
                                 <svg>
-                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
                                 </svg>
                                 <span>
                                     <?php echo $h['highlight'] ?>

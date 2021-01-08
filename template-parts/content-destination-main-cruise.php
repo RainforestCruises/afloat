@@ -143,43 +143,47 @@ console_log($activities);
     </div>
 
     <!-- countries -->
-    <div class="destination-main__experiences-title">
-        Destinations
-    </div>
-    <div class="destination-main__experiences-sub-text">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
-    </div>
-    <div class="destination-main__experiences">
-        <?php
-        if ($cruise_locations) {
-            foreach ($cruise_locations as $c) {
-                $location = $c['country'];
-                $background_image = $c['background_image'];
-        ?>
-                <div class="category-card">
-                    <div class="category-card__image">
-                        <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
-                    </div>
+    <?php $hideDesinations = get_field('hide_cruise_destinations') ?>
+    <?php if ($hideDesinations == false) : ?>
+        <div class="destination-main__experiences-title">
+            <?php echo $title ?> Destinations
+        </div>
+        <div class="destination-main__experiences-sub-text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
+        </div>
 
-                    <div class="category-card__content">
-                        <div class="category-card__content__title">
-                            <?php echo get_field('navigation_title', $location); ?> Cruises
+        <div class="destination-main__experiences">
+            <?php
+            if ($cruise_locations) {
+                foreach ($cruise_locations as $c) {
+                    $location = $c['country'];
+                    $background_image = $c['background_image'];
+            ?>
+                    <div class="category-card">
+                        <div class="category-card__image">
+                            <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
                         </div>
-                        <div class="category-card__content__availability">
-                            <?php
-                            echo cruises_available_location($location) . ' Cruises Available';
-                            ?>
+
+                        <div class="category-card__content">
+                            <div class="category-card__content__title">
+                                <?php echo get_field('navigation_title', $location); ?> Cruises
+                            </div>
+                            <div class="category-card__content__availability">
+                                <?php
+                                echo cruises_available_location($location) . ' Cruises Available';
+                                ?>
+                            </div>
                         </div>
                     </div>
-                </div>
-        <?php
+            <?php
+                }
             }
-        }
-        ?>
-    </div>
+            ?>
+        </div>
+    <?php endif; ?>
     <!-- experiences -->
     <div class="destination-main__experiences-title">
-        Experiences
+        <?php echo $title ?> Experiences
     </div>
     <div class="destination-main__experiences-sub-text">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
@@ -212,7 +216,15 @@ console_log($activities);
         ?>
     </div>
 
+    <?php $cruise_lengths = get_field('cruise_lengths') ?>
+
     <div class="destination-main__lengths">
+    <?php if ($cruise_lengths) : ?>
+        <?php foreach ($cruise_lengths as $length) :
+            $link = $length['search_link'];
+        ?>
+            <button class="btn-outline" onclick="location.href='<?php echo $link ?>'"><?php echo $length['min_days'] ?>-<?php echo $length['max_days'] ?> Day</button>
+        <?php endforeach; endif; ?>
         <button class="btn-outline btn-outline--dark " href="#">View All Cruises</button>
     </div>
 </div>

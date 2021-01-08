@@ -39,10 +39,11 @@
 
         z-index: 10;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 3fr 1fr;
         column-gap: 8rem;
         padding: 8rem 0;
         font-size: 1.6rem;
+        
 
         @media only screen and (max-width: $bp-medium) {
             grid-template-columns: 1fr;
@@ -80,7 +81,7 @@
                         margin-top: .5rem;
                         height: 2rem;
                         width: 2rem;
-                        fill: $color-secondary;
+                        fill: $color-secondary !important;
                     }
                     @media only screen and (max-width: $bp-medium) {
                         justify-content: center;    
@@ -95,7 +96,11 @@
         &__lists {
             
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
+            row-gap: 3rem;
+            @media only screen and (max-width: $bp-medium) {
+                grid-template-columns: 1fr 1fr;
+            }
 
             &__locations {
                 &__title {

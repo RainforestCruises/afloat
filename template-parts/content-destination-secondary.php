@@ -51,7 +51,16 @@ $currentYear = date("Y");
             <?php endforeach; ?>
         </div>
     </div>
+    <?php $cruise_lengths = get_field('cruise_lengths') ?>
+
     <div class="destination-secondary__btn ">
+        <?php if ($cruise_lengths) : ?>
+            <?php foreach ($cruise_lengths as $length) :
+                $link = $length['search_link'];
+            ?>
+                <button class="btn-outline" onclick="location.href='<?php echo $link ?>'"><?php echo $length['min_days'] ?>-<?php echo $length['max_days'] ?> Day</button>
+        <?php endforeach;
+        endif; ?>
         <button class="btn-outline " href="#">View All Cruises</button>
     </div>
 </div>

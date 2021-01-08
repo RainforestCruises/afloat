@@ -372,6 +372,92 @@
             ]
         },
         {
+            "key": "field_5ff899c0d5741",
+            "label": "Cruise Lengths",
+            "name": "cruise_lengths",
+            "type": "repeater",
+            "instructions": "Lengths of cruise itineraries, buttons that link to search pages",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5ff899dcd5742",
+                    "label": "Min Days",
+                    "name": "min_days",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5ff899fdd5743",
+                    "label": "Max Days",
+                    "name": "max_days",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5ff89a08d5744",
+                    "label": "Search Link",
+                    "name": "search_link",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": [
+                        "category:search"
+                    ],
+                    "allow_null": 0,
+                    "allow_archives": 0,
+                    "multiple": 0
+                }
+            ]
+        },
+        {
             "key": "field_5fdb9a4879778",
             "label": "Testimonials",
             "name": "testimonials",
@@ -722,5 +808,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1610057531
+    "modified": 1610127925
 }

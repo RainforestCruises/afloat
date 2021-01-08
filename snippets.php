@@ -1,29 +1,27 @@
-<div class="travel-guide-related__slider-area__slider__item">
-          <img src="<?php echo esc_url($featured_image['url']); ?>" alt="product" class="travel-guide-related__slider-area__slider__item__image">
-          <div class="travel-guide-related__slider-area__slider__item__content">
-            <div class="travel-guide-related__slider-area__slider__item__content__title">
-              5 Things to do in the Amazon
-            </div>
-            <div class="travel-guide-related__slider-area__slider__item__content__text">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta ratione libero sint accusantium minus voluptate dolore? Sit repudiandae molestiae
-            </div>
-            <div class="travel-guide-related__slider-area__slider__item__content__cta">
-              <button class="goto-button goto-button--small">
-                Read More
-                <svg>
-                  <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
-                </svg>
-              </button>
-            </div>
-          </div>
+<!-- experiences -->
+<div class="destination-main__experiences">
+        <?php
+        if ($tour_experiences) {
+            foreach ($tour_experiences as $e) {
+                $experience = $e['tour_experience'];
+                $background_image = $e['background_image'];
+        ?>
+                <div class="category-card">
+                    <div class="category-card__image">
+                        <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
+                    </div>
 
-        </div>
-        <div class="travel-guide-related__slider-area__slider__item">
-          Item 2
-        </div>
-        <div class="travel-guide-related__slider-area__slider__item">
-          Item 3
-        </div>
-        <div class="travel-guide-related__slider-area__slider__item">
-          Item 4
-        </div>
+                    <div class="category-card__content">
+                        <div class="category-card__content__title">
+                            <?php echo get_the_title($experience); ?> Tours
+                        </div>
+                        <div class="category-card__content__availability">
+                            <?php echo tours_available($destination, $experience) . ' Tours Available'; ?>
+                        </div>
+                    </div>
+                </div>
+        <?php
+            }
+        }
+        ?>
+    </div>

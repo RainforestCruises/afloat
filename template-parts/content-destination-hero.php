@@ -23,6 +23,7 @@
               <ol class="destination-hero__content__breadcrumb__path">
                   <li>
                       <a href="#">Destinations</a>
+                    
                   </li>
                   <li>
                       <?php echo $title?>
@@ -45,7 +46,7 @@
                       <!-- Order depending on template type -->
                       <?php if ($destinationType == 'region' || $destinationType == 'destination') { ?>
                           <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#tours" class="destination-hero__content__page-nav__list__item__link ">Tours</a>
+                              <a href="#packages" class="destination-hero__content__page-nav__list__item__link ">Packages</a>
                           </li>
 
                           <?php if ($destinationType == 'destination') {
@@ -81,14 +82,14 @@
                               <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
                           </li>
                           <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#tours" class="destination-hero__content__page-nav__list__item__link ">Tours</a>
+                              <a href="#packages" class="destination-hero__content__page-nav__list__item__link ">Packages</a>
                           </li>
                       <?php } ?>
 
 
 
                       <li class="destination-hero__content__page-nav__list__item">
-                          <a href="#travel-guides" class="destination-hero__content__page-nav__list__item__link">Travel Guides</a>
+                          <a href="#travel-guide" class="destination-hero__content__page-nav__list__item__link">Travel Guide</a>
                       </li>
                       <li class="destination-hero__content__page-nav__list__item">
                           <a href="#testimonials" class="destination-hero__content__page-nav__list__item__link">Testimonials</a>
@@ -109,7 +110,7 @@
                           <!-- Order depending on template type -->
                           <?php if ($destinationType == 'region' || $destinationType == 'destination') { ?>
                               <li class="page-nav__collapse__list__item">
-                                  <a href="#tours" class="page-nav__collapse__list__item__link">Tours</a>
+                                  <a href="#packages" class="page-nav__collapse__list__item__link">Packages</a>
                               </li>
                               <?php if ($destinationType == 'destination') {
                                     $hide_cruises = get_field('hide_cruises');
@@ -144,12 +145,12 @@
                                   <a href="#cruises" class="page-nav__collapse__list__item__link">Cruises</a>
                               </li>
                               <li class="page-nav__collapse__list__item">
-                                  <a href="#tours" class="page-nav__collapse__list__item__link">Tours</a>
+                                  <a href="#packages" class="page-nav__collapse__list__item__link">Packages</a>
                               </li>
                           <?php } ?>
 
                           <li class="page-nav__collapse__list__item">
-                              <a href="#travel-guides" class="page-nav__collapse__list__item__link">Travel Guides</a>
+                              <a href="#travel-guide" class="page-nav__collapse__list__item__link">Travel Guide</a>
 
                           </li>
                           <li class="page-nav__collapse__list__item">

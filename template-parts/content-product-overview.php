@@ -46,7 +46,7 @@ $featured_image = get_field('featured_image');
                         <?php while (have_rows('highlights')) : the_row(); ?>
                             <li>
                                 <svg>
-                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
                                 </svg>
                                 <span><?php echo get_sub_field('highlight'); ?></span>
                             </li>

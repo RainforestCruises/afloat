@@ -299,13 +299,40 @@
             "mime_types": ""
         },
         {
-            "key": "field_5fe135abb0d90",
-            "label": "Cruise Countries",
-            "name": "cruise_countries",
-            "type": "repeater",
-            "instructions": "Tiles below the cruises slider",
+            "key": "field_5ff8931105478",
+            "label": "Hide Cruise Destinations",
+            "name": "hide_cruise_destinations",
+            "type": "true_false",
+            "instructions": "Check to hide cruise destination tile section",
             "required": 0,
             "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5fe135abb0d90",
+            "label": "Cruise Destinations",
+            "name": "cruise_countries",
+            "type": "repeater",
+            "instructions": "Tiles below the cruises slider (dev note: field name is 'cruise_countries')",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ff8931105478",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -482,11 +509,11 @@
             ]
         },
         {
-            "key": "field_5fe398c2feff2",
-            "label": "Tour Experiences",
-            "name": "tour_experiences",
+            "key": "field_5ff89499f7f6e",
+            "label": "Cruise Lengths",
+            "name": "cruise_lengths",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Enter cruise itinerary length ranges for buttons, these link to search pages.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -501,10 +528,10 @@
             "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5fe398c2feff3",
-                    "label": "Tour Experience",
-                    "name": "tour_experience",
-                    "type": "post_object",
+                    "key": "field_5ff894d9f7f6f",
+                    "label": "Min Days",
+                    "name": "min_days",
+                    "type": "number",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -513,21 +540,20 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [
-                        "rfc_experiences"
-                    ],
-                    "taxonomy": "",
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "return_format": "object",
-                    "ui": 1
+                    "default_value": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
                 },
                 {
-                    "key": "field_5fe398c2feff4",
-                    "label": "Background Image",
-                    "name": "background_image",
-                    "type": "image",
-                    "instructions": "1000 x 300 image",
+                    "key": "field_5ff894faf7f70",
+                    "label": "Max Days",
+                    "name": "max_days",
+                    "type": "number",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -535,23 +561,20 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
+                    "default_value": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
                 },
                 {
-                    "key": "field_5fe398c2feff5",
-                    "label": "Search Page Link",
-                    "name": "search_page_link",
+                    "key": "field_5ff89532f7f71",
+                    "label": "Search Link",
+                    "name": "search_link",
                     "type": "page_link",
-                    "instructions": "",
+                    "instructions": "Link to search results page",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -566,7 +589,7 @@
                         "category:search"
                     ],
                     "allow_null": 0,
-                    "allow_archives": 1,
+                    "allow_archives": 0,
                     "multiple": 0
                 }
             ]
@@ -778,5 +801,5 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1610057454
+    "modified": 1610126704
 }
