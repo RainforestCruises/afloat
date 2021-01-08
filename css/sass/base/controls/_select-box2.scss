@@ -11,7 +11,7 @@
 
 .select-selected {
     background-color: $color-white;
-    color: $color-secondary; 
+    color: $color-primary; 
 
     /* Style the arrow inside the select element: */
     &:after {
@@ -37,7 +37,7 @@
 /* style the items (options), including the selected item: */
 .select-selected {
     font-family: $font-primary;
-    color: $color-secondary; 
+    color: $color-primary; 
     padding: 8px 16px;
     border: 1px solid transparent;
     border-color: $color-grey-light-2;
@@ -47,7 +47,7 @@
 
 .select-items div{
     font-family: $font-primary;
-    color: $color-secondary; 
+    color: $color-primary; 
     padding: 8px 16px;
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;

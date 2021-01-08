@@ -176,7 +176,7 @@
                 width: 100%;
                 position: relative;
                 border: 10px solid transparent;
-                box-shadow: inset 0px 0px 0px 2px rgba($color-secondary, 0.2), $shadow-light;
+                box-shadow: inset 0px 0px 0px 2px rgba($color-primary, 0.2), $shadow-light;
                 box-sizing: border-box; /* Include padding and border in element's width and height */
                 padding: 1rem;
 
@@ -193,7 +193,7 @@
                     font-size: 3rem;
                     padding: 1rem;
                     letter-spacing: 0.2rem;
-                    color: $color-secondary;
+                    color: $color-primary;
                 }
                 &__season {
                     justify-self: center;
@@ -251,7 +251,7 @@
                         &__cabin {
                             display: flex;
                             justify-content: center;
-                            color: $color-secondary;
+                            color: $color-primary;
                             font-weight: 500;
                             position: relative;
                             margin-bottom: 1rem;

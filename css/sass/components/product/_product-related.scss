@@ -71,7 +71,7 @@
             width: 100%;
             height: 100%;
             z-index: 2;
-            background-image: linear-gradient(to top, rgba($color-secondary, 0.5), rgba($color-secondary, 0) 70%);
+            background-image: linear-gradient(to top, rgba($color-primary, 0.5), rgba($color-primary, 0) 70%);
         }
 
         &__img {
@@ -157,7 +157,7 @@
                 text-align: center;
                 grid-column: 1 / -1;
                 font-size: 1.2rem;
-                color: $color-secondary;
+                color: $color-primary;
                 padding: 0.5rem;
             }
 
@@ -184,7 +184,7 @@
 
                 &__numbers {
                     font-size: 1.4rem;
-                    color: $color-secondary;
+                    color: $color-primary;
                 }
             }
 
@@ -204,7 +204,7 @@
 
                 &__numbers {
                     font-size: 1.6rem;
-                    color: $color-secondary;
+                    color: $color-primary;
                 }
             }
         }

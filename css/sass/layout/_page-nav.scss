@@ -16,7 +16,7 @@
 
         transform: translateX(2rem);
 
-        color: $color-secondary;
+        color: $color-primary;
 
         & svg {
             height: 2rem;
@@ -72,7 +72,7 @@
                     &:link,
                     &:visited {
                         text-decoration: none;
-                        color: $color-secondary;
+                        color: $color-primary;
                         cursor: pointer;
                         &:not(:last-child) {
                             border-bottom: 1px solid rgba($color-grey-light-2, 0.9);

@@ -160,7 +160,7 @@
                         transition: color 0.3s;
                         font-weight: 500;
                         font-size: 1.32rem;
-                        color: rgba($color-secondary, 0.6);
+                        color: rgba($color-primary, 0.6);
                         &:hover {
                             color: $color-supporting;
                         }
@@ -358,7 +358,7 @@
                 z-index: 8;
                 opacity: 0;
                 transition: all 0.5s;
-                background-image: linear-gradient(to right, rgba($color-secondary, 0.6), rgba($color-secondary, 0.6));
+                background-image: linear-gradient(to right, rgba($color-primary, 0.6), rgba($color-primary, 0.6));
             }
 
             &__title {

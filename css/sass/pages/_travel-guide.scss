@@ -33,7 +33,7 @@
 
     &__title {
         font-size: 5rem;
-        color: $color-secondary;
+        color: $color-primary;
         font-weight: 600;
         text-align: center;
         margin-bottom: 4rem;
@@ -52,7 +52,7 @@
     &__disclaimer {
         display: flex;
         justify-content: center;
-        color: $color-secondary;
+        color: $color-primary;
     }
 
     &__content {
@@ -104,7 +104,7 @@
             display: block;
             width: 100%;
             max-width: 80rem;
-            color: $color-secondary;
+            color: $color-primary;
             font-weight: 600;
         }
 
@@ -157,7 +157,7 @@
         &__title {
             font-size: 3rem;
             font-weight: 600;
-            color: $color-secondary;
+            color: $color-primary;
         }
         &__text {
             font-size: 1.6rem;
@@ -167,7 +167,7 @@
         &__button {
             font-size: 1.3rem;
             font-family: $font-primary;
-            color: $color-secondary;
+            color: $color-primary;
             background-color: transparent;
             border: none;
             text-decoration: none;
@@ -225,7 +225,7 @@
         font-size: 1.6rem;
         margin-top: 3rem;
         margin-bottom: 3rem;
-        color: $color-secondary;
+        color: $color-primary;
     }
 
     &__social {
@@ -233,7 +233,7 @@
         & svg {
             height: 3rem;
             width: 3rem;
-            fill: $color-secondary;
+            fill: $color-primary;
             margin: 0 0.5rem;
         }
         margin-bottom: 6rem;
@@ -243,7 +243,7 @@
 .travel-guide-related {
     grid-column: 1 / -1;
 
-    background-color: $color-secondary;
+    background-color: $color-primary;
 
     display: grid;
     justify-content: center;
@@ -357,7 +357,7 @@
             font-size: 5rem;
             line-height: 5.8rem;
             font-family: $font-secondary;
-            color: $color-secondary;
+            color: $color-primary;
             margin-bottom: 4rem;
 
             @media only screen and (max-width: $bp-medium) {
@@ -366,7 +366,7 @@
         }
 
         &__text {
-            color: $color-secondary;
+            color: $color-primary;
 
             font-size: 1.6rem;
             margin-bottom: 9rem;
@@ -394,7 +394,7 @@
                 border: none;
                 letter-spacing: 0.1rem;
                 font-family: $font-primary;
-                box-shadow: inset 0px 0px 0px 2px $color-secondary;
+                box-shadow: inset 0px 0px 0px 2px $color-primary;
                 margin-right: 1rem;
                 
                 min-width: 22rem;
@@ -407,7 +407,7 @@
             &__button {
                 padding: 2rem 3rem;
                 font-family: $font-primary;
-                background-color: $color-secondary;
+                background-color: $color-primary;
                 color: $color-white;
                 letter-spacing: 0.3rem;
                 font-size: 1.5rem;
@@ -448,7 +448,7 @@
     border: 1px solid $color-grey-light-1a;
     border-radius: 0.4rem;
     font-size: 1.4rem;
-    color: $color-secondary;
+    color: $color-primary;
     width: 45rem;
     display: grid;
     grid-template-columns: max-content 1fr;

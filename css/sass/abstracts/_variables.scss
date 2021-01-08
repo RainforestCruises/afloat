@@ -1,9 +1,7 @@
 // COLOR VARIABLES
-$color-primary: #3e7fff;
-$color-primary-dark: #3f78e9;
 
-$color-secondary: #142838;
-$color-secondary-light: #1f3f5a;
+$color-primary: #142838;
+$color-primary-light: #1f3f5a;
 $color-tertiary: #108054;
 
 $color-supporting: #305a7c;
@@ -32,10 +30,10 @@ $color-grey-1: #9ea0a4;
 $color-grey-2: #919598;
 $color-grey-3: #747474;
 
-$color-blue-grey-1: #838f94;
+$color-blue-grey-1: #838f94; 
 
 //border
-$inner-border-dark: inset 0px 0px 0px 2px $color-secondary;
+$inner-border-dark: inset 0px 0px 0px 2px $color-primary;
 $inner-border-light: inset 0px 0px 0px 1px $color-grey-light-1a;
 
 @mixin font($font-family, $font-file, $weight) {

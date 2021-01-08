@@ -102,7 +102,7 @@
                 bottom: 7rem;
                 left: 2rem;
                 //transform: translateY(-12rem) translateX(4rem);
-                fill: $color-secondary;
+                fill: $color-primary;
                 height: 2rem;
                 width: 2rem;
                 opacity: 0;
@@ -187,7 +187,7 @@
                     transition: all 0.3s;
 
                     &--active {
-                        box-shadow: inset 0px 0px 0px 2px $color-secondary;
+                        box-shadow: inset 0px 0px 0px 2px $color-primary;
                         & .product-itineraries__itinerary__d2d__days__day__count {
                             display: none;
                         }
@@ -195,7 +195,7 @@
                         & .product-itineraries__itinerary__d2d__days__day__button {
                             transform: rotate(180deg) translateX(50%);
                             &::after {
-                                border: 2px solid $color-secondary;
+                                border: 2px solid $color-primary;
                             }
                         }
                     }
@@ -239,7 +239,7 @@
                                 text-transform: uppercase;
                                 letter-spacing: 0.2rem;
                                 & span {
-                                    color: $color-secondary;
+                                    color: $color-primary;
                                 }
                             }
                             &__location-badge {
@@ -286,7 +286,7 @@
                         text-transform: uppercase;
                         letter-spacing: 0.2rem;
                         & span {
-                            color: $color-secondary;
+                            color: $color-primary;
                         }
                         display: inline-block;
                         background-color: $color-white;
@@ -302,7 +302,7 @@
                         letter-spacing: 0.1rem;
                         font-weight: 600;
                         cursor: pointer;
-                        color: $color-secondary;
+                        color: $color-primary;
                         padding: 0 3rem;
                         padding-top: 2rem;
 
@@ -378,7 +378,7 @@
                                 border-radius: 4rem;
                             }
                             &--available {
-                                color: $color-secondary;
+                                color: $color-primary;
                             }
 
                             &--sold-out {
@@ -426,8 +426,8 @@
         user-select: none;
 
         &--available {
-            color: $color-secondary;
-            border-color: $color-secondary;
+            color: $color-primary;
+            border-color: $color-primary;
         }
 
         &--sold-out {
@@ -450,7 +450,7 @@
         justify-content: center;
         border: 1px solid $color-grey-light-1a;
         padding: 1rem;
-        color: $color-secondary;
+        color: $color-primary;
         background-color: $color-white;
         font-size: 1.7rem;
         font-weight: 500;
@@ -469,7 +469,7 @@
 
         &:hover {
             color: $color-white;
-            background-color: $color-secondary;
+            background-color: $color-primary;
             .price-grid__item__price {
                 color: $color-grey-light-1;
             }

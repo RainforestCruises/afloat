@@ -16,7 +16,7 @@
     @extend %heading;
     font-size: 3rem;
     //font-style: italic;
-    color: $color-secondary;
+    color: $color-primary;
     margin-bottom: 2rem;
 
     &--light {
@@ -34,7 +34,7 @@
     letter-spacing: 0.4rem;
     font-weight: 500;
     font-size: 3.6rem;
-    color: $color-secondary;
+    color: $color-primary;
     display: inline-block;
 
     @media only screen and (max-width: $bp-small) {
@@ -75,7 +75,7 @@
     text-transform: uppercase;
     letter-spacing: 0.4rem;
     font-weight: 700;
-    color: $color-secondary;
+    color: $color-primary;
 }
 
 .heading-5 {
@@ -151,7 +151,7 @@ p {
     }
 
     font-family: $font-secondary;
-    color: $color-secondary;
+    color: $color-primary;
     font-size: 6rem;
     line-height: 7rem;
     letter-spacing: 0.3rem;
@@ -214,7 +214,7 @@ p {
             margin-top: 2px;
             height: 1.8rem;
             width: 1.8rem;
-            fill: $color-secondary;
+            fill: $color-primary;
         }
 
         span {
@@ -270,14 +270,14 @@ p {
     }
 
     &--dark {
-        color: $color-secondary;
+        color: $color-primary;
     }
 }
 
 //Solid Badge
 .badge-solid {
     color: $color-white;
-    background-color: $color-secondary;
+    background-color: $color-primary;
     padding: 0.8rem 1.6rem;
 
     font-size: 1.4rem;
@@ -375,7 +375,7 @@ p {
 
 //fallback styles
 h3 {
-    color: $color-secondary;
+    color: $color-primary;
     font-size: 2rem;
     display: block;
     letter-spacing: 0.1rem;
@@ -383,7 +383,7 @@ h3 {
 }
 
 h4 {
-    color: $color-secondary;
+    color: $color-primary;
     font-size: 1.8rem;
     display: block;
     letter-spacing: 0.1rem;
@@ -391,7 +391,7 @@ h4 {
 }
 
 h5 {
-    color: $color-secondary;
+    color: $color-primary;
     font-size: 1.8rem;
     display: block;
     letter-spacing: 0.1rem;

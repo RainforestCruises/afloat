@@ -2,7 +2,7 @@
     grid-row: footer-start / footer-end;
     grid-column: full-start / full-end;
 
-    background-color: $color-secondary;
+    background-color: $color-primary;
 
     display: grid;
     grid-template-columns: $page-container;
@@ -43,7 +43,7 @@
         position: relative;
 
         &__compass {
-            background-color: $color-secondary;
+            background-color: $color-primary;
             padding: 0 2rem;
             & svg {
                 transform: translateY(.5rem);
@@ -56,7 +56,7 @@
 
         &__social {
             display: flex;
-            background-color: $color-secondary;
+            background-color: $color-primary;
             padding: 0 1rem;
 
             &__link {

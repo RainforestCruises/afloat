@@ -55,7 +55,7 @@
                     padding-top: 0.2rem;
                     text-transform: uppercase;
                     font-weight: 700;
-                    color: $color-secondary;
+                    color: $color-primary;
                     margin-right: 0.5rem;
                     @media only screen and (max-width: $bp-largest) {
                         font-size: 1.8rem;
@@ -112,8 +112,8 @@
                             & svg {
                                 height: 5rem;
                                 width: 5rem;
-                                color: $color-secondary !important;
-                                fill: $color-secondary;
+                                color: $color-primary !important;
+                                fill: $color-primary;
                                 stroke-width: 2.5;
                             }
                         }
@@ -128,7 +128,7 @@
 
                             &__title {
                                 font-size: 3.2rem;
-                                color: $color-secondary;
+                                color: $color-primary;
                                 line-height: 3rem;
                                 font-weight: 600;
                                 letter-spacing: 0.1rem;
@@ -187,7 +187,7 @@
                                 transform: rotate(180deg);
 
                                 &::after {
-                                    border: 2px solid $color-secondary;
+                                    border: 2px solid $color-primary;
                                 }
                             }
                         }
@@ -209,7 +209,7 @@
                                 font-weight: 700;
                                 text-transform: uppercase;
                                 letter-spacing: 0.2rem;
-                                color: $color-secondary;
+                                color: $color-primary;
                                 display: inline-block;
                                 background-color: $color-white;
                                 position: absolute;
@@ -238,15 +238,15 @@
                                 & svg {
                                     height: 5rem;
                                     width: 5rem;
-                                    fill: $color-secondary;
-                                    color: $color-secondary !important;
+                                    fill: $color-primary;
+                                    color: $color-primary !important;
                                     stroke-width: 1.5;
                                 }
                             }
 
                             &__col {
                                 font-size: 3rem;
-                                color: $color-secondary;
+                                color: $color-primary;
                                 font-weight: 500;
                                 line-height: 3rem;
 
@@ -307,7 +307,7 @@
                                         margin-bottom: 1.5rem;
 
                                         font-weight: 500;
-                                        color: $color-secondary;
+                                        color: $color-primary;
                                         @media only screen and (max-width: $bp-medium) {
                                             font-size: 3.5rem;
                                             line-height: 4rem;
@@ -340,8 +340,8 @@
                                     & svg {
                                         height: 4rem;
                                         width: 4rem;
-                                        fill: $color-secondary;
-                                        color: $color-secondary !important;
+                                        fill: $color-primary;
+                                        color: $color-primary !important;
                                         stroke-width: 3;
                                         
                                         @media only screen and (max-width: $bp-medium) {
@@ -359,7 +359,7 @@
                                         font-size: 1.8rem;
                                         font-weight: 500;
                                         &__heading {
-                                            color: $color-secondary;
+                                            color: $color-primary;
                                             font-size: 1.4rem;
                                             font-weight: 600;
                                         }

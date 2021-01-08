@@ -3,7 +3,7 @@
     display: block;
     width: 100%;
     font-size: 18px;
-    color: $color-secondary;
+    color: $color-primary;
 
     &__current {
       position: relative;
@@ -69,7 +69,7 @@
       
 
       opacity: 0;
-      color: $color-secondary;
+      color: $color-primary;
       background-color: rgba($color-white, 0.6);
       border-radius: 4px;
       margin-top: .5rem;
@@ -116,7 +116,7 @@
         font-family: $font-tertiary;
         font-size: 1.8rem;
         font-weight: 400;
-        color: rgba($color-secondary, .9);
+        color: rgba($color-primary, .9);
         letter-spacing: .1rem;
         margin-left: 1.5rem;
         padding: .8rem;
@@ -142,7 +142,7 @@
 
         &:hover,
         &:focus {
-          background-color: rgba($color-secondary, .9);
+          background-color: rgba($color-primary, .9);
           color: $color-white;
           font-size: 2.3rem;
         }

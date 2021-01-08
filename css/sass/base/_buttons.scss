@@ -1,6 +1,6 @@
 //Book Now
 .btn-cta-round {
-  background-color: $color-secondary;
+  background-color: $color-primary;
   font-family: $font-primary;
   color: $color-white;
   border: none;
@@ -18,7 +18,7 @@
     background-color: $color-supporting;
   }
 }
-
+ 
 //email subscribe
 .btn-rect {
   background-color: $color-supporting;
@@ -42,7 +42,7 @@
 
 // Primary Button
 .btn-outline {
-  color: $color-secondary;
+  color: $color-primary;
   background-color: transparent;
   padding: 1.5rem 3rem;
   border: none;
@@ -82,7 +82,7 @@
 
   &--dark {
     &::after {
-      border: 1px solid $color-secondary;
+      border: 1px solid $color-primary;
     }
   }
 }
@@ -99,7 +99,7 @@
   z-index: 0;
   outline: none;
 
-  color: $color-secondary;
+  color: $color-primary;
 
   svg {
     height: 40%;
@@ -123,7 +123,7 @@
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    border: 1px solid $color-secondary;
+    border: 1px solid $color-primary;
   }
 
   &:hover::after {
@@ -144,7 +144,7 @@
   z-index: 0;
   outline: none;
 
-  color: $color-secondary;
+  color: $color-primary;
 
 
 
@@ -234,7 +234,7 @@
     height: 95%;
     width: 95%;
     border-radius: 50%;
-    border: 2px solid $color-secondary;
+    border: 2px solid $color-primary;
   }
 
   &:hover::after {
@@ -269,7 +269,7 @@
   z-index: 0;
   outline: none;
 
-  color: $color-secondary;
+  color: $color-primary;
 
   svg {
     height: 40%;
@@ -370,9 +370,9 @@
 }
 
 .btn-dark {
-  color: $color-secondary;
+  color: $color-primary;
   &::after {
-    border-color: $color-secondary;
+    border-color: $color-primary;
   }
 }
 
@@ -391,7 +391,7 @@
 }
 
 .btn-underline {
-  color: $color-secondary;
+  color: $color-primary;
   text-decoration: none;
   position: relative;
 
