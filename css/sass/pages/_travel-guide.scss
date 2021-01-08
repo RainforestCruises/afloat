@@ -52,12 +52,14 @@
     &__disclaimer {
         display: flex;
         justify-content: center;
+        color: $color-secondary;
     }
 
     &__content {
         display: flex;
         flex-direction: column;
         margin-bottom: 6rem;
+        
 
         & p:first-of-type {
             font-size: 2.5rem;
@@ -469,6 +471,16 @@
     &__warning {
         font-size: 1.3rem;
 
+        @media only screen and (max-width: $bp-small) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        & span {
+            color: $color-grey-1;
+        }
+
         & button {
             font-size: 1.3rem;
             font-family: $font-primary;
@@ -487,9 +499,7 @@
             font-weight: 600;
             padding: 1.5rem 0;
 
-            @media only screen and (max-width: $bp-small) {
-                justify-self: center;
-            }
+            
 
             &:hover {
                 & svg {

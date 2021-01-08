@@ -27,10 +27,13 @@ while (have_posts()) :
       <div class="travel-guide__disclaimer">
         <div class="disclaimer-box">
           <svg>
-            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass"></use>
+            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-c-warning"></use>
           </svg>
           <div class="disclaimer-box__warning">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quis perferendis
+            <span>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quis perferendis
+            </span>
+
             <button>
               Please read our disclaimer
               <svg>
