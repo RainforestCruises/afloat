@@ -60,24 +60,35 @@ while (have_posts()) :
         </button>
       </div>
       <div class="travel-guide__entry">
-        This entry was posted ----
+        This entry was posted <?php echo get_the_date(); ?>
       </div>
       <div class="travel-guide__social">
-        <svg>
-          <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass"></use>
-        </svg>
-        <svg>
-          <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass"></use>
-        </svg>
-        <svg>
-          <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass"></use>
-        </svg>
-        <svg>
-          <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass"></use>
-        </svg>
-        <svg>
-          <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass"></use>
-        </svg>
+        <a href="#" class="travel-guide__social__link">
+          <svg>
+            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-facebook"></use>
+          </svg>
+        </a>
+        <a href="#" class="travel-guide__social__link">
+          <svg>
+            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-instagram"></use>
+          </svg>
+        </a>
+        <a href="#" class="travel-guide__social__link">
+          <svg>
+            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-twitter"></use>
+          </svg>
+        </a>
+        <a href="#" class="travel-guide__social__link">
+          <svg>
+            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-pinterest"></use>
+          </svg>
+        </a>
+        <a href="#" class="travel-guide__social__link">
+          <svg>
+            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-youtube"></use>
+          </svg>
+        </a>
+
       </div>
     </div>
     <div class="travel-guide-related">

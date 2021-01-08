@@ -1,6 +1,50 @@
 <?php 
 
 
+// Custom Post Type - Travel Guides
+function create_post_type_rfc_travel_guides()
+{
+    register_post_type(
+        'rfc_travel_guides',
+        array(
+            'labels' => array(
+                'name' => __('Travel Guides'),
+                'singular_name' => __('Travel Guide'),
+            ),
+            'public' => true,
+            'rewrite' => array('slug' => 'travel-guide'),
+            'supports' => array(
+                'title', 'editor'
+            )
+
+        )
+    );
+}
+add_action('init', 'create_post_type_rfc_travel_guides');
+
+
+
+// Custom Post Type - Travel Guides
+function create_post_type_rfc_guide_categories()
+{
+    register_post_type(
+        'rfc_guide_categories',
+        array(
+            'labels' => array(
+                'name' => __('Travel Guide Categories'),
+                'singular_name' => __('Travel Guide Category'),
+            ),
+            'public' => true,
+            'rewrite' => array('slug' => 'travel-guide-category'),
+            'supports' => array(
+                'title',
+            )
+
+        )
+    );
+}
+add_action('init', 'create_post_type_rfc_guide_categories');
+
 // Custom Post Type - Cruises 
 function create_post_type_rfc_cruises()
 {
@@ -163,29 +207,6 @@ function create_post_type_rfc_locations()
     );
 }
 add_action('init', 'create_post_type_rfc_locations');
-
-
-// Custom Post Type - Travel Guides
-function create_post_type_rfc_travel_guides()
-{
-    register_post_type(
-        'rfc_travel_guides',
-        array(
-            'labels' => array(
-                'name' => __('Travel Guides'),
-                'singular_name' => __('Travel Guide'),
-            ),
-            'public' => true,
-            'rewrite' => array('slug' => 'travel-guide'),
-            'supports' => array(
-                'title', 'editor'
-            ),
-            'taxonomies' => array('post_tag'),
-
-        )
-    );
-}
-add_action('init', 'create_post_type_rfc_travel_guides');
 
 
 

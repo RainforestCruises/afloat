@@ -5,7 +5,7 @@ return array (
   'title' => 'Travel Guides',
   'type' => 'rfc_travel_guides',
   'id' => '5feced60af61d',
-  'updated' => 1609362847,
+  'updated' => 1610138535,
   'columns' => 
   array (
     'title' => 
@@ -37,6 +37,24 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
+    '5ff8c3a786683' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Categories',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_5ff8c322b2dd0',
+      'post_property_display' => 'title',
+      'post_link_to' => 'edit_post',
+      'number_of_items' => '10',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+    ),
     '5feced9f1658c' => 
     array (
       'type' => 'column-acf_field',
@@ -55,21 +73,6 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
     ),
-    'tags' => 
-    array (
-      'type' => 'tags',
-      'label' => 'Tags',
-      'width' => '15',
-      'width_unit' => '%',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'on',
-      'enable_term_creation' => 'off',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-    ),
     '5feced9f1658e' => 
     array (
       'type' => 'column-author_name',
@@ -79,8 +82,10 @@ return array (
       'display_author_as' => 'display_name',
       'user_link_to' => 'edit_user',
       'export' => 'off',
+      'sort' => 'on',
       'edit' => 'off',
       'bulk_edit' => 'on',
+      'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
     ),

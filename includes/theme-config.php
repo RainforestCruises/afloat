@@ -36,3 +36,49 @@ function add_page_categories() {
 }
  // Add to the admin_init hook of your theme functions.php file 
 add_action( 'init', 'add_page_categories' );
+
+
+
+
+//REMOVE DEFAULT BLOG TYPE ------------
+// Remove side menu
+add_action( 'admin_menu', 'remove_default_post_type' );
+
+function remove_default_post_type() {
+    remove_menu_page( 'edit.php' );
+}
+
+// Remove +New post in top Admin Menu Bar
+add_action( 'admin_bar_menu', 'remove_default_post_type_menu_bar', 999 );
+
+function remove_default_post_type_menu_bar( $wp_admin_bar ) {
+    $wp_admin_bar->remove_node( 'new-post' );
+}
+
+// Remove Quick Draft Dashboard Widget
+add_action( 'wp_dashboard_setup', 'remove_draft_widget', 999 );
+
+function remove_draft_widget(){
+    remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+}
+
+
+//REMOVE COMMENTS ------------------------------
+// Removes from admin menu
+add_action( 'admin_menu', 'my_remove_admin_menus' );
+function my_remove_admin_menus() {
+    remove_menu_page( 'edit-comments.php' );
+}
+// Removes from post and pages
+add_action('init', 'remove_comment_support', 100);
+
+function remove_comment_support() {
+    remove_post_type_support( 'post', 'comments' );
+    remove_post_type_support( 'page', 'comments' );
+}
+// Removes from admin bar
+function mytheme_admin_bar_render() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('comments');
+}
+add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );

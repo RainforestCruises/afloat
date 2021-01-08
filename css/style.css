@@ -1313,11 +1313,16 @@ h5 {
   .travel-guide__social {
     display: flex;
     margin-bottom: 6rem; }
-    .travel-guide__social svg {
+    .travel-guide__social__link:link, .travel-guide__social__link:visited {
+      color: #142838;
+      transition: all .2s; }
+    .travel-guide__social__link:hover {
+      color: #40739c; }
+    .travel-guide__social__link svg {
       height: 3rem;
       width: 3rem;
-      fill: #142838;
-      margin: 0 0.5rem; }
+      fill: currentColor;
+      margin: 0rem .5rem; }
 
 .travel-guide-related {
   grid-column: 1 / -1;

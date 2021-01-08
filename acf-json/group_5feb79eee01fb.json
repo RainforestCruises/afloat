@@ -6,7 +6,7 @@
             "key": "field_5feb79f98e2ac",
             "label": "Destination",
             "name": "destination",
-            "type": "post_object",
+            "type": "relationship",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -19,10 +19,38 @@
                 "rfc_destinations"
             ],
             "taxonomy": "",
-            "allow_null": 0,
-            "multiple": 0,
-            "return_format": "object",
-            "ui": 1
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
+            "key": "field_5ff8c322b2dd0",
+            "label": "Categories",
+            "name": "categories",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_guide_categories"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
         },
         {
             "key": "field_5feb942a2e7b1",
@@ -66,5 +94,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide - CPT",
-    "modified": 1609274442
+    "modified": 1610139956
 }
