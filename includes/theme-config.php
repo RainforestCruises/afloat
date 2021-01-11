@@ -19,11 +19,11 @@ add_action('after_setup_theme', 'afloat_config', 0); //last parameter is priorit
 
 
 //Excerpt length
-function custom_excerpt_length($length)
-{
-    return 20;
-}
-add_filter('excerpt_length', 'custom_excerpt_length', 999);
+// function custom_excerpt_length($length)
+// {
+//     return 20;
+// }
+// add_filter('excerpt_length', 'custom_excerpt_length', 999);
 
 //custom image size for blog thumbnails
 add_image_size('blog-image-crop', 510, 414, true);

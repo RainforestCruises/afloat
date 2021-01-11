@@ -491,14 +491,14 @@
   &--small {
     font-size: 1.3rem;
     letter-spacing: .2rem;
-
     & svg {
-
       height: 1.3rem;
       width: 1.3rem;
- 
     }
-  
+  }
+
+  &--dark {
+    color: $color-primary;
   }
 
 

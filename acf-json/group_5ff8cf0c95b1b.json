@@ -1,0 +1,89 @@
+{
+    "key": "group_5ff8cf0c95b1b",
+    "title": "Travel Guide Landing Page",
+    "fields": [
+        {
+            "key": "field_5ff8cf172b796",
+            "label": "Destination",
+            "name": "destination",
+            "type": "post_object",
+            "instructions": "Select the destination post",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_destinations"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_5ff8d1157ea4e",
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "instructions": "Header image",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5ff8cf492b797",
+            "label": "Intro Snippet",
+            "name": "intro_snippet",
+            "type": "textarea",
+            "instructions": "Short text under title area",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-travel-guide.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Travel Guide Landing - Page",
+    "modified": 1610142375
+}
