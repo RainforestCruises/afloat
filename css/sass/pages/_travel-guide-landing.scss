@@ -199,6 +199,11 @@
             line-height: 4rem;
             color: $color-primary;
             margin: .5rem 0;
+            text-decoration: none;
+            transition: all .2s;
+            &:hover{
+                color: $color-supporting-light;
+            }
         }
     
         &__snippet {

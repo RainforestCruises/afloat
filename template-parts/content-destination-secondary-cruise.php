@@ -14,8 +14,8 @@ $tour_experiences = get_field('tour_experiences');
             Cruise Packages
         </div>
         <div class="destination-secondary__header__sub-text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
-        </div>
+        <?php echo get_field('tour_package_title_subtext') ?> 
+               </div>
     </div>
     <div class="destination-main__packages">
         <div class="destination-main__packages__best-selling">
@@ -75,9 +75,9 @@ $tour_experiences = get_field('tour_experiences');
     
 
     <div class="destination-main__lengths">
-        <button class="btn-outline " href="#">7-Day</button>
-        <button class="btn-outline " href="#">10-Day</button>
-        <button class="btn-outline " href="#">14-Day</button>
+        <button class="btn-outline " href="#">7-Days</button>
+        <button class="btn-outline " href="#">10-Days</button>
+        <button class="btn-outline " href="#">14-Days</button>
         <button class="btn-outline btn-outline--dark " href="#">View All Tours</button>
     </div>
 

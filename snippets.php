@@ -1,27 +1,43 @@
-<!-- experiences -->
-<div class="destination-main__experiences">
-        <?php
-        if ($tour_experiences) {
-            foreach ($tour_experiences as $e) {
-                $experience = $e['tour_experience'];
-                $background_image = $e['background_image'];
-        ?>
-                <div class="category-card">
-                    <div class="category-card__image">
-                        <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
-                    </div>
+<?php
+            if ($travelGuidePosts->have_posts()) :
+                while ($travelGuidePosts->have_posts()) : $travelGuidePosts->the_post();
+                    $featured_image = get_field('featured_image');
+                    $guideCategories = get_field('categories');
 
-                    <div class="category-card__content">
-                        <div class="category-card__content__title">
-                            <?php echo get_the_title($experience); ?> Tours
+                    $isoClasses = '';
+                    if ($guideCategories) :
+                        foreach ($guideCategories as $c) :
+                            $isoClasses = $isoClasses . ' ' . $c->post_name;
+                        endforeach;
+                    endif;
+
+            ?>
+                    <div class="guide-item <?php echo $isoClasses ?>">
+                        <div class="guide-item__image">
+                            <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
                         </div>
-                        <div class="category-card__content__availability">
-                            <?php echo tours_available($destination, $experience) . ' Tours Available'; ?>
+                        <div class="guide-item__bottom">
+         
+                            <a class="guide-item__bottom__title" href="<?php echo the_permalink() ?>">
+                                <?php echo get_the_title(); ?>
+                            </a>
+                            <div class="guide-item__bottom__snippet">
+                                <?php
+                                echo the_excerpt();
+                                ?>
+                            </div>
+                            <div class="guide-item__bottom__cta">
+                                <a class="goto-button goto-button--dark" href="<?php echo the_permalink() ?>">
+                                    Read More
+                                    <svg>
+                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-        <?php
-            }
-        }
-        ?>
-    </div>
+            <?php
+                endwhile;
+                wp_reset_postdata(); //very important to rest after custom query
+            endif;
+            ?>

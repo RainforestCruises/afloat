@@ -14,7 +14,7 @@ $title = $args['title'];
             Accommodation
         </div>
         <div class="destination-accommodations__header__sub-text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
+        <?php echo get_field('accommodations_title_subtext') ?>
         </div>
     </div>
     <div class="destination-accommodations__group">

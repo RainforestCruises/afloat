@@ -728,6 +728,7 @@ h5 {
   outline: none;
   display: flex;
   align-content: center;
+  align-items: center;
   text-transform: uppercase;
   letter-spacing: .3rem;
   font-weight: 600;
@@ -1382,7 +1383,9 @@ h5 {
           .travel-guide-related__slider-area__slider__item__content__title {
             font-size: 3rem;
             line-height: 3.5rem;
-            margin-top: 2.5rem; }
+            margin-top: 2.5rem;
+            text-decoration: none;
+            color: #fff; }
           .travel-guide-related__slider-area__slider__item__content__text {
             font-size: 1.6rem;
             margin-top: 1rem; }
@@ -1682,7 +1685,11 @@ h5 {
       letter-spacing: .1rem;
       line-height: 4rem;
       color: #142838;
-      margin: .5rem 0; }
+      margin: .5rem 0;
+      text-decoration: none;
+      transition: all .2s; }
+      .guide-item__bottom__title:hover {
+        color: #40739c; }
     .guide-item__bottom__snippet {
       font-size: 1.6rem;
       padding: 1rem 0;

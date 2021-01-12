@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_5feb79f98e2ac",
-            "label": "Destination",
-            "name": "destination",
+            "label": "Destinations",
+            "name": "destinations",
             "type": "relationship",
             "instructions": "",
             "required": 1,
@@ -94,5 +94,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide - CPT",
-    "modified": 1610139956
+    "modified": 1610484153
 }

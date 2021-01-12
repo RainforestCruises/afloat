@@ -12,7 +12,7 @@ $currentYear = date("Y");
             Cruises
         </div>
         <div class="destination-secondary__header__sub-text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
+        <?php echo get_field('cruise_title_subtext') ?>        
         </div>
     </div>
 
@@ -63,7 +63,7 @@ $currentYear = date("Y");
                     $range = $length['min_days'] . '-' . $length['max_days'];
                 }  
             ?>
-                <button class="btn-outline" onclick="location.href='<?php echo $link ?>'"><?php echo $range ?> Day</button>
+                <button class="btn-outline" onclick="location.href='<?php echo $link ?>'"><?php echo $range ?> Days</button>
         <?php endforeach;
         endif; ?>
         <button class="btn-outline " href="#">View All Cruises</button>

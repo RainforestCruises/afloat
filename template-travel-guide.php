@@ -25,7 +25,7 @@ $args = array(
     'post_type' => 'rfc_travel_guides',
     'meta_query' => array(
         array(
-            'key' => 'destination', // name of custom field
+            'key' => 'destinations', // name of custom field
             'value' => '"' . $destination->ID . '"',
             'compare' => 'LIKE'
         )
@@ -83,12 +83,12 @@ $travelGuidePosts = new WP_Query($args);
 
                     $isoClasses = '';
                     if ($guideCategories) :
-                        foreach ($guideCategories as $c) : 
+                        foreach ($guideCategories as $c) :
                             $isoClasses = $isoClasses . ' ' . $c->post_name;
                         endforeach;
                     endif;
 
-                    ?>
+            ?>
                     <div class="guide-item <?php echo $isoClasses ?>">
                         <div class="guide-item__image">
                             <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
@@ -105,21 +105,21 @@ $travelGuidePosts = new WP_Query($args);
                                 <?php endforeach;
                                 endif;  ?>
                             </ul>
-                            <div class="guide-item__bottom__title">
+                            <a class="guide-item__bottom__title" href="<?php echo the_permalink() ?>">
                                 <?php echo get_the_title(); ?>
-                            </div>
+                            </a>
                             <div class="guide-item__bottom__snippet">
                                 <?php
                                 echo the_excerpt();
                                 ?>
                             </div>
                             <div class="guide-item__bottom__cta">
-                                <button class="goto-button goto-button--dark">
+                                <a class="goto-button goto-button--dark" href="<?php echo the_permalink() ?>">
                                     Read More
                                     <svg>
                                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
                                     </svg>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>

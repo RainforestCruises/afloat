@@ -114,7 +114,7 @@ console_log($locations);
                 <?php echo $title ?> Vacation Packages
             </div>
             <div class="destination-main__packages__header__sub-text">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
+            <?php echo get_field('tour_package_title_subtext') ?>
             </div>
         </div>
 
@@ -215,9 +215,9 @@ console_log($locations);
     </div>
 
     <div class="destination-main__lengths">
-        <button class="btn-outline " href="#">7-Day</button>
-        <button class="btn-outline " href="#">10-Day</button>
-        <button class="btn-outline " href="#">14-Day</button>
+        <button class="btn-outline " href="#">7-Days</button>
+        <button class="btn-outline " href="#">10-Days</button>
+        <button class="btn-outline " href="#">14-Days</button>
         <button class="btn-outline btn-outline--dark " href="#">View All Tours</button>
     </div>
 </div>

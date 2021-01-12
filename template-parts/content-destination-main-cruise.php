@@ -86,7 +86,7 @@ console_log($activities);
                 <?php echo $title ?> Cruises
             </div>
             <div class="destination-main__packages__header__sub-text">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
+            <?php echo get_field('cruise_title_subtext') ?>
             </div>
         </div>
 
@@ -149,8 +149,8 @@ console_log($activities);
             <?php echo $title ?> Destinations
         </div>
         <div class="destination-main__experiences-sub-text">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
-        </div>
+        <?php echo get_field('cruise_destination_title_subtext') ?>
+                </div>
 
         <div class="destination-main__experiences">
             <?php
@@ -186,8 +186,8 @@ console_log($activities);
         <?php echo $title ?> Experiences
     </div>
     <div class="destination-main__experiences-sub-text">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi earum illum ratione vero. Ipsam, quia tempora iusto officia obcaecati dolore exercitationem necessitatibus fugiat doloribus quibusdam et inventore eos, illo perspiciatis?
-    </div>
+    <?php echo get_field('cruise_experience_title_subtext') ?>
+        </div>
     <div class="destination-main__experiences">
         <?php
         if ($cruise_experiences) {
@@ -229,7 +229,7 @@ console_log($activities);
                 $range = $length['min_days'] . '-' . $length['max_days'];
             }        
         ?>
-            <button class="btn-outline" onclick="location.href='<?php echo $link ?>'"><?php echo $range ?> Day</button>
+            <button class="btn-outline" onclick="location.href='<?php echo $link ?>'"><?php echo $range ?> Days</button>
         <?php endforeach; endif; ?>
         <button class="btn-outline btn-outline--dark " href="#">View All Cruises</button>
     </div>

@@ -6,10 +6,28 @@ wp_enqueue_script('page-travel-guide', get_template_directory_uri() . '/js/page-
 <?php
 while (have_posts()) :
   the_post();
-
-
-  $destination = get_field('destination');
   $featured_image = get_field('featured_image');
+  $queryArgs = array(
+    'post_type' => 'rfc_travel_guides',
+    'posts_per_page' => -1,
+    'post__not_in' => array( $post->ID )
+  );
+
+  //build meta query criteria
+  $queryArgsDestination = array();
+  $queryArgsDestination['relation'] = 'OR';
+
+  $destinations = get_field('destinations');
+
+  foreach ($destinations as $d) {
+    $queryArgsDestination[] = array(
+      'key'     => 'destinations',
+      'value'   => serialize(strval($d->ID)),
+      'compare' => 'LIKE'
+    );
+  }
+  $queryArgs['meta_query'][] = $queryArgsDestination;
+  $travelGuidePosts = new WP_Query($queryArgs);
 ?>
 
   <!-- Product Page Container -->
@@ -98,87 +116,36 @@ while (have_posts()) :
       <div class="travel-guide-related__slider-area">
         <div class="travel-guide-related__slider-area__slider" id="related-slider">
 
-          <!-- Item -->
-          <div class="travel-guide-related__slider-area__slider__item">
-            <img src="<?php echo esc_url($featured_image['url']); ?>" alt="product" class="travel-guide-related__slider-area__slider__item__image">
-            <div class="travel-guide-related__slider-area__slider__item__content">
-              <div class="travel-guide-related__slider-area__slider__item__content__title">
-                5 Things to do in the Amazon
+          <?php
+          if ($travelGuidePosts->have_posts()) :
+            while ($travelGuidePosts->have_posts()) : $travelGuidePosts->the_post();
+              $post_featured_image = get_field('featured_image');
+          ?>
+              <!-- Item -->
+              <div class="travel-guide-related__slider-area__slider__item">
+                <img src="<?php echo esc_url($post_featured_image['url']); ?>" alt="product" class="travel-guide-related__slider-area__slider__item__image">
+                <div class="travel-guide-related__slider-area__slider__item__content">
+                  <a class="travel-guide-related__slider-area__slider__item__content__title" href="<?php echo the_permalink(); ?>">
+                    <?php echo the_title(); ?>
+                  </a>
+                  <div class="travel-guide-related__slider-area__slider__item__content__text">
+                    <?php echo the_excerpt(); ?>
+                  </div>
+                  <div class="travel-guide-related__slider-area__slider__item__content__cta">
+                    <a class="goto-button goto-button--small" href="<?php echo the_permalink(); ?>">
+                      Read More
+                      <svg>
+                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div class="travel-guide-related__slider-area__slider__item__content__text">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta ratione libero sint accusantium minus voluptate dolore? Sit repudiandae molestiae
-              </div>
-              <div class="travel-guide-related__slider-area__slider__item__content__cta">
-                <button class="goto-button goto-button--small">
-                  Read More
-                  <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item -->
-          <div class="travel-guide-related__slider-area__slider__item">
-            <img src="<?php echo esc_url($featured_image['url']); ?>" alt="product" class="travel-guide-related__slider-area__slider__item__image">
-            <div class="travel-guide-related__slider-area__slider__item__content">
-              <div class="travel-guide-related__slider-area__slider__item__content__title">
-                5 Things to do in the Amazon
-              </div>
-              <div class="travel-guide-related__slider-area__slider__item__content__text">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta ratione libero sint accusantium minus voluptate dolore? Sit repudiandae molestiae
-              </div>
-              <div class="travel-guide-related__slider-area__slider__item__content__cta">
-                <button class="goto-button goto-button--small">
-                  Read More
-                  <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Item -->
-          <div class="travel-guide-related__slider-area__slider__item">
-            <img src="<?php echo esc_url($featured_image['url']); ?>" alt="product" class="travel-guide-related__slider-area__slider__item__image">
-            <div class="travel-guide-related__slider-area__slider__item__content">
-              <div class="travel-guide-related__slider-area__slider__item__content__title">
-                5 Things to do in the Amazon
-              </div>
-              <div class="travel-guide-related__slider-area__slider__item__content__text">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta ratione libero sint accusantium minus voluptate dolore? Sit repudiandae molestiae
-              </div>
-              <div class="travel-guide-related__slider-area__slider__item__content__cta">
-                <button class="goto-button goto-button--small">
-                  Read More
-                  <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Item -->
-          <div class="travel-guide-related__slider-area__slider__item">
-            <img src="<?php echo esc_url($featured_image['url']); ?>" alt="product" class="travel-guide-related__slider-area__slider__item__image">
-            <div class="travel-guide-related__slider-area__slider__item__content">
-              <div class="travel-guide-related__slider-area__slider__item__content__title">
-                5 Things to do in the Amazon
-              </div>
-              <div class="travel-guide-related__slider-area__slider__item__content__text">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta ratione libero sint accusantium minus voluptate dolore? Sit repudiandae molestiae
-              </div>
-              <div class="travel-guide-related__slider-area__slider__item__content__cta">
-                <button class="goto-button goto-button--small">
-                  Read More
-                  <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
+          <?php
+            endwhile;
+            wp_reset_postdata(); //very important to rest after custom query
+          endif;
+          ?>
         </div>
       </div>
 

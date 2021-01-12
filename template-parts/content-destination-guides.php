@@ -9,7 +9,7 @@ $cruises_image = get_field('cruises_image');
         Travel Guide
     </div>
     <div class="destination-guides__sub-text">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, velit? Optio sint nulla, molestiae repudiandae sunt, repellat possimus at blanditiis sed explicabo maxime, beatae eveniet perferendis voluptate exercitationem ea asperiores?
+    <?php echo get_field('travel_guide_title_subtext') ?>
     </div>
     <div class="destination-guides__grid-container">
         <div class="destination-guides__grid-container__grid">
