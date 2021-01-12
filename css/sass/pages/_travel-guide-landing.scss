@@ -130,10 +130,11 @@
         }
 
         &__results {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            // display: flex;
+            // flex-wrap: wrap;
+            // justify-content: center;
             margin-bottom: 12rem;
+            background-color: darkgray;
         }
     }
 }  
@@ -147,6 +148,8 @@
     box-shadow: $shadow-medium;
     border-bottom-left-radius: .4rem;
     border-bottom-right-radius: .4rem;
+    background-color: $color-white;
+    
     @media only screen and (max-width: $bp-small) {
         margin: 3rem 1rem;
       }
@@ -167,7 +170,7 @@
         margin: 2rem 3rem;
         text-align: start;
         grid-template-rows: min-content min-content 1fr 5rem;
-
+        
         
         
         &__category {

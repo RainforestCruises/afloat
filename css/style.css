@@ -1634,10 +1634,8 @@ h5 {
         .travel-guide-landing-page__content__categories button:hover, .travel-guide-landing-page__content__categories button:active {
           border: 1px solid #142838; }
     .travel-guide-landing-page__content__results {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 12rem; }
+      margin-bottom: 12rem;
+      background-color: darkgray; }
 
 .guide-item {
   display: grid;
@@ -1647,7 +1645,8 @@ h5 {
   margin-bottom: 6rem;
   box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: .4rem;
-  border-bottom-right-radius: .4rem; }
+  border-bottom-right-radius: .4rem;
+  background-color: #fff; }
   @media only screen and (max-width: 37.5em) {
     .guide-item {
       margin: 3rem 1rem; } }

@@ -71,7 +71,7 @@ $travelGuides = get_posts($travelGuideCriteria);
             <?php endforeach; ?>
 
         </div>
-        <div class="travel-guide-landing-page__content__results">
+        <div class="travel-guide-landing-page__content__results" id="results">
 
             <?php if ($travelGuides) :
                 foreach ($travelGuides as $g) : ?>
