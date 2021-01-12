@@ -129,12 +129,8 @@
             }
         }
 
-        &__results {
-            // display: flex;
-            // flex-wrap: wrap;
-            // justify-content: center;
+        &__results { 
             margin-bottom: 12rem;
-            background-color: darkgray;
         }
     }
 }  
@@ -142,14 +138,15 @@
 .guide-item {
     display: grid;
     grid-template-rows: 30rem ;
-    max-width: 45rem;
+    max-width: 50rem;
+    min-width: 30rem;
     margin: 3rem;
     margin-bottom: 6rem;
     box-shadow: $shadow-medium;
     border-bottom-left-radius: .4rem;
     border-bottom-right-radius: .4rem;
     background-color: $color-white;
-    
+
     @media only screen and (max-width: $bp-small) {
         margin: 3rem 1rem;
       }

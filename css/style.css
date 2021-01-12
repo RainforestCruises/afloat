@@ -1634,13 +1634,13 @@ h5 {
         .travel-guide-landing-page__content__categories button:hover, .travel-guide-landing-page__content__categories button:active {
           border: 1px solid #142838; }
     .travel-guide-landing-page__content__results {
-      margin-bottom: 12rem;
-      background-color: darkgray; }
+      margin-bottom: 12rem; }
 
 .guide-item {
   display: grid;
   grid-template-rows: 30rem;
-  max-width: 45rem;
+  max-width: 50rem;
+  min-width: 30rem;
   margin: 3rem;
   margin-bottom: 6rem;
   box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.2);

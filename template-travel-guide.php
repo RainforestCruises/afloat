@@ -19,8 +19,8 @@ $categories = get_posts(array(
     'order' => 'ASC',
 ));
 
-//get all posts
-$travelGuideCriteria = array(
+//all related posts
+$args = array(
     'posts_per_page' => -1,
     'post_type' => 'rfc_travel_guides',
     'meta_query' => array(
@@ -30,8 +30,9 @@ $travelGuideCriteria = array(
             'compare' => 'LIKE'
         )
     )
+
 );
-$travelGuides = get_posts($travelGuideCriteria);
+$travelGuidePosts = new WP_Query($args);
 
 ?>
 
@@ -48,7 +49,7 @@ $travelGuides = get_posts($travelGuideCriteria);
             </div>
             <input type="text" placeholder="Search Guides...">
         </div>
-        
+
 
     </div>
 
@@ -60,27 +61,35 @@ $travelGuides = get_posts($travelGuideCriteria);
         <div class="travel-guide-landing-page__content__subtext">
             <?php echo $intro_snippet ?>
         </div>
-        <div class="travel-guide-landing-page__content__categories">
-            <button>
+        <div class="travel-guide-landing-page__content__categories filters-button-group">
+            <button data-filter="*">
                 All Guides
             </button>
             <?php foreach ($categories as $c) : ?>
-                <button>
+                <button data-filter="<?php echo '.' . $c->post_name ?>">
                     <?php echo get_the_title($c) ?>
                 </button>
             <?php endforeach; ?>
 
         </div>
+
         <div class="travel-guide-landing-page__content__results" id="results">
 
-            <?php if ($travelGuides) :
-                foreach ($travelGuides as $g) : ?>
-                    <!-- Guide -->
-                    <?php $featured_image = get_field('featured_image', $g);
-                    $guideCategories = get_field('categories', $g);
+            <?php
+            if ($travelGuidePosts->have_posts()) :
+                while ($travelGuidePosts->have_posts()) : $travelGuidePosts->the_post();
+                    $featured_image = get_field('featured_image');
+                    $guideCategories = get_field('categories');
+
+                    $isoClasses = '';
+                    if ($guideCategories) :
+                        foreach ($guideCategories as $c) : 
+                            $isoClasses = $isoClasses . ' ' . $c->post_name;
+                        endforeach;
+                    endif;
 
                     ?>
-                    <div class="guide-item">
+                    <div class="guide-item <?php echo $isoClasses ?>">
                         <div class="guide-item__image">
                             <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
                         </div>
@@ -90,19 +99,18 @@ $travelGuides = get_posts($travelGuideCriteria);
                                     foreach ($guideCategories as $c) : ?>
                                         <li>
                                             <?php
-                                            echo trim(get_the_title($c)) ;
+                                            echo trim(get_the_title($c));
                                             ?>
                                         </li>
-
                                 <?php endforeach;
                                 endif;  ?>
                             </ul>
                             <div class="guide-item__bottom__title">
-                                <?php echo get_the_title($g); ?>
+                                <?php echo get_the_title(); ?>
                             </div>
                             <div class="guide-item__bottom__snippet">
                                 <?php
-                                echo substr(strip_tags($g->post_content), 0, 180);
+                                echo the_excerpt();
                                 ?>...
                             </div>
                             <div class="guide-item__bottom__cta">
@@ -115,9 +123,11 @@ $travelGuides = get_posts($travelGuideCriteria);
                             </div>
                         </div>
                     </div>
-
-            <?php endforeach;
-            endif; ?>
+            <?php
+                endwhile;
+                wp_reset_postdata(); //very important to rest after custom query
+            endif;
+            ?>
         </div>
     </div>
 
