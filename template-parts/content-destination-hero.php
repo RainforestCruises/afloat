@@ -164,7 +164,7 @@
               </nav>
 
               <div class="destination-hero__content__page-nav__arrow">
-                  <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#tours">
+                  <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="<?php echo ($destinationType == 'cruise' ? '#cruises' : '#packages') ?>">
                       <svg class="btn-circle--arrow-main">
                           <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
                       </svg>

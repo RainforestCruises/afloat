@@ -41,7 +41,7 @@ $cruiseCriteria = array(
     'post_type' => 'rfc_cruises',
     'meta_query' => array(
         array(
-            'key' => 'destination', // name of custom field
+            'key' => 'destinations', // name of custom field
             'value' => '"' . $destination->ID . '"',
             'compare' => 'LIKE'
         )

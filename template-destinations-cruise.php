@@ -26,7 +26,7 @@ $tourCriteria = array(
     'post_type' => 'rfc_tours',
     'meta_query' => array(
         array(
-            'key' => 'destination',
+            'key' => 'destinations',
             'value' => '"' . $destination->ID . '"',
             'compare' => 'LIKE'
         )
@@ -40,7 +40,7 @@ $cruiseCriteria = array(
     'post_type' => 'rfc_cruises',
     'meta_query' => array(
         array(
-            'key' => 'destination', // name of custom field
+            'key' => 'destinations', // name of custom field
             'value' => '"' . $destination->ID . '"',
             'compare' => 'LIKE'
         )
@@ -123,4 +123,3 @@ $args = array(
 <script>
     var templateUrl = "<?php echo bloginfo('template_url') ?>";
 </script>
-

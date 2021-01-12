@@ -46,16 +46,16 @@ $travelGuides = get_posts($travelGuideCriteria);
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-04"></use>
                 </svg>
             </div>
-            
+            <input type="text" placeholder="Search Guides...">
         </div>
-        <input type="text" placeholder="Search Guides...">
+        
 
     </div>
 
     <!-- Content -->
     <div class="travel-guide-landing-page__content">
         <div class="travel-guide-landing-page__content__title">
-            Peru Travel Guides
+            <?php echo get_field('navigation_title', $destination) ?> Travel Guide
         </div>
         <div class="travel-guide-landing-page__content__subtext">
             <?php echo $intro_snippet ?>
