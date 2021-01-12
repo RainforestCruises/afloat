@@ -47,7 +47,7 @@ $travelGuidePosts = new WP_Query($args);
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-04"></use>
                 </svg>
             </div>
-            <input type="text" placeholder="Search Guides...">
+            <input type="text" placeholder="Search Guides..." id="quicksearch">
         </div>
 
 
@@ -62,11 +62,11 @@ $travelGuidePosts = new WP_Query($args);
             <?php echo $intro_snippet ?>
         </div>
         <div class="travel-guide-landing-page__content__categories filters-button-group">
-            <button data-filter="*">
+            <button data-filter="*" class="filter-button filter-button-all selected">
                 All Guides
             </button>
             <?php foreach ($categories as $c) : ?>
-                <button data-filter="<?php echo '.' . $c->post_name ?>">
+                <button data-filter="<?php echo '.' . $c->post_name ?>" class="filter-button">
                     <?php echo get_the_title($c) ?>
                 </button>
             <?php endforeach; ?>
@@ -111,7 +111,7 @@ $travelGuidePosts = new WP_Query($args);
                             <div class="guide-item__bottom__snippet">
                                 <?php
                                 echo the_excerpt();
-                                ?>...
+                                ?>
                             </div>
                             <div class="guide-item__bottom__cta">
                                 <button class="goto-button goto-button--dark">

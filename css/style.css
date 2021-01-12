@@ -1633,6 +1633,8 @@ h5 {
         outline: none; }
         .travel-guide-landing-page__content__categories button:hover, .travel-guide-landing-page__content__categories button:active {
           border: 1px solid #142838; }
+      .travel-guide-landing-page__content__categories .selected {
+        border: 1px solid #142838; }
     .travel-guide-landing-page__content__results {
       margin-bottom: 12rem; }
 
