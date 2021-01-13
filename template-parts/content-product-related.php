@@ -69,7 +69,7 @@ $relatedCount = 0;
             }
     ?>
 
-            <div class="related-slider__item" onClick="parent.location='<?php echo get_permalink(); ?>'">
+            <div class="related-slider__item" onClick="parent.location='<?php echo get_permalink($p); ?>'">
                 <div class="related-slider__item__title-group">
                     <div class="related-slider__item__title-group__name">
                         <?php echo get_the_title($p) ?>

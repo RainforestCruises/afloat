@@ -128,7 +128,7 @@ $deck_plan = get_field('deck_plan');
                             </li>
                             <li class="product-cabins__ship-info__content__item">
                                 <span>Capacity: </span>
-                                <p><?php echo $ship_features['capacity']; ?> passengers</p>
+                                <p><?php echo $ship_features['capacity']; ?> guests</p>
                             </li>
                             <li class="product-cabins__ship-info__content__item">
                                 <span>Interconnectable Cabins: </span>
