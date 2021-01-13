@@ -163,6 +163,7 @@ $monthNames = $args['monthNames'];
                 <div class="product-itineraries__itinerary__side-content__detail">
 
                     <?php if ($itinerary['HasSummary'] == false) { ?>
+                    <?php if(get_post_type() == 'rfc_cruises') : ?>
                         <div class="product-itineraries__itinerary__side-content__detail__widget">
                             <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
                                 <h4 class="heading-4">
@@ -180,12 +181,10 @@ $monthNames = $args['monthNames'];
                                     </svg>
                                 <?php endif ?>
                             </a>
-
-
                         </div>
 
 
-                    <?php } ?>
+                    <?php endif; } ?>
                     <?php if (get_post_type() == 'rfc_cruises') { ?>
                         <!-- Dates -->
                         <div class="product-itineraries__itinerary__side-content__detail__widget">

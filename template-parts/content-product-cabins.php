@@ -92,7 +92,6 @@ $deck_plan = get_field('deck_plan');
         <?php endforeach; ?>
     <?php endif; ?>
 
-    <?php if (get_post_type() == 'rfc_cruises') { ?>
 
         <?php if ($deck_plan) { ?>
             <h2 class="page-divider product-cabins__page-divider">
@@ -102,7 +101,7 @@ $deck_plan = get_field('deck_plan');
 
                 <div class="product-cabins__deckplan__picture">
                     <div class="product-cabins__deckplan__picture__title">
-                        <h3 class="heading-3 heading-3--underline">Deck Plan</h3>
+                        <h3 class="heading-3 heading-3--underline"><?php echo (get_post_type() == 'rfc_cruises') ? 'Deck Plan' : 'Property Layout' ?></h3>
                     </div>
                     <a class="product-cabins__deckplan__picture" id="map-lightbox" href="<?php echo esc_url($deck_plan['url']); ?>" title="Deckplan">
                         <img class="product-cabins__deckplan__picture__img" src="<?php echo esc_url($deck_plan['url']); ?>" alt="">
@@ -149,7 +148,6 @@ $deck_plan = get_field('deck_plan');
 
             </div>
         <?php } ?>
-    <?php } ?>
 
 
 

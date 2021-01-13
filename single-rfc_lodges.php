@@ -39,14 +39,14 @@ while (have_posts()) :
     <section class="product-content">
 
       <!-- 1. Overview Content -->
-      <div class="product-content__page tab-content " id="overview">
+      <div class="product-content__page tab-content current" id="overview">
         <?php
         get_template_part('template-parts/content', 'product-overview', $args);
         ?>
       </div>
 
       <!-- 2. Itineraries Content -->
-      <div class="product-content__page tab-content current" id="itineraries">
+      <div class="product-content__page tab-content" id="itineraries">
         <?php
         get_template_part('template-parts/content', 'product-itineraries', $args);
         ?>

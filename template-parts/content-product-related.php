@@ -10,15 +10,17 @@ $queryArgsDestination = array();
 $queryArgsDestination['relation'] = 'OR';
 
 $destinations = get_field('destinations');
-
-foreach ($destinations as $d) {
-    $queryArgsDestination[] = array(
-        'key'     => 'destinations',
-        'value'   => serialize(strval($d->ID)),
-        'compare' => 'LIKE'
-    );
+if($destinations){
+    foreach ($destinations as $d) {
+        $queryArgsDestination[] = array(
+            'key'     => 'destinations',
+            'value'   => serialize(strval($d->ID)),
+            'compare' => 'LIKE'
+        );
+    }
+    $queryArgs['meta_query'][] = $queryArgsDestination;
 }
-$queryArgs['meta_query'][] = $queryArgsDestination;
+
 
 
 

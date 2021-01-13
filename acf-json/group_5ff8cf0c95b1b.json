@@ -29,7 +29,7 @@
             "label": "Image",
             "name": "image",
             "type": "image",
-            "instructions": "Header image",
+            "instructions": "Header image - 1400 x 375",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -85,5 +85,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide Landing - Page",
-    "modified": 1610142375
+    "modified": 1610490617
 }
