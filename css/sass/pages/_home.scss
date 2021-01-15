@@ -21,8 +21,9 @@
     }
 
     &__section-intro {
+        margin-top: 14rem;
         grid-row: content-start / span 1;
-        grid-column: full-start / -1;
+        grid-column: center-start / center-end;
         
     }
 

@@ -14,7 +14,7 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="header__main ">
-            <a href="/page-product.html" class="header__main__logo-area">
+            <a href="<?php echo get_home_url(); ?>" class="header__main__logo-area">
                 <img src="<?php echo bloginfo('template_url') ?>/css/img/logo/logo-v2-white.png" alt="logo" class="header__main__logo-area__logo" />
                 <img src="<?php echo bloginfo('template_url') ?>/css/img/logo/logo-v2-color.png" alt="logo" class="header__main__logo-area__logo--color" />
             </a>

@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php
+/*Template Name: Home*/
+get_header(); ?>
+
+<?php
+
+$intro_image = get_field('intro_image');
+?>
 
 <div class="home-page">
     <!-- Hero -->
@@ -61,11 +68,44 @@
     </section>
 
     <!-- Intro -->
-    <div class="home-page__section-intro" id="intro">
+    <section class="home-page__section-intro" id="intro">
         <div class="home-intro">
-            Intro
+            <div class="home-intro__top">
+                <img class="home-intro__top__img" src="<?php echo esc_url($intro_image['url']); ?>" alt="">
+                <div class="home-intro__top__content">
+                    <div class="home-intro__top__content__pretitle">
+                        <?php echo get_field('intro_pretitle'); ?>
+                    </div>
+                    <div class="home-intro__top__content__title">
+                        <?php echo get_field('intro_title'); ?>
+                    </div>
+                    <div class="home-intro__top__content__testimonial">
+                        <div class="home-intro__top__content__testimonial__image">
+                            Img
+                        </div>
+                        <div class="home-intro__top__content__testimonial__snippet">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi blanditiis sequi commodi. Excepturi, earum perferendis consectetur tenetur dolorum nisi libero et itaque totam, iste distinctio, incidunt non nobis enim consequatur.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="home-intro__bottom">
+                <div class="home-intro__bottom__feature">
+                    feature
+                </div>
+                <div class="home-intro__bottom__feature">
+                    feature
+                </div>
+                <div class="home-intro__bottom__feature">
+                    feature
+                </div>
+            </div>
+            <div class="home-intro__cta">
+                CTA
+            </div>
+
         </div>
-    </div>
+    </section>
 
     <!-- Destinations -->
     <section class="home-page__section-destinations" id="destinations">

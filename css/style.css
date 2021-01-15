@@ -961,8 +961,9 @@ h5 {
     grid-column: full-start / -1;
     background-color: #1e1e1e; }
   .home-page__section-intro {
+    margin-top: 14rem;
     grid-row: content-start / span 1;
-    grid-column: full-start / -1; }
+    grid-column: center-start / center-end; }
   .home-page__section-destinations {
     grid-column: full-start / -1; }
 
@@ -4972,15 +4973,19 @@ h5 {
       width: 100%;
       margin-bottom: 9rem;
       display: grid;
-      grid-template-columns: 1fr 1fr; }
-      @media only screen and (max-width: 37.5em) {
+      grid-template-columns: 1fr 1fr;
+      justify-items: center; }
+      @media only screen and (max-width: 50em) {
         .home-hero__content__search-form {
-          grid-template-columns: 1fr; } }
+          grid-template-columns: 1fr;
+          row-gap: 5rem;
+          margin-bottom: 6rem; } }
       .home-hero__content__search-form__form-group {
         display: grid;
         align-content: center;
         grid-template-columns: min-content 1fr;
-        column-gap: 2rem; }
+        column-gap: 2rem;
+        width: 40rem; }
         .home-hero__content__search-form__form-group__icon {
           display: flex;
           align-items: center; }
@@ -5022,6 +5027,49 @@ h5 {
               letter-spacing: .1rem;
               font-size: 1.6rem;
               font-weight: 500; }
+
+.home-intro {
+  display: grid; }
+  .home-intro__top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8rem; }
+    .home-intro__top__img {
+      object-fit: contain;
+      width: 50rem;
+      height: auto; }
+    .home-intro__top__content {
+      font-size: 3rem;
+      display: grid;
+      grid-template-rows: 1fr min-content 1fr;
+      row-gap: 3rem; }
+      .home-intro__top__content__title {
+        font-size: 5.5rem;
+        letter-spacing: .1rem;
+        font-family: "Old Standard TT", serif;
+        line-height: 6.2rem;
+        font-weight: 500;
+        color: #142838; }
+      .home-intro__top__content__pretitle {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        letter-spacing: .3rem;
+        font-weight: 600;
+        align-self: end;
+        padding-right: 10rem; }
+      .home-intro__top__content__testimonial {
+        align-self: center;
+        display: grid;
+        grid-template-columns: min-content 1fr; }
+        .home-intro__top__content__testimonial__snippet {
+          font-size: 1.4rem;
+          font-style: italic; }
+  .home-intro__bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); }
+  .home-intro__cta {
+    display: flex;
+    justify-content: center; }
 
 .card-square {
   display: grid !important;

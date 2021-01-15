@@ -160,16 +160,19 @@
             display: grid;
 
             grid-template-columns: 1fr 1fr;
-            @media only screen and (max-width: $bp-small) {
+            @media only screen and (max-width: $bp-medium) {
                 grid-template-columns: 1fr;
-
+                row-gap: 5rem;
+                margin-bottom: 6rem;
             }
+            justify-items: center;
 
             &__form-group {
                 display: grid;
                 align-content: center;
                 grid-template-columns: min-content 1fr;
                 column-gap: 2rem;
+                width: 40rem;
 
                 &__icon {
                     display: flex;

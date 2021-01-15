@@ -54,6 +54,8 @@ if($destination_type == 'rfc_regions'){
     
     );
     $destination = $region;
+
+    //get all posts from child destinations also here
 } 
 
 $travelGuidePosts = new WP_Query($args);

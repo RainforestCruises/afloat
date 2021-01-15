@@ -150,7 +150,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "default"
+                "value": "template-home.php"
             }
         ]
     ],
@@ -162,5 +162,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Home Page",
-    "modified": 1610729844
+    "modified": 1610747150
 }

@@ -1,4 +1,67 @@
 .home-intro {
 
-    
+    display: grid; 
+    &__top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 8rem;
+        &__img {
+            object-fit: contain;
+            width: 50rem;
+            height: auto;
+        }
+
+        &__content{
+            font-size: 3rem;
+            display: grid;
+            grid-template-rows: 1fr min-content 1fr;
+            row-gap: 3rem;
+
+            &__title {
+                font-size: 5.5rem;
+                letter-spacing: .1rem;
+                font-family: $font-secondary;
+                line-height: 6.2rem;
+                font-weight: 500;
+                color: $color-primary;
+            }
+
+            &__pretitle {
+                font-size: 1.6rem;
+                text-transform: uppercase;
+                letter-spacing: .3rem;
+                font-weight: 600;
+                align-self: end;
+                padding-right: 10rem;
+                
+            }
+
+            &__testimonial {
+                align-self: center;
+                display: grid;
+                grid-template-columns: min-content 1fr;
+                &__image {
+
+                }
+
+                &__snippet {
+                    font-size: 1.4rem;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+
+    &__bottom {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+    &__cta {
+        display: flex;
+        justify-content: center;
+    } 
+
+
 }
