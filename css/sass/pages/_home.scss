@@ -1,32 +1,32 @@
 .home-page {
-  display: grid;
-  grid-row: content-start / content-end;
-  grid-column: 1 / -1;
+    display: grid;
+    grid-row: content-start / content-end;
+    grid-column: 1 / -1;
 
-  grid-template-rows:
-      [nav-start] 100vh [hero-end content-start]
-      repeat(5, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end];
+    grid-template-rows:
+        [nav-start] 100vh [hero-end content-start]
+        repeat(5, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end];
 
-  grid-template-columns: $page-container;
+    grid-template-columns: $page-container;
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: $page-container-small;
+    }
 
-  &__section-hero {
-      grid-row: nav-start / hero-end;
-      grid-column: full-start / -1;
-      background-color: $color-black;
-  }
+    &__section-hero {
+        grid-row: nav-start / hero-end;
+        grid-column: full-start / -1;
+        background-color: $color-black;
 
-  &__section-intro {
-      grid-column: full-start / -1;
-      grid-row: content-start / span 1;
+        
+    }
 
-  }
+    &__section-intro {
+        grid-row: content-start / span 1;
+        grid-column: full-start / -1;
+        
+    }
 
-
-  &__section-destinations {
-      grid-column: full-start / -1;
-  }
-
-
+    &__section-destinations {
+        grid-column: full-start / -1;
+    }
 }
-
-

@@ -40,6 +40,7 @@ while (have_posts()) :
         <?php echo get_the_title(); ?>
       </div>
       <div class="travel-guide__image">
+      
         <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
       </div>
       <div class="travel-guide__disclaimer">
@@ -180,4 +181,5 @@ endwhile;
 
 <script>
   var templateUrl = "<?php echo bloginfo('template_url') ?>";
+  
 </script>

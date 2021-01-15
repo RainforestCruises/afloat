@@ -35,9 +35,15 @@ function load_scripts()
     wp_enqueue_script('moment', 'https://cdn.jsdelivr.net/momentjs/latest/moment.min.js', array('jquery'), false, true);
     wp_enqueue_script('daterangepicker', 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js', array('jquery'), false, true);
 
+    wp_enqueue_script('cloudinary', 'https://cdnjs.cloudflare.com/ajax/libs/cloudinary-jquery/2.11.3/cloudinary-jquery.min.js', array('jquery'), false, true);
+
 
     wp_enqueue_script('utility', get_template_directory_uri() . '/js/utilities.js', array('jquery'), false, true);
     wp_enqueue_script('header', get_template_directory_uri() . '/js/header.js', array('jquery'), false, true);
+
+
+
+
 }
 
 add_action('wp_enqueue_scripts', 'load_scripts');

@@ -12,11 +12,13 @@ $queryArgsDestination['relation'] = 'OR';
 $destinations = get_field('destinations');
 if($destinations){
     foreach ($destinations as $d) {
-        $queryArgsDestination[] = array(
-            'key'     => 'destinations',
-            'value'   => serialize(strval($d->ID)),
-            'compare' => 'LIKE'
-        );
+        if(get_field('is_country', $d) == true){
+            $queryArgsDestination[] = array(
+                'key'     => 'destinations',
+                'value'   => serialize(strval($d->ID)),
+                'compare' => 'LIKE'
+            );
+        }        
     }
     $queryArgs['meta_query'][] = $queryArgsDestination;
 }

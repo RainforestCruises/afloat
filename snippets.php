@@ -1,43 +1,65 @@
-<?php
-            if ($travelGuidePosts->have_posts()) :
-                while ($travelGuidePosts->have_posts()) : $travelGuidePosts->the_post();
-                    $featured_image = get_field('featured_image');
-                    $guideCategories = get_field('categories');
+ <!-- <video class="home-hero__bg" autoplay muted loop>
+                <source
+                    src="https://player.vimeo.com/external/295214306.sd.mp4?s=6feaa6e9c4619bb4993d2e10b1e05512ab4f098e&profile_id=165"
+                    type="video/mp4" />
+                Your browser is not supported
+            </video> -->
+            <div class="home-hero__caption">
+                <h1 class="home-hero__caption__title">
+                    Tailor-Made Experiences And <br> Authentic Travel
+                </h1>
+                <h2 class="home-hero__caption__subtitle">
+                    See what sets us apart
+                </h2>
+                <div class="home-hero__caption__arrow">
+                    <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#intro">
+                        <svg class="btn-circle--arrow-main">
+                            <use xlink:href="<?php echo bloginfo('template_url')?>/css/img/sprite.svg#icon-arrow-down"></use>
+                        </svg>
+                        <svg class="btn-circle--arrow-animate">
+                            <use xlink:href="<?php echo bloginfo('template_url')?>/css/img/sprite.svg#icon-arrow-down"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="home-hero__search">
+                <form action="#" class="home-hero__search__form" autocomplete="off">
 
-                    $isoClasses = '';
-                    if ($guideCategories) :
-                        foreach ($guideCategories as $c) :
-                            $isoClasses = $isoClasses . ' ' . $c->post_name;
-                        endforeach;
-                    endif;
-
-            ?>
-                    <div class="guide-item <?php echo $isoClasses ?>">
-                        <div class="guide-item__image">
-                            <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
+                    <!-- Destination -->
+                    <div class="home-hero__search__form__form-group">
+                        <div class="home-hero__search__form__form-group__icon">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url')?>/css/img/sprite.svg#icon-map-pin"></use>
+                            </svg>
                         </div>
-                        <div class="guide-item__bottom">
-         
-                            <a class="guide-item__bottom__title" href="<?php echo the_permalink() ?>">
-                                <?php echo get_the_title(); ?>
-                            </a>
-                            <div class="guide-item__bottom__snippet">
-                                <?php
-                                echo the_excerpt();
-                                ?>
-                            </div>
-                            <div class="guide-item__bottom__cta">
-                                <a class="goto-button goto-button--dark" href="<?php echo the_permalink() ?>">
-                                    Read More
-                                    <svg>
-                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
-                                    </svg>
-                                </a>
-                            </div>
+                        <div class="home-hero__search__form__form-group__input-group">
+                            <label for="destination" class="home-hero__search__form__form-group__input-group__label">Destination</label>
+                            <input class="home-hero__search__form__form-group__input-group__input" id="destination" tabindex="1" placeholder="Where would you like to go?">
+
+                            </input>
+                        </div>
+
+                    </div>
+
+                    <!-- Dates -->
+                    <div class="home-hero__search__form__form-group">
+                        <div class="home-hero__search__form__form-group__icon">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url')?>/css/img/sprite.svg#icon-calendar"></use>
+                            </svg>
+                        </div>
+                        <div class="home-hero__search__form__form-group__input-group">
+                            <label for="dates" class="home-hero__search__form__form-group__input-group__label">Travel
+                                Date</label>
+                            <input type="text" class="home-hero__search__form__form-group__input-group__input" id="dates" tabindex="1" placeholder="When would you like to travel?" />
                         </div>
                     </div>
-            <?php
-                endwhile;
-                wp_reset_postdata(); //very important to rest after custom query
-            endif;
-            ?>
+
+
+                    <button class="home-hero__search__form__btn" onClick="window.location='/page-search.html';">
+                        Search
+                    </button>
+
+                </form>
+
+            </div>
