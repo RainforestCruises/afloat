@@ -67,12 +67,13 @@
         </div>
     </div>
 
-    <!-- Cruises-->
+    <!-- Destinations -->
     <section class="home-page__section-destinations" id="destinations">
         <div class="home-destinations">
             Destinations
         </div>
     </section>
 </div>
+
 
 <?php get_footer(); ?>

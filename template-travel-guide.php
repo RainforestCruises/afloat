@@ -9,8 +9,12 @@ get_header();
 
 <?php
 $destination = get_field('destination');
+$region = get_field('region');
+
 $image = get_field('image');
 $intro_snippet = get_field('intro_snippet');
+
+$destination_type = get_field('destination_type');
 
 $categories = get_posts(array(
     'post_type' => 'rfc_guide_categories',
@@ -20,18 +24,38 @@ $categories = get_posts(array(
 ));
 
 //all related posts
-$args = array(
-    'posts_per_page' => -1,
-    'post_type' => 'rfc_travel_guides',
-    'meta_query' => array(
-        array(
-            'key' => 'destinations', // name of custom field
-            'value' => '"' . $destination->ID . '"',
-            'compare' => 'LIKE'
-        )
-    )
 
-);
+if($destination_type == 'rfc_destinations'){
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_travel_guides',
+        'meta_query' => array(
+            array(
+                'key' => 'destinations', // name of custom field
+                'value' => $destination->ID,
+                'compare' => 'LIKE'
+            )
+        )
+    
+    );
+};
+
+if($destination_type == 'rfc_regions'){
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_travel_guides',
+        'meta_query' => array(
+            array(
+                'key' => 'region', // name of custom field
+                'value' => $region->ID,
+                'compare' => 'LIKE'
+            )
+        )
+    
+    );
+    $destination = $region;
+} 
+
 $travelGuidePosts = new WP_Query($args);
 
 ?>
@@ -47,7 +71,7 @@ $travelGuidePosts = new WP_Query($args);
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-04"></use>
                 </svg>
             </div>
-            <input type="text" placeholder="Search Guides..." id="quicksearch">
+            <input type="text" placeholder="Search Guide..." id="quicksearch">
         </div>
 
 

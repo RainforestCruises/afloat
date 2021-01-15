@@ -205,15 +205,15 @@
             </g>
         </symbol>
 
-            <symbol id="icon-boat-front" viewBox="0 0 48 48">
-        <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke="currentColor">
-            <path fill="none" stroke-miterlimit="10" d="M2,38.202 c0,4.418,3.582,8,8,8c3.036,0,5.645-1.711,7-4.202c1.355,2.491,3.964,4.202,7,4.202s5.645-1.711,7-4.202 c1.355,2.491,3.964,4.202,7,4.202c4.418,0,8-3.582,8-8"/>
-            <polyline fill="none" stroke-miterlimit="10" points=" 20,12 20,2 28,2 28,12 "/>
-            <path data-cap="butt" fill="none" stroke="currentColor" stroke-miterlimit="10" d="M10,27.778V15c0-1.657,1.343-3,3-3h22 c1.657,0,3,1.343,3,3v12.778" stroke-linecap="butt"/>
-            <polyline fill="none" stroke="currentColor" stroke-miterlimit="10" points="10,38 6,30 24,20 42,30 38,38 "/>
-            <line data-cap="butt" fill="none" stroke="currentColor" stroke-miterlimit="10" x1="24" y1="20" x2="24" y2="34" stroke-linecap="butt"/>
-        </g>
-    </symbol>
+        <symbol id="icon-boat-front" viewBox="0 0 48 48">
+            <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke="currentColor">
+                <path fill="none" stroke-miterlimit="10" d="M2,38.202 c0,4.418,3.582,8,8,8c3.036,0,5.645-1.711,7-4.202c1.355,2.491,3.964,4.202,7,4.202s5.645-1.711,7-4.202 c1.355,2.491,3.964,4.202,7,4.202c4.418,0,8-3.582,8-8"/>
+                <polyline fill="none" stroke-miterlimit="10" points=" 20,12 20,2 28,2 28,12 "/>
+                <path data-cap="butt" fill="none" stroke="currentColor" stroke-miterlimit="10" d="M10,27.778V15c0-1.657,1.343-3,3-3h22 c1.657,0,3,1.343,3,3v12.778" stroke-linecap="butt"/>
+                <polyline fill="none" stroke="currentColor" stroke-miterlimit="10" points="10,38 6,30 24,20 42,30 38,38 "/>
+                <line data-cap="butt" fill="none" stroke="currentColor" stroke-miterlimit="10" x1="24" y1="20" x2="24" y2="34" stroke-linecap="butt"/>
+            </g>
+        </symbol>
 
         <symbol id="icon-event-confirm" viewBox="0 0 48 48">
             <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke="currentColor">
@@ -242,6 +242,43 @@
                 <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-miterlimit="10"/>
                 <line x1="12" y1="7" x2="12" y2="13" fill="none" stroke-miterlimit="10"/>
                 <circle data-stroke="none" cx="12" cy="17" r="1" stroke="none" fill="currentColor"/>
+            </g>
+        </symbol>
+
+        <symbol id="icon-globe" viewBox="0 0 64 64">
+            <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke="currentColor">
+                <line data-cap="butt" fill="none" stroke-miterlimit="10" x1="32" y1="2" x2="32" y2="62" stroke-linecap="butt"/>
+                <line data-cap="butt" fill="none" stroke-miterlimit="10" x1="2" y1="32" x2="62" y2="32" stroke-linecap="butt"/>
+                <line data-cap="butt" fill="none" stroke-miterlimit="10" x1="5.46" y1="18" x2="58.539" y2="18" stroke-linecap="butt"/>
+                <line data-cap="butt" fill="none" stroke-miterlimit="10" x1="5.461" y1="46" x2="58.539" y2="46" stroke-linecap="butt"/>
+                <ellipse fill="none" stroke-miterlimit="10" cx="32" cy="32" rx="17" ry="30"/>
+                <circle fill="none" stroke="currentColor" stroke-miterlimit="10" cx="32" cy="32" r="30"/>
+            </g>
+        </symbol>
+
+        <symbol id="icon-money-bag" viewBox="0 0 64 64">
+            <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke="currentColor">
+                <line x1="32" y1="27" x2="32" y2="53" fill="none" stroke-miterlimit="10"/>
+                <path d="M38,31.41c-2.912-1.6-12.085-2.8-12.085,2.719,0,6.6,11.648,4.271,11.648,10.095s-7.571,5.387-12.813,3.493" fill="none" stroke-miterlimit="10"/>
+                <path d="M39.059,18H24.941S8,35.875,8,46.875C8,55.125,14,62,32,62s24-6.875,24-15.125C56,35.875,39.059,18,39.059,18Z" fill="none" stroke="currentColor" stroke-miterlimit="10"/>
+                <polyline data-cap="butt" points="39 18 44 8 38 6" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="butt"/>
+                <polyline data-cap="butt" points="26 6 20 8 25 18" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="butt"/>
+                <polyline points="28 10 24 2 40 2 36 10" fill="none" stroke="currentColor" stroke-miterlimit="10"/>
+            </g>
+        </symbol>
+
+        <symbol id="icon-laugh-17" viewBox="0 0 64 64">
+            <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke="currentColor">
+                <path d="M48,36a16,16,0,0,1-32,0Z" fill="none" stroke-miterlimit="10"/>
+                <path d="M24,28a4,4,0,0,0-8,0" fill="none" stroke-miterlimit="10"/>
+                <path d="M48,28a4,4,0,0,0-8,0" fill="none" stroke-miterlimit="10"/>
+                <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-miterlimit="10"/>
+            </g>
+        </symbol>
+
+        <symbol id="icon-quote" viewBox="0 0 64 64">
+            <g class="nc-icon-wrapper">
+                <path d="M25.50195,52.27904c-5.57094,5.17976-15.05833,3.8102-19.50043-1.67434 c-5.25741-6.47749-6.30715-18.75427,2.85195-29.73619c4.54303-5.44717,10.01811-9.5772,16.41965-12.39008l2.95241,4.75511 c-9.10641,4.4128-15.91278,10.39585-16.8773,20.42689c4.10871,0,7.51761-0.14883,10.55389,0.93763 c3.45683,1.23695,5.55654,3.53097,6.41829,6.16155C29.68742,44.87838,29.02475,49.00361,25.50195,52.27904z M58.51985,52.27904 c-5.57094,5.17976-15.05833,3.8102-19.50043-1.67434c-5.25741-6.47749-6.30716-18.75427,2.85195-29.73619 c4.54303-5.44717,10.0181-9.5772,16.41965-12.39008l2.95241,4.75511c-9.10641,4.4128-15.91278,10.39585-16.8773,20.42689 c4.10871,0,7.51761-0.14883,10.55389,0.93763c3.45683,1.23695,5.55654,3.53097,6.41829,6.16155 C62.70531,44.87838,62.04264,49.00361,58.51985,52.27904z"/>
             </g>
         </symbol>
 

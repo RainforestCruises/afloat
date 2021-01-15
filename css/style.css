@@ -1610,8 +1610,7 @@ h5 {
   .travel-guide-landing-page__content {
     grid-column: center-start / center-end;
     display: grid;
-    text-align: center;
-    justify-content: center; }
+    text-align: center; }
     .travel-guide-landing-page__content__title {
       font-size: 5rem;
       color: #142838;

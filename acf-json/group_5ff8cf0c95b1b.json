@@ -3,11 +3,11 @@
     "title": "Travel Guide Landing Page",
     "fields": [
         {
-            "key": "field_5ff8cf172b796",
-            "label": "Destination",
-            "name": "destination",
-            "type": "post_object",
-            "instructions": "Select the destination post",
+            "key": "field_6001f5a1132c1",
+            "label": "Destination Type",
+            "name": "destination_type",
+            "type": "radio",
+            "instructions": "",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,8 +15,70 @@
                 "class": "",
                 "id": ""
             },
+            "choices": {
+                "rfc_destinations": "Destination",
+                "rfc_regions": "Region"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "rfc_destinations",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5ff8cf172b796",
+            "label": "Destination",
+            "name": "destination",
+            "type": "post_object",
+            "instructions": "Select the destination post",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6001f5a1132c1",
+                        "operator": "==",
+                        "value": "rfc_destinations"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "post_type": [
                 "rfc_destinations"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_6001f5f6132c2",
+            "label": "Region",
+            "name": "region",
+            "type": "post_object",
+            "instructions": "Select the region post",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6001f5a1132c1",
+                        "operator": "==",
+                        "value": "rfc_regions"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_regions"
             ],
             "taxonomy": "",
             "allow_null": 0,
@@ -85,5 +147,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide Landing - Page",
-    "modified": 1610490617
+    "modified": 1610741260
 }

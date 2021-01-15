@@ -3,13 +3,75 @@
     "title": "Travel Guide Post",
     "fields": [
         {
+            "key": "field_6001f34a94706",
+            "label": "Destination Type",
+            "name": "destination_type",
+            "type": "radio",
+            "instructions": "Select if this should link to destinations or a region",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "rfc_destinations": "Destination",
+                "rfc_regions": "Region"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "rfc_destinations",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_6001f3e694707",
+            "label": "Region",
+            "name": "region",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6001f34a94706",
+                        "operator": "==",
+                        "value": "rfc_regions"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_regions"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
             "key": "field_5feb79f98e2ac",
             "label": "Destinations",
             "name": "destinations",
             "type": "relationship",
             "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6001f34a94706",
+                        "operator": "==",
+                        "value": "rfc_destinations"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -53,11 +115,51 @@
             "return_format": "object"
         },
         {
+            "key": "field_6001e154ac7e9",
+            "label": "Is Featured",
+            "name": "is_featured",
+            "type": "true_false",
+            "instructions": "Check to make eligible to appear in the Destination Template Grid",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_6001e185ac7ea",
+            "label": "Rank",
+            "name": "rank",
+            "type": "number",
+            "instructions": "Lower numbers will have priority, ie: rank 1 will appear before a post with rank 4.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 999,
+            "step": ""
+        },
+        {
             "key": "field_5feb942a2e7b1",
             "label": "Featured Image",
             "name": "featured_image",
             "type": "image",
-            "instructions": "",
+            "instructions": "1120 x 635",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -94,5 +196,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide - CPT",
-    "modified": 1610484153
+    "modified": 1610742414
 }

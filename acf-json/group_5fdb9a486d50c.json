@@ -334,7 +334,7 @@
             "key": "field_5ffe1d0b91480",
             "label": "Tour Package Title Subtext",
             "name": "tour_package_title_subtext",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "Snippet under the title",
             "required": 0,
             "conditional_logic": 0,
@@ -344,10 +344,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5fdb9a4879399",
@@ -442,7 +442,7 @@
             "key": "field_5ffe1d2a91481",
             "label": "Cruise Title Subtext",
             "name": "cruise_title_subtext",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "Snippet under the title",
             "required": 0,
             "conditional_logic": 0,
@@ -452,10 +452,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5ff899c0d5741",
@@ -563,7 +563,7 @@
             "key": "field_5ffe1d4791482",
             "label": "Accommodations Title Subtext",
             "name": "accommodations_title_subtext",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "Snippet under the title",
             "required": 0,
             "conditional_logic": 0,
@@ -573,10 +573,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5fdb9a487a310",
@@ -726,7 +726,7 @@
             "key": "field_5ffe1d6091483",
             "label": "Travel Guide Title Subtext",
             "name": "travel_guide_title_subtext",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "Snippet under the title",
             "required": 0,
             "conditional_logic": 0,
@@ -736,10 +736,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5ffe1d9191484",
@@ -1001,5 +1001,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1610489263
+    "modified": 1610737801
 }

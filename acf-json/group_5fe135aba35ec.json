@@ -334,7 +334,7 @@
             "key": "field_5ffe198209669",
             "label": "Cruise Title Subtext",
             "name": "cruise_title_subtext",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -344,10 +344,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5ff8931105478",
@@ -372,7 +372,7 @@
             "key": "field_5ffe1a7c09670",
             "label": "Cruise Destination Title Subtext",
             "name": "cruise_destination_title_subtext",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -390,10 +390,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5fe135abb0d90",
@@ -500,7 +500,7 @@
             "key": "field_5ffe1aa809671",
             "label": "Cruise Experience Title Subtext",
             "name": "cruise_experience_title_subtext",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -510,10 +510,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5fe39838fefed",
@@ -711,7 +711,7 @@
             "key": "field_5ffe19a60966a",
             "label": "Tour Package Title Subtext",
             "name": "tour_package_title_subtext",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -721,10 +721,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5ffe1a120966e",
@@ -746,7 +746,7 @@
             "key": "field_5ffe1a2a0966f",
             "label": "Travel Guide Title Subtext",
             "name": "travel_guide_title_subtext",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "Snippet below title",
             "required": 0,
             "conditional_logic": 0,
@@ -756,10 +756,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5ffe19f40966c",
@@ -1000,5 +1000,5 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1610488813
+    "modified": 1610737611
 }
