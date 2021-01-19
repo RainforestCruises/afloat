@@ -1,8 +1,8 @@
 .destination-page {
     display: grid;
     grid-template-rows:
-        [nav-start] minmax(100vh, min-content) [hero-end content-start]
-        repeat(8, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end];
+        [nav-start] 100vh [hero-end content-start]
+        repeat(8, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end]; //grid blowout
 
     grid-template-columns: $page-container;
 

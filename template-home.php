@@ -9,6 +9,10 @@ get_header(); ?>
 $intro_image = get_field('intro_image');
 $intro_testimonials = get_field('intro_testimonials');
 
+$destinations = get_field('destinations');
+
+
+
 ?>
 
 <div class="home-page">
@@ -85,19 +89,19 @@ $intro_testimonials = get_field('intro_testimonials');
                     </div>
                     <div class="home-intro__top__content__testimonials" id="intro-testimonials">
                         <?php if ($intro_testimonials) :
-                        foreach($intro_testimonials as $i) :
-                            //$i = $intro_testimonials[0];
-                            $i_image = $i['avatar'];
-                            $i_snippet = $i['snippet'];
+                            foreach ($intro_testimonials as $i) :
+                                //$i = $intro_testimonials[0];
+                                $i_image = $i['avatar'];
+                                $i_snippet = $i['snippet'];
                         ?>
-                            <div class="home-intro__top__content__testimonials__testimonial">
-                                <div class="home-intro__top__content__testimonials__testimonial__image">
-                                    <img src="<?php echo esc_url($i_image['url']); ?>" alt="">
+                                <div class="home-intro__top__content__testimonials__testimonial">
+                                    <div class="home-intro__top__content__testimonials__testimonial__image">
+                                        <img src="<?php echo esc_url($i_image['url']); ?>" alt="">
+                                    </div>
+                                    <div class="home-intro__top__content__testimonials__testimonial__snippet">
+                                        <?php echo $i_snippet; ?>
+                                    </div>
                                 </div>
-                                <div class="home-intro__top__content__testimonials__testimonial__snippet">
-                                    <?php echo $i_snippet; ?>
-                                </div>
-                            </div>
                         <?php endforeach;
                         endif; ?>
                     </div>
@@ -120,7 +124,7 @@ $intro_testimonials = get_field('intro_testimonials');
                 </div>
                 <div class="home-intro__bottom__feature">
                     <div class="home-intro__bottom__feature__icon">
-                    <svg>
+                        <svg>
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-money-bag"></use>
                         </svg>
                     </div>
@@ -133,7 +137,7 @@ $intro_testimonials = get_field('intro_testimonials');
                 </div>
                 <div class="home-intro__bottom__feature">
                     <div class="home-intro__bottom__feature__icon">
-                    <svg>
+                        <svg>
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-laugh-17"></use>
                         </svg>
                     </div>
@@ -155,10 +159,130 @@ $intro_testimonials = get_field('intro_testimonials');
     <!-- Destinations -->
     <section class="home-page__section-destinations" id="destinations">
         <div class="home-destinations">
-            Destinations
+            <div class="home-destinations__header">
+                <div class="home-destinations__header__title page-divider">
+                    Exotic Destinations
+                </div>
+                <div class="home-destinations__header__sub-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aperiam nostrum eum excepturi et quas neque soluta iusto quae, eligendi cumque dicta dolore sed reprehenderit iure ex, blanditiis nesciunt eos.
+                </div>
+            </div>
+
+            <div class="home-destinations__destinations-area">
+
+                <div class="home-destinations__destinations-area__slider" id="destinations-slider">
+                    <?php if ($destinations) : ?>
+                        <?php foreach ($destinations as $d) :
+                            $destinationPost = $d['destination'];
+                            $image = $d['image'];
+                        ?>
+                            <a href="<?php echo $d['page_link'] ?>" class="home-destination-card">
+                                <img src="<?php echo esc_url($image['url']); ?>">
+                                <div class="home-destination-card__title-area">
+                                    <div class="home-destination-card__title-area__title">
+                                        <?php echo get_field('navigation_title', $destinationPost) ?>
+                                    </div>
+                                    <div class="home-destination-card__title-area__subtitle">
+                                        <?php echo $d['sub_title'] ?>
+                                    </div>
+                                </div>
+                            </a>
+
+                    <?php endforeach;
+                    endif; ?>
+
+                    <div class="home-destination-card">
+                        <h3>2</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>3</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>4</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>5</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>6</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>7</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>8</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>9</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>10</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>11</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>12</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>13</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>14</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>15</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>16</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>17</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>18</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>19</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>20</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>21</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>22</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>23</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>24</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>25</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>26</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>27</h3>
+                    </div>
+                    <div class="home-destination-card">
+                        <h3>28</h3>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 </div>
 
 
 <?php get_footer(); ?>
+
+
+<script>
+    var templateUrl = "<?php echo bloginfo('template_url') ?>";
+</script>
