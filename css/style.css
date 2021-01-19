@@ -1572,7 +1572,8 @@ h5 {
         object-fit: cover;
         height: 100%;
         width: 100%;
-        z-index: 1; }
+        z-index: 1;
+        position: relative; }
       .travel-guide-landing-page__header__hero__icon {
         position: absolute;
         bottom: -5rem;
@@ -1607,6 +1608,16 @@ h5 {
         @media only screen and (max-width: 37.5em) {
           .travel-guide-landing-page__header__hero input {
             width: 30rem; } }
+      .travel-guide-landing-page__header__hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+        border-radius: .4rem;
+        background-image: linear-gradient(to top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)); }
   .travel-guide-landing-page__content {
     grid-column: center-start / center-end;
     display: grid;
