@@ -1,16 +1,20 @@
 <?php
 /*Template Name: Home*/
+wp_enqueue_script('page-home', get_template_directory_uri() . '/js/page-home.js', array('jquery'), false, true);
+
 get_header(); ?>
 
 <?php
 
 $intro_image = get_field('intro_image');
+$intro_testimonials = get_field('intro_testimonials');
+
 ?>
 
 <div class="home-page">
     <!-- Hero -->
     <section class="home-page__section-hero" id="top">
-        <!-- Destination Hero -->
+        <!--  Hero -->
         <div class="home-hero">
             <img src="<?php echo bloginfo('template_url') ?>/css/img/test-images/peru-01.jpg" alt="" class="home-hero__bg">
             <div class="home-hero__content">
@@ -79,29 +83,70 @@ $intro_image = get_field('intro_image');
                     <div class="home-intro__top__content__title">
                         <?php echo get_field('intro_title'); ?>
                     </div>
-                    <div class="home-intro__top__content__testimonial">
-                        <div class="home-intro__top__content__testimonial__image">
-                            Img
-                        </div>
-                        <div class="home-intro__top__content__testimonial__snippet">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi blanditiis sequi commodi. Excepturi, earum perferendis consectetur tenetur dolorum nisi libero et itaque totam, iste distinctio, incidunt non nobis enim consequatur.
-                        </div>
+                    <div class="home-intro__top__content__testimonials" id="intro-testimonials">
+                        <?php if ($intro_testimonials) :
+                        foreach($intro_testimonials as $i) :
+                            //$i = $intro_testimonials[0];
+                            $i_image = $i['avatar'];
+                            $i_snippet = $i['snippet'];
+                        ?>
+                            <div class="home-intro__top__content__testimonials__testimonial">
+                                <div class="home-intro__top__content__testimonials__testimonial__image">
+                                    <img src="<?php echo esc_url($i_image['url']); ?>" alt="">
+                                </div>
+                                <div class="home-intro__top__content__testimonials__testimonial__snippet">
+                                    <?php echo $i_snippet; ?>
+                                </div>
+                            </div>
+                        <?php endforeach;
+                        endif; ?>
                     </div>
+
                 </div>
             </div>
             <div class="home-intro__bottom">
                 <div class="home-intro__bottom__feature">
-                    feature
+                    <div class="home-intro__bottom__feature__icon">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-globe"></use>
+                        </svg>
+                    </div>
+                    <div class="home-intro__bottom__feature__title">
+                        <?php echo get_field('first_title'); ?>
+                    </div>
+                    <div class="home-intro__bottom__feature__snippet">
+                        <?php echo get_field('first_snippet'); ?>
+                    </div>
                 </div>
                 <div class="home-intro__bottom__feature">
-                    feature
+                    <div class="home-intro__bottom__feature__icon">
+                    <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-money-bag"></use>
+                        </svg>
+                    </div>
+                    <div class="home-intro__bottom__feature__title">
+                        <?php echo get_field('second_title'); ?>
+                    </div>
+                    <div class="home-intro__bottom__feature__snippet">
+                        <?php echo get_field('second_snippet'); ?>
+                    </div>
                 </div>
                 <div class="home-intro__bottom__feature">
-                    feature
+                    <div class="home-intro__bottom__feature__icon">
+                    <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-laugh-17"></use>
+                        </svg>
+                    </div>
+                    <div class="home-intro__bottom__feature__title">
+                        <?php echo get_field('third_title'); ?>
+                    </div>
+                    <div class="home-intro__bottom__feature__snippet">
+                        <?php echo get_field('third_snippet'); ?>
+                    </div>
                 </div>
             </div>
             <div class="home-intro__cta">
-                CTA
+                <button class="btn-outline">Learn More</button>
             </div>
 
         </div>

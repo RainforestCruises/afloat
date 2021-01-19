@@ -4,7 +4,7 @@
     grid-column: 1 / -1;
 
     grid-template-rows:
-        [nav-start] 100vh [hero-end content-start]
+        [nav-start] minmax(100vh, min-content) [hero-end content-start]
         repeat(5, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end];
 
     grid-template-columns: $page-container;
@@ -21,9 +21,11 @@
     }
 
     &__section-intro {
-        margin-top: 14rem;
         grid-row: content-start / span 1;
         grid-column: center-start / center-end;
+
+    
+
         
     }
 
