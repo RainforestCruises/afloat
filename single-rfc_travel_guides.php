@@ -166,7 +166,6 @@ while (have_posts()) :
       </div>
       <div class="travel-guide-newsletter__image">
         <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
-
       </div>
     </div>
   </div>

@@ -239,39 +239,43 @@ $destinations = get_field('destinations');
                     <div class="home-destination-card">
                         <h3>17</h3>
                     </div>
-                    <div class="home-destination-card">
-                        <h3>18</h3>
+
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="home-page__section-featured">
+        <div class="home-featured">
+            <div class="home-featured__header">
+                <div class="home-featured__header__title page-divider">
+                    Featured Experiences
+                </div>
+                <div class="home-featured__header__sub-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aperiam nostrum eum excepturi et quas neque soluta iusto quae, eligendi cumque dicta dolore sed reprehenderit iure ex, blanditiis nesciunt eos.
+                </div>
+            </div>
+            <div class="home-featured__content-area">
+                <div class="home-featured__content-area__slider">
+                    <div class="home-featured-item">
+                        <div class="home-featured-item__content">
+                            <div class="home-featured-item__content__title">
+                                Sail the Exotic Waterways of Peru
+                            </div>
+                            <div class="home-featured-item__content__text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, perspiciatis deserunt id dolore suscipit fuga accusantium voluptas atque consectetur!
+                            </div>                         
+                        </div>
+                        <div class="home-featured-item__image-area">
+                            <img src="<?php echo bloginfo('template_url') ?>/css/img/test-images/featured-2.jpg" alt="">
+                        </div>
                     </div>
-                    <div class="home-destination-card">
-                        <h3>19</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>20</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>21</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>22</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>23</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>24</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>25</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>26</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>27</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>28</h3>
-                    </div>
+
+                </div>
+                <div class="home-featured__content-area__slider home-featured__content-area__slider--tours">
+                    Featured Tours
+
                 </div>
             </div>
 
