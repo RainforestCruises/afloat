@@ -58,11 +58,50 @@ jQuery(document).ready(function ($) {
     });
 
 
-    // $('#destinations-slider select').on('change', function() {
-    //     var filterClass = getFilterValue();
-    //     $('.filter-class').text(filterClass);
-    //     $('.slick').slick('slickUnfilter');
-    //     $('.slick').slick('slickFilter', filterClass);
-    //   });
+     //SLIDERS
+     $('#featured-cruises').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
+        //dots: true,
+        arrows: true,
+        prevArrow: '<button class="btn-icon-move btn-icon-move--left home-featured__content-area__btn--left"><svg class="btn-icon-move--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg><svg class="btn-icon-move--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
+        nextArrow: '<button class="btn-icon-move btn-icon-move--right home-featured__content-area__btn--right"><svg class="btn-icon-move--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg><svg class="btn-icon-move--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
+        responsive: [
+            {
+                breakpoint: 800,
+                settings: {
+                    centerMode: true,
+                    fade: false,
+                    arrows: false
+                }
+            },
+         
+ 
+
+        ]
+    });
+
+     //SLIDERS
+     $('#featured-bucket').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
+        //dots: true,
+        arrows: true,
+        prevArrow: '<button class="btn-icon-move btn-icon-move--left home-featured__content-area__btn--left"><svg class="btn-icon-move--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg><svg class="btn-icon-move--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
+        nextArrow: '<button class="btn-icon-move btn-icon-move--right home-featured__content-area__btn--right"><svg class="btn-icon-move--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg><svg class="btn-icon-move--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
+        responsive: [
+            {
+                breakpoint: 800,
+                settings: {
+                    centerMode: true,
+                    fade: false,
+                    arrows: false
+                }
+            },
+
+        ]
+    });
 
 });

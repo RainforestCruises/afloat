@@ -63,6 +63,9 @@
 
             .slick-slide {
                 margin: 2rem;
+                @media only screen and (max-width: $bp-small) {
+                    margin: 1rem
+                }
             }
         }
 

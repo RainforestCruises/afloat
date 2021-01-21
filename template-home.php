@@ -10,6 +10,8 @@ $intro_image = get_field('intro_image');
 $intro_testimonials = get_field('intro_testimonials');
 
 $destinations = get_field('destinations');
+$featured_cruise_destinations = get_field('featured');
+$featured_bucket_list_destinations = get_field('featured_second');
 
 
 
@@ -246,41 +248,113 @@ $destinations = get_field('destinations');
 
         </div>
     </section>
+
+    <!-- Featured Cruises -->
     <section class="home-page__section-featured">
         <div class="home-featured">
             <div class="home-featured__header">
                 <div class="home-featured__header__title page-divider">
-                    Featured Experiences
+                    Cruise Destinations
                 </div>
                 <div class="home-featured__header__sub-text">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aperiam nostrum eum excepturi et quas neque soluta iusto quae, eligendi cumque dicta dolore sed reprehenderit iure ex, blanditiis nesciunt eos.
                 </div>
             </div>
             <div class="home-featured__content-area">
-                <div class="home-featured__content-area__slider">
-                    <div class="home-featured-item">
-                        <div class="home-featured-item__content">
-                            <div class="home-featured-item__content__title">
-                                Sail the Exotic Waterways of Peru
+                <div class="home-featured__content-area__slider" id="featured-cruises">
+                    <?php if ($featured_cruise_destinations) :
+                        foreach ($featured_cruise_destinations as $c) :
+                            $cruise_page = $c['cruise_page']; //get permalink
+                            $c_snippet = $c['snippet'];
+                            $c_title = $c['title'];
+                            $c_image = $c['image'];
+                    ?>
+                            <!-- Cruise Item -->
+                            <div class="home-featured-item">
+                                <div class="home-featured-item__title">
+                                    <?php echo $c_title ?>
+                                </div>
+                                <div class="home-featured-item__content">
+                                    <div class="home-featured-item__content__text">
+                                        <?php echo $c_snippet ?>
+                                    </div>
+                                    <div class="home-featured-item__content__cta">
+                                        <button class="goto-button goto-button--dark">Learn More
+                                            <svg>
+                                                <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-right"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="home-featured-item__image-area">
+                                    <img src="<?php echo esc_url($c_image['url']); ?>" alt="">
+                                </div>
                             </div>
-                            <div class="home-featured-item__content__text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, perspiciatis deserunt id dolore suscipit fuga accusantium voluptas atque consectetur!
-                            </div>                         
-                        </div>
-                        <div class="home-featured-item__image-area">
-                            <img src="<?php echo bloginfo('template_url') ?>/css/img/test-images/featured-2.jpg" alt="">
-                        </div>
-                    </div>
+
+                    <?php endforeach;
+                    endif; ?>
+
+
 
                 </div>
-                <div class="home-featured__content-area__slider home-featured__content-area__slider--tours">
-                    Featured Tours
 
-                </div>
             </div>
-
         </div>
     </section>
+
+    <!-- Featured Bucket List -->
+    <section class="home-page__section-featured">
+        <div class="home-featured home-featured--bucket-list">
+            <div class="home-featured__header">
+                <div class="home-featured__header__title page-divider">
+                    Bucket List
+                </div>
+                <div class="home-featured__header__sub-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aperiam nostrum eum excepturi et quas neque soluta iusto quae, eligendi cumque dicta dolore sed reprehenderit iure ex, blanditiis nesciunt eos.
+                </div>
+            </div>
+            <div class="home-featured__content-area">
+                <div class="home-featured__content-area__slider" id="featured-bucket">
+                    <?php if ($featured_bucket_list_destinations) :
+                        foreach ($featured_bucket_list_destinations as $b) :
+                            $b_page = $b['bucket_list']; //get permalink
+                            $b_snippet = $b['snippet'];
+                            $b_title = $b['title'];
+                            $b_image = $b['image'];
+                    ?>
+                            <!-- Cruise Item -->
+                            <div class="home-featured-item ">
+                                <div class="home-featured-item__title home-featured-item__title--inverse">
+                                    <?php echo $b_title ?>
+                                </div>
+                                <div class="home-featured-item__content home-featured-item__content--inverse">
+                                    <div class="home-featured-item__content__text">
+                                        <?php echo $b_snippet ?>
+                                    </div>
+                                    <div class="home-featured-item__content__cta ">
+                                        <button class="goto-button goto-button--dark">Learn More
+                                            <svg>
+                                                <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-right"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="home-featured-item__image-area home-featured-item__image-area--inverse">
+                                    <img src="<?php echo esc_url($b_image['url']); ?>" alt="">
+                                </div>
+                            </div>
+
+                    <?php endforeach;
+                    endif; ?>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 </div>
 
 

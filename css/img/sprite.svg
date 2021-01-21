@@ -152,6 +152,11 @@
                 <path d="M15 9l-2.12 2.12L19.76 18l-6.88 6.88L15 27l9-9z"/>
             </g>
         </symbol>
+        <symbol id="icon-ic_chevron_left_36px" viewBox="0 0 36 36">
+            <g class="nc-icon-wrapper" stroke="none">
+                <path d="M23.12 11.12L21 9l-9 9 9 9 2.12-2.12L16.24 18z"/>
+            </g>
+        </symbol>
 
         <!-- Nucleo -->
         <symbol id="icon-compass-04" viewBox="0 0 64 64">
