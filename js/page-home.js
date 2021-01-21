@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
         speed: 300,
         prevArrow: '<button class="btn-circle btn-dark btn-circle--left home-destinations__destinations-area__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
         nextArrow: '<button class="btn-circle btn-dark btn-circle--right home-destinations__destinations-area__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
-        
+
         slidesToShow: 4,
         slidesToScroll: 4,
         responsive: [
@@ -58,12 +58,11 @@ jQuery(document).ready(function ($) {
     });
 
 
-     //SLIDERS
-     $('#featured-cruises').slick({
+    //SLIDER - Featured Cruises
+    $('#featured-cruises').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         fade: true,
-        //dots: true,
         arrows: true,
         prevArrow: '<button class="btn-icon-move btn-icon-move--left home-featured__content-area__btn--left"><svg class="btn-icon-move--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg><svg class="btn-icon-move--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
         nextArrow: '<button class="btn-icon-move btn-icon-move--right home-featured__content-area__btn--right"><svg class="btn-icon-move--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg><svg class="btn-icon-move--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
@@ -76,18 +75,17 @@ jQuery(document).ready(function ($) {
                     arrows: false
                 }
             },
-         
- 
+
+
 
         ]
     });
 
-     //SLIDERS
-     $('#featured-bucket').slick({
+    //SLIDER - Featured Bucket List
+    $('#featured-bucket').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         fade: true,
-        //dots: true,
         arrows: true,
         prevArrow: '<button class="btn-icon-move btn-icon-move--left home-featured__content-area__btn--left"><svg class="btn-icon-move--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg><svg class="btn-icon-move--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
         nextArrow: '<button class="btn-icon-move btn-icon-move--right home-featured__content-area__btn--right"><svg class="btn-icon-move--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg><svg class="btn-icon-move--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
@@ -102,6 +100,16 @@ jQuery(document).ready(function ($) {
             },
 
         ]
+    });
+
+    //SLIDER - Featured Bucket List
+    $('#main-testimonials').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
+        dots: true,
+        arrows: false,
+      
     });
 
 });

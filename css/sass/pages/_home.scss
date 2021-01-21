@@ -22,9 +22,7 @@
 
     &__section-intro {
         grid-row: content-start / span 1;
-        grid-column: center-start / center-end;
-
-      
+        grid-column: center-start / center-end;   
     }
  
     &__section-destinations {
@@ -36,4 +34,7 @@
     &__section-testimonials {
         grid-column: full-start / -1;
     }
+    // &__section-newsletter {
+    //     grid-column: full-start / -1;
+    // }
 }

@@ -31,11 +31,11 @@ $featured_cruise_destinations = get_field('featured');
                                 <?php echo $c_snippet ?>
                             </div>
                             <div class="home-featured-item__content__cta">
-                                <button class="goto-button goto-button--dark">Learn More
+                                <a href="<?php echo $cruise_page ?>" class="goto-button goto-button--dark">Learn More
                                     <svg>
                                         <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-right"></use>
                                     </svg>
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <div class="home-featured-item__image-area">

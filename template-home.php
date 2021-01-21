@@ -2,6 +2,7 @@
 /*Template Name: Home*/
 wp_enqueue_script('page-home', get_template_directory_uri() . '/js/page-home.js', array('jquery'), false, true);
 get_header();
+$newsletter_image = get_field('intro_image');
 
 ?>
 
@@ -50,6 +51,25 @@ get_header();
         get_template_part('template-parts/content', 'home-testimonials');
         ?>
     </section>
+
+    <section class="travel-guide-newsletter">
+      <div class="travel-guide-newsletter__content">
+        <div class="travel-guide-newsletter__content__title">
+          Stay up to date with the latest
+        </div>
+        <div class="travel-guide-newsletter__content__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, perspiciatis deserunt id dolore suscipit fuga accusantium voluptas atque consectetur!
+        </div>
+        <div class="travel-guide-newsletter__content__email">
+          <input type="text" placeholder="Enter your email" class="travel-guide-newsletter__content__email__input">
+          <button class="travel-guide-newsletter__content__email__button">Submit</button>
+        </div>
+      </div>
+      <div class="travel-guide-newsletter__image">
+        <img src="<?php echo esc_url($newsletter_image['url']); ?>" alt="">
+      </div>
+    </section>
+    
 
 </div>
 
