@@ -33,7 +33,7 @@ $featured_cruise_destinations = get_field('featured');
                             <div class="home-featured-item__content__cta">
                                 <a href="<?php echo $cruise_page ?>" class="goto-button goto-button--dark">Learn More
                                     <svg>
-                                        <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-right"></use>
+                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
                                     </svg>
                                 </a>
                             </div>

@@ -33,7 +33,7 @@ $featured_bucket_list_destinations = get_field('featured_second');
                                     <div class="home-featured-item__content__cta ">
                                         <a href="<?php echo $b_page ?>" class="goto-button goto-button--dark">Learn More
                                             <svg>
-                                                <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-right"></use>
+                                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
                                             </svg>
                                         </a>
                                     </div>
