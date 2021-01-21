@@ -26,11 +26,14 @@
 
       
     }
-
+ 
     &__section-destinations {
         grid-column: full-start / -1;
     }
     &__section-featured {
+        grid-column: full-start / -1;
+    }
+    &__section-testimonials {
         grid-column: full-start / -1;
     }
 }

@@ -1013,6 +1013,8 @@ h5 {
     grid-column: full-start / -1; }
   .home-page__section-featured {
     grid-column: full-start / -1; }
+  .home-page__section-testimonials {
+    grid-column: full-start / -1; }
 
 .product-page {
   display: grid;
@@ -5221,7 +5223,7 @@ h5 {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(img/bg/topo-1.png);
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(img/bg/topo-1.png);
     opacity: 0.35;
     top: 0;
     left: 0;
@@ -5529,6 +5531,81 @@ h5 {
           margin: 0rem;
           margin-bottom: 0rem;
           box-shadow: none; } }
+
+.home-testimonials {
+  background-color: #142838;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative; }
+  .home-testimonials::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(img/bg/topo-1.png);
+    filter: invert(100%);
+    opacity: 0.35;
+    top: 0;
+    left: 0;
+    z-index: 2; }
+  .home-testimonials__publications-title {
+    font-size: 1.6rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    margin: 1rem;
+    margin-top: 8rem;
+    z-index: 5; }
+  .home-testimonials__publications {
+    max-width: 128rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+    z-index: 5; }
+    .home-testimonials__publications__logo-area {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .home-testimonials__publications__logo-area img {
+        margin: 2rem 3rem;
+        object-fit: contain; }
+  .home-testimonials__testimonials {
+    max-width: 114rem;
+    margin: 8rem 2rem;
+    z-index: 5; }
+
+.home-testimonial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: #fff;
+  column-gap: 6rem; }
+  .home-testimonial__content {
+    align-self: center;
+    display: flex;
+    flex-direction: column; }
+    .home-testimonial__content__snippet {
+      font-size: 2.8rem;
+      font-family: "Old Standard TT", serif;
+      letter-spacing: .1rem;
+      font-weight: 300; }
+    .home-testimonial__content__person {
+      margin-top: 2rem;
+      margin-right: 8rem;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      letter-spacing: .2rem;
+      position: relative;
+      display: flex;
+      justify-content: flex-end; }
+  .home-testimonial__image-area {
+    display: flex;
+    justify-content: center;
+    align-content: center; }
+    .home-testimonial__image-area img {
+      height: 42.5rem;
+      width: 42.5rem; }
 
 .card-square {
   display: grid !important;
