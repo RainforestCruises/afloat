@@ -4938,6 +4938,9 @@ h5 {
     width: 100%;
     z-index: 2;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 20%), linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 30%), linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); }
+    @media only screen and (max-width: 50em) {
+      .home-hero::after {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 20%), linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 60%), linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); } }
   .home-hero__bg {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
@@ -4954,14 +4957,15 @@ h5 {
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 1fr 30vh min-content;
+    grid-template-rows: 1fr min-content;
     justify-items: center; }
     .home-hero__content__title-group {
       display: grid;
       max-width: 75rem;
       color: #fff;
       position: relative;
-      align-self: end; }
+      align-self: center;
+      padding-top: 3rem; }
       .home-hero__content__title-group__title {
         font-size: 6rem;
         line-height: 7rem;
@@ -4970,6 +4974,10 @@ h5 {
         letter-spacing: 0.3rem;
         font-weight: 500;
         text-transform: uppercase; }
+        @media only screen and (max-width: 37.5em) {
+          .home-hero__content__title-group__title {
+            font-size: 4rem;
+            line-height: 5rem; } }
       .home-hero__content__title-group__divider {
         height: 9rem;
         width: 100%;
@@ -5006,89 +5014,97 @@ h5 {
         font-weight: 300;
         font-family: "Old Standard TT", serif;
         text-transform: uppercase; }
-    .home-hero__content__cta {
-      display: flex;
-      align-items: center;
-      justify-content: center; }
-      .home-hero__content__cta__button {
-        background-color: transparent;
-        border: 2px solid #d9a402;
-        text-transform: uppercase;
-        padding: 1.8rem 3.6rem;
-        font-family: "Metropolis", sans-serif;
-        color: #fff;
-        white-space: nowrap;
-        font-size: 1.5rem;
-        letter-spacing: 0.3rem;
-        font-weight: 500;
-        margin-bottom: 2rem;
-        cursor: pointer;
-        transition: all 0.2s; }
-        .home-hero__content__cta__button:hover {
-          border: 2px solid #fff; }
-        @media only screen and (max-width: 37.5em) {
-          .home-hero__content__cta__button {
-            white-space: normal;
-            line-height: 3rem;
-            font-size: 1.8rem; } }
     .home-hero__content__search-form {
+      display: flex;
+      flex-wrap: wrap;
       width: 100%;
+      height: min-content;
+      justify-content: space-around;
+      margin-top: 6rem;
       margin-bottom: 9rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      justify-items: center; }
-      @media only screen and (max-width: 50em) {
+      align-self: center; }
+      @media only screen and (max-width: 37.5em) {
         .home-hero__content__search-form {
-          grid-template-columns: 1fr;
-          row-gap: 5rem;
-          margin-bottom: 6rem; } }
-      .home-hero__content__search-form__form-group {
-        display: grid;
-        align-content: center;
-        grid-template-columns: min-content 1fr;
-        column-gap: 2rem;
-        width: 40rem; }
-        .home-hero__content__search-form__form-group__icon {
-          display: flex;
-          align-items: center; }
-          .home-hero__content__search-form__form-group__icon svg {
-            color: #d9a402;
-            stroke-width: 2;
-            height: 5rem;
-            width: 5rem; }
-        .home-hero__content__search-form__form-group__input-group {
-          display: flex;
-          flex-direction: column;
-          align-self: center; }
-          .home-hero__content__search-form__form-group__input-group__label {
-            letter-spacing: .3rem;
-            font-size: 1.5rem;
-            margin-bottom: .3rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: #fff; }
-          .home-hero__content__search-form__form-group__input-group__input {
-            letter-spacing: .2rem;
-            background-color: transparent;
-            border: none;
-            outline: none;
-            width: 100%;
-            padding: .5rem 0; }
-            .home-hero__content__search-form__form-group__input-group__input::placeholder {
-              color: rgba(255, 255, 255, 0.6);
-              font-family: "Metropolis", sans-serif;
-              letter-spacing: .1rem;
-              font-size: 2rem;
-              font-weight: 300;
-              transition: all .2s; }
-            .home-hero__content__search-form__form-group__input-group__input:focus::placeholder {
-              color: rgba(255, 255, 255, 0.8); }
-            .home-hero__content__search-form__form-group__input-group__input, .home-hero__content__search-form__form-group__input-group__input textarea {
-              color: rgba(255, 255, 255, 0.8);
-              font-family: "Metropolis", sans-serif;
-              letter-spacing: .1rem;
-              font-size: 1.6rem;
-              font-weight: 500; }
+          margin-top: 2rem;
+          margin-bottom: 3rem; } }
+      .home-hero__content__search-form__inputs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; }
+        .home-hero__content__search-form__inputs__form-group {
+          margin: 2rem 0;
+          display: grid;
+          align-content: center;
+          grid-template-columns: min-content 1fr;
+          column-gap: 2rem;
+          width: 40rem; }
+          .home-hero__content__search-form__inputs__form-group__icon {
+            display: flex;
+            align-items: center; }
+            .home-hero__content__search-form__inputs__form-group__icon svg {
+              color: #d9a402;
+              stroke-width: 2;
+              height: 5rem;
+              width: 5rem; }
+          .home-hero__content__search-form__inputs__form-group__input-group {
+            display: flex;
+            flex-direction: column;
+            align-self: center; }
+            .home-hero__content__search-form__inputs__form-group__input-group__label {
+              letter-spacing: 0.3rem;
+              font-size: 1.5rem;
+              margin-bottom: 0.3rem;
+              text-transform: uppercase;
+              font-weight: 600;
+              color: #fff; }
+            .home-hero__content__search-form__inputs__form-group__input-group__input {
+              letter-spacing: 0.2rem;
+              background-color: transparent;
+              border: none;
+              outline: none;
+              width: 100%;
+              padding: 0.5rem 0; }
+              .home-hero__content__search-form__inputs__form-group__input-group__input::placeholder {
+                color: rgba(255, 255, 255, 0.6);
+                font-family: "Metropolis", sans-serif;
+                letter-spacing: 0.1rem;
+                font-size: 2rem;
+                font-weight: 300;
+                transition: all 0.2s; }
+              .home-hero__content__search-form__inputs__form-group__input-group__input:focus::placeholder {
+                color: rgba(255, 255, 255, 0.8); }
+              .home-hero__content__search-form__inputs__form-group__input-group__input,
+              .home-hero__content__search-form__inputs__form-group__input-group__input textarea {
+                color: rgba(255, 255, 255, 0.8);
+                font-family: "Metropolis", sans-serif;
+                letter-spacing: 0.1rem;
+                font-size: 1.6rem;
+                font-weight: 500; }
+      .home-hero__content__search-form__cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem; }
+        .home-hero__content__search-form__cta__button {
+          background-color: transparent;
+          border: 2px solid #d9a402;
+          text-transform: uppercase;
+          padding: 1.8rem 3.6rem;
+          font-family: "Metropolis", sans-serif;
+          color: #fff;
+          white-space: nowrap;
+          font-size: 1.5rem;
+          letter-spacing: 0.3rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.2s; }
+          .home-hero__content__search-form__cta__button:hover {
+            border: 2px solid #fff; }
+          @media only screen and (max-width: 37.5em) {
+            .home-hero__content__search-form__cta__button {
+              white-space: normal;
+              line-height: 3rem;
+              font-size: 1.8rem; } }
 
 .home-intro {
   margin-top: 14rem;

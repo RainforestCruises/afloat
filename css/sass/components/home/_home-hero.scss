@@ -4,6 +4,7 @@
     grid-template-rows: 9rem 1fr;
 
     height: 100%;
+    //min-height: min-content;
     width: 100%;
 
     position: relative;
@@ -25,6 +26,12 @@
         background-image: linear-gradient(to bottom, rgba(black, 0.3), transparent 20%),
             linear-gradient(to top, rgba(black, 0.8), transparent 30%),
             linear-gradient(to top, rgba(black, 0.2), rgba(black, 0.2));
+
+        @media only screen and (max-width: $bp-medium) {
+            background-image: linear-gradient(to bottom, rgba(black, 0.3), transparent 20%),
+                linear-gradient(to top, rgba(black, 0.8), transparent 60%),
+                linear-gradient(to top, rgba(black, 0.2), rgba(black, 0.2));
+        }
     }
 
     &__bg {
@@ -49,16 +56,18 @@
         width: 100%;
 
         display: grid;
-        grid-template-rows: 1fr 30vh min-content; //fox grid blowout
+        grid-template-rows: 1fr min-content;
         justify-items: center;
 
         &__title-group {
             display: grid;
             max-width: 75rem;
             color: $color-white;
-
             position: relative;
-            align-self: end;
+            align-self: center;
+            padding-top: 3rem;
+
+
             &__title {
                 font-size: 6rem;
                 line-height: 7rem;
@@ -68,8 +77,10 @@
                 font-weight: 500;
                 text-transform: uppercase;
 
-                // grid-row: 1 / span 1;
-                // grid-column: 1 / -1;
+                @media only screen and (max-width: $bp-small) {
+                     font-size: 4rem;
+                    line-height: 5rem;
+                }
             }
             &__divider {
                 height: 9rem;
@@ -124,117 +135,123 @@
             }
         }
 
-        &__cta {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            &__button {
-                background-color: transparent;
-                border: 2px solid $color-gold;
-                text-transform: uppercase;
-                padding: 1.8rem 3.6rem;
-                font-family: $font-primary;
-                color: $color-white;
-                white-space: nowrap;
-                font-size: 1.5rem;
-                letter-spacing: 0.3rem;
-                font-weight: 500;
-
-                margin-bottom: 2rem;
-                cursor: pointer;
-
-                transition: all 0.2s;
-                &:hover {
-                    border: 2px solid $color-white;
-                }
-
-                @media only screen and (max-width: $bp-small) {
-                    white-space: normal;
-                    line-height: 3rem;
-                    font-size: 1.8rem;
-                }
-            }
-        }
-
         &__search-form {
+            display: flex;
+            flex-wrap: wrap;
             width: 100%;
+            height: min-content;
+            justify-content: space-around;
+            margin-top: 6rem;
             margin-bottom: 9rem;
-            display: grid;
+            align-self: center;
 
-            grid-template-columns: 1fr 1fr;
-            @media only screen and (max-width: $bp-medium) {
-                grid-template-columns: 1fr;
-                row-gap: 5rem;
-                margin-bottom: 6rem;
-            }
-            justify-items: center;
+            @media only screen and (max-width: $bp-small) {
+                margin-top: 2rem;
+                margin-bottom: 3rem;           }
 
-            &__form-group {
-                display: grid;
-                align-content: center;
-                grid-template-columns: min-content 1fr;
-                column-gap: 2rem;
-                width: 40rem;
+            &__inputs {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
 
-                &__icon {
-                    display: flex;
-                    align-items: center;
-        
-                    & svg {
-                        color: $color-gold;
-                        stroke-width: 2;
-                        height: 5rem;
-                        width: 5rem;
-                    }
-                }
+                &__form-group {
+                    margin: 2rem 0;
+                    display: grid;
+                    align-content: center;
+                    grid-template-columns: min-content 1fr;
+                    column-gap: 2rem;
+                    width: 40rem;
 
-                &__input-group {
-                    display: flex;
-                    flex-direction: column;
-                    align-self: center;
+                    &__icon {
+                        display: flex;
+                        align-items: center;
 
-                    &__label {
-                        letter-spacing: .3rem;
-                        font-size: 1.5rem;
-                        margin-bottom: .3rem;
-                        text-transform: uppercase;
-                        font-weight: 600;
-                        color: $color-white;
-                    }
-                    &__input {
-              
-                        letter-spacing: .2rem;
-                        background-color: transparent;
-                        border: none;
-                        outline: none;
-                        width: 100%;
-                        padding: .5rem 0;
-                        
-    
-                        &::placeholder {
-                            color:  rgba($color-white, .6);
-                            font-family: $font-primary;
-                            letter-spacing: .1rem;
-                            font-size: 2rem;
-                            font-weight: 300;
-                            transition: all .2s;
+                        & svg {
+                            color: $color-gold;
+                            stroke-width: 2;
+                            height: 5rem;
+                            width: 5rem;
                         }
+                    }
 
-                        
-                        &:focus {
+                    &__input-group {
+                        display: flex;
+                        flex-direction: column;
+                        align-self: center;
+
+                        &__label {
+                            letter-spacing: 0.3rem;
+                            font-size: 1.5rem;
+                            margin-bottom: 0.3rem;
+                            text-transform: uppercase;
+                            font-weight: 600;
+                            color: $color-white;
+                        }
+                        &__input {
+                            letter-spacing: 0.2rem;
+                            background-color: transparent;
+                            border: none;
+                            outline: none;
+                            width: 100%;
+                            padding: 0.5rem 0;
+
                             &::placeholder {
-                                color:  rgba($color-white, .8);
+                                color: rgba($color-white, 0.6);
+                                font-family: $font-primary;
+                                letter-spacing: 0.1rem;
+                                font-size: 2rem;
+                                font-weight: 300;
+                                transition: all 0.2s;
+                            }
+
+                            &:focus {
+                                &::placeholder {
+                                    color: rgba($color-white, 0.8);
+                                }
+                            }
+
+                            &,
+                            textarea {
+                                color: rgba($color-white, 0.8);
+                                font-family: $font-primary;
+                                letter-spacing: 0.1rem;
+                                font-size: 1.6rem;
+                                font-weight: 500;
                             }
                         }
+                    }
+                }
+            }
 
-                  
-                        &, textarea {
-                            color:  rgba($color-white, .8);
-                            font-family: $font-primary;
-                            letter-spacing: .1rem;
-                            font-size: 1.6rem;
-                            font-weight: 500;
-                        }
+            &__cta {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 2rem;
+
+                &__button {
+                    background-color: transparent;
+                    border: 2px solid $color-gold;
+                    text-transform: uppercase;
+                    padding: 1.8rem 3.6rem;
+                    font-family: $font-primary;
+                    color: $color-white;
+                    white-space: nowrap;
+                    font-size: 1.5rem;
+                    letter-spacing: 0.3rem;
+                    font-weight: 500;
+
+                    cursor: pointer;
+
+                    transition: all 0.2s;
+                    &:hover {
+                        border: 2px solid $color-white;
+                    }
+
+                    @media only screen and (max-width: $bp-small) {
+                        white-space: normal;
+                        line-height: 3rem;
+                        font-size: 1.8rem;
                     }
                 }
             }
