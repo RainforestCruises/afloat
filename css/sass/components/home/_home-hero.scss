@@ -67,7 +67,6 @@
             align-self: center;
             padding-top: 3rem;
 
-
             &__title {
                 font-size: 6rem;
                 line-height: 7rem;
@@ -78,7 +77,7 @@
                 text-transform: uppercase;
 
                 @media only screen and (max-width: $bp-small) {
-                     font-size: 4rem;
+                    font-size: 4rem;
                     line-height: 5rem;
                 }
             }
@@ -147,7 +146,8 @@
 
             @media only screen and (max-width: $bp-small) {
                 margin-top: 2rem;
-                margin-bottom: 3rem;           }
+                margin-bottom: 3rem;
+            }
 
             &__inputs {
                 display: flex;
@@ -159,7 +159,7 @@
                     display: grid;
                     align-content: center;
                     grid-template-columns: min-content 1fr;
-                    column-gap: 2rem;
+                    column-gap: 1rem;
                     width: 40rem;
 
                     &__icon {
@@ -178,6 +178,8 @@
                         display: flex;
                         flex-direction: column;
                         align-self: center;
+                        position: relative;
+                        height: 6rem;
 
                         &__label {
                             letter-spacing: 0.3rem;
@@ -186,13 +188,22 @@
                             text-transform: uppercase;
                             font-weight: 600;
                             color: $color-white;
+                            margin-left: 1rem;
+                            transition: opacity .2s;
+                            &.open {
+                                opacity: 0;
+                            }
+
+                            // position: absolute;
+                            // top: 0;
+                            // left: 0;
                         }
                         &__input {
                             letter-spacing: 0.2rem;
                             background-color: transparent;
                             border: none;
                             outline: none;
-                            width: 100%;
+                            width: 32rem;
                             padding: 0.5rem 0;
 
                             &::placeholder {
@@ -245,7 +256,10 @@
 
                     transition: all 0.2s;
                     &:hover {
-                        border: 2px solid $color-white;
+                        //border: 2px solid $color-gold;
+                        background-color: rgba($color-gold, .95);
+                        color: rgba($color-black, 1);
+                        font-weight: 600;
                     }
 
                     @media only screen and (max-width: $bp-small) {
@@ -259,36 +273,120 @@
     }
 }
 
-// .ui-autocomplete {
-//     position: absolute;
-//     top: -5rem;
-//     left: 0;
-//     z-index: 1000;
-//     display: none;
-//     float: left;
-//     min-width: 160px;
-//     padding: 5px 0;
-//     margin: 32px 0 0;
-//     list-style: none;
-//     font-size: 24px;
-//     text-align: left;
-//     background-color: rgba($color-white, .1);
-//     border: 1px solid #cccccc;
+.chosen-value {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    width: 100%;
+}
+.value-list {
+    position: absolute;
+    z-index: 15;
+    left: 0;
+    width: 100%;
+    bottom: calc(100% - 2rem); //to open vertically
+}
 
-//     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-//     background-clip: padding-box;
+.chosen-value {
+    color: rgba($color-white, 0.6);
+    font-family: $font-primary;
+    letter-spacing: 0.1rem;
+    font-size: 2rem;
+    font-weight: 300;
 
-//     color: rgba($color-white, .8);
+    height: 4rem;
+    padding: 1rem .6rem;
+    //padding-bottom: 1rem;
+    background-color: transparent;
+    border: 3px solid transparent;
+    transition: 0.3s ease-in-out;
+    width: 32rem;
 
-//   }
+    &::-webkit-input-placeholder {
+        color: rgba($color-white, 0.8);
+    }
 
-//   .ui-autocomplete > li > div {
-//     display: block;
-//     padding: 3px 20px;
-//     clear: both;
-//     font-weight: normal;
-//     line-height: 1.42857143;
-//     color: rgba($color-white, .8);
-//     white-space: nowrap;
-//   }
-//
+    &:hover {
+        background-color: rgba($color-black, 0.8);
+        box-shadow: inset 0 -2px 0 $color-gold;
+
+        cursor: pointer;
+
+        &::-webkit-input-placeholder {
+            color: rgba($color-white, 0.8);
+        }
+    }
+
+    &:focus,
+    &.open {
+        box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
+        outline: 0;
+        background-color: rgba($color-black, 1);
+        box-shadow: inset 0 -2px 0 $color-gold;
+        //box-sizing: border-box;
+        color: $color-white;
+
+        &::-webkit-input-placeholder {
+            color: $color-white;
+        }
+    }
+}
+
+.value-list {
+    list-style: none;
+    margin-top: 4rem;
+    //box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-height: 0;
+    transition: 0.3s ease-in-out;
+    width: 32rem;
+
+    
+    //border-radius: .4rem;
+    //box-shadow: inset 0px 0px 0px -2px $color-gold;
+
+
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #000000;
+    }
+    &::-webkit-scrollbar {
+        width: 4px;
+        background-color: #000000;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $color-grey-3;
+    }
+
+    &.open {
+        max-height: 24rem;
+        overflow: auto;
+        //border-bottom: 2px solid $color-grey-3;
+    }
+
+    li {
+        position: relative;
+        height: 4rem;
+        background-color: rgba($color-black, .95);
+        color: $color-white;
+        padding: 1rem;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        opacity: 1;
+
+        &:hover {
+            background-color: rgba(#353535, .95);
+            color: $color-gold;
+        }
+
+        &.closed {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0;
+            opacity: 0;
+        }
+    }
+}
