@@ -5105,7 +5105,8 @@ h5 {
   background-color: transparent;
   border: none;
   transition: 0.3s ease-in-out;
-  width: 32rem; }
+  width: 32rem;
+  box-sizing: border-box; }
   .home-destination-select::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.8); }
   .home-destination-select:hover {

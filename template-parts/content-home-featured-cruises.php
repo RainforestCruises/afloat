@@ -6,7 +6,7 @@ $featured_cruise_destinations = get_field('featured');
 <div class="home-featured">
     <div class="home-featured__header">
         <div class="home-featured__header__title page-divider">
-            Cruise Destinations
+            Featured Cruises
         </div>
         <div class="home-featured__header__sub-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aperiam nostrum eum excepturi et quas neque soluta iusto quae, eligendi cumque dicta dolore sed reprehenderit iure ex, blanditiis nesciunt eos.
