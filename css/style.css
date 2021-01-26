@@ -5095,16 +5095,15 @@ h5 {
   position: absolute;
   top: 2rem;
   left: 0;
-  width: 100%;
   color: rgba(255, 255, 255, 0.6);
   font-family: "Metropolis", sans-serif;
   letter-spacing: 0.1rem;
   font-size: 2rem;
   font-weight: 300;
   height: 4rem;
-  padding: 1rem .6rem;
+  padding: 0 1rem;
   background-color: transparent;
-  border: 3px solid transparent;
+  border: none;
   transition: 0.3s ease-in-out;
   width: 32rem; }
   .home-destination-select::-webkit-input-placeholder {
@@ -5128,7 +5127,7 @@ h5 {
   position: absolute;
   z-index: 15;
   left: 0;
-  width: 100%;
+  width: 32rem;
   bottom: calc(100% - 2rem);
   border-top-left-radius: .5rem;
   border-top-right-radius: .5rem;
@@ -5136,8 +5135,7 @@ h5 {
   margin-top: 4rem;
   overflow: hidden;
   max-height: 0;
-  transition: 0.3s ease-in-out;
-  width: 32rem; }
+  transition: 0.3s ease-in-out; }
   .home-destination-value-list::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #000000; }
@@ -5154,7 +5152,7 @@ h5 {
     height: 4rem;
     background-color: rgba(30, 30, 30, 0.95);
     color: #fff;
-    padding: 1rem;
+    padding: 0 1rem;
     font-size: 1.4rem;
     letter-spacing: .1rem;
     display: flex;
@@ -5188,9 +5186,8 @@ h5 {
   font-size: 2rem;
   font-weight: 300;
   height: 4rem;
-  padding: 1rem .6rem;
+  padding: 0 1rem;
   background-color: transparent;
-  border: 3px solid transparent;
   transition: 0.3s ease-in-out;
   width: 34rem;
   display: flex;

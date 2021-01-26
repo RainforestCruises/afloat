@@ -275,7 +275,7 @@
     position: absolute;
     top: 2rem;
     left: 0;
-    width: 100%;
+    
 
     color: rgba($color-white, 0.6);
     font-family: $font-primary;
@@ -284,9 +284,9 @@
     font-weight: 300;
 
     height: 4rem;
-    padding: 1rem .6rem;
+    padding: 0 1rem;
     background-color: transparent;
-    border: 3px solid transparent;
+    border: none;
     transition: 0.3s ease-in-out;
     width: 32rem;
 
@@ -324,7 +324,7 @@
     position: absolute;
     z-index: 15;
     left: 0;
-    width: 100%;
+    width: 32rem;
     bottom: calc(100% - 2rem); //to open vertically
     border-top-left-radius: .5rem;
     border-top-right-radius: .5rem;
@@ -334,7 +334,7 @@
     overflow: hidden;
     max-height: 0;
     transition: 0.3s ease-in-out;
-    width: 32rem;
+    
 
     &::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -359,7 +359,7 @@
         height: 4rem;
         background-color: rgba($color-black, .95);
         color: $color-white;
-        padding: 1rem;
+        padding: 0 1rem;
         font-size: 1.4rem;
         letter-spacing: .1rem;
         display: flex;
@@ -405,9 +405,8 @@
     font-weight: 300;
 
     height: 4rem;
-    padding: 1rem .6rem;
+    padding: 0 1rem;
     background-color: transparent;
-    border: 3px solid transparent;
     transition: 0.3s ease-in-out;
     width: 34rem;
     display: flex;
