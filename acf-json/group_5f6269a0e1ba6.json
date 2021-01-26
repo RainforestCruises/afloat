@@ -66,6 +66,25 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_60104914eb05b",
+            "label": "Is Bucket List",
+            "name": "is_bucket_list",
+            "type": "true_false",
+            "instructions": "Check if this destination is a bucket list destination (ie: Machu Picchu)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5fea3a88df109",
             "label": "Locations",
             "name": "locations",
@@ -152,5 +171,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Destinations - CPT",
-    "modified": 1609186124
+    "modified": 1611680060
 }

@@ -1,3 +1,16 @@
+  <?php
+    $queryArgs = array(
+        'post_type' => array('rfc_destinations', 'rfc_regions'),
+        'meta_key' => 'navigation_title',
+        'orderby' => 'meta_value',
+        'order' => 'ASC',
+        'posts_per_page' => -1
+    );
+
+    $destinations = get_posts($queryArgs);
+    console_log($posts);
+    ?>
+
   <!--  Hero -->
   <div class="home-hero">
       <img src="<?php echo bloginfo('template_url') ?>/css/img/test-images/peru-01.jpg" alt="" class="home-hero__bg">
@@ -28,18 +41,12 @@
                       </div>
                       <div class="home-hero__content__search-form__inputs__form-group__input-group">
                           <label for="destination" class="home-hero__content__search-form__inputs__form-group__input-group__label" id="chosen-value-label">Destination</label>
-                          <input class="chosen-value" type="text" value="" placeholder="Where would you like to go?">
-                          <ul class="value-list">
-                              <li>Alabama</li>
-                              <li>Alaska</li>
-                              <li>Arizona</li>
-                              <li>Arkansas</li>
-                              <li>California</li>
-                              <li>Colorado</li>
-                              <li>Connecticut</li>
-                              <li>Delaware</li>
-                              <li>Florida</li>
+                          <input class="home-destination-select" id="destination" type="text" value="" placeholder="Where would you like to go?" autocomplete="off">
 
+                          <ul class="home-destination-value-list">
+                              <?php foreach ($destinations as $d) : ?>
+                                  <li><?php echo get_field('navigation_title', $d)?></li>
+                              <?php endforeach; ?>
                           </ul>
                       </div>
 

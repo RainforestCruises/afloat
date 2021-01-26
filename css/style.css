@@ -5114,20 +5114,11 @@ h5 {
               line-height: 3rem;
               font-size: 1.8rem; } }
 
-.chosen-value {
+.home-destination-select {
   position: absolute;
   top: 2rem;
   left: 0;
-  width: 100%; }
-
-.value-list {
-  position: absolute;
-  z-index: 15;
-  left: 0;
   width: 100%;
-  bottom: calc(100% - 2rem); }
-
-.chosen-value {
   color: rgba(255, 255, 255, 0.6);
   font-family: "Metropolis", sans-serif;
   letter-spacing: 0.1rem;
@@ -5139,42 +5130,47 @@ h5 {
   border: 3px solid transparent;
   transition: 0.3s ease-in-out;
   width: 32rem; }
-  .chosen-value::-webkit-input-placeholder {
+  .home-destination-select::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.8); }
-  .chosen-value:hover {
+  .home-destination-select:hover {
     background-color: rgba(30, 30, 30, 0.8);
     box-shadow: inset 0 -2px 0 #d9a402;
     cursor: pointer; }
-    .chosen-value:hover::-webkit-input-placeholder {
+    .home-destination-select:hover::-webkit-input-placeholder {
       color: rgba(255, 255, 255, 0.8); }
-  .chosen-value:focus, .chosen-value.open {
+  .home-destination-select:focus, .home-destination-select.open {
     box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
     outline: 0;
     background-color: #1e1e1e;
     box-shadow: inset 0 -2px 0 #d9a402;
     color: #fff; }
-    .chosen-value:focus::-webkit-input-placeholder, .chosen-value.open::-webkit-input-placeholder {
+    .home-destination-select:focus::-webkit-input-placeholder, .home-destination-select.open::-webkit-input-placeholder {
       color: #fff; }
 
-.value-list {
+.home-destination-value-list {
+  position: absolute;
+  z-index: 15;
+  left: 0;
+  width: 100%;
+  bottom: calc(100% - 2rem);
   list-style: none;
   margin-top: 4rem;
   overflow: hidden;
   max-height: 0;
   transition: 0.3s ease-in-out;
   width: 32rem; }
-  .value-list::-webkit-scrollbar-track {
+  .home-destination-value-list::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #000000; }
-  .value-list::-webkit-scrollbar {
+  .home-destination-value-list::-webkit-scrollbar {
     width: 4px;
     background-color: #000000; }
-  .value-list::-webkit-scrollbar-thumb {
+  .home-destination-value-list::-webkit-scrollbar-thumb {
     background-color: #747474; }
-  .value-list.open {
+  .home-destination-value-list.open {
     max-height: 24rem;
     overflow: auto; }
-  .value-list li {
+  .home-destination-value-list li {
     position: relative;
     height: 4rem;
     background-color: rgba(30, 30, 30, 0.95);
@@ -5185,11 +5181,17 @@ h5 {
     align-items: center;
     cursor: pointer;
     transition: background-color 0.3s;
-    opacity: 1; }
-    .value-list li:hover {
+    opacity: 1;
+    justify-content: space-between; }
+    .home-destination-value-list li span {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: .1rem;
+      color: #c2c6c9; }
+    .home-destination-value-list li:hover {
       background-color: rgba(53, 53, 53, 0.95);
       color: #d9a402; }
-    .value-list li.closed {
+    .home-destination-value-list li.closed {
       max-height: 0;
       overflow: hidden;
       padding: 0;

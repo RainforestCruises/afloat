@@ -5,7 +5,7 @@ return array (
   'title' => 'Destinations',
   'type' => 'rfc_destinations',
   'id' => '5fdbb28b974a8',
-  'updated' => 1609190137,
+  'updated' => 1611680096,
   'columns' => 
   array (
     'title' => 
@@ -96,6 +96,21 @@ return array (
       'width' => '',
       'width_unit' => '%',
       'field' => 'field_5fdbdeec81832',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+    ),
+    '60104960a82c1' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Is Bucket List',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_60104914eb05b',
       'export' => 'off',
       'sort' => 'on',
       'edit' => 'on',

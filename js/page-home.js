@@ -113,31 +113,30 @@ jQuery(document).ready(function ($) {
     });
 
 
-    const inputField = document.querySelector('.chosen-value');
-    const dropdown = document.querySelector('.value-list');
+    const inputField = document.querySelector('.home-destination-select');
+    const dropdown = document.querySelector('.home-destination-value-list');
     const label = document.querySelector('#chosen-value-label');
+    const dropdownArray = [...document.querySelectorAll('.home-destination-value-list li')];
 
-    const dropdownArray = [...document.querySelectorAll('.value-list li')];
-    console.log('boom')
-    //dropdown.classList.add('open');
-    //inputField.focus(); // Demo purposes only
+    for (let i = 0; i < dropdownArray.length; i++) {
+        dropdownArray[i].classList.add('closed');
+    }
 
     let valueArray = [];
     dropdownArray.forEach(item => {
         valueArray.push(item.textContent);
     });
 
-    console.log(dropdownArray)
 
 
     const closeDropdown = () => {
         dropdown.classList.remove('open');
     }
 
+
     inputField.addEventListener('input', () => {
         dropdown.classList.add('open');
         let inputValue = inputField.value.toLowerCase();
-        let valueSubstring;
         if (inputValue.length > 0) {
             for (let j = 0; j < valueArray.length; j++) {
                 if (!(inputValue.substring(0, inputValue.length) === valueArray[j].substring(0, inputValue.length).toLowerCase())) {
@@ -153,9 +152,10 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    dropdownArray.forEach(item => { 
-        console.log(item);
-        item.addEventListener('click', (evt) => {
+
+    //add click event handler to each LI
+    dropdownArray.forEach(item => {
+        item.addEventListener('click', () => {
             inputField.value = item.textContent;
             dropdownArray.forEach(dropdown => {
                 dropdown.classList.add('closed');
@@ -164,34 +164,45 @@ jQuery(document).ready(function ($) {
     })
 
     inputField.addEventListener('focus', () => {
-        inputField.placeholder = 'Where would you like to go?'; //can change here to new placeholder
+        inputField.placeholder = 'Type something'; //can change here to new placeholder
         dropdown.classList.add('open');
         label.classList.add('open');
         dropdownArray.forEach(dropdown => {
             dropdown.classList.remove('closed');
         });
+
     });
 
     inputField.addEventListener('blur', () => {
 
         inputField.placeholder = 'Where would you like to go?';
-        dropdown.classList.remove('open');
+        //dropdown.classList.remove('open');
         label.classList.remove('open');
     });
 
     document.addEventListener('click', evt => {
-        //console.log(evt)
         const isDropdown = dropdown.contains(evt.target);
         const isInput = inputField.contains(evt.target);
         if (!isDropdown && !isInput) {
             dropdown.classList.remove('open');
             label.classList.remove('open');
         }
-
-        //inputField.value = 
     });
 
+    $('.home-destination-select').on('keydown', function(e){
+        var keyCode = e.keyCode || e.which; 
+
+        if (keyCode == 9) { 
+
+            
+          e.preventDefault(); //prevent default if not blank
+          //choose first / best of list
+
+          console.log('key');
+        } 
+    });
 
 });
+
 
 

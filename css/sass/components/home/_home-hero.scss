@@ -273,21 +273,14 @@
     }
 }
 
-.chosen-value {
+
+
+.home-destination-select {
     position: absolute;
     top: 2rem;
     left: 0;
     width: 100%;
-}
-.value-list {
-    position: absolute;
-    z-index: 15;
-    left: 0;
-    width: 100%;
-    bottom: calc(100% - 2rem); //to open vertically
-}
 
-.chosen-value {
     color: rgba($color-white, 0.6);
     font-family: $font-primary;
     letter-spacing: 0.1rem;
@@ -296,7 +289,6 @@
 
     height: 4rem;
     padding: 1rem .6rem;
-    //padding-bottom: 1rem;
     background-color: transparent;
     border: 3px solid transparent;
     transition: 0.3s ease-in-out;
@@ -332,19 +324,19 @@
     }
 }
 
-.value-list {
+.home-destination-value-list {
+    position: absolute;
+    z-index: 15;
+    left: 0;
+    width: 100%;
+    bottom: calc(100% - 2rem); //to open vertically
+
     list-style: none;
     margin-top: 4rem;
-    //box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     max-height: 0;
     transition: 0.3s ease-in-out;
     width: 32rem;
-
-    
-    //border-radius: .4rem;
-    //box-shadow: inset 0px 0px 0px -2px $color-gold;
-
 
     &::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -377,6 +369,16 @@
         transition: background-color 0.3s;
         opacity: 1;
 
+        justify-content: space-between;
+
+        // For some icon, text etc
+        & span {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: .1rem;
+            color: $color-grey-light-2;
+        }
+
         &:hover {
             background-color: rgba(#353535, .95);
             color: $color-gold;
@@ -390,3 +392,4 @@
         }
     }
 }
+ 
