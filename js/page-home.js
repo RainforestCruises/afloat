@@ -200,7 +200,7 @@ jQuery(document).ready(function ($) {
     const dateYearArray = [...document.querySelectorAll('.home-date-values__years__year')];
 
     let selectedYear = moment().year();
-    let selectedMonth = "";
+    let selectedMonth = moment().format('MMMM');
 
     //Input Field Click
     dateInputField.addEventListener('click', () => {
