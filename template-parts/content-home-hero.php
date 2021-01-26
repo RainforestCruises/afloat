@@ -45,7 +45,7 @@
 
                           <ul class="home-destination-value-list">
                               <?php foreach ($destinations as $d) : ?>
-                                  <li><?php echo get_field('navigation_title', $d)?></li>
+                                  <li><?php echo get_field('navigation_title', $d) ?></li>
                               <?php endforeach; ?>
                           </ul>
                       </div>
@@ -60,9 +60,38 @@
                           </svg>
                       </div>
                       <div class="home-hero__content__search-form__inputs__form-group__input-group">
-                          <label for="dates" class="home-hero__content__search-form__inputs__form-group__input-group__label">Travel
+                          <label for="dates" class="home-hero__content__search-form__inputs__form-group__input-group__label" id="date-label">Travel
                               Date</label>
-                          <input type="text" class="home-hero__content__search-form__inputs__form-group__input-group__input" id="dates" tabindex="1" placeholder="When would you like to travel?" />
+                          <div class="home-date-select" id="date-select">
+                          When would you like to travel?
+                          </div>
+                          <div class="home-date-values" id="date-values">
+                              <div class="home-date-values__years">
+                                  <div class="home-date-values__years__year selected" year="2021">
+                                      2021
+                                  </div>
+                                  <div class="home-date-values__years__year" year="2022">
+                                      2022
+                                  </div>
+                              </div>
+                              <ul class="home-date-values__months selected">
+                                  <li month="1" value="January">Jan</li>
+                                  <li month="2" value="February">Feb</li>
+                                  <li month="3" value="March">Mar</li>
+                                  <li month="4"  value="April">Apr</li>
+                                  <li month="5"  value="May">May</li>
+                                  <li month="6"  value="June">Jun</li>
+                                  <li month="7"  value="July">Jul</li>
+                                  <li month="8"  value="August">Aug</li>
+                                  <li month="9"  value="September">Sep</li>
+                                  <li month="10"  value="October">Oct</li>
+                                  <li month="11"  value="November">Nov</li>
+                                  <li month="12"  value="December">Dec</li>
+                              </ul>
+                   
+                          </div>
+
+
                       </div>
                   </div>
               </div>

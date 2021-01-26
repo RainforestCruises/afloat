@@ -113,6 +113,7 @@ jQuery(document).ready(function ($) {
     });
 
 
+    // Destination Select Component
     const inputField = document.querySelector('.home-destination-select');
     const dropdown = document.querySelector('.home-destination-value-list');
     const label = document.querySelector('#chosen-value-label');
@@ -126,13 +127,6 @@ jQuery(document).ready(function ($) {
     dropdownArray.forEach(item => {
         valueArray.push(item.textContent);
     });
-
-
-
-    const closeDropdown = () => {
-        dropdown.classList.remove('open');
-    }
-
 
     inputField.addEventListener('input', () => {
         dropdown.classList.add('open');
@@ -164,13 +158,12 @@ jQuery(document).ready(function ($) {
     })
 
     inputField.addEventListener('focus', () => {
-        inputField.placeholder = 'Type something'; //can change here to new placeholder
+        inputField.placeholder = 'Where would you like to go?'; //can change here to new placeholder
         dropdown.classList.add('open');
         label.classList.add('open');
         dropdownArray.forEach(dropdown => {
             dropdown.classList.remove('closed');
         });
-
     });
 
     inputField.addEventListener('blur', () => {
@@ -189,18 +182,79 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $('.home-destination-select').on('keydown', function(e){
-        var keyCode = e.keyCode || e.which; 
-
-        if (keyCode == 9) { 
-
-            
-          e.preventDefault(); //prevent default if not blank
-          //choose first / best of list
-
-          console.log('key');
-        } 
+    $('.home-destination-select').on('keydown', function (e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode == 9) {
+            e.preventDefault(); //prevent default if not blank
+            //choose first / best of list
+            console.log('key');
+        }
     });
+
+
+    //DATE SELECT COMPONENT
+    const dateInputField = document.querySelector('#date-select');
+    const dateDropdown = document.querySelector('#date-values');
+    const dateLabel = document.querySelector('#date-label');
+    const dateDropdownArray = [...document.querySelectorAll('.home-date-values__months li')];
+    const dateYearArray = [...document.querySelectorAll('.home-date-values__years__year')];
+
+    let selectedYear = moment().year();
+    let selectedMonth = "";
+
+    //Input Field Click
+    dateInputField.addEventListener('click', () => {
+        if (selectedMonth == "") {
+            dateInputField.innerHTML = "Select Date"
+        } else {
+            dateInputField.innerHTML = selectedMonth + ", " + selectedYear; //can change here to new placeholder
+        }
+        dateDropdown.classList.add('open');
+        dateLabel.classList.add('open');
+        dateInputField.classList.add('open');
+    });
+    //Year Click - event handler to each LI
+    dateYearArray.forEach(item => {
+        item.addEventListener('click', () => {
+            selectedYear = item.getAttribute("year");
+            dateInputField.innerHTML = selectedMonth + ", " + selectedYear;
+
+            dateYearArray.forEach(year => {
+                year.classList.remove('selected');
+            });
+            item.classList.add('selected')
+        });
+    })
+
+    //Month Click - event handler to each LI
+    dateDropdownArray.forEach(item => {
+        item.addEventListener('click', () => {
+            selectedMonth = item.getAttribute("value"); 
+            dateInputField.innerHTML = selectedMonth + ", " + selectedYear;
+
+            dateDropdownArray.forEach(month => {
+                month.classList.remove('selected');
+            });
+            selectedMonth = item.getAttribute("value");
+            item.classList.add('selected');
+            closeDropdown();
+        });
+    })
+
+    document.addEventListener('click', evt => {
+        const isInput = dateInputField.contains(evt.target);
+        const isDropdown = dateDropdown.contains(evt.target);
+        if (!isInput && !isDropdown) {
+            closeDropdown();
+        }
+    });
+
+    const closeDropdown = () => {
+        dateDropdown.classList.remove('open');
+        dateInputField.classList.remove('open');
+        dateLabel.classList.remove('open');
+    }
+
 
 });
 
