@@ -37,8 +37,10 @@ if ($sortOrder == 'DESC') {
 }
 
 console_log($results);
-$results = array_slice($results, 0, 12);
-foreach ($results as $result) {
+
+$filteredResults = [];
+//$results = array_slice($results, 0, 12);
+foreach ($results as $result) :
     $featured_image = get_field('featured_image', $result->postObject);
     $cruise_data = get_field('cruise_data', $result->postObject);
 
@@ -70,16 +72,25 @@ foreach ($results as $result) {
         }
     }
 
-    //NOTES
-    //loop all to get count 
-    //create filtered list
-    //use for pagination
+    $filteredResults[] = $result;
+
+   
+
+//NOTES
+//loop all to get count 
+//create filtered list
+//use for pagination
+endforeach;
 ?>
 
+<?php 
+$filteredResults = array_slice($filteredResults, 0, 12);
 
-
+foreach ($filteredResults as $filteredResult) : 
+    $featured_image = get_field('featured_image', $filteredResult->postObject);
+    ?>
     <!-- Result -->
-    <a class="search-result" href="<?php echo get_permalink($result->postObject); ?>">
+    <a class="search-result" href="<?php echo get_permalink($filteredResult->postObject); ?>">
         <div class="search-result__image">
             <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
         </div>
@@ -90,19 +101,19 @@ foreach ($results as $result) {
                 </div>
             </div>
             <div class="search-result__content__length">
-                <?php if ($result->postType == 'rfc_tours') { ?>
+                <?php if ($filteredResult->postType == 'rfc_tours') { ?>
                     Tour Package
-                <?php } else if ($result->postType == 'rfc_cruises') { ?>
+                <?php } else if ($filteredResult->postType == 'rfc_cruises') { ?>
                     <?php echo $cruise_data['LowestLengthInDays']; ?>-<?php echo $cruise_data['HighestLengthInDays']; ?> Day Cruise
-                <?php } else if ($result->postType == 'rfc_lodges') { ?>
+                <?php } else if ($filteredResult->postType == 'rfc_lodges') { ?>
                     Lodge & Land Tour
                 <?php } ?>
             </div>
             <div class="search-result__content__title">
-                <?php echo get_the_title($result->postObject) ?>
+                <?php echo get_the_title($filteredResult->postObject) ?>
             </div>
             <div class="search-result__content__description">
-                <?php echo get_field('top_snippet', $result->postObject) ?>
+                <?php echo get_field('top_snippet', $filteredResult->postObject) ?>
             </div>
             <div class="search-result__content__info">
                 <div class="search-result__content__info__price">
@@ -110,7 +121,7 @@ foreach ($results as $result) {
                         Starting from
                     </div>
                     <div class="search-result__content__info__price__amount">
-                        <?php echo "$" . number_format($result->lowestPrice, 0);  ?>
+                        <?php echo "$" . number_format($filteredResult->lowestPrice, 0);  ?>
                     </div>
                     <div class="search-result__content__info__price__currency">
                         USD
@@ -122,11 +133,8 @@ foreach ($results as $result) {
             </div>
         </div>
     </a>
+<?php endforeach; ?>
 
-
-
-<?php }
-?>
 
 
 
