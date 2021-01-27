@@ -29,7 +29,7 @@
               </div>
           </div>
 
-          <form class="home-hero__content__search-form">
+          <form class="home-hero__content__search-form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">
 
               <div class="home-hero__content__search-form__inputs">
                   <!-- Destination -->
@@ -45,7 +45,7 @@
 
                           <ul class="home-destination-value-list">
                               <?php foreach ($destinations as $d) : ?>
-                                  <li><?php echo get_field('navigation_title', $d) ?></li>
+                                  <li postId="<?php echo $d->ID ?>"><?php echo get_field('navigation_title', $d) ?></li>
                               <?php endforeach; ?>
                           </ul>
                       </div>
@@ -63,7 +63,7 @@
                           <label for="dates" class="home-hero__content__search-form__inputs__form-group__input-group__label" id="date-label">Travel
                               Date</label>
                           <div class="home-date-select" id="date-select">
-                          When would you like to travel?
+                              When would you like to travel?
                           </div>
                           <div class="home-date-values" id="date-values">
                               <div class="home-date-values__years">
@@ -75,20 +75,20 @@
                                   </div>
                               </div>
                               <ul class="home-date-values__months selected">
-                                  <li month="1" value="January" class="selected">Jan</li>
-                                  <li month="2" value="February">Feb</li>
-                                  <li month="3" value="March">Mar</li>
-                                  <li month="4"  value="April">Apr</li>
-                                  <li month="5"  value="May">May</li>
-                                  <li month="6"  value="June">Jun</li>
-                                  <li month="7"  value="July">Jul</li>
-                                  <li month="8"  value="August">Aug</li>
-                                  <li month="9"  value="September">Sep</li>
-                                  <li month="10"  value="October">Oct</li>
-                                  <li month="11"  value="November">Nov</li>
-                                  <li month="12"  value="December">Dec</li>
+                                  <li month="1" name="January" class="selected">Jan</li>
+                                  <li month="2" name="February">Feb</li>
+                                  <li month="3" name="March">Mar</li>
+                                  <li month="4" name="April">Apr</li>
+                                  <li month="5" name="May">May</li>
+                                  <li month="6" name="June">Jun</li>
+                                  <li month="7" name="July">Jul</li>
+                                  <li month="8" name="August">Aug</li>
+                                  <li month="9" name="September">Sep</li>
+                                  <li month="10" name="October">Oct</li>
+                                  <li month="11" name="November">Nov</li>
+                                  <li month="12" name="December">Dec</li>
                               </ul>
-                   
+
                           </div>
 
 
@@ -98,10 +98,16 @@
 
 
               <div class="home-hero__content__search-form__cta">
-                  <button class="home-hero__content__search-form__cta__button">
+                  <button type="submit" class="home-hero__content__search-form__cta__button" id="search-button">
                       Search
                   </button>
               </div>
+
+              <input type="hidden" name="action" value="homeSearch">
+              <input type="hidden" name="travel-month" id="travel-month" value="">
+              <input type="hidden" name="travel-year" id="travel-year" value="">
+
+              <input type="hidden" name="travel-destination" id="travel-destination" value="">
           </form>
       </div>
   </div>

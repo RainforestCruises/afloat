@@ -118,6 +118,7 @@ jQuery(document).ready(function ($) {
     const dropdown = document.querySelector('.home-destination-value-list');
     const label = document.querySelector('#chosen-value-label');
     const dropdownArray = [...document.querySelectorAll('.home-destination-value-list li')];
+    let selectedDestination = 0;
 
     for (let i = 0; i < dropdownArray.length; i++) {
         dropdownArray[i].classList.add('closed');
@@ -151,6 +152,7 @@ jQuery(document).ready(function ($) {
     dropdownArray.forEach(item => {
         item.addEventListener('click', () => {
             inputField.value = item.textContent;
+            selectedDestination = item.getAttribute("postId");
             dropdownArray.forEach(dropdown => {
                 dropdown.classList.add('closed');
             });
@@ -200,14 +202,15 @@ jQuery(document).ready(function ($) {
     const dateYearArray = [...document.querySelectorAll('.home-date-values__years__year')];
 
     let selectedYear = moment().year();
-    let selectedMonth = moment().format('MMMM');
+    let selectedMonth = moment().format('M');
+
 
     //Input Field Click
     dateInputField.addEventListener('click', () => {
         if (selectedMonth == "") {
             dateInputField.innerHTML = "Select Date"
         } else {
-            dateInputField.innerHTML = selectedMonth + ", " + selectedYear; //can change here to new placeholder
+            dateInputField.innerHTML = moment(selectedMonth).format('MMMM') + ", " + selectedYear; //can change here to new placeholder
         }
         dateDropdown.classList.add('open');
         dateLabel.classList.add('open');
@@ -217,7 +220,7 @@ jQuery(document).ready(function ($) {
     dateYearArray.forEach(item => {
         item.addEventListener('click', () => {
             selectedYear = item.getAttribute("year");
-            dateInputField.innerHTML = selectedMonth + ", " + selectedYear;
+            dateInputField.innerHTML = moment(selectedMonth).format('MMMM') + ", " + selectedYear;
 
             dateYearArray.forEach(year => {
                 year.classList.remove('selected');
@@ -229,13 +232,13 @@ jQuery(document).ready(function ($) {
     //Month Click - event handler to each LI
     dateDropdownArray.forEach(item => {
         item.addEventListener('click', () => {
-            selectedMonth = item.getAttribute("value"); 
-            dateInputField.innerHTML = selectedMonth + ", " + selectedYear;
+            selectedMonth = item.getAttribute("month"); 
+            dateInputField.innerHTML = moment(selectedMonth).format('MMMM') + ", " + selectedYear;
 
             dateDropdownArray.forEach(month => {
                 month.classList.remove('selected');
             });
-            selectedMonth = item.getAttribute("value");
+            //selectedMonth = item.getAttribute("month");
             item.classList.add('selected');
             closeDropdown();
         });
@@ -255,6 +258,14 @@ jQuery(document).ready(function ($) {
         dateLabel.classList.remove('open');
     }
 
+    const searchButton = document.querySelector('#search-button');
+
+    searchButton.addEventListener('click', () => {
+        $("#travel-destination").val(selectedDestination);
+        $("#travel-month").val(selectedMonth);
+        $("#travel-year").val(selectedYear);
+    
+    });
 
 });
 

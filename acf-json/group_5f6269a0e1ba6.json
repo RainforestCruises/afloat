@@ -147,8 +147,12 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": "",
-            "taxonomy": "",
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:search"
+            ],
             "allow_null": 0,
             "allow_archives": 0,
             "multiple": 0
@@ -171,5 +175,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Destinations - CPT",
-    "modified": 1611680060
+    "modified": 1611776270
 }

@@ -9,6 +9,10 @@ $region = $args['region'];
             <button>Reset</button>
         </div>
         <div class="search-sidebar__controls">
+            <div class="search-control">
+                <span class="search-control__label-text">Travel Dates</span>
+                <input class="search-control__datetimepicker" type="text" name="departure-dates" id="departure-dates" readonly>
+            </div>
             <label class="search-control" for="destination-select">
                 <span class="search-control__label-text">Destination</span>
                 <select class="search-control__select" id="destination-select" name="destination-select">
@@ -31,10 +35,7 @@ $region = $args['region'];
                     } ?>
                 </select>
             </label>
-            <div class="search-control">
-                <span class="search-control__label-text">Travel Dates</span>
-                <input class="search-control__datetimepicker" type="text" name="departure-dates" id="departure-dates" readonly>
-            </div>
+
             <label class="search-control" for="travel-select">
                 <span class="search-control__label-text">Travel Type</span>
                 <select class="search-control__select" id="travel-select" name="travel-select">

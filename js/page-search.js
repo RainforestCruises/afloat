@@ -7,6 +7,12 @@ jQuery(document).ready(function ($) {
   $("#minLength").val('1');
   $("#maxLength").val('14');
 
+  var url_string = window.location.href; //window.location.href
+  var url = new URL(url_string);
+  var startDate = url.searchParams.get("startDate");
+  var endDate = url.searchParams.get("endDate");
+
+
 
   //Length Slider
   $("#range-slider").ionRangeSlider({
@@ -51,12 +57,12 @@ jQuery(document).ready(function ($) {
     $('#search-form').submit();
   });
 
-  
+
   //Location 
   $('#location-select').select2({
     width: '100%',
     minimumResultsForSearch: -1,
-    placeholder: "Select Location",
+    placeholder: "Any",
 
   });
   $('#location-select').on('change', function () {
@@ -68,7 +74,7 @@ jQuery(document).ready(function ($) {
   $('#travel-select').select2({
     width: '100%',
     minimumResultsForSearch: -1,
-    placeholder: "Select Travel Type",
+    placeholder: "Any",
 
   });
   $('#travel-select').on('change', function () {
@@ -77,17 +83,30 @@ jQuery(document).ready(function ($) {
 
   //Date Range Picker
   $(function () {
+
+    if (startDate == null) {
+      startDate = moment().format('YYYY-MM-DD');
+    }
+    if (endDate == null) {
+      endDate = moment().add(1, 'M').format('YYYY-MM-DD');
+    }
+
     $('input[name="departure-dates"]').daterangepicker({
       ignoreReadonly: true,
       focusOnShow: false,
-      startDate: moment(),
-      endDate: moment().add(1, 'M'),
+      startDate: moment(startDate), //set from url
+      endDate: moment(endDate),
+      //endDate: moment().add(1, 'M'),
       locale: {
         format: 'MMM DD, YYYY'
       }
     }, function (start, end) {
       $("#startDate").val(start.format('YYYY-MM-DD'))
       $("#endDate").val(end.format('YYYY-MM-DD'))
+
+      startDate = start.format('YYYY-MM-DD');
+      endDate = end.format('YYYY-MM-DD')
+
       reloadResults();
 
 
@@ -104,6 +123,33 @@ jQuery(document).ready(function ($) {
 
   //SEARCH FUNCTION
   function reloadResults() {
+
+    const params = new URLSearchParams(location.search);
+    if(startDate != null){
+      params.set('startDate', startDate);
+    params.set('endDate', endDate);
+
+    window.history.replaceState({}, '', `${location.pathname}?${params}`);
+    }
+    
+
+    // var url_string = window.location.href; //window.location.href
+    // var url = new URL(url_string);
+    // var search_params = url.searchParams;
+    // console.log(search_params);
+    // // new value of "id" is set to "101"
+    // search_params.set('startDate', '101');
+
+    // // change the search property of the main url
+    // url.search = search_params.toString();
+
+    // // the new url string
+    // var new_url = url.toString();
+
+    // // output : http://demourl.com/path?id=101&topic=main
+    // console.log(new_url);
+    // window.history.pushState('search', new_url);
+
     var searchForm = $('#search-form'); //get form
     $.ajax({
       url: searchForm.attr('action'),
@@ -113,7 +159,7 @@ jQuery(document).ready(function ($) {
         $('#response').html('<div class="search-results__grid__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
       },
       success: function (data) {
-   
+
 
         $('#response').html(data); // insert data
       }
@@ -137,7 +183,7 @@ jQuery(document).ready(function ($) {
 
 
 
-//closing jquery tag
+  //closing jquery tag
 });
 
 

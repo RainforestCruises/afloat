@@ -24,7 +24,7 @@ $args = array(
     <div class="search-intro">
         <ol class="search-intro__breadcrumb">
             <li>
-                <a href="#">Home</a>
+                <a href="<?php echo home_url() ?>">Home</a>
             </li>
             <li>
                 <?php echo $title ?>

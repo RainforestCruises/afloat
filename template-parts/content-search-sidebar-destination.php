@@ -9,6 +9,10 @@ $destination = $args['destination'];
             <button>Reset</button>
         </div>
         <div class="search-sidebar__controls">
+        <div class="search-control">
+                <span class="search-control__label-text">Travel Dates</span>
+                <input class="search-control__datetimepicker" type="text" name="departure-dates" id="departure-dates" readonly>
+            </div>
             <label class="search-control" for="location-select">
                 <span class="search-control__label-text">Location</span>
                 <select class="search-control__select" id="location-select" name="location-select">
@@ -18,7 +22,6 @@ $destination = $args['destination'];
                     console_log($destination->ID);
                     $locations = get_field('locations', $destination);
                     console_log($locations);
-
                     ?>
                     <?php foreach ($locations as $location) { ?>
 
@@ -27,10 +30,7 @@ $destination = $args['destination'];
                     ?>
                 </select>
             </label>
-            <div class="search-control">
-                <span class="search-control__label-text">Travel Dates</span>
-                <input class="search-control__datetimepicker" type="text" name="departure-dates" id="departure-dates" readonly>
-            </div>
+            
             <label class="search-control" for="travel-select">
                 <span class="search-control__label-text">Travel Type</span>
                 <select class="search-control__select" id="travel-select" name="travel-select">
