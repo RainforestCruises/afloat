@@ -5,7 +5,7 @@ return array (
   'title' => 'Regions',
   'type' => 'rfc_regions',
   'id' => '5fdbb49d840f9',
-  'updated' => 1609191517,
+  'updated' => 1611787123,
   'columns' => 
   array (
     'title' => 
@@ -28,6 +28,23 @@ return array (
       'width_unit' => '%',
       'field' => 'field_5fdbae096391e',
       'character_limit' => '20',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+    ),
+    '6011eb7344555' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Default Search Link',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_6011eb1e4c9c8',
+      'post_property_display' => 'title',
+      'post_link_to' => 'edit_post',
       'export' => 'off',
       'sort' => 'on',
       'edit' => 'on',

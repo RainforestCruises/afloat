@@ -37,6 +37,7 @@ if ($sortOrder == 'DESC') {
 }
 
 console_log($results);
+$results = array_slice($results, 0, 12);
 foreach ($results as $result) {
     $featured_image = get_field('featured_image', $result->postObject);
     $cruise_data = get_field('cruise_data', $result->postObject);
@@ -69,16 +70,16 @@ foreach ($results as $result) {
         }
     }
 
-//NOTES
-//loop all to get count 
-//create filtered list
-//use for pagination
+    //NOTES
+    //loop all to get count 
+    //create filtered list
+    //use for pagination
 ?>
 
 
 
     <!-- Result -->
-    <a class="search-result" href="<?php echo get_permalink($result->postObject); ?>" >
+    <a class="search-result" href="<?php echo get_permalink($result->postObject); ?>">
         <div class="search-result__image">
             <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
         </div>

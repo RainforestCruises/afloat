@@ -20,6 +20,29 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_6011eb1e4c9c8",
+            "label": "Default Search Link",
+            "name": "default_search_link",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:search"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
         }
     ],
     "location": [
@@ -39,5 +62,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Regions - CPT",
-    "modified": 1609191500
+    "modified": 1611787102
 }

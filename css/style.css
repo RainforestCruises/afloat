@@ -3669,7 +3669,8 @@ h5 {
 .daterangepicker {
   font-family: "Metropolis", sans-serif; }
   .daterangepicker td {
-    padding: 0.5rem 1rem; }
+    padding: 0.5rem 1rem;
+    min-width: 0 !important; }
     @media only screen and (max-width: 50em) {
       .daterangepicker td {
         padding: 0; } }
