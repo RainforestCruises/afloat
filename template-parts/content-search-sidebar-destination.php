@@ -13,6 +13,16 @@ $destination = $args['destination'];
                 <span class="search-control__label-text">Travel Dates</span>
                 <input class="search-control__datetimepicker" type="text" name="departure-dates" id="departure-dates" readonly>
             </div>
+            <label class="search-control" for="travel-select">
+                <span class="search-control__label-text">Travel Type</span>
+                <select class="search-control__select" id="travel-select" name="travel-select">
+                    <option></option>
+                    <option value="any">Any</option>
+                    <option value="rfc_tours">Tours</option>
+                    <option value="rfc_cruises">Cruises</option>
+                    <option value="rfc_lodges">Lodges</option>
+                </select>
+            </label>
             <label class="search-control" for="location-select">
                 <span class="search-control__label-text">Location</span>
                 <select class="search-control__select" id="location-select" name="location-select">
@@ -31,16 +41,7 @@ $destination = $args['destination'];
                 </select>
             </label>
             
-            <label class="search-control" for="travel-select">
-                <span class="search-control__label-text">Travel Type</span>
-                <select class="search-control__select" id="travel-select" name="travel-select">
-                    <option></option>
-                    <option value="any">Any</option>
-                    <option value="rfc_tours">Tours</option>
-                    <option value="rfc_cruises">Cruises</option>
-                    <option value="rfc_lodges">Lodges</option>
-                </select>
-            </label>
+            
             <div class="search-control">
                 <span class="search-control__label-text">Itinerary Length</span>
                 <input class="search-control__range-slider" type="text" name="range-slider" id="range-slider">
