@@ -4958,9 +4958,10 @@ h5 {
     z-index: 5;
     height: 100%;
     width: 100%;
-    display: grid;
-    grid-template-rows: 1fr min-content;
-    justify-items: center; }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; }
     .home-hero__content__title-group {
       display: grid;
       max-width: 75rem;
@@ -5022,9 +5023,11 @@ h5 {
       width: 100%;
       height: min-content;
       justify-content: space-around;
-      margin-top: 6rem;
-      margin-bottom: 9rem;
+      margin-bottom: 6rem;
       align-self: center; }
+      @media only screen and (max-width: 75em) {
+        .home-hero__content__search-form {
+          margin-bottom: 0rem; } }
       @media only screen and (max-width: 37.5em) {
         .home-hero__content__search-form {
           margin-top: 2rem;

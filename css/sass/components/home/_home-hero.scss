@@ -55,9 +55,14 @@
         height: 100%;
         width: 100%;
 
-        display: grid;
-        grid-template-rows: 1fr min-content;
-        justify-items: center;
+        // display: grid;
+        // grid-template-rows: 1fr min-content;
+        // justify-items: center; 
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
 
         &__title-group {
             display: grid;
@@ -140,13 +145,20 @@
             width: 100%;
             height: min-content;
             justify-content: space-around;
-            margin-top: 6rem;
-            margin-bottom: 9rem;
+            margin-bottom: 6rem;
             align-self: center;
+
+            @media only screen and (max-width: $bp-largest) {
+                margin-bottom: 0rem;
+
+            }
 
             @media only screen and (max-width: $bp-small) {
                 margin-top: 2rem;
                 margin-bottom: 3rem;
+            }
+            @media only screen and (max-width: $bp-xsmall) {
+                //breaks overlay
             }
 
             &__inputs {
