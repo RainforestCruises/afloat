@@ -1,10 +1,12 @@
 <?php
 $intro_image = get_field('intro_image');
 $intro_testimonials = get_field('intro_testimonials');
+console_log($intro_image['ID']);
+$intro_image = image_get_intermediate_size($intro_image['ID'], 'thumbnail' );
 ?>
 <div class="home-intro">
             <div class="home-intro__top">
-                <img class="home-intro__top__img" src="<?php echo esc_url($intro_image['url']); ?>" alt="">
+                <img class="home-intro__top__img" src="<?php  echo esc_url($intro_image['url']); ?>" alt="">
                 <div class="home-intro__top__content">
                     <div class="home-intro__top__content__pretitle">
                         <?php echo get_field('intro_pretitle'); ?>
