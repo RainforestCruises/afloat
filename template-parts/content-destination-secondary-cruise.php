@@ -23,7 +23,10 @@ $tour_experiences = get_field('tour_experiences');
             <div class="destination-main__packages__best-selling__slider" id="main-slider">
                 <?php foreach ($tours as $t) : ?>
                     <?php
-                    $hero_image = get_field('hero_image', $t);
+                     $best_selling = get_field('best_selling', $t);
+
+                     if ($best_selling) :
+                    $hero_image = get_field('best_selling_image', $t);
                     $countries  = get_field('countries', $t);
                     $price_packages = get_field('price_packages', $t);
                     $lowest = lowest_tour_price($price_packages, $currentYear);
@@ -68,7 +71,7 @@ $tour_experiences = get_field('tour_experiences');
                             </div>
                         </div>
                     </a>
-                <?php endforeach; ?>
+                <?php endif; endforeach; ?>
             </div>
         </div>
     </div>

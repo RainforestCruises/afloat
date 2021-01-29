@@ -5,7 +5,7 @@ return array (
   'title' => 'Tours',
   'type' => 'rfc_tours',
   'id' => '5fdce4309e743',
-  'updated' => 1608591542,
+  'updated' => 1611947588,
   'columns' => 
   array (
     'title' => 
@@ -131,6 +131,24 @@ return array (
       'width' => '',
       'width_unit' => '%',
       'field' => 'field_5fcea1da5f0a3',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+    ),
+    '60145e4406664' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Best Selling Image',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_60145dad8a75a',
+      'image_size' => 'cpac-custom',
+      'image_size_w' => '60',
+      'image_size_h' => '60',
       'export' => 'off',
       'sort' => 'on',
       'edit' => 'on',

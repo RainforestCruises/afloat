@@ -127,8 +127,10 @@ console_log($locations);
 
                 <?php foreach ($tours as $t) : ?>
                     <?php
+                    $best_selling = get_field('best_selling', $t);
 
-                    $hero_image = get_field('hero_image', $t);
+                    if ($best_selling) :
+                    $hero_image = get_field('best_selling_image', $t);
                     $countries  = get_field('countries', $t);
                     $price_packages = get_field('price_packages', $t);
                     $lowest = lowest_tour_price($price_packages, $currentYear);
@@ -173,7 +175,7 @@ console_log($locations);
                             </div>
                         </div>
                     </a>
-                <?php endforeach; ?>
+                <?php endif; endforeach; ?>
 
 
 

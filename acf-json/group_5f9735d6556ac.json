@@ -206,6 +206,38 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_60145dad8a75a",
+            "label": "Best Selling Image",
+            "name": "best_selling_image",
+            "type": "image",
+            "instructions": "Featured Image in tours slider (destination template), (800 x 450)",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fcea1da5f0a3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 800,
+            "min_height": 450,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_5f9735d667062",
             "label": "Top Snippet",
             "name": "top_snippet",
@@ -1587,5 +1619,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Tour - CPT",
-    "modified": 1608591440
+    "modified": 1611947885
 }
