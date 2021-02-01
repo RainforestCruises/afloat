@@ -248,7 +248,6 @@
                     background-color: transparent;
                     border: 2px solid $color-gold;
                     text-transform: uppercase;
-                    padding: 1.8rem 3.6rem;
                     font-family: $font-primary;
                     color: $color-white;
                     white-space: nowrap;
@@ -265,11 +264,8 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    // & span {
-                    //     display: none;
-                    // }
+         
                     &:hover {
-                        //border: 2px solid $color-gold;
                         background-color: rgba($color-gold, .95);
                         color: rgba($color-black, 1);
                         font-weight: 600;
