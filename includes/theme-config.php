@@ -13,14 +13,8 @@ function afloat_config()
     add_theme_support('post-thumbnails');
     add_theme_support('post-formats', array('video', 'image'));
     add_theme_support('title-tag');
-    $defaults = array(
-        'height'      => 61,
-        'width'       => 226,
-        'flex-height' => true,
-        'flex-width'  => true,
 
-    );
-    add_theme_support('custom-logo', $defaults);
+    add_theme_support('custom-logo');
 }
 
 add_action('after_setup_theme', 'afloat_config', 0); //last parameter is priority

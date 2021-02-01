@@ -5526,13 +5526,12 @@ h5 {
   background-color: grey;
   display: grid !important;
   margin-bottom: 4rem;
-  height: 36rem;
   text-decoration: none;
   position: relative;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
   @media only screen and (max-width: 37.5em) {
     .home-destination-card {
-      height: 50vh; } }
+      min-height: 50vh; } }
   .home-destination-card img {
     object-fit: cover;
     height: 100%;
@@ -6354,10 +6353,8 @@ h5 {
     .header__main--opaque-nav {
       background-color: rgba(255, 255, 255, 0.9);
       border-bottom: 1px solid rgba(194, 198, 201, 0.9); }
-      .header__main--opaque-nav .header__main__logo-area__logo {
-        opacity: 0; }
-        .header__main--opaque-nav .header__main__logo-area__logo--color {
-          opacity: 1; }
+      .header__main--opaque-nav .header__main__logo-area__logo img {
+        filter: brightness(1) invert(0); }
       .header__main--opaque-nav .header__main__nav__list__item {
         color: #142838; }
         .header__main--opaque-nav .header__main__nav__list__item:hover {
@@ -6372,25 +6369,20 @@ h5 {
       z-index: 5;
       position: relative;
       display: flex;
-      margin-right: 4rem;
-      justify-self: end; }
+      justify-content: flex-end;
+      transform: translateY(2px); }
       @media only screen and (max-width: 50em) {
         .header__main__logo-area {
           justify-self: center;
-          margin-right: 4rem;
           grid-column: center-start / center-end; } }
       .header__main__logo-area__logo {
-        margin-left: 7rem;
-        height: 4.5rem;
-        transition: all 0.4s;
-        z-index: 9;
-        position: absolute; }
-        .header__main__logo-area__logo--color {
-          z-index: 10;
+        width: min-content;
+        margin-right: 4rem;
+        margin-left: 7rem; }
+        .header__main__logo-area__logo img {
           transition: all 0.4s;
-          opacity: 0;
-          height: 4.5rem;
-          margin-left: 7rem; }
+          filter: brightness(0) invert(1);
+          height: 4.5rem; }
     .header__main__nav {
       grid-column: center-start / span 4;
       text-transform: uppercase;

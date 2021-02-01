@@ -100,13 +100,13 @@
     display: grid !important;
 
     margin-bottom: 4rem;
-    height: 36rem;
+    //height: 36rem;
     text-decoration: none;
     position: relative;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 
     @media only screen and (max-width: $bp-small) {
-        height: 50vh;
+        min-height: 50vh;
     }
 
     & img {

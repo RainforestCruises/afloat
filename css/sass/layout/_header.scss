@@ -50,15 +50,14 @@
             border-bottom: 1px solid rgba($color-grey-light-2, 0.9);
 
             & .header__main__logo-area__logo {
-                //transition to dark logo
-                opacity: 0;
-
-                &--color {
-                    opacity: 1;
+                & img {
+                    filter: brightness(1) invert(0);
                 }
             }
 
-            & .header__main__nav {
+            
+
+            & .header__main__nav { 
                 //change links to dark colors
                 &__list {
                     &__item {
@@ -74,7 +73,7 @@
                 &__bar {
                     background-color: $color-primary;
                 }
-            }
+            } 
         }
 
         &--small-nav {
@@ -88,30 +87,27 @@
             z-index: 5;
             position: relative;
             display: flex;
-            margin-right: 4rem;
-            justify-self: end;
+           
+            justify-content: flex-end;
+            transform: translateY(2px); //small vertical adjustment
 
             @media only screen and (max-width: $bp-medium) {
                 justify-self: center;
-                margin-right: 4rem;
                 grid-column: center-start / center-end;
             }
 
             &__logo {
+
+                width: min-content;
+                margin-right: 4rem;
                 margin-left: 7rem;
-                height: 4.5rem;
-
-                transition: all 0.4s;
-                z-index: 9;
-                position: absolute;
-
-                &--color {
-                    z-index: 10;
+     
+                & img {
                     transition: all 0.4s;
-                    opacity: 0;
+                    filter: brightness(0) invert(1);
                     height: 4.5rem;
-                    margin-left: 7rem;
                 }
+
             }
         }
 

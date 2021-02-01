@@ -10,14 +10,20 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class("global"); ?> >
+<body <?php body_class("global"); ?>>
     <!-- Header -->
     <header class="header" id="header">
         <div class="header__main ">
-            <a href="<?php echo get_home_url(); ?>" class="header__main__logo-area">
-                <img src="<?php echo bloginfo('template_url') ?>/css/img/logo/logo-v2-white.png" alt="logo" class="header__main__logo-area__logo" />
-                <img src="<?php echo bloginfo('template_url') ?>/css/img/logo/logo-v2-color.png" alt="logo" class="header__main__logo-area__logo--color" />
-            </a>
+            <div class="header__main__logo-area">
+                <a href="<?php echo get_home_url(); ?>" class="header__main__logo-area__logo">
+                    <?php 
+                    $logo = get_theme_mod( 'custom_logo' );
+                    $image = wp_get_attachment_image_src( $logo , 'full' );
+                    $image_url = $image[0];
+                    ?>
+                    <img src="<?php echo $image_url ?>"  />
+                </a>
+            </div>
 
             <nav class="header__main__nav" id="mega--destinations">
                 <?php wp_nav_menu(array(
