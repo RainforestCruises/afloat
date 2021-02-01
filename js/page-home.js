@@ -113,7 +113,7 @@ jQuery(document).ready(function ($) {
     });
 
 
-    // Destination Select Component
+    //DESTINATION SELECT COMPONENT --------------------------------------------------------------------------------------------
     const inputField = document.querySelector('.home-destination-select');
     const dropdown = document.querySelector('.home-destination-value-list');
     const label = document.querySelector('#chosen-value-label');
@@ -145,6 +145,8 @@ jQuery(document).ready(function ($) {
                 dropdownArray[i].classList.remove('closed');
             }
         }
+
+  
     });
 
 
@@ -168,11 +170,34 @@ jQuery(document).ready(function ($) {
         });
     });
 
+    //leave focus
     inputField.addEventListener('blur', () => {
-
         inputField.placeholder = 'Where would you like to go?';
-        //dropdown.classList.remove('open');
         label.classList.remove('open');
+
+        let ddSuggest = [];
+        dropdownArray.forEach(dropdown => {
+            if(!dropdown.classList.contains('closed')){
+                ddSuggest.push(dropdown);
+            }
+        });
+
+        if(ddSuggest.length == 0){
+            inputField.classList.add('error')
+        } else {
+            inputField.classList.remove('error')
+            //check if matches one
+            let match = false;
+            ddSuggest.forEach(element => {
+                if(element.textContent == inputField.value){
+                    match = true;
+                }
+            });
+            if(!match){
+                inputField.value = ddSuggest[0].textContent;
+                selectedDestination = ddSuggest[0].getAttribute("postId");
+            }    
+        }
     });
 
     document.addEventListener('click', evt => {
@@ -182,19 +207,31 @@ jQuery(document).ready(function ($) {
             dropdown.classList.remove('open');
             label.classList.remove('open');
         }
+        console.log(selectedDestination);
     });
 
+    //Tab press
     $('.home-destination-select').on('keydown', function (e) {
         var keyCode = e.keyCode || e.which;
+        
         if (keyCode == 9) {
-            e.preventDefault(); //prevent default if not blank
-            //choose first / best of list
-            console.log('key');
+            e.preventDefault();
+            dropdown.classList.remove('open');
+            label.classList.remove('open');
+            document.querySelector('#date-select').click();
         }
     });
+    //END DESTINATION SELECT -----------------------------------------------------------------------------------
+    // $(document).on('keydown', function (e) {
+    //     var keyCode = e.keyCode || e.which;     
+    //     if (keyCode == 9) {
+    //         e.preventDefault();
+           
+    //     }
+    // });
 
 
-    //DATE SELECT COMPONENT
+    //DATE SELECT COMPONENT ------------------------------------------------------------------------------------
     const dateInputField = document.querySelector('#date-select');
     const dateDropdown = document.querySelector('#date-values');
     const dateLabel = document.querySelector('#date-label');
@@ -203,11 +240,10 @@ jQuery(document).ready(function ($) {
 
     let selectedYear = moment().format('YYYY');
     let selectedMonth = moment().format('MM');
-
-    let currentMonth = moment().format('MM');
     let currentYear = moment().format('YYYY');
+    let currentMonth = moment().format('MM');
 
-
+    //Dates LI initialize
     //if current year, disable past months, if prox year, remove all disabled -- on first load
     dateDropdownArray.forEach(item => {
         if (selectedYear == currentYear) {
@@ -222,13 +258,7 @@ jQuery(document).ready(function ($) {
 
     //Input Field Click
     dateInputField.addEventListener('click', () => {
-        // if (selectedMonth == "") {
-        //     dateInputField.innerHTML = "Select Date"
-        // } else {
-        //     dateInputField.innerHTML = moment(selectedMonth).format('MMMM') + ", " + selectedYear; //can change here to new placeholder
-        // }
         dateInputField.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear;
-
         dateDropdown.classList.add('open');
         dateLabel.classList.add('open');
         dateInputField.classList.add('open');
@@ -237,24 +267,24 @@ jQuery(document).ready(function ($) {
     //Year Click - event handler to each LI
     dateYearArray.forEach(item => {
         item.addEventListener('click', () => {
-           
+
             selectedYear = item.getAttribute("year");
             //if current year, disable past months, if prox year, remove all disabled -- fires every time year is clicked
             dateDropdownArray.forEach(item => {
                 if (selectedYear == currentYear) {
-                    
+
                     if (item.getAttribute('month') < currentMonth) {
                         item.classList.add('disabled');
                         //if on prox year and selected prev month and went back to prev year, set month selected to current month
-                        if(item.classList.contains('selected')){
+                        if (item.classList.contains('selected')) {
                             item.classList.remove('selected');
                             //find item with current month and apply selected
                             dateDropdownArray.forEach(monthItem => {
-                                if(monthItem.getAttribute('month') == currentMonth){
+                                if (monthItem.getAttribute('month') == currentMonth) {
                                     monthItem.classList.add('selected')
                                     selectedMonth = monthItem.getAttribute("month");
                                 }
-                            })       
+                            })
                         }
                     }
                 } else {
@@ -267,7 +297,7 @@ jQuery(document).ready(function ($) {
             dateYearArray.forEach(year => {
                 year.classList.remove('selected');
             });
-            
+
             item.classList.add('selected')
         });
     })
@@ -303,13 +333,19 @@ jQuery(document).ready(function ($) {
         dateLabel.classList.remove('open');
     }
 
-    const searchButton = document.querySelector('#search-button');
 
-    searchButton.addEventListener('click', () => {
+    const searchButton = document.querySelector('#search-button');
+    searchButton.addEventListener('click', (e) => {
         $("#travel-destination").val(selectedDestination);
         $("#travel-month").val(selectedMonth);
         $("#travel-year").val(selectedYear);
-        searchButton.classList.add('loading');
+        
+        if(selectedDestination == 0){
+            e.preventDefault();
+            inputField.classList.add('error')
+        } else {
+            searchButton.classList.add('loading');
+        }
     });
 
 });

@@ -98,7 +98,7 @@
 
 
               <div class="home-hero__content__search-form__cta">
-                  <button type="submit" class="home-hero__content__search-form__cta__button" id="search-button">
+                  <button type="submit" class="home-hero__content__search-form__cta__button" id="search-button" tabindex="2">
                   <span>Search</span>
                   
                     <div class="lds-ring"><div></div><div></div><div></div><div></div></div>

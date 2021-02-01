@@ -5145,6 +5145,11 @@ h5 {
     color: #fff; }
     .home-destination-select:focus::-webkit-input-placeholder, .home-destination-select.open::-webkit-input-placeholder {
       color: #fff; }
+  .home-destination-select.error {
+    box-shadow: inset 0 -2px 0 #de5c52;
+    color: #fff; }
+    .home-destination-select.error::-webkit-input-placeholder {
+      color: #fff; }
 
 .home-destination-value-list {
   position: absolute;
