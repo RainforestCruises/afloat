@@ -201,30 +201,73 @@ jQuery(document).ready(function ($) {
     const dateDropdownArray = [...document.querySelectorAll('.home-date-values__months li')];
     const dateYearArray = [...document.querySelectorAll('.home-date-values__years__year')];
 
-    let selectedYear = moment().year();
-    let selectedMonth = moment().format('M');
+    let selectedYear = moment().format('YYYY');
+    let selectedMonth = moment().format('MM');
+
+    let currentMonth = moment().format('MM');
+    let currentYear = moment().format('YYYY');
+
+
+    //if current year, disable past months, if prox year, remove all disabled -- on first load
+    dateDropdownArray.forEach(item => {
+        if (selectedYear == currentYear) {
+            if (item.getAttribute('month') < currentMonth) {
+                item.classList.add('disabled');
+            }
+        } else {
+            item.classList.remove('disabled');
+        }
+    })
 
 
     //Input Field Click
     dateInputField.addEventListener('click', () => {
-        if (selectedMonth == "") {
-            dateInputField.innerHTML = "Select Date"
-        } else {
-            dateInputField.innerHTML = moment(selectedMonth).format('MMMM') + ", " + selectedYear; //can change here to new placeholder
-        }
+        // if (selectedMonth == "") {
+        //     dateInputField.innerHTML = "Select Date"
+        // } else {
+        //     dateInputField.innerHTML = moment(selectedMonth).format('MMMM') + ", " + selectedYear; //can change here to new placeholder
+        // }
+        dateInputField.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear;
+
         dateDropdown.classList.add('open');
         dateLabel.classList.add('open');
         dateInputField.classList.add('open');
     });
+
     //Year Click - event handler to each LI
     dateYearArray.forEach(item => {
         item.addEventListener('click', () => {
+           
             selectedYear = item.getAttribute("year");
-            dateInputField.innerHTML = moment(selectedMonth).format('MMMM') + ", " + selectedYear;
+            //if current year, disable past months, if prox year, remove all disabled -- fires every time year is clicked
+            dateDropdownArray.forEach(item => {
+                if (selectedYear == currentYear) {
+                    
+                    if (item.getAttribute('month') < currentMonth) {
+                        item.classList.add('disabled');
+                        //if on prox year and selected prev month and went back to prev year, set month selected to current month
+                        if(item.classList.contains('selected')){
+                            item.classList.remove('selected');
+                            //find item with current month and apply selected
+                            dateDropdownArray.forEach(monthItem => {
+                                if(monthItem.getAttribute('month') == currentMonth){
+                                    monthItem.classList.add('selected')
+                                    selectedMonth = monthItem.getAttribute("month");
+                                }
+                            })       
+                        }
+                    }
+                } else {
+                    item.classList.remove('disabled');
+                }
+            })
+
+            dateInputField.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear;
 
             dateYearArray.forEach(year => {
                 year.classList.remove('selected');
             });
+            
             item.classList.add('selected')
         });
     })
@@ -232,15 +275,17 @@ jQuery(document).ready(function ($) {
     //Month Click - event handler to each LI
     dateDropdownArray.forEach(item => {
         item.addEventListener('click', () => {
-            selectedMonth = item.getAttribute("month"); 
-            dateInputField.innerHTML = moment(selectedMonth).format('MMMM') + ", " + selectedYear;
+            if (!item.classList.contains('disabled')) {
+                selectedMonth = item.getAttribute("month");
+                dateInputField.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear;
 
-            dateDropdownArray.forEach(month => {
-                month.classList.remove('selected');
-            });
-            //selectedMonth = item.getAttribute("month");
-            item.classList.add('selected');
-            closeDropdown();
+                dateDropdownArray.forEach(month => {
+                    month.classList.remove('selected');
+                });
+                item.classList.add('selected');
+                closeDropdown();
+            }
+
         });
     })
 
@@ -264,7 +309,7 @@ jQuery(document).ready(function ($) {
         $("#travel-destination").val(selectedDestination);
         $("#travel-month").val(selectedMonth);
         $("#travel-year").val(selectedYear);
-    
+        searchButton.classList.add('loading');
     });
 
 });

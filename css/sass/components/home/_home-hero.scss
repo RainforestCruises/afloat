@@ -257,8 +257,17 @@
                     font-weight: 500;
 
                     cursor: pointer;
-
+                    height:  6rem;
+                    width: 16rem;
+                    outline: none;
                     transition: all 0.2s;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    // & span {
+                    //     display: none;
+                    // }
                     &:hover {
                         //border: 2px solid $color-gold;
                         background-color: rgba($color-gold, .95);
@@ -270,6 +279,18 @@
                         white-space: normal;
                         line-height: 3rem;
                         font-size: 1.8rem;
+                    }
+
+                    &.loading {
+                        background-color: rgba($color-gold, .95);
+                        cursor: default;
+                        & span {
+                            display: none;
+                        }
+                        & .lds-ring {
+                            display: inline-block;
+                        }
+                        //
                     }
                 }
             }
@@ -285,7 +306,7 @@
     left: 0;
     
 
-    color: rgba($color-white, 0.6);
+    color: rgba($color-white, 0.85);
     font-family: $font-primary;
     letter-spacing: 0.1rem;
     font-size: 2rem;
@@ -300,17 +321,17 @@
     box-sizing: border-box;
 
     &::-webkit-input-placeholder {
-        color: rgba($color-white, 0.8);
+        color: rgba($color-white, 0.85);
     }
 
     &:hover {
-        background-color: rgba($color-black, 0.8);
+        background-color: rgba($color-black, 0.85);
         box-shadow: inset 0 -2px 0 $color-gold;
 
         cursor: pointer;
 
         &::-webkit-input-placeholder {
-            color: rgba($color-white, 0.8);
+            color: rgba($color-white, 0.85);
         }
     }
 
@@ -407,7 +428,7 @@
     left: 0;
     width: 100%;
 
-    color: rgba($color-white, 0.8);
+    color: rgba($color-white, 0.85);
     font-family: $font-primary;
     letter-spacing: 0.1rem;
     font-size: 2rem;
@@ -423,13 +444,13 @@
     box-sizing: border-box;
 
     &:hover {
-        background-color: rgba($color-black, 0.8);
+        background-color: rgba($color-black, 0.85);
         box-shadow: inset 0 -2px 0 $color-gold;
 
         cursor: pointer;
 
         &::-webkit-input-placeholder {
-            color: rgba($color-white, 0.8);
+            color: rgba($color-white, 0.85);
         }
     }
 
@@ -522,10 +543,10 @@
                 }
                 &:hover {
                     background-color: transparent;
-                }
-    
-                
+                }           
             }
+         
+
         }
         
     }
@@ -567,6 +588,19 @@
                 background-color: $color-gold;
                 color: $color-black ;
                 font-weight: 500;
+            }
+
+            &.disabled {
+                //background-color: $color-gold;
+                color: $color-grey-1 ;
+                border: 1px solid $color-grey-1;
+                cursor: default;
+                font-weight: 500;
+                &:hover {
+                    background-color: transparent;
+                    color: $color-grey-1;
+                    //font-weight: 400;
+                }
             }
         }
     }

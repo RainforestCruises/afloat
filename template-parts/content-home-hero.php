@@ -75,15 +75,15 @@
                                   </div>
                               </div>
                               <ul class="home-date-values__months selected">
-                                  <li month="1" name="January" class="selected">Jan</li>
-                                  <li month="2" name="February">Feb</li>
-                                  <li month="3" name="March">Mar</li>
-                                  <li month="4" name="April">Apr</li>
-                                  <li month="5" name="May">May</li>
-                                  <li month="6" name="June">Jun</li>
-                                  <li month="7" name="July">Jul</li>
-                                  <li month="8" name="August">Aug</li>
-                                  <li month="9" name="September">Sep</li>
+                                  <li month="01" name="January" class="">Jan</li>
+                                  <li month="02" name="February" class="selected">Feb</li>
+                                  <li month="03" name="March">Mar</li>
+                                  <li month="04" name="April">Apr</li>
+                                  <li month="05" name="May">May</li>
+                                  <li month="06" name="June">Jun</li>
+                                  <li month="07" name="July">Jul</li>
+                                  <li month="08" name="August">Aug</li>
+                                  <li month="09" name="September">Sep</li>
                                   <li month="10" name="October">Oct</li>
                                   <li month="11" name="November">Nov</li>
                                   <li month="12" name="December">Dec</li>
@@ -99,7 +99,9 @@
 
               <div class="home-hero__content__search-form__cta">
                   <button type="submit" class="home-hero__content__search-form__cta__button" id="search-button">
-                      Search
+                  <span>Search</span>
+                  
+                    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
                   </button>
               </div>
 

@@ -5089,7 +5089,13 @@ h5 {
           letter-spacing: 0.3rem;
           font-weight: 500;
           cursor: pointer;
-          transition: all 0.2s; }
+          height: 6rem;
+          width: 16rem;
+          outline: none;
+          transition: all 0.2s;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
           .home-hero__content__search-form__cta__button:hover {
             background-color: rgba(217, 164, 2, 0.95);
             color: #1e1e1e;
@@ -5099,12 +5105,19 @@ h5 {
               white-space: normal;
               line-height: 3rem;
               font-size: 1.8rem; } }
+          .home-hero__content__search-form__cta__button.loading {
+            background-color: rgba(217, 164, 2, 0.95);
+            cursor: default; }
+            .home-hero__content__search-form__cta__button.loading span {
+              display: none; }
+            .home-hero__content__search-form__cta__button.loading .lds-ring {
+              display: inline-block; }
 
 .home-destination-select {
   position: absolute;
   top: 2rem;
   left: 0;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.85);
   font-family: "Metropolis", sans-serif;
   letter-spacing: 0.1rem;
   font-size: 2rem;
@@ -5117,13 +5130,13 @@ h5 {
   width: 32rem;
   box-sizing: border-box; }
   .home-destination-select::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.8); }
+    color: rgba(255, 255, 255, 0.85); }
   .home-destination-select:hover {
-    background-color: rgba(30, 30, 30, 0.8);
+    background-color: rgba(30, 30, 30, 0.85);
     box-shadow: inset 0 -2px 0 #d9a402;
     cursor: pointer; }
     .home-destination-select:hover::-webkit-input-placeholder {
-      color: rgba(255, 255, 255, 0.8); }
+      color: rgba(255, 255, 255, 0.85); }
   .home-destination-select:focus, .home-destination-select.open {
     box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
     outline: 0;
@@ -5191,7 +5204,7 @@ h5 {
   top: 2rem;
   left: 0;
   width: 100%;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   font-family: "Metropolis", sans-serif;
   letter-spacing: 0.1rem;
   font-size: 2rem;
@@ -5205,11 +5218,11 @@ h5 {
   align-items: center;
   box-sizing: border-box; }
   .home-date-select:hover {
-    background-color: rgba(30, 30, 30, 0.8);
+    background-color: rgba(30, 30, 30, 0.85);
     box-shadow: inset 0 -2px 0 #d9a402;
     cursor: pointer; }
     .home-date-select:hover::-webkit-input-placeholder {
-      color: rgba(255, 255, 255, 0.8); }
+      color: rgba(255, 255, 255, 0.85); }
   .home-date-select.open {
     box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
     outline: 0;
@@ -5305,6 +5318,14 @@ h5 {
         background-color: #d9a402;
         color: #1e1e1e;
         font-weight: 500; }
+      .home-date-values__months li.disabled {
+        color: #9ea0a4;
+        border: 1px solid #9ea0a4;
+        cursor: default;
+        font-weight: 500; }
+        .home-date-values__months li.disabled:hover {
+          background-color: transparent;
+          color: #9ea0a4; }
 
 .home-intro {
   margin-top: 14rem;
@@ -6259,6 +6280,39 @@ h5 {
   animation: lds-dual-ring 1.2s linear infinite; }
 
 @keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.lds-ring {
+  display: none;
+  position: relative;
+  width: 4rem;
+  height: 4rem; }
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  margin: 4px;
+  border: 3px solid #1e1e1e;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #1e1e1e transparent transparent transparent; }
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s; }
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s; }
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s; }
+
+@keyframes lds-ring {
   0% {
     transform: rotate(0deg); }
   100% {
