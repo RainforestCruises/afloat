@@ -216,8 +216,7 @@ jQuery(document).ready(function ($) {
         
         if (keyCode == 9) {
             e.preventDefault();
-            dropdown.classList.remove('open');
-            label.classList.remove('open');
+            document.activeElement.blur();
             document.querySelector('#date-select').click();
         }
     });
