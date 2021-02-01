@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function afloat_config()
 {
@@ -13,6 +13,14 @@ function afloat_config()
     add_theme_support('post-thumbnails');
     add_theme_support('post-formats', array('video', 'image'));
     add_theme_support('title-tag');
+    $defaults = array(
+        'height'      => 61,
+        'width'       => 226,
+        'flex-height' => true,
+        'flex-width'  => true,
+
+    );
+    add_theme_support('custom-logo', $defaults);
 }
 
 add_action('after_setup_theme', 'afloat_config', 0); //last parameter is priority
@@ -28,57 +36,64 @@ add_filter('excerpt_length', 'custom_excerpt_length', 999);
 //custom image size for blog thumbnails
 add_image_size('blog-image-crop', 510, 414, true);
 
-function add_page_categories() {  
+function add_page_categories()
+{
     // Add tag metabox to page
-   // register_taxonomy_for_object_type('post_tag', 'page'); 
+    // register_taxonomy_for_object_type('post_tag', 'page'); 
     // Add category metabox to page
-    register_taxonomy_for_object_type('category', 'page');  
+    register_taxonomy_for_object_type('category', 'page');
 }
- // Add to the admin_init hook of your theme functions.php file 
-add_action( 'init', 'add_page_categories' );
+// Add to the admin_init hook of your theme functions.php file 
+add_action('init', 'add_page_categories');
 
 
 
 
 //REMOVE DEFAULT BLOG TYPE ------------
 // Remove side menu
-add_action( 'admin_menu', 'remove_default_post_type' );
+add_action('admin_menu', 'remove_default_post_type');
 
-function remove_default_post_type() {
-    remove_menu_page( 'edit.php' );
+function remove_default_post_type()
+{
+    remove_menu_page('edit.php');
 }
 
 // Remove +New post in top Admin Menu Bar
-add_action( 'admin_bar_menu', 'remove_default_post_type_menu_bar', 999 );
+add_action('admin_bar_menu', 'remove_default_post_type_menu_bar', 999);
 
-function remove_default_post_type_menu_bar( $wp_admin_bar ) {
-    $wp_admin_bar->remove_node( 'new-post' );
+function remove_default_post_type_menu_bar($wp_admin_bar)
+{
+    $wp_admin_bar->remove_node('new-post');
 }
 
 // Remove Quick Draft Dashboard Widget
-add_action( 'wp_dashboard_setup', 'remove_draft_widget', 999 );
+add_action('wp_dashboard_setup', 'remove_draft_widget', 999);
 
-function remove_draft_widget(){
-    remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+function remove_draft_widget()
+{
+    remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
 }
 
 
 //REMOVE COMMENTS ------------------------------
 // Removes from admin menu
-add_action( 'admin_menu', 'my_remove_admin_menus' );
-function my_remove_admin_menus() {
-    remove_menu_page( 'edit-comments.php' );
+add_action('admin_menu', 'my_remove_admin_menus');
+function my_remove_admin_menus()
+{
+    remove_menu_page('edit-comments.php');
 }
 // Removes from post and pages
 add_action('init', 'remove_comment_support', 100);
 
-function remove_comment_support() {
-    remove_post_type_support( 'post', 'comments' );
-    remove_post_type_support( 'page', 'comments' );
+function remove_comment_support()
+{
+    remove_post_type_support('post', 'comments');
+    remove_post_type_support('page', 'comments');
 }
 // Removes from admin bar
-function mytheme_admin_bar_render() {
+function mytheme_admin_bar_render()
+{
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('comments');
 }
-add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
+add_action('wp_before_admin_bar_render', 'mytheme_admin_bar_render');

@@ -207,7 +207,6 @@ jQuery(document).ready(function ($) {
             dropdown.classList.remove('open');
             label.classList.remove('open');
         }
-        console.log(selectedDestination);
     });
 
     //Tab press

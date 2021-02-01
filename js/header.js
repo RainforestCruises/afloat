@@ -26,7 +26,7 @@ jQuery(document).ready(function ($) {
   window.addEventListener('scroll', fixNav);
 
   //Header Main -- Hover
-  if (!$("body").hasClass("page-template-template-search-region") && !$("body").hasClass("page-template-template-search-destination")  && !$("body").hasClass("single-rfc_travel_guides")  && !$("body").hasClass("page-template-template-travel-guide")) {
+  if (!$("body").hasClass("page-template-template-search-region") && !$("body").hasClass("page-template-template-search-destination") && !$("body").hasClass("single-rfc_travel_guides") && !$("body").hasClass("page-template-template-travel-guide")) {
     $('.header__main').hover(
       function () { $('.header__main').addClass('header__main--opaque-nav'); },
       function () {
@@ -48,8 +48,10 @@ jQuery(document).ready(function ($) {
   }
 
 
-
-
+  //remove mega when mouse out of window
+  $(document).mouseleave(function () {
+    $('.nav-mega').removeClass('nav-mega--active');
+  });
 
   //MEGA
   //--hover behavior
@@ -77,7 +79,7 @@ jQuery(document).ready(function ($) {
   //main link -expand mega
   $('#mega--destinations').hover(
     function () {
-      //$('.nav-mega').addClass('nav-mega--active'); 
+      $('.nav-mega').addClass('nav-mega--active');
     },
   );
 
