@@ -2,7 +2,7 @@
 
 $cruises = $args['cruises'];
 $currentYear = date("Y");
-
+console_log($cruises);
 ?>
 
 
