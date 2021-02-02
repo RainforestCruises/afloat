@@ -6403,8 +6403,7 @@ h5 {
         list-style: none;
         height: 100%;
         align-items: center; }
-        .header__main__nav__list__item a:link,
-        .header__main__nav__list__item a:visited {
+        .header__main__nav__list__item span {
           color: currentColor;
           display: flex;
           height: 100%;
@@ -6414,8 +6413,7 @@ h5 {
           transition: all 0.4s;
           text-decoration: none;
           padding-right: 4rem; }
-        .header__main__nav__list__item a:hover,
-        .header__main__nav__list__item a:active {
+        .header__main__nav__list__item span:hover {
           color: #40739c;
           padding-right: 4rem; }
   .header__collapse {

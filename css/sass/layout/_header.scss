@@ -137,8 +137,8 @@
 
                 &__item {
 
-                    & a:link,
-                    a:visited {
+
+                    & span {
                         color: currentColor;
                         display: flex;
                         height: 100%;
@@ -152,11 +152,32 @@
                     }
                    
 
-                    & a:hover,
-                    a:active {
+                    & span:hover
+                    {
                         color: $color-supporting-light;
                         padding-right: 4rem;
                     }
+
+                    // & a:link,
+                    // a:visited {
+                    //     color: currentColor;
+                    //     display: flex;
+                    //     height: 100%;
+                    //     align-items: center;
+                    //     height: 100%;
+                    //     cursor: pointer;
+                    //     transition: all 0.4s;
+    
+                    //     text-decoration: none;
+                    //     padding-right: 4rem;
+                    // }
+                   
+
+                    // & a:hover,
+                    // a:active {
+                    //     color: $color-supporting-light;
+                    //     padding-right: 4rem;
+                    // }
                 }
             }
         }

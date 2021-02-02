@@ -93,7 +93,7 @@ console_log($menu_destination_groups);
                 <div class="header__main__nav__list">
                     <?php foreach ($menu_toplevel as $toplevelItem) : ?>
                         <li class="header__main__nav__list__item">
-                            <a href="<?php echo $toplevelItem->url ?>" class="nav-link"><?php echo $toplevelItem->title ?></a>
+                            <span class="nav-link"><?php echo $toplevelItem->title ?></span>
                         </li>
                     <?php endforeach; ?>
                 </div>
@@ -111,11 +111,7 @@ console_log($menu_destination_groups);
             <!-- Destinations -->
             <div class="nav-mega__nav">
                 <?php foreach ($menu_destination_groups as $destination_group) : ?>
-                    <!-- <li class="header__main__nav__list__item">
-                        <a href="<?php echo $toplevelItem->url ?>" class="nav-link"><?php echo $toplevelItem->title ?></a>
-                    </li> -->
-
-                    <div class="nav-mega__nav__sub-group">
+                      <div class="nav-mega__nav__sub-group">
                         <div class="nav-mega__nav__sub-group__title"><?php echo $destination_group['title'] ?></div>
                         <ul class="nav-mega__nav__sub-group__list">
                             <?php $destinationsArray = $destination_group['destinations']; ?>
@@ -124,7 +120,6 @@ console_log($menu_destination_groups);
                                     <a href="<?php echo $destinationMenuItem['url'] ?>" class="nav-mega__nav__sub-group__link"><?php echo $destinationMenuItem['title'] ?></a>
                                 </li>
                             <?php endforeach; ?>
-
                         </ul>
                     </div>
                 <?php endforeach; ?>
