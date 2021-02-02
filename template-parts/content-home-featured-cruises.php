@@ -1,15 +1,16 @@
 <?php
 $featured_cruise_destinations = get_field('featured');
+$featured_cruise_subtext = get_field('featured_title_subtext');
 
 ?>
 
 <div class="home-featured">
     <div class="home-featured__header">
         <div class="home-featured__header__title page-divider">
-            Featured Cruises
+            Expedition Cruises
         </div>
         <div class="home-featured__header__sub-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aperiam nostrum eum excepturi et quas neque soluta iusto quae, eligendi cumque dicta dolore sed reprehenderit iure ex, blanditiis nesciunt eos.
+            <?php echo $featured_cruise_subtext ?>
         </div>
     </div>
     <div class="home-featured__content-area">
@@ -20,6 +21,7 @@ $featured_cruise_destinations = get_field('featured');
                     $c_snippet = $c['snippet'];
                     $c_title = $c['title'];
                     $c_image = $c['image'];
+                    $c_linktext = $c['link_text'];
             ?>
                     <!-- Cruise Item -->
                     <div class="home-featured-item">
@@ -31,7 +33,7 @@ $featured_cruise_destinations = get_field('featured');
                                 <?php echo $c_snippet ?>
                             </div>
                             <div class="home-featured-item__content__cta">
-                                <a href="<?php echo $cruise_page ?>" class="goto-button goto-button--dark">Learn More
+                                <a href="<?php echo $cruise_page ?>" class="goto-button goto-button--dark"><?php echo $c_linktext ?>
                                     <svg>
                                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
                                     </svg>

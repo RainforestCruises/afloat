@@ -7,13 +7,14 @@
         'posts_per_page' => -1
     );
 
-    $destinations = get_posts($queryArgs);
-    console_log($posts);
+    $destinations = get_posts($queryArgs);   
+    $hero_image = get_field('hero_image');
+
     ?>
 
   <!--  Hero -->
   <div class="home-hero">
-      <img src="<?php echo bloginfo('template_url') ?>/css/img/test-images/peru-01.jpg" alt="" class="home-hero__bg">
+      <img src="<?php echo esc_url($hero_image['url']); ?>" alt="" class="home-hero__bg">
       <div class="home-hero__content">
           <div class="home-hero__content__title-group">
               <div class="home-hero__content__title-group__title">
