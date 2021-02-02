@@ -26,8 +26,10 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
         }
       
         $lowestPrice = min($prices);
+        //console_log('has_itinerary');
     } else {
         $lowestPrice = 0;
+        //console_log('no_itinerary');
     }
 
 
