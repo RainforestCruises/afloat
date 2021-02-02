@@ -17,7 +17,6 @@ $locations = get_nav_menu_locations();
 $menu = wp_get_nav_menu_object($locations[$menu_name]);
 $menuitems = wp_get_nav_menu_items($menu->term_id);
 
-console_log($menuitems);
 
 $menu_toplevel = [];
 $menu_destination_groups = [];
@@ -68,9 +67,6 @@ foreach ($menuitems as $m) {
         }
     }
 }
-console_log($menu_toplevel);
-console_log($menu_destination_groups);
-
 
 ?>
 

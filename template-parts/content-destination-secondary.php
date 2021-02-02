@@ -2,7 +2,12 @@
 
 $cruises = $args['cruises'];
 $currentYear = date("Y");
-console_log($cruises);
+
+foreach($cruises as $xx){
+    $test = get_field('cruise_data', $xx);
+    console_log($test);
+
+}
 ?>
 
 
