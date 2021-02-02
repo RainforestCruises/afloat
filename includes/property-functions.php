@@ -4,7 +4,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
 {
 
     $prices = [];
-
+    $prices[] = 0;
     $itineraries = $cruise_data['Itineraries'];
     if(count($itineraries) > 0){
         foreach ($itineraries as $i) {
