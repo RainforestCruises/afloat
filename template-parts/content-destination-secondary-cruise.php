@@ -49,12 +49,14 @@ $tour_experiences = get_field('tour_experiences');
                             </div>
                             <div class="tours-card__content__text-area">
                                 <div class="tours-card__content__text-area__country">
-                                    <?php foreach ($countries as $c) : ?>
+                                <?php foreach ($countries as $c) : 
+                                        $isCountry = get_field('is_country', $c);
+                                        if($isCountry) : ?>
                                         <li>
                                             <?php echo get_the_title($c); ?>
                                         </li>
 
-                                    <?php endforeach; ?>
+                                    <?php endif; endforeach; ?>
                                 </div>
                                 <div class="tours-card__content__text-area__title">
                                     <?php echo get_field('tour_name', $t) ?>
