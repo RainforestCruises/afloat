@@ -6,7 +6,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
     $prices = [];
 
     $itineraries = $cruise_data['Itineraries'];
-    if($itineraries){
+    if(count($itineraries) > 0){
         foreach ($itineraries as $i) {
             if ($i['LengthInDays'] >= $fromLength) {
                 $rateYears = $i['RateYears'];
@@ -43,7 +43,7 @@ function itineraryRange($cruise_data, $separator)
     $itineraries = $cruise_data['Itineraries'];
     $itineraryValues  = [];
 
-    if($itineraries){
+    if(count($itineraries) > 0){
         foreach ($itineraries as $i) {
             $itineraryValues[] = $i['LengthInDays'];
         }
