@@ -27,7 +27,7 @@ $tour_experiences = get_field('tour_experiences');
 
                      if ($best_selling) :
                     $hero_image = get_field('best_selling_image', $t);
-                    $countries  = get_field('countries', $t);
+                    $countries  = get_field('destinations', $t);
                     $price_packages = get_field('price_packages', $t);
                     $lowest = lowest_tour_price($price_packages, $currentYear);
 
