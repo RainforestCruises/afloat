@@ -7,8 +7,10 @@
         'posts_per_page' => -1
     );
 
-    $destinations = get_posts($queryArgs);   
+    $destinations = get_posts($queryArgs);
     $hero_image = get_field('hero_image');
+    $hero_title = get_field('hero_title');
+    $hero_subtitle = get_field('hero_subtitle');
 
     ?>
 
@@ -18,7 +20,7 @@
       <div class="home-hero__content">
           <div class="home-hero__content__title-group">
               <div class="home-hero__content__title-group__title">
-                  An Experience Far From Ordinary
+                  <?php echo $hero_title ?>
               </div>
               <div class="home-hero__content__title-group__divider">
                   <svg>
@@ -26,7 +28,7 @@
                   </svg>
               </div>
               <div class="home-hero__content__title-group__subtitle">
-                  Tailor Made Adventure Travel
+                  <?php echo $hero_subtitle ?>
               </div>
           </div>
 
@@ -100,9 +102,14 @@
 
               <div class="home-hero__content__search-form__cta">
                   <button type="submit" class="home-hero__content__search-form__cta__button" id="search-button" tabindex="2">
-                  <span>Search</span>
-                  
-                    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                      <span>Search</span>
+
+                      <div class="lds-ring">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                      </div>
                   </button>
               </div>
 

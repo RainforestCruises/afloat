@@ -43,6 +43,44 @@
             "mime_types": ""
         },
         {
+            "key": "field_6019bad5aa9e6",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "type": "text",
+            "instructions": "Main tagline",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6019baf7aa9e7",
+            "label": "Hero Subtitle",
+            "name": "hero_subtitle",
+            "type": "text",
+            "instructions": "Sub text under main tagline",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_6001c6d3ed1d9",
             "label": "Intro Image",
             "name": "intro_image",
@@ -986,5 +1024,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Home Page",
-    "modified": 1612297375
+    "modified": 1612299053
 }
