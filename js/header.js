@@ -26,11 +26,13 @@ jQuery(document).ready(function ($) {
   window.addEventListener('scroll', fixNav);
 
   //Header Main -- Hover
+  //Make navbar white on hover - add class: header__main--opaque-nav
   if (!$("body").hasClass("page-template-template-search-region") && !$("body").hasClass("page-template-template-search-destination") && !$("body").hasClass("single-rfc_travel_guides") && !$("body").hasClass("page-template-template-travel-guide")) {
     $('.header__main').hover(
-      function () { $('.header__main').addClass('header__main--opaque-nav'); },
       function () {
-
+        $('.header__main').addClass('header__main--opaque-nav');
+      },
+      function () {
         //if not small and mega active
         if ($('.header__main').hasClass('header__main--small-nav') != true) {
 

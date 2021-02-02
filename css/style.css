@@ -5490,7 +5490,8 @@ h5 {
     display: flex;
     justify-content: center;
     margin: 0 10rem;
-    margin-bottom: 6rem; }
+    margin-bottom: 6rem;
+    height: min-content; }
     @media only screen and (max-width: 37.5em) {
       .home-destinations__destinations-area {
         margin: 0;
@@ -5526,6 +5527,7 @@ h5 {
   background-color: grey;
   display: grid !important;
   margin-bottom: 4rem;
+  height: 100%;
   text-decoration: none;
   position: relative;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
@@ -6522,7 +6524,7 @@ h5 {
       position: relative; }
       .nav-mega__nav__sub-group:not(:last-child) {
         margin-right: 6rem; }
-      .nav-mega__nav__sub-group__title:link, .nav-mega__nav__sub-group__title:visited {
+      .nav-mega__nav__sub-group__title {
         color: #142838;
         text-decoration: none;
         font-weight: 600;
@@ -6531,12 +6533,6 @@ h5 {
         letter-spacing: 0.3rem;
         position: relative;
         transition: all 0.2s; }
-      .nav-mega__nav__sub-group__title:hover, .nav-mega__nav__sub-group__title:active {
-        color: #40739c;
-        position: relative; }
-        .nav-mega__nav__sub-group__title:hover::after, .nav-mega__nav__sub-group__title:active::after {
-          opacity: 1;
-          width: 100%; }
       .nav-mega__nav__sub-group__list {
         margin-top: 0.75rem;
         list-style: none;

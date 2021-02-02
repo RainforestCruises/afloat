@@ -36,54 +36,7 @@ $destinations = get_field('destinations');
                     <?php endforeach;
                     endif; ?>
 
-                    <div class="home-destination-card">
-                        <h3>2</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>3</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>4</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>5</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>6</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>7</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>8</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>9</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>10</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>11</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>12</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>13</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>14</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>15</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>16</h3>
-                    </div>
-                    <div class="home-destination-card">
-                        <h3>17</h3>
-                    </div>
+                
 
 
                 </div>
