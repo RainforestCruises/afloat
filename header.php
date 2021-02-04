@@ -163,8 +163,6 @@ console_log($menu_experiences);
                 <?php endforeach; ?>
             </div>
             <div class="nav-mega__nav nav-mega__nav--experiences">
-
-
                 <?php foreach ($menu_experiences as $experiencesItem) : ?>
                     <a href="<?php echo $experiencesItem['url'] ?>" class="nav-mega__nav__link"><?php echo $experiencesItem['title'] ?></a>
                 <?php endforeach; ?>

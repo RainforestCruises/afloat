@@ -6395,7 +6395,8 @@ h5 {
         .header__main__logo-area__logo img {
           transition: all 0.4s;
           filter: brightness(0) invert(1);
-          height: 4.5rem; }
+          height: 4.5rem;
+          width: 16.5rem; }
     .header__main__nav {
       display: flex;
       width: 100%;
@@ -6526,10 +6527,9 @@ h5 {
   z-index: 18;
   grid-row: 2 / span 1;
   grid-column: 1 / -1;
-  display: flex;
+  display: none;
   width: 100%;
   justify-content: center;
-  padding: 0 6rem;
   background-color: rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
@@ -6544,7 +6544,6 @@ h5 {
     opacity: 1; }
   .nav-mega__nav {
     display: flex;
-    display: flex;
     width: 100%;
     max-width: 92rem;
     justify-content: space-between;
@@ -6558,7 +6557,7 @@ h5 {
       text-decoration: none;
       color: currentColor;
       width: 100%;
-      margin: 3rem 0;
+      margin: 2rem 0;
       text-align: center;
       position: relative; }
       .nav-mega__nav__link:hover {
