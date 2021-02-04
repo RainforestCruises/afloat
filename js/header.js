@@ -83,19 +83,18 @@ jQuery(document).ready(function ($) {
     function () {
       var navelement = this.getAttribute("navelement");
       $('.nav-mega').addClass('nav-mega--active');
-      console.log(navelement)
 
       if(navelement == "Destinations"){
         $('.nav-mega__nav--experiences').hide();
-        $('.nav-mega__nav--destinations').show();
+        $('.nav-mega__nav--destinations').fadeIn(200);
 
       }else if (navelement == "Experiences"){
         $('.nav-mega__nav--destinations').hide();
-        $('.nav-mega__nav--experiences').show();
+        $('.nav-mega__nav--experiences').fadeIn(200);
       }
       else {
         $('.nav-mega__nav--destinations').hide();
-        $('.nav-mega__nav--experiences').hide();
+        $('.nav-mega__nav--experiences').fadeIn(200);
       }
     },
   );

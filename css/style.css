@@ -6538,9 +6538,10 @@ h5 {
   -webkit-box-sizing: border-box;
   border-bottom: 1px solid rgba(194, 198, 201, 0.9);
   transition: all 0.5s;
-  opacity: 1; }
+  opacity: 0; }
   .nav-mega--active {
     display: flex;
+    animation: fadein 0.3s;
     opacity: 1; }
   .nav-mega__nav {
     display: flex;
