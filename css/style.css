@@ -6403,19 +6403,20 @@ h5 {
         list-style: none;
         height: 100%;
         align-items: center; }
-        .header__main__nav__list__item span {
-          color: currentColor;
-          display: flex;
-          height: 100%;
-          align-items: center;
-          height: 100%;
-          cursor: pointer;
-          transition: all 0.4s;
-          text-decoration: none;
-          padding-right: 4rem; }
-        .header__main__nav__list__item span:hover {
-          color: #40739c;
-          padding-right: 4rem; }
+        .header__main__nav__list__item {
+          height: 100%; }
+          .header__main__nav__list__item__link {
+            color: currentColor;
+            display: flex;
+            height: 100%;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-decoration: none;
+            padding-right: 4rem; }
+          .header__main__nav__list__item__link:hover {
+            color: #40739c;
+            padding-right: 4rem; }
   .header__collapse {
     grid-column: 1 / -1;
     background-color: rgba(255, 255, 255, 0.9);
@@ -6546,6 +6547,20 @@ h5 {
         transition: all 0.2s; }
       .nav-mega__nav__sub-group__link:hover, .nav-mega__nav__sub-group__link:active {
         font-weight: 500;
+        color: #40739c; }
+    .nav-mega__nav__sub-link {
+      height: 100%;
+      color: #142838;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.32rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+      display: inline-block;
+      position: relative;
+      transition: all 0.2s;
+      cursor: pointer; }
+      .nav-mega__nav__sub-link:hover {
         color: #40739c; }
 
 .burger-menu {

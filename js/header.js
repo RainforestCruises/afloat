@@ -79,9 +79,30 @@ jQuery(document).ready(function ($) {
   )
 
   //main link -expand mega
-  $('#mega--destinations').hover(
+  $('.header__main__nav__list__item__link.mega').hover(
     function () {
+      var navelement = this.getAttribute("navelement");
       $('.nav-mega').addClass('nav-mega--active');
+      console.log(navelement)
+
+      if(navelement == "Destinations"){
+        $('.nav-mega__nav--experiences').hide();
+        $('.nav-mega__nav--destinations').show();
+
+      }else if (navelement == "Experiences"){
+        $('.nav-mega__nav--destinations').hide();
+        $('.nav-mega__nav--experiences').show();
+      }
+      else {
+        $('.nav-mega__nav--destinations').hide();
+        $('.nav-mega__nav--experiences').hide();
+      }
+    },
+  );
+  $('.header__main__nav__list__item__link.no-mega').hover(
+    function () {
+      $('.nav-mega').removeClass('nav-mega--active');
+
     },
   );
 

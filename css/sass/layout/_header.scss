@@ -8,7 +8,6 @@
     display: grid;
     grid-template-columns: $page-container;
     user-select: none;
-   
 
     &__main {
         display: grid;
@@ -44,7 +43,6 @@
             backdrop-filter: blur(0);
         }
 
-
         &--opaque-nav {
             background-color: rgba($color-white, 0.9); //make background opaque
             border-bottom: 1px solid rgba($color-grey-light-2, 0.9);
@@ -55,9 +53,7 @@
                 }
             }
 
-            
-
-            & .header__main__nav { 
+            & .header__main__nav {
                 //change links to dark colors
                 &__list {
                     &__item {
@@ -73,7 +69,7 @@
                 &__bar {
                     background-color: $color-primary;
                 }
-            } 
+            }
         }
 
         &--small-nav {
@@ -87,7 +83,7 @@
             z-index: 5;
             position: relative;
             display: flex;
-           
+
             justify-content: flex-end;
             transform: translateY(2px); //small vertical adjustment
 
@@ -97,20 +93,17 @@
             }
 
             &__logo {
-
                 width: min-content;
                 margin-right: 4rem;
                 margin-left: 7rem;
-     
+
                 & img {
                     transition: all 0.4s;
                     filter: brightness(0) invert(1);
                     height: 4.5rem;
                 }
-
             }
         }
-
 
         //Level 1 nav
         &__nav {
@@ -136,24 +129,20 @@
                 align-items: center;
 
                 &__item {
-
-
-                    & span {
+                    height: 100%;
+                    &__link {
                         color: currentColor;
                         display: flex;
                         height: 100%;
                         align-items: center;
-                        height: 100%;
                         cursor: pointer;
                         transition: all 0.4s;
-    
+
                         text-decoration: none;
                         padding-right: 4rem;
                     }
-                   
 
-                    & span:hover
-                    {
+                    &__link:hover {
                         color: $color-supporting-light;
                         padding-right: 4rem;
                     }
@@ -167,11 +156,10 @@
                     //     height: 100%;
                     //     cursor: pointer;
                     //     transition: all 0.4s;
-    
+
                     //     text-decoration: none;
                     //     padding-right: 4rem;
                     // }
-                   
 
                     // & a:hover,
                     // a:active {
@@ -192,8 +180,6 @@
         display: none; //toggle active (js)
         justify-items: center;
 
-       
-
         &--active {
             display: grid;
             position: relative;
@@ -208,7 +194,6 @@
                 left: 0;
                 z-index: 40;
             }
-           
         }
 
         //main link title
@@ -356,8 +341,6 @@
                 transition: all 0.2s;
             }
 
-        
-
             &__list {
                 margin-top: 0.75rem;
                 list-style: none;
@@ -385,6 +368,26 @@
             &__link:active {
                 font-weight: 500;
 
+                color: $color-supporting-light;
+            }
+        }
+
+        &__sub-link {
+            height: 100%;
+
+            color: $color-primary;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.32rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            display: inline-block;
+
+            position: relative;
+            transition: all 0.2s;
+            cursor: pointer;
+
+            &:hover {
                 color: $color-supporting-light;
             }
         }

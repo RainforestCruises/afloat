@@ -85,11 +85,14 @@ foreach ($menuitems as $m) {
                 </a>
             </div>
 
-            <nav class="header__main__nav" id="mega--destinations">
+            <nav class="header__main__nav">
                 <div class="header__main__nav__list">
-                    <?php foreach ($menu_toplevel as $toplevelItem) : ?>
-                        <li class="header__main__nav__list__item">
-                            <span class="nav-link"><?php echo $toplevelItem->title ?></span>
+                    <?php
+                    foreach ($menu_toplevel as $toplevelItem) :
+                        $megaClass = ($toplevelItem->title == 'Destinations' || $toplevelItem->title == 'Experiences') ? 'mega' : 'no-mega';
+                    ?>
+                        <li class="header__main__nav__list__item" >
+                            <span class="header__main__nav__list__item__link <?php echo $megaClass ?>" navelement="<?php echo $toplevelItem->title ?>"><?php echo $toplevelItem->title ?></span>
                         </li>
                     <?php endforeach; ?>
                 </div>
@@ -105,9 +108,9 @@ foreach ($menuitems as $m) {
         <!-- Mega desktop -->
         <div class="nav-mega">
             <!-- Destinations -->
-            <div class="nav-mega__nav">
+            <div class="nav-mega__nav nav-mega__nav--destinations">
                 <?php foreach ($menu_destination_groups as $destination_group) : ?>
-                      <div class="nav-mega__nav__sub-group">
+                    <div class="nav-mega__nav__sub-group">
                         <div class="nav-mega__nav__sub-group__title"><?php echo $destination_group['title'] ?></div>
                         <ul class="nav-mega__nav__sub-group__list">
                             <?php $destinationsArray = $destination_group['destinations']; ?>
@@ -119,8 +122,10 @@ foreach ($menuitems as $m) {
                         </ul>
                     </div>
                 <?php endforeach; ?>
-
-
+            </div>
+            <div class="nav-mega__nav nav-mega__nav--experiences">
+                <a href="#link1" class="nav-mega__nav__sub-link">Family</a>
+                <a href="#link2" class="nav-mega__nav__sub-link">Adventure</a>
             </div>
         </div>
 
