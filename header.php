@@ -20,6 +20,8 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 
 $menu_toplevel = [];
 $menu_destination_groups = [];
+$menu_experiences = [];
+
 
 foreach ($menuitems as $m) {
 
@@ -64,10 +66,26 @@ foreach ($menuitems as $m) {
                     $menu_destination_groups[] = $destinationGroup;
                 }
             }
+        } else if ($m->post_name == "experiences") {
+
+            $toplevel_ID = $m->ID;
+            foreach ($menuitems as $mm) {
+                if ($mm->menu_item_parent == $toplevel_ID) {
+
+
+                    $experience = array(
+                        'id' => $mm->ID,
+                        'title' => $mm->title,
+                        'url' => $mm->url
+                    );
+
+                    $menu_experiences[] = $experience;
+                }
+            }
         }
     }
 }
-
+console_log($menu_experiences);
 ?>
 
 <body <?php body_class("global"); ?>>
@@ -91,16 +109,37 @@ foreach ($menuitems as $m) {
                     foreach ($menu_toplevel as $toplevelItem) :
                         $megaClass = ($toplevelItem->title == 'Destinations' || $toplevelItem->title == 'Experiences') ? 'mega' : 'no-mega';
                     ?>
-                        <li class="header__main__nav__list__item" >
+                        <li class="header__main__nav__list__item">
                             <span class="header__main__nav__list__item__link <?php echo $megaClass ?>" navelement="<?php echo $toplevelItem->title ?>"><?php echo $toplevelItem->title ?></span>
                         </li>
                     <?php endforeach; ?>
                 </div>
             </nav>
-            <!-- Burger Menu -->
-            <div class="burger-menu">
-                <span class="burger-menu__bar "></span>
+            <div class="header__main__right">
+                <div class="header__main__right__item header__main__right__item--contact">
+                    <svg>
+                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_mail_outline_24px"></use>
+                    </svg>
+                    <span>
+                        Contact
+                    </span>
+                </div>
+                <div class="header__main__right__item header__main__right__item--phone">
+                    <svg>
+                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-phone-call"></use>
+                    </svg>
+                    <span>
+                        +1.866.783.9029
+                    </span>
+
+                </div>
+
+                <!-- Burger Menu -->
+                <div class="burger-menu">
+                    <span class="burger-menu__bar "></span>
+                </div>
             </div>
+
         </div>
 
 
@@ -124,8 +163,11 @@ foreach ($menuitems as $m) {
                 <?php endforeach; ?>
             </div>
             <div class="nav-mega__nav nav-mega__nav--experiences">
-                <a href="#link1" class="nav-mega__nav__sub-link">Family</a>
-                <a href="#link2" class="nav-mega__nav__sub-link">Adventure</a>
+
+
+                <?php foreach ($menu_experiences as $experiencesItem) : ?>
+                    <a href="<?php echo $experiencesItem['url'] ?>" class="nav-mega__nav__link"><?php echo $experiencesItem['title'] ?></a>
+                <?php endforeach; ?>
             </div>
         </div>
 

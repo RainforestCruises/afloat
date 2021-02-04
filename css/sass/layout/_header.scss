@@ -10,19 +10,24 @@
     user-select: none;
 
     &__main {
-        display: grid;
-        grid-column: 1 / -1;
-        grid-template-columns:
-            [full-start] minmax(max-content, 1fr) [center-start] repeat(
-                8,
-                [col-start] minmax(min-content, 14rem) [col-end]
-            )
-            [center-end] minmax(6rem, 1fr) [full-end];
+        grid-column: 1/-1;
 
-        align-content: center;
+        display: flex;
+        width: 100%;
+        justify-content: center;
         align-items: center;
 
         height: 9rem;
+
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3rem;
+        font-weight: 600;
+        color: $color-grey-light-1;
+
+        @media only screen and (max-width: $bp-large) {
+            justify-content: space-between;
+        }
 
         box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -65,6 +70,10 @@
                 }
             }
 
+            & .header__main__right {
+                color: $color-primary;
+            }
+
             & .burger-menu {
                 &__bar {
                     background-color: $color-primary;
@@ -78,8 +87,11 @@
         }
 
         &__logo-area {
-            grid-column: full-start / span 1;
-            grid-row: 1 / span 1;
+            //grid-column: full-start / span 1;
+            //grid-row: 1 / span 1;
+
+            //width?
+
             z-index: 5;
             position: relative;
             display: flex;
@@ -94,8 +106,12 @@
 
             &__logo {
                 width: min-content;
-                margin-right: 4rem;
-                margin-left: 7rem;
+                margin: 0 4rem;
+
+                @media only screen and (max-width: $bp-small) {
+                    margin: 0 2rem;
+                    margin-left: 3rem;
+                }
 
                 & img {
                     transition: all 0.4s;
@@ -107,15 +123,14 @@
 
         //Level 1 nav
         &__nav {
-            grid-column: center-start / span 4;
+            display: flex;
+            width: 100%;
+            max-width: 106rem;
+            justify-content: flex-start;
 
-            text-transform: uppercase;
-            letter-spacing: 0.2rem;
-            font-size: 1.3rem;
-            font-weight: 600;
             z-index: 18;
             height: 100%;
-            color: $color-grey-light-1;
+
             transition: all 0.3s;
 
             @media only screen and (max-width: $bp-large) {
@@ -146,26 +161,51 @@
                         color: $color-supporting-light;
                         padding-right: 4rem;
                     }
+                }
+            }
+        }
 
-                    // & a:link,
-                    // a:visited {
-                    //     color: currentColor;
-                    //     display: flex;
-                    //     height: 100%;
-                    //     align-items: center;
-                    //     height: 100%;
-                    //     cursor: pointer;
-                    //     transition: all 0.4s;
+        &__right {
+            margin: 0 4rem;
 
-                    //     text-decoration: none;
-                    //     padding-right: 4rem;
-                    // }
+            @media only screen and (max-width: $bp-small) {
+                margin: 0 2rem;
+                margin-right: 3rem;
+            }
 
-                    // & a:hover,
-                    // a:active {
-                    //     color: $color-supporting-light;
-                    //     padding-right: 4rem;
-                    // }
+            transition: all 0.4s;
+
+            display: flex;
+
+            &__item {
+                display: flex;
+                align-items: center;
+
+                & svg {
+                    transform: translateY(-1px);
+                    stroke-width: 4;
+                    height: 1.6rem;
+                    width: 1.6rem;
+                    color: currentColor;
+                }
+
+                & span {
+                    margin-left: 1rem;
+                }
+
+                &--contact {
+                    margin-right: 4rem;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $color-supporting-light;
+                    }
+                }
+
+                &--phone {
+                    @media only screen and (max-width: $bp-large) {
+                        display: none;
+                    }
                 }
             }
         }
@@ -318,8 +358,25 @@
         grid-template-columns: repeat(4, minmax(max-content, 1fr));
         margin: 3rem 0;
 
+        color: $color-primary;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3rem;
+
         @media only screen and (max-width: $bp-large) {
             grid-template-columns: 1fr;
+        }
+
+        &__link {
+
+            text-decoration: none;
+            color: currentColor;
+
+            &:hover {
+                color: $color-supporting-light;
+            }
         }
 
         &__sub-group {
@@ -330,22 +387,17 @@
             }
 
             &__title {
-                color: $color-primary;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 1.32rem;
-                text-transform: uppercase;
-                letter-spacing: 0.3rem;
-
                 position: relative;
                 transition: all 0.2s;
             }
 
             &__list {
+                color: $color-grey-3;
                 margin-top: 0.75rem;
                 list-style: none;
                 font-size: 1.4rem;
                 letter-spacing: 0.1rem;
+                text-transform: none;
                 //max-height: 0rem;
             }
 
@@ -375,12 +427,12 @@
         &__sub-link {
             height: 100%;
 
-            color: $color-primary;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.32rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3rem;
+            // color: $color-primary;
+            // text-decoration: none;
+            // font-weight: 600;
+            // font-size: 1.5rem;
+            // text-transform: uppercase;
+            // letter-spacing: 0.3rem;
             display: inline-block;
 
             position: relative;
@@ -397,12 +449,9 @@
 .burger-menu {
     grid-column: col-end 8 / -1;
     cursor: pointer;
-
-    transform: translateX(-3rem);
-
     display: none;
-    height: 100%;
-    width: 100%;
+    height: 4rem;
+    width: 4rem;
     justify-content: center;
     align-items: center;
 

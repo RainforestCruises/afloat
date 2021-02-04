@@ -961,7 +961,7 @@
                     "key": "field_5fdb9a48abd8e",
                     "label": "Answer",
                     "name": "answer",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -970,14 +970,11 @@
                         "class": "",
                         "id": ""
                     },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": "",
-                    "admin_column_taxonomies": "",
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
                 }
             ]
         }
@@ -1001,5 +998,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1610737801
+    "modified": 1612472103
 }

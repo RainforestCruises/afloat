@@ -1016,7 +1016,7 @@
                     "key": "field_5fd2545494a0f",
                     "label": "Answer",
                     "name": "answer",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -1025,14 +1025,11 @@
                         "class": "",
                         "id": ""
                     },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": "",
-                    "admin_column_taxonomies": "",
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
                 }
             ]
         }
@@ -1056,5 +1053,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1610737675
+    "modified": 1612472133
 }
