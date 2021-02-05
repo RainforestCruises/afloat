@@ -146,7 +146,7 @@ jQuery(document).ready(function ($) {
             }
         }
 
-  
+
     });
 
 
@@ -177,26 +177,26 @@ jQuery(document).ready(function ($) {
 
         let ddSuggest = [];
         dropdownArray.forEach(dropdown => {
-            if(!dropdown.classList.contains('closed')){
+            if (!dropdown.classList.contains('closed')) {
                 ddSuggest.push(dropdown);
             }
         });
 
-        if(ddSuggest.length == 0){
+        if (ddSuggest.length == 0) {
             inputField.classList.add('error')
         } else {
             inputField.classList.remove('error')
             //check if matches one
             let match = false;
             ddSuggest.forEach(element => {
-                if(element.textContent == inputField.value){
+                if (element.textContent == inputField.value) {
                     match = true;
                 }
             });
-            if(!match){
+            if (!match) {
                 inputField.value = ddSuggest[0].textContent;
                 selectedDestination = ddSuggest[0].getAttribute("postId");
-            }    
+            }
         }
     });
 
@@ -212,7 +212,7 @@ jQuery(document).ready(function ($) {
     //Tab press
     $('.home-destination-select').on('keydown', function (e) {
         var keyCode = e.keyCode || e.which;
-        
+
         if (keyCode == 9) {
             e.preventDefault();
             document.activeElement.blur();
@@ -224,7 +224,7 @@ jQuery(document).ready(function ($) {
     //     var keyCode = e.keyCode || e.which;     
     //     if (keyCode == 9) {
     //         e.preventDefault();
-           
+
     //     }
     // });
 
@@ -337,14 +337,42 @@ jQuery(document).ready(function ($) {
         $("#travel-destination").val(selectedDestination);
         $("#travel-month").val(selectedMonth);
         $("#travel-year").val(selectedYear);
-        
-        if(selectedDestination == 0){
+
+        if (selectedDestination == 0) {
             e.preventDefault();
             inputField.classList.add('error')
         } else {
             searchButton.classList.add('loading');
         }
     });
+
+
+    // //resize functions
+    // var resizeDelay = 100;
+    // var doResize = true;
+    // var resizer = function () {
+    //     if (doResize) {
+
+    //         //responsive @ 1000
+    //         if ($(window).width() > 600) {
+    //             $('#destination').attr('placeholder', 'Where would you like to go?');
+    //             $('#date-select').text('When would you like to travel?');
+    //         } 
+    //         else {
+    //             $('#destination').attr('placeholder', 'Where to go?');
+    //             $('#date-select').text('When to travel?');
+
+    //         }
+
+    //         doResize = false;
+    //     }
+    // };
+    // var resizerInterval = setInterval(resizer, resizeDelay);
+    // resizer();
+
+    // $(window).resize(function () {
+    //     doResize = true;
+    // });
 
 });
 

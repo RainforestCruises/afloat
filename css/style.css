@@ -4986,6 +4986,10 @@ h5 {
           .home-hero__content__title-group__title {
             font-size: 4rem;
             line-height: 5rem; } }
+        @media only screen and (max-width: 25em) {
+          .home-hero__content__title-group__title {
+            font-size: 3rem;
+            line-height: 4rem; } }
       .home-hero__content__title-group__divider {
         height: 9rem;
         width: 100%;
@@ -5022,6 +5026,10 @@ h5 {
         font-weight: 300;
         font-family: "Old Standard TT", serif;
         text-transform: uppercase; }
+        @media only screen and (max-width: 22em) {
+          .home-hero__content__title-group__subtitle {
+            font-size: 1.5rem;
+            line-height: 2.5rem; } }
     .home-hero__content__search-form {
       display: flex;
       flex-wrap: wrap;
@@ -5029,6 +5037,9 @@ h5 {
       height: min-content;
       justify-content: space-around;
       align-self: center; }
+      @media only screen and (max-width: 50em) {
+        .home-hero__content__search-form {
+          flex-direction: column; } }
       @media only screen and (max-width: 75em) {
         .home-hero__content__search-form {
           margin-bottom: 0rem; } }
@@ -5047,6 +5058,10 @@ h5 {
           grid-template-columns: min-content 1fr;
           column-gap: 1rem;
           width: 40rem; }
+          @media only screen and (max-width: 22em) {
+            .home-hero__content__search-form__inputs__form-group {
+              width: 34rem;
+              grid-template-columns: 1fr; } }
           .home-hero__content__search-form__inputs__form-group__icon {
             display: flex;
             align-items: center; }
@@ -5055,6 +5070,9 @@ h5 {
               stroke-width: 2;
               height: 5rem;
               width: 5rem; }
+            @media only screen and (max-width: 22em) {
+              .home-hero__content__search-form__inputs__form-group__icon {
+                display: none; } }
           .home-hero__content__search-form__inputs__form-group__input-group {
             display: flex;
             flex-direction: column;
@@ -5069,7 +5087,7 @@ h5 {
               font-weight: 600;
               color: #fff;
               margin-left: 1rem;
-              transition: opacity .2s; }
+              transition: opacity 0.2s; }
               .home-hero__content__search-form__inputs__form-group__input-group__label.open {
                 opacity: 0; }
       .home-hero__content__search-form__cta {
@@ -5156,8 +5174,8 @@ h5 {
   left: 0;
   width: 32rem;
   bottom: calc(100% - 2rem);
-  border-top-left-radius: .5rem;
-  border-top-right-radius: .5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   list-style: none;
   margin-top: 4rem;
   overflow: hidden;
@@ -5182,7 +5200,7 @@ h5 {
     color: #fff;
     padding: 0 1rem;
     font-size: 1.4rem;
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -5192,7 +5210,7 @@ h5 {
     .home-destination-value-list li span {
       font-size: 1rem;
       text-transform: uppercase;
-      letter-spacing: .1rem;
+      letter-spacing: 0.1rem;
       color: #c2c6c9; }
     .home-destination-value-list li:hover {
       background-color: rgba(53, 53, 53, 0.95);
@@ -5249,8 +5267,8 @@ h5 {
   transition: 0.3s ease-in-out;
   width: 34rem;
   background-color: rgba(30, 30, 30, 0.95);
-  border-top-left-radius: .5rem;
-  border-top-right-radius: .5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   display: flex;
   flex-direction: column; }
   .home-date-values.open {
@@ -5262,18 +5280,18 @@ h5 {
     .home-date-values__years__year {
       font-size: 2rem;
       color: #d9a402;
-      letter-spacing: .2rem;
+      letter-spacing: 0.2rem;
       width: 100%;
       text-align: center;
-      padding-top: .6rem;
-      padding-bottom: .6rem;
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
       cursor: pointer;
       position: relative;
-      transition: all .2s; }
+      transition: all 0.2s; }
       .home-date-values__years__year::after {
         content: "";
         position: absolute;
-        bottom: .4rem;
+        bottom: 0.4rem;
         left: 50%;
         transform: translateX(-50%);
         width: 6rem;
@@ -5295,16 +5313,16 @@ h5 {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
     justify-items: center;
-    row-gap: .5rem;
+    row-gap: 0.5rem;
     list-style: none;
     padding: 1rem; }
     .home-date-values__months li {
       font-size: 1.5rem;
       color: #fff;
-      letter-spacing: .1rem;
+      letter-spacing: 0.1rem;
       width: 6rem;
-      padding: .5rem 1rem;
-      margin: .5rem;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
       border: 1px solid #d9a402;
       border-radius: 3rem;
       box-sizing: border-box;
@@ -5312,7 +5330,7 @@ h5 {
       align-content: center;
       justify-content: center;
       background-color: transparent;
-      transition: all .2s;
+      transition: all 0.2s;
       cursor: pointer; }
       .home-date-values__months li:hover {
         background-color: #d9a402;
@@ -5779,6 +5797,7 @@ h5 {
   align-items: center;
   flex-direction: column;
   position: relative;
+  width: 100%;
   padding-bottom: 12rem; }
   .home-testimonials::before {
     content: "";
@@ -5806,6 +5825,11 @@ h5 {
     justify-content: center;
     margin-bottom: 2rem;
     z-index: 5; }
+    @media only screen and (max-width: 37.5em) {
+      .home-testimonials__publications {
+        width: 80%;
+        flex-direction: column;
+        flex-wrap: nowrap; } }
     .home-testimonials__publications__logo-area {
       display: flex;
       align-items: center;
@@ -5813,6 +5837,10 @@ h5 {
       .home-testimonials__publications__logo-area img {
         margin: 2rem 3rem;
         object-fit: contain; }
+        @media only screen and (max-width: 37.5em) {
+          .home-testimonials__publications__logo-area img {
+            transform: scale(0.75);
+            margin: 1rem 1.5rem; } }
   .home-testimonials__testimonials {
     margin: 8rem 10rem;
     z-index: 5;
@@ -6447,6 +6475,9 @@ h5 {
         .header__main__right__item--contact {
           margin-right: 4rem;
           cursor: pointer; }
+          @media only screen and (max-width: 37.5em) {
+            .header__main__right__item--contact {
+              display: none; } }
           .header__main__right__item--contact:hover {
             color: #40739c; }
         @media only screen and (max-width: 62.5em) {
