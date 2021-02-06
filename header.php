@@ -60,7 +60,9 @@ foreach ($menuitems as $m) {
                         'id' => $mm->ID,
                         'title' => $mm->title,
                         'url' => $mm->url,
-                        'destinations' => $destinations
+                        'destinations' => $destinations,
+                        'parentId' => $toplevel_ID,
+
                     );
 
                     $menu_destination_groups[] = $destinationGroup;
@@ -91,6 +93,8 @@ console_log($menu_experiences);
 <body <?php body_class("global"); ?>>
     <!-- Header -->
     <header class="header" id="header">
+
+        <!-- Top Level Nav -->
         <div class="header__main ">
             <div class="header__main__logo-area">
                 <a href="<?php echo get_home_url(); ?>" class="header__main__logo-area__logo">
@@ -170,129 +174,52 @@ console_log($menu_experiences);
         </div>
 
         <!-- Mega mobile -->
-        <nav class="header__collapse">
+        <nav class="nav-mobile">
 
-            <!-- Main Panel -->
-            <button class="header__collapse__accordion header__collapse__accordion--main">Destinations</button>
-            <div class="header__collapse__accordion__panel ">
-
-                <!-- Sub Panel -->
-                <div class="header__collapse__accordion header__collapse__accordion__sub-group header__collapse__accordion--destinations">
-                    Adventure Cruises</div>
-                <ul class="header__collapse__accordion__panel header__collapse__accordion__list">
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Amazon River</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Galapagos Islands</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Indonesian Archipelago</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Irrawaddy River</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Mekong River</a>
-                    </li>
-                </ul>
-
-                <!-- Sub Panel -->
-                <div class="header__collapse__accordion header__collapse__accordion__sub-group header__collapse__accordion--destinations">
-                    South America</div>
-                <ul class="header__collapse__accordion__panel header__collapse__accordion__list">
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Argentina</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Brazil</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Peru</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Amazon</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Galapagos</a>
-                    </li>
-                </ul>
-
-                <!-- Sub Panel -->
-                <div class="header__collapse__accordion header__collapse__accordion__sub-group header__collapse__accordion--destinations">
-                    Asia</div>
-                <ul class="header__collapse__accordion__panel header__collapse__accordion__list">
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Cambodia</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Indonesia</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Laos</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Myanmar</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Vietnam</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Thailand</a>
-                    </li>
-                </ul>
-
-                <!-- Sub Panel -->
-                <div class="header__collapse__accordion header__collapse__accordion__sub-group header__collapse__accordion--destinations">
-                    Bucket List</div>
-                <ul class="header__collapse__accordion__panel header__collapse__accordion__list">
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Angkor Wat</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Machu Picchu</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Halong Bay</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Iguazu Falls</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Pantanal</a>
-                    </li>
-
-                </ul>
-            </div>
+            <!-- Top level Menu -->
+            <div class="nav-mobile__content-panel nav-mobile__content-panel--top" menuid="top">
+                <?php foreach ($menu_toplevel as $toplevelItem) : ?>
+                    <button class="nav-mobile__content-panel__button" menuLinkTo="<?php echo $toplevelItem->ID ?>"><?php echo $toplevelItem->title ?></button>
+                <?php endforeach; ?>
+                <button class="nav-mobile__content-panel__button">Contact</button>
             </div>
 
-            <button class="header__collapse__accordion header__collapse__accordion--main">Experiences</button>
-            <div class="header__collapse__accordion__panel">
-                <ul class="header__collapse__accordion__panel__list">
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">AAA</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">BVB</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">CC</a>
-                    </li>
-                </ul>
-            </div>
 
-            <button class="header__collapse__accordion header__collapse__accordion--main">Deals</button>
-            <div class="header__collapse__accordion__panel">
-                <ul class="header__collapse__accordion__panel__list">
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Deal 1</a>
-                    </li>
-                    <li class="header__collapse__accordion__panel__item">
-                        <a href="#" class="header__collapse__accordion__panel__link">Deal 2</a>
-                    </li>
+            <!-- Level 2 -->
+            <?php foreach ($menu_toplevel as $toplevelItem) : ?>
+                <div class="nav-mobile__content-panel nav-mobile__content-panel--sub" menuid="<?php echo $toplevelItem->ID ?>">
+                    <button class="nav-mobile__content-panel__button nav-mobile__content-panel__button--back" menuLinkTo="top"><?php echo $toplevelItem->title ?></button>
 
-                </ul>
-            </div>
+                    <?php if ($toplevelItem->title == 'Destinations') : ?>
+                        <?php foreach ($menu_destination_groups as $destination_group) : ?>
+                            <button class="nav-mobile__content-panel__button" menuLinkTo="<?php echo $destination_group['id'] ?>" ><?php echo $destination_group['title'] ?></button>
+                        <?php endforeach; ?>
+                    <?php endif ?>
+
+                    <?php if ($toplevelItem->title == 'Experiences') : ?>
+                        <?php foreach ($menu_experiences as $experience) : ?>
+                            <button class="nav-mobile__content-panel__button"><?php echo $experience['title'] ?></button>
+                        <?php endforeach; ?>
+                    <?php endif ?>
+
+                </div>
+            <?php endforeach; ?>
+
+            <!-- Level 3 -->
+ 
+            <?php foreach ($menu_destination_groups as $destination_group) : ?>
+                <div class="nav-mobile__content-panel nav-mobile__content-panel--sub" menuId="<?php echo $destination_group['id'] ?>" >
+                    <button class="nav-mobile__content-panel__button nav-mobile__content-panel__button--back" menuLinkTo="<?php echo $destination_group['parentId'] ?>"><?php echo $destination_group['title'] ?></button>
+
+                    <?php $destinationsMenuArray = $destination_group['destinations']; ?>
+                    <?php foreach ($destinationsMenuArray as $destinationMenuItem) : ?>
+                        <button class="nav-mobile__content-panel__button"><?php echo $destinationMenuItem['title'] ?></button>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
+
+
+
         </nav>
 
     </header>

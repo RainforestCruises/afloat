@@ -84,11 +84,11 @@ jQuery(document).ready(function ($) {
       var navelement = this.getAttribute("navelement");
       $('.nav-mega').addClass('nav-mega--active');
 
-      if(navelement == "Destinations"){
+      if (navelement == "Destinations") {
         $('.nav-mega__nav--experiences').hide();
         $('.nav-mega__nav--destinations').fadeIn(200);
 
-      }else if (navelement == "Experiences"){
+      } else if (navelement == "Experiences") {
         $('.nav-mega__nav--destinations').hide();
         $('.nav-mega__nav--experiences').fadeIn(200);
       }
@@ -113,10 +113,10 @@ jQuery(document).ready(function ($) {
   $(".burger-menu ").on("click", function () {
 
     $(".burger-menu").toggleClass('burger-menu--active');
-    $('.header__collapse').toggleClass('header__collapse--active');
+    $('.nav-mobile').toggleClass('nav-mobile--active');
 
     //hide while burger active
-    if ($(".header__collapse").hasClass('header__collapse--active') == true) {
+    if ($(".nav-mobile").hasClass('nav-mobile--active') == true) {
       $('#page-nav').hide();
     } else {
       $('#page-nav').show();
@@ -126,7 +126,7 @@ jQuery(document).ready(function ($) {
   //Burger Menu -- resize window
   $(window).resize(function () {
     if ($(window).width() > 1000) {
-      $('.header__collapse').removeClass('header__collapse--active');
+      $('.nav-mobile').removeClass('nav-mobile--active');
       $(".burger-menu").removeClass('burger-menu--active');
     }
     if ($(window).width() <= 1000) {
@@ -134,85 +134,115 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  //var subPanel = document.querySelectorAll('[menuid="1077"]');
+  //subPanel.classList.addClass('slide-center');
+  //$(subPanel).addClass('slide-center');
 
+ // console.log(subPanel);
 
-  //Collapse Menu
+  //New Mobile Menu
+  const mobileButtons = [...document.querySelectorAll('.nav-mobile__content-panel__button')];
+  mobileButtons.forEach(item => {
+    item.addEventListener('click', () => {
+      let menuLink = item.getAttribute('menuLinkTo');
+      console.log(menuLink);
 
-  //Collapse Menu -- accordion behavior
-  //--main
-  var acc = document.getElementsByClassName("header__collapse__accordion--main");
-  var i;
+      var topPanel = document.querySelector('.nav-mobile__content-panel--top');
+      var subPanel = document.querySelector('[menuid="'+ menuLink +'"]');
+      
+      var isBackButton = $(item).hasClass('nav-mobile__content-panel__button--back');
+      if(isBackButton){
+        $(topPanel).removeClass('slide-out-left');
+        $(item).parent().removeClass('slide-center');
+      }else {
+        topPanel.classList.add('slide-out-left');
+        $(subPanel).addClass('slide-center');
 
-  for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function () {
-
-      //see if currently open
-      var open = false;
-      if ($(this).next().css('display') == 'block') {
-        open = true;
       }
-
-      //hide all others
-      var x = 0
-      $(acc).each(function () {
-        $(acc[x]).removeClass('header__collapse__accordion--active');
-        var panel = $(acc[x]).next();
-        $(panel).css('display', 'none');
-        x = x + 1;
-      })
-
-      //display / hide current one
-      if (open == true) {
-        $(this).removeClass("header__collapse__accordion--active");
-        var panelCurrent = $(this).next();
-        $(panelCurrent).css('display', 'none');
-      } else {
-        $(this).addClass("header__collapse__accordion--active");
-        var panelCurrent = $(this).next();
-        $(panelCurrent).css('display', 'block');
-      }
-
     });
-  }
+  })
 
 
-  //Collapse Menu -- accordion behavior
-  //--destinations
-  var accDestinations = document.getElementsByClassName("header__collapse__accordion--destinations");
-  var i;
 
-  for (i = 0; i < accDestinations.length; i++) {
-    accDestinations[i].addEventListener("click", function () {
 
-      //see if currently open
-      var open = false;
-      if ($(this).next().css('display') == 'block') {
-        open = true;
-      }
 
-      //hide all others
-      var x = 0
-      $(accDestinations).each(function () {
-        $(accDestinations[x]).removeClass('header__collapse__accordion--active');
-        var panel = $(accDestinations[x]).next();
-        $(panel).css('display', 'none');
-        x = x + 1;
-      })
+  // //Collapse Menu
 
-      //display / hide current one
-      if (open == true) {
-        $(this).removeClass("header__collapse__accordion--active");
-        var panelCurrent = $(this).next();
-        $(panelCurrent).css('display', 'none');
-      } else {
-        $(this).addClass("header__collapse__accordion--active");
-        var panelCurrent = $(this).next();
-        $(panelCurrent).css('display', 'block');
-      }
+  // //Collapse Menu -- accordion behavior
+  // //--main
+  // var acc = document.getElementsByClassName("nav-mobile__accordion--main");
+  // var i;
 
-    });
-  }
-  //end collapse
+  // for (i = 0; i < acc.length; i++) {
+  //   acc[i].addEventListener("click", function () {
+
+  //     //see if currently open
+  //     var open = false;
+  //     if ($(this).next().css('display') == 'block') {
+  //       open = true;
+  //     }
+
+  //     //hide all others
+  //     var x = 0
+  //     $(acc).each(function () {
+  //       $(acc[x]).removeClass('nav-mobile__accordion--active');
+  //       var panel = $(acc[x]).next();
+  //       $(panel).css('display', 'none');
+  //       x = x + 1;
+  //     })
+
+  //     //display / hide current one
+  //     if (open == true) {
+  //       $(this).removeClass("nav-mobile__accordion--active");
+  //       var panelCurrent = $(this).next();
+  //       $(panelCurrent).css('display', 'none');
+  //     } else {
+  //       $(this).addClass("nav-mobile__accordion--active");
+  //       var panelCurrent = $(this).next();
+  //       $(panelCurrent).css('display', 'block');
+  //     }
+
+  //   });
+  // }
+
+
+  // //Collapse Menu -- accordion behavior
+  // //--destinations
+  // var accDestinations = document.getElementsByClassName("nav-mobile__accordion--destinations");
+  // var i;
+
+  // for (i = 0; i < accDestinations.length; i++) {
+  //   accDestinations[i].addEventListener("click", function () {
+
+  //     //see if currently open
+  //     var open = false;
+  //     if ($(this).next().css('display') == 'block') {
+  //       open = true;
+  //     }
+
+  //     //hide all others
+  //     var x = 0
+  //     $(accDestinations).each(function () {
+  //       $(accDestinations[x]).removeClass('nav-mobile__accordion--active');
+  //       var panel = $(accDestinations[x]).next();
+  //       $(panel).css('display', 'none');
+  //       x = x + 1;
+  //     })
+
+  //     //display / hide current one
+  //     if (open == true) {
+  //       $(this).removeClass("nav-mobile__accordion--active");
+  //       var panelCurrent = $(this).next();
+  //       $(panelCurrent).css('display', 'none');
+  //     } else {
+  //       $(this).addClass("nav-mobile__accordion--active");
+  //       var panelCurrent = $(this).next();
+  //       $(panelCurrent).css('display', 'block');
+  //     }
+
+  //   });
+  // }
+  // //end collapse
 
 
   //Page Nav-- Hover
