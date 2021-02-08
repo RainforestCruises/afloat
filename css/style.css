@@ -6553,7 +6553,6 @@ h5 {
       font-weight: 600;
       background-color: transparent;
       text-decoration: none;
-      width: 100%;
       border: none;
       cursor: pointer;
       text-transform: uppercase;
@@ -6574,7 +6573,6 @@ h5 {
       .nav-mobile__content-panel__button--back {
         height: 7rem;
         padding: 0;
-        align-self: flex-start;
         border-bottom: 1px solid rgba(194, 198, 201, 0.9); }
         .nav-mobile__content-panel__button--back svg {
           left: 3rem; }
