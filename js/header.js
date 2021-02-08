@@ -116,9 +116,15 @@ jQuery(document).ready(function ($) {
     $('.nav-mobile').toggleClass('nav-mobile--active');
 
     //hide while burger active
+
     if ($(".nav-mobile").hasClass('nav-mobile--active') == true) {
+
+      $('.header__main').addClass('header__main--opaque-nav');
+      $('.nav-mobile__content-panel').removeClass('slide-out-left');
+      $('.nav-mobile__content-panel').removeClass('slide-center');
+
       $('#page-nav').hide();
-    } else {
+    } else { 
       $('#page-nav').show();
     }
   });
@@ -128,122 +134,60 @@ jQuery(document).ready(function ($) {
     if ($(window).width() > 1000) {
       $('.nav-mobile').removeClass('nav-mobile--active');
       $(".burger-menu").removeClass('burger-menu--active');
+
     }
     if ($(window).width() <= 1000) {
       $('.nav-mega').removeClass('nav-mega--active');
     }
   });
 
-  //var subPanel = document.querySelectorAll('[menuid="1077"]');
-  //subPanel.classList.addClass('slide-center');
-  //$(subPanel).addClass('slide-center');
+  
 
- // console.log(subPanel);
 
   //New Mobile Menu
   const mobileButtons = [...document.querySelectorAll('.nav-mobile__content-panel__button')];
   mobileButtons.forEach(item => {
     item.addEventListener('click', () => {
       let menuLink = item.getAttribute('menuLinkTo');
-      console.log(menuLink);
 
       var topPanel = document.querySelector('.nav-mobile__content-panel--top');
-      var subPanel = document.querySelector('[menuid="'+ menuLink +'"]');
-      
+      var subPanel = document.querySelector('[menuid="' + menuLink + '"]');
+
       var isBackButton = $(item).hasClass('nav-mobile__content-panel__button--back');
-      if(isBackButton){
+      if (isBackButton) {
         $(topPanel).removeClass('slide-out-left');
         $(item).parent().removeClass('slide-center');
-      }else {
-        topPanel.classList.add('slide-out-left');
-        $(subPanel).addClass('slide-center');
+      } else {
 
+        if(!item.classList.contains("mobile-link")){
+          topPanel.classList.add('slide-out-left');
+          $(subPanel).addClass('slide-center');
+        }else{
+             $('.nav-mobile').removeClass('nav-mobile--active');
+            $(".burger-menu").removeClass('burger-menu--active');
+        }
+        
       }
+
+      console.log(item.hasAttribute("href"));
+ 
     });
   })
 
 
 
 
-
-  // //Collapse Menu
-
-  // //Collapse Menu -- accordion behavior
-  // //--main
-  // var acc = document.getElementsByClassName("nav-mobile__accordion--main");
-  // var i;
-
-  // for (i = 0; i < acc.length; i++) {
-  //   acc[i].addEventListener("click", function () {
-
-  //     //see if currently open
-  //     var open = false;
-  //     if ($(this).next().css('display') == 'block') {
-  //       open = true;
-  //     }
-
-  //     //hide all others
-  //     var x = 0
-  //     $(acc).each(function () {
-  //       $(acc[x]).removeClass('nav-mobile__accordion--active');
-  //       var panel = $(acc[x]).next();
-  //       $(panel).css('display', 'none');
-  //       x = x + 1;
-  //     })
-
-  //     //display / hide current one
-  //     if (open == true) {
-  //       $(this).removeClass("nav-mobile__accordion--active");
-  //       var panelCurrent = $(this).next();
-  //       $(panelCurrent).css('display', 'none');
-  //     } else {
-  //       $(this).addClass("nav-mobile__accordion--active");
-  //       var panelCurrent = $(this).next();
-  //       $(panelCurrent).css('display', 'block');
-  //     }
-
-  //   });
+  // //VH
+  // window.onresize = function () {
+  //   document.body.height = window.innerHeight;
   // }
+  // window.onresize();
 
-
-  // //Collapse Menu -- accordion behavior
-  // //--destinations
-  // var accDestinations = document.getElementsByClassName("nav-mobile__accordion--destinations");
-  // var i;
-
-  // for (i = 0; i < accDestinations.length; i++) {
-  //   accDestinations[i].addEventListener("click", function () {
-
-  //     //see if currently open
-  //     var open = false;
-  //     if ($(this).next().css('display') == 'block') {
-  //       open = true;
-  //     }
-
-  //     //hide all others
-  //     var x = 0
-  //     $(accDestinations).each(function () {
-  //       $(accDestinations[x]).removeClass('nav-mobile__accordion--active');
-  //       var panel = $(accDestinations[x]).next();
-  //       $(panel).css('display', 'none');
-  //       x = x + 1;
-  //     })
-
-  //     //display / hide current one
-  //     if (open == true) {
-  //       $(this).removeClass("nav-mobile__accordion--active");
-  //       var panelCurrent = $(this).next();
-  //       $(panelCurrent).css('display', 'none');
-  //     } else {
-  //       $(this).addClass("nav-mobile__accordion--active");
-  //       var panelCurrent = $(this).next();
-  //       $(panelCurrent).css('display', 'block');
-  //     }
-
-  //   });
+  // if ($(".burger-menu").hasClass('burger-menu--active') != true) {
+  //   $('body').addClass("fixed-position");
+  // } else {
+  //   $('body').removeClass("fixed-position");
   // }
-  // //end collapse
-
 
   //Page Nav-- Hover
   $('#template-nav').hover(
@@ -254,6 +198,10 @@ jQuery(document).ready(function ($) {
       }
     }
   );
+
+
+
+
 
 });
 

@@ -179,26 +179,53 @@ console_log($menu_experiences);
             <!-- Top level Menu -->
             <div class="nav-mobile__content-panel nav-mobile__content-panel--top" menuid="top">
                 <?php foreach ($menu_toplevel as $toplevelItem) : ?>
-                    <button class="nav-mobile__content-panel__button" menuLinkTo="<?php echo $toplevelItem->ID ?>"><?php echo $toplevelItem->title ?></button>
+                    <a class="nav-mobile__content-panel__button nav-mobile__content-panel__button--forward" menuLinkTo="<?php echo $toplevelItem->ID ?>">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
+                        </svg>
+                        <span>
+                            <?php echo $toplevelItem->title ?>
+                        </span>
+
+                    </a>
                 <?php endforeach; ?>
-                <button class="nav-mobile__content-panel__button">Contact</button>
+                <a class="nav-mobile__content-panel__button mobile-link">Contact</a>
             </div>
 
 
             <!-- Level 2 -->
             <?php foreach ($menu_toplevel as $toplevelItem) : ?>
                 <div class="nav-mobile__content-panel nav-mobile__content-panel--sub" menuid="<?php echo $toplevelItem->ID ?>">
-                    <button class="nav-mobile__content-panel__button nav-mobile__content-panel__button--back" menuLinkTo="top"><?php echo $toplevelItem->title ?></button>
+                    <a class="nav-mobile__content-panel__button nav-mobile__content-panel__button--back" menuLinkTo="top">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_left_36px"></use>
+                        </svg>
+                        <span>
+                            <?php echo $toplevelItem->title ?>
+                        </span>
+
+                    </a>
 
                     <?php if ($toplevelItem->title == 'Destinations') : ?>
                         <?php foreach ($menu_destination_groups as $destination_group) : ?>
-                            <button class="nav-mobile__content-panel__button" menuLinkTo="<?php echo $destination_group['id'] ?>" ><?php echo $destination_group['title'] ?></button>
+                            <a class="nav-mobile__content-panel__button nav-mobile__content-panel__button--forward" menuLinkTo="<?php echo $destination_group['id'] ?>">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
+                                </svg>
+                                <span>
+                                    <?php echo $destination_group['title'] ?>
+                                </span>
+
+                            </a>
                         <?php endforeach; ?>
                     <?php endif ?>
 
                     <?php if ($toplevelItem->title == 'Experiences') : ?>
                         <?php foreach ($menu_experiences as $experience) : ?>
-                            <button class="nav-mobile__content-panel__button"><?php echo $experience['title'] ?></button>
+                            <a href="<?php echo $experience['url'] ?>" class="nav-mobile__content-panel__button mobile-link">
+
+                                <?php echo $experience['title'] ?>
+                            </a>
                         <?php endforeach; ?>
                     <?php endif ?>
 
@@ -206,14 +233,23 @@ console_log($menu_experiences);
             <?php endforeach; ?>
 
             <!-- Level 3 -->
- 
-            <?php foreach ($menu_destination_groups as $destination_group) : ?>
-                <div class="nav-mobile__content-panel nav-mobile__content-panel--sub" menuId="<?php echo $destination_group['id'] ?>" >
-                    <button class="nav-mobile__content-panel__button nav-mobile__content-panel__button--back" menuLinkTo="<?php echo $destination_group['parentId'] ?>"><?php echo $destination_group['title'] ?></button>
 
+            <?php foreach ($menu_destination_groups as $destination_group) : ?>
+                <div class="nav-mobile__content-panel nav-mobile__content-panel--sub" menuId="<?php echo $destination_group['id'] ?>">
+                    <a class="nav-mobile__content-panel__button nav-mobile__content-panel__button--back" menuLinkTo="<?php echo $destination_group['parentId'] ?>">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_left_36px"></use>
+                        </svg>
+                        <span>
+                            <?php echo $destination_group['title'] ?>
+                        </span>
+
+                    </a>
+
+                    <!-- Cruises -->
                     <?php $destinationsMenuArray = $destination_group['destinations']; ?>
                     <?php foreach ($destinationsMenuArray as $destinationMenuItem) : ?>
-                        <button class="nav-mobile__content-panel__button"><?php echo $destinationMenuItem['title'] ?></button>
+                        <a href="<?php echo $destinationMenuItem['url'] ?>" class="nav-mobile__content-panel__button mobile-link"><?php echo $destinationMenuItem['title'] ?></a>
                     <?php endforeach; ?>
                 </div>
             <?php endforeach; ?>
