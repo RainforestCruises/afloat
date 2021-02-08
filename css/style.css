@@ -6525,6 +6525,9 @@ h5 {
       animation-name: example;
       animation-duration: .3s;
       animation-timing-function: ease-out; }
+      @media only screen and (max-width: 25em) {
+        .nav-mobile__content-panel--top {
+          padding-top: 3rem; } }
       .nav-mobile__content-panel--top button {
         animation-name: example;
         animation-duration: .5s;
@@ -6576,8 +6579,14 @@ h5 {
         border-bottom: 1px solid rgba(194, 198, 201, 0.9); }
         .nav-mobile__content-panel__button--back svg {
           left: 3rem; }
+          @media only screen and (max-width: 25em) {
+            .nav-mobile__content-panel__button--back svg {
+              left: 1.5rem; } }
       .nav-mobile__content-panel__button--forward svg {
         right: 3rem; }
+        @media only screen and (max-width: 25em) {
+          .nav-mobile__content-panel__button--forward svg {
+            right: 1.5rem; } }
 
 .nav-mega {
   flex: 1;

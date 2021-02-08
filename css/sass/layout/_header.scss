@@ -273,6 +273,11 @@
 
         &--top {
             padding-top: 7rem;
+
+            @media only screen and (max-width: $bp-xsmall) {
+                padding-top: 3rem;
+            }
+
             animation-name: example;
             animation-duration: .3s;
             animation-timing-function: ease-out;
@@ -349,10 +354,15 @@
                 padding: 0;
                 border-bottom: 1px solid rgba($color-grey-light-2, 0.9);
                 
-                
+               
+        
 
                 & svg {
                     left: 3rem;
+
+                    @media only screen and (max-width: $bp-xsmall) {
+                        left: 1.5rem;
+                    }
                 }     
             }
 
@@ -360,6 +370,10 @@
                
                 & svg {
                     right: 3rem;
+
+                    @media only screen and (max-width: $bp-xsmall) {
+                        right: 1.5rem;
+                    }
                 }    
             }
 
