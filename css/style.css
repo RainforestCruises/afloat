@@ -6517,11 +6517,11 @@ h5 {
     z-index: 20;
     transform: translateX(0%);
     transition: all 0.4s;
-    padding-top: 12rem;
     position: relative; }
     .nav-mobile__content-panel.slide-out-left {
       transform: translateX(-100%); }
     .nav-mobile__content-panel--top {
+      padding-top: 7rem;
       animation-name: example;
       animation-duration: .3s;
       animation-timing-function: ease-out; }
@@ -6553,6 +6553,7 @@ h5 {
       font-weight: 600;
       background-color: transparent;
       text-decoration: none;
+      width: 100%;
       border: none;
       cursor: pointer;
       text-transform: uppercase;
@@ -6572,9 +6573,8 @@ h5 {
         transform: translateY(-50%); }
       .nav-mobile__content-panel__button--back {
         height: 7rem;
-        position: absolute;
-        top: 0;
-        width: 100%;
+        padding: 0;
+        align-self: flex-start;
         border-bottom: 1px solid rgba(194, 198, 201, 0.9); }
         .nav-mobile__content-panel__button--back svg {
           left: 3rem; }

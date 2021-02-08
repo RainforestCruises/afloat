@@ -237,10 +237,7 @@
 .nav-mobile {
     grid-column: 1 / -1;
     grid-row: 2 / span 1;
-    //background-color: $color-nav; //make background opaque
-    //background-color: greenyellow;
-    //-webkit-backdrop-filter: blur(8px);
-    //backdrop-filter: blur(8px);
+ 
 
     display: none; //toggle active (js)
     justify-items: center;
@@ -265,7 +262,7 @@
         transform: translateX(0%);
         transition: all 0.4s;
 
-        padding-top: 12rem;
+        //padding-top: 12rem;
         position: relative;
 
         &.slide-out-left {
@@ -275,6 +272,7 @@
         
 
         &--top {
+            padding-top: 7rem;
             animation-name: example;
             animation-duration: .3s;
             animation-timing-function: ease-out;
@@ -321,7 +319,7 @@
             background-color: transparent;
 
             text-decoration: none;
-
+            width: 100%;
             border: none;
             cursor: pointer;
             text-transform: uppercase;
@@ -348,9 +346,8 @@
 
             &--back {            
                 height: 7rem;
-                position: absolute;
-                top: 0;
-                width: 100%;
+                padding: 0;
+                align-self: flex-start;
                 border-bottom: 1px solid rgba($color-grey-light-2, 0.9);
                 
                 
