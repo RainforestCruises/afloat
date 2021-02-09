@@ -123,9 +123,12 @@ jQuery(document).ready(function ($) {
       $('.nav-mobile__content-panel').removeClass('slide-out-left');
       $('.nav-mobile__content-panel').removeClass('slide-center');
 
+      document.body.classList.add('lock-scroll');
+
       $('#page-nav').hide();
-    } else { 
+    } else {
       $('#page-nav').show();
+      document.body.classList.remove('lock-scroll');
     }
   });
 
@@ -141,7 +144,7 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  
+
 
 
   //New Mobile Menu
@@ -159,18 +162,18 @@ jQuery(document).ready(function ($) {
         $(item).parent().removeClass('slide-center');
       } else {
 
-        if(!item.classList.contains("mobile-link")){
+        if (!item.classList.contains("mobile-link")) {
           topPanel.classList.add('slide-out-left');
           $(subPanel).addClass('slide-center');
-        }else{
-             $('.nav-mobile').removeClass('nav-mobile--active');
-            $(".burger-menu").removeClass('burger-menu--active');
+        } else {
+          $('.nav-mobile').removeClass('nav-mobile--active');
+          $(".burger-menu").removeClass('burger-menu--active');
+          document.body.classList.remove('lock-scroll');
         }
-        
+
       }
 
-      console.log(item.hasAttribute("href"));
- 
+
     });
   })
 

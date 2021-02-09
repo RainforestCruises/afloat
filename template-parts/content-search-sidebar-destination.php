@@ -9,7 +9,7 @@ $destination = $args['destination'];
             <button>Reset</button>
         </div>
         <div class="search-sidebar__controls">
-        <div class="search-control">
+            <div class="search-control">
                 <span class="search-control__label-text">Travel Dates</span>
                 <input class="search-control__datetimepicker" type="text" name="departure-dates" id="departure-dates" readonly>
             </div>
@@ -40,8 +40,8 @@ $destination = $args['destination'];
                     ?>
                 </select>
             </label>
-            
-            
+
+
             <div class="search-control">
                 <span class="search-control__label-text">Itinerary Length</span>
                 <input class="search-control__range-slider" type="text" name="range-slider" id="range-slider">

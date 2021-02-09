@@ -59,4 +59,8 @@
     position: fixed;
  }
 
-//  .customize-support .top {top: 32px;}
+ .lock-scroll {
+    overflow: hidden;
+    height:100%;
+}
+

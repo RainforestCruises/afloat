@@ -44,7 +44,7 @@
                       </div>
                       <div class="home-hero__content__search-form__inputs__form-group__input-group">
                           <label for="destination" class="home-hero__content__search-form__inputs__form-group__input-group__label" id="chosen-value-label">Destination</label>
-                          <input class="home-destination-select" id="destination" type="text" value="" placeholder="Where would you like to go?" autocomplete="off">
+                          <input class="home-destination-select" id="destination" type="text" value="" placeholder="Where would you like to go?" autocomplete="off" >
 
                           <ul class="home-destination-value-list">
                               <?php foreach ($destinations as $d) : ?>
