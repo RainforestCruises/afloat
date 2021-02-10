@@ -20,8 +20,8 @@ jQuery(document).ready(function ($) {
     type: "double",
     min: 1,
     max: 14,
-    from: 1,
-    to: 14,
+    from: preselectMinLength,
+    to: preselectMaxLength,
     postfix: " Day",
     max_postfix: "+",
     onFinish: function () {
@@ -68,6 +68,17 @@ jQuery(document).ready(function ($) {
   $('#location-select').on('change', function () {
     $('#search-form').submit();
   });
+
+    //Experience 
+    $('#experience-select').select2({
+      width: '100%',
+      minimumResultsForSearch: -1,
+      placeholder: "Any",
+  
+    });
+    $('#experience-select').on('change', function () {
+      $('#search-form').submit();
+    });
 
 
   //Travel Type 
@@ -177,7 +188,6 @@ jQuery(document).ready(function ($) {
     $this.toggleClass('search-intro__title--collapsed');
 
   });
-
 
 
 

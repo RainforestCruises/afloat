@@ -3,7 +3,6 @@
 $currentPost = get_post($args['productId']); //needed because AJAX loading
 $cruise_data = get_field('cruise_data', $currentPost);
 
-//$cruise_data = get_field('cruise_data');
 
 $currentYear = date("Y");
 $currentMonth = date("m");

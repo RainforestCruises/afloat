@@ -1,12 +1,21 @@
 <?php
 $region = $args['region'];
+
+$experiencesArgs = array(
+    'post_type' => 'rfc_experiences',
+    'posts_per_page' => -1
+);
+
+$experiences = get_posts($experiencesArgs);
+
+$selectedTravelType = get_field('travel_type');
+$selectedExperience = get_field('experience');
 ?>
 
 <form class="search-sidebar" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">
     <div class="search-sticky-wrapper">
         <div class="search-sidebar__title">
             <span>Filter</span>
-            <button>Reset</button>
         </div>
         <div class="search-sidebar__controls">
             <div class="search-control">
@@ -39,14 +48,29 @@ $region = $args['region'];
                     ))) {
                     ?>
                         <?php foreach ($destinations as $destination) { ?>
-
                             <option value="<?php echo $destination->ID ?>"><?php echo get_the_title($destination) ?></option>
                     <?php }
                     } ?>
                 </select>
             </label>
+            <label class="search-control" for="experience-select">
+                <span class="search-control__label-text">Experience</span>
+                <select class="search-control__select" id="experience-select" name="experience-select">
+                    <option></option>
+                    <option value="0">Any</option>
+                    <?php
+                    ?>
+                    <?php foreach ($experiences as $e) :
+                        if ($e->ID == $selectedExperience->ID) : ?>
+                            <option value="<?php echo $e->ID ?>" selected="selected"><?php echo get_the_title($e) ?></option>
+                        <?php else : ?>
+                            <option value="<?php echo $e->ID ?>"><?php echo get_the_title($e) ?></option>
+                        <?php endif; ?>
+                    <?php endforeach;
+                    ?>
+                </select>
+            </label>
 
-           
             <div class="search-control">
                 <span class="search-control__label-text">Itinerary Length</span>
                 <input class="search-control__range-slider" type="text" name="range-slider" id="range-slider">

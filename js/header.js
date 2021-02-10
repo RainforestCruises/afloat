@@ -1,5 +1,13 @@
 
 jQuery(document).ready(function ($) {
+
+
+  var opaqueNavAlways = false;
+  if ($("body").hasClass("page-template-template-search-region") || $("body").hasClass("page-template-template-search-destination") || $("body").hasClass("single-rfc_travel_guides") || $("body").hasClass("page-template-template-travel-guide")) {
+    opaqueNavAlways = true;
+    $('.header__main').addClass('header__main--opaque-nav');
+
+  }
   //HEADER --------------
   //Header Main -- Scroll
   const nav = document.querySelector('#header');
@@ -15,10 +23,10 @@ jQuery(document).ready(function ($) {
         $('.header__main').removeClass('header__main--small-nav ');
 
         if ($('.burger-menu').hasClass('burger-menu--active') != true) {
-          if (!$("body").hasClass("page-template-template-search-region") && !$("body").hasClass("page-template-template-search-destination") && !$("body").hasClass("single-rfc_travel_guides") && !$("body").hasClass("page-template-template-travel-guide")) {
+          if (opaqueNavAlways == false) {
             $('.header__main').removeClass('header__main--opaque-nav');
-
           }
+
         }
       }
     }
@@ -27,27 +35,30 @@ jQuery(document).ready(function ($) {
 
   //Header Main -- Hover
   //Make navbar white on hover - add class: header__main--opaque-nav
-  if (!$("body").hasClass("page-template-template-search-region") && !$("body").hasClass("page-template-template-search-destination") && !$("body").hasClass("single-rfc_travel_guides") && !$("body").hasClass("page-template-template-travel-guide")) {
-    $('.header__main').hover(
-      function () {
-        $('.header__main').addClass('header__main--opaque-nav');
-      },
-      function () {
-        //if not small and mega active
-        if ($('.header__main').hasClass('header__main--small-nav') != true) {
 
-          if ($('.burger-menu').hasClass('burger-menu--active') != true) {
-            if ($('.nav-mega').hasClass('nav-mega--active') != true) {
+  $('.header__main').hover(
+    function () {
+
+      if (opaqueNavAlways == false) {
+        $('.header__main').addClass('header__main--opaque-nav');
+      }
+    },
+    function () {
+      //if not small and mega active
+      if ($('.header__main').hasClass('header__main--small-nav') != true) {
+
+        if ($('.burger-menu').hasClass('burger-menu--active') != true) {
+          if ($('.nav-mega').hasClass('nav-mega--active') != true) {
+            if (opaqueNavAlways == false) {
               $('.header__main').removeClass('header__main--opaque-nav');
             }
           }
         }
       }
-    )
+    }
+  )
 
-  } else {
-    $('.header__main').addClass('header__main--opaque-nav');
-  }
+
 
 
   //remove mega when mouse out of window
@@ -72,7 +83,10 @@ jQuery(document).ready(function ($) {
 
         //if not header small -- remove opaque from header__main
         if ($('.header__main').hasClass('header__main--small-nav') != true) {
-          $('.header__main').removeClass('header__main--opaque-nav');
+
+          if (opaqueNavAlways == false) {
+            $('.header__main').removeClass('header__main--opaque-nav');
+          }
         }
       }
     }
@@ -131,7 +145,9 @@ jQuery(document).ready(function ($) {
       $('#page-nav').show();
       document.body.classList.remove('lock-scroll');
       if (window.scrollY <= topOfNav) {
-        $('.header__main').removeClass('header__main--opaque-nav');
+        if (opaqueNavAlways == false) {
+          $('.header__main').removeClass('header__main--opaque-nav');
+        }
       }
       $(".burger-menu").removeClass('burger-menu--active');
 

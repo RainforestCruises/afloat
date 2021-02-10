@@ -8,6 +8,11 @@ $endDate = $functionArgs->endDate;
 $minLength = $functionArgs->minLength;
 $maxLength = $functionArgs->maxLength;
 
+$startDateString = strtotime($startDate);
+$endDateString = strtotime($endDate);
+
+$startYear =  date("Y", $startDateString);
+
 
 $results = [];
 foreach ($postsFromSearch as $post) {
@@ -15,16 +20,21 @@ foreach ($postsFromSearch as $post) {
     $lowest = $cruise_data['LowestPrice'];
     $highest = $cruise_data['HighestPrice'];
     $postType = get_post_type($post);
+    $tourLength = 0;
+
     if ($postType == 'rfc_tours') {
-        $lowest = '5000';
+        $pricePackages = get_field('price_packages', $post);
+        $lowest = lowest_tour_price($pricePackages, $startYear);
+        $tourLength = get_field('length', $post);
     }
 
     $results[] = (object) array(
         'postObject' => $post,
-        'cruise_data' => get_field('cruise_data', $post),
+        'cruise_data' => $cruise_data,
         'lowestPrice' => $lowest,
         'highestPrice' => $highest,
         'postType' => $postType,
+        'tourLength' => $tourLength
 
     );
 }
@@ -35,11 +45,10 @@ if ($sortOrder == 'ASC') {
 if ($sortOrder == 'DESC') {
     usort($results, "sortPriceDescending");
 }
-
+console_log('results');
 console_log($results);
 
 $filteredResults = [];
-//$results = array_slice($results, 0, 12);
 foreach ($results as $result) :
     $featured_image = get_field('featured_image', $result->postObject);
     $cruise_data = get_field('cruise_data', $result->postObject);
@@ -51,6 +60,14 @@ foreach ($results as $result) :
 
 
     if ($result->postType == 'rfc_tours') {
+
+        //Availability
+        $hasAvailability = true;
+
+        //Range
+        if (($result->tourLength >= $minLength) && ($result->tourLength <= $maxLength)) {
+            $hasRange = true;
+        }
     } else {
         foreach ($cruise_data['Itineraries'] as $itinerary) {
 
@@ -66,29 +83,35 @@ foreach ($results as $result) :
                 }
             }
         }
-
-        if ($hasAvailability == false || $hasRange == false) {
-            continue;
-        }
     }
 
-    $filteredResults[] = $result;
+    if ($hasAvailability == false || $hasRange == false) {
+        continue;
+    } else {
+        $filteredResults[] = $result;
+    }
 
-   
+
+
 
 //NOTES
 //loop all to get count 
 //create filtered list
 //use for pagination
 endforeach;
+
+console_log('filtered-results');
+console_log($filteredResults);
+
 ?>
 
-<?php 
-$filteredResults = array_slice($filteredResults, 0, 12);
+<?php
+$filteredResults = array_slice($filteredResults, 0, 18);
 
-foreach ($filteredResults as $filteredResult) : 
+foreach ($filteredResults as $filteredResult) :
     $featured_image = get_field('featured_image', $filteredResult->postObject);
-    ?>
+    $cruise_data = $filteredResult->cruise_data;
+?>
     <!-- Result -->
     <a class="search-result" href="<?php echo get_permalink($filteredResult->postObject); ?>">
         <div class="search-result__image">
@@ -96,13 +119,21 @@ foreach ($filteredResults as $filteredResult) :
         </div>
         <div class="search-result__content">
             <div class="search-result__content__tag">
-                <div class="badge-solid badge-solid--small">
-                    Popular
+                <?php if (($filteredResult->postType == 'rfc_tours') && (get_field('best_selling', $filteredResult->postObject) == true)) : ?>
+                    <div class="badge-solid badge-solid--small">
+                    Best-Seller
                 </div>
+                <?php endif; ?>
+                
+                <?php if(check_if_promo($cruise_data, $startDateString, $endDateString, $minLength, $maxLength) == true) : ?>
+                <div class="badge-solid badge-solid--red badge-solid--small">
+                    Promo
+                </div>
+                <?php endif; ?>
             </div>
             <div class="search-result__content__length">
                 <?php if ($filteredResult->postType == 'rfc_tours') { ?>
-                    Tour Package
+                    <?php echo get_field('length', $filteredResult->postObject) ?>-Day Tour
                 <?php } else if ($filteredResult->postType == 'rfc_cruises') { ?>
                     <?php echo $cruise_data['LowestLengthInDays']; ?>-<?php echo $cruise_data['HighestLengthInDays']; ?> Day Cruise
                 <?php } else if ($filteredResult->postType == 'rfc_lodges') { ?>
@@ -110,7 +141,12 @@ foreach ($filteredResults as $filteredResult) :
                 <?php } ?>
             </div>
             <div class="search-result__content__title">
-                <?php echo get_the_title($filteredResult->postObject) ?>
+                <?php if ($filteredResult->postType == 'rfc_tours') : ?>
+                    <?php echo get_field('tour_name', $filteredResult->postObject) ?>
+                <?php else : ?>
+                    <?php echo get_the_title($filteredResult->postObject) ?>
+                <?php endif; ?>
+
             </div>
             <div class="search-result__content__description">
                 <?php echo get_field('top_snippet', $filteredResult->postObject) ?>

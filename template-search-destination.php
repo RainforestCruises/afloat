@@ -12,7 +12,9 @@ $destination = get_field('destination');
 $title = get_field('hero_title', $destination);
 $region = get_field('region', $destination);
 $regionTitle = get_field('hero_title', $region);
-$parentPage = get_field('parent_page');
+$breadcrumb = get_field('breadcrumb');
+
+
 
 $args = array(
     'destination' => $destination,
@@ -28,15 +30,23 @@ $args = array(
             <li>
                 <a href="<?php echo home_url() ?>">Home</a>
             </li>
-            <li>
-                <a href=" <?php echo $parentPage  ?>"><?php echo $regionTitle ?></a>
-            </li>
-            <li>
-                <?php echo $title ?>
-            </li>
+            <?php 
+            if($breadcrumb):
+            foreach ($breadcrumb as $b) :
+                if ($b['link'] != null) : ?>
+                    <li>
+                        <a href=" <?php echo $b['link']  ?>"><?php echo $b['title'] ?></a>
+                    </li>
+                <?php else : ?>
+                    <li>
+                        <?php echo $b['title'] ?>
+                    </li>
+            <?php endif;
+            endforeach; endif;?>
+
         </ol>
         <div class="search-intro__title">
-            <span><?php echo $title ?> Travel</span>
+            <span><?php echo get_field('title_text') ?></span>
             <svg>
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
             </svg>
@@ -65,3 +75,4 @@ $args = array(
 
 
 <?php get_footer(); ?>
+

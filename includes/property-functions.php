@@ -5,7 +5,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
 
     $prices = [];
     $itineraries = $cruise_data['Itineraries'];
-    if(count($itineraries) > 0){
+    if (count($itineraries) > 0) {
         foreach ($itineraries as $i) {
             if ($i['LengthInDays'] >= $fromLength) {
                 $rateYears = $i['RateYears'];
@@ -24,12 +24,11 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
             }
         }
 
-        if(count($prices) > 0){
+        if (count($prices) > 0) {
             $lowestPrice = min($prices);
         } else {
             $lowestPrice = 0;
         }
-      
     } else {
         $lowestPrice = 0;
     }
@@ -45,11 +44,11 @@ function itineraryRange($cruise_data, $separator)
     $itineraries = $cruise_data['Itineraries'];
     $itineraryValues  = [];
 
-    if(count($itineraries) > 0){
+    if (count($itineraries) > 0) {
         foreach ($itineraries as $i) {
             $itineraryValues[] = $i['LengthInDays'];
         }
-    
+
         $rangeFrom = min($itineraryValues);
         $rangeTo = max($itineraryValues);
         $returnString = "";
@@ -88,25 +87,22 @@ function countriesInDestinations($destinations, $separator)
     }
 }
 
-function productType($property) {
+function productType($property)
+{
     $postType = get_post_type($property);
 
-    if($postType == 'rfc_tours'){
+    if ($postType == 'rfc_tours') {
         echo 'Tour Package';
-    }else if ($postType == 'rfc_lodges'){
+    } else if ($postType == 'rfc_lodges') {
         echo 'Lodge';
-
-    }else if ($postType == 'rfc_cruises'){
+    } else if ($postType == 'rfc_cruises') {
 
         $cruiseType = get_field('cruise_type', $property);
-        if($cruiseType == 'river'){
+        if ($cruiseType == 'river') {
             echo 'River Cruise';
-        }else {
+        } else {
             echo 'Costal Cruise';
-
         }
-        
-
     }
 }
 
@@ -131,7 +127,6 @@ function cruises_available_location($location)
     $cruisePosts = get_posts($postCriteria);
     $count = count($cruisePosts);
     return $count;
-
 }
 
 
@@ -159,4 +154,32 @@ function cruises_available_experience($destination, $experience)
     $count = count($cruisesPosts);
 
     return $count;
+}
+
+function check_if_promo($cruise_data, $startDate, $endDate, $lengthMin, $lengthMax)
+{
+    //filter itineraries if selection
+    $itineraries = $cruise_data['Itineraries'];
+    $filteredItineraries = [];
+
+    foreach ($itineraries as $itinerary) {
+        if ($itinerary['LengthInDays'] >= $lengthMin && $itinerary['LengthInDays'] <= $lengthMax) {
+            $filteredItineraries[] = $itinerary;
+        }
+    }
+   
+    $hasPromo = false;
+    foreach ($filteredItineraries as $itinerary) {
+
+        $departures = $itinerary['Departures'];
+        foreach ($departures as $departure) {
+            $dateString = strtotime($departure['DepartureDate']);
+            if ($dateString >= $startDate && $dateString <= $endDate) {
+                if($departure['HasPromo'] == true){
+                    $hasPromo = true;
+                }
+            }
+        }
+    }
+    return $hasPromo;
 }

@@ -87,6 +87,41 @@
     & .cancelBtn {
         display: none !important;
     }
+
+    @media only screen and (max-width: $bp-medium) {
+        /* REMOVE SECOND CALENDAR */
+        & .drp-calendar.right {
+            position: absolute !important;
+            right: 0 !important;
+            top: 0 !important;
+        }
+
+        & .drp-calendar.right tbody {
+            display: none !important;
+        }
+
+        & .drp-calendar.right thead > tr:nth-child(2) {
+            display: none !important;
+        }
+
+        & .drp-calendar.right th.month {
+            display: none !important;
+        }
+
+        & .drp-calendar.right .calendar-table {
+            background: transparent !important;
+        }
+
+        & .daterangepicker.ltr .ranges,
+        .daterangepicker.ltr .drp-calendar {
+            float: none !important;
+        }
+
+        & .drp-calendar.right .daterangepicker_input {
+            position: absolute !important;
+        }
+        /* REMOVE SECOND CALENDAR */
+    }
 }
 
 //Sort Control
@@ -114,8 +149,6 @@
     & select {
         visibility: hidden !important;
     }
-
-  
 }
 
 .irs {

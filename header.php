@@ -87,7 +87,6 @@ foreach ($menuitems as $m) {
         }
     }
 }
-console_log($menu_experiences);
 ?>
 
 <body <?php body_class("global"); ?>>

@@ -17,6 +17,7 @@
     </div>
     <div class="search-results__grid" id="response">
     </div>
+
     <div class="search-results__bottom-section">
         <button class="btn-outline ">
             Load More Results

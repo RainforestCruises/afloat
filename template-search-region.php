@@ -7,9 +7,10 @@ wp_enqueue_script('page-search', get_template_directory_uri() . '/js/page-search
 get_header();
 ?>
 
-<?php 
+<?php
 $region = get_field('region');
 $title = get_field('hero_title', $region);
+$breadcrumb = get_field('breadcrumb');
 
 
 $args = array(
@@ -26,12 +27,23 @@ $args = array(
             <li>
                 <a href="<?php echo home_url() ?>">Home</a>
             </li>
-            <li>
-                <?php echo $title ?>
-            </li>
+            <?php
+            if ($breadcrumb) :
+                foreach ($breadcrumb as $b) :
+                    if ($b['link'] != null) : ?>
+                        <li>
+                            <a href=" <?php echo $b['link']  ?>"><?php echo $b['title'] ?></a>
+                        </li>
+                    <?php else : ?>
+                        <li>
+                            <?php echo $b['title'] ?>
+                        </li>
+            <?php endif;
+                endforeach;
+            endif; ?>
         </ol>
         <div class="search-intro__title">
-            <span><?php echo $title ?> Travel</span>
+            <span><?php echo get_field('title_text') ?></span>
             <svg>
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
             </svg>

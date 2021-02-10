@@ -28,6 +28,110 @@
             "ui": 1
         },
         {
+            "key": "field_6024307714ef7",
+            "label": "Title Text",
+            "name": "title_text",
+            "type": "text",
+            "instructions": "Title above the snippet, the H1",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5fd91eda6d305",
+            "label": "Snippet",
+            "name": "snippet",
+            "type": "wysiwyg",
+            "instructions": "Text to appear at the top before the search results",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "admin_column_enabled": 0,
+            "admin_column_post_types": "",
+            "admin_column_taxonomies": "",
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_60240ccd902b2",
+            "label": "Breadcrumb",
+            "name": "breadcrumb",
+            "type": "repeater",
+            "instructions": "Build the breadcrumb links. ex- Home (default) \/ Link \/ Link \/ current page (no link)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_60240daf902b3",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "Display name of the link",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_60240dda902b4",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "page_link",
+                    "instructions": "Link to search page",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": [
+                        "category:search"
+                    ],
+                    "allow_null": 0,
+                    "allow_archives": 0,
+                    "multiple": 0
+                }
+            ]
+        },
+        {
             "key": "field_5fd8e1e88b191",
             "label": "Travel Type",
             "name": "travel_type",
@@ -57,6 +161,28 @@
             "placeholder": ""
         },
         {
+            "key": "field_602424c5b83c4",
+            "label": "Experience",
+            "name": "experience",
+            "type": "post_object",
+            "instructions": "Preselected experience type value.. leave blank if 'Any'",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_experiences"
+            ],
+            "taxonomy": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
             "key": "field_5fd8e1e88b56a",
             "label": "Itinerary Length Min",
             "name": "itinerary_length_min",
@@ -81,11 +207,11 @@
             "step": ""
         },
         {
-            "key": "field_5fd91fbf9fe86",
-            "label": "Parent Page",
-            "name": "parent_page",
-            "type": "page_link",
-            "instructions": "Select the parent region search result page for breadcrumb link",
+            "key": "field_60241250b52b4",
+            "label": "Itinerary Length Max",
+            "name": "itinerary_length_max",
+            "type": "number",
+            "instructions": "For preselected itinerary lengths",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -93,37 +219,13 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "page"
-            ],
-            "taxonomy": [
-                "category:search"
-            ],
-            "allow_null": 0,
-            "allow_archives": 0,
-            "multiple": 0
-        },
-        {
-            "key": "field_5fd91eda6d305",
-            "label": "Snippet",
-            "name": "snippet",
-            "type": "wysiwyg",
-            "instructions": "Text to appear at the top before the search results",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 14,
+            "step": ""
         }
     ],
     "location": [
@@ -146,5 +248,5 @@
     ],
     "active": true,
     "description": "Search (Destination) - Page",
-    "modified": 1608570050
+    "modified": 1612985021
 }

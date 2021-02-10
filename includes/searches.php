@@ -47,11 +47,9 @@ function search_filter_main_search()
 
     //--------------WP Categories
     //Travel Type
-    $travelType = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
+    $travelType = array('rfc_cruises', 'rfc_tours', 'rfc_lodges'); //Any
     if (isset($_POST['travel-select']) && $_POST['travel-select'])
-        $travelType = $_POST['travel-select'];
-
-
+        $travelType = $_POST['travel-select']; //One Type Selected
 
     $args = array(
         'posts_per_page' => -1,
@@ -115,6 +113,16 @@ function search_filter_main_search()
         }
     }
 
+
+    if (isset($_POST['experience-select']) && $_POST['experience-select']) {
+        //- Get specific experience if experience selected
+        $args['meta_query'][] = array(
+            'key' => 'experiences',
+            'value' => '"' . $_POST['experience-select'] . '"',
+            'compare' => 'LIKE'
+        );
+    
+    }
     $posts = get_posts($args);
 
 
@@ -138,11 +146,11 @@ function search_filter_main_search()
     if (isset($_POST['endDate']) && $_POST['endDate']) {
         $endDate = $_POST['endDate'];
     }
-    $minLength = '';
+    $minLength = 0;
     if (isset($_POST['minLength']) && $_POST['minLength']) {
         $minLength = $_POST['minLength'];
     }
-    $maxLength = '';
+    $maxLength = 99;
     if (isset($_POST['maxLength']) && $_POST['maxLength']) {
         $maxLength = $_POST['maxLength'];
     }
