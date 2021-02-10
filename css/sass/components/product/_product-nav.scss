@@ -121,9 +121,8 @@
 
             border-bottom: 1px solid rgba($color-grey-light-2, 0.9); //alpha 0 to prevent pixel jump
 
-            background-color: rgba($color-white, 0.9);
-            -webkit-backdrop-filter: blur(8px);
-            backdrop-filter: blur(8px);
+            background-color: $color-nav;
+            
 
             & .page-nav__button {
                 @media only screen and (max-width: $bp-small) {

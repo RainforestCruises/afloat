@@ -10,6 +10,16 @@ $experiences = get_posts($experiencesArgs);
 
 $selectedTravelType = get_field('travel_type');
 $selectedExperience = get_field('experience');
+
+$itinerary_length_min = 1;
+$itinerary_length_max = 14;
+if(get_field('itinerary_length_min') != null) {
+    $itinerary_length_min = get_field('itinerary_length_min');
+};
+if(get_field('itinerary_length_max') != null) {
+    $itinerary_length_max = get_field('itinerary_length_max');
+};
+
 ?>
 
 <form class="search-sidebar" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">
@@ -87,3 +97,9 @@ $selectedExperience = get_field('experience');
 
     </div>
 </form>
+
+<script>
+ var preselectMinLength = "<?php echo $itinerary_length_min ?>";
+ var preselectMaxLength = "<?php echo $itinerary_length_max ?>";
+
+</script>
