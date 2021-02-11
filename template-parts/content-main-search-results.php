@@ -106,7 +106,7 @@ endforeach;
 ?>
 
 <?php
-$resultsPerPage = 4;
+$resultsPerPage = 10;
 $resultsTotal = count($filteredResults);
 
 $pageCount = floor($resultsTotal / $resultsPerPage);
