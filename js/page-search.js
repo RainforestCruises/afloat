@@ -50,7 +50,7 @@ jQuery(document).ready(function ($) {
   $('#destination-select').select2({
     width: '100%',
     minimumResultsForSearch: -1,
-    placeholder: "Select Destination",
+    placeholder: "Any",
 
   });
   $('#destination-select').on('change', function () {
