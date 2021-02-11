@@ -1,7 +1,7 @@
 <div class="search-results">
     <div class="search-results__top-section">
         <div class="search-results__top-section__result-count" id="response-count">
-            Results
+            Loading...
         </div>
         <div class="search-results__top-section__controls">
             <label class="sort-control" for="result-sort">
@@ -16,11 +16,5 @@
         </div>
     </div>
     <div class="search-results__grid" id="response">
-    </div>
-
-    <div class="search-results__bottom-section">
-        <button class="btn-outline ">
-            Load More Results
-        </button>
     </div>
 </div>

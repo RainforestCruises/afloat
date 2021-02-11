@@ -7,6 +7,8 @@ $startDate = $functionArgs->startDate;
 $endDate = $functionArgs->endDate;
 $minLength = $functionArgs->minLength;
 $maxLength = $functionArgs->maxLength;
+$pageNumber = $functionArgs->pageNumber;
+
 
 $startDateString = strtotime($startDate);
 $endDateString = strtotime($endDate);
@@ -45,8 +47,7 @@ if ($sortOrder == 'ASC') {
 if ($sortOrder == 'DESC') {
     usort($results, "sortPriceDescending");
 }
-console_log('results');
-console_log($results);
+
 
 $filteredResults = [];
 foreach ($results as $result) :
@@ -100,13 +101,29 @@ foreach ($results as $result) :
 //use for pagination
 endforeach;
 
-console_log('filtered-results');
-console_log($filteredResults);
+
 
 ?>
 
 <?php
-$filteredResults = array_slice($filteredResults, 0, 18);
+$resultsPerPage = 4;
+$resultsTotal = count($filteredResults);
+
+$pageCount = floor($resultsTotal / $resultsPerPage);
+if ($resultsTotal % $resultsPerPage != 0) {
+    $pageCount++;
+};
+
+$startIndex = (($pageNumber - 1) * $resultsPerPage);
+console_log($pageNumber);
+
+if($pageNumber != 'all'){
+    $filteredResults = array_slice($filteredResults, $startIndex, $resultsPerPage);
+
+}else{
+    $filteredResults = array_slice($filteredResults, 0, 50);
+
+}
 
 foreach ($filteredResults as $filteredResult) :
     $featured_image = get_field('featured_image', $filteredResult->postObject);
@@ -121,14 +138,14 @@ foreach ($filteredResults as $filteredResult) :
             <div class="search-result__content__tag">
                 <?php if (($filteredResult->postType == 'rfc_tours') && (get_field('best_selling', $filteredResult->postObject) == true)) : ?>
                     <div class="badge-solid badge-solid--small">
-                    Best-Seller
-                </div>
+                        Best-Seller
+                    </div>
                 <?php endif; ?>
-                
-                <?php if(check_if_promo($cruise_data, $startDateString, $endDateString, $minLength, $maxLength) == true) : ?>
-                <div class="badge-solid badge-solid--red badge-solid--small">
-                    Promo
-                </div>
+
+                <?php if (check_if_promo($cruise_data, $startDateString, $endDateString, $minLength, $maxLength) == true) : ?>
+                    <div class="badge-solid badge-solid--red badge-solid--small">
+                        Promo
+                    </div>
                 <?php endif; ?>
             </div>
             <div class="search-result__content__length">
@@ -172,12 +189,42 @@ foreach ($filteredResults as $filteredResult) :
 <?php endforeach; ?>
 
 
+<form class="search-results__grid__pagination" form="search-form">
+    <?php
+    if ($pageCount != 1 && $pageNumber != 'all') : ?>
+        <div class="search-results__grid__pagination__pages-group">
+            <button class="search-results__grid__pagination__pages-group__button search-results__grid__pagination__pages-group__button--back-button btn-circle btn-circle--left btn-circle--small  <?php echo ($pageNumber == 1) ? 'btn-circle--disabled' : ''; ?>" style="margin-right: 4rem;"><svg class="btn-circle--arrow-main">
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-left"></use>
+                </svg><svg class="btn-circle--arrow-animate">
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-left"></use>
+                </svg>
+            </button>
+            <?php
+            for ($k = 1; $k <= $pageCount; $k++) :
+            ?>
+                <button class="btn-circle btn-circle--small  <?php echo ($pageNumber == $k) ? 'btn-circle--current' : ''; ?> search-results__grid__pagination__pages-group__button " value="<?php echo $k ?>">
+                    <?php echo $k ?>
+                </button>
+            <?php endfor;
+            ?>
+            <button class="search-results__grid__pagination__pages-group__button search-results__grid__pagination__pages-group__button--next-button btn-circle btn-circle--right btn-circle--small <?php echo ($pageNumber == $pageCount) ? 'btn-circle--disabled' : ''; ?>" style="margin-left: 4rem;"><svg class="btn-circle--arrow-main">
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                </svg><svg class="btn-circle--arrow-animate">
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="search-results__grid__pagination__show-all-group">
+            <button class="search-results__grid__pagination__pages-group__button search-results__grid__pagination__pages-group__button--all-button btn-outline btn-outline--small btn-outline--dark">
+                Show All
+            </button>
+        </div>
 
-
-
-
-
-
+    <?php endif; ?>
+    <input type="hidden" name="pageNumber" id="pageNumber" form="search-form" value="1">
+</form>
+<div id="pageNumberDisplay" style="display: none;" value="<?php echo $pageNumber ?>"> </div>
+<div id="totalResultsDisplay" style="display: none;" value="<?php echo $resultsTotal ?>"> </div>
 
 
 <?php

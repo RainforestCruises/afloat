@@ -155,6 +155,12 @@ function search_filter_main_search()
         $maxLength = $_POST['maxLength'];
     }
 
+    $pageNumber = 1;
+    if (isset($_POST['pageNumber']) && $_POST['pageNumber']) {
+        $pageNumber = $_POST['pageNumber'];
+    }
+
+    console_log($pageNumber);
     $postsAndCriteria = new stdClass();
     $postsAndCriteria->products = $posts;
     $postsAndCriteria->sortOrder = $sortOrder;
@@ -162,6 +168,8 @@ function search_filter_main_search()
     $postsAndCriteria->endDate = $endDate;
     $postsAndCriteria->minLength = $minLength;
     $postsAndCriteria->maxLength = $maxLength;
+
+    $postsAndCriteria->pageNumber = $pageNumber;
 
 
     get_template_part('template-parts/content', 'main-search-results', $postsAndCriteria);

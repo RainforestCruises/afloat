@@ -93,6 +93,7 @@ if(get_field('itinerary_length_max') != null) {
         <input type="hidden" name="destination" id="destination" value="<?php echo $destination->ID ?>">
         <input type="hidden" name="searchType" id="searchType" value="destination">
 
+
     </div>
 </form>
 

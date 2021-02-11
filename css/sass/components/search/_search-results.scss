@@ -41,6 +41,27 @@
 
             }
         }
+
+        &__pagination {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem auto;
+
+            &__pages-group {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 1.5rem;
+            }
+
+            &__show-all-group {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
     }
 
     &__bottom-section {

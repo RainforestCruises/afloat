@@ -69,16 +69,16 @@ jQuery(document).ready(function ($) {
     $('#search-form').submit();
   });
 
-    //Experience 
-    $('#experience-select').select2({
-      width: '100%',
-      minimumResultsForSearch: -1,
-      placeholder: "Any",
-  
-    });
-    $('#experience-select').on('change', function () {
-      $('#search-form').submit();
-    });
+  //Experience 
+  $('#experience-select').select2({
+    width: '100%',
+    minimumResultsForSearch: -1,
+    placeholder: "Any",
+
+  });
+  $('#experience-select').on('change', function () {
+    $('#search-form').submit();
+  });
 
 
   //Travel Type 
@@ -125,9 +125,12 @@ jQuery(document).ready(function ($) {
   });
 
 
+
+
   //RELOAD RESULTS ------------------------------------------
   reloadResults(); //first time page loads
   $('#search-form').submit(function () {
+    $('body, html, .search-results').animate({ scrollTop: 0 }, "fast");
     reloadResults();
     return false;
   });
@@ -136,13 +139,13 @@ jQuery(document).ready(function ($) {
   function reloadResults() {
 
     const params = new URLSearchParams(location.search);
-    if(startDate != null){
+    if (startDate != null) {
       params.set('startDate', startDate);
-    params.set('endDate', endDate);
+      params.set('endDate', endDate);
 
-    window.history.replaceState({}, '', `${location.pathname}?${params}`);
+      window.history.replaceState({}, '', `${location.pathname}?${params}`);
     }
-    
+
 
     // var url_string = window.location.href; //window.location.href
     // var url = new URL(url_string);
@@ -173,9 +176,57 @@ jQuery(document).ready(function ($) {
 
 
         $('#response').html(data); // insert data
+
+        var pageNumberDisplay = $('#pageNumberDisplay').attr('value');
+        var totalResultsDisplay = $('#totalResultsDisplay').attr('value');
+        var resultString = 'Found ' + totalResultsDisplay + ' results';
+
+        if (pageNumberDisplay != 1 && pageNumberDisplay != 'all') {
+          resultString += ' (Page ' + pageNumberDisplay + ')'
+        }
+
+        if (pageNumberDisplay == 'all') {
+          resultString += ' (Showing All)'
+        }
+
+        $('#response-count').html(resultString);
+
+
+        //expand item detail
+        $(".search-results__grid__pagination__pages-group__button").on("click", function (e) {
+          e.preventDefault();
+
+          // !current page
+          if (!$(this).hasClass('btn-circle--current') && !$(this).hasClass('btn-circle--disabled')) {
+
+            // next button
+            if ($(this).hasClass('search-results__grid__pagination__pages-group__button--next-button')) {
+              var pageGoTo = (+pageNumberDisplay + 1);
+              $("#pageNumber").val(pageGoTo);
+
+              // back button
+            } else if ($(this).hasClass('search-results__grid__pagination__pages-group__button--back-button')) {
+              var pageGoTo = (+pageNumberDisplay - 1);
+              $("#pageNumber").val(pageGoTo);
+
+              //all button
+            } else if ($(this).hasClass('search-results__grid__pagination__pages-group__button--all-button')) {
+              $("#pageNumber").val('all');
+
+              //page button
+            } else {
+              var pageNumber = $(this).val();
+              $("#pageNumber").val(pageNumber);
+            }
+
+            $('#search-form').submit();
+            
+          }
+
+        });
+
       }
     });
-    //return false;
   }
 
 

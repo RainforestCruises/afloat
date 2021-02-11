@@ -76,13 +76,28 @@
     width: 95%;
   }
 
+ 
   &--small {
     padding: 1rem 2rem;
+    font-size: 1.3rem;
   }
 
   &--dark {
     &::after {
       border: 1px solid $color-primary;
+    }
+  }
+
+  &--disabled {
+    cursor: default;
+    color: $color-grey-2;
+    &::after {
+      border: 1px solid $color-grey-2;
+    }
+
+    &:hover::after {
+      height: 100%;
+      width: 100%;
     }
   }
 }
@@ -224,6 +239,10 @@
   z-index: 0;
   outline: none;
 
+  font-family: $font-primary;
+  font-size: 1.3rem;
+  font-weight: 700;
+
   color: $color-primary;
 
 
@@ -245,8 +264,8 @@
   }
 
   &--small {
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
   }
 
   &--xsmall {
@@ -311,8 +330,8 @@
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     transform-origin: center;
-    height: 95%;
-    width: 95%;
+    height: 100%;
+    width: 100%;
     border-radius: 50%;
     border: 2px solid $color-primary;
   }
@@ -332,6 +351,43 @@
     color: rgba($color-white, 0.95);
     &::after {
       border: 2px solid rgba($color-white, 0.95);
+    }
+  }
+
+  &--smallborder {
+    &::after {
+      border: 1px solid $color-primary;
+    }
+  }
+
+
+  
+  &--disabled {
+    cursor: default;
+    color: $color-grey-2;
+    &::after {
+      border: 2px solid $color-grey-2;
+    }
+
+    &:hover::after {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  
+  &--current {
+    cursor: default;
+    color: $color-white;
+    //background-color: $color-primary;
+    &::after {
+      border: none;
+      background-color: $color-primary;
+      z-index: -1;
+    }
+
+    &:hover::after {
+      height: 100%;
+      width: 100%;
     }
   }
 
