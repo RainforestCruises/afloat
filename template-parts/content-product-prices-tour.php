@@ -25,75 +25,66 @@ $currentYear = $args['currentYear'];
         Price List
     </h2>
 
-    <?php
-    //$itineraries = get_field('itineraries');
-    $pricesImagery = get_field('prices_imagery');
-
-    ?>
 
 
+    <?php $pricePackages = get_field('price_packages'); ?>
 
-    <!-- Price Group -->
-    <div class="product-prices__price-group <?php echo ($itinerariesCount == 0) ? ('') : ('u-margin-top-medium') ?>">
-        <div class="product-prices__price-group__picture ">
-            <img src="<?php echo esc_html($pricesImagery[0]['url']); ?>" alt="">
-        </div>
-        <div class="product-prices__price-group__name ">
-            <h4 class="product-prices__price-group__name__length">
-                <?php echo get_field('length_in_days'); ?> Day / <?php echo (get_field('length_in_days') - 1) ?> Night
-            </h4>
-            <div class="product-prices__price-group__name__subtitle">
-                <h3 class="heading-3 heading-3--underline">
-                    <?php echo get_field('itinerary_name'); ?>
-                </h3>
-            </div>
-        </div>
-        <div class="product-prices__price-group__card-group ">
+    <div class="product-prices__tour-prices">
+        <?php for ($y = 0; $y < 2; $y++) : ?>
 
-            <?php $yearCount = 0; ?>
-            <?php while ($yearCount <= 1) { ?>
-                <?php $hasRate = false; ?>
-                <!-- Card 2020 -->
-                <div class="product-prices__price-group__card-group__card">
-                    <!-- Reg Season -->
-                    <h4 class="product-prices__price-group__card-group__card__year ">
-                        <?php echo ($currentYear + $yearCount) ?>
-                    </h4>
-                    <h5 class="product-prices__price-group__card-group__card__season">
-                        All Year
-                    </h5>
-                    <div class="product-prices__price-group__card-group__card__cabin-list">
-                        <?php $pricePackages = get_field('price_packages'); ?>
-                        <?php foreach ($pricePackages as $pricePackage) : ?>
-                            <?php if ($pricePackage['year'] == ($currentYear + $yearCount)) { ?>
-                                <?php $hasRate = true; ?>
-                                <div class="product-prices__price-group__card-group__card__cabin-list__item">
-                                    <div class="product-prices__price-group__card-group__card__cabin-list__item__cabin">
-                                        <?php echo  $pricePackage['name']; ?>
-                                    </div>
-                                    <div class="product-prices__price-group__card-group__card__cabin-list__item__prices">
-                                        <?php echo "$ " . number_format($pricePackage['price'], 0);  ?>
-                                    </div>
+            <!-- Price Group -->
+            <div class="product-prices__tour-prices__tour-price-group">
+                <div class="product-prices__tour-prices__tour-price-group__year">
+                    <?php echo ($currentYear + $y) ?>
+                </div>
+                <div class="product-prices__tour-prices__tour-price-group__blocks">
+
+                    <?php foreach ($pricePackages as $pricePackage) : ?>
+                        <?php if ($pricePackage['year'] == ($currentYear + $y)) :
+                            $price = ($pricePackage['price'] != "") ? $pricePackage['price'] : 0;
+                            $single_supplement = ($pricePackage['single_supplement'] != "") ? $pricePackage['single_supplement'] : 0;
+                            $single_price = intval($price) + intval($single_supplement);
+                            console_log($single_price);
+                        ?>
+
+                            <div class="product-prices__tour-prices__tour-price-group__blocks__block">
+
+                                <div class="product-prices__tour-prices__tour-price-group__blocks__block__title">
+                                    <?php echo  $pricePackage['name']; ?><br>
+
                                 </div>
-                            <?php } ?>
-                        <?php endforeach ?>
-                    </div>
-                    <?php if ($hasRate == false) { ?>
-                        <div class="product-prices__price-group__card-group__card__cabin-list__item">
-                            Call for Prices
-                        </div>
-                    <?php } ?>
+                                <div class="product-prices__tour-prices__tour-price-group__blocks__block__sub">
+                                    Double
+                                </div>
+                                <div class="product-prices__tour-prices__tour-price-group__blocks__block__price">
+                                    <?php echo "$ " . number_format($price, 0);  ?>
+                                </div>
+                                <?php if ($single_supplement != 0) : ?>
+                                    <div class="product-prices__tour-prices__tour-price-group__blocks__block__sub product-prices__tour-prices__tour-price-group__blocks__block__sub--single">
+                                        Single
+                                    </div>
+                                    <div class="product-prices__tour-prices__tour-price-group__blocks__block__price product-prices__tour-prices__tour-price-group__blocks__block__price--single">
+                                        <?php echo "$ " . number_format($single_price, 0);  ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
 
+
+
+                        <?php endif; ?>
+                    <?php endforeach ?>
 
                 </div>
 
-            <?php $yearCount++;
-            } ?>
 
 
 
-        </div>
+            </div>
+        <?php endfor; ?>
     </div>
+
+
+
 
 
 

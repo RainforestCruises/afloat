@@ -1865,6 +1865,7 @@ h5 {
           line-height: 1.3rem;
           justify-content: flex-end;
           padding-right: 4rem;
+          padding-left: 2rem;
           align-items: center;
           height: 100%;
           max-width: 100%;
@@ -2951,11 +2952,6 @@ h5 {
     grid-row: 1 / span 1;
     z-index: -10;
     border-bottom: 1px solid #e6e6e6; }
-  .product-prices__note {
-    grid-column: center-start / center-end; }
-  .product-prices__btn {
-    grid-column: center-start / center-end;
-    justify-self: center; }
   .product-prices__price-group {
     grid-column: full-start / full-end;
     display: grid;
@@ -3103,14 +3099,16 @@ h5 {
               .product-prices__price-group__card-group__card__season::before {
                 display: none; } }
         .product-prices__price-group__card-group__card__cabin-list {
-          display: grid;
-          justify-items: center;
-          grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-          column-gap: 1.5rem; }
+          column-gap: 1.5rem;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 0 1.5rem; }
           .product-prices__price-group__card-group__card__cabin-list__item {
             margin-bottom: 3rem;
             font-size: 1.6rem;
-            text-align: center; }
+            text-align: center;
+            min-width: 15rem; }
             .product-prices__price-group__card-group__card__cabin-list__item__cabin {
               display: flex;
               justify-content: center;
@@ -3131,11 +3129,107 @@ h5 {
               display: flex;
               align-items: center;
               flex-direction: column;
-              font-size: 1.8rem; }
+              font-size: 1.8rem;
+              color: #305a7c; }
               .product-prices__price-group__card-group__card__cabin-list__item__prices .single-info {
                 display: block;
                 font-size: 1.2rem;
                 font-style: italic; }
+  .product-prices__tour-prices {
+    grid-column: center-start / center-end; }
+    .product-prices__tour-prices__tour-price-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative; }
+      .product-prices__tour-prices__tour-price-group:first-child {
+        margin-bottom: 5rem; }
+        .product-prices__tour-prices__tour-price-group:first-child::after {
+          content: "";
+          position: absolute;
+          bottom: 0rem;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
+          height: 1px;
+          background-color: #e6e6e6; }
+      .product-prices__tour-prices__tour-price-group__year {
+        font-size: 5rem;
+        font-family: "Old Standard TT", serif;
+        color: #c2c6c9;
+        letter-spacing: 0.2rem;
+        grid-row: 1 / span 1;
+        font-weight: 300;
+        line-height: 3.5rem;
+        margin-bottom: 2rem;
+        text-align: center; }
+      .product-prices__tour-prices__tour-price-group__blocks {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 6rem;
+        flex-wrap: wrap; }
+        .product-prices__tour-prices__tour-price-group__blocks__block {
+          min-width: 35rem;
+          min-height: 18rem;
+          margin: 5rem 3rem;
+          background-color: #fff;
+          position: relative;
+          border: 10px solid transparent;
+          box-shadow: inset 0px 0px 0px 2px rgba(20, 40, 56, 0.2), 0 2rem 5rem rgba(0, 0, 0, 0.13);
+          box-sizing: border-box;
+          /* Include padding and border in element's width and height */
+          padding: 1rem; }
+          .product-prices__tour-prices__tour-price-group__blocks__block__title {
+            font-size: 3rem;
+            padding: 1rem;
+            letter-spacing: 0.2rem;
+            color: #142838;
+            text-align: center;
+            font-weight: 600; }
+          .product-prices__tour-prices__tour-price-group__blocks__block__sub {
+            font-size: 1.6rem;
+            font-family: "Old Standard TT", serif;
+            letter-spacing: 0.2rem;
+            padding: 0 3rem;
+            padding-bottom: 2rem;
+            font-weight: 300;
+            color: #9ea0a4;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr max-content 1fr;
+            align-items: center;
+            column-gap: 1.5rem; }
+            .product-prices__tour-prices__tour-price-group__blocks__block__sub--single {
+              font-size: 1.3rem;
+              letter-spacing: 0.1rem; }
+            .product-prices__tour-prices__tour-price-group__blocks__block__sub::before {
+              content: "";
+              height: 1px;
+              display: block;
+              background-color: #e6e6e6; }
+            .product-prices__tour-prices__tour-price-group__blocks__block__sub::after {
+              content: "";
+              height: 1px;
+              display: block;
+              background-color: #e6e6e6; }
+            @media only screen and (max-width: 25em) {
+              .product-prices__tour-prices__tour-price-group__blocks__block__sub {
+                grid-template-columns: 1fr;
+                text-align: center; }
+                .product-prices__tour-prices__tour-price-group__blocks__block__sub::after {
+                  display: none; }
+                .product-prices__tour-prices__tour-price-group__blocks__block__sub::before {
+                  display: none; } }
+          .product-prices__tour-prices__tour-price-group__blocks__block__price {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #305a7c; }
+            .product-prices__tour-prices__tour-price-group__blocks__block__price--single {
+              font-size: 1.5rem;
+              font-style: italic; }
   .product-prices__policies-divider {
     grid-column: center-start / center-end; }
   .product-prices__policies {
@@ -3160,6 +3254,11 @@ h5 {
         margin-bottom: 5rem; }
         .product-prices__policies__list-group ul {
           margin-left: 2rem; } }
+  .product-prices__note {
+    grid-column: center-start / center-end; }
+  .product-prices__btn {
+    grid-column: center-start / center-end;
+    justify-self: center; }
 
 .product-reviews {
   grid-column: full-start / -1; }

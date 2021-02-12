@@ -3,6 +3,22 @@
     "title": "Search Destination",
     "fields": [
         {
+            "key": "field_6026b75c9fee4",
+            "label": "Page",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5fd8e1e88ada6",
             "label": "Destination",
             "name": "destination",
@@ -26,47 +42,6 @@
             "multiple": 0,
             "return_format": "object",
             "ui": 1
-        },
-        {
-            "key": "field_6024307714ef7",
-            "label": "Title Text",
-            "name": "title_text",
-            "type": "text",
-            "instructions": "Title above the snippet, the H1",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5fd91eda6d305",
-            "label": "Snippet",
-            "name": "snippet",
-            "type": "wysiwyg",
-            "instructions": "Text to appear at the top before the search results",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
         },
         {
             "key": "field_60240ccd902b2",
@@ -130,6 +105,63 @@
                     "multiple": 0
                 }
             ]
+        },
+        {
+            "key": "field_6024307714ef7",
+            "label": "Title Text",
+            "name": "title_text",
+            "type": "text",
+            "instructions": "Title above the snippet, the H1",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5fd91eda6d305",
+            "label": "Snippet",
+            "name": "snippet",
+            "type": "wysiwyg",
+            "instructions": "Text to appear at the top before the search results",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "admin_column_enabled": 0,
+            "admin_column_post_types": "",
+            "admin_column_taxonomies": "",
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_6026b73a9fee3",
+            "label": "Filters",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_5fd8e1e88b191",
@@ -248,5 +280,5 @@
     ],
     "active": true,
     "description": "Search (Destination) - Page",
-    "modified": 1612985021
+    "modified": 1613150161
 }

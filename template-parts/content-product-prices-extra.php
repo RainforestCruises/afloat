@@ -1,56 +1,59 @@
-<?php 
+<?php
 $currentYear = $args['currentYear'];
 ?>
+
+<?php if (get_post_type() != 'rfc_tours') : ?>
 <!-- Note Top-->
 <div class="product-prices__note">
+    <div class="attention-box">
+        <p>All prices listed are per person in double occupancy unless otherwise specified </p>
+    </div>
+</div>
+<?php endif; ?>
+
+<!-- Note Bot-->
+<?php if (get_field('display_special_note') == true) { ?>
+    <div class="product-prices__note">
         <div class="attention-box">
-            <p>All prices listed are per person in double occupancy unless otherwise specified </p>
+            <?php echo get_field('special_note_content') ?>
         </div>
     </div>
+<?php } ?>
+<!-- Policies -->
+<div class="product-prices__policies-divider">
+    <h2 class="page-divider">
+        Policies
+    </h2>
+</div>
+<?php
+$policies = get_field('policies');
+$overall_policies = $policies['overall_policies'];
+$display_yearly = $policies['display_yearly'];
+//console_log($policies);
+?>
+<div class="product-prices__policies <?php echo ($display_yearly == false) ? ('product-prices__policies--single-layout') : ('false'); ?>">
+    <div class="product-prices__policies__list-group product-prices__policies__list-group--overall">
+        <h3 class="product-prices__policies__list-group__title heading-3 heading-3--underline">
+            Pricing Policies
+        </h3>
+        <ul class="list-svg">
 
-    <!-- Note Bot-->
-    <?php if (get_field('display_special_note') == true) { ?>
-        <div class="product-prices__note">
-            <div class="attention-box">
-                <?php echo get_field('special_note_content') ?>
-            </div>
-        </div>
-    <?php } ?>
-    <!-- Policies -->
-    <div class="product-prices__policies-divider">
-        <h2 class="page-divider">
-            Policies
-        </h2>
+            <?php if ($overall_policies != false) :
+                foreach ($overall_policies as $p) { ?>
+                    <li>
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                        </svg>
+                        <span><?php echo $p['policy']; ?></span>
+                    </li>
+            <?php
+                }
+            endif;
+            ?>
+        </ul>
     </div>
-    <?php
-    $policies = get_field('policies');
-    $overall_policies = $policies['overall_policies'];
-    $display_yearly = $policies['display_yearly'];
-    //console_log($policies);
-    ?>
-    <div class="product-prices__policies <?php echo ($display_yearly == false) ? ('product-prices__policies--single-layout') : ('false'); ?>">
-        <div class="product-prices__policies__list-group product-prices__policies__list-group--overall">
-            <h3 class="product-prices__policies__list-group__title heading-3 heading-3--underline">
-                Pricing Policies
-            </h3>
-            <ul class="list-svg">
-
-                <?php if ($overall_policies != false) :
-                    foreach ($overall_policies as $p) { ?>
-                        <li>
-                            <svg>
-                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                            </svg>
-                            <span><?php echo $p['policy']; ?></span>
-                        </li>
-                <?php
-                    }
-                endif;
-                ?>
-            </ul>
-        </div>
-        <?php if($display_yearly == true) { ?>
-            <div class="product-prices__policies__list-group product-prices__policies__list-group--first">
+    <?php if ($display_yearly == true) { ?>
+        <div class="product-prices__policies__list-group product-prices__policies__list-group--first">
             <h3 class="product-prices__policies__list-group__title-overall heading-3 heading-3--underline">
                 <?php echo $currentYear; ?>
             </h3>
@@ -93,7 +96,7 @@ $currentYear = $args['currentYear'];
             </ul>
         </div>
 
-        <?php } ?>
+    <?php } ?>
 
-      
-    </div>
+
+</div>

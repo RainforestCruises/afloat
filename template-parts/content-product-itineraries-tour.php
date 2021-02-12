@@ -22,7 +22,7 @@ $highest;
 
         <!-- Info -->
         <div class="product-intro__info">
-            <div class="product-intro__info__starting-price">Length: <span><?php echo get_field('length_in_days')  ?> Days </span></div>
+            <div class="product-intro__info__starting-price">Length: <span><?php echo get_field('length')  ?> Days </span></div>
             <div class="product-intro__info__cta">
                 <button class="btn-cta-round">Book Now</button>
             </div>
@@ -47,29 +47,31 @@ $highest;
                 <?php echo get_field('itinerary_name') ?>
             </div>
             <div class="product-itineraries__itinerary__title__subtitle">
-                <?php echo get_field('length_in_days') ?> Day / <?php echo (get_field('length_in_days') - 1) ?> Night
+                <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night
             </div>
         </div>
 
-        <!-- Intro -->
-        <div class="product-itineraries__itinerary__intro drop-cap-1">
-            <?php echo get_field('overview') ?>
-        </div>
+        <?php if (get_field('has_summary') == true) : ?>
 
-        <!-- Map -->
-        <?php $img = get_field('map'); ?>
+            <!-- Intro -->
+            <div class="product-itineraries__itinerary__intro drop-cap-1">
+                <?php echo get_field('overview') ?>
+            </div>
 
-        <a class="product-itineraries__itinerary__map" id="map-lightbox" href="<?php echo esc_html($img['url']); ?>" title="<?php echo  get_field('length_in_days') ?> Day / <?php echo (get_field('length_in_days') - 1) ?> Night - <?php echo get_field('itinerary_name') ?>">
-            <?php if ($img) : ?>
-                <img src="<?php echo esc_html($img['url']); ?>" alt="<?php echo esc_html($img['alt']) ?>">
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
-                </svg>
-            <?php endif ?>
-        </a>
+            <!-- Map -->
+            <?php $img = get_field('map'); ?>
 
-        <div class="product-itineraries__itinerary__divider"></div>
+            <a class="product-itineraries__itinerary__map" id="map-lightbox" href="<?php echo esc_html($img['url']); ?>" title="<?php echo  get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night - <?php echo get_field('itinerary_name') ?>">
+                <?php if ($img) : ?>
+                    <img src="<?php echo esc_html($img['url']); ?>" alt="<?php echo esc_html($img['alt']) ?>">
+                    <svg>
+                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
+                    </svg>
+                <?php endif ?>
+            </a>
 
+            <div class="product-itineraries__itinerary__divider"></div>
+        <?php endif; ?>
         <!-- D2D -->
         <div class="product-itineraries__itinerary__d2d">
             <h3 class="heading-3">
@@ -141,6 +143,29 @@ $highest;
         <aside class="product-itineraries__itinerary__side-content">
             <!-- Details - Availability / Prices -->
             <div class="product-itineraries__itinerary__side-content__detail">
+
+                <?php if (get_field('has_summary') == false) : ?>
+                        <div class="product-itineraries__itinerary__side-content__detail__widget">
+                            <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
+                                <h4 class="heading-4">
+                                    Route Map
+                                </h4>
+
+                            </div>
+                            <!-- Map -->
+                            <?php $img = get_field('map'); ?>
+                            <a class="product-itineraries__itinerary__map product-itineraries__itinerary__map--no-summary" id="map-lightbox" href="<?php echo $img['url']; ?>" title="<?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night - <?php echo get_field('tour_name') ?>">
+                                <?php if ($img) : ?>
+                                    <img src="<?php echo $img['url']; ?>" alt="">
+                                    <svg>
+                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
+                                    </svg>
+                                <?php endif ?>
+                            </a>
+                        </div>
+
+
+                <?php endif; ?>
 
                 <!-- Prices -->
                 <div class="product-itineraries__itinerary__side-content__detail__widget">

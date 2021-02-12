@@ -4,18 +4,16 @@ jQuery(document).ready(function ($) {
   //Anchor behavior
   //on load
   var identifier = window.location.hash;
-  if ($(identifier).length)         
-  {
-        changeTabs(identifier);
+  if ($(identifier).length) {
+    changeTabs(identifier);
   }
 
   //fires when anchor changed
   window.addEventListener('hashchange', function () {
     var identifier = window.location.hash;
-    if ($(identifier).length)         
-    {
-          changeTabs(identifier);
-    }else {
+    if ($(identifier).length) {
+      changeTabs(identifier);
+    } else {
       changeTabs('#overview');
 
     }
@@ -49,7 +47,7 @@ jQuery(document).ready(function ($) {
       if (tab_id == "itineraries") {
         offset = 180
       }
-    } else if ($(window).width() < 600){
+    } else if ($(window).width() < 600) {
       offset = 105;
       if (tab_id == "itineraries") {
         offset = 155
@@ -76,7 +74,7 @@ jQuery(document).ready(function ($) {
   }
 
 
-  
+
   //Date and Price Grid Time Config
   //display Itinerary Side Info for current year only
   $('.date-grid').hide();
@@ -128,6 +126,15 @@ jQuery(document).ready(function ($) {
     $this.parent().find('.product-itineraries__itinerary__d2d__days__day__image-content').slideToggle(350);
     $this.parent().find('.product-itineraries__itinerary__d2d__days__day__content').slideToggle(350);
     $this.parent().find('.product-itineraries__itinerary__d2d__days__day__snippet').toggle(175);
+
+    if (!$this.parent().hasClass('product-itineraries__itinerary__d2d__days__day--active')) {
+      //closing -- scroll to top of element
+      let dayHeader = $this.parent();
+      $('html, body').animate({
+        scrollTop: $(dayHeader).offset().top - 180 //#DIV_ID is an example. Use the id of your destination on the page
+      }, 'fast');
+
+    } 
 
   });
 
@@ -273,7 +280,7 @@ jQuery(document).ready(function ($) {
       $('.page-nav__collapse').removeClass('page-nav__collapse--active');
       $('.page-nav__button').removeClass('page-nav__button--active');
 
-    } 
+    }
   });
 
 
@@ -318,7 +325,7 @@ jQuery(document).ready(function ($) {
     }
   }
 
- //SCROLLING
+  //SCROLLING
   //Navigation Jump 
   $('#template-nav-title, .page-nav__collapse__list__item__link').click(function (event) {
     event.preventDefault();

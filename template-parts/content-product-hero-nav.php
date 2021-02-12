@@ -1,5 +1,9 @@
 <?php
 $hero_image = get_field('hero_image');
+$productTitle = get_the_title();
+if(get_post_type() == 'rfc_tours'){
+    $productTitle = get_field('length') . '-Day ' . get_field('tour_name');
+}
 ?>
 
 
@@ -13,7 +17,7 @@ $hero_image = get_field('hero_image');
 
         <!-- H1 Title / H2 Subtitle-->
         <div class="product-nav__caption__title-group">
-            <h1 class="product-nav__caption__title-group__title" id="template-nav-title"><?php echo get_the_title() ?></h1>
+            <h1 class="product-nav__caption__title-group__title" id="template-nav-title"><?php echo $productTitle ?></h1>
             <h2 class="product-nav__caption__title-group__subtitle"><?php echo get_field('top_snippet') ?></h2>
         </div>
 

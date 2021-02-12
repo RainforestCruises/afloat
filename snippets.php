@@ -1,67 +1,39 @@
- <!-- Main Panel -->
- <button class="nav-mobile__accordion nav-mobile__accordion--main">Destinations</button>
-            <div class="nav-mobile__accordion__panel ">
-
-                <!-- Sub Panel -->
-                <div class="nav-mobile__accordion nav-mobile__accordion__sub-group nav-mobile__accordion--destinations">
-                    Adventure Cruises</div>
-                <ul class="nav-mobile__accordion__panel nav-mobile__accordion__list">
-                    <li class="nav-mobile__accordion__panel__item">
-                        <a href="#" class="nav-mobile__accordion__panel__link">Amazon River</a>
-                    </li>
-                    <li class="nav-mobile__accordion__panel__item">
-                        <a href="#" class="nav-mobile__accordion__panel__link">Galapagos Islands</a>
-                    </li>
-                    <li class="nav-mobile__accordion__panel__item">
-                        <a href="#" class="nav-mobile__accordion__panel__link">Indonesian Archipelago</a>
-                    </li>
-                    <li class="nav-mobile__accordion__panel__item">
-                        <a href="#" class="nav-mobile__accordion__panel__link">Irrawaddy River</a>
-                    </li>
-                    <li class="nav-mobile__accordion__panel__item">
-                        <a href="#" class="nav-mobile__accordion__panel__link">Mekong River</a>
-                    </li>
-                </ul>
+<div class="product-prices__price-group__card-group ">
+                <?php $yearCount = 0; ?>
+                <?php while ($yearCount <= 1) { ?>
+                    <?php $hasRate = false; ?>
+                    <!-- Card 2020 -->
+                    <div class="product-prices__price-group__card-group__card">
+                        <!-- Reg Season -->
+                        <h4 class="product-prices__price-group__card-group__card__year ">
+                            <?php echo ($currentYear + $yearCount) ?>
+                        </h4>
+                        <h5 class="product-prices__price-group__card-group__card__season">
+                            All Year
+                        </h5>
+                        <div class="product-prices__price-group__card-group__card__cabin-list">
+                            <?php $pricePackages = get_field('price_packages'); ?>
+                            <?php foreach ($pricePackages as $pricePackage) : ?>
+                                <?php if ($pricePackage['year'] == ($currentYear + $yearCount)) { ?>
+                                    <?php $hasRate = true; ?>
+                                    <div class="product-prices__price-group__card-group__card__cabin-list__item">
+                                        <div class="product-prices__price-group__card-group__card__cabin-list__item__cabin">
+                                            <?php echo  $pricePackage['name']; ?>
+                                        </div>
+                                        <div class="product-prices__price-group__card-group__card__cabin-list__item__prices">
+                                            <?php echo "$ " . number_format($pricePackage['price'], 0);  ?>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            <?php endforeach ?>
+                        </div>
+                        <?php if ($hasRate == false) { ?>
+                            <div class="product-prices__price-group__card-group__card__cabin-list__item">
+                                Call for Prices
+                            </div>
+                        <?php } ?>
+                    </div>
+                <?php $yearCount++;
+                } ?>
 
             </div>
-            </div>
-
-            <button class="nav-mobile__accordion nav-mobile__accordion--main">Experiences</button>
-            <div class="nav-mobile__accordion__panel">
-                <ul class="nav-mobile__accordion__panel__list">
-                    <li class="nav-mobile__accordion__panel__item">
-                        <a href="#" class="nav-mobile__accordion__panel__link">AAA</a>
-                    </li>
-                  
-                </ul>
-            </div>
-
-            <button class="nav-mobile__accordion nav-mobile__accordion--main">Deals</button>
-            <div class="nav-mobile__accordion__panel">
-                <ul class="nav-mobile__accordion__panel__list">
-                    <li class="nav-mobile__accordion__panel__item">
-                        <a href="#" class="nav-mobile__accordion__panel__link">Deal 1</a>
-                    </li>
-                   
-
-                </ul>
-            </div>
-            <button class="nav-mobile__accordion nav-mobile__accordion--main">Contact</button>
-
-
-
-
-
-
-
-
-            <?php foreach ($menu_destination_groups as $destination_group) : ?>
-                <div class="nav-mobile__content-panel nav-mobile__content-panel--sub" parentItem="<?php echo $destination_group['parentId'] ?>">
-                    <button class="nav-mobile__content-panel__button nav-mobile__content-panel__button--back">Destinations</button>
-
-                    <?php $destinationsMenuArray = $destination_group['destinations']; ?>
-                    <?php foreach ($destinationsMenuArray as $destinationMenuItem) : ?>
-                        <button class="nav-mobile__content-panel__button"><?php echo $destinationMenuItem['title'] ?></button>
-                    <?php endforeach; ?>
-                </div>
-            <?php endforeach; ?>
