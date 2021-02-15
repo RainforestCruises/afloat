@@ -1,7 +1,9 @@
 <?php
 $queryArgs = array(
     'post_type' => get_post_type(),
-    'posts_per_page' => -1
+    'posts_per_page' => -1,
+    'post__not_in' => array( $post->ID )
+
 );
 
 
@@ -36,6 +38,8 @@ $relatedCount = 0;
     if ($posts) :
         foreach ($posts as $p) {
 
+            
+
             $relatedCount++;
 
             $featured_image = get_field('featured_image', $p);
@@ -45,8 +49,7 @@ $relatedCount = 0;
 
             if (get_post_type($p) != 'rfc_cruises') {
 
-                $lowest = get_field('length_in_days', $p);
-                $highest = get_field('length_in_days', $p);
+                $tour_length = get_field('length', $p);
 
                 $priceList = [];
                 $price_packages = get_field('price_packages', $p);
@@ -92,7 +95,7 @@ $relatedCount = 0;
                     </div>
                     <div class="related-slider__item__bottom__last-section">
                         <div class="related-slider__item__bottom__length">
-                            <span class="related-slider__item__bottom__length__numbers"><?php echo $lowest; ?>-<?php echo $highest; ?></span>
+                            <span class="related-slider__item__bottom__length__numbers"><?php echo (get_post_type($p) == 'rfc_tours') ? $tour_length : $lowest . '-' . $highest ?></span>
                             <span class="related-slider__item__bottom__length__text">Days</span>
                         </div>
                         <div class="related-slider__item__bottom__price">

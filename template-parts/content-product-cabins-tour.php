@@ -2,6 +2,7 @@
 
 $properties = get_field('properties');
 
+$hotels = get_field('hotels');
 
 
 ?>
@@ -62,7 +63,7 @@ $properties = get_field('properties');
                         <?php echo $propertySnippet; ?>
                         <?php echo $propertyIntro; ?>
                     </div>
-                    
+
 
                     <div class="product-cabins__cabin__content__cta">
                         <a href="<?php echo get_site_url() . '/cruises/' . get_post_field('post_name', $property); ?>" target="_blank" class="btn-outline" data-tab="tab-prices">Learn More</a>
@@ -75,10 +76,48 @@ $properties = get_field('properties');
         <?php endforeach; ?>
     <?php endif; ?>
 
+    <div class="sub-divider">
+        Hotels
+    </div>
+    <div class="sub-divider-text">
+        <p><?php echo get_field('hotels_snippet') ?></p>
+    </div>
+
+    <?php if ($hotels) : ?>
+
+        <div class="product-cabins__hotels">
+            <div class="product-cabins__hotels__slider" id="hotels-slider">
+                <?php foreach ($hotels as $hotel) : ?>
+                    <?php
+                    $hotelPost = get_post($hotel);
+                    $featured_image = get_field('featured_image',  $hotelPost);
+                    $hotelTitle = get_field('navigation_title',  $hotelPost);
+                    $priceLevelPost = get_field('price_level',  $hotelPost);
+
+                    ?>
+
+                    <div class="card-square">
+                        <div class="card-square__title-group">
+                            <div class="card-square__title-group__name">
+                                <?php echo $hotelTitle ?>
+                            </div>
+                            <div class="card-square__title-group__subtext">
+                                <?php echo get_the_title($priceLevelPost) ?>
+                            </div>
+                        </div>
+                        <img class="card-square__image" src="<?php echo $featured_image['url']; ?>" alt="">
+                    </div>
+
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php
+    endif; ?>
+
     <div class="product-cabins__note">
         <div class="attention-box">
             <?php $destination = get_field('destination'); ?>
-            <p>All itineraries are completely customizable. Contact our travel specialists to build your perfect <?php echo get_the_title($destination[0]) ?> vacation</p>
+            <p>All itineraries are completely customizable. Contact our travel specialists to build your perfect vacation</p>
         </div>
     </div>
 

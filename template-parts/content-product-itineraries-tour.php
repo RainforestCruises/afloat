@@ -44,7 +44,7 @@ $highest;
     <div class="product-itineraries__itinerary  tab-content current" id="tab-itinerary-1">
         <div class="product-itineraries__itinerary__title">
             <div class="page-divider product-itineraries__itinerary__title__main">
-                <?php echo get_field('itinerary_name') ?>
+                <?php echo get_field('tour_name') ?>
             </div>
             <div class="product-itineraries__itinerary__title__subtitle">
                 <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night
@@ -189,6 +189,7 @@ $highest;
                     <?php
 
                     $pricePackages = get_field('price_packages');
+                    
                     $yearCount = 0;
 
                     ?>
@@ -199,11 +200,11 @@ $highest;
                             <?php
                             if ($pricePackages) {
                                 foreach ($pricePackages as $pricePackage) {
-
+                                    $price_level = $pricePackage['price_level'];
                                     if ($pricePackage['year'] == ($currentYear + $yearCount)) { ?>
                                         <div class="price-grid__item">
                                             <div class="price-grid__item__cabin">
-                                                <?php echo  $pricePackage['name'] ?>
+                                            <?php echo get_the_title($price_level); ?>
                                             </div>
                                             <div class="price-grid__item__price">
                                                 <?php echo "$ " . number_format($pricePackage['price'], 0);  ?>

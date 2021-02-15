@@ -107,6 +107,47 @@ function create_post_type_rfc_lodges()
 add_action('init', 'create_post_type_rfc_lodges');
 
 
+// Custom Post Type - Hotels 
+function create_post_type_rfc_hotels()
+{
+    register_post_type(
+        'rfc_hotels',
+        array(
+            'labels' => array(
+                'name' => __('Hotels'),
+                'singular_name' => __('Hotel'),
+            ),
+            'public' => true,
+            'rewrite' => array('slug' => 'hotels'),
+            'supports' => array(
+                'title',
+            )
+        )
+    );
+}
+add_action('init', 'create_post_type_rfc_hotels');
+
+// Custom Post Type - Price Levels
+function create_post_type_rfc_price_levels()
+{
+    register_post_type(
+        'rfc_price_levels',
+        array(
+            'labels' => array(
+                'name' => __('Price Levels'),
+                'singular_name' => __('Price Level'),
+            ),
+            'public' => true,
+            'rewrite' => array('slug' => 'price-levels'),
+            'supports' => array(
+                'title',
+            )
+        )
+    );
+}
+add_action('init', 'create_post_type_rfc_price_levels');
+
+
 // Custom Post Type - experiences
 function create_post_type_rfc_experiences()
 {

@@ -184,60 +184,6 @@
             "step": 1
         },
         {
-            "key": "field_5fcea1da5f0a3",
-            "label": "Best Selling",
-            "name": "best_selling",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 1,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
-            "message": "",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_60145dad8a75a",
-            "label": "Best Selling Image",
-            "name": "best_selling_image",
-            "type": "image",
-            "instructions": "Featured Image in tours slider (destination template), (800 x 450)",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5fcea1da5f0a3",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 800,
-            "min_height": 450,
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_5f9735d667062",
             "label": "Top Snippet",
             "name": "top_snippet",
@@ -315,6 +261,60 @@
             "library": "all",
             "min_width": 750,
             "min_height": 500,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5fcea1da5f0a3",
+            "label": "Best Selling",
+            "name": "best_selling",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "admin_column_enabled": 1,
+            "admin_column_post_types": "",
+            "admin_column_taxonomies": "",
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_60145dad8a75a",
+            "label": "Best Selling Image",
+            "name": "best_selling_image",
+            "type": "image",
+            "instructions": "Featured Image in tours slider (destination template), (800 x 450)",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fcea1da5f0a3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 800,
+            "min_height": 450,
             "min_size": "",
             "max_width": "",
             "max_height": "",
@@ -1145,6 +1145,50 @@
             "return_format": "object"
         },
         {
+            "key": "field_602af97bce3ef",
+            "label": "Hotels Snippet",
+            "name": "hotels_snippet",
+            "type": "textarea",
+            "instructions": "Subtext under Hotels header",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 250,
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_602ab8113ceda",
+            "label": "Hotels",
+            "name": "hotels",
+            "type": "relationship",
+            "instructions": "Select all hotels available with this tour",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_hotels"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
             "key": "field_5f9735d66a315",
             "label": "Prices Tab",
             "name": "",
@@ -1218,16 +1262,13 @@
                     "name": "year",
                     "type": "number",
                     "instructions": "(Example: 2020)",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": "",
-                    "admin_column_taxonomies": "",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
@@ -1238,37 +1279,25 @@
                 },
                 {
                     "key": "field_5f9738d40ae33",
-                    "label": "Name",
-                    "name": "name",
-                    "type": "text",
-                    "instructions": "Name of Price Package (Example: 4-star, 5-star)",
-                    "required": 0,
+                    "label": "Price Level",
+                    "name": "price_level",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": [
-                        "post",
-                        "page",
-                        "rfc_cruises",
-                        "rfc_tours",
-                        "rfc_destinations",
-                        "rfc_sub_destinations",
-                        "rfc_countries"
+                    "post_type": [
+                        "rfc_price_levels"
                     ],
-                    "admin_column_taxonomies": [
-                        "category",
-                        "post_tag",
-                        "link_category"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
                 },
                 {
                     "key": "field_5f9738f80ae34",
@@ -1276,16 +1305,13 @@
                     "name": "price",
                     "type": "number",
                     "instructions": "(Example: 4995)",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": "",
-                    "admin_column_taxonomies": "",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
@@ -1653,5 +1679,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Tour - CPT",
-    "modified": 1613164804
+    "modified": 1613429164
 }

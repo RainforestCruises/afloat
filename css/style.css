@@ -215,6 +215,41 @@ p {
   .page-divider--dark {
     color: #9ea0a4; }
 
+.sub-divider {
+  grid-column: center-start / center-end;
+  text-align: center;
+  margin: 4rem 0;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr);
+  align-items: center;
+  column-gap: 2.5rem;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #142838;
+  letter-spacing: .3rem;
+  font-weight: 600;
+  z-index: 10; }
+  @media only screen and (max-width: 50em) {
+    .sub-divider {
+      font-size: 2rem; } }
+  .sub-divider::before {
+    content: "";
+    height: 1px;
+    display: block;
+    background-color: currentColor; }
+  .sub-divider::after {
+    content: "";
+    height: 1px;
+    display: block;
+    background-color: currentColor; }
+
+.sub-divider-text {
+  grid-column: center-start / center-end;
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 4rem; }
+
 .list-svg {
   display: grid;
   list-style: none;
@@ -2883,6 +2918,42 @@ h5 {
         @media only screen and (max-width: 50em) {
           .product-cabins__cabin__content__cta {
             padding-top: 0rem; } }
+  .product-cabins__hotels {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin: 0 10rem;
+    margin-bottom: 2rem; }
+    @media only screen and (max-width: 37.5em) {
+      .product-cabins__hotels {
+        margin: 0;
+        margin-bottom: 2rem; } }
+    .product-cabins__hotels__slider {
+      max-width: 114rem;
+      width: 100%;
+      margin: 0 6rem; }
+      .product-cabins__hotels__slider .slick-track {
+        width: 100%; }
+      .product-cabins__hotels__slider .slick-slide {
+        margin: 1rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 1rem 1rem -1rem rgba(0, 0, 0, 0.25); }
+        @media only screen and (max-width: 37.5em) {
+          .product-cabins__hotels__slider .slick-slide {
+            margin: .5rem;
+            margin-bottom: 3rem; } }
+    .product-cabins__hotels__btn--left {
+      position: absolute;
+      z-index: 10;
+      bottom: 50%;
+      left: -7rem;
+      transform: translateY(60%); }
+    .product-cabins__hotels__btn--right {
+      position: absolute;
+      z-index: 10;
+      bottom: 50%;
+      right: -7rem;
+      transform: translateY(60%); }
   .product-cabins__note {
     grid-column: center-start / center-end; }
   @media only screen and (max-width: 50em) {
@@ -3170,7 +3241,6 @@ h5 {
         flex-wrap: wrap; }
         .product-prices__tour-prices__tour-price-group__blocks__block {
           min-width: 35rem;
-          min-height: 18rem;
           margin: 5rem 3rem;
           background-color: #fff;
           position: relative;
@@ -3226,6 +3296,7 @@ h5 {
             flex-direction: column;
             font-size: 3rem;
             margin-bottom: 3rem;
+            font-weight: 600;
             color: #305a7c; }
             .product-prices__tour-prices__tour-price-group__blocks__block__price--single {
               font-size: 1.5rem;
@@ -6125,16 +6196,16 @@ h5 {
   background-color: #fff;
   position: relative;
   z-index: 0;
-  box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2); }
+  width: 25rem; }
   .card-square:after {
     content: "";
     grid-row: 1 / 1;
     grid-column: 1 / -1;
     width: 100%;
-    height: 25rem;
+    height: 100%;
     z-index: 2;
-    background-image: linear-gradient(to top, rgba(20, 40, 56, 0.5), rgba(20, 40, 56, 0) 70%); }
-  .card-square__img {
+    background-image: linear-gradient(to top, rgba(30, 30, 30, 0.7), rgba(30, 30, 30, 0) 80%); }
+  .card-square__image {
     grid-column: 1 / -1;
     grid-row: 1 / 1;
     width: 100%;
@@ -6143,6 +6214,10 @@ h5 {
     object-position: center;
     position: relative;
     z-index: 0; }
+    @media only screen and (max-width: 37.5em) {
+      .card-square__image {
+        margin: 0;
+        height: 40rem; } }
   .card-square__title-group {
     grid-column: 1 / -1;
     grid-row: 1 / 1;
@@ -6158,8 +6233,9 @@ h5 {
       color: #fff;
       letter-spacing: 0.15rem;
       margin: 0.3rem 2rem;
-      font-weight: 400; }
-    .card-square__title-group__country {
+      font-weight: 400;
+      text-align: center; }
+    .card-square__title-group__subtext {
       display: block;
       font-size: 1rem;
       color: #fff;
@@ -6492,7 +6568,7 @@ h5 {
       font-weight: 600;
       color: #142838;
       padding: 2rem;
-      transition: all .3s; }
+      transition: all 0.3s; }
     .accommodations-card__bottom__text {
       font-size: 1.6rem;
       display: flex; }

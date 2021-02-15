@@ -44,13 +44,14 @@ $currentYear = $args['currentYear'];
                             $price = ($pricePackage['price'] != "") ? $pricePackage['price'] : 0;
                             $single_supplement = ($pricePackage['single_supplement'] != "") ? $pricePackage['single_supplement'] : 0;
                             $single_price = intval($price) + intval($single_supplement);
-                            console_log($single_price);
+                            $price_level = $pricePackage['price_level'];
+                            
                         ?>
 
                             <div class="product-prices__tour-prices__tour-price-group__blocks__block">
 
                                 <div class="product-prices__tour-prices__tour-price-group__blocks__block__title">
-                                    <?php echo  $pricePackage['name']; ?><br>
+                                    <?php echo get_the_title($price_level); ?><br>
 
                                 </div>
                                 <div class="product-prices__tour-prices__tour-price-group__blocks__block__sub">

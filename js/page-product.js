@@ -1,5 +1,41 @@
 jQuery(document).ready(function ($) {
 
+  //Hotels Slider (must initialize before tab nav functions for position init)
+  $('#hotels-slider').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    dots: false,
+    arrows: true,
+    prevArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--left product-cabins__hotels__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+    nextArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--right product-cabins__hotels__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 3,
+          arrows: true,
+
+        }
+      },
+      {
+        breakpoint: 750,
+        settings: {
+          slidesToShow: 2,
+
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+          centerMode: true
+        }
+      },
+    ]
+  });
+
+
 
   //Anchor behavior
   //on load
@@ -40,6 +76,12 @@ jQuery(document).ready(function ($) {
 
     //tab jump marks and offsets
     var offset = 0;
+
+
+    //must initialize position of hotels slider on cabin tab select
+    if (tab_id == "cabins") {
+      $('#hotels-slider').slick('setPosition');
+    }
 
     //responsive @ 1000
     if ($(window).width() > 1000) {
@@ -134,7 +176,7 @@ jQuery(document).ready(function ($) {
         scrollTop: $(dayHeader).offset().top - 180 //#DIV_ID is an example. Use the id of your destination on the page
       }, 'fast');
 
-    } 
+    }
 
   });
 
@@ -343,6 +385,8 @@ jQuery(document).ready(function ($) {
 
 
 
+
+
   //Areas Slider (must select class for chained sliders)
   $('.areas-slider__slider-for').slick({
     slidesToShow: 1,
@@ -363,7 +407,6 @@ jQuery(document).ready(function ($) {
         }
       }
     ]
-
   });
   $('.areas-slider__slider-nav').slick({
     slidesToShow: 3,
@@ -412,6 +455,10 @@ jQuery(document).ready(function ($) {
   } else {
     slidesToShow = 1;
   }
+
+
+
+
 
 
   //Related Products Slider
