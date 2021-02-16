@@ -3301,6 +3301,45 @@ h5 {
             .product-prices__tour-prices__tour-price-group__blocks__block__price--single {
               font-size: 1.5rem;
               font-style: italic; }
+  .product-prices__charter {
+    grid-column: center-start / center-end;
+    display: flex;
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 6rem; }
+    .product-prices__charter__text {
+      flex: 1;
+      margin-right: 10rem;
+      position: relative; }
+      .product-prices__charter__text__title {
+        font-size: 2.4rem;
+        color: #142838;
+        font-weight: 600;
+        margin-bottom: 1.5rem; }
+      .product-prices__charter__text__snippet {
+        font-size: 1.6rem; }
+      .product-prices__charter__text::after {
+        content: "";
+        position: absolute;
+        right: -5rem;
+        top: 50%;
+        width: 1px;
+        height: 80%;
+        background-color: #e6e6e6;
+        transform: translateY(-50%); }
+    .product-prices__charter__info {
+      flex: 1; }
+      .product-prices__charter__info__info-group {
+        font-weight: 600;
+        margin-bottom: 2rem; }
+        .product-prices__charter__info__info-group__title {
+          font-size: 2.4rem;
+          color: #142838; }
+        .product-prices__charter__info__info-group__data {
+          font-size: 3.6rem;
+          color: #40739c; }
   .product-prices__policies-divider {
     grid-column: center-start / center-end; }
   .product-prices__policies {

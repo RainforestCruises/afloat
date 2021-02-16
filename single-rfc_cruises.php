@@ -10,6 +10,7 @@ while (have_posts()) :
 
 
   $cruise_data = get_field('cruise_data');
+  console_log($cruise_data);
 
   //Time Variables
   $currentYear = date("Y");
@@ -18,7 +19,9 @@ while (have_posts()) :
   $months = array("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC");
   $monthNames = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 
-  console_log($cruise_data);
+
+  $charter_only = get_field('charter_only');
+
 
   $args = array(
     'lowestPrice' => $cruise_data['LowestPrice'],
@@ -29,6 +32,8 @@ while (have_posts()) :
     'years' => $years,
     'months' => $months,
     'monthNames' => $monthNames,
+    'charter_only' => $charter_only,
+
   );
 
 ?>
@@ -36,7 +41,7 @@ while (have_posts()) :
   <!-- Product Page Container -->
   <div class="product-page">
     <?php
-    get_template_part('template-parts/content', 'product-hero-nav');
+    get_template_part('template-parts/content', 'product-hero-nav', $args);
     ?>
     <section class="product-content">
 
@@ -68,12 +73,15 @@ while (have_posts()) :
         ?>
       </div>
 
+      <?php if(!$charter_only) : ?>
       <!-- 5. Dates Content -->
       <div class="product-content__page tab-content " id="dates">
         <?php
         get_template_part('template-parts/content', 'product-dates', $args);
         ?>
       </div>
+      <?php endif; ?>
+
     </section>
 
     <!-- Areas -->

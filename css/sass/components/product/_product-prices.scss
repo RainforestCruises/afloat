@@ -407,6 +407,68 @@
             }
         }
     }
+
+    &__charter {
+        grid-column: center-start / center-end;
+
+        display: flex;
+        
+        width: 100%;
+        max-width: 90rem;
+        margin: 0 auto;
+
+        margin-top: 2rem;
+        margin-bottom: 6rem;
+
+        &__text {
+            flex: 1;
+            margin-right: 10rem;
+            position: relative;
+
+            &__title {
+                font-size: 2.4rem;
+                color: $color-primary;
+                font-weight: 600;
+                margin-bottom: 1.5rem;
+            }
+
+            &__snippet {
+                font-size: 1.6rem;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                right: -5rem;
+                top: 50%;
+
+                width: 1px;
+                height: 80%;
+                background-color: $color-grey-light-1a;
+
+                transform: translateY(-50%);
+            }
+        }
+
+        &__info {
+            flex: 1;
+
+            &__info-group {
+               font-weight: 600;
+                margin-bottom: 2rem;
+                &__title {
+                    font-size: 2.4rem;
+                    color: $color-primary;
+                    
+                }
+
+                &__data {
+                    font-size: 3.6rem;
+                    color: $color-supporting-light;
+                }
+            }
+        }
+    }
   
 
     // policies
