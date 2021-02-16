@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.4',
+  'version' => '5.4.2',
   'title' => 'Tours',
   'type' => 'rfc_tours',
   'id' => '5fdce4309e743',
-  'updated' => 1611947588,
+  'updated' => 1613491528,
   'columns' => 
   array (
     'title' => 
@@ -19,6 +19,7 @@ return array (
       'edit' => 'off',
       'bulk_edit' => 'on',
       'search' => 'on',
+      'name' => 'title',
     ),
     '5fdce577c60ef' => 
     array (
@@ -35,6 +36,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdce577c60ef',
     ),
     '5fdce577c60fa' => 
     array (
@@ -51,6 +53,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdce577c60fa',
     ),
     '5fdce46352681' => 
     array (
@@ -69,6 +72,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdce46352681',
     ),
     '5fdce577c60fe' => 
     array (
@@ -87,6 +91,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdce577c60fe',
     ),
     '5fe128b65b244' => 
     array (
@@ -105,6 +110,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fe128b65b244',
     ),
     '5fdce46352684' => 
     array (
@@ -123,6 +129,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdce46352684',
     ),
     '5fdce577c6105' => 
     array (
@@ -138,6 +145,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdce577c6105',
     ),
     '60145e4406664' => 
     array (
@@ -156,6 +164,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '60145e4406664',
     ),
     '5fdce577c6108' => 
     array (
@@ -174,6 +183,26 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdce577c6108',
+    ),
+    '602bed36e4dd30' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Hotels',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_602ab8113ceda',
+      'post_property_display' => 'title',
+      'post_link_to' => 'edit_post',
+      'number_of_items' => '10',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '602bed36e4dd30',
     ),
     '5fdce577c610a' => 
     array (
@@ -192,6 +221,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdce577c610a',
     ),
     '5fdce577c610d' => 
     array (
@@ -208,6 +238,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdce577c610d',
     ),
     'date' => 
     array (
@@ -223,6 +254,7 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'filter_format' => '',
+      'name' => 'date',
     ),
   ),
   'settings' => 
