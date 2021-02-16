@@ -93,16 +93,26 @@ $hotels = get_field('hotels');
                     $featured_image = get_field('featured_image',  $hotelPost);
                     $hotelTitle = get_field('navigation_title',  $hotelPost);
                     $priceLevelPost = get_field('price_level',  $hotelPost);
+                    $hotelLocations = get_field('locations', $hotelPost);
+
+                    $hotelCity = null;
+                    foreach ($hotelLocations as $location) {
+                        $is_city = get_field('is_city', $location);
+                        if ($is_city) {
+                            $hotelCity = $location;
+                        }
+                    }
 
                     ?>
 
                     <div class="card-square">
                         <div class="card-square__title-group">
+                        
                             <div class="card-square__title-group__name">
-                                <?php echo $hotelTitle ?>
+                                <?php echo  $hotelTitle ?>
                             </div>
                             <div class="card-square__title-group__subtext">
-                                <?php echo get_the_title($priceLevelPost) ?>
+                                <?php echo get_field('navigation_title', $hotelCity) ?> - <?php echo get_the_title($priceLevelPost) ?>
                             </div>
                         </div>
                         <img class="card-square__image" src="<?php echo $featured_image['url']; ?>" alt="">

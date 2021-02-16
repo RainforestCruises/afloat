@@ -22,6 +22,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_602be56329915",
+            "label": "Is City",
+            "name": "is_city",
+            "type": "true_false",
+            "instructions": "Check if this is a city, only city locations will appear in hotel cards.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5fda1ef90295c",
             "label": "Default Search Link",
             "name": "default_search_link",
@@ -65,5 +84,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Locations - CPT",
-    "modified": 1609185856
+    "modified": 1613489598
 }

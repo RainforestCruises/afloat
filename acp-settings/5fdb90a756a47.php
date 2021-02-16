@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.4',
+  'version' => '5.4.2',
   'title' => 'Locations',
   'type' => 'rfc_locations',
   'id' => '5fdb90a756a47',
-  'updated' => 1609185870,
+  'updated' => 1613489639,
   'columns' => 
   array (
     'title' => 
@@ -19,6 +19,7 @@ return array (
       'edit' => 'off',
       'bulk_edit' => 'on',
       'search' => 'on',
+      'name' => 'title',
     ),
     '5fdb90ee2855a' => 
     array (
@@ -35,6 +36,23 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdb90ee2855a',
+    ),
+    '602be5da1c28f4' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Is City',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_602be56329915',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '602be5da1c28f4',
     ),
     '5fe12435a1c22' => 
     array (
@@ -51,6 +69,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fe12435a1c22',
     ),
     'date' => 
     array (
@@ -66,6 +85,7 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'filter_format' => '',
+      'name' => 'date',
     ),
   ),
   'settings' => 
