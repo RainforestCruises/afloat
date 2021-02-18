@@ -42,6 +42,7 @@ if(get_field('itinerary_length_max') != null) {
 
                     <?php echo ($selectedTravelType == "rfc_cruises") ? '<option value="rfc_cruises" selected="selected">Cruises</option>' : '<option value="rfc_cruises">Cruises</option>' ?>
                     <?php echo ($selectedTravelType == "rfc_lodges") ? '<option value="rfc_lodges" selected="selected">Lodges</option>' : '<option value="rfc_lodges">Lodges</option>' ?>
+                    <?php echo ($selectedTravelType == "charter_cruises") ? '<option value="charter_cruises" selected="selected">Charter Cruises</option>' : '<option value="charter_cruises">Charter Cruises</option>' ?>
 
                 </select>
             </label>

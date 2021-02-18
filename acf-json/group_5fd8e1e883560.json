@@ -176,13 +176,11 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "choices": {
                 "rfc_tours": "Tours",
                 "rfc_cruises": "Cruises",
-                "rfc_lodges": "Lodges"
+                "rfc_lodges": "Lodges",
+                "charter_cruises": "Charter Cruises"
             },
             "default_value": false,
             "allow_null": 1,
@@ -280,5 +278,5 @@
     ],
     "active": true,
     "description": "Search (Destination) - Page",
-    "modified": 1613150161
+    "modified": 1613674481
 }

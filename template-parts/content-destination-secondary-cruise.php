@@ -78,11 +78,21 @@ $tour_experiences = get_field('tour_experiences');
         </div>
     </div>
     
+    <?php $tour_lengths = get_field('tour_lengths') ?>
 
     <div class="destination-main__lengths">
-        <button class="btn-outline " href="#">7-Days</button>
-        <button class="btn-outline " href="#">10-Days</button>
-        <button class="btn-outline " href="#">14-Days</button>
+    <?php if ($tour_lengths) : ?>
+        <?php foreach ($tour_lengths as $length) :
+            $link = $length['search_link'];
+            
+            if($length['min_days'] == $length['max_days']){
+                $range = $length['min_days'];              
+            }else{
+                $range = $length['min_days'] . '-' . $length['max_days'];
+            }        
+        ?>
+            <button class="btn-outline" onclick="location.href='<?php echo $link ?>'"><?php echo $range ?> Days</button>
+        <?php endforeach; endif; ?>
         <button class="btn-outline btn-outline--dark " href="#">View All Tours</button>
     </div>
 

@@ -51,10 +51,29 @@ function search_filter_main_search()
     if (isset($_POST['travel-select']) && $_POST['travel-select'])
         $travelType = $_POST['travel-select']; //One Type Selected
 
-    $args = array(
-        'posts_per_page' => -1,
-        'post_type' => $travelType,
-    );
+    $args = null;
+    $charterFilter = false;
+    if ($travelType != 'charter_cruises') {
+        $args = array(
+            'posts_per_page' => -1,
+            'post_type' => $travelType,
+        );
+    } else { //charter selected
+        $args = array(
+            'posts_per_page' => -1,
+            'post_type' => 'rfc_cruises',
+        );
+
+        $args['meta_query'][] = array(
+            'key' => 'charter_available',
+            'value' => true,
+            'compare' => 'LIKE'
+        );
+
+        $charterFilter = true;
+
+    }
+   
 
 
 
@@ -121,7 +140,6 @@ function search_filter_main_search()
             'value' => '"' . $_POST['experience-select'] . '"',
             'compare' => 'LIKE'
         );
-    
     }
     $posts = get_posts($args);
 
@@ -160,7 +178,7 @@ function search_filter_main_search()
         $pageNumber = $_POST['pageNumber'];
     }
 
-    console_log($pageNumber);
+    
     $postsAndCriteria = new stdClass();
     $postsAndCriteria->products = $posts;
     $postsAndCriteria->sortOrder = $sortOrder;
@@ -168,6 +186,7 @@ function search_filter_main_search()
     $postsAndCriteria->endDate = $endDate;
     $postsAndCriteria->minLength = $minLength;
     $postsAndCriteria->maxLength = $maxLength;
+    $postsAndCriteria->charterFilter = $charterFilter;
 
     $postsAndCriteria->pageNumber = $pageNumber;
 
@@ -188,7 +207,7 @@ add_action('wp_ajax_nopriv_homeSearch', 'search_filter_home_search');
 
 function search_filter_home_search()
 {
-    
+
     //DESTINATION
     $destinationId = 0;
     if (isset($_POST['travel-destination']) && $_POST['travel-destination']) {
@@ -197,7 +216,7 @@ function search_filter_home_search()
 
     //DATE
     $startDate = date("Y-m-d");
-    $endDate = date('Y-m-d',strtotime('+30 days',strtotime($startDate)));
+    $endDate = date('Y-m-d', strtotime('+30 days', strtotime($startDate)));
 
 
     $travelMonth = 0;
@@ -206,26 +225,26 @@ function search_filter_home_search()
     }
     $travelYear = 0;
     if (isset($_POST['travel-year']) && $_POST['travel-year']) {
-        $travelYear = $_POST['travel-year'];     
+        $travelYear = $_POST['travel-year'];
     }
 
     //If selection (not current month), build strings 
-    if ($travelMonth != date("m")){
-        $d = mktime(null, null, null, $travelMonth, 1, $travelYear); 
-        $startDate = date("Y-m-d", $d); 
-        $endDate = date('Y-m-d',strtotime('+30 days',strtotime($startDate)));
+    if ($travelMonth != date("m")) {
+        $d = mktime(null, null, null, $travelMonth, 1, $travelYear);
+        $startDate = date("Y-m-d", $d);
+        $endDate = date('Y-m-d', strtotime('+30 days', strtotime($startDate)));
     }
 
 
     $destinationPost = get_post($destinationId);
     $pageLink = get_field('default_search_link', $destinationPost);
 
-    if($pageLink != null){
+    if ($pageLink != null) {
         wp_redirect($pageLink . "?startDate=" . $startDate . "&endDate=" . $endDate);
     } else {
         wp_redirect(home_url());
     }
-   
+
 
 
 

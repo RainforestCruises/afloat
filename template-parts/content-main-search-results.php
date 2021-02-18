@@ -9,6 +9,8 @@ $minLength = $functionArgs->minLength;
 $maxLength = $functionArgs->maxLength;
 $pageNumber = $functionArgs->pageNumber;
 
+$charterFilter = $functionArgs->charterFilter;
+
 
 $startDateString = strtotime($startDate);
 $endDateString = strtotime($endDate);
@@ -23,11 +25,18 @@ foreach ($postsFromSearch as $post) {
     $highest = $cruise_data['HighestPrice'];
     $postType = get_post_type($post);
     $tourLength = 0;
+    $charterOnly = get_field('charter_only', $post);
+
 
     if ($postType == 'rfc_tours') {
         $pricePackages = get_field('price_packages', $post);
         $lowest = lowest_tour_price($pricePackages, $startYear);
         $tourLength = get_field('length', $post);
+    }
+
+    if ($charterFilter) {
+        $lowest = get_field('charter_daily_price', $post);
+        $highest = $lowest;
     }
 
     $results[] = (object) array(
@@ -36,8 +45,8 @@ foreach ($postsFromSearch as $post) {
         'lowestPrice' => $lowest,
         'highestPrice' => $highest,
         'postType' => $postType,
-        'tourLength' => $tourLength
-
+        'tourLength' => $tourLength,
+        'charterOnly' => $charterOnly
     );
 }
 if ($sortOrder == 'ASC') {
@@ -46,6 +55,10 @@ if ($sortOrder == 'ASC') {
 
 if ($sortOrder == 'DESC') {
     usort($results, "sortPriceDescending");
+}
+
+if ($charterFilter) {
+    usort($results, "sortCharter");
 }
 
 
@@ -70,19 +83,24 @@ foreach ($results as $result) :
             $hasRange = true;
         }
     } else {
-        foreach ($cruise_data['Itineraries'] as $itinerary) {
+        if ($charterFilter == false) {
+            foreach ($cruise_data['Itineraries'] as $itinerary) {
 
-            //Range
-            if (($itinerary['LengthInDays'] >= $minLength) && ($itinerary['LengthInDays'] <= $maxLength)) {
-                $hasRange = true;
-            }
+                //Range
+                if (($itinerary['LengthInDays'] >= $minLength) && ($itinerary['LengthInDays'] <= $maxLength)) {
+                    $hasRange = true;
+                }
 
-            //Availability
-            foreach ($itinerary['Departures'] as $departure) {
-                if ((strtotime($departure['DepartureDate']) >= strtotime($startDate)) && (strtotime($departure['DepartureDate']) <= strtotime($endDate))) {
-                    $hasAvailability = true;
+                //Availability
+                foreach ($itinerary['Departures'] as $departure) {
+                    if ((strtotime($departure['DepartureDate']) >= strtotime($startDate)) && (strtotime($departure['DepartureDate']) <= strtotime($endDate))) {
+                        $hasAvailability = true;
+                    }
                 }
             }
+        } else {
+            $hasRange = true;
+            $hasAvailability = true;
         }
     }
 
@@ -117,20 +135,23 @@ if ($resultsTotal % $resultsPerPage != 0) {
 $startIndex = (($pageNumber - 1) * $resultsPerPage);
 console_log($pageNumber);
 
-if($pageNumber != 'all'){
+if ($pageNumber != 'all') {
     $filteredResults = array_slice($filteredResults, $startIndex, $resultsPerPage);
-
-}else{
+} else {
     $filteredResults = array_slice($filteredResults, 0, 50);
-
 }
 
 foreach ($filteredResults as $filteredResult) :
     $featured_image = get_field('featured_image', $filteredResult->postObject);
     $cruise_data = $filteredResult->cruise_data;
+    $result_link = get_permalink($filteredResult->postObject);
+    $charter_only = get_field('charter_only', $filteredResult->postObject);
+    if ($charterFilter) {
+        $result_link = $result_link . '?charter=true';
+    }
 ?>
     <!-- Result -->
-    <a class="search-result" href="<?php echo get_permalink($filteredResult->postObject); ?>">
+    <a class="search-result" href="<?php echo $result_link ?>">
         <div class="search-result__image">
             <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
         </div>
@@ -147,12 +168,27 @@ foreach ($filteredResults as $filteredResult) :
                         Promo
                     </div>
                 <?php endif; ?>
+                <?php if ($charterFilter) : ?>
+                    <?php if ($charter_only) : ?>
+                        <div class="badge-solid badge-solid--green badge-solid--small">
+                            Charter Vessel
+                        </div>
+                    <?php else : ?>
+                        <!-- <div class="badge-solid badge-solid--gold badge-solid--small">
+                            Charter Option
+                        </div> -->
+                    <?php endif; ?>
+                <?php endif; ?>
             </div>
             <div class="search-result__content__length">
                 <?php if ($filteredResult->postType == 'rfc_tours') { ?>
                     <?php echo get_field('length', $filteredResult->postObject) ?>-Day Tour
-                <?php } else if ($filteredResult->postType == 'rfc_cruises') { ?>
-                    <?php echo $cruise_data['LowestLengthInDays']; ?>-<?php echo $cruise_data['HighestLengthInDays']; ?> Day Cruise
+                <?php } else if ($filteredResult->postType == 'rfc_cruises') {
+                    if (!$charterFilter) :
+                        echo $cruise_data['LowestLengthInDays'] . ' - ' . $cruise_data['HighestLengthInDays'] . 'Day Cruise ';
+                    else :
+                        echo 'Private Charter';
+                    endif; ?>
                 <?php } else if ($filteredResult->postType == 'rfc_lodges') { ?>
                     Lodge & Land Tour
                 <?php } ?>
@@ -171,7 +207,7 @@ foreach ($filteredResults as $filteredResult) :
             <div class="search-result__content__info">
                 <div class="search-result__content__info__price">
                     <div class="search-result__content__info__price__starting">
-                        Starting from
+                        <?php echo (!$charterFilter) ? 'Starting from ' : 'Per Night '; ?>
                     </div>
                     <div class="search-result__content__info__price__amount">
                         <?php echo "$" . number_format($filteredResult->lowestPrice, 0);  ?>
@@ -181,7 +217,6 @@ foreach ($filteredResults as $filteredResult) :
                     </div>
                 </div>
                 <div class="search-result__content__info__icons">
-                    Icons
                 </div>
             </div>
         </div>
@@ -231,13 +266,20 @@ foreach ($filteredResults as $filteredResult) :
 function sortPrice($a, $b)
 {
     if (is_object($a) && is_object($b)) {
-        return strcmp($a->lowestPrice, $b->lowestPrice);
+        return $a->lowestPrice - $b->lowestPrice;
     }
 }
 function sortPriceDescending($a, $b)
 {
     if (is_object($a) && is_object($b)) {
-        return strcmp($b->lowestPrice, $a->lowestPrice);
+        return $b->lowestPrice - $a->lowestPrice;
+    }
+}
+
+function sortCharter($a, $b)
+{
+    if (is_object($a) && is_object($b)) {
+        return strcmp($b->charterOnly, $a->charterOnly);
     }
 }
 ?>

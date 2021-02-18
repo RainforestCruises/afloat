@@ -727,6 +727,92 @@
             "delay": 0
         },
         {
+            "key": "field_602ec555abc95",
+            "label": "Tour Lengths",
+            "name": "tour_lengths",
+            "type": "repeater",
+            "instructions": "Enter tour itinerary length ranges for buttons, these link to search pages.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_602ec555abc96",
+                    "label": "Min Days",
+                    "name": "min_days",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_602ec555abc97",
+                    "label": "Max Days",
+                    "name": "max_days",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_602ec555abc98",
+                    "label": "Search Link",
+                    "name": "search_link",
+                    "type": "page_link",
+                    "instructions": "Link to search results page",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": [
+                        "category:search"
+                    ],
+                    "allow_null": 0,
+                    "allow_archives": 0,
+                    "multiple": 0
+                }
+            ]
+        },
+        {
             "key": "field_5ffe1a120966e",
             "label": "Travel Guide",
             "name": "",
@@ -997,5 +1083,5 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1612472184
+    "modified": 1613677939
 }

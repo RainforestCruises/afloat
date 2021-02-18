@@ -47,8 +47,6 @@ $title = $args['title'];
             </div>
         </div>
     </div>
-    <div class="destination-accommodations__btn ">
-        <button class="btn-outline  " href="#">View All Accommodation</button>
-    </div>
+   
 
 </div>
