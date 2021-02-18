@@ -1,7 +1,13 @@
 <?php
 $cruise_data = get_field('cruise_data');
 $featured_image = get_field('featured_image');
-//$startingPrice = 0;
+$charter_view = false;
+
+if ($args['propertyType'] == 'Cruise') {
+    if ($args['charter_view'] == true) {
+        $charter_view = true;
+    }
+}
 ?>
 
 
@@ -11,7 +17,11 @@ $featured_image = get_field('featured_image');
     <div class="product-intro">
         <!-- Info -->
         <div class="product-intro__info">
-            <div class="product-intro__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span></div>
+            <?php if ($charter_view == false) : ?>
+                <div class="product-intro__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span></div>
+            <?php else : ?>
+                <div class="product-intro__info__starting-price">Charter: <span><?php echo "$" . number_format($args['charter_daily_price'], 0); ?> </span> <span class="u-small-text"> / Day</span></div>
+            <?php endif; ?>
             <div class="product-intro__info__cta">
                 <button class="btn-cta-round">Book Now</button>
             </div>
@@ -21,7 +31,7 @@ $featured_image = get_field('featured_image');
             <?php echo get_field('overview_intro'); ?>
         </div>
     </div>
-    
+
 
     <!-- H2 Title -->
     <div id="sentinal-overview"></div>

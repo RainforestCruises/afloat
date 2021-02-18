@@ -10,7 +10,6 @@ while (have_posts()) :
 
 
   $cruise_data = get_field('cruise_data');
-  console_log($cruise_data);
 
   //Time Variables
   $currentYear = date("Y");
@@ -21,7 +20,27 @@ while (have_posts()) :
 
 
   $charter_only = get_field('charter_only');
+  $charter_available = get_field('charter_available');
 
+
+  $charter_daily_price = get_field('charter_daily_price');
+  $vessel_capacity = get_field('vessel_capacity');
+  $charter_min_days = get_field('charter_min_days');
+
+
+  //check URL for charter flag
+  $charter_view = false;
+  if (isset($_GET['charter'])) {
+    if ($_GET['charter'] == "true" && $charter_available == true) {
+      $charter_view = true;
+    }
+  }
+
+  if ($charter_only == true) {
+    $charter_view = true;
+  }
+
+  console_log($charter_view);
 
   $args = array(
     'lowestPrice' => $cruise_data['LowestPrice'],
@@ -32,7 +51,11 @@ while (have_posts()) :
     'years' => $years,
     'months' => $months,
     'monthNames' => $monthNames,
-    'charter_only' => $charter_only,
+    'charter_view' => $charter_view,
+    'charter_available' => $charter_available,
+    'charter_daily_price' => $charter_daily_price,
+    'vessel_capacity' => $vessel_capacity,
+    'charter_min_days' => $charter_min_days,
 
   );
 
@@ -73,13 +96,13 @@ while (have_posts()) :
         ?>
       </div>
 
-      <?php if(!$charter_only) : ?>
-      <!-- 5. Dates Content -->
-      <div class="product-content__page tab-content " id="dates">
-        <?php
-        get_template_part('template-parts/content', 'product-dates', $args);
-        ?>
-      </div>
+      <?php if (!$charter_view) : ?>
+        <!-- 5. Dates Content -->
+        <div class="product-content__page tab-content " id="dates">
+          <?php
+          get_template_part('template-parts/content', 'product-dates', $args);
+          ?>
+        </div>
       <?php endif; ?>
 
     </section>
@@ -109,11 +132,11 @@ while (have_posts()) :
       Related Cruises
     </h2>
     <section class="product-related">
-    <?php
+      <?php
       get_template_part('template-parts/content', 'product-related', $args);
       ?>
     </section>
-    
+
   </div>
 
 

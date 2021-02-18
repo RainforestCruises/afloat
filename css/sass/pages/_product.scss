@@ -71,7 +71,6 @@
     }
 
     &__starting-price {
-      display: block;
       letter-spacing: 0.1rem;
       color: $color-primary;
       white-space: nowrap; //no line breaks
@@ -81,6 +80,8 @@
       display: flex;
       align-items: flex-end;
       span {
+        display: flex;
+        align-items: flex-end;
         line-height: 4rem;
         color: $color-supporting-light;
         padding-left: 1rem;

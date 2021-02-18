@@ -73,10 +73,16 @@
                 &__img {
                     height: auto;
                     width: 100%;
+                    max-width: 60rem;
                     object-fit: contain;
                     position: relative;
                     z-index: 0;
                     box-shadow: $shadow-medium-short;
+
+                    @media only screen and (max-width: $bp-medium) {
+                        max-width: 100%;
+
+                    }
 
                 }
 

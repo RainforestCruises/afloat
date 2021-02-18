@@ -37,7 +37,7 @@ if(get_post_type() == 'rfc_tours'){
                     <a href="#prices" class="product-nav__tab-list__item__link">Prices</a>
                 </li>
                 <?php if (get_post_type() == 'rfc_cruises') { ?>
-                    <?php if(!$args['charter_only']) : ?>
+                    <?php if(!$args['charter_view']) : ?>
 
                     <li class="product-nav__tab-list__item tab-dates" data-tab="tab-dates">
                         <a href="#dates" class="product-nav__tab-list__item__link">Dates</a>

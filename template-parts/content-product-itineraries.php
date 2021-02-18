@@ -8,6 +8,15 @@ $years = $args['years'];
 $months = $args['months'];
 $monthNames = $args['monthNames'];
 
+$charter_min_days = $args['charter_min_days'];
+
+$charter_view = false;
+if ($args['propertyType'] == 'Cruise') {
+    if ($args['charter_view'] == true) {
+        $charter_view = true;
+    }
+}
+
 ?>
 <div class="product-itineraries">
 
@@ -16,7 +25,11 @@ $monthNames = $args['monthNames'];
 
         <!-- Info -->
         <div class="product-intro__info">
-            <div class="product-intro__info__starting-price">Itineraries: <span><?php echo $cruise_data['LowestLengthInDays'] ?>&mdash;<?php echo $cruise_data['HighestLengthInDays'] ?> Days</span></div>
+            <?php if ($charter_view == false) : ?>
+                <div class="product-intro__info__starting-price">Itineraries: <span><?php echo $cruise_data['LowestLengthInDays'] ?>&mdash;<?php echo $cruise_data['HighestLengthInDays'] ?> Days</span></div>
+            <?php else : ?>
+                <div class="product-intro__info__starting-price">Flexible from: <span><?php echo ($charter_min_days == 1 ? $charter_min_days . ' Day +' : $charter_min_days . ' Days +') ?></span> </div>
+            <?php endif; ?>
             <div class="product-intro__info__cta">
                 <button class="btn-cta-round">Book Now</button>
             </div>
@@ -186,7 +199,7 @@ $monthNames = $args['monthNames'];
 
                     <?php endif;
                     } ?>
-                    <?php if (get_post_type() == 'rfc_cruises') { ?>
+                    <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) { ?>
                         <!-- Dates -->
                         <div class="product-itineraries__itinerary__side-content__detail__widget">
                             <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
@@ -245,45 +258,53 @@ $monthNames = $args['monthNames'];
                     <?php } ?>
 
 
-                    <!-- Prices -->
-                    <div class="product-itineraries__itinerary__side-content__detail__widget">
-                        <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
-                            <h4 class="heading-4">
-                                Prices
-                            </h4>
-                            <?php if (get_post_type() == 'rfc_lodges') { ?>
-                                <?php $yearCount = 0; ?>
-                                <!-- Select-Box -->
-                                <div class="itinerary-year-select-group">
-                                    <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
-                                        <?php while ($yearCount <= 1) { ?>
-                                            <option><?php echo ($currentYear + $yearCount) ?></option>
-                                        <?php $yearCount++;
-                                        } ?>
-                                    </select>
-                                </div>
-
-                            <?php } ?>
-                        </div>
-                        <!-- Price-Grid  -->
-                        <?php $rateYears = $itinerary['RateYears']; ?>
-                        <?php foreach ($rateYears as $rateYear) { ?>
-                            <div class="price-grid price-grid__<?php echo $rateYear['Year'] ?>" data-tab="<?php echo $count; ?>">
-                                <?php $rateYears = $itinerary['RateYears']; ?>
-                                <?php foreach ($rateYear['Rates'] as $rate) { ?>
-                                    <div class="price-grid__item">
-                                        <div class="price-grid__item__cabin">
-                                            <?php echo  $rate['Cabin'] ?>
-                                        </div>
-                                        <div class="price-grid__item__price">
-                                            <?php echo "$ " . number_format($rate['WebAmount'], 0);  ?>
-                                        </div>
+                    <?php if ($charter_view == false) : ?>
+                        <!-- Prices -->
+                        <div class="product-itineraries__itinerary__side-content__detail__widget">
+                            <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
+                                <h4 class="heading-4">
+                                    Prices
+                                </h4>
+                                <?php if (get_post_type() == 'rfc_lodges') { ?>
+                                    <?php $yearCount = 0; ?>
+                                    <!-- Select-Box -->
+                                    <div class="itinerary-year-select-group">
+                                        <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
+                                            <?php while ($yearCount <= 1) { ?>
+                                                <option><?php echo ($currentYear + $yearCount) ?></option>
+                                            <?php $yearCount++;
+                                            } ?>
+                                        </select>
                                     </div>
+
                                 <?php } ?>
                             </div>
-                        <?php } ?>
+                            <!-- Price-Grid  -->
+                            <?php $rateYears = $itinerary['RateYears']; ?>
+                            <?php foreach ($rateYears as $rateYear) { ?>
+                                <div class="price-grid price-grid__<?php echo $rateYear['Year'] ?>" data-tab="<?php echo $count; ?>">
+                                    <?php $rateYears = $itinerary['RateYears']; ?>
+                                    <?php foreach ($rateYear['Rates'] as $rate) { ?>
+                                        <div class="price-grid__item">
+                                            <div class="price-grid__item__cabin">
+                                                <?php echo  $rate['Cabin'] ?>
+                                            </div>
+                                            <div class="price-grid__item__price">
+                                                <?php echo "$ " . number_format($rate['WebAmount'], 0);  ?>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            <?php } ?>
 
-                    </div>
+                        </div>
+                    <?php else : ?>
+                        <div class="product-itineraries__itinerary__side-content__detail__widget">
+                            <div class="charter-info-box">
+                                This itinerary is only a sample. Charter itineraries are completely customizable. Speak with one of our travel specialists for details and charter availability.
+                            </div>
+                        </div>
+                    <?php endif; ?>
                     <!-- Inclusions -->
                     <div class="product-itineraries__itinerary__side-content__detail__widget">
                         <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">

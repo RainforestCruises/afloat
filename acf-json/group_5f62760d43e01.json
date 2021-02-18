@@ -1459,6 +1459,35 @@
             "step": ""
         },
         {
+            "key": "field_602e90fcaa68f",
+            "label": "Charter Min Days",
+            "name": "charter_min_days",
+            "type": "number",
+            "instructions": "Minimum number of days vessel must be chartered",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602bf565511a0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_602bf5cd511a3",
             "label": "Charter Only",
             "name": "charter_only",
@@ -1579,5 +1608,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Cruise - CPT",
-    "modified": 1613507524
+    "modified": 1613664547
 }

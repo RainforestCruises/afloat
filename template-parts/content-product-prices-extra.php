@@ -5,7 +5,7 @@ $currentYear = $args['currentYear'];
 ?>
 
 <?php if (get_post_type() != 'rfc_tours' ) : 
-    if(!$args['charter_only']) :
+    if(!$args['charter_view']) :
     ?>
 <!-- Note Top-->
 <div class="product-prices__note">

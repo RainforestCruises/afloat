@@ -1,8 +1,16 @@
 <?php
 $cruise_data = $args['cruiseData'];
 $currentYear = $args['currentYear'];
-$charter_only = $args['charter_only'];
+$charter_view = false;
 
+$featured_image = get_field('featured_image');
+
+
+if ($args['propertyType'] == 'Cruise') {
+    if ($args['charter_view'] == true) {
+        $charter_view = true;
+    }
+}
 
 ?>
 <div class="product-prices">
@@ -11,8 +19,11 @@ $charter_only = $args['charter_only'];
 
         <!-- Info -->
         <div class="product-intro__info">
-            <div class="product-intro__info__starting-price">Starting at: <span><?php echo "$" . number_format($cruise_data['LowestPrice'], 0); ?></span></div>
-            <div class="product-intro__info__cta">
+            <?php if ($charter_view == false) : ?>
+                <div class="product-intro__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span></div>
+            <?php else : ?>
+                <div class="product-intro__info__starting-price">Charter: <span><?php echo "$" . number_format($args['charter_daily_price'], 0); ?> </span> <span class="u-small-text"> / Day</span></div>
+            <?php endif; ?> <div class="product-intro__info__cta">
                 <button class="btn-cta-round">Book Now</button>
             </div>
         </div>
@@ -26,11 +37,11 @@ $charter_only = $args['charter_only'];
 
     <div id="sentinal-prices"></div>
     <h2 class="page-divider ">
-       <?php echo ($charter_only) ? 'Charter Pricing' : 'Price List' ; ?>
+        <?php echo ($charter_view) ? 'Charter Pricing' : 'Price List'; ?>
     </h2>
 
     <?php
-    if (!$charter_only) :
+    if (!$charter_view) :
         $itineraries = $cruise_data['Itineraries'];
         $pricesImagery = get_field('prices_imagery');
         $itinerariesCount = 0;
@@ -168,6 +179,7 @@ $charter_only = $args['charter_only'];
 
             <!-- Text -->
             <div class="product-prices__charter__text">
+                <img class="product-prices__charter__text__img" src="<?php echo esc_url($featured_image['url']); ?>" alt="">
                 <div class="product-prices__charter__text__title">
                     <?php echo get_the_title() ?> Charter
                 </div>
@@ -208,7 +220,7 @@ $charter_only = $args['charter_only'];
 
     <?php endif; ?>
 
-    <?php if (get_post_type() == 'rfc_cruises' && !$charter_only) { ?>
+    <?php if (get_post_type() == 'rfc_cruises' && !$charter_view) { ?>
         <div class="product-prices__btn  u-margin-bottom-medium u-margin-top-medium">
             <button class="btn-outline goto-dates" href="#dates">View Availability</button>
         </div>

@@ -222,7 +222,6 @@
                 }
 
                 &__cabin-list {
-         
                     column-gap: 1.5rem;
                     display: flex;
                     flex-wrap: wrap;
@@ -276,16 +275,15 @@
         grid-column: center-start / center-end;
 
         &__tour-price-group {
-            
             width: 100%;
             display: flex;
             flex-direction: column;
-    
+
             position: relative;
-    
+
             &:first-child {
                 margin-bottom: 5rem;
-                &::after{
+                &::after {
                     content: "";
                     position: absolute;
                     bottom: 0rem;
@@ -295,10 +293,8 @@
                     height: 1px;
                     background-color: $color-grey-light-1a;
                 }
-
             }
-            
-    
+
             &__year {
                 font-size: 5rem;
                 font-family: $font-secondary;
@@ -312,7 +308,7 @@
                 margin-bottom: 2rem;
                 text-align: center;
             }
-    
+
             &__blocks {
                 display: flex;
                 justify-content: space-around;
@@ -327,8 +323,7 @@
                     box-shadow: inset 0px 0px 0px 2px rgba($color-primary, 0.2), $shadow-light;
                     box-sizing: border-box; /* Include padding and border in element's width and height */
                     padding: 1rem;
-    
-    
+
                     &__title {
                         font-size: 3rem;
                         padding: 1rem;
@@ -343,25 +338,22 @@
                         font-family: $font-secondary;
                         letter-spacing: 0.2rem;
                         padding: 0 3rem;
-    
-                   
+
                         padding-bottom: 2rem;
                         font-weight: 300;
                         color: $color-grey-1;
                         width: 100%;
-    
+
                         display: grid;
                         grid-template-columns: 1fr max-content 1fr;
                         align-items: center;
                         column-gap: 1.5rem;
-    
+
                         &--single {
-                           
                             font-size: 1.3rem;
                             letter-spacing: 0.1rem;
-    
                         }
-    
+
                         //lines on both sides effect
                         &::before {
                             content: "";
@@ -369,14 +361,14 @@
                             display: block;
                             background-color: $color-grey-light-1a;
                         }
-    
+
                         &::after {
                             content: "";
                             height: 1px;
                             display: block;
                             background-color: $color-grey-light-1a;
                         }
-    
+
                         @media only screen and (max-width: $bp-xsmall) {
                             grid-template-columns: 1fr;
                             text-align: center;
@@ -388,20 +380,19 @@
                             }
                         }
                     }
-    
+
                     &__price {
                         display: flex;
                         align-items: center;
                         flex-direction: column;
-                        font-size: 3rem; 
+                        font-size: 3rem;
                         margin-bottom: 3rem;
                         font-weight: 600;
                         color: rgba($color-supporting, 1);
                         &--single {
-                           
                             font-size: 1.5rem;
                             font-style: italic;
-                        } 
+                        }
                     }
                 }
             }
@@ -412,7 +403,7 @@
         grid-column: center-start / center-end;
 
         display: flex;
-        
+
         width: 100%;
         max-width: 90rem;
         margin: 0 auto;
@@ -420,10 +411,28 @@
         margin-top: 2rem;
         margin-bottom: 6rem;
 
+        @media only screen and (max-width: $bp-medium) {
+            flex-direction: column;
+            margin-bottom: 0rem;
+            margin-top: 0rem;
+
+        }
+
         &__text {
             flex: 1;
             margin-right: 10rem;
             position: relative;
+
+            &__img {
+                object-fit: contain;
+                max-width: 100%;
+                box-shadow: $shadow-short-bottom;
+                margin-bottom: 2rem;
+
+                @media only screen and (max-width: $bp-medium) {
+                    display: none;
+                }
+            }
 
             &__title {
                 font-size: 2.4rem;
@@ -447,29 +456,68 @@
                 background-color: $color-grey-light-1a;
 
                 transform: translateY(-50%);
+
+                @media only screen and (max-width: $bp-medium) {
+                    // display: none;
+                    top: auto;
+                    right: 50%;
+                    bottom: -2.5rem;
+
+                    height: 1px;
+                    width: 80%;
+                    transform: translateY(0%) translateX(50%);
+
+                }
+            }
+
+            @media only screen and (max-width: $bp-medium) {
+                margin-right: 0rem;
+                margin-bottom: 3rem;
+                text-align: center;
             }
         }
 
         &__info {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            @media only screen and (max-width: $bp-medium) {
+                text-align: center;
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: space-around;
+            }
 
             &__info-group {
-               font-weight: 600;
-                margin-bottom: 2rem;
+                font-weight: 600;
+                margin-bottom: 4rem;
+
+                @media only screen and (max-width: $bp-medium) {
+                    margin: 2rem;
+                }
+
                 &__title {
                     font-size: 2.4rem;
                     color: $color-primary;
-                    
+
+                    @media only screen and (max-width: $bp-medium) {
+                        font-size: 1.8rem;
+                    }
                 }
 
                 &__data {
-                    font-size: 3.6rem;
+                    font-size: 3rem;
+
+                    @media only screen and (max-width: $bp-medium) {
+                        font-size: 2.2rem;
+                    }
                     color: $color-supporting-light;
                 }
             }
         }
     }
-  
 
     // policies
     &__policies-divider {

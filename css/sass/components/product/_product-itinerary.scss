@@ -395,6 +395,8 @@
                             }
                         }
                     }
+
+                    
                 }
 
                 @media only screen and (max-width: $bp-medium) {
@@ -495,4 +497,14 @@
             }
         }
     }
+}
+
+.charter-info-box {
+    text-align: center;
+    font-size: 1.3rem;
+   // letter-spacing: .1rem;
+    font-style: italic;
+    border: 1px solid $color-grey-light-1a;
+    padding: 1.5rem;
+
 }
