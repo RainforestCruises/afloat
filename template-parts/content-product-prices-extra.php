@@ -4,16 +4,13 @@ $currentYear = $args['currentYear'];
 
 ?>
 
-<?php if (get_post_type() != 'rfc_tours' ) : 
-    if(!$args['charter_view']) :
-    ?>
+
 <!-- Note Top-->
 <div class="product-prices__note">
     <div class="attention-box">
         <p>All prices listed are per person in double occupancy unless otherwise specified </p>
     </div>
 </div>
-<?php  endif;  endif; ?>
 
 <!-- Note Bot-->
 <?php if (get_field('display_special_note') == true) { ?>

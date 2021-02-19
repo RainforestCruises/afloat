@@ -56,6 +56,7 @@ while (have_posts()) :
     'charter_daily_price' => $charter_daily_price,
     'vessel_capacity' => $vessel_capacity,
     'charter_min_days' => $charter_min_days,
+    'charter_only' => $charter_only,
 
   );
 

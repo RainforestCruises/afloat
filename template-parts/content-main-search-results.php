@@ -185,7 +185,7 @@ foreach ($filteredResults as $filteredResult) :
                     <?php echo get_field('length', $filteredResult->postObject) ?>-Day Tour
                 <?php } else if ($filteredResult->postType == 'rfc_cruises') {
                     if (!$charterFilter) :
-                        echo $cruise_data['LowestLengthInDays'] . ' - ' . $cruise_data['HighestLengthInDays'] . 'Day Cruise ';
+                        echo $cruise_data['LowestLengthInDays'] . ' - ' . $cruise_data['HighestLengthInDays'] . ' Day Cruise ';
                     else :
                         echo 'Private Charter';
                     endif; ?>

@@ -77,7 +77,7 @@ $hotels = get_field('hotels');
     <?php endif; ?>
 
     <div class="sub-divider">
-        Hotels
+        Hotel Options
     </div>
     <div class="sub-divider-text">
         <p><?php echo get_field('hotels_snippet') ?></p>
@@ -112,7 +112,7 @@ $hotels = get_field('hotels');
                                 <?php echo  $hotelTitle ?>
                             </div>
                             <div class="card-square__title-group__subtext">
-                                <?php echo get_field('navigation_title', $hotelCity) ?> - <?php echo get_the_title($priceLevelPost) ?>
+                                <?php echo get_field('navigation_title', $hotelCity) ?>
                             </div>
                         </div>
                         <img class="card-square__image" src="<?php echo $featured_image['url']; ?>" alt="">

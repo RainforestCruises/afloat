@@ -3256,8 +3256,8 @@ h5 {
         margin-bottom: 6rem;
         flex-wrap: wrap; }
         .product-prices__tour-prices__tour-price-group__blocks__block {
-          min-width: 35rem;
-          margin: 5rem 3rem;
+          min-width: 30rem;
+          margin: 4rem 2.5rem;
           background-color: #fff;
           position: relative;
           border: 10px solid transparent;
