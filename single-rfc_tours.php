@@ -50,7 +50,7 @@ while (have_posts()) :
       </div>
       <?php endif; ?>
       <!-- 2. Itineraries Content -->
-      <div class="product-content__page tab-content " id="itineraries">
+      <div class="product-content__page tab-content <?php echo(get_field('show_overview') ? '' : 'current') ?> " id="itineraries">
         <?php
         get_template_part('template-parts/content', 'product-itineraries-tour', $args);
         ?>
