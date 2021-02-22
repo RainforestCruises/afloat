@@ -1,27 +1,29 @@
 <?php
 $intro_image = get_field('intro_image');
 $intro_testimonials = get_field('intro_testimonials');
-//cloudinary_url(esc_url($intro_image['url']), );
-?>
 
-<!-- <?php
-        // $url = cloudinary_url($intro_image['ID'], array(
-        // 	'transform' => array(
-        // 		'width'   => 100,
-        // 		'height'  => 200,
-        // 		'crop'    => 'fill',
-        // 		'quality' => '80',
-        // 		'gravity' => 'face',
-        // 	),
-        // ) );
+// //cloudinary magic
+// $new_intro_image = cloudinary_url($intro_image['filename'], array("width" => 200, "height" => 150, "crop" => "fill", "gravity" => "auto", "fetch_format" => "auto" ));
 
-        //$url = 'https://res.cloudinary.com/djkfdosem/images/w_300,h_200,c_fill,q_80,g_face/bird/bird.jpg'
-        ?> -->
+// console_log($intro_image['url']);
+// console_log($new_intro_image);
+
+
+//$srcset = wp_get_attachment_metadata( $intro_image['ID']); -- this shows cloudinary array
+//$srcset = wp_get_attachment_image_srcset( $intro_image['id'] );
+
+//console_log($srcset);
+
+
+   ?>
+
+
+
+
 
 <div class="home-intro">
     <div class="home-intro__top">
         <img class="home-intro__top__img" src="<?php echo $intro_image['url']; ?>" alt="">
-
         <div class="home-intro__top__content">
             <div class="home-intro__top__content__pretitle">
                 <?php echo get_field('intro_pretitle'); ?>

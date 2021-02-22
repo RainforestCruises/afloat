@@ -7,13 +7,25 @@
     $destinationType = $args['destinationType'];
 
 
+    //CLOUDINARY
+    // foreach ($sliderContent as $s) :
+    //     $sliderImage = $s['image'];
+    //     $cloud_image = cloudinary_url($sliderImage['filename'], array("width" => 750, "height" => 1334, "crop" => "fill", "gravity" => "auto", "fetch_format" => "auto"));
+    //     console_log($cloud_image);
+    // endforeach; 
+    
+    
+    
+    
     ?>
+
 
   <!-- Destination Hero -->
   <div class="destination-hero">
       <div class="destination-hero__bg-slide" id="destination-hero__bg">
           <?php foreach ($sliderContent as $s) :
                 $sliderImage = $s['image'];
+
             ?>
               <img src="<?php echo esc_url($sliderImage['url']); ?>" alt="">
           <?php endforeach; ?>
@@ -23,10 +35,10 @@
               <ol class="destination-hero__content__breadcrumb__path">
                   <li>
                       <a href="#">Destinations</a>
-                    
+
                   </li>
                   <li>
-                      <?php echo $title?>
+                      <?php echo $title ?>
                   </li>
               </ol>
           </div>

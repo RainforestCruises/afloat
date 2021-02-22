@@ -2,6 +2,7 @@
 $cruise_data = $args['cruiseData'];
 $currentYear = $args['currentYear'];
 $charter_view = false;
+$charter_only = false;
 
 $featured_image = get_field('featured_image');
 
@@ -10,7 +11,12 @@ if ($args['propertyType'] == 'Cruise') {
     if ($args['charter_view'] == true) {
         $charter_view = true;
     }
+    if ($args['charter_only'] == true) {
+        $charter_only = true;
+    }
 }
+
+
 
 ?>
 <div class="product-prices">
@@ -206,13 +212,50 @@ if ($args['propertyType'] == 'Cruise') {
                         <?php echo "$ " . number_format($charter_daily_price, 0);  ?>
                     </div>
                 </div>
-                <div class="product-prices__charter__info__info-group">
+                <div class="product-prices__charter__info__info-group product-prices__charter__info__info-group--border-top">
                     <div class="product-prices__charter__info__info-group__title">
                         Price Per Person / Night
                     </div>
                     <div class="product-prices__charter__info__info-group__data">
                         <?php echo "$ " . number_format($price_per_person, 0);  ?>
                     </div>
+                </div>
+                <div class="product-prices__charter__info__small-print">
+                    Sample Itinerary Pricing Per Person:
+                </div>
+                <div class="product-prices__charter__info__estimates">
+                    <?php foreach ($cruise_data['Itineraries'] as $itinerary) :
+
+                        if ($charter_only == false) {
+                            $nights = $itinerary['LengthInNights'];
+                            $price = $nights * $price_per_person;
+                        } else {
+
+                            if ($itinerary['IsSample'] == true) {
+                                $nights = $itinerary['LengthInNights'];
+                                $price = $nights * $price_per_person;
+                            } else {
+                                continue;
+                            }
+                        }
+
+                    ?>
+                        <div class="product-prices__charter__info__estimates__itinerary">
+                            <div class="product-prices__charter__info__estimates__itinerary__title">
+                                <?php echo $nights ?>-Night
+                            </div>
+                            <div class="product-prices__charter__info__estimates__itinerary__price">
+                                <?php echo "$ " . number_format($price, 0);  ?>
+                            </div>
+                        </div>
+                    <?php
+                    endforeach; ?>
+
+
+
+                </div>
+                <div class="product-prices__charter__info__fine-print">
+                    Pricing based on 100% occupancy
                 </div>
 
             </div>

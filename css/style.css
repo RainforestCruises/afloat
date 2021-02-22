@@ -3385,6 +3385,10 @@ h5 {
       .product-prices__charter__info__info-group {
         font-weight: 600;
         margin-bottom: 4rem; }
+        .product-prices__charter__info__info-group--border-top {
+          border-top: 1px solid #e6e6e6;
+          padding-top: 2rem;
+          margin-bottom: 1rem; }
         @media only screen and (max-width: 50em) {
           .product-prices__charter__info__info-group {
             margin: 2rem; } }
@@ -3400,6 +3404,27 @@ h5 {
           @media only screen and (max-width: 50em) {
             .product-prices__charter__info__info-group__data {
               font-size: 2.2rem; } }
+      .product-prices__charter__info__small-print {
+        font-size: 1.4rem;
+        color: #9ea0a4; }
+      .product-prices__charter__info__fine-print {
+        font-size: 1.1rem;
+        color: #9ea0a4;
+        margin-top: 2rem; }
+      .product-prices__charter__info__estimates {
+        display: flex;
+        padding-top: 2rem;
+        justify-content: space-between; }
+        .product-prices__charter__info__estimates__itinerary {
+          margin-right: 2rem;
+          text-align: center; }
+          .product-prices__charter__info__estimates__itinerary__title {
+            font-size: 2rem;
+            color: #142838;
+            font-weight: 600; }
+          .product-prices__charter__info__estimates__itinerary__price {
+            font-size: 2rem;
+            color: #40739c; }
   .product-prices__policies-divider {
     grid-column: center-start / center-end; }
   .product-prices__policies {

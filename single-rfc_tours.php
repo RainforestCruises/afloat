@@ -42,12 +42,13 @@ while (have_posts()) :
     <section class="product-content">
 
       <!-- 1. Overview Content -->
+      <?php if(get_field('show_overview')) :?>
       <div class="product-content__page tab-content current" id="overview">
         <?php
         get_template_part('template-parts/content', 'product-overview', $args);
         ?>
       </div>
-
+      <?php endif; ?>
       <!-- 2. Itineraries Content -->
       <div class="product-content__page tab-content " id="itineraries">
         <?php
@@ -82,6 +83,7 @@ while (have_posts()) :
     </section>
 
     <!-- Reviews -->
+    <?php if(get_field('show_testimonials')) :?>
     <div class="page-divider">
       Guest Reviews
     </div>
@@ -90,8 +92,10 @@ while (have_posts()) :
       get_template_part('template-parts/content', 'product-reviews', $args);
       ?>
     </section>
+    <?php endif; ?>
 
     <!-- Related Travel -->
+   
     <div class="page-divider">
       Related Tours
     </div>
@@ -100,6 +104,7 @@ while (have_posts()) :
       get_template_part('template-parts/content', 'product-related', $args);
       ?>
     </section>
+    
 
   </div>
 
