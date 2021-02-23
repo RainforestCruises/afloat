@@ -639,3 +639,44 @@
 
 
 }
+
+.btn-cta-square {
+  color: $color-white;
+  background-color: $color-primary;
+  padding: 0 3rem;
+  margin: 3rem 0;
+  letter-spacing: 0.3rem;
+  cursor: pointer;
+  border: none;
+  font-size: 1.3rem;
+  font-family: $font-primary;
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+  height: 5rem;
+  min-width: 20rem;
+
+  &:hover {
+    color: $color-primary;
+    background-color: $color-white;
+    box-shadow: $inner-border-dark;
+
+    & svg {
+      transform: translateX(.3rem) translateX(1rem);
+    
+    }
+  }
+  & svg {
+    transform: translateX(1rem);
+    height: 1.8rem;
+    width: 1.8rem;
+    fill: currentColor;
+    transition: all .1s;
+  }
+}

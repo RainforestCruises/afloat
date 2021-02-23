@@ -66,7 +66,6 @@ $args = array(
 
 ?>
 
-<!-- Hero -->
 <div class="destination-page">
     <section class="destination-page__section-hero" id="top">
         <?php

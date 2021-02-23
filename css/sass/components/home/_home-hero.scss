@@ -45,6 +45,11 @@
         width: 100%;
         z-index: 1;
         max-height: 100vh;
+
+        //prevent bg not going 100% of height in small mobile
+        @media only screen and (max-width: $bp-medium) {
+            max-height: 100%;
+        }
     }
 
     &__content {
@@ -52,12 +57,14 @@
         grid-row: 2 / -1;
         z-index: 5;
 
-        max-height: 80rem;
-
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center; 
         justify-content: space-around;
+
+        @media only screen and (max-width: $bp-small) {
+            padding-bottom: 3rem;
+        }
 
         &__title-group {
             display: grid;
@@ -66,6 +73,10 @@
             position: relative;
             align-self: center;
             padding-top: 3rem;
+
+            @media only screen and (max-width: $bp-small) {
+                padding-top: 0rem;
+            }
 
             &__title {
                 font-size: 6rem;

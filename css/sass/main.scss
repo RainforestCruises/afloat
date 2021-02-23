@@ -22,6 +22,7 @@
 @import "pages/destination";
 @import "pages/travel-guide";
 @import "pages/travel-guide-landing";
+@import "pages/experience";
 
 
 //product
@@ -63,7 +64,9 @@
 @import "components/home/home-featured";
 @import "components/home/home-testimonials";
 
-  
+  //experience
+@import "components/experience/experience-hero";
+@import "components/experience/experience-region";
 
 //shared
 @import "components/shared/cards";
