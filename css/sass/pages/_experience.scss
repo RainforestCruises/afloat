@@ -22,7 +22,10 @@
 
     &__section-region { 
         grid-row: content-start / span 1;
-        grid-column: center-start / center-end;    
+        grid-column: 1 / -1;    
+
+        display: flex;
+        justify-content: center;
     }
  
 

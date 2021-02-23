@@ -1890,7 +1890,9 @@ h5 {
     background-color: #1e1e1e; }
   .experience-page__section-region {
     grid-row: content-start / span 1;
-    grid-column: center-start / center-end; }
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center; }
 
 .product-hero {
   grid-column: full-start / -1;
@@ -6502,11 +6504,29 @@ h5 {
           line-height: 2.5rem; } }
 
 .experience-region {
-  margin: 10rem auto; }
+  margin: 10rem 0;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden; }
   .experience-region__content {
     max-width: 114rem;
+    margin: auto;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    margin-bottom: 9rem;
+    position: relative; }
+    .experience-region__content__accent-title {
+      position: absolute;
+      top: -6rem;
+      left: -6rem;
+      z-index: -1;
+      font-size: 18rem;
+      white-space: nowrap;
+      overflow-x: hidden;
+      font-family: "Old Standard TT", serif;
+      color: #f8f8f8;
+      text-transform: uppercase;
+      letter-spacing: .5rem; }
     .experience-region__content__text {
       margin-right: 8rem; }
       .experience-region__content__text__title-group__subtitle {
@@ -6550,6 +6570,162 @@ h5 {
         object-fit: contain;
         height: 100%;
         width: auto; }
+  .experience-region__slider-area {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6rem;
+    width: 100%; }
+    .experience-region__slider-area__slider {
+      max-width: 140rem;
+      width: 100%;
+      margin: 0 6rem;
+      position: relative; }
+      .experience-region__slider-area__slider__btn-left {
+        transform: translateY(-50%);
+        position: absolute;
+        top: 50%;
+        left: 8vw;
+        z-index: 20; }
+        @media only screen and (max-width: 62.5em) {
+          .experience-region__slider-area__slider__btn-left {
+            left: 2vw; } }
+        @media only screen and (max-width: 50em) {
+          .experience-region__slider-area__slider__btn-left {
+            left: 0vw;
+            transform: translateY(-50%) scale(0.75); } }
+      .experience-region__slider-area__slider__btn-right {
+        transform: translateY(-50%);
+        position: absolute;
+        top: 50%;
+        right: 8vw;
+        z-index: 20; }
+        @media only screen and (max-width: 62.5em) {
+          .experience-region__slider-area__slider__btn-right {
+            right: 2vw; } }
+        @media only screen and (max-width: 50em) {
+          .experience-region__slider-area__slider__btn-right {
+            right: 0vw;
+            transform: translateY(-50%) scale(0.75); } }
+      .experience-region__slider-area__slider .slick-slide {
+        margin: 0 1.5rem; }
+        @media only screen and (max-width: 50em) {
+          .experience-region__slider-area__slider .slick-slide {
+            margin: 0 .75rem; } }
+      .experience-region__slider-area__slider .slick-list {
+        padding: 0 25% !important; }
+        @media only screen and (max-width: 62.5em) {
+          .experience-region__slider-area__slider .slick-list {
+            padding: 0 15% !important; } }
+        @media only screen and (max-width: 37.5em) {
+          .experience-region__slider-area__slider .slick-list {
+            padding: 0 10% !important; } }
+      .experience-region__slider-area__slider .slick-current .tours-card__content {
+        opacity: 1; }
+      .experience-region__slider-area__slider .slick-current .tours-card::after {
+        opacity: 0; }
+
+.experience-card {
+  display: grid !important;
+  width: 60rem;
+  height: 35rem;
+  display: grid;
+  position: relative;
+  text-decoration: none;
+  margin: 0 1.5rem; }
+  .experience-card__image {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    z-index: 1; }
+    .experience-card__image img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      max-height: 35rem; }
+  .experience-card__content {
+    margin: 4rem 6rem;
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    z-index: 8;
+    display: grid;
+    opacity: 1;
+    grid-template-rows: 1fr;
+    position: relative;
+    transition: opacity 0.3s; }
+    @media only screen and (max-width: 37.5em) {
+      .experience-card__content {
+        margin: 1.5rem 2rem; } }
+    .experience-card__content__tag-area {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap; }
+      .experience-card__content__tag-area__tag {
+        white-space: nowrap;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        display: inline-block;
+        color: #1e1e1e;
+        background-color: #fff;
+        padding: 0.5rem 1.5rem;
+        padding-top: 0.7rem;
+        border-radius: 3rem;
+        font-weight: 700; }
+        .experience-card__content__tag-area__tag--length {
+          color: #fff;
+          background-color: #305a7c; }
+    .experience-card__content__text-area {
+      color: #fff;
+      grid-row: 2 / span 1; }
+      .experience-card__content__text-area__country {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        list-style: none;
+        display: flex; }
+        .experience-card__content__text-area__country li:not(:first-child) {
+          margin-left: 0.8rem;
+          position: relative; }
+          .experience-card__content__text-area__country li:not(:first-child)::before {
+            content: " / "; }
+      .experience-card__content__text-area__title {
+        font-family: "Old Standard TT", serif;
+        font-size: 4rem;
+        letter-spacing: 0.5rem;
+        text-transform: uppercase;
+        line-height: 5rem; }
+        @media only screen and (max-width: 37.5em) {
+          .experience-card__content__text-area__title {
+            font-size: 2.2rem;
+            line-height: 3rem; } }
+      .experience-card__content__text-area__info {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.2rem;
+        display: flex;
+        justify-content: space-between; }
+        .experience-card__content__text-area__info__price span {
+          font-size: 1.2rem; }
+  .experience-card::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0.6));
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 3; }
+  .experience-card::before {
+    content: "";
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    background-image: linear-gradient(to bottom, transparent 50%, rgba(30, 30, 30, 0.6));
+    height: 100%;
+    width: 100%;
+    z-index: 3; }
 
 .card-square {
   display: grid !important;

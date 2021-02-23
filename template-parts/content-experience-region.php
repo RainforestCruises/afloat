@@ -6,18 +6,21 @@ $first = $regions[0];
 
 $picture = $first['image'];
 
+$destinations = $first['destinations'];
 ?>
 
 
 <div class="experience-region">
 
     <div class="experience-region__content">
-
+    <div class="experience-region__content__accent-title">
+                South America
+            </div>
         <div class="experience-region__content__text">
-
+          
             <div class="experience-region__content__text__title-group">
                 <div class="experience-region__content__text__title-group__subtitle">
-                    Unrivaled Something
+                    Luxury Travel
                 </div>
                 <div class="experience-region__content__text__title-group__title">
                     South America
@@ -52,6 +55,50 @@ $picture = $first['image'];
         <div class="experience-region__content__image">
             <img src="<?php echo esc_url($picture['url']); ?>" alt="">
 
+        </div>
+    </div>
+
+    <div class="experience-region__slider-area">
+        <div class="experience-region__slider-area__slider" id="south-america-slider">
+
+            <?php foreach ($destinations as $d) :
+                $cardImage = $d['image'];
+            ?>
+
+                <!-- Tour Card -->
+                <a class="experience-card">
+                    <div class="experience-card__image">
+                        <img src="<?php echo esc_url($cardImage['url']); ?>" alt="">
+                    </div>
+
+
+                    <div class="experience-card__content">
+                        <div class="experience-card__content__tag-area">
+                            <div class="experience-card__content__tag-area__tag">
+                                Best Seller
+                            </div>
+
+                        </div>
+                        <div class="experience-card__content__text-area">
+                            <div class="experience-card__content__text-area__country">
+
+                            </div>
+                            <div class="experience-card__content__text-area__title">
+                                Title
+                            </div>
+                            <div class="experience-card__content__text-area__info">
+                                <div class="experience-card__content__text-area__info__length">
+                                    4-Day Tour
+                                </div>
+                                <div class="experience-card__content__text-area__info__price">
+                                    From 1000 <span>USD</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            <?php endforeach; ?>
         </div>
     </div>
 
