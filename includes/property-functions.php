@@ -139,7 +139,7 @@ function cruises_available_experience($destination, $experience)
         'meta_query' => array(
             'relation' => 'AND',
             array(
-                'key' => 'destination', // name of custom field
+                'key' => 'destinations', // name of custom field
                 'value' => '"' . $destination->ID . '"',
                 'compare' => 'LIKE'
             ),
@@ -155,6 +155,66 @@ function cruises_available_experience($destination, $experience)
 
     return $count;
 }
+
+
+function cruises_available_region($region, $experience)
+{
+
+    //DESTINATIONS
+    $destinationCriteria = array(
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_destinations',
+        "meta_key" => "region",
+        "meta_value" => $region->ID
+    );
+    $destinations = get_posts($destinationCriteria);
+ 
+    //get destination IDs
+    $destinationIds = [];
+    foreach ($destinations as $d) {
+        $destinationIds[] = $d->ID;
+    }
+
+    //build meta query criteria
+    $queryargs = array();
+    $queryargs['relation'] = 'OR';
+    foreach ($destinationIds as $d) {
+        $queryargs[] = array(
+            'key'     => 'destinations',
+            'value'   => serialize(strval($d)),
+            'compare' => 'LIKE'
+        );
+    }
+
+
+    $count = 0;
+    $postCriteria = array(
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_cruises',
+        'meta_query' => array(
+            'relation' => 'AND',
+            $queryargs,
+            array(
+                'key' => 'experiences', // name of custom field
+                'value' => '"' . $experience->ID . '"',
+                'compare' => 'LIKE'
+            )
+        )
+    );
+    $cruisesPosts = get_posts($postCriteria);
+    $count = count($cruisesPosts);
+    return $count;
+
+}
+
+
+
+
+
+
+
+
+
 
 function check_if_promo($cruise_data, $startDate, $endDate, $lengthMin, $lengthMax)
 {

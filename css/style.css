@@ -900,7 +900,10 @@ h5 {
   justify-content: center;
   transition: all .2s;
   height: 5rem;
-  min-width: 20rem; }
+  min-width: 20rem;
+  max-width: max-content; }
+  .btn-cta-square span {
+    transform: translateY(0.1rem); }
   .btn-cta-square:hover {
     color: #142838;
     background-color: #fff;
@@ -1892,7 +1895,8 @@ h5 {
     grid-row: content-start / span 1;
     grid-column: 1 / -1;
     display: flex;
-    justify-content: center; }
+    align-items: center;
+    flex-direction: column; }
 
 .product-hero {
   grid-column: full-start / -1;
