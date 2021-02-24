@@ -189,7 +189,7 @@
                     "label": "Image",
                     "name": "image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "400 x 600",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -291,6 +291,25 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_6036793a98a2f",
+                            "label": "Tag",
+                            "name": "tag",
+                            "type": "text",
+                            "instructions": "Example: Popular, Bucket List - leave blank for no tag",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ]
                 }
@@ -314,5 +333,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Experiences - Page",
-    "modified": 1614115079
+    "modified": 1614185418
 }

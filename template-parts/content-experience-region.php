@@ -1,6 +1,8 @@
 <?php
 
 $regions = get_field('regions');
+$experience = get_field('experience_post');
+
 
 $first = $regions[0];
 
@@ -59,10 +61,11 @@ $destinations = $first['destinations'];
     </div>
 
     <div class="experience-region__slider-area">
-        <div class="experience-region__slider-area__slider" id="south-america-slider">
 
+        <div class="experience-region__slider-area__slider" id="south-america-slider">
             <?php foreach ($destinations as $d) :
                 $cardImage = $d['image'];
+                $destinationPost = $d['destination_post']
             ?>
 
                 <!-- Tour Card -->
@@ -74,26 +77,21 @@ $destinations = $first['destinations'];
 
                     <div class="experience-card__content">
                         <div class="experience-card__content__tag-area">
+                        <?php if($d['tag'] != "") :?>
                             <div class="experience-card__content__tag-area__tag">
-                                Best Seller
+                            <?php echo $d['tag']?>
                             </div>
-
+                        <?php endif; ?>
                         </div>
-                        <div class="experience-card__content__text-area">
-                            <div class="experience-card__content__text-area__country">
-
-                            </div>
+                        <div class="experience-card__content__text-area">            
                             <div class="experience-card__content__text-area__title">
-                                Title
+                                <?php echo get_field('navigation_title', $destinationPost) ?>
                             </div>
                             <div class="experience-card__content__text-area__info">
-                                <div class="experience-card__content__text-area__info__length">
-                                    4-Day Tour
+                                <div class="experience-card__content__text-area__info__length"> 
+                                   <?php echo tours_available($destinationPost, $experience) ?> Tours / 
+                                   <?php echo cruises_available_experience($destinationPost, $experience) ?> Cruises Available
                                 </div>
-                                <div class="experience-card__content__text-area__info__price">
-                                    From 1000 <span>USD</span>
-                                </div>
-
                             </div>
                         </div>
                     </div>

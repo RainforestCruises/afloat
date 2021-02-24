@@ -6508,13 +6508,25 @@ h5 {
   width: 100%;
   position: relative;
   overflow-x: hidden; }
+  @media only screen and (max-width: 50em) {
+    .experience-region {
+      text-align: center;
+      margin-right: 0rem;
+      margin: 4rem 0; } }
   .experience-region__content {
     max-width: 114rem;
     margin: auto;
     display: flex;
     align-items: center;
     margin-bottom: 9rem;
+    padding: 0 6rem;
     position: relative; }
+    @media only screen and (max-width: 50em) {
+      .experience-region__content {
+        margin-bottom: 4rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .experience-region__content {
+        padding: 0 2rem; } }
     .experience-region__content__accent-title {
       position: absolute;
       top: -6rem;
@@ -6529,6 +6541,11 @@ h5 {
       letter-spacing: .5rem; }
     .experience-region__content__text {
       margin-right: 8rem; }
+      @media only screen and (max-width: 50em) {
+        .experience-region__content__text {
+          text-align: center;
+          margin-right: 0rem;
+          padding-top: 5rem; } }
       .experience-region__content__text__title-group__subtitle {
         font-size: 1.3rem;
         text-transform: uppercase;
@@ -6538,20 +6555,35 @@ h5 {
       .experience-region__content__text__title-group__title {
         color: #142838;
         font-size: 4rem;
-        letter-spacing: .5rem;
+        line-height: 4.8rem;
+        letter-spacing: 1rem;
         text-transform: uppercase;
         font-family: "Old Standard TT", serif;
-        font-weight: 500; }
+        font-weight: 500;
+        margin-bottom: 1.5rem; }
+        @media only screen and (max-width: 50em) {
+          .experience-region__content__text__title-group__title {
+            margin-top: 1.5rem; } }
       .experience-region__content__text__snippet {
         font-size: 1.5rem;
         color: #9ea0a4; }
       .experience-region__content__text__travel-types {
         margin: 6rem 0; }
+        @media only screen and (max-width: 50em) {
+          .experience-region__content__text__travel-types {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            margin-top: 4rem; } }
         .experience-region__content__text__travel-types__group {
           display: flex;
           color: #142838;
           align-items: center;
           margin: 1rem 0; }
+          @media only screen and (max-width: 50em) {
+            .experience-region__content__text__travel-types__group {
+              margin: 1rem 2rem; } }
           .experience-region__content__text__travel-types__group svg {
             height: 2.5rem;
             width: 2.5rem;
@@ -6560,12 +6592,21 @@ h5 {
             margin-left: 1rem;
             font-size: 1.6rem;
             text-decoration: none;
-            color: #142838; }
+            color: #142838;
+            text-align: start;
+            white-space: nowrap; }
             .experience-region__content__text__travel-types__group a:hover {
               color: #40739c; }
+      @media only screen and (max-width: 50em) {
+        .experience-region__content__text__cta {
+          display: flex;
+          justify-content: center; } }
     .experience-region__content__image {
       width: 40rem;
       height: 60rem; }
+      @media only screen and (max-width: 50em) {
+        .experience-region__content__image {
+          display: none; } }
       .experience-region__content__image img {
         object-fit: contain;
         height: 100%;
@@ -6573,7 +6614,6 @@ h5 {
   .experience-region__slider-area {
     display: flex;
     justify-content: center;
-    margin-bottom: 6rem;
     width: 100%; }
     .experience-region__slider-area__slider {
       max-width: 140rem;
@@ -6619,9 +6659,9 @@ h5 {
         @media only screen and (max-width: 37.5em) {
           .experience-region__slider-area__slider .slick-list {
             padding: 0 10% !important; } }
-      .experience-region__slider-area__slider .slick-current .tours-card__content {
+      .experience-region__slider-area__slider .slick-current .experience-card__content {
         opacity: 1; }
-      .experience-region__slider-area__slider .slick-current .tours-card::after {
+      .experience-region__slider-area__slider .slick-current .experience-card::after {
         opacity: 0; }
 
 .experience-card {
@@ -6647,7 +6687,7 @@ h5 {
     grid-column: 1 / -1;
     z-index: 8;
     display: grid;
-    opacity: 1;
+    opacity: 0;
     grid-template-rows: 1fr;
     position: relative;
     transition: opacity 0.3s; }
@@ -6715,7 +6755,7 @@ h5 {
     background-image: linear-gradient(to right, rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0.6));
     grid-row: 1 / -1;
     grid-column: 1 / -1;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.3s;
     z-index: 3; }
   .experience-card::before {
