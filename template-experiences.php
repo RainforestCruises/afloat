@@ -27,25 +27,14 @@ $experience = get_field('experience_post');
         ?>
     </section>
 
-
-    <section class="travel-guide-newsletter">
-        <div class="travel-guide-newsletter__content">
-            <div class="travel-guide-newsletter__content__title">
-                <?php echo get_field('newsletter_title', 'options'); ?>
-            </div>
-            <div class="travel-guide-newsletter__content__text">
-                <?php echo get_field('newsletter_snippet', 'options'); ?>
-            </div>
-            <div class="travel-guide-newsletter__content__email">
-                <input type="text" placeholder="Enter your email" class="travel-guide-newsletter__content__email__input">
-                <button class="travel-guide-newsletter__content__email__button">Submit</button>
-            </div>
-        </div>
-        <div class="travel-guide-newsletter__image">
-        <?php $newsletter_image = get_field('newsletter_image', 'options'); ?>
-            <img src="<?php echo esc_url($newsletter_image['url']); ?>" alt="">
-        </div>
-    </section>
+    <div class="svg-divider">
+        <svg>
+            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
+        </svg>
+    </div>
+    <?php
+    get_template_part('template-parts/content', 'shared-newsletter');
+    ?>
 
 </div>
 

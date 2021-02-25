@@ -215,6 +215,49 @@ p {
   .page-divider--dark {
     color: #9ea0a4; }
 
+.svg-divider {
+  height: 9rem;
+  width: 30rem;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  position: relative;
+  margin: 0rem auto;
+  align-content: center;
+  column-gap: 2rem;
+  color: #142838; }
+  @media only screen and (max-width: 37.5em) {
+    .svg-divider {
+      height: 6rem; } }
+  .svg-divider svg {
+    height: 5rem;
+    width: 5rem;
+    stroke-width: 2;
+    color: currentColor;
+    grid-column: 2 / span 1; }
+    @media only screen and (max-width: 37.5em) {
+      .svg-divider svg {
+        height: 3rem;
+        width: 3rem; } }
+  .svg-divider::after {
+    content: "";
+    grid-column: 3 / span 1;
+    height: 2px;
+    width: 50%;
+    background-color: currentColor;
+    z-index: 12;
+    align-self: center;
+    justify-self: start; }
+  .svg-divider::before {
+    content: "";
+    grid-column: 1 / span 1;
+    height: 2px;
+    width: 50%;
+    background-color: currentColor;
+    z-index: 12;
+    align-self: center;
+    justify-self: end; }
+
 .sub-divider {
   grid-column: center-start / center-end;
   text-align: center;
@@ -1566,92 +1609,6 @@ h5 {
           .travel-guide-related__slider-area__slider__item__content__cta {
             font-size: 1.6rem;
             text-transform: uppercase; }
-
-.travel-guide-newsletter {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column: center-start / center-end;
-  margin: 6rem 0;
-  column-gap: 6rem;
-  padding: 8rem; }
-  @media only screen and (max-width: 62.5em) {
-    .travel-guide-newsletter {
-      padding: 4rem; } }
-  @media only screen and (max-width: 50em) {
-    .travel-guide-newsletter {
-      grid-template-columns: 1fr; } }
-  @media only screen and (max-width: 50em) {
-    .travel-guide-newsletter {
-      padding: 0rem; } }
-  .travel-guide-newsletter__content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; }
-    .travel-guide-newsletter__content__title {
-      font-size: 5rem;
-      line-height: 5.8rem;
-      font-family: "Old Standard TT", serif;
-      color: #142838;
-      margin-bottom: 4rem; }
-      @media only screen and (max-width: 50em) {
-        .travel-guide-newsletter__content__title {
-          text-align: center; } }
-    .travel-guide-newsletter__content__text {
-      color: #142838;
-      font-size: 1.6rem;
-      margin-bottom: 9rem; }
-      @media only screen and (max-width: 50em) {
-        .travel-guide-newsletter__content__text {
-          margin-bottom: 6rem;
-          text-align: center; } }
-    .travel-guide-newsletter__content__email {
-      display: flex; }
-      @media only screen and (max-width: 50em) {
-        .travel-guide-newsletter__content__email {
-          justify-content: center; } }
-      @media only screen and (max-width: 37.5em) {
-        .travel-guide-newsletter__content__email {
-          flex-direction: column;
-          align-items: center; } }
-      .travel-guide-newsletter__content__email__input {
-        font-size: 1.5rem;
-        padding: 2rem 3rem;
-        border: none;
-        letter-spacing: 0.1rem;
-        font-family: "Metropolis", sans-serif;
-        box-shadow: inset 0px 0px 0px 2px #142838;
-        margin-right: 1rem;
-        min-width: 22rem; }
-        @media only screen and (max-width: 37.5em) {
-          .travel-guide-newsletter__content__email__input {
-            width: 90%; } }
-      .travel-guide-newsletter__content__email__button {
-        padding: 2rem 3rem;
-        font-family: "Metropolis", sans-serif;
-        background-color: #142838;
-        color: #fff;
-        letter-spacing: 0.3rem;
-        font-size: 1.5rem;
-        border: none;
-        text-transform: uppercase; }
-        @media only screen and (max-width: 37.5em) {
-          .travel-guide-newsletter__content__email__button {
-            width: 50%;
-            margin-top: 4rem; } }
-  .travel-guide-newsletter__image {
-    width: 100%;
-    min-width: 40rem;
-    height: 60rem; }
-    @media only screen and (max-width: 50em) {
-      .travel-guide-newsletter__image {
-        display: none; } }
-    .travel-guide-newsletter__image img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      object-position: center;
-      position: relative; }
 
 .disclaimer-box {
   margin: 3rem;
@@ -6508,7 +6465,7 @@ h5 {
           line-height: 2.5rem; } }
 
 .experience-region {
-  margin: 10rem 0;
+  margin: 8rem 0;
   width: 100%;
   position: relative;
   overflow-x: hidden; }
@@ -6695,6 +6652,9 @@ h5 {
     grid-template-rows: 1fr;
     position: relative;
     transition: opacity 0.3s; }
+    @media only screen and (max-width: 50em) {
+      .experience-card__content {
+        text-align: center; } }
     @media only screen and (max-width: 37.5em) {
       .experience-card__content {
         margin: 1.5rem 2rem; } }
@@ -6722,6 +6682,9 @@ h5 {
     .experience-card__content__text-area {
       color: #fff;
       grid-row: 2 / span 1; }
+      @media only screen and (max-width: 50em) {
+        .experience-card__content__text-area {
+          margin-bottom: 1.5rem; } }
       .experience-card__content__text-area__country {
         font-size: 1.4rem;
         text-transform: uppercase;
@@ -6741,8 +6704,8 @@ h5 {
         line-height: 5rem; }
         @media only screen and (max-width: 37.5em) {
           .experience-card__content__text-area__title {
-            font-size: 2.2rem;
-            line-height: 3rem; } }
+            font-size: 2.4rem;
+            line-height: 3.0rem; } }
       .experience-card__content__text-area__info {
         font-size: 1.6rem;
         text-transform: uppercase;
@@ -6750,6 +6713,9 @@ h5 {
         letter-spacing: 0.2rem;
         display: flex;
         justify-content: space-between; }
+        @media only screen and (max-width: 50em) {
+          .experience-card__content__text-area__info {
+            justify-content: center; } }
         .experience-card__content__text-area__info__price span {
           font-size: 1.2rem; }
   .experience-card::after {
@@ -7211,6 +7177,89 @@ h5 {
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
+
+.newsletter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: center-start / center-end;
+  column-gap: 6rem;
+  padding: 8rem; }
+  @media only screen and (max-width: 62.5em) {
+    .newsletter {
+      padding: 4rem; } }
+  @media only screen and (max-width: 50em) {
+    .newsletter {
+      grid-template-columns: 1fr;
+      margin-bottom: 3rem; } }
+  .newsletter__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .newsletter__content__title {
+      font-size: 5rem;
+      line-height: 5.8rem;
+      font-family: "Old Standard TT", serif;
+      color: #142838;
+      margin-bottom: 4rem; }
+      @media only screen and (max-width: 50em) {
+        .newsletter__content__title {
+          text-align: center; } }
+    .newsletter__content__text {
+      color: #142838;
+      font-size: 1.6rem;
+      margin-bottom: 9rem; }
+      @media only screen and (max-width: 50em) {
+        .newsletter__content__text {
+          margin-bottom: 6rem;
+          text-align: center; } }
+    .newsletter__content__email {
+      display: flex; }
+      @media only screen and (max-width: 50em) {
+        .newsletter__content__email {
+          justify-content: center; } }
+      @media only screen and (max-width: 37.5em) {
+        .newsletter__content__email {
+          flex-direction: column;
+          align-items: center; } }
+      .newsletter__content__email__input {
+        font-size: 1.5rem;
+        padding: 2rem 3rem;
+        border: none;
+        letter-spacing: 0.1rem;
+        font-family: "Metropolis", sans-serif;
+        box-shadow: inset 0px 0px 0px 2px #142838;
+        margin-right: 1rem;
+        min-width: 22rem; }
+        @media only screen and (max-width: 37.5em) {
+          .newsletter__content__email__input {
+            width: 90%; } }
+      .newsletter__content__email__button {
+        padding: 2rem 3rem;
+        font-family: "Metropolis", sans-serif;
+        background-color: #142838;
+        color: #fff;
+        letter-spacing: 0.3rem;
+        font-size: 1.5rem;
+        border: none;
+        text-transform: uppercase; }
+        @media only screen and (max-width: 37.5em) {
+          .newsletter__content__email__button {
+            width: 50%;
+            margin-top: 4rem; } }
+  .newsletter__image {
+    width: 100%;
+    min-width: 40rem;
+    height: 60rem; }
+    @media only screen and (max-width: 50em) {
+      .newsletter__image {
+        display: none; } }
+    .newsletter__image img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: relative; }
 
 .header {
   grid-column: full-start / -1;

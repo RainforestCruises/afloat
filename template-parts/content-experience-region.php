@@ -79,7 +79,7 @@ $count = 0;
                 ?>
 
                     <!-- Tour Card -->
-                    <a class="experience-card">
+                    <a class="experience-card" href="<?php echo $d['search_link'] ?>">
                         <div class="experience-card__image">
                             <img src="<?php echo esc_url($cardImage['url']); ?>" alt="">
                         </div>

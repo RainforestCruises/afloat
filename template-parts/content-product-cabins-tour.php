@@ -29,13 +29,13 @@ $hotels = get_field('hotels');
 
     </div>
     <div id="sentinal-cabins"></div>
-    <h2 class="page-divider u-margin-bottom-small">
-        Tour Accommodations
-    </h2>
+
     <?php
     $propertyCount = 0;
     if ($properties) : ?>
-
+        <h2 class="page-divider u-margin-bottom-small">
+            Tour Accommodations
+        </h2>
         <?php foreach ($properties as $property) : ?>
             <?php
             $propertyPost = get_post($property);
@@ -76,7 +76,8 @@ $hotels = get_field('hotels');
         <?php endforeach; ?>
     <?php endif; ?>
 
-    <div class="sub-divider">
+            
+    <div class="<?php echo ($properties) ? 'sub-divider' : 'page-divider u-margin-bottom-small'; ?>">
         Hotel Options
     </div>
     <div class="sub-divider-text">
@@ -107,7 +108,7 @@ $hotels = get_field('hotels');
 
                     <div class="card-square">
                         <div class="card-square__title-group">
-                        
+
                             <div class="card-square__title-group__name">
                                 <?php echo  $hotelTitle ?>
                             </div>

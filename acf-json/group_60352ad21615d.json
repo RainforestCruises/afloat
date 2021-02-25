@@ -346,8 +346,8 @@
                             "key": "field_603570df4a7ec",
                             "label": "Search Link",
                             "name": "search_link",
-                            "type": "text",
-                            "instructions": "",
+                            "type": "page_link",
+                            "instructions": "Link to search page - Destination + Experience",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -355,11 +355,15 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "post_type": [
+                                "page"
+                            ],
+                            "taxonomy": [
+                                "category:search"
+                            ],
+                            "allow_null": 0,
+                            "allow_archives": 0,
+                            "multiple": 0
                         },
                         {
                             "key": "field_6036793a98a2f",
@@ -402,5 +406,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Experiences - Page",
-    "modified": 1614198251
+    "modified": 1614284911
 }

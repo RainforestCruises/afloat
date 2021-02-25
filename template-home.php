@@ -54,23 +54,9 @@ $newsletter_snippet = get_field('newsletter_snippet');
     ?>
   </section>
 
-  <section class="travel-guide-newsletter">
-    <div class="travel-guide-newsletter__content">
-      <div class="travel-guide-newsletter__content__title">
-        <?php echo $newsletter_title ?>
-      </div>
-      <div class="travel-guide-newsletter__content__text">
-        <?php echo $newsletter_snippet ?>
-      </div>
-      <div class="travel-guide-newsletter__content__email">
-        <input type="text" placeholder="Enter your email" class="travel-guide-newsletter__content__email__input">
-        <button class="travel-guide-newsletter__content__email__button">Submit</button>
-      </div>
-    </div>
-    <div class="travel-guide-newsletter__image">
-      <img src="<?php echo esc_url($newsletter_image['url']); ?>" alt="">
-    </div>
-  </section>
+  <?php
+  get_template_part('template-parts/content', 'shared-newsletter');
+  ?>
 
 
 </div>

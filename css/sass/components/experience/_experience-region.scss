@@ -1,6 +1,6 @@
 .experience-region {
+    margin: 8rem 0;
 
-    margin: 10rem 0;
     width: 100%;
     position: relative;
     overflow-x: hidden;
@@ -261,6 +261,10 @@
         position: relative;
         transition: opacity 0.3s;
 
+        @media only screen and (max-width: $bp-medium) {
+            text-align: center;
+        }
+
         @media only screen and (max-width: $bp-small) {
             margin: 1.5rem 2rem;
         }
@@ -296,6 +300,10 @@
             color: $color-white;
             grid-row: 2 / span 1;
 
+            @media only screen and (max-width: $bp-medium) {
+                margin-bottom: 1.5rem;
+            }
+
             &__country {
                 font-size: 1.4rem;
                 text-transform: uppercase;
@@ -319,8 +327,8 @@
                 line-height: 5rem;
 
                 @media only screen and (max-width: $bp-small) {
-                    font-size: 2.2rem;
-                    line-height: 3rem;
+                    font-size: 2.4rem;
+                    line-height: 3.0rem;
                 }
             }
 
@@ -331,6 +339,10 @@
                 letter-spacing: 0.2rem;
                 display: flex;
                 justify-content: space-between;
+
+                @media only screen and (max-width: $bp-medium) {
+                    justify-content: center;
+                }
 
                 &__price {
                     & span {
