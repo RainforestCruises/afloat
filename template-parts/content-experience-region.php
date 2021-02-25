@@ -59,7 +59,7 @@ $count = 0;
                     </span>
                         
                         <svg>
-                            <use xlink:href=" http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-right"></use>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
                         </svg>
                     </a>
                 </div>

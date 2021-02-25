@@ -228,7 +228,7 @@
                         "category:search"
                     ],
                     "allow_null": 0,
-                    "allow_archives": 1,
+                    "allow_archives": 0,
                     "multiple": 0
                 },
                 {
@@ -251,7 +251,7 @@
                         "category:search"
                     ],
                     "allow_null": 0,
-                    "allow_archives": 1,
+                    "allow_archives": 0,
                     "multiple": 0
                 },
                 {
@@ -274,7 +274,7 @@
                         "category:search"
                     ],
                     "allow_null": 0,
-                    "allow_archives": 1,
+                    "allow_archives": 0,
                     "multiple": 0
                 },
                 {
@@ -406,5 +406,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Experiences - Page",
-    "modified": 1614284911
+    "modified": 1614286691
 }
