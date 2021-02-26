@@ -16,8 +16,12 @@ $experiences = get_posts($experiencesArgs);
 $locations = null;
 $destinations = null;
 
+$isBucketList = false;
+
 if ($searchType == 'destination') {
     $locations = get_field('locations', $destination);
+
+    $isBucketList = get_field('is_bucket_list', $destination);
 }
 
 if ($searchType == 'region') {
@@ -86,7 +90,7 @@ if (get_field('itinerary_length_max') != null) {
             </label>
             <?php endif; ?>
 
-            <?php if($searchType == 'destination') : ?>
+            <?php if($searchType == 'destination' && $isBucketList == false) : ?>
             <label class="search-control" for="location-select">
                 <span class="search-control__label-text">Location</span>
                 <select class="search-control__select" id="location-select" name="location-select">

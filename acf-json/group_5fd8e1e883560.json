@@ -190,7 +190,7 @@
             "label": "Intro Snippet",
             "name": "intro_snippet",
             "type": "wysiwyg",
-            "instructions": "Collapsible introductory paragraph about the search criteria",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -335,5 +335,5 @@
     ],
     "active": true,
     "description": "Search - Page",
-    "modified": 1614374694
+    "modified": 1614375856
 }
