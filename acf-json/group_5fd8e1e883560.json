@@ -1,6 +1,6 @@
 {
     "key": "group_5fd8e1e883560",
-    "title": "Search Destination",
+    "title": "Search",
     "fields": [
         {
             "key": "field_6026b75c9fee4",
@@ -19,10 +19,10 @@
             "endpoint": 0
         },
         {
-            "key": "field_5fd8e1e88ada6",
-            "label": "Destination",
-            "name": "destination",
-            "type": "post_object",
+            "key": "field_60394c9466c2d",
+            "label": "Search Type",
+            "name": "search_type",
+            "type": "select",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -31,9 +31,39 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
+            "choices": {
+                "destination": "Destination",
+                "region": "Region"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5fd8e1e88ada6",
+            "label": "Destination",
+            "name": "destination",
+            "type": "post_object",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60394c9466c2d",
+                        "operator": "==",
+                        "value": "destination"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "post_type": [
                 "rfc_destinations"
             ],
@@ -42,6 +72,55 @@
             "multiple": 0,
             "return_format": "object",
             "ui": 1
+        },
+        {
+            "key": "field_60394ce566c2e",
+            "label": "Region",
+            "name": "region",
+            "type": "post_object",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60394c9466c2d",
+                        "operator": "==",
+                        "value": "region"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_regions"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_6024307714ef7",
+            "label": "Title Text",
+            "name": "title_text",
+            "type": "text",
+            "instructions": "Title above the snippet, the H1",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_60240ccd902b2",
@@ -107,30 +186,11 @@
             ]
         },
         {
-            "key": "field_6024307714ef7",
-            "label": "Title Text",
-            "name": "title_text",
-            "type": "text",
-            "instructions": "Title above the snippet, the H1",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5fd91eda6d305",
-            "label": "Snippet",
-            "name": "snippet",
+            "key": "field_60395956175ba",
+            "label": "Intro Snippet",
+            "name": "intro_snippet",
             "type": "wysiwyg",
-            "instructions": "Text to appear at the top before the search results",
+            "instructions": "Collapsible introductory paragraph about the search criteria",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -138,12 +198,9 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "default_value": "",
             "tabs": "all",
-            "toolbar": "basic",
+            "toolbar": "full",
             "media_upload": 0,
             "delay": 0
         },
@@ -263,7 +320,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "template-search-destination.php"
+                "value": "template-search.php"
             }
         ]
     ],
@@ -277,6 +334,6 @@
         "excerpt"
     ],
     "active": true,
-    "description": "Search (Destination) - Page",
-    "modified": 1613674481
+    "description": "Search - Page",
+    "modified": 1614374694
 }
