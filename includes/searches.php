@@ -46,6 +46,8 @@ function search_filter_main_search()
 {
 
     //--------------WP Categories
+
+
     //Travel Type
     $travelType = array('rfc_cruises', 'rfc_tours', 'rfc_lodges'); //Any
     if (isset($_POST['travel-select']) && $_POST['travel-select'])
@@ -74,8 +76,6 @@ function search_filter_main_search()
 
     }
    
-
-
 
     //Get destinations by destination
     if ($_POST['searchType'] == 'destination') { //DESTINATION
@@ -145,7 +145,7 @@ function search_filter_main_search()
 
 
 
-    //Capture Meta Input
+    //Capture non-WP Meta Input
     //-------------Meta Parameters
     //Length
     //Sorting
@@ -174,8 +174,10 @@ function search_filter_main_search()
     }
 
     $pageNumber = 1;
-    if (isset($_POST['pageNumber']) && $_POST['pageNumber']) {
-        $pageNumber = $_POST['pageNumber'];
+    if (isset($_POST['initialPage']) && $_POST['initialPage']) {
+        $pageNumber = $_POST['initialPage'];
+        console_log('set') . $pageNumber;
+
     }
 
     

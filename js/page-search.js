@@ -12,6 +12,15 @@ jQuery(document).ready(function ($) {
   var startDate = url.searchParams.get("startDate");
   var endDate = url.searchParams.get("endDate");
 
+  var travelType = url.searchParams.get("travelType");
+  var travelLocation = url.searchParams.get("travelLocation");
+  var experienceType = url.searchParams.get("experienceType");
+  var travelDestination = url.searchParams.get("travelDestination");
+
+  var resultsPage = url.searchParams.get("resultsPage");
+  if(resultsPage){
+    $('#initialPage').val(resultsPage); //hidden field in search criteria sidebar -- set on page load
+  }
 
 
   //Length Slider
@@ -29,8 +38,8 @@ jQuery(document).ready(function ($) {
       var high = $("#range-slider").data("to");
       $("#minLength").val(low);
       $("#maxLength").val(high);
+      resetPage();
       reloadResults();
-
     },
   });
 
@@ -51,9 +60,11 @@ jQuery(document).ready(function ($) {
     width: '100%',
     minimumResultsForSearch: -1,
     placeholder: "Any",
-
   });
+  $('#destination-select').val(travelDestination).change();
   $('#destination-select').on('change', function () {
+    travelDestination = $(this).val();
+    resetPage();
     $('#search-form').submit();
   });
 
@@ -63,9 +74,11 @@ jQuery(document).ready(function ($) {
     width: '100%',
     minimumResultsForSearch: -1,
     placeholder: "Any",
-
   });
+  $('#location-select').val(travelLocation).change();
   $('#location-select').on('change', function () {
+    travelLocation = $(this).val();
+    resetPage();
     $('#search-form').submit();
   });
 
@@ -74,9 +87,11 @@ jQuery(document).ready(function ($) {
     width: '100%',
     minimumResultsForSearch: -1,
     placeholder: "Any",
-
   });
+  $('#experience-select').val(experienceType).change();
   $('#experience-select').on('change', function () {
+    experienceType = $(this).val();
+    resetPage();
     $('#search-form').submit();
   });
 
@@ -86,14 +101,17 @@ jQuery(document).ready(function ($) {
     width: '100%',
     minimumResultsForSearch: -1,
     placeholder: "Any",
-
   });
+  $('#travel-select').val(travelType).change();
   $('#travel-select').on('change', function () {
+    travelType = $(this).val();
+    resetPage();
     $('#search-form').submit();
   });
 
   //Date Range Picker
   $(function () {
+    resetPage();
 
     if (startDate == null) {
       startDate = moment().format('YYYY-MM-DD');
@@ -124,45 +142,55 @@ jQuery(document).ready(function ($) {
     });
   });
 
-
+  //Set back to page 1 results
+  function resetPage(){
+    resultsPage = 1; //reset page
+    $('#initialPage').val(1);
+  }
 
 
   //RELOAD RESULTS ------------------------------------------
   reloadResults(); //first time page loads
   $('#search-form').submit(function () {
-    $('body, html, .search-results').animate({ scrollTop: 0 }, "fast");
+    
     reloadResults();
     return false;
   });
 
   //SEARCH FUNCTION
   function reloadResults() {
+    console.log('reload');
 
+    $('body, html, .search-results').animate({ scrollTop: 0 }, "fast");
     const params = new URLSearchParams(location.search);
     if (startDate != null) {
       params.set('startDate', startDate);
       params.set('endDate', endDate);
-
-      window.history.replaceState({}, '', `${location.pathname}?${params}`);
     }
 
+    if (travelType != null) {
+      params.set('travelType', travelType);
+    }
 
-    // var url_string = window.location.href; //window.location.href
-    // var url = new URL(url_string);
-    // var search_params = url.searchParams;
-    // console.log(search_params);
-    // // new value of "id" is set to "101"
-    // search_params.set('startDate', '101');
+    if (travelLocation != null) {
+      params.set('travelLocation', travelLocation);
+    }
 
-    // // change the search property of the main url
-    // url.search = search_params.toString();
+    if (experienceType != null) {
+      params.set('experienceType', experienceType);
+    }
 
-    // // the new url string
-    // var new_url = url.toString();
+    if (travelDestination != null) {
+      params.set('travelDestination', travelDestination);
+    }
 
-    // // output : http://demourl.com/path?id=101&topic=main
-    // console.log(new_url);
-    // window.history.pushState('search', new_url);
+    if (resultsPage != null) {
+      params.set('resultsPage', resultsPage);
+    }
+
+    window.history.replaceState({}, '', `${location.pathname}?${params}`);
+
+
 
     var searchForm = $('#search-form'); //get form
     $.ajax({
@@ -171,9 +199,11 @@ jQuery(document).ready(function ($) {
       type: searchForm.attr('method'), // POST
       beforeSend: function () {
         $('#response').html('<div class="search-results__grid__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
+        $('#response-count').html('Searching...');
       },
       success: function (data) {
 
+   
 
         $('#response').html(data); // insert data
 
@@ -202,25 +232,26 @@ jQuery(document).ready(function ($) {
             // next button
             if ($(this).hasClass('search-results__grid__pagination__pages-group__button--next-button')) {
               var pageGoTo = (+pageNumberDisplay + 1);
-              $("#pageNumber").val(pageGoTo);
+              $("#initialPage").val(pageGoTo);
 
               // back button
             } else if ($(this).hasClass('search-results__grid__pagination__pages-group__button--back-button')) {
               var pageGoTo = (+pageNumberDisplay - 1);
-              $("#pageNumber").val(pageGoTo);
+              $("#initialPage").val(pageGoTo);
 
               //all button
             } else if ($(this).hasClass('search-results__grid__pagination__pages-group__button--all-button')) {
-              $("#pageNumber").val('all');
+              $("#initialPage").val('all');
 
               //page button
             } else {
               var pageNumber = $(this).val();
-              $("#pageNumber").val(pageNumber);
+              $("#initialPage").val(pageNumber);
             }
+            resultsPage = $("#initialPage").val();
 
             $('#search-form').submit();
-            
+
           }
 
         });

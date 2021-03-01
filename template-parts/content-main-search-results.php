@@ -256,7 +256,7 @@ foreach ($filteredResults as $filteredResult) :
         </div>
 
     <?php endif; ?>
-    <input type="hidden" name="pageNumber" id="pageNumber" form="search-form" value="1">
+    <!-- <input type="hidden" name="pageNumber" id="pageNumber" form="search-form" value="1"> -->
 </form>
 <div id="pageNumberDisplay" style="display: none;" value="<?php echo $pageNumber ?>"> </div>
 <div id="totalResultsDisplay" style="display: none;" value="<?php echo $resultsTotal ?>"> </div>

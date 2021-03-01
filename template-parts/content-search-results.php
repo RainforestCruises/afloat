@@ -1,7 +1,7 @@
 <div class="search-results">
     <div class="search-results__top-section">
         <div class="search-results__top-section__result-count" id="response-count">
-            Loading...
+            Searching...
         </div>
         <div class="search-results__top-section__controls">
             <label class="sort-control" for="result-sort">

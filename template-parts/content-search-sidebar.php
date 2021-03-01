@@ -67,7 +67,7 @@ if (get_field('itinerary_length_max') != null) {
                 <select class="search-control__select" id="travel-select" name="travel-select">
                     <option></option>
 
-                    <option value="any">Any</option>
+                    <option value="0">Any</option>
 
                     <?php echo ($selectedTravelType == "rfc_tours") ? '<option value="rfc_tours" selected="selected">Tours</option>' : '<option value="rfc_tours" >Tours</option>' ?>
                     <?php echo ($selectedTravelType == "rfc_cruises") ? '<option value="rfc_cruises" selected="selected">Cruises</option>' : '<option value="rfc_cruises">Cruises</option>' ?>
@@ -77,30 +77,30 @@ if (get_field('itinerary_length_max') != null) {
                 </select>
             </label>
 
-            <?php if($searchType == 'region') : ?>
-            <label class="search-control" for="destination-select">
-                <span class="search-control__label-text">Destination</span>
-                <select class="search-control__select" id="destination-select" name="destination-select">
-                    <option></option>
-                    <option value="0">Any</option>
-                    <?php foreach ($destinations as $destination) : ?>
-                        <option value="<?php echo $destination->ID ?>"><?php echo get_the_title($destination) ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
+            <?php if ($searchType == 'region') : ?>
+                <label class="search-control" for="destination-select">
+                    <span class="search-control__label-text">Destination</span>
+                    <select class="search-control__select" id="destination-select" name="destination-select">
+                        <option></option>
+                        <option value="0">Any</option>
+                        <?php foreach ($destinations as $destination) : ?>
+                            <option value="<?php echo $destination->ID ?>"><?php echo get_the_title($destination) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </label>
             <?php endif; ?>
 
-            <?php if($searchType == 'destination' && $isBucketList == false) : ?>
-            <label class="search-control" for="location-select">
-                <span class="search-control__label-text">Location</span>
-                <select class="search-control__select" id="location-select" name="location-select">
-                    <option></option>
-                    <option value="0">Any</option>
-                    <?php foreach ($locations as $location) : ?>
-                        <option value="<?php echo $location->ID ?>"><?php echo get_field('navigation_title', $location) ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
+            <?php if ($searchType == 'destination' && $isBucketList == false) : ?>
+                <label class="search-control" for="location-select">
+                    <span class="search-control__label-text">Location</span>
+                    <select class="search-control__select" id="location-select" name="location-select">
+                        <option></option>
+                        <option value="0">Any</option>
+                        <?php foreach ($locations as $location) : ?>
+                            <option value="<?php echo $location->ID ?>"><?php echo get_field('navigation_title', $location) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </label>
             <?php endif; ?>
 
             <label class="search-control" for="experience-select">
@@ -108,16 +108,20 @@ if (get_field('itinerary_length_max') != null) {
                 <select class="search-control__select" id="experience-select" name="experience-select">
                     <option></option>
                     <option value="0">Any</option>
-                    <?php
-                    ?>
-                    <?php foreach ($experiences as $e) :
-                        if ($e->ID == $selectedExperience->ID) : ?>
-                            <option value="<?php echo $e->ID ?>" selected="selected"><?php echo get_the_title($e) ?></option>
-                        <?php else : ?>
+                    <?php if ($selectedExperience) : ?>
+                        <?php foreach ($experiences as $e) :
+                            if ($e->ID == $selectedExperience->ID) : ?>
+                                <option value="<?php echo $e->ID ?>" selected="selected"><?php echo get_the_title($e) ?></option>
+                            <?php else : ?>
+                                <option value="<?php echo $e->ID ?>"><?php echo get_the_title($e) ?></option>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        <?php foreach ($experiences as $e) : ?>
                             <option value="<?php echo $e->ID ?>"><?php echo get_the_title($e) ?></option>
-                        <?php endif; ?>
-                    <?php endforeach;
-                    ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+
                 </select>
             </label>
 
@@ -137,6 +141,7 @@ if (get_field('itinerary_length_max') != null) {
         <input type="hidden" name="destination" id="destination" value="<?php echo $destination->ID ?>">
         <input type="hidden" name="searchType" id="searchType" value="<?php echo $searchType ?>">
 
+        <input type="hidden" name="initialPage" id="initialPage" value="">
 
     </div>
 </form>
