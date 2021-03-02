@@ -39,18 +39,20 @@ $count = 0;
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem saepe voluptates mollitia exercitationem nulla animi dolorum? Explicabo odit nihil quas ab recusandae tenetur assumenda autem, voluptas ipsa reiciendis nemo reprehenderit.
                 </div>
                 <div class="experience-region__content__text__travel-types">
+                
                     <div class="experience-region__content__text__travel-types__group">
                         <svg>
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
                         </svg>
-                        <a href="<?php echo $r['tours_link'] ?>"><?php echo tours_available_region($region_post, $experience) ?> Tours Available</a>
+                        <a href="<?php echo $r['explore_link'] . '?travelType=rfc_cruises' ?>"><?php echo cruises_available_region($region_post, $experience) ?> Cruises Available</a>
                     </div>
                     <div class="experience-region__content__text__travel-types__group">
                         <svg>
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
                         </svg>
-                        <a href="<?php echo $r['cruises_link'] ?>"><?php echo cruises_available_region($region_post, $experience) ?> Cruises Available</a>
+                        <a href="<?php echo $r['explore_link']. '?travelType=rfc_tours' ?>"><?php echo tours_available_region($region_post, $experience) ?> Tours Available</a>
                     </div>
+
                 </div>
                 <div class="experience-region__content__text__cta">
                     <a class="btn-cta-square" href="<?php echo $r['explore_link'] ?>"">
@@ -59,7 +61,7 @@ $count = 0;
                     </span>
                         
                         <svg>
-                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
+                            <use xlink:href=" <?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
                         </svg>
                     </a>
                 </div>

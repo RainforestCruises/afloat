@@ -112,7 +112,7 @@ console_log($locations);
     <div class="destination-main__packages">
         <div class="destination-main__packages__header">
             <div class="destination-main__packages__header__title page-divider">
-                <?php echo $title ?> <?php echo ($is_bucket_list) ? ' Tours' : ' Vacation Packages'?> 
+                <?php echo $title ?> <?php echo ($is_bucket_list) ? ' Tours' : ' Vacation Packages' ?>
             </div>
             <div class="destination-main__packages__header__sub-text">
                 <?php echo get_field('tour_package_title_subtext') ?>
@@ -196,8 +196,10 @@ console_log($locations);
             foreach ($tour_experiences as $e) {
                 $experience = $e['experience'];
                 $background_image = $e['background_image'];
+                $search_link = $e['search_link'];
+
         ?>
-                <div class="category-card">
+                <a class="category-card" href="<?php echo $search_link ?>">
                     <div class="category-card__image">
                         <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
                     </div>
@@ -214,28 +216,32 @@ console_log($locations);
                             } ?>
                         </div>
                     </div>
-                </div>
+                </a>
         <?php
             }
         }
         ?>
     </div>
-    <?php $tour_lengths = get_field('tour_lengths') ?>
+    <?php
+    $tour_lengths = get_field('tour_lengths');
+    $tour_search_link = get_field('tour_search_link');
+    ?>
 
     <div class="destination-main__lengths">
         <?php if ($tour_lengths) : ?>
             <?php foreach ($tour_lengths as $length) :
-                $link = $length['search_link'];
+                $link = $tour_search_link . '?minLength=' . $length['min_days'] . '&maxLength=' . $length['max_days'];
 
                 if ($length['min_days'] == $length['max_days']) {
-                    $range = $length['min_days'];
+                    $range = ($length['max_days'] == 14 ? "14+" : $length['max_days']);
                 } else {
-                    $range = $length['min_days'] . '-' . $length['max_days'];
+                    $range = $length['min_days'] . '-' . ($length['max_days'] == 14 ? "14+" : $length['max_days']);
                 }
             ?>
-                <button class="btn-outline" onclick="location.href='<?php echo $link ?>'"><?php echo $range ?> Days</button>
+                <a class="btn-outline" href="<?php echo $link; ?>"><?php echo $range ?> Days</a>
         <?php endforeach;
-        endif; ?>
-        <button class="btn-outline btn-outline--dark " href="#">View All Tours</button>
+        endif;
+        ?>
+        <a class="btn-outline btn-outline--dark " href="<?php echo $tour_search_link; ?>">View All Tours</a>
     </div>
 </div>

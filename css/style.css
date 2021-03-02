@@ -5466,7 +5466,6 @@ h5 {
               width: 28rem; } }
           @media only screen and (max-width: 22em) {
             .home-hero__content__search-form__inputs__form-group {
-              width: 34rem;
               grid-template-columns: 1fr; } }
           .home-hero__content__search-form__inputs__form-group__icon {
             display: flex;
@@ -5854,7 +5853,7 @@ h5 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 8rem; }
-    @media only screen and (max-width: 50em) {
+    @media only screen and (max-width: 62.5em) {
       .home-intro__bottom {
         grid-template-columns: 1fr;
         row-gap: 8rem; } }
@@ -7032,7 +7031,8 @@ h5 {
   display: grid !important;
   margin: 1rem 1.5rem;
   flex: 1 0 33%;
-  /* explanation below */ }
+  /* explanation below */
+  text-decoration: none; }
   .category-card__image {
     grid-column: 1 / -1;
     grid-row: 1 / -1;

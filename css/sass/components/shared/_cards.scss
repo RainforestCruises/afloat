@@ -391,6 +391,10 @@
     display: grid !important;
     margin: 1rem 1.5rem;
     flex: 1 0 33%; /* explanation below */
+
+    text-decoration: none;
+
+
     &__image {
         grid-column: 1 / -1;
         grid-row: 1 / -1;

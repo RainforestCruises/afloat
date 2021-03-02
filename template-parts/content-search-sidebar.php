@@ -108,19 +108,9 @@ if (get_field('itinerary_length_max') != null) {
                 <select class="search-control__select" id="experience-select" name="experience-select">
                     <option></option>
                     <option value="0">Any</option>
-                    <?php if ($selectedExperience) : ?>
-                        <?php foreach ($experiences as $e) :
-                            if ($e->ID == $selectedExperience->ID) : ?>
-                                <option value="<?php echo $e->ID ?>" selected="selected"><?php echo get_the_title($e) ?></option>
-                            <?php else : ?>
-                                <option value="<?php echo $e->ID ?>"><?php echo get_the_title($e) ?></option>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    <?php else : ?>
-                        <?php foreach ($experiences as $e) : ?>
+                    <?php foreach ($experiences as $e) : ?>
                             <option value="<?php echo $e->ID ?>"><?php echo get_the_title($e) ?></option>
                         <?php endforeach; ?>
-                    <?php endif; ?>
 
                 </select>
             </label>
@@ -147,6 +137,23 @@ if (get_field('itinerary_length_max') != null) {
 </form>
 
 <script>
+
+    //tour lengths (always a number)
     var preselectMinLength = "<?php echo $itinerary_length_min ?>";
     var preselectMaxLength = "<?php echo $itinerary_length_max ?>";
+
+
+    //experience
+    var preselectExperience = null;
+    <?php if ($selectedExperience) : ?>
+        preselectExperience = <?php echo $selectedExperience->ID; ?>;
+    <?php endif; ?>
+
+    //travel type
+    var preselectTravelType = null;
+    <?php if ($selectedTravelType) : ?>
+        preselectTravelType = "<?php echo $selectedTravelType; ?>";
+    <?php endif; ?>
+
+
 </script>

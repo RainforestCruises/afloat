@@ -4,21 +4,39 @@ jQuery(document).ready(function ($) {
 
   $("#startDate").val(moment().format('YYYY-MM-DD'))
   $("#endDate").val(moment().add(1, 'M').format('YYYY-MM-DD'))
-  $("#minLength").val('1');
-  $("#maxLength").val('14');
+
 
   var url_string = window.location.href; //window.location.href
   var url = new URL(url_string);
+
+
+  //filter parameters
+  var travelType = url.searchParams.get("travelType"); //has preselection
+  var experienceType = url.searchParams.get("experienceType"); //has preselection
+
+
+  var minLength = url.searchParams.get("minLength");
+  if (minLength != null) {
+    preselectMinLength = minLength;
+  }
+  var maxLength = url.searchParams.get("maxLength");
+  if (maxLength != null) {
+    preselectMaxLength = maxLength;
+  }
+
+  console.log('pre-', preselectMinLength)
+  console.log('max-', preselectMaxLength)
+
+  var travelLocation = url.searchParams.get("travelLocation");
+  var travelDestination = url.searchParams.get("travelDestination");
   var startDate = url.searchParams.get("startDate");
   var endDate = url.searchParams.get("endDate");
 
-  var travelType = url.searchParams.get("travelType");
-  var travelLocation = url.searchParams.get("travelLocation");
-  var experienceType = url.searchParams.get("experienceType");
-  var travelDestination = url.searchParams.get("travelDestination");
 
+
+  //page number
   var resultsPage = url.searchParams.get("resultsPage");
-  if(resultsPage){
+  if (resultsPage) {
     $('#initialPage').val(resultsPage); //hidden field in search criteria sidebar -- set on page load
   }
 
@@ -36,8 +54,10 @@ jQuery(document).ready(function ($) {
     onFinish: function () {
       var low = $("#range-slider").data("from");
       var high = $("#range-slider").data("to");
-      $("#minLength").val(low);
-      $("#maxLength").val(high);
+    
+      minLength = low;
+      maxLength = high;
+
       resetPage();
       reloadResults();
     },
@@ -88,7 +108,7 @@ jQuery(document).ready(function ($) {
     minimumResultsForSearch: -1,
     placeholder: "Any",
   });
-  $('#experience-select').val(experienceType).change();
+  $('#experience-select').val(preselectExperience).change();
   $('#experience-select').on('change', function () {
     experienceType = $(this).val();
     resetPage();
@@ -102,7 +122,7 @@ jQuery(document).ready(function ($) {
     minimumResultsForSearch: -1,
     placeholder: "Any",
   });
-  $('#travel-select').val(travelType).change();
+  $('#travel-select').val(preselectTravelType).change();
   $('#travel-select').on('change', function () {
     travelType = $(this).val();
     resetPage();
@@ -143,7 +163,7 @@ jQuery(document).ready(function ($) {
   });
 
   //Set back to page 1 results
-  function resetPage(){
+  function resetPage() {
     resultsPage = 1; //reset page
     $('#initialPage').val(1);
   }
@@ -152,7 +172,7 @@ jQuery(document).ready(function ($) {
   //RELOAD RESULTS ------------------------------------------
   reloadResults(); //first time page loads
   $('#search-form').submit(function () {
-    
+
     reloadResults();
     return false;
   });
@@ -188,9 +208,20 @@ jQuery(document).ready(function ($) {
       params.set('resultsPage', resultsPage);
     }
 
+    if (minLength != null) {
+      params.set('minLength', minLength);
+    }
+    if (maxLength != null) {
+      params.set('maxLength', maxLength);
+    }
+
+
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
 
 
+    $("#minLength").val($("#range-slider").data("from"));
+    $("#maxLength").val($("#range-slider").data("to"));
+   
 
     var searchForm = $('#search-form'); //get form
     $.ajax({
@@ -203,7 +234,7 @@ jQuery(document).ready(function ($) {
       },
       success: function (data) {
 
-   
+
 
         $('#response').html(data); // insert data
 

@@ -347,32 +347,6 @@ jQuery(document).ready(function ($) {
     });
 
 
-    // //resize functions
-    // var resizeDelay = 100;
-    // var doResize = true;
-    // var resizer = function () {
-    //     if (doResize) {
-
-    //         //responsive @ 1000
-    //         if ($(window).width() > 600) {
-    //             $('#destination').attr('placeholder', 'Where would you like to go?');
-    //             $('#date-select').text('When would you like to travel?');
-    //         } 
-    //         else {
-    //             $('#destination').attr('placeholder', 'Where to go?');
-    //             $('#date-select').text('When to travel?');
-
-    //         }
-
-    //         doResize = false;
-    //     }
-    // };
-    // var resizerInterval = setInterval(resizer, resizeDelay);
-    // resizer();
-
-    // $(window).resize(function () {
-    //     doResize = true;
-    // });
 
 });
 

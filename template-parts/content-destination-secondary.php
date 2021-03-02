@@ -56,21 +56,27 @@ foreach($cruises as $xx){
             <?php endforeach; ?>
         </div>
     </div>
-    <?php $cruise_lengths = get_field('cruise_lengths') ?>
+    <?php 
+    $cruise_lengths = get_field('cruise_lengths');
+    $cruise_search_link = get_field('cruise_search_link');
+    ?>
 
     <div class="destination-secondary__btn ">
         <?php if ($cruise_lengths) : ?>
             <?php foreach ($cruise_lengths as $length) :
-                $link = $length['search_link'];
-                if($length['min_days'] == $length['max_days']){
-                    $range = $length['min_days'];              
-                }else{
-                    $range = $length['min_days'] . '-' . $length['max_days'];
-                }  
+                $link = $cruise_search_link . '?minLength=' . $length['min_days'] . '&maxLength=' . $length['max_days'];
+               
+                if ($length['min_days'] == $length['max_days']) {
+                    $range = ($length['max_days'] == 14 ? "14+" : $length['max_days']);
+                } else {
+                    $range = $length['min_days'] . '-' . ($length['max_days'] == 14 ? "14+" : $length['max_days']);
+                }
             ?>
-                <button class="btn-outline" onclick="location.href='<?php echo $link ?>'"><?php echo $range ?> Days</button>
+                <a class="btn-outline" href="<?php echo $link; ?>"><?php echo $range ?> Days</a>
         <?php endforeach;
-        endif; ?>
-        <button class="btn-outline " href="#">View All Cruises</button>
+        endif; 
+        
+        ?>
+        <a class="btn-outline " href="<?php echo $cruise_search_link; ?>">View All Cruises</a>
     </div>
 </div>

@@ -209,57 +209,11 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_6036b4c7233bc",
-                    "label": "Tours Link",
-                    "name": "tours_link",
-                    "type": "page_link",
-                    "instructions": "Link to all Regional search page + Experience + Tour (travel type)",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "page"
-                    ],
-                    "taxonomy": [
-                        "category:search"
-                    ],
-                    "allow_null": 0,
-                    "allow_archives": 0,
-                    "multiple": 0
-                },
-                {
-                    "key": "field_6036b4f1233bd",
-                    "label": "Cruises Link",
-                    "name": "cruises_link",
-                    "type": "page_link",
-                    "instructions": "Link to all Regional search page + Experience + Cruise (travel type)",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "page"
-                    ],
-                    "taxonomy": [
-                        "category:search"
-                    ],
-                    "allow_null": 0,
-                    "allow_archives": 0,
-                    "multiple": 0
-                },
-                {
                     "key": "field_6036b5a43eb7e",
                     "label": "Explore Link",
                     "name": "explore_link",
                     "type": "page_link",
-                    "instructions": "Link to all Regional search page + Experience",
+                    "instructions": "Link to Region + Experience search results page",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -406,5 +360,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Experiences - Page",
-    "modified": 1614286691
+    "modified": 1614715124
 }
