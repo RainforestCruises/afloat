@@ -112,7 +112,7 @@ console_log($locations);
     <div class="destination-main__packages">
         <div class="destination-main__packages__header">
             <div class="destination-main__packages__header__title page-divider">
-                <?php echo $title ?> <?php echo ($is_bucket_list) ? ' Tours' : ' Vacation Packages' ?>
+                <?php echo $title ?> <?php echo ($is_bucket_list) ? ' Tour Packages' : ' Vacation Packages' ?>
             </div>
             <div class="destination-main__packages__header__sub-text">
                 <?php echo get_field('tour_package_title_subtext') ?>
@@ -233,9 +233,9 @@ console_log($locations);
                 $link = $tour_search_link . '?minLength=' . $length['min_days'] . '&maxLength=' . $length['max_days'];
 
                 if ($length['min_days'] == $length['max_days']) {
-                    $range = ($length['max_days'] == 14 ? "14+" : $length['max_days']);
+                    $range = ($length['max_days'] == 15 ? "15+" : $length['max_days']);
                 } else {
-                    $range = $length['min_days'] . '-' . ($length['max_days'] == 14 ? "14+" : $length['max_days']);
+                    $range = $length['min_days'] . '-' . ($length['max_days'] == 15 ? "15+" : $length['max_days']);
                 }
             ?>
                 <a class="btn-outline" href="<?php echo $link; ?>"><?php echo $range ?> Days</a>

@@ -419,6 +419,29 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_603fcd9b11c9a",
+                    "label": "Search Link",
+                    "name": "search_link",
+                    "type": "page_link",
+                    "instructions": "Link to search result page - Region + Experience",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": [
+                        "category:search"
+                    ],
+                    "allow_null": 0,
+                    "allow_archives": 0,
+                    "multiple": 0
                 }
             ]
         },
@@ -458,8 +481,8 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "min": "",
-                    "max": "",
+                    "min": 1,
+                    "max": 15,
                     "step": ""
                 },
                 {
@@ -479,34 +502,34 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "min": "",
-                    "max": "",
+                    "min": 1,
+                    "max": 15,
                     "step": ""
-                },
-                {
-                    "key": "field_602ec6c26f52f",
-                    "label": "Search Link",
-                    "name": "search_link",
-                    "type": "page_link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "page"
-                    ],
-                    "taxonomy": [
-                        "category:search"
-                    ],
-                    "allow_null": 0,
-                    "allow_archives": 0,
-                    "multiple": 0
                 }
             ]
+        },
+        {
+            "key": "field_603fccca193cb",
+            "label": "Tour Search Link",
+            "name": "tour_search_link",
+            "type": "page_link",
+            "instructions": "Select search page - Region + Tour (Travel Type)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:search"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
         },
         {
             "key": "field_5ffe1c509147c",
@@ -579,8 +602,8 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "min": "",
-                    "max": "",
+                    "min": 1,
+                    "max": 15,
                     "step": ""
                 },
                 {
@@ -600,34 +623,34 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "min": "",
-                    "max": "",
+                    "min": 1,
+                    "max": 15,
                     "step": ""
-                },
-                {
-                    "key": "field_5ff89a08d5744",
-                    "label": "Search Link",
-                    "name": "search_link",
-                    "type": "page_link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "page"
-                    ],
-                    "taxonomy": [
-                        "category:search"
-                    ],
-                    "allow_null": 0,
-                    "allow_archives": 0,
-                    "multiple": 0
                 }
             ]
+        },
+        {
+            "key": "field_603fcd0c193cc",
+            "label": "Cruise Search Link",
+            "name": "cruise_search_link",
+            "type": "page_link",
+            "instructions": "Select search page - Region + Cruise (Travel Type)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:search"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
         },
         {
             "key": "field_5fdb9a4879f2b",
@@ -1084,5 +1107,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1613678299
+    "modified": 1614794389
 }

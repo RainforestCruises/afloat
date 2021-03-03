@@ -171,7 +171,7 @@ function search_filter_main_search()
     $maxLength = 99;
     if (isset($_POST['maxLength']) && $_POST['maxLength']) {
         $maxLength = $_POST['maxLength'];
-        if($maxLength == 14){ //make 14 days +
+        if($maxLength == 15){ //make 15 days +
             $maxLength = 99;
         }
     }

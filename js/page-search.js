@@ -46,7 +46,7 @@ jQuery(document).ready(function ($) {
     skin: "round",
     type: "double",
     min: 1,
-    max: 14,
+    max: 15,
     from: preselectMinLength,
     to: preselectMaxLength,
     postfix: " Day",

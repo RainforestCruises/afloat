@@ -189,7 +189,9 @@
 
           <div class="destination-hero__content__location">
               <div class="destination-hero__content__location__slider" id="destination-hero__content__location__slider">
-                  <?php foreach ($sliderContent as $s) : ?>
+                  <?php 
+                  if($sliderContent) :
+                  foreach ($sliderContent as $s) : ?>
                       <div class="destination-hero__content__location__slider__item">
                           <div class="destination-hero__content__location__slider__item__title">
                               <?php echo $s['title']; ?>
@@ -198,7 +200,7 @@
                               <?php echo $s['caption']; ?>
                           </div>
                       </div>
-                  <?php endforeach; ?>
+                  <?php endforeach; endif; ?>
 
 
               </div>

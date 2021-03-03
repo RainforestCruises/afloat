@@ -86,7 +86,7 @@ console_log($activities);
                 <?php echo $title ?> Cruises
             </div>
             <div class="destination-main__packages__header__sub-text">
-            <?php echo get_field('cruise_title_subtext') ?>
+                <?php echo get_field('cruise_title_subtext') ?>
             </div>
         </div>
 
@@ -142,6 +142,11 @@ console_log($activities);
 
     </div>
 
+    <?php
+    $cruise_lengths = get_field('cruise_lengths');
+    $cruise_search_link = get_field('cruise_search_link');
+    ?>
+
     <!-- countries -->
     <?php $hideDesinations = get_field('hide_cruise_destinations') ?>
     <?php if ($hideDesinations == false) : ?>
@@ -149,17 +154,19 @@ console_log($activities);
             <?php echo $title ?> Destinations
         </div>
         <div class="destination-main__experiences-sub-text">
-        <?php echo get_field('cruise_destination_title_subtext') ?>
-                </div>
+            <?php echo get_field('cruise_destination_title_subtext') ?>
+        </div>
 
         <div class="destination-main__experiences">
             <?php
             if ($cruise_locations) {
+                //need to fix link - parameter / prefilter 'location'
                 foreach ($cruise_locations as $c) {
                     $location = $c['country'];
                     $background_image = $c['background_image'];
+                    $link = $cruise_search_link . '?travelLocation=' . $location->ID;
             ?>
-                    <div class="category-card">
+                    <a class="category-card" href="<?php echo $link ?>">
                         <div class="category-card__image">
                             <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
                         </div>
@@ -174,7 +181,7 @@ console_log($activities);
                                 ?>
                             </div>
                         </div>
-                    </div>
+                    </a>
             <?php
                 }
             }
@@ -182,20 +189,24 @@ console_log($activities);
         </div>
     <?php endif; ?>
     <!-- experiences -->
+
+
     <div class="destination-main__experiences-title">
         <?php echo $title ?> Experiences
     </div>
     <div class="destination-main__experiences-sub-text">
-    <?php echo get_field('cruise_experience_title_subtext') ?>
-        </div>
+        <?php echo get_field('cruise_experience_title_subtext') ?>
+    </div>
     <div class="destination-main__experiences">
         <?php
         if ($cruise_experiences) {
             foreach ($cruise_experiences as $e) {
                 $experience = $e['cruise_experience'];
                 $background_image = $e['background_image'];
+                $search_link = $e['search_page_link'];
+
         ?>
-                <div class="category-card">
+                <a class="category-card" href="<?php echo $search_link ?>">
                     <div class="category-card__image">
                         <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
                     </div>
@@ -209,28 +220,31 @@ console_log($activities);
                             ?>
                         </div>
                     </div>
-                </div>
+                </a>
         <?php
             }
         }
         ?>
     </div>
 
-    <?php $cruise_lengths = get_field('cruise_lengths') ?>
+
 
     <div class="destination-main__lengths">
-    <?php if ($cruise_lengths) : ?>
-        <?php foreach ($cruise_lengths as $length) :
-            $link = $length['search_link'];
-            
-            if($length['min_days'] == $length['max_days']){
-                $range = $length['min_days'];              
-            }else{
-                $range = $length['min_days'] . '-' . $length['max_days'];
-            }        
+        <?php if ($cruise_lengths) : ?>
+            <?php foreach ($cruise_lengths as $length) :
+                $link = $cruise_search_link . '?minLength=' . $length['min_days'] . '&maxLength=' . $length['max_days'];
+
+                if ($length['min_days'] == $length['max_days']) {
+                    $range = ($length['max_days'] == 15 ? "15+" : $length['max_days']);
+                } else {
+                    $range = $length['min_days'] . '-' . ($length['max_days'] == 15 ? "15+" : $length['max_days']);
+                }
+            ?>
+                <a class="btn-outline" href="<?php echo $link; ?>"><?php echo $range ?> Days</a>
+        <?php endforeach;
+        endif;
+
         ?>
-            <button class="btn-outline" onclick="location.href='<?php echo $link ?>'"><?php echo $range ?> Days</button>
-        <?php endforeach; endif; ?>
-        <button class="btn-outline btn-outline--dark " href="#">View All Cruises</button>
+        <a class="btn-outline " href="<?php echo $cruise_search_link; ?>">View All Cruises</a>
     </div>
 </div>

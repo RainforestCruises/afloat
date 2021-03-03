@@ -67,9 +67,9 @@ foreach($cruises as $xx){
                 $link = $cruise_search_link . '?minLength=' . $length['min_days'] . '&maxLength=' . $length['max_days'];
                
                 if ($length['min_days'] == $length['max_days']) {
-                    $range = ($length['max_days'] == 14 ? "14+" : $length['max_days']);
+                    $range = ($length['max_days'] == 15 ? "15+" : $length['max_days']);
                 } else {
-                    $range = $length['min_days'] . '-' . ($length['max_days'] == 14 ? "14+" : $length['max_days']);
+                    $range = $length['min_days'] . '-' . ($length['max_days'] == 15 ? "15+" : $length['max_days']);
                 }
             ?>
                 <a class="btn-outline" href="<?php echo $link; ?>"><?php echo $range ?> Days</a>

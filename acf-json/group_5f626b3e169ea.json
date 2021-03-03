@@ -480,7 +480,7 @@
                     "label": "Min Days",
                     "name": "min_days",
                     "type": "number",
-                    "instructions": "1 - 14, if min and max are equal, will display as X-Days instead of X-Y Days range",
+                    "instructions": "1 - 15, if min and max are equal, will display as X-Days instead of X-Y Days range",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -493,7 +493,7 @@
                     "prepend": "",
                     "append": "",
                     "min": 1,
-                    "max": 14,
+                    "max": 15,
                     "step": ""
                 },
                 {
@@ -501,7 +501,7 @@
                     "label": "Max Days",
                     "name": "max_days",
                     "type": "number",
-                    "instructions": "Maximum is 14 days, if 14 is entered as the value, this will translate to 14 plus days.",
+                    "instructions": "Maximum is 15 days, if 15 is entered as the value, this will translate to 15 plus days.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -514,7 +514,7 @@
                     "prepend": "",
                     "append": "",
                     "min": "",
-                    "max": 14,
+                    "max": 15,
                     "step": ""
                 }
             ]
@@ -636,7 +636,7 @@
                     "label": "Min Days",
                     "name": "min_days",
                     "type": "number",
-                    "instructions": "",
+                    "instructions": "1 - 15, if min and max are equal, will display as X-Days instead of X-Y Days range",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -649,7 +649,7 @@
                     "prepend": "",
                     "append": "",
                     "min": 1,
-                    "max": 14,
+                    "max": 15,
                     "step": ""
                 },
                 {
@@ -657,7 +657,7 @@
                     "label": "Max Days",
                     "name": "max_days",
                     "type": "number",
-                    "instructions": "",
+                    "instructions": "Maximum is 15 days, if 15 is entered as the value, this will translate to 15 plus days.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -670,31 +670,8 @@
                     "prepend": "",
                     "append": "",
                     "min": 1,
-                    "max": 14,
+                    "max": 15,
                     "step": ""
-                },
-                {
-                    "key": "field_5ff898181fd13",
-                    "label": "Search Link",
-                    "name": "search_link",
-                    "type": "page_link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "page"
-                    ],
-                    "taxonomy": [
-                        "category:search"
-                    ],
-                    "allow_null": 0,
-                    "allow_archives": 0,
-                    "multiple": 0
                 }
             ]
         },
@@ -1193,5 +1170,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1614721405
+    "modified": 1614793879
 }

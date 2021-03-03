@@ -470,29 +470,6 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
-                },
-                {
-                    "key": "field_5fe14da8c5806",
-                    "label": "Search Page Link",
-                    "name": "search_page_link",
-                    "type": "page_link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "page"
-                    ],
-                    "taxonomy": [
-                        "category:search"
-                    ],
-                    "allow_null": 0,
-                    "allow_archives": 0,
-                    "multiple": 0
                 }
             ]
         },
@@ -641,8 +618,8 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "min": "",
-                    "max": "",
+                    "min": 1,
+                    "max": 15,
                     "step": ""
                 },
                 {
@@ -662,34 +639,34 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "min": "",
-                    "max": "",
+                    "min": 1,
+                    "max": 15,
                     "step": ""
-                },
-                {
-                    "key": "field_5ff89532f7f71",
-                    "label": "Search Link",
-                    "name": "search_link",
-                    "type": "page_link",
-                    "instructions": "Link to search results page",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "page"
-                    ],
-                    "taxonomy": [
-                        "category:search"
-                    ],
-                    "allow_null": 0,
-                    "allow_archives": 0,
-                    "multiple": 0
                 }
             ]
+        },
+        {
+            "key": "field_603fd06f300f2",
+            "label": "Cruise Search Link",
+            "name": "cruise_search_link",
+            "type": "page_link",
+            "instructions": "Search page - Destination + Cruise (travel type)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:search"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
         },
         {
             "key": "field_5ffe19db0966b",
@@ -762,8 +739,8 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "min": "",
-                    "max": "",
+                    "min": 1,
+                    "max": 15,
                     "step": ""
                 },
                 {
@@ -783,34 +760,34 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "min": "",
-                    "max": "",
+                    "min": 1,
+                    "max": 15,
                     "step": ""
-                },
-                {
-                    "key": "field_602ec555abc98",
-                    "label": "Search Link",
-                    "name": "search_link",
-                    "type": "page_link",
-                    "instructions": "Link to search results page",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "page"
-                    ],
-                    "taxonomy": [
-                        "category:search"
-                    ],
-                    "allow_null": 0,
-                    "allow_archives": 0,
-                    "multiple": 0
                 }
             ]
+        },
+        {
+            "key": "field_603fd09f300f3",
+            "label": "Tour Search Link",
+            "name": "tour_search_link",
+            "type": "page_link",
+            "instructions": "Search page - Destination + Tour (travel type)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:search"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
         },
         {
             "key": "field_5ffe1a120966e",
@@ -1083,5 +1060,5 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1613677939
+    "modified": 1614796144
 }
