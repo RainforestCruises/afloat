@@ -12,8 +12,14 @@ jQuery(document).ready(function ($) {
 
   //filter parameters
   var travelType = url.searchParams.get("travelType"); //has preselection
-  var experienceType = url.searchParams.get("experienceType"); //has preselection
+  if (travelType != null) {
+    preselectTravelType = travelType;
+  }
 
+  var experienceType = url.searchParams.get("experienceType"); //has preselection
+  if (experienceType != null) {
+    preselectExperience = experienceType;
+  }
 
   var minLength = url.searchParams.get("minLength");
   if (minLength != null) {
@@ -24,8 +30,6 @@ jQuery(document).ready(function ($) {
     preselectMaxLength = maxLength;
   }
 
-  console.log('pre-', preselectMinLength)
-  console.log('max-', preselectMaxLength)
 
   var travelLocation = url.searchParams.get("travelLocation");
   var travelDestination = url.searchParams.get("travelDestination");

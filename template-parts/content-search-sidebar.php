@@ -42,7 +42,7 @@ if ($searchType == 'region') {
 $selectedTravelType = get_field('travel_type');
 $selectedExperience = get_field('experience');
 $itinerary_length_min = 1;
-$itinerary_length_max = 14;
+$itinerary_length_max = 15;
 if (get_field('itinerary_length_min') != null) {
     $itinerary_length_min = get_field('itinerary_length_min');
 };
