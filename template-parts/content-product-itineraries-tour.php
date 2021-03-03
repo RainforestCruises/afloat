@@ -44,7 +44,7 @@ $highest;
     <div class="product-itineraries__itinerary  tab-content current" id="tab-itinerary-1">
         <div class="product-itineraries__itinerary__title">
             <div class="page-divider product-itineraries__itinerary__title__main">
-                <?php echo get_field('tour_name') ?>
+                Tour Itinerary
             </div>
             <div class="product-itineraries__itinerary__title__subtitle">
                 <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night
@@ -74,9 +74,7 @@ $highest;
         <?php endif; ?>
         <!-- D2D -->
         <div class="product-itineraries__itinerary__d2d">
-            <h3 class="heading-3">
-                Tour Itinerary
-            </h3>
+            
             <!-- Days  -->
             <!-- First Day style set inline for slide toggle to function correctly -->
 

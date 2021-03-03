@@ -3,7 +3,7 @@ $hero_image = get_field('hero_image');
 $productTitle = get_the_title();
 $showOverview = true;
 if (get_post_type() == 'rfc_tours') {
-    $productTitle = get_field('length') . '-Day ' . get_field('tour_name');
+    $productTitle = get_field('tour_name');
     $showOverview  = get_field('show_overview');
 }
 ?>
