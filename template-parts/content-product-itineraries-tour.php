@@ -43,9 +43,9 @@ $highest;
     <!-- Itinerary -->
     <div class="product-itineraries__itinerary  tab-content current" id="tab-itinerary-1">
         <div class="product-itineraries__itinerary__title">
-            <div class="page-divider product-itineraries__itinerary__title__main">
+            <h2 class="page-divider product-itineraries__itinerary__title__main">
                 Tour Itinerary
-            </div>
+            </h2>
             <div class="product-itineraries__itinerary__title__subtitle">
                 <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night
             </div>

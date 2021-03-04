@@ -352,11 +352,11 @@
             "mime_types": ""
         },
         {
-            "key": "field_5f9735d666a42",
-            "label": "Areas Gallery",
-            "name": "areas_gallery",
-            "type": "gallery",
-            "instructions": "Images for the areas of the ship (750x500)",
+            "key": "field_604104f5cf358",
+            "label": "Show Areas",
+            "name": "show_areas",
+            "type": "true_false",
+            "instructions": "To show the 'explore' areas gallery",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -364,17 +364,41 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5f9735d666a42",
+            "label": "Areas Gallery",
+            "name": "areas_gallery",
+            "type": "gallery",
+            "instructions": "The bigger image carousel towards the bottom of the page (750x500)",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_604104f5cf358",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "return_format": "array",
             "preview_size": "medium",
             "insert": "append",
             "library": "all",
             "min": "",
             "max": "",
-            "min_width": 750,
-            "min_height": 500,
+            "min_width": "",
+            "min_height": "",
             "min_size": "",
             "max_width": "",
             "max_height": "",
@@ -1459,13 +1483,40 @@
             "delay": 0
         },
         {
+            "key": "field_604104b5cf357",
+            "label": "Display Policies",
+            "name": "display_policies",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5f9735d66b67c",
             "label": "Policies",
             "name": "policies",
             "type": "group",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_604104b5cf357",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1677,55 +1728,6 @@
                     ]
                 }
             ]
-        },
-        {
-            "key": "field_5f9735d66ba6f",
-            "label": "Dates Tab",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_5f9735d66be54",
-            "label": "Dates Intro",
-            "name": "dates_intro",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": [
-                "post",
-                "page",
-                "rfc_cruises",
-                "rfc_destinations",
-                "rfc_sub_destinations",
-                "rfc_countries"
-            ],
-            "admin_column_taxonomies": [
-                "category",
-                "post_tag",
-                "link_category"
-            ],
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
         }
     ],
     "location": [
@@ -1745,5 +1747,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Tour - CPT",
-    "modified": 1614026079
+    "modified": 1614874061
 }

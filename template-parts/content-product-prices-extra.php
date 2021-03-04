@@ -20,18 +20,27 @@ $currentYear = $args['currentYear'];
         </div>
     </div>
 <?php } ?>
+
+<?php
+$policies = get_field('policies');
+$overall_policies = $policies['overall_policies'];
+$display_yearly = $policies['display_yearly'];
+
+$show_policies = true;
+if(get_post_type() == 'rfc_tours'){
+    if(get_field('display_policies') == false){
+        $show_policies = false;
+    };
+}
+?>
+
+<?php if($show_policies) : ?>
 <!-- Policies -->
 <div class="product-prices__policies-divider">
     <h2 class="page-divider">
         Policies
     </h2>
 </div>
-<?php
-$policies = get_field('policies');
-$overall_policies = $policies['overall_policies'];
-$display_yearly = $policies['display_yearly'];
-//console_log($policies);
-?>
 <div class="product-prices__policies <?php echo ($display_yearly == false) ? ('product-prices__policies--single-layout') : ('false'); ?>">
     <div class="product-prices__policies__list-group product-prices__policies__list-group--overall">
         <h3 class="product-prices__policies__list-group__title heading-3 heading-3--underline">
@@ -101,3 +110,4 @@ $display_yearly = $policies['display_yearly'];
 
 
 </div>
+<?php endif; ?>
