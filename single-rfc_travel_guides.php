@@ -41,7 +41,7 @@ while (have_posts()) :
       </div>
       <div class="travel-guide__image">
       
-        <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
+        <img src="<?php echo wp_get_attachment_image_url( $featured_image['id'], 'large') ?>" alt="">
       </div>
       <div class="travel-guide__disclaimer">
         <div class="disclaimer-box">

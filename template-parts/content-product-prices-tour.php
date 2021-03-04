@@ -39,42 +39,43 @@ $currentYear = $args['currentYear'];
                 </div>
                 <div class="product-prices__tour-prices__tour-price-group__blocks">
 
-                    <?php foreach ($pricePackages as $pricePackage) : ?>
-                        <?php if ($pricePackage['year'] == ($currentYear + $y)) :
-                            $price = ($pricePackage['price'] != "") ? $pricePackage['price'] : 0;
-                            $single_supplement = ($pricePackage['single_supplement'] != "") ? $pricePackage['single_supplement'] : 0;
-                            $single_price = intval($price) + intval($single_supplement);
-                            $price_level = $pricePackage['price_level'];
-                            
-                        ?>
+                    <?php if ($pricePackages) :
+                        foreach ($pricePackages as $pricePackage) : ?>
+                            <?php if ($pricePackage['year'] == ($currentYear + $y)) :
+                                $price = ($pricePackage['price'] != "") ? $pricePackage['price'] : 0;
+                                $single_supplement = ($pricePackage['single_supplement'] != "") ? $pricePackage['single_supplement'] : 0;
+                                $single_price = intval($price) + intval($single_supplement);
+                                $price_level = $pricePackage['price_level'];
 
-                            <div class="product-prices__tour-prices__tour-price-group__blocks__block">
+                            ?>
 
-                                <div class="product-prices__tour-prices__tour-price-group__blocks__block__title">
-                                    <?php echo get_the_title($price_level); ?><br>
+                                <div class="product-prices__tour-prices__tour-price-group__blocks__block">
 
-                                </div>
-                                <div class="product-prices__tour-prices__tour-price-group__blocks__block__sub">
-                                    Double
-                                </div>
-                                <div class="product-prices__tour-prices__tour-price-group__blocks__block__price">
-                                    <?php echo "$ " . number_format($price, 0);  ?>
-                                </div>
-                                <?php if ($single_supplement != 0) : ?>
-                                    <div class="product-prices__tour-prices__tour-price-group__blocks__block__sub product-prices__tour-prices__tour-price-group__blocks__block__sub--single">
-                                        Single
+                                    <div class="product-prices__tour-prices__tour-price-group__blocks__block__title">
+                                        <?php echo get_the_title($price_level); ?><br>
+
                                     </div>
-                                    <div class="product-prices__tour-prices__tour-price-group__blocks__block__price product-prices__tour-prices__tour-price-group__blocks__block__price--single">
-                                        <?php echo "$ " . number_format($single_price, 0);  ?>
+                                    <div class="product-prices__tour-prices__tour-price-group__blocks__block__sub">
+                                        Double
                                     </div>
-                                <?php endif; ?>
-                            </div>
+                                    <div class="product-prices__tour-prices__tour-price-group__blocks__block__price">
+                                        <?php echo "$ " . number_format($price, 0);  ?>
+                                    </div>
+                                    <?php if ($single_supplement != 0) : ?>
+                                        <div class="product-prices__tour-prices__tour-price-group__blocks__block__sub product-prices__tour-prices__tour-price-group__blocks__block__sub--single">
+                                            Single
+                                        </div>
+                                        <div class="product-prices__tour-prices__tour-price-group__blocks__block__price product-prices__tour-prices__tour-price-group__blocks__block__price--single">
+                                            <?php echo "$ " . number_format($single_price, 0);  ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
 
 
 
-                        <?php endif; ?>
-                    <?php endforeach ?>
-
+                            <?php endif; ?>
+                        <?php endforeach ?>
+                    <?php endif; ?>
                 </div>
 
 
