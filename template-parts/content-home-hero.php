@@ -78,8 +78,8 @@
                                   </div>
                               </div>
                               <ul class="home-date-values__months selected">
-                                  <li month="01" name="January" class="">Jan</li>
-                                  <li month="02" name="February" class="selected">Feb</li>
+                                  <li month="01" name="January">Jan</li>
+                                  <li month="02" name="February" >Feb</li>
                                   <li month="03" name="March">Mar</li>
                                   <li month="04" name="April">Apr</li>
                                   <li month="05" name="May">May</li>

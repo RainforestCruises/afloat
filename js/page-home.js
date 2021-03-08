@@ -240,6 +240,7 @@ jQuery(document).ready(function ($) {
     let selectedMonth = moment().format('MM');
     let currentYear = moment().format('YYYY');
     let currentMonth = moment().format('MM');
+    
 
     //Dates LI initialize
     //if current year, disable past months, if prox year, remove all disabled -- on first load
@@ -250,6 +251,10 @@ jQuery(document).ready(function ($) {
             }
         } else {
             item.classList.remove('disabled');
+        }
+
+        if(item.getAttribute('month') == currentMonth){
+            item.classList.add('selected');
         }
     })
 

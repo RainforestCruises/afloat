@@ -2,8 +2,9 @@ jQuery(document).ready(function ($) {
   //On Change parameters update URL string
   //On Load, read url parameters
 
-  $("#startDate").val(moment().format('YYYY-MM-DD'))
-  $("#endDate").val(moment().add(1, 'M').format('YYYY-MM-DD'))
+  
+  $("#startDate").val(moment().format('YYYY-MM-DD')) //first time page loads
+  $("#endDate").val(moment().add(1, 'Y').format('YYYY-MM-DD'))
 
 
   var url_string = window.location.href; //window.location.href
@@ -152,7 +153,7 @@ jQuery(document).ready(function ($) {
       startDate = moment().format('YYYY-MM-DD');
     }
     if (endDate == null) {
-      endDate = moment().add(1, 'M').format('YYYY-MM-DD');
+      endDate = moment().add(1, 'Y').format('YYYY-MM-DD');
     }
 
     $('input[name="departure-dates"]').daterangepicker({
@@ -172,8 +173,6 @@ jQuery(document).ready(function ($) {
       endDate = end.format('YYYY-MM-DD')
 
       reloadResults();
-
-
     });
   });
 

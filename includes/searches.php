@@ -221,7 +221,7 @@ function search_filter_home_search()
 
     //DATE
     $startDate = date("Y-m-d");
-    $endDate = date('Y-m-d', strtotime('+30 days', strtotime($startDate)));
+    $endDate = date('Y-m-d', strtotime('+1 year', strtotime($startDate)));
 
 
     $travelMonth = 0;
@@ -233,11 +233,14 @@ function search_filter_home_search()
         $travelYear = $_POST['travel-year'];
     }
 
-    //If selection (not current month), build strings 
-    if ($travelMonth != date("m")) {
-        $d = mktime(null, null, null, $travelMonth, 1, $travelYear);
-        $startDate = date("Y-m-d", $d);
+    $d = mktime(null, null, null, $travelMonth, 1, $travelYear);
+    $startDate = date("Y-m-d", $d);
+
+    
+    if ($travelMonth != date("m")) {   //selection not current month or unselected
         $endDate = date('Y-m-d', strtotime('+30 days', strtotime($startDate)));
+    } else {
+        $endDate = date('Y-m-d', strtotime('+1 year', strtotime($startDate)));
     }
 
 
