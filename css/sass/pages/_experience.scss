@@ -20,8 +20,17 @@
          
     } 
 
-    &__section-region { 
+    &__section-intro { 
         grid-row: content-start / span 1;
+        grid-column: center-start / center-end;    
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__section-region { 
+       
         grid-column: 1 / -1;    
 
         display: flex;

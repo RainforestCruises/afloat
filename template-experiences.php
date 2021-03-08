@@ -15,12 +15,21 @@ $experience = get_field('experience_post');
 
 <div class="experience-page">
 
+    <!-- Hero -->
     <section class="experience-page__section-hero" id="top">
         <?php
         get_template_part('template-parts/content', 'experience-hero');
         ?>
     </section>
 
+    <!-- Intro -->
+    <section class="experience-page__section-intro" id="top">
+        <?php
+        get_template_part('template-parts/content', 'experience-intro');
+        ?>
+    </section>
+
+    <!-- Regions -->
     <section class="experience-page__section-region" id="south-america">
         <?php
         get_template_part('template-parts/content', 'experience-region');

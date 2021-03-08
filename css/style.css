@@ -1848,8 +1848,13 @@ h5 {
     grid-row: nav-start / hero-end;
     grid-column: full-start / -1;
     background-color: #1e1e1e; }
-  .experience-page__section-region {
+  .experience-page__section-intro {
     grid-row: content-start / span 1;
+    grid-column: center-start / center-end;
+    display: flex;
+    align-items: center;
+    flex-direction: column; }
+  .experience-page__section-region {
     grid-column: 1 / -1;
     display: flex;
     align-items: center;
@@ -6736,6 +6741,54 @@ h5 {
     width: 100%;
     z-index: 3; }
 
+.experience-intro {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 8rem;
+  grid-column: 1 / -1;
+  padding-top: 12rem;
+  padding-bottom: 4rem; }
+  @media only screen and (max-width: 62.5em) {
+    .experience-intro {
+      grid-template-columns: 1fr;
+      row-gap: 8rem; } }
+  .experience-intro__feature {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: min-content min-content min-content;
+    row-gap: 2rem;
+    position: relative; }
+    .experience-intro__feature:not(:last-child):after {
+      position: absolute;
+      content: "";
+      top: 0;
+      right: -4rem;
+      width: 1px;
+      height: 100%;
+      background-color: #e6e6e6; }
+      @media only screen and (max-width: 62.5em) {
+        .experience-intro__feature:not(:last-child):after {
+          display: none; } }
+    .experience-intro__feature__icon {
+      display: flex;
+      justify-content: center; }
+      .experience-intro__feature__icon svg {
+        stroke-width: 3;
+        height: 5rem;
+        width: 5rem;
+        color: #142838; }
+    .experience-intro__feature__title {
+      text-transform: uppercase;
+      color: #142838;
+      font-size: 1.6rem;
+      letter-spacing: 0.3rem;
+      text-align: center;
+      font-weight: 800; }
+    .experience-intro__feature__snippet {
+      text-align: center;
+      font-size: 1.6rem;
+      color: #9ea0a4; }
+
 .card-square {
   display: grid !important;
   align-content: center;
@@ -7362,10 +7415,9 @@ h5 {
           cursor: pointer;
           transition: all 0.4s;
           text-decoration: none;
-          padding-right: 4rem; }
+          margin-right: 4rem; }
         .header__main__nav__list__item__link:hover {
-          color: #40739c;
-          padding-right: 4rem; }
+          color: #40739c; }
     .header__main__right {
       transition: all 0.4s;
       display: flex;
