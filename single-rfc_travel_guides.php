@@ -10,7 +10,7 @@ while (have_posts()) :
   $queryArgs = array(
     'post_type' => 'rfc_travel_guides',
     'posts_per_page' => -1,
-    'post__not_in' => array( $post->ID )
+    'post__not_in' => array($post->ID)
   );
 
   //build meta query criteria
@@ -30,6 +30,18 @@ while (have_posts()) :
   $travelGuidePosts = new WP_Query($queryArgs);
 ?>
 
+  <?php
+  $image  = get_field('featured_image');
+  $image_srcset = wp_get_attachment_image_srcset($image['ID']);
+  //$image_meta = wp_get_attachment_metadata( $image['ID'] );
+  //$image_responsive =  wp_get_attachment_image_url( $image['ID'], 'landscape-small');
+  //$image_sizes =  wp_get_attachment_image_sizes( $image['ID'], 'landscape-large');
+
+  //$code = acf_responsive_image($image['ID'],'landscape-large', array('landscape-small','landscape-medium','landscape-large'), '1200px');
+  //$test = wp_get_attachment_image($image['ID'], 'landscape-small');
+  //console_log($code);
+  ?>
+
   <!-- Product Page Container -->
   <div class="travel-guide-page">
     <div class="travel-guide">
@@ -40,8 +52,8 @@ while (have_posts()) :
         <?php echo get_the_title(); ?>
       </div>
       <div class="travel-guide__image">
-      
-        <img src="<?php echo wp_get_attachment_image_url( $featured_image['id'], 'large') ?>" alt="">
+        <!-- responsive image -->
+        <img <?php afloat_responsive_image($image['ID'], 'landscape-large', array('landscape-small', 'landscape-medium', 'landscape-large')); ?> alt="">
       </div>
       <div class="travel-guide__disclaimer">
         <div class="disclaimer-box">
@@ -151,7 +163,7 @@ while (have_posts()) :
       </div>
 
     </div>
-    
+
     <?php
     get_template_part('template-parts/content', 'shared-newsletter');
     ?>
@@ -167,5 +179,4 @@ endwhile;
 
 <script>
   var templateUrl = "<?php echo bloginfo('template_url') ?>";
-  
 </script>

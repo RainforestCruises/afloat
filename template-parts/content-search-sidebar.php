@@ -41,6 +41,8 @@ if ($searchType == 'region') {
 //pre-selections
 $selectedTravelType = get_field('travel_type');
 $selectedExperience = get_field('experience');
+$selectedLocation = get_field('location_filter');
+
 $itinerary_length_min = 1;
 $itinerary_length_max = 15;
 if (get_field('itinerary_length_min') != null) {
@@ -109,8 +111,8 @@ if (get_field('itinerary_length_max') != null) {
                     <option></option>
                     <option value="0">Any</option>
                     <?php foreach ($experiences as $e) : ?>
-                            <option value="<?php echo $e->ID ?>"><?php echo get_the_title($e) ?></option>
-                        <?php endforeach; ?>
+                        <option value="<?php echo $e->ID ?>"><?php echo get_the_title($e) ?></option>
+                    <?php endforeach; ?>
 
                 </select>
             </label>
@@ -137,7 +139,6 @@ if (get_field('itinerary_length_max') != null) {
 </form>
 
 <script>
-
     //tour lengths (always a number)
     var preselectMinLength = "<?php echo $itinerary_length_min ?>";
     var preselectMaxLength = "<?php echo $itinerary_length_max ?>";
@@ -155,5 +156,13 @@ if (get_field('itinerary_length_max') != null) {
         preselectTravelType = "<?php echo $selectedTravelType; ?>";
     <?php endif; ?>
 
+    
+   
+
+    //location
+    var preselectLocation = null;
+    <?php if ($selectedLocation) : ?>
+        preselectLocation = "<?php echo $selectedLocation->ID; ?>";
+    <?php endif; ?>
 
 </script>

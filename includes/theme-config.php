@@ -20,6 +20,54 @@ function afloat_config()
 add_action('after_setup_theme', 'afloat_config', 0); //last parameter is priority
 
 
+add_action( 'after_setup_theme', 'afloat_images_sizes' );
+
+function afloat_images_sizes() {
+    add_image_size( 'hero-large', 1920, 1080, true);
+    add_image_size( 'hero-medium', 1200, 1080, true); 
+    add_image_size( 'hero-portrait', 800, 1080, true); 
+    add_image_size( 'hero-portrait-small', 500, 800, true); 
+
+    //1:2
+    add_image_size( 'landscape-large', 1120, 560, true);
+    add_image_size( 'landscape-medium', 700, 350, true);
+    add_image_size( 'landscape-small', 350, 175, true);
+
+
+    add_image_size( 'portrait-medium', 400, 600, true); 
+    add_image_size( 'portrait-small', 200, 300, true); 
+
+    add_image_size( 'featured-medium', 600, 400, true); 
+    add_image_size( 'featured-small', 350, 300, true); 
+
+
+}
+
+add_filter( 'image_size_names_choose', 'afloat_images_sizes_add' );
+function afloat_images_sizes_add( $sizes ) {
+
+    $addsizes = array(
+        "hero-large" => 'Hero Large',
+        "hero-medium" => 'Hero Medium',
+        "hero-portrait" => 'Hero Portrait',
+        "hero-portrait-small" => 'Hero Portrait Small',
+        "landscape-large" => 'Landscape Large',
+        "landscape-medium" => 'Landscape Medium',
+        "landscape-small" => 'Landscape Small',
+        "portriat-medium" => 'Portrait Medium',
+        "portriat-small" => 'Portrait Small',
+        "featured-medium" => 'Featured Medium',
+        "featured-small" => 'Featured Small',
+
+    );
+
+    $newsizes = array_merge( $sizes, $addsizes );
+
+    return $newsizes;
+
+}
+
+
 //Excerpt length
 function custom_excerpt_length($length)
 {
@@ -28,7 +76,7 @@ function custom_excerpt_length($length)
 add_filter('excerpt_length', 'custom_excerpt_length', 999);
 
 //custom image size for blog thumbnails
-add_image_size('blog-image-crop', 510, 414, true);
+//add_image_size('blog-image-crop', 510, 414, true);
 
 function add_page_categories()
 {

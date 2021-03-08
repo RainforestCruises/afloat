@@ -270,6 +270,36 @@
             "ui": 1
         },
         {
+            "key": "field_604645a67bcdb",
+            "label": "Location Filter",
+            "name": "location_filter",
+            "type": "post_object",
+            "instructions": "Preselected Location (for destination) -- NOTE: you must select a location that is within the selected Destination",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60394c9466c2d",
+                        "operator": "==",
+                        "value": "destination"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_locations"
+            ],
+            "taxonomy": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
             "key": "field_5fd8e1e88b56a",
             "label": "Itinerary Length Min",
             "name": "itinerary_length_min",
@@ -282,15 +312,12 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
             "append": "",
             "min": 1,
-            "max": 14,
+            "max": 15,
             "step": ""
         },
         {
@@ -298,7 +325,7 @@
             "label": "Itinerary Length Max",
             "name": "itinerary_length_max",
             "type": "number",
-            "instructions": "For preselected itinerary lengths",
+            "instructions": "For preselected itinerary lengths - enter 15 for no limit. For example, 9+ Days, enter as 9 min 15 max",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -311,7 +338,7 @@
             "prepend": "",
             "append": "",
             "min": 1,
-            "max": 14,
+            "max": 15,
             "step": ""
         }
     ],
@@ -335,5 +362,5 @@
     ],
     "active": true,
     "description": "Search - Page",
-    "modified": 1614375856
+    "modified": 1615220088
 }

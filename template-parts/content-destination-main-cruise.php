@@ -230,20 +230,14 @@ console_log($activities);
 
 
     <div class="destination-main__lengths">
-        <?php if ($cruise_lengths) : ?>
+    <?php if ($cruise_lengths) : ?>
             <?php foreach ($cruise_lengths as $length) :
-                $link = $cruise_search_link . '?minLength=' . $length['min_days'] . '&maxLength=' . $length['max_days'];
-
-                if ($length['min_days'] == $length['max_days']) {
-                    $range = ($length['max_days'] == 15 ? "15+" : $length['max_days']);
-                } else {
-                    $range = $length['min_days'] . '-' . ($length['max_days'] == 15 ? "15+" : $length['max_days']);
-                }
+                $link = $length['link'];
+                $buttonText = $length['button_text'];            
             ?>
-                <a class="btn-outline" href="<?php echo $link; ?>"><?php echo $range ?> Days</a>
+                <a class="btn-outline" href="<?php echo $link; ?>"><?php echo $buttonText ?></a>
         <?php endforeach;
         endif;
-
         ?>
         <a class="btn-outline " href="<?php echo $cruise_search_link; ?>">View All Cruises</a>
     </div>

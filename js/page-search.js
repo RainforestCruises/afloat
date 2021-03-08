@@ -11,14 +11,26 @@ jQuery(document).ready(function ($) {
 
 
   //filter parameters
-  var travelType = url.searchParams.get("travelType"); //has preselection
+  //--preselections from search template (sidebar)
+  var travelType = url.searchParams.get("travelType"); //travel type
   if (travelType != null) {
     preselectTravelType = travelType;
   }
 
-  var experienceType = url.searchParams.get("experienceType"); //has preselection
+  var experienceType = url.searchParams.get("experienceType"); //experience
   if (experienceType != null) {
     preselectExperience = experienceType;
+  }
+
+  var preselectDestination = null; //no preselect available
+  var travelDestination = url.searchParams.get("travelDestination"); //destination
+  if (travelDestination != null) {
+    preselectDestination = travelDestination;
+  }
+
+  var travelLocation = url.searchParams.get("travelLocation"); //location
+  if (travelLocation != null) {
+    preselectLocation = travelLocation;
   }
 
   var minLength = url.searchParams.get("minLength");
@@ -30,9 +42,8 @@ jQuery(document).ready(function ($) {
     preselectMaxLength = maxLength;
   }
 
+  
 
-  var travelLocation = url.searchParams.get("travelLocation");
-  var travelDestination = url.searchParams.get("travelDestination");
   var startDate = url.searchParams.get("startDate");
   var endDate = url.searchParams.get("endDate");
 
@@ -85,7 +96,7 @@ jQuery(document).ready(function ($) {
     minimumResultsForSearch: -1,
     placeholder: "Any",
   });
-  $('#destination-select').val(travelDestination).change();
+  $('#destination-select').val(preselectDestination).change();
   $('#destination-select').on('change', function () {
     travelDestination = $(this).val();
     resetPage();
@@ -99,7 +110,7 @@ jQuery(document).ready(function ($) {
     minimumResultsForSearch: -1,
     placeholder: "Any",
   });
-  $('#location-select').val(travelLocation).change();
+  $('#location-select').val(preselectLocation).change();
   $('#location-select').on('change', function () {
     travelLocation = $(this).val();
     resetPage();

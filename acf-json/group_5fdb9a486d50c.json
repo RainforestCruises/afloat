@@ -465,32 +465,11 @@
             "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_602ec6c26f52d",
-                    "label": "Min Days",
-                    "name": "min_days",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": 1,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": 1,
-                    "max": 15,
-                    "step": ""
-                },
-                {
-                    "key": "field_602ec6c26f52e",
-                    "label": "Max Days",
-                    "name": "max_days",
-                    "type": "number",
-                    "instructions": "",
+                    "key": "field_60463fd9066bf",
+                    "label": "Button Text",
+                    "name": "button_text",
+                    "type": "text",
+                    "instructions": "Examples: 3-Days, 5-8 Days, 9+ Days",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -502,9 +481,30 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "min": 1,
-                    "max": 15,
-                    "step": ""
+                    "maxlength": 50
+                },
+                {
+                    "key": "field_60463fee066c0",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "page_link",
+                    "instructions": "Link to search page, for Destination + Tours (Travel Type) + Length",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": [
+                        "category:search"
+                    ],
+                    "allow_null": 0,
+                    "allow_archives": 0,
+                    "multiple": 0
                 }
             ]
         },
@@ -565,69 +565,6 @@
             "toolbar": "full",
             "media_upload": 0,
             "delay": 0
-        },
-        {
-            "key": "field_5ff899c0d5741",
-            "label": "Cruise Lengths",
-            "name": "cruise_lengths",
-            "type": "repeater",
-            "instructions": "Lengths of cruise itineraries, buttons that link to search pages",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_5ff899dcd5742",
-                    "label": "Min Days",
-                    "name": "min_days",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": 1,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": 1,
-                    "max": 15,
-                    "step": ""
-                },
-                {
-                    "key": "field_5ff899fdd5743",
-                    "label": "Max Days",
-                    "name": "max_days",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "min": 1,
-                    "max": 15,
-                    "step": ""
-                }
-            ]
         },
         {
             "key": "field_603fcd0c193cc",
@@ -1107,5 +1044,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1614794389
+    "modified": 1615216665
 }

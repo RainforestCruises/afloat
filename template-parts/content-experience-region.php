@@ -36,10 +36,10 @@ $count = 0;
                     </div>
                 </div>
                 <div class="experience-region__content__text__snippet">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem saepe voluptates mollitia exercitationem nulla animi dolorum? Explicabo odit nihil quas ab recusandae tenetur assumenda autem, voluptas ipsa reiciendis nemo reprehenderit.
+                    <?php echo $r['snippet'] ?>
                 </div>
                 <div class="experience-region__content__text__travel-types">
-                
+
                     <div class="experience-region__content__text__travel-types__group">
                         <svg>
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
@@ -50,7 +50,7 @@ $count = 0;
                         <svg>
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
                         </svg>
-                        <a href="<?php echo $r['explore_link']. '?travelType=rfc_tours' ?>"><?php echo tours_available_region($region_post, $experience) ?> Tours Available</a>
+                        <a href="<?php echo $r['explore_link'] . '?travelType=rfc_tours' ?>"><?php echo tours_available_region($region_post, $experience) ?> Tours Available</a>
                     </div>
 
                 </div>
@@ -67,7 +67,9 @@ $count = 0;
                 </div>
             </div>
             <div class="experience-region__content__image">
-                <img src="<?php echo esc_url($r['image']['url']); ?>" alt="">
+                <!-- responsive -->
+                <img <?php afloat_responsive_image($r['image']['id'], 'portrait-medium', array('portrait-small', 'portrait-medium')); ?> alt="">
+
 
             </div>
         </div>
