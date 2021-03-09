@@ -15,6 +15,7 @@
     </div>
     <div class="newsletter__image">
         <?php $newsletter_image = get_field('newsletter_image', 'options'); ?>
-        <img src="<?php echo esc_url($newsletter_image['url']); ?>" alt="">
+        <img <?php afloat_responsive_image($newsletter_image['id'], 'vertical-medium', array('vertical-medium')); ?> alt="">
+
     </div>
 </section>

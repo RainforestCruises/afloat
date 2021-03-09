@@ -68,8 +68,7 @@ $count = 0;
             </div>
             <div class="experience-region__content__image">
                 <!-- responsive -->
-                <img <?php afloat_responsive_image($r['image']['id'], 'portrait-medium', array('portrait-small', 'portrait-medium')); ?> alt="">
-
+                <img <?php afloat_responsive_image($r['image']['id'], 'vertical-medium', array('vertical-medium')); ?> alt="">
 
             </div>
         </div>
@@ -85,7 +84,7 @@ $count = 0;
                     <!-- Tour Card -->
                     <a class="experience-card" href="<?php echo $d['search_link'] ?>">
                         <div class="experience-card__image">
-                            <img src="<?php echo esc_url($cardImage['url']); ?>" alt="">
+                            <img  <?php afloat_responsive_image($cardImage['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?> alt="">
                         </div>
 
 

@@ -23,19 +23,24 @@ add_action('after_setup_theme', 'afloat_config', 0); //last parameter is priorit
 add_action( 'after_setup_theme', 'afloat_images_sizes' );
 
 function afloat_images_sizes() {
-    add_image_size( 'hero-large', 1920, 1080, true);
-    add_image_size( 'hero-medium', 1200, 1080, true); 
-    add_image_size( 'hero-portrait', 800, 1080, true); 
-    add_image_size( 'hero-portrait-small', 500, 800, true); 
+    add_image_size( 'full-hero-large', 1920, 1080, true);
+    add_image_size( 'full-hero-medium', 1200, 1080, true); 
+    add_image_size( 'full-hero-small', 800, 1080, true); 
+    add_image_size( 'full-hero-xsmall', 500, 800, true); 
 
-    //1:2
-    add_image_size( 'landscape-large', 1120, 560, true);
-    add_image_size( 'landscape-medium', 700, 350, true);
-    add_image_size( 'landscape-small', 350, 175, true);
+    //landscape (ratio)
+    add_image_size( 'wide-slider-medium', 700, 380, true);
+    add_image_size( 'wide-slider-small', 500, 380, true);
 
 
-    add_image_size( 'portrait-medium', 400, 600, true); 
-    add_image_size( 'portrait-small', 200, 300, true); 
+    add_image_size( 'vertical-large', 500, 700, true); 
+    add_image_size( 'vertical-medium', 400, 600, true); 
+    add_image_size( 'vertical-small', 285, 320, true); 
+
+    add_image_size( 'square-large', 600, 500, true); 
+    add_image_size( 'square-medium', 500, 400, true); 
+    add_image_size( 'square-small', 280, 400, true); 
+
 
     add_image_size( 'featured-medium', 600, 400, true); 
     add_image_size( 'featured-small', 350, 300, true); 

@@ -8,7 +8,8 @@ $hero_snippet = get_field('hero_snippet');
 
 <!--  Hero -->
 <div class="experience-hero">
-    <img src="<?php echo esc_url($hero_image['url']); ?>" alt="" class="experience-hero__bg">
+    <img <?php afloat_responsive_image($hero_image['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="" class="experience-hero__bg">
+
 
     <div class="experience-hero__content">
         <div class="experience-hero__content__title-group">
