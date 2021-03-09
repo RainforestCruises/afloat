@@ -6634,8 +6634,7 @@ h5 {
   height: 38rem;
   display: grid;
   position: relative;
-  text-decoration: none;
-  margin: 0 1.5rem; }
+  text-decoration: none; }
   .experience-card__image {
     grid-row: 1 / -1;
     grid-column: 1 / -1;
