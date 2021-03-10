@@ -60,10 +60,10 @@
             &__input {
                 font-size: 1.5rem;
                 padding: 2rem 3rem;
-                border: none;
+                border: 2px solid $color-primary;
                 letter-spacing: 0.1rem;
                 font-family: $font-primary;
-                box-shadow: inset 0px 0px 0px 2px $color-primary;
+                //box-shadow: inset 0px 0px 0px 2px $color-primary;
                 margin-right: 1rem;
                 
                 margin-bottom: 1rem;

@@ -48,29 +48,29 @@ function afloat_images_sizes() {
 
 }
 
-add_filter( 'image_size_names_choose', 'afloat_images_sizes_add' );
-function afloat_images_sizes_add( $sizes ) {
+// add_filter( 'image_size_names_choose', 'afloat_images_sizes_add' );
+// function afloat_images_sizes_add( $sizes ) {
 
-    $addsizes = array(
-        "hero-large" => 'Hero Large',
-        "hero-medium" => 'Hero Medium',
-        "hero-portrait" => 'Hero Portrait',
-        "hero-portrait-small" => 'Hero Portrait Small',
-        "landscape-large" => 'Landscape Large',
-        "landscape-medium" => 'Landscape Medium',
-        "landscape-small" => 'Landscape Small',
-        "portriat-medium" => 'Portrait Medium',
-        "portriat-small" => 'Portrait Small',
-        "featured-medium" => 'Featured Medium',
-        "featured-small" => 'Featured Small',
+//     $addsizes = array(
+//         "hero-large" => 'Hero Large',
+//         "hero-medium" => 'Hero Medium',
+//         "hero-portrait" => 'Hero Portrait',
+//         "hero-portrait-small" => 'Hero Portrait Small',
+//         "landscape-large" => 'Landscape Large',
+//         "landscape-medium" => 'Landscape Medium',
+//         "landscape-small" => 'Landscape Small',
+//         "portriat-medium" => 'Portrait Medium',
+//         "portriat-small" => 'Portrait Small',
+//         "featured-medium" => 'Featured Medium',
+//         "featured-small" => 'Featured Small',
 
-    );
+//     );
 
-    $newsizes = array_merge( $sizes, $addsizes );
+//     $newsizes = array_merge( $sizes, $addsizes );
 
-    return $newsizes;
+//     return $newsizes;
 
-}
+// }
 
 
 //Excerpt length
