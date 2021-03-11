@@ -1333,13 +1333,17 @@ h5 {
 
 .destination-page {
   display: grid;
-  grid-template-rows: [nav-start] 100vh [hero-end content-start] repeat(8, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end];
-  grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
   grid-row: content-start / content-end;
-  grid-column: 1 / -1; }
+  grid-column: 1 / -1;
+  grid-template-rows: [nav-start] minmax(100vh, min-content) [hero-end content-start] repeat(8, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end];
+  grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
+  @media only screen and (max-width: 37.5em) {
+    .destination-page {
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
   .destination-page__section-hero {
     grid-row: nav-start / hero-end;
-    grid-column: full-start / -1; }
+    grid-column: full-start / -1;
+    background-color: #1e1e1e; }
   .destination-page__section-intro {
     grid-column: full-start / -1;
     grid-row: content-start / span 1; }
@@ -4276,29 +4280,45 @@ h5 {
         padding-bottom: 0.8rem; }
 
 .destination-hero {
-  background-color: black;
   height: 100%;
+  grid-row: nav-start / hero-end;
+  position: relative;
+  z-index: 0;
   display: grid;
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-  grid-template-rows: 9rem 1fr; }
-  @media only screen and (max-width: 50em) {
-    .destination-hero {
-      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
+  grid-template-rows: 9rem 1fr;
+  height: 100%; }
   @media only screen and (max-width: 37.5em) {
     .destination-hero {
-      min-height: 0rem; } }
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
   .destination-hero__bg-slide {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
-    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    object-fit: cover;
     height: 100%;
-    position: relative; }
+    width: 100%;
+    z-index: 1;
+    max-height: 100vh; }
+    @media only screen and (max-width: 90em) {
+      .destination-hero__bg-slide {
+        max-height: 100%; } }
     .destination-hero__bg-slide .slick-list {
       height: 100% !important; }
+      @media only screen and (max-width: 90em) {
+        .destination-hero__bg-slide .slick-list {
+          max-height: 100%; } }
     .destination-hero__bg-slide .slick-track {
       height: 100% !important; }
+      @media only screen and (max-width: 90em) {
+        .destination-hero__bg-slide .slick-track {
+          max-height: 100%; } }
     .destination-hero__bg-slide .slick-slide div {
       height: 100% !important; }
+      @media only screen and (max-width: 90em) {
+        .destination-hero__bg-slide .slick-slide div {
+          max-height: 100%; } }
     .destination-hero__bg-slide img {
       background-position: center center;
       background-repeat: no-repeat;
@@ -4327,9 +4347,9 @@ h5 {
     grid-template-rows: minmax(max-content, 20vh) 1fr 30rem;
     color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
-    column-gap: 12rem;
+    column-gap: 16rem;
     row-gap: 2rem;
-    padding-bottom: 6rem; }
+    padding-bottom: 8rem; }
     @media only screen and (max-width: 62.5em) {
       .destination-hero__content {
         grid-template-columns: 1fr;
@@ -4597,8 +4617,13 @@ h5 {
     .destination-hero__content__location {
       grid-column: 2 / span 1;
       grid-row: 2 / -1;
+      width: 40vw;
+      align-self: end;
       height: 100%;
-      width: 40vw; }
+      display: flex;
+      flex-direction: column;
+      padding-top: 10rem;
+      /* progress bar */ }
       @media only screen and (max-width: 62.5em) {
         .destination-hero__content__location {
           display: none; } }
@@ -4606,8 +4631,9 @@ h5 {
         width: 100%;
         text-transform: none;
         font-size: 1.6rem;
-        margin-top: 6rem;
-        position: relative; }
+        position: relative;
+        justify-self: flex-start;
+        height: 100%; }
         .destination-hero__content__location__slider__item__title {
           text-transform: uppercase;
           letter-spacing: 0.3rem;
@@ -4624,14 +4650,52 @@ h5 {
             background-color: #fff; }
         .destination-hero__content__location__slider__item__text {
           line-height: 3.5rem; }
+        .destination-hero__content__location__slider__item__cta {
+          padding-top: 3rem; }
+          .destination-hero__content__location__slider__item__cta a:link,
+          .destination-hero__content__location__slider__item__cta a:visited {
+            text-transform: uppercase;
+            letter-spacing: 0.4rem;
+            text-decoration: none;
+            color: currentColor;
+            font-weight: 600;
+            font-size: 1.4rem; }
+            .destination-hero__content__location__slider__item__cta a:link:hover,
+            .destination-hero__content__location__slider__item__cta a:visited:hover {
+              color: #d4dfe8; }
         .destination-hero__content__location__slider__arrow-left {
           position: absolute;
-          bottom: -7.5rem;
+          bottom: -4rem;
           right: 15rem; }
         .destination-hero__content__location__slider__arrow-right {
           position: absolute;
-          bottom: -7.5rem;
+          bottom: -4rem;
           right: 10rem; }
+      .destination-hero__content__location__progress {
+        display: flex;
+        width: 30rem;
+        align-items: center; }
+        .destination-hero__content__location__progress__bar {
+          width: 20rem;
+          height: 2px;
+          background: rgba(255, 255, 255, 0.5); }
+          .destination-hero__content__location__progress__bar .progress {
+            width: 0%;
+            height: 2px;
+            background: #fff; }
+        .destination-hero__content__location__progress__odometer {
+          display: inline-block;
+          font-size: 2rem;
+          text-align: center;
+          margin-right: 1rem; }
+          .destination-hero__content__location__progress__odometer .odometer-digit {
+            padding-right: .3rem  !important; }
+        .destination-hero__content__location__progress__odometer-top {
+          display: inline-block;
+          text-align: center;
+          font-size: 2rem;
+          margin-left: 1.3rem;
+          letter-spacing: .3rem; }
 
 .destination-main {
   display: grid;

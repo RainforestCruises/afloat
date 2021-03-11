@@ -131,6 +131,29 @@
                     "maxlength": "",
                     "rows": "",
                     "new_lines": ""
+                },
+                {
+                    "key": "field_6048fafd28fa6",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "page_link",
+                    "instructions": "Link to search page - Destination + Location (first slide just Destination)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": [
+                        "category:search"
+                    ],
+                    "allow_null": 1,
+                    "allow_archives": 0,
+                    "multiple": 0
                 }
             ]
         },
@@ -1099,5 +1122,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1615213351
+    "modified": 1615403094
 }

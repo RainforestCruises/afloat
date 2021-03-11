@@ -82,7 +82,11 @@ $shadow-short-bottom: 0 1rem 1rem -1rem rgba(0, 0, 0, 0.25);
 $shadow-medium-around: 0 0rem 3rem rgba(0, 0, 0, 0.2);
 
 //RESPONSIVE BREAKPOINTS (use em unit)
-$bp-largest: 75em; // 1200px / 8px text
+$bp-xlargest: 90em; // 1440px
+
+$bp-largest: 75em; // 1200px 
+
+$bp-largest: 75em; // 1200px 
 $bp-large: 62.5em; // 1000px
 $bp-medium: 50em; // 800px
 $bp-small: 37.5em; // 600px

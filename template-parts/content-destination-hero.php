@@ -13,10 +13,10 @@
     //     $cloud_image = cloudinary_url($sliderImage['filename'], array("width" => 750, "height" => 1334, "crop" => "fill", "gravity" => "auto", "fetch_format" => "auto"));
     //     console_log($cloud_image);
     // endforeach; 
-    
-    
-    
-    
+
+
+
+
     ?>
 
 
@@ -188,23 +188,41 @@
 
 
           <div class="destination-hero__content__location">
-              <div class="destination-hero__content__location__slider" id="destination-hero__content__location__slider">
-                  <?php 
-                  if($sliderContent) :
-                  foreach ($sliderContent as $s) : ?>
-                      <div class="destination-hero__content__location__slider__item">
-                          <div class="destination-hero__content__location__slider__item__title">
-                              <?php echo $s['title']; ?>
+              <?php
+                $slideCount = 0;
+                if ($sliderContent) : ?>
+                  <div class="destination-hero__content__location__slider" id="destination-hero__content__location__slider">
+
+                      <?php foreach ($sliderContent as $s) : ?>
+                          <div class="destination-hero__content__location__slider__item">
+                              <div class="destination-hero__content__location__slider__item__title">
+                                  <?php echo $s['title']; ?>
+                              </div>
+                              <div class="destination-hero__content__location__slider__item__text">
+                                  <?php echo $s['caption']; ?>
+                              </div>
+                              <?php if ($s['link'] != null) : ?>
+                                  <div class="destination-hero__content__location__slider__item__cta">
+                                      <a href="<?php echo $s['link']; ?>">Explore <?php echo $s['title']; ?></a>
+                                  </div>
+                              <?php endif; ?>
                           </div>
-                          <div class="destination-hero__content__location__slider__item__text">
-                              <?php echo $s['caption']; ?>
-                          </div>
+                      <?php
+                            $slideCount++;
+                        endforeach;
+                        ?>
+
+                  </div>
+                  <div class="destination-hero__content__location__progress">
+                      <div class="destination-hero__content__location__progress__odometer " id="odometer">01</div>
+                      <div class="destination-hero__content__location__progress__bar">
+                          <div class="progress"></div>
                       </div>
-                  <?php endforeach; endif; ?>
 
 
-              </div>
-
+                      <div class="destination-hero__content__location__progress__odometer-top"><?php echo str_pad($slideCount, 2, "0", STR_PAD_LEFT); ?></div>
+                  </div>
+              <?php endif; ?>
           </div>
       </div>
   </div>

@@ -71,7 +71,7 @@ jQuery(document).ready(function ($) {
                 }
             }
 
-         
+
 
         }
     }
@@ -156,6 +156,14 @@ jQuery(document).ready(function ($) {
         arrows: false
     });
 
+    counter = new Odometer({
+        el: document.querySelector("#odometer"),
+        minIntegerLen: 2,
+        duration: 200,
+        value: 1
+    });
+
+
     //destination-hero-content
     $('#destination-hero__content__location__slider').slick({
         slidesToShow: 1,
@@ -169,11 +177,66 @@ jQuery(document).ready(function ($) {
 
         prevArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
         nextArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
-
-
+    }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+        var num = (nextSlide + 1);
+       
+       
+        setTimeout(function () {
+            counter.update(num);
+        }, 200);
     });
 
 
+
+    //progress
+    var time = 2;
+    var $bar,
+        $slick,
+        isPause,
+        tick,
+        percentTime;
+
+    $slick = $('.destination-hero__content__location__slider');
+    $bar = $('.destination-hero__content__location__progress__bar .progress');
+
+    function startProgressbar() {
+        resetProgressbar();
+        percentTime = 0;
+        isPause = false;
+        tick = setInterval(interval, 30);
+    }
+
+    function interval() {
+        if (isPause === false) {
+            percentTime += 1 / (time + 0.1);
+            $bar.css({
+                width: percentTime + "%"
+            });
+            if (percentTime >= 100) {
+                $slick.slick('slickNext');
+                startProgressbar();
+            }
+        }
+    }
+
+    function resetProgressbar() {
+        $bar.css({
+            width: 0 + '%'
+        });
+        clearTimeout(tick);
+    }
+
+    startProgressbar();
+    $('.destination-hero__content__location__slider .slick-arrow').click(function () {
+
+        startProgressbar();
+    });
+    //end progress
+
+
+
+
+    //end progress
     $('#main-slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
