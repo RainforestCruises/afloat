@@ -31,20 +31,23 @@
           <?php endforeach; ?>
       </div>
       <div class="destination-hero__content">
-          <div class="destination-hero__content__breadcrumb">
-              <ol class="destination-hero__content__breadcrumb__path">
-                  <li>
-                      <a href="#">Destinations</a>
+          <div class="destination-hero__content__title-group">
+              <div class="destination-hero__content__title-group__breadcrumb">
+                  <ol class="destination-hero__content__title-group__breadcrumb__path">
+                      <li>
+                          <a href="#">Destinations</a>
 
-                  </li>
-                  <li>
-                      <?php echo $title ?>
-                  </li>
-              </ol>
+                      </li>
+                      <li>
+                          <?php echo $title ?>
+                      </li>
+                  </ol>
+              </div>
+              <div class="destination-hero__content__title-group__title">
+                  <?php echo get_the_title(); ?>
+              </div>
           </div>
-          <div class="destination-hero__content__title">
-              <?php echo get_the_title(); ?>
-          </div>
+
 
           <div class="destination-hero__content__page-nav">
 

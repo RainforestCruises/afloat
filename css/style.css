@@ -4344,7 +4344,7 @@ h5 {
     z-index: 5;
     display: grid;
     grid-template-columns: 2fr 3fr;
-    grid-template-rows: minmax(max-content, 20vh) 1fr 30rem;
+    grid-template-rows: 1fr 30rem;
     color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
     column-gap: 16rem;
@@ -4353,90 +4353,82 @@ h5 {
     @media only screen and (max-width: 62.5em) {
       .destination-hero__content {
         grid-template-columns: 1fr;
-        grid-template-rows: minmax(min-content, 30%) min-content minmax(max-content, 2fr); } }
-    @media only screen and (max-width: 25em) {
-      .destination-hero__content {
-        grid-template-rows: minmax(min-content, 30%) min-content minmax(max-content, 1fr); } }
-    .destination-hero__content__breadcrumb {
-      font-size: 1.4rem;
-      letter-spacing: 0.4rem;
-      align-self: end;
-      font-weight: 600;
-      margin-top: 1rem;
-      margin-bottom: 1.5rem;
-      width: min-content; }
+        grid-template-rows: 1fr; } }
+    .destination-hero__content__title-group {
+      height: min-content;
+      align-self: center; }
       @media only screen and (max-width: 62.5em) {
-        .destination-hero__content__breadcrumb {
-          margin-top: 4rem;
-          margin-bottom: 0rem;
-          justify-self: center;
-          grid-column: 1 / -1; } }
-      @media only screen and (max-width: 50em) {
-        .destination-hero__content__breadcrumb {
-          margin-top: 3rem; } }
-      @media only screen and (max-width: 25em) {
-        .destination-hero__content__breadcrumb {
-          margin-top: 2rem; } }
-      .destination-hero__content__breadcrumb__path {
-        display: flex;
+        .destination-hero__content__title-group {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 2rem 0; } }
+      .destination-hero__content__title-group__breadcrumb {
+        font-size: 1.4rem;
+        letter-spacing: 0.4rem;
+        font-weight: 600;
+        margin-top: 1rem;
+        margin-bottom: 3.5rem;
+        width: min-content; }
+        @media only screen and (max-width: 37.5em) {
+          .destination-hero__content__title-group__breadcrumb {
+            margin-bottom: 2rem; } }
+        .destination-hero__content__title-group__breadcrumb__path {
+          display: flex;
+          position: relative;
+          padding: 0.75rem 2rem;
+          padding-top: 0.6rem;
+          list-style: none; }
+          .destination-hero__content__title-group__breadcrumb__path li {
+            display: inline-block;
+            width: max-content; }
+            .destination-hero__content__title-group__breadcrumb__path li:not(:last-child):after {
+              content: ">";
+              padding-left: 1px;
+              padding-right: 3px; }
+            .destination-hero__content__title-group__breadcrumb__path li a {
+              text-decoration: none;
+              color: currentColor; }
+              .destination-hero__content__title-group__breadcrumb__path li a:hover {
+                color: #fff; }
+          .destination-hero__content__title-group__breadcrumb__path::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            height: 100%;
+            width: 100%;
+            border-radius: 2.5rem;
+            border: 2px solid currentColor;
+            z-index: -1; }
+      .destination-hero__content__title-group__title {
+        font-size: 5rem;
+        line-height: 6rem;
+        letter-spacing: 0.6rem;
+        font-family: "Old Standard TT", serif;
+        grid-column: 1 / span 1;
+        align-self: center;
         position: relative;
-        padding: 0.75rem 2rem;
-        padding-top: 0.6rem;
-        list-style: none; }
-        .destination-hero__content__breadcrumb__path li {
-          display: inline-block;
-          width: max-content; }
-          .destination-hero__content__breadcrumb__path li:not(:last-child):after {
-            content: ">";
-            padding-left: 1px;
-            padding-right: 3px; }
-          .destination-hero__content__breadcrumb__path li a {
-            text-decoration: none;
-            color: currentColor; }
-            .destination-hero__content__breadcrumb__path li a:hover {
-              color: #fff; }
-        .destination-hero__content__breadcrumb__path::after {
+        margin-bottom: 1rem; }
+        .destination-hero__content__title-group__title::after {
           content: "";
           position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translateX(-50%) translateY(-50%);
-          height: 100%;
-          width: 100%;
-          border-radius: 2.5rem;
-          border: 2px solid currentColor;
-          z-index: -1; }
-    .destination-hero__content__title {
-      font-size: 6rem;
-      line-height: 7rem;
-      letter-spacing: 0.6rem;
-      font-family: "Old Standard TT", serif;
-      grid-column: 1 / span 1;
-      align-self: center;
-      position: relative;
-      margin-bottom: 1rem; }
-      .destination-hero__content__title::after {
-        content: "";
-        position: absolute;
-        bottom: -1rem;
-        left: 0;
-        width: 65%;
-        height: 2px;
-        background-color: #fff; }
-      @media only screen and (max-width: 62.5em) {
-        .destination-hero__content__title {
-          text-align: center;
-          margin: 4rem 0;
-          margin-bottom: 8rem; }
-          .destination-hero__content__title::after {
-            left: 50%;
-            transform: translateX(-50%); } }
-      @media only screen and (max-width: 37.5em) {
-        .destination-hero__content__title {
-          font-size: 4rem;
-          line-height: 5rem;
-          margin-top: 1rem;
-          margin-bottom: 2rem; } }
+          bottom: -1rem;
+          left: 0;
+          width: 65%;
+          height: 2px;
+          background-color: #fff; }
+        @media only screen and (max-width: 62.5em) {
+          .destination-hero__content__title-group__title {
+            text-align: center; }
+            .destination-hero__content__title-group__title::after {
+              left: 50%;
+              transform: translateX(-50%); } }
+        @media only screen and (max-width: 37.5em) {
+          .destination-hero__content__title-group__title {
+            font-size: 4rem;
+            line-height: 4.7rem; } }
     .destination-hero__content__page-nav {
       user-select: none;
       grid-column: 1 / span 1;
@@ -4616,13 +4608,12 @@ h5 {
             margin-bottom: 2rem; } }
     .destination-hero__content__location {
       grid-column: 2 / span 1;
-      grid-row: 2 / -1;
+      grid-row: 1 / -1;
       width: 40vw;
       align-self: end;
-      height: 100%;
+      height: 55%;
       display: flex;
       flex-direction: column;
-      padding-top: 10rem;
       /* progress bar */ }
       @media only screen and (max-width: 62.5em) {
         .destination-hero__content__location {
@@ -4689,13 +4680,13 @@ h5 {
           text-align: center;
           margin-right: 1rem; }
           .destination-hero__content__location__progress__odometer .odometer-digit {
-            padding-right: .3rem  !important; }
+            padding-right: 0.3rem !important; }
         .destination-hero__content__location__progress__odometer-top {
           display: inline-block;
           text-align: center;
           font-size: 2rem;
           margin-left: 1.3rem;
-          letter-spacing: .3rem; }
+          letter-spacing: 0.3rem; }
 
 .destination-main {
   display: grid;
@@ -7043,8 +7034,7 @@ h5 {
   height: 45rem;
   display: grid;
   position: relative;
-  text-decoration: none;
-  margin: 0 1.5rem; }
+  text-decoration: none; }
   .tours-card__image {
     grid-row: 1 / -1;
     grid-column: 1 / -1; }
@@ -7089,12 +7079,18 @@ h5 {
     .tours-card__content__text-area {
       color: #fff;
       grid-row: 2 / span 1; }
+      @media only screen and (max-width: 50em) {
+        .tours-card__content__text-area {
+          text-align: center; } }
       .tours-card__content__text-area__country {
         font-size: 1.4rem;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
         list-style: none;
         display: flex; }
+        @media only screen and (max-width: 50em) {
+          .tours-card__content__text-area__country {
+            justify-content: center; } }
         .tours-card__content__text-area__country li:not(:first-child) {
           margin-left: 0.8rem;
           position: relative; }
@@ -7109,7 +7105,8 @@ h5 {
         @media only screen and (max-width: 37.5em) {
           .tours-card__content__text-area__title {
             font-size: 2.2rem;
-            line-height: 3rem; } }
+            line-height: 3rem;
+            margin-bottom: 2rem; } }
       .tours-card__content__text-area__info {
         font-size: 1.6rem;
         text-transform: uppercase;
@@ -7132,7 +7129,7 @@ h5 {
     content: "";
     grid-row: 1 / -1;
     grid-column: 1 / -1;
-    background-image: linear-gradient(to bottom, transparent 50%, rgba(30, 30, 30, 0.6));
+    background-image: linear-gradient(to bottom, transparent 50%, rgba(30, 30, 30, 0.8));
     height: 100%;
     width: 100%;
     z-index: 4; }
