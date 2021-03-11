@@ -146,16 +146,25 @@ jQuery(document).ready(function ($) {
 
 
     //SLIDERS
-    $('#destination-hero__bg').slick({
+    $('#destination-hero__bg-slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
         centerMode: false,
         draggable: false,
         fade: true,
-        arrows: false
+        arrows: false,
+  
+        speed: 800
     });
 
+
+
+   
+
+
+
+    //location slider
     counter = new Odometer({
         el: document.querySelector("#odometer"),
         minIntegerLen: 2,
@@ -164,26 +173,24 @@ jQuery(document).ready(function ($) {
     });
 
 
-    //destination-hero-content
+    //--
     $('#destination-hero__content__location__slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
-        asNavFor: '#destination-hero__bg',
+        asNavFor: '#destination-hero__bg-slider',
         centerMode: false,
         arrows: true,
         draggable: false,
         fade: true,
-
+        
         prevArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
         nextArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
     }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         var num = (nextSlide + 1);
-       
-       
         setTimeout(function () {
             counter.update(num);
-        }, 200);
+        }, 0);
     });
 
 
@@ -203,7 +210,7 @@ jQuery(document).ready(function ($) {
         resetProgressbar();
         percentTime = 0;
         isPause = false;
-        tick = setInterval(interval, 30);
+        tick = setInterval(interval, 45); //dictates speed
     }
 
     function interval() {
@@ -235,8 +242,6 @@ jQuery(document).ready(function ($) {
 
 
 
-
-    //end progress
     $('#main-slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -254,6 +259,7 @@ jQuery(document).ready(function ($) {
             },
         ]
     });
+
 
 
 

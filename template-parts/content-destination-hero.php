@@ -22,12 +22,14 @@
 
   <!-- Destination Hero -->
   <div class="destination-hero">
-      <div class="destination-hero__bg-slide" id="destination-hero__bg">
+      <div class="destination-hero__bg-slider" id="destination-hero__bg-slider">
           <?php foreach ($sliderContent as $s) :
                 $sliderImage = $s['image'];
-
             ?>
-              <img src="<?php echo esc_url($sliderImage['url']); ?>" alt="">
+            <div class="destination-hero__bg-slider__slide animated">
+                <img src="<?php echo esc_url($sliderImage['url']); ?>" alt="">
+            </div>
+              
           <?php endforeach; ?>
       </div>
       <div class="destination-hero__content">
