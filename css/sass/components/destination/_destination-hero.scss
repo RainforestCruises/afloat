@@ -70,8 +70,8 @@
                 width: 100%;
                 z-index: 0;
 
-                transition: all 6s ease-out;
-                transform: scale(1.04);
+                //transition: all 6s ease-out;
+                //transform: scale(1.04);
                 //transform-origin: top;
 
             }
@@ -79,9 +79,13 @@
         }
 
         & .slick-active img {
-            transform: scale(1);
+
+            animation: zoomEffect 9s forwards;
+            animation-timing-function: ease-out;
+            
           }
 
+          & .slick-slide[aria-hidden="true"] img { visibility: hidden; }
      
         &:after {
             //gradient overlay
@@ -127,9 +131,6 @@
             grid-template-rows: 1fr;
         }
 
-        // @media only screen and (max-width: $bp-xsmall) {
-        //     grid-template-rows: minmax(min-content, 30%) min-content minmax(max-content, 1fr);
-        // }
 
         &__title-group {
             height: min-content;
@@ -507,7 +508,11 @@
                 justify-self: flex-start;
                 height: 100%;
 
-               
+               & .slick-active {
+                animation: slideFade 1s both;
+                animation-timing-function: ease-out;
+                animation-delay: .5s;
+               }
 
                 &__item {
                     &__title {

@@ -158,9 +158,8 @@ jQuery(document).ready(function ($) {
         speed: 800
     });
 
-
-
-   
+    //$('#destination-hero__bg-slider').slick('slickGoTo', 1);
+    
 
 
 
@@ -205,6 +204,9 @@ jQuery(document).ready(function ($) {
 
     $slick = $('.destination-hero__content__location__slider');
     $bar = $('.destination-hero__content__location__progress__bar .progress');
+
+   
+    
 
     function startProgressbar() {
         resetProgressbar();
