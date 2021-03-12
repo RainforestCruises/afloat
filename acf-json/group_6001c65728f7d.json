@@ -223,6 +223,25 @@
             "endpoint": 0
         },
         {
+            "key": "field_604be943df144",
+            "label": "First Icon",
+            "name": "first_icon",
+            "type": "text",
+            "instructions": "paste SVG code",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_6005fbe43944b",
             "label": "First Title",
             "name": "first_title",
@@ -261,6 +280,25 @@
             "new_lines": ""
         },
         {
+            "key": "field_604be957df145",
+            "label": "Second Icon",
+            "name": "second_icon",
+            "type": "text",
+            "instructions": "paste SVG code",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_6005fc1e3944d",
             "label": "Second Title",
             "name": "second_title",
@@ -297,6 +335,25 @@
             "maxlength": "",
             "rows": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_604be96adf146",
+            "label": "Third Icon",
+            "name": "third_icon",
+            "type": "text",
+            "instructions": "paste SVG code",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_6005fc2e3944f",
@@ -1024,5 +1081,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Home Page",
-    "modified": 1612299053
+    "modified": 1615587721
 }

@@ -15,7 +15,7 @@ $intro_testimonials = get_field('intro_testimonials');
 //console_log($srcset);
 
 
-   ?>
+?>
 
 
 
@@ -55,9 +55,7 @@ $intro_testimonials = get_field('intro_testimonials');
     <div class="home-intro__bottom">
         <div class="home-intro__bottom__feature">
             <div class="home-intro__bottom__feature__icon">
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-globe"></use>
-                </svg>
+                <?php echo get_field('first_icon'); ?>
             </div>
             <div class="home-intro__bottom__feature__title">
                 <?php echo get_field('first_title'); ?>
@@ -68,9 +66,7 @@ $intro_testimonials = get_field('intro_testimonials');
         </div>
         <div class="home-intro__bottom__feature">
             <div class="home-intro__bottom__feature__icon">
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-money-bag"></use>
-                </svg>
+                <?php echo get_field('second_icon'); ?>
             </div>
             <div class="home-intro__bottom__feature__title">
                 <?php echo get_field('second_title'); ?>
@@ -81,9 +77,7 @@ $intro_testimonials = get_field('intro_testimonials');
         </div>
         <div class="home-intro__bottom__feature">
             <div class="home-intro__bottom__feature__icon">
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-laugh-17"></use>
-                </svg>
+                <?php echo get_field('third_icon'); ?>
             </div>
             <div class="home-intro__bottom__feature__title">
                 <?php echo get_field('third_title'); ?>

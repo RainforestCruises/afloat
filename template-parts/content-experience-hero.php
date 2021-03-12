@@ -26,7 +26,7 @@ $hero_snippet = get_field('hero_snippet');
             <?php echo $hero_snippet ?>
         </div>
         <div class="experience-hero__content__cta">
-            <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#packages">
+            <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button">
                 <svg class="btn-circle--arrow-main">
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
                 </svg>

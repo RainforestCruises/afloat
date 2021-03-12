@@ -45,6 +45,15 @@
 
         text-align: center;
         padding: 0 .5rem;
+        
+        &__level {
+            display: block;
+            font-size: 1rem;
+            color: $color-white;
+            text-transform: uppercase;
+            letter-spacing: 0.4rem;
+            
+        } 
 
         &__name {
             display: block;

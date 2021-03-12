@@ -55,6 +55,7 @@
         &__description {
             &__title {
                 font-size: 4rem;
+                line-height: 5rem;
                 color: $color-primary;
                 letter-spacing: 0.2rem;
                 font-weight: 700;
@@ -103,6 +104,11 @@
             }
 
             &__locations {
+                display: none;
+                @media only screen and (max-width: $bp-medium) {
+                    display: block;
+                }
+
                 &__title {
                     text-transform: uppercase;
                     letter-spacing: 0.2rem;

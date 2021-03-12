@@ -4755,6 +4755,7 @@ h5 {
         padding: 4rem 0; } }
     .destination-main__intro__description__title {
       font-size: 4rem;
+      line-height: 5rem;
       color: #142838;
       letter-spacing: 0.2rem;
       font-weight: 700;
@@ -4784,25 +4785,30 @@ h5 {
       @media only screen and (max-width: 50em) {
         .destination-main__intro__lists {
           grid-template-columns: 1fr 1fr; } }
-      .destination-main__intro__lists__locations__title {
-        text-transform: uppercase;
-        letter-spacing: 0.2rem;
-        font-weight: 700;
-        margin-bottom: 2rem;
-        color: #142838; }
-      .destination-main__intro__lists__locations__list {
-        list-style: none;
-        color: #919598;
-        margin-bottom: 2rem; }
-        .destination-main__intro__lists__locations__list li:not(:last-child) {
-          margin-bottom: 1rem; }
-        .destination-main__intro__lists__locations__list li a {
-          padding: 1rem 0;
-          text-decoration: none;
-          color: currentColor;
-          transition: all .3s; }
-          .destination-main__intro__lists__locations__list li a:hover {
-            color: #40739c; }
+      .destination-main__intro__lists__locations {
+        display: none; }
+        @media only screen and (max-width: 50em) {
+          .destination-main__intro__lists__locations {
+            display: block; } }
+        .destination-main__intro__lists__locations__title {
+          text-transform: uppercase;
+          letter-spacing: 0.2rem;
+          font-weight: 700;
+          margin-bottom: 2rem;
+          color: #142838; }
+        .destination-main__intro__lists__locations__list {
+          list-style: none;
+          color: #919598;
+          margin-bottom: 2rem; }
+          .destination-main__intro__lists__locations__list li:not(:last-child) {
+            margin-bottom: 1rem; }
+          .destination-main__intro__lists__locations__list li a {
+            padding: 1rem 0;
+            text-decoration: none;
+            color: currentColor;
+            transition: all .3s; }
+            .destination-main__intro__lists__locations__list li a:hover {
+              color: #40739c; }
       .destination-main__intro__lists__experiences__title {
         text-transform: uppercase;
         letter-spacing: 0.2rem;
@@ -6440,7 +6446,7 @@ h5 {
     height: 100%;
     width: 100%;
     z-index: 2;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 20%), linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 30%), linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); }
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 20%), linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 50%), linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); }
     @media only screen and (max-width: 50em) {
       .experience-hero::after {
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 20%), linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 60%), linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); } }
@@ -6464,12 +6470,14 @@ h5 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    height: 80%;
-    align-self: center; }
-    @media only screen and (max-width: 37.5em) {
+    justify-content: space-between;
+    height: 70%;
+    align-self: end;
+    margin-bottom: 8rem; }
+    @media only screen and (max-width: 50em) {
       .experience-hero__content {
-        padding-bottom: 3rem; } }
+        padding-bottom: 3rem;
+        height: 75%; } }
     .experience-hero__content__title-group {
       display: grid;
       max-width: 75rem;
@@ -6484,7 +6492,7 @@ h5 {
         letter-spacing: 0.3rem;
         font-weight: 500;
         text-transform: uppercase; }
-        @media only screen and (max-width: 37.5em) {
+        @media only screen and (max-width: 50em) {
           .experience-hero__content__title-group__title {
             font-size: 4rem;
             line-height: 5rem;
@@ -6539,10 +6547,12 @@ h5 {
       color: #fff;
       align-self: center;
       width: 80%;
-      padding-top: 3rem; }
+      padding-top: 6rem; }
       @media only screen and (max-width: 37.5em) {
         .experience-hero__content__snippet {
-          width: 100%; } }
+          width: 100%;
+          padding-top: 4rem;
+          padding-bottom: 3rem; } }
       @media only screen and (max-width: 22em) {
         .experience-hero__content__snippet {
           font-size: 1.5rem;
@@ -6905,6 +6915,12 @@ h5 {
     align-items: center;
     text-align: center;
     padding: 0 .5rem; }
+    .card-square__title-group__level {
+      display: block;
+      font-size: 1rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.4rem; }
     .card-square__title-group__name {
       display: block;
       font-size: 1.8rem;

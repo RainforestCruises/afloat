@@ -1,5 +1,5 @@
 <?php
-/*Template Name: Experiences*/
+/*Template Name: Expedition / Bucket */
 wp_enqueue_script('page-experience', get_template_directory_uri() . '/js/page-experience.js', array('jquery'), false, true);
 ?>
 
@@ -7,11 +7,6 @@ wp_enqueue_script('page-experience', get_template_directory_uri() . '/js/page-ex
 get_header();
 ?>
 
-<?php
-
-$experience = get_field('experience_post');
-
-?>
 
 <div class="experience-page">
 
@@ -22,17 +17,11 @@ $experience = get_field('experience_post');
         ?>
     </section>
 
-    <!-- Intro -->
-    <section class="experience-page__section-intro" id="intro">
-        <?php
-        get_template_part('template-parts/content', 'experience-intro');
-        ?>
-    </section>
 
-    <!-- Regions -->
-    <section class="experience-page__section-region" id="south-america">
+    <!-- Sections -->
+    <section class="experience-page__section-region">
         <?php
-        get_template_part('template-parts/content', 'experience-region');
+        get_template_part('template-parts/content', 'experience-region-exbu');
         ?>
     </section>
 

@@ -1,11 +1,11 @@
 
 jQuery(document).ready(function ($) {
 
-  
 
 
 
-  
+
+
     $('#region-slider-1').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -43,4 +43,16 @@ jQuery(document).ready(function ($) {
     });
 
 
+});
+
+
+
+//SCROLLING
+
+
+
+const dateInputField = document.querySelector('#down-arrow-button');
+dateInputField.addEventListener('click', () => {
+    var target = $('#intro').offset().top - 60;
+    $('html, body').animate({ scrollTop: target }, 500);
 });
