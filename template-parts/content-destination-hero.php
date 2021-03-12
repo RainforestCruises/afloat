@@ -212,7 +212,7 @@
                                       <a class="goto-button goto-button--hero goto-button--small hero-link" href="<?php echo $s['link']; ?>">
                                       Explore <?php echo $s['title']; ?>
                                           <svg>
-                                              <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-right"></use>
+                                              <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
                                           </svg>
                                       </a>
                                   </div>
