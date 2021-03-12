@@ -933,9 +933,13 @@ h5 {
     letter-spacing: .2rem; }
     .goto-button--small svg {
       height: 1.3rem;
-      width: 1.3rem; }
+      width: 1.3rem;
+      stroke-width: 1;
+      stroke: currentColor; }
   .goto-button--dark {
     color: #142838; }
+  .goto-button--hero {
+    color: currentColor; }
 
 .btn-cta-square {
   color: #fff;
@@ -4653,6 +4657,10 @@ h5 {
           animation: slideFade 1s both;
           animation-timing-function: ease-out;
           animation-delay: .5s; }
+          .destination-hero__content__location__slider .slick-active .goto-button {
+            animation: slideFade 1s both;
+            animation-timing-function: ease-out;
+            animation-delay: 1s; }
         .destination-hero__content__location__slider__item__title {
           text-transform: uppercase;
           letter-spacing: 0.3rem;
@@ -4670,18 +4678,7 @@ h5 {
         .destination-hero__content__location__slider__item__text {
           line-height: 3.5rem; }
         .destination-hero__content__location__slider__item__cta {
-          padding-top: 3rem; }
-          .destination-hero__content__location__slider__item__cta a:link,
-          .destination-hero__content__location__slider__item__cta a:visited {
-            text-transform: uppercase;
-            letter-spacing: 0.4rem;
-            text-decoration: none;
-            color: currentColor;
-            font-weight: 600;
-            font-size: 1.4rem; }
-            .destination-hero__content__location__slider__item__cta a:link:hover,
-            .destination-hero__content__location__slider__item__cta a:visited:hover {
-              color: #d4dfe8; }
+          padding-top: 4rem; }
         .destination-hero__content__location__slider__arrow-left {
           position: absolute;
           bottom: -4rem;

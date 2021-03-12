@@ -630,11 +630,18 @@
     & svg {
       height: 1.3rem;
       width: 1.3rem;
+      stroke-width: 1;
+      stroke: currentColor;
+      
     }
   }
 
   &--dark {
     color: $color-primary;
+  }
+
+  &--hero {
+    color: currentColor;
   }
 
 
@@ -683,4 +690,6 @@
     fill: currentColor;
     transition: all .1s;
   }
+
+  
 }

@@ -26,10 +26,10 @@
           <?php foreach ($sliderContent as $s) :
                 $sliderImage = $s['image'];
             ?>
-            <div class="destination-hero__bg-slider__slide animated">
-                <img src="<?php echo esc_url($sliderImage['url']); ?>" alt="">
-            </div>
-              
+              <div class="destination-hero__bg-slider__slide animated">
+                  <img src="<?php echo esc_url($sliderImage['url']); ?>" alt="">
+              </div>
+
           <?php endforeach; ?>
       </div>
       <div class="destination-hero__content">
@@ -208,7 +208,13 @@
                               </div>
                               <?php if ($s['link'] != null) : ?>
                                   <div class="destination-hero__content__location__slider__item__cta">
-                                      <a href="<?php echo $s['link']; ?>">Explore <?php echo $s['title']; ?></a>
+
+                                      <a class="goto-button goto-button--hero goto-button--small hero-link" href="<?php echo $s['link']; ?>">
+                                      Explore <?php echo $s['title']; ?>
+                                          <svg>
+                                              <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-right"></use>
+                                          </svg>
+                                      </a>
                                   </div>
                               <?php endif; ?>
                           </div>

@@ -85,7 +85,9 @@
             
           }
 
-          & .slick-slide[aria-hidden="true"] img { visibility: hidden; }
+        & .slick-slide[aria-hidden="true"] img { 
+            visibility: hidden; 
+        }
      
         &:after {
             //gradient overlay
@@ -512,6 +514,13 @@
                 animation: slideFade 1s both;
                 animation-timing-function: ease-out;
                 animation-delay: .5s;
+
+
+                & .goto-button {
+                    animation: slideFade 1s both;
+                    animation-timing-function: ease-out;
+                    animation-delay: 1s;
+                }
                }
 
                 &__item {
@@ -537,19 +546,7 @@
                     }
 
                     &__cta {
-                        padding-top: 3rem;
-                        & a:link,
-                        a:visited {
-                            text-transform: uppercase;
-                            letter-spacing: 0.4rem;
-                            text-decoration: none;
-                            color: currentColor;
-                            font-weight: 600;
-                            font-size: 1.4rem;
-                            &:hover {
-                                color: $color-supporting-selection;
-                            }
-                        }
+                        padding-top: 4rem;
                     }
                 }
 

@@ -154,12 +154,12 @@ jQuery(document).ready(function ($) {
         draggable: false,
         fade: true,
         arrows: false,
-  
+
         speed: 800
     });
 
     //$('#destination-hero__bg-slider').slick('slickGoTo', 1);
-    
+
 
 
 
@@ -182,7 +182,7 @@ jQuery(document).ready(function ($) {
         arrows: true,
         draggable: false,
         fade: true,
-        
+
         prevArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
         nextArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
     }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
@@ -205,8 +205,13 @@ jQuery(document).ready(function ($) {
     $slick = $('.destination-hero__content__location__slider');
     $bar = $('.destination-hero__content__location__progress__bar .progress');
 
-   
-    
+    const heroLinks = [...document.querySelectorAll('.hero-link')];
+    heroLinks.forEach(item => {
+        item.addEventListener('click', () => {
+            isPause = true;
+
+        });
+    })
 
     function startProgressbar() {
         resetProgressbar();
