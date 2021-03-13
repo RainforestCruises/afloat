@@ -76,7 +76,7 @@ $hotels = get_field('hotels');
         <?php endforeach; ?>
     <?php endif; ?>
 
-            
+
     <div class="<?php echo ($properties) ? 'sub-divider' : 'page-divider u-margin-bottom-small'; ?>">
         Hotel Options
     </div>
@@ -96,13 +96,13 @@ $hotels = get_field('hotels');
                     $priceLevelPost = get_field('price_level',  $hotelPost);
                     $hotelLocations = get_field('locations', $hotelPost);
 
-                    $hotelCity = null;     
-                    if($hotelLocations){
+                    $hotelCity = null;
+                    if ($hotelLocations) {
                         $hotelCity = $hotelLocations[0];
                     }
 
                     $hotelPriceLevel = null;
-                    if($priceLevelPost){
+                    if ($priceLevelPost) {
                         $hotelPriceLevel = get_the_title($priceLevelPost);
                     }
 
@@ -113,12 +113,15 @@ $hotels = get_field('hotels');
                             <div class="card-square__title-group__level">
                                 <?php echo $hotelPriceLevel; ?>
                             </div>
-                            <div class="card-square__title-group__name">
-                                <?php echo  $hotelTitle ?>
+                            <div>
+                                <div class="card-square__title-group__name">
+                                    <?php echo  $hotelTitle ?>
+                                </div>
+                                <div class="card-square__title-group__subtext">
+                                    <?php echo get_field('navigation_title', $hotelCity) ?>
+                                </div>
                             </div>
-                            <div class="card-square__title-group__subtext">
-                                <?php echo get_field('navigation_title', $hotelCity) ?>
-                            </div>
+
                         </div>
                         <img class="card-square__image" src="<?php echo $featured_image['url']; ?>" alt="">
                     </div>

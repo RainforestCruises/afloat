@@ -70,19 +70,18 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-  height: 100%;
-  height: -webkit-fill-available; }
-  @media only screen and (max-width: 75em) {
+  height: 100%; }
+  @media only screen and (max-width: 1200px) {
     html {
-      font-size: 50%; } }
+      font-size: 50%;
+      -webkit-text-size-adjust: none; } }
 
 body {
   font-family: "Metropolis", sans-serif;
   color: #747474;
   font-weight: 400;
   line-height: 1.6;
-  height: 100%;
-  min-height: -webkit-fill-available; }
+  height: 100%; }
 
 .heading-1, .heading-2, .heading-3, .heading-4, .heading-5 {
   font-family: "Metropolis", sans-serif;
@@ -6890,7 +6889,7 @@ h5 {
     width: 100%;
     height: 100%;
     z-index: 2;
-    background-image: linear-gradient(to top, rgba(30, 30, 30, 0.7), rgba(30, 30, 30, 0) 80%); }
+    background-image: linear-gradient(to top, rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0) 40%), linear-gradient(to bottom, rgba(30, 30, 30, 0.2), rgba(30, 30, 30, 0) 20%); }
   .card-square__image {
     grid-column: 1 / -1;
     grid-row: 1 / 1;
@@ -6907,14 +6906,14 @@ h5 {
   .card-square__title-group {
     grid-column: 1 / -1;
     grid-row: 1 / 1;
-    margin-bottom: 1.4rem;
-    align-self: end;
     display: flex;
     flex-direction: column;
     z-index: 5;
     align-items: center;
+    justify-content: space-between;
     text-align: center;
-    padding: 0 .5rem; }
+    padding: 1.5rem 0.5rem;
+    height: 100%; }
     .card-square__title-group__level {
       display: block;
       font-size: 1rem;
