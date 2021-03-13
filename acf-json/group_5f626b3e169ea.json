@@ -376,6 +376,25 @@
             "delay": 0
         },
         {
+            "key": "field_604d44e3b09a9",
+            "label": "Tour Experience Title Subtext",
+            "name": "tour_experience_title_subtext",
+            "type": "wysiwyg",
+            "instructions": "Snippet under the Experiences title",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_5fce8379a3ff4",
             "label": "Tour Experiences",
             "name": "tour_experiences",
@@ -1122,5 +1141,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1615403094
+    "modified": 1615676687
 }

@@ -28,8 +28,15 @@
         grid-column: col-end 4 / -1;
         grid-row: 1 / span 3;
 
+        @media only screen and (max-width: $bp-largest) {
+            & img {
+                max-height: 80rem;
+            }
+        }
         @media only screen and (max-width: $bp-medium) {
-            display: none;
+            & img {
+                display: none;
+            }
         }
     }
 
@@ -200,7 +207,7 @@
         &__best-selling {
             display: flex;
             justify-content: center;
-            margin-bottom: 6rem;
+            margin-bottom: 2rem;
             
             &__slider {
                 max-width: 140rem;
@@ -262,11 +269,11 @@
                 }
 
                 & .slick-current {
-                    & .tours-card__content {
+                    & .wide-slider-card__content {
                         opacity: 1;
                     }
 
-                    & .tours-card::after {
+                    & .wide-slider-card::after {
                         opacity: 0;
                     }
                 }

@@ -26,8 +26,8 @@
           <?php foreach ($sliderContent as $s) :
                 $sliderImage = $s['image'];
             ?>
-              <div class="destination-hero__bg-slider__slide animated">
-                  <img src="<?php echo esc_url($sliderImage['url']); ?>" alt="">
+              <div class="destination-hero__bg-slider__slide">
+                <img <?php afloat_responsive_image($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
               </div>
 
           <?php endforeach; ?>

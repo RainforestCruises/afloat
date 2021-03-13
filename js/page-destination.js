@@ -141,10 +141,6 @@ jQuery(document).ready(function ($) {
     //END SINGLE PAGE NAV
 
 
-
-
-
-
     //SLIDERS
     $('#destination-hero__bg-slider').slick({
         slidesToShow: 1,
@@ -155,12 +151,8 @@ jQuery(document).ready(function ($) {
         fade: true,
         arrows: false,
 
-        speed: 800
+        speed: 1800
     });
-
-    //$('#destination-hero__bg-slider').slick('slickGoTo', 1);
-
-
 
 
     //location slider

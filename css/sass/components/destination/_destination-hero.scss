@@ -70,24 +70,21 @@
                 width: 100%;
                 z-index: 0;
 
-                //transition: all 6s ease-out;
-                //transform: scale(1.04);
-                //transform-origin: top;
-
             }
    
         }
 
-        & .slick-active img {
+        ////----ZOOM EFFECT
+        // & .slick-active img {
 
-            animation: zoomEffect 9s forwards;
-            animation-timing-function: ease-out;
+        //     animation: zoomEffect 9s forwards;
+        //     animation-timing-function: ease-out;
             
-          }
+        //   }
 
-        & .slick-slide[aria-hidden="true"] img { 
-            visibility: hidden; 
-        }
+        // & .slick-slide[aria-hidden="true"] img { 
+        //     visibility: hidden; 
+        // }
      
         &:after {
             //gradient overlay
@@ -133,6 +130,10 @@
         @media only screen and (max-width: $bp-large) {
             grid-template-columns: 1fr;
             grid-template-rows: 1fr;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            padding-bottom: 2rem;
         }
 
 

@@ -82,26 +82,26 @@ $count = 0;
                 ?>
 
                     <!-- Tour Card -->
-                    <a class="experience-card" href="<?php echo $d['search_link'] ?>">
-                        <div class="experience-card__image">
+                    <a class="wide-slider-card" href="<?php echo $d['search_link'] ?>">
+                        <div class="wide-slider-card__image">
                             <img  <?php afloat_responsive_image($cardImage['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?> alt="">
                         </div>
 
 
-                        <div class="experience-card__content">
-                            <div class="experience-card__content__tag-area">
+                        <div class="wide-slider-card__content">
+                            <div class="wide-slider-card__content__tag-area">
                                 <?php if ($d['tag'] != "") : ?>
-                                    <div class="experience-card__content__tag-area__tag">
+                                    <div class="wide-slider-card__content__tag-area__tag">
                                         <?php echo $d['tag'] ?>
                                     </div>
                                 <?php endif; ?>
                             </div>
-                            <div class="experience-card__content__text-area">
-                                <div class="experience-card__content__text-area__title">
+                            <div class="wide-slider-card__content__text-area">
+                                <div class="wide-slider-card__content__text-area__title">
                                     <?php echo get_field('navigation_title', $destinationPost) ?>
                                 </div>
-                                <div class="experience-card__content__text-area__info">
-                                    <div class="experience-card__content__text-area__info__length">
+                                <div class="wide-slider-card__content__text-area__info">
+                                    <div class="wide-slider-card__content__text-area__info__length">
                                         <?php echo tours_available($destinationPost, $experience) ?> Tours /
                                         <?php echo cruises_available_experience($destinationPost, $experience) ?> Cruises Available
                                     </div>
