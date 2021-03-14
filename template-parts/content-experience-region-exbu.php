@@ -82,25 +82,25 @@ $count = 0;
                 ?>
 
                     <!-- Tour Card -->
-                    <a class="experience-card" href="<?php echo get_permalink($t); ?>">
+                    <a class="wide-slider-card" href="<?php echo get_permalink($t); ?>">
                         
-                        <div class="experience-card__image">
+                        <div class="wide-slider-card__image">
                             <?php if ($hero_image) : ?>
                                 <img <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?> alt="">
                             <?php endif; ?>
                         </div>
 
 
-                        <div class="experience-card__content">
-                            <div class="experience-card__content__tag-area">
+                        <div class="wide-slider-card__content">
+                            <div class="wide-slider-card__content__tag-area">
                             
                             </div>
-                            <div class="experience-card__content__text-area">
-                                <div class="experience-card__content__text-area__title">
+                            <div class="wide-slider-card__content__text-area">
+                                <div class="wide-slider-card__content__text-area__title">
                                     <?php echo get_field('tour_name', $t) ?>
                                 </div>
-                                <div class="experience-card__content__text-area__info">
-                                    <div class="experience-card__content__text-area__info__length">
+                                <div class="wide-slider-card__content__text-area__info">
+                                    <div class="wide-slider-card__content__text-area__info__length">
                                         <?php echo get_field('length', $t) ?>-Day Tour
                                     </div>
                                 </div>
