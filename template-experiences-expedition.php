@@ -21,7 +21,7 @@ get_header();
     <!-- Sections -->
     <section class="experience-page__section-region">
         <?php
-        get_template_part('template-parts/content', 'experience-region-exbu');
+        get_template_part('template-parts/content', 'experience-region-expedition');
         ?>
     </section>
 

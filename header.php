@@ -153,7 +153,7 @@ foreach ($menuitems as $m) {
             <div class="nav-mega__nav nav-mega__nav--destinations">
                 <?php foreach ($menu_destination_groups as $destination_group) : ?>
                     <div class="nav-mega__nav__sub-group">
-                        <div class="nav-mega__nav__sub-group__title"><?php echo $destination_group['title'] ?></div>
+                        <a class="nav-mega__nav__sub-group__title" href="<?php echo $destination_group['url'] ?>"><?php echo $destination_group['title'] ?></a>
                         <ul class="nav-mega__nav__sub-group__list">
                             <?php $destinationsArray = $destination_group['destinations']; ?>
                             <?php foreach ($destinationsArray as $destinationMenuItem) : ?>
