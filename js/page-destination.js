@@ -134,7 +134,7 @@ jQuery(document).ready(function ($) {
 
     function getTargetTop(elem) {
         var id = elem.attr("href");
-        var offset = 60;
+        var offset = 70;
 
         return $(id).offset().top - offset;
     }
@@ -174,7 +174,7 @@ jQuery(document).ready(function ($) {
         arrows: true,
         draggable: false,
         fade: true,
-
+        speed: 1800,
         prevArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
         nextArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
     }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
@@ -209,7 +209,7 @@ jQuery(document).ready(function ($) {
         resetProgressbar();
         percentTime = 0;
         isPause = false;
-        tick = setInterval(interval, 45); //dictates speed
+        tick = setInterval(interval, 60); //dictates speed
     }
 
     function interval() {
@@ -267,6 +267,7 @@ jQuery(document).ready(function ($) {
         slidesToScroll: 1,
         dots: false,
         arrows: true,
+        //variableWidth: true,
         prevArrow: '<button class="btn-circle btn-dark btn-circle--left related-slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
         nextArrow: '<button class="btn-circle btn-dark btn-circle--right related-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
         responsive: [

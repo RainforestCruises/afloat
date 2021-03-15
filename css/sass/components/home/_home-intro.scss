@@ -19,8 +19,11 @@
 
         &__img {
             object-fit: contain;
-            width: 50rem;
-            height: auto;
+            width: 40rem;
+            height: 60rem;
+            @media only screen and (max-width: $bp-largest) {
+                justify-self: center;
+            }
 
             @media only screen and (max-width: $bp-large) {
                 display: none;

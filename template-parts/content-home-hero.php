@@ -16,7 +16,9 @@
 
   <!--  Hero -->
   <div class="home-hero">
-      <img src="<?php echo esc_url($hero_image['url']); ?>" alt="" class="home-hero__bg">
+      <?php if ($hero_image) : ?>
+          <img <?php afloat_responsive_image($hero_image['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> class="home-hero__bg" alt="">
+      <?php endif; ?>
       <div class="home-hero__content">
           <div class="home-hero__content__title-group">
               <div class="home-hero__content__title-group__title">
@@ -44,7 +46,7 @@
                       </div>
                       <div class="home-hero__content__search-form__inputs__form-group__input-group">
                           <label for="destination" class="home-hero__content__search-form__inputs__form-group__input-group__label" id="chosen-value-label">Destination</label>
-                          <input class="home-destination-select" id="destination" type="text" value="" placeholder="Where would you like to go?" autocomplete="off" >
+                          <input class="home-destination-select" id="destination" type="text" value="" placeholder="Where would you like to go?" autocomplete="off">
 
                           <ul class="home-destination-value-list">
                               <?php foreach ($destinations as $d) : ?>
@@ -79,7 +81,7 @@
                               </div>
                               <ul class="home-date-values__months selected">
                                   <li month="01" name="January">Jan</li>
-                                  <li month="02" name="February" >Feb</li>
+                                  <li month="02" name="February">Feb</li>
                                   <li month="03" name="March">Mar</li>
                                   <li month="04" name="April">Apr</li>
                                   <li month="05" name="May">May</li>

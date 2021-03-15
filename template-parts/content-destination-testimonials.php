@@ -45,7 +45,9 @@ $cruises_image = get_field('cruises_image');
                             </div>
                         </div>
                         <div class="testimonial-slide__image">
-                            <img src="<?php echo esc_html($testimonialImage['url']); ?>" alt="">
+                            <?php if ($testimonialImage) : ?>
+                                <img <?php afloat_responsive_image($testimonialImage['id'], 'vertical-medium', array('vertical-medium')); ?> alt="">
+                            <?php endif; ?>
                         </div>
 
                     </div>

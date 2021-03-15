@@ -135,12 +135,8 @@
 
     &__image {
         height: 100%;
-        width: 45rem;
-        background-color: darkcyan;
+        width: 40rem;
 
-        @media only screen and (max-width: $bp-large) {
-            width: 40rem;
-        }
         @media only screen and (max-width: $bp-medium) {
             display: none;
         }

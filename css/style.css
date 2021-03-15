@@ -4677,7 +4677,8 @@ h5 {
         .destination-hero__content__location__slider__item__text {
           line-height: 3.5rem; }
         .destination-hero__content__location__slider__item__cta {
-          padding-top: 4rem; }
+          padding-top: 4rem;
+          width: max-content; }
         .destination-hero__content__location__slider__arrow-left {
           position: absolute;
           bottom: -4rem;
@@ -4980,7 +4981,7 @@ h5 {
     margin-bottom: 6rem; }
     @media only screen and (max-width: 37.5em) {
       .destination-secondary__best-selling {
-        margin: 0;
+        margin: 3rem;
         margin-bottom: 6rem; } }
     .destination-secondary__best-selling__slider {
       max-width: 114rem;
@@ -5031,8 +5032,7 @@ h5 {
     justify-content: center;
     flex-wrap: wrap;
     justify-items: center;
-    align-items: start;
-    margin-bottom: 6rem; }
+    align-items: start; }
     @media only screen and (max-width: 62.5em) {
       .destination-accommodations__group {
         grid-template-columns: 1fr; } }
@@ -5317,11 +5317,7 @@ h5 {
       text-transform: uppercase; }
   .testimonial-slide__image {
     height: 100%;
-    width: 45rem;
-    background-color: darkcyan; }
-    @media only screen and (max-width: 62.5em) {
-      .testimonial-slide__image {
-        width: 40rem; } }
+    width: 40rem; }
     @media only screen and (max-width: 50em) {
       .testimonial-slide__image {
         display: none; } }
@@ -5386,7 +5382,8 @@ h5 {
   height: 20px;
   position: relative;
   width: 20px;
-  transform: translateY(1rem); }
+  transform: translateY(1rem);
+  margin-left: 2rem; }
   .plus-minus-toggle:before, .plus-minus-toggle:after {
     background: currentColor;
     content: '';
@@ -5871,8 +5868,11 @@ h5 {
         column-gap: 6rem; } }
     .home-intro__top__img {
       object-fit: contain;
-      width: 50rem;
-      height: auto; }
+      width: 40rem;
+      height: 60rem; }
+      @media only screen and (max-width: 75em) {
+        .home-intro__top__img {
+          justify-self: center; } }
       @media only screen and (max-width: 62.5em) {
         .home-intro__top__img {
           display: none; } }
@@ -6906,7 +6906,6 @@ h5 {
   position: relative;
   z-index: 0;
   cursor: pointer;
-  width: 45rem;
   border-radius: 0.5rem;
   border: 1px solid #e6e6e6;
   grid-template-rows: 30rem minmax(20rem, min-content);
@@ -7164,7 +7163,7 @@ h5 {
     color: #40739c; }
   .accommodations-card__image {
     grid-row: 1 / span 1;
-    height: 30rem; }
+    height: 35rem; }
     .accommodations-card__image img {
       object-fit: cover;
       height: 100%;
@@ -7187,7 +7186,8 @@ h5 {
       transition: all 0.3s; }
     .accommodations-card__bottom__text {
       font-size: 1.6rem;
-      display: flex; }
+      display: flex;
+      margin-bottom: 2rem; }
 
 .lds-dual-ring {
   display: inline-block;

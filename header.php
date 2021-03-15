@@ -246,6 +246,8 @@ foreach ($menuitems as $m) {
                     </a>
 
                     <!-- Cruises -->
+                    <a href="<?php echo $destination_group['url'] ?>" class="nav-mobile__content-panel__button mobile-link">View All</a>
+
                     <?php $destinationsMenuArray = $destination_group['destinations']; ?>
                     <?php foreach ($destinationsMenuArray as $destinationMenuItem) : ?>
                         <a href="<?php echo $destinationMenuItem['url'] ?>" class="nav-mobile__content-panel__button mobile-link"><?php echo $destinationMenuItem['title'] ?></a>

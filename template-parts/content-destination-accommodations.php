@@ -14,18 +14,20 @@ $title = $args['title'];
             Accommodation
         </div>
         <div class="destination-accommodations__header__sub-text">
-        <?php echo get_field('accommodations_title_subtext') ?>
+            <?php echo get_field('accommodations_title_subtext') ?>
         </div>
     </div>
     <div class="destination-accommodations__group">
         <!-- Card -->
         <div class="accommodations-card">
             <div class="accommodations-card__image">
-                <img src="<?php echo esc_url($lodges_image['url']); ?>" alt="">
+                <?php if ($lodges_image) : ?>
+                    <img <?php afloat_responsive_image($lodges_image['id'], 'featured-medium', array('featured-medium', 'featured-small')); ?> alt="">
+                <?php endif; ?>
             </div>
             <div class="accommodations-card__bottom">
                 <div class="accommodations-card__bottom__title">
-                <?php echo $title; ?> Lodges
+                    <?php echo $title; ?> Lodges
                 </div>
                 <div class="accommodations-card__bottom__text">
                     <?php echo $lodges_snippet; ?>
@@ -35,11 +37,13 @@ $title = $args['title'];
         <!-- Card -->
         <div class="accommodations-card">
             <div class="accommodations-card__image">
-                <img src="<?php echo esc_url($cruises_image['url']); ?>" alt="">
+                <?php if ($cruises_image) : ?>
+                    <img <?php afloat_responsive_image($cruises_image['id'], 'featured-medium', array('featured-medium', 'featured-small')); ?> alt="">
+                <?php endif; ?>
             </div>
             <div class="accommodations-card__bottom">
                 <div class="accommodations-card__bottom__title">
-                <?php echo $title; ?> Cruises
+                    <?php echo $title; ?> Cruises
                 </div>
                 <div class="accommodations-card__bottom__text">
                     <?php echo $cruises_snippet; ?>
@@ -47,6 +51,6 @@ $title = $args['title'];
             </div>
         </div>
     </div>
-   
+
 
 </div>

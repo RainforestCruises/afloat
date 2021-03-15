@@ -30,7 +30,7 @@ $currentYear = date("Y");
                 <a class="product-card" href="<?php echo get_permalink($c); ?>">
                     <div class="product-card__image">
                         <?php if ($featured_image) : ?>
-                            <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
+                            <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-small', 'featured-medium')); ?> alt="">
                         <?php endif; ?>
                     </div>
                     <div class="product-card__bottom">

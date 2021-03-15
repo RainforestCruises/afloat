@@ -20,30 +20,37 @@ function afloat_config()
 add_action('after_setup_theme', 'afloat_config', 0); //last parameter is priority
 
 
-add_action( 'after_setup_theme', 'afloat_images_sizes' );
+add_action('after_setup_theme', 'afloat_images_sizes');
 
-function afloat_images_sizes() {
-    add_image_size( 'full-hero-large', 1920, 1080, true);
-    add_image_size( 'full-hero-medium', 1200, 1080, true); 
-    add_image_size( 'full-hero-small', 800, 1080, true); 
-    add_image_size( 'full-hero-xsmall', 500, 800, true); 
+function afloat_images_sizes()
+{
 
-    //landscape (ratio)
-    add_image_size( 'wide-slider-medium', 700, 380, true);
-    add_image_size( 'wide-slider-small', 500, 380, true);
+    //hero
+    add_image_size('full-hero-large', 1920, 1080, true);
+    add_image_size('full-hero-medium', 1200, 1080, true);
+    add_image_size('full-hero-small', 800, 1080, true);
+    add_image_size('full-hero-xsmall', 500, 800, true);
 
+    //landscape
+    add_image_size('wide-slider-medium', 700, 380, true);
+    add_image_size('wide-slider-small', 500, 380, true);
 
-    add_image_size( 'vertical-large', 500, 700, true); 
-    add_image_size( 'vertical-medium', 400, 600, true); 
-    add_image_size( 'vertical-small', 285, 320, true); 
+    //portrait
+    add_image_size('vertical-medium', 400, 600, true);
 
-    add_image_size( 'square-large', 600, 500, true); 
-    add_image_size( 'square-medium', 500, 400, true); 
-    add_image_size( 'square-small', 280, 400, true); 
+    //pills
+    add_image_size('pill-large', 1100, 350, true);
+    add_image_size('pill-small', 550, 175, true);
 
+    //featured
+    add_image_size('featured-largest', 1000, 600, true);
+    add_image_size('featured-large', 650, 425, true);
+    add_image_size('featured-medium', 500, 350, true);
+    add_image_size('featured-small', 400, 260, true);
 
-    add_image_size( 'featured-medium', 600, 400, true); 
-    add_image_size( 'featured-small', 350, 300, true); 
+    //logo
+    //add_image_size('logo-vertical', 120, 100, true);
+    //add_image_size('logo-horizontal', 165, 45, true);
 
 
 }

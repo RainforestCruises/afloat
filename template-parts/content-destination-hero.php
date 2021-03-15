@@ -27,7 +27,9 @@
                 $sliderImage = $s['image'];
             ?>
               <div class="destination-hero__bg-slider__slide">
-                <img <?php afloat_responsive_image($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
+                  <?php if ($sliderImage) : ?>
+                      <img <?php afloat_responsive_image($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
+                  <?php endif; ?>
               </div>
 
           <?php endforeach; ?>
@@ -210,7 +212,7 @@
                                   <div class="destination-hero__content__location__slider__item__cta">
 
                                       <a class="goto-button goto-button--hero goto-button--small hero-link" href="<?php echo $s['link']; ?>">
-                                      Explore <?php echo $s['title']; ?>
+                                          Explore <?php echo $s['title']; ?>
                                           <svg>
                                               <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
                                           </svg>

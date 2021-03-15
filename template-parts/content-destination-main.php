@@ -119,8 +119,6 @@ console_log($locations);
             </div>
         </div>
 
-
-
         <!-- Best Selling -->
         <div class="destination-main__packages__best-selling">
             <div class="destination-main__packages__best-selling__slider" id="main-slider">
@@ -141,7 +139,7 @@ console_log($locations);
                         <a class="wide-slider-card" href="<?php echo get_permalink($t); ?>">
                             <?php if ($hero_image) : ?>
                                 <div class="wide-slider-card__image">
-                                    <img  <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?> alt="">
+                                    <img <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?> alt="">
                                 </div>
                             <?php endif; ?>
 
@@ -206,7 +204,9 @@ console_log($locations);
         ?>
                 <a class="category-card" href="<?php echo $search_link ?>">
                     <div class="category-card__image">
-                        <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
+                        <?php if ($background_image) : ?>
+                            <img <?php afloat_responsive_image($background_image['id'], 'pill-large', array('pill-large', 'pill-small')); ?> alt="">
+                        <?php endif; ?>
                     </div>
 
                     <div class="category-card__content">
@@ -236,7 +236,7 @@ console_log($locations);
         <?php if ($tour_lengths) : ?>
             <?php foreach ($tour_lengths as $length) :
                 $link = $length['link'];
-                $buttonText = $length['button_text'];            
+                $buttonText = $length['button_text'];
             ?>
                 <a class="btn-outline" href="<?php echo $link; ?>"><?php echo $buttonText ?></a>
         <?php endforeach;

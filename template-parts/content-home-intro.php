@@ -23,7 +23,8 @@ $intro_testimonials = get_field('intro_testimonials');
 
 <div class="home-intro">
     <div class="home-intro__top">
-        <img class="home-intro__top__img" src="<?php echo $intro_image['url']; ?>" alt="">
+        <img <?php afloat_responsive_image($intro_image['id'], 'vertical-medium', array('vertical-medium')); ?> alt="" class="home-intro__top__img">
+
         <div class="home-intro__top__content">
             <div class="home-intro__top__content__pretitle">
                 <?php echo get_field('intro_pretitle'); ?>

@@ -111,7 +111,7 @@ console_log($activities);
                     <a class="product-card" href="<?php echo get_permalink($c); ?>">
                         <?php if ($featured_image) { ?>
                             <div class="product-card__image">
-                                <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
+                                <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-small', 'featured-medium')); ?> alt="">
                             </div>
                         <?php } ?>
                         <div class="product-card__bottom">
@@ -208,7 +208,9 @@ console_log($activities);
         ?>
                 <a class="category-card" href="<?php echo $search_link ?>">
                     <div class="category-card__image">
-                        <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
+                        <?php if ($background_image) : ?>
+                            <img <?php afloat_responsive_image($background_image['id'], 'pill-large', array('pill-large', 'pill-small')); ?> alt="">
+                        <?php endif; ?>
                     </div>
 
                     <div class="category-card__content">
@@ -230,10 +232,10 @@ console_log($activities);
 
 
     <div class="destination-main__lengths">
-    <?php if ($cruise_lengths) : ?>
+        <?php if ($cruise_lengths) : ?>
             <?php foreach ($cruise_lengths as $length) :
                 $link = $length['link'];
-                $buttonText = $length['button_text'];            
+                $buttonText = $length['button_text'];
             ?>
                 <a class="btn-outline" href="<?php echo $link; ?>"><?php echo $buttonText ?></a>
         <?php endforeach;
