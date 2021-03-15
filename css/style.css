@@ -7310,7 +7310,7 @@ h5 {
         color: #fff;
         letter-spacing: 0.3rem;
         font-size: 1.5rem;
-        border: none;
+        border: 2px solid currentColor;
         text-transform: uppercase; }
         @media only screen and (max-width: 37.5em) {
           .newsletter__content__email__button {
