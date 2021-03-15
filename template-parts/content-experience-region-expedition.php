@@ -75,41 +75,39 @@ $count = 0;
                     foreach ($tours as $tour) :
                         $t = $tour['tour_post'];
                         $best_selling = get_field('best_selling', $t);
-
-                        if ($best_selling) :
-                            $hero_image = get_field('best_selling_image', $t);
-                            $countries  = get_field('destinations', $t);
-                            $price_packages = get_field('price_packages', $t);
-                            $lowest = lowest_tour_price($price_packages, $currentYear);
+                        $hero_image = get_field('best_selling_image', $t);
+                        $countries  = get_field('destinations', $t);
+                        $price_packages = get_field('price_packages', $t);
+                        $lowest = lowest_tour_price($price_packages, $currentYear);
                 ?>
 
-                            <!-- Tour Card -->
-                            <a class="wide-slider-card" href="<?php echo get_permalink($t); ?>">
+                        <!-- Tour Card -->
+                        <a class="wide-slider-card" href="<?php echo get_permalink($t); ?>">
 
-                                <div class="wide-slider-card__image">
-                                    <?php if ($hero_image) : ?>
-                                        <img <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?> alt="">
-                                    <?php endif; ?>
+                            <div class="wide-slider-card__image">
+                                <?php if ($hero_image) : ?>
+                                    <img <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?> alt="">
+                                <?php endif; ?>
+                            </div>
+
+
+                            <div class="wide-slider-card__content">
+                                <div class="wide-slider-card__content__tag-area">
+
                                 </div>
-
-
-                                <div class="wide-slider-card__content">
-                                    <div class="wide-slider-card__content__tag-area">
-
+                                <div class="wide-slider-card__content__text-area">
+                                    <div class="wide-slider-card__content__text-area__title">
+                                        <?php echo get_field('tour_name', $t) ?>
                                     </div>
-                                    <div class="wide-slider-card__content__text-area">
-                                        <div class="wide-slider-card__content__text-area__title">
-                                            <?php echo get_field('tour_name', $t) ?>
-                                        </div>
-                                        <div class="wide-slider-card__content__text-area__info">
-                                            <div class="wide-slider-card__content__text-area__info__length">
-                                                <?php echo get_field('length', $t) ?>-Day Tour
-                                            </div>
+                                    <div class="wide-slider-card__content__text-area__info">
+                                        <div class="wide-slider-card__content__text-area__info__length">
+                                            <?php echo get_field('length', $t) ?>-Day Tour
                                         </div>
                                     </div>
                                 </div>
-                            </a>
-                <?php endif;
+                            </div>
+                        </a>
+                <?php
                     endforeach;
                 endif; ?>
             </div>
