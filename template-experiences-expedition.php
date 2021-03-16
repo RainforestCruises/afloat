@@ -5,6 +5,9 @@ wp_enqueue_script('page-experience', get_template_directory_uri() . '/js/page-ex
 
 <?php
 get_header();
+
+$show_features = get_field('show_features');
+
 ?>
 
 
@@ -18,8 +21,17 @@ get_header();
     </section>
 
 
+    <!-- Intro -->
+    <section class="experience-page__section-intro" id="intro">
+        <?php
+        if ($show_features) :
+            get_template_part('template-parts/content', 'experience-intro');
+        endif;
+        ?>
+    </section>
+
     <!-- Sections -->
-    <section class="experience-page__section-region" id="intro">
+    <section class="experience-page__section-region">
         <?php
         get_template_part('template-parts/content', 'experience-region-expedition');
         ?>

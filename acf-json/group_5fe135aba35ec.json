@@ -228,8 +228,48 @@
             "delay": 0
         },
         {
+            "key": "field_6050d72213552",
+            "label": "Highlights",
+            "name": "highlights",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_6050d73413554",
+                    "label": "Highlight",
+                    "name": "highlight",
+                    "type": "wysiwyg",
+                    "instructions": "Short highlight snippets",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
+                }
+            ]
+        },
+        {
             "key": "field_5ff34bec49cfb",
-            "label": "Locations List",
+            "label": "Locations List (deprecated)",
             "name": "locations_list",
             "type": "repeater",
             "instructions": "List below the folder, right of intro. Conventionally ordered alphabetically",
@@ -269,7 +309,7 @@
         },
         {
             "key": "field_5ff34c2f49cfd",
-            "label": "Activities List",
+            "label": "Activities List (deprecated)",
             "name": "activities_list",
             "type": "repeater",
             "instructions": "List below the folder, right of intro",
@@ -1020,5 +1060,5 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1615477114
+    "modified": 1615910815
 }

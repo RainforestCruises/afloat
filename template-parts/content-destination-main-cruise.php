@@ -18,7 +18,6 @@ $background_map = get_field('background_map');
 $highlights = get_field('highlights');
 
 $cruise_experiences = get_field('cruise_experiences');
-console_log($activities);
 
 ?>
 
@@ -39,44 +38,27 @@ console_log($activities);
             <div class="destination-main__intro__description__text">
                 <?php echo get_field('intro_text') ?>
             </div>
-
+            <?php if ($highlights) : ?>
+                <div class="destination-main__intro__description__highlights-title">
+                    Highlights
+                </div>
+                <ul class="destination-main__intro__description__highlights">
+                    <?php
+                    foreach ($highlights as $h) : ?>
+                        <li>
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
+                            </svg>
+                            <span>
+                                <?php echo $h['highlight'] ?>
+                            </span>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
 
         </div>
-        <div class="destination-main__intro__lists">
-            <div class="destination-main__intro__lists__locations">
-                <div class="destination-main__intro__lists__locations__title">
-                    Destinations
-                </div>
-                <ul class="destination-main__intro__lists__locations__list">
-                    <?php if ($locations) : ?>
-                        <?php foreach ($locations as $l) : ?>
-                            <?php $location =  $l['location']; ?>
-                            <li>
-                                <a href="#"><?php echo $location; ?></a>
-                            </li>
-                    <?php endforeach;
-                    endif; ?>
-
-                </ul>
-
-            </div>
-            <div class="destination-main__intro__lists__experiences">
-                <div class="destination-main__intro__lists__experiences__title">
-                    Things to do
-                </div>
-                <ul class="destination-main__intro__lists__experiences__list">
-                    <?php if ($activities) : ?>
-                        <?php foreach ($activities as $a) : ?>
-                            <?php $activity =  $a['activity']; ?>
-                            <li>
-                                <a href="#"><?php echo ($activity->navigation_title); ?></a>
-                            </li>
-                    <?php endforeach;
-                    endif; ?>
-                </ul>
-            </div>
-
-        </div>
+        
     </div>
 
     <!-- Cruises -->

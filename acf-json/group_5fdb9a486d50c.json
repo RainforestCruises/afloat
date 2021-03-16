@@ -293,8 +293,8 @@
                     "key": "field_5fe21be67f39c",
                     "label": "Highlight",
                     "name": "highlight",
-                    "type": "text",
-                    "instructions": "",
+                    "type": "wysiwyg",
+                    "instructions": "Short highlight snippets, can link text",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -303,10 +303,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
                 }
             ]
         },
@@ -1086,5 +1086,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1615677010
+    "modified": 1615910504
 }

@@ -42,7 +42,9 @@
                 stroke-width: 3;
                 height: 5rem;
                 width: 5rem;
-                color: $color-primary;
+                color: $color-primary !important;
+                fill: $color-primary !important;
+                stroke: $color-primary !important;
             }
         }
 

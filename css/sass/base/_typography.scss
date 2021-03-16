@@ -151,8 +151,8 @@ p {
 
     font-family: $font-secondary;
     color: $color-primary;
-    font-size: 6rem;
-    line-height: 7rem;
+    font-size: 4.5rem;
+    line-height: 5.5rem;
     letter-spacing: 0.3rem;
     font-weight: 500;
 
@@ -161,15 +161,17 @@ p {
     align-items: center;
     column-gap: 2.5rem;
 
+    
+
     @media only screen and (max-width: $bp-medium) {
-        font-size: 5rem;
-        line-height: 6rem;
+        font-size: 3.5rem;
+        line-height: 4.2rem;
 
     }
 
     @media only screen and (max-width: $bp-small) {
-        font-size: 4rem;
-        line-height: 5rem;
+        font-size: 3rem;
+        line-height: 3.7rem;
 
     }
 

@@ -21,17 +21,17 @@
       <?php endif; ?>
       <div class="home-hero__content">
           <div class="home-hero__content__title-group">
-              <div class="home-hero__content__title-group__title">
+              <h2 class="home-hero__content__title-group__title">
                   <?php echo $hero_title ?>
-              </div>
+              </h2>
               <div class="home-hero__content__title-group__divider">
                   <svg>
                       <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
                   </svg>
               </div>
-              <div class="home-hero__content__title-group__subtitle">
+              <h1 class="home-hero__content__title-group__subtitle">
                   <?php echo $hero_subtitle ?>
-              </div>
+              </h1>
           </div>
 
           <form class="home-hero__content__search-form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">

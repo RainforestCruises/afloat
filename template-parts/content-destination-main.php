@@ -13,7 +13,6 @@ $destinationType = $args['destinationType'];
 $background_map = get_field('background_map');
 $highlights = get_field('highlights');
 
-console_log($locations);
 
 ?>
 
@@ -29,83 +28,32 @@ console_log($locations);
         <div class="destination-main__intro__description">
             <div class="destination-main__intro__description__title">
                 <?php echo get_field('intro_title') ?>
-
             </div>
             <div class="destination-main__intro__description__text">
                 <?php echo get_field('intro_text') ?>
             </div>
 
-            <?php
-            if ($destinationType == 'region') :
-                if ($highlights) : ?>
-                    <ul class="destination-main__intro__description__highlights">
-                        <?php
-                        foreach ($highlights as $h) : ?>
-                            <li>
-                                <svg>
-                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
-                                </svg>
-                                <span>
-                                    <?php echo $h['highlight'] ?>
-                                </span>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-            <?php endif;
-            endif; ?>
-
-        </div>
-        <div class="destination-main__intro__lists">
-            <div class="destination-main__intro__lists__locations">
-                <div class="destination-main__intro__lists__locations__title">
-                    Destinations
+            <?php if ($highlights) : ?>
+                <div class="destination-main__intro__description__highlights-title">
+                    Highlights
                 </div>
-                <ul class="destination-main__intro__lists__locations__list">
+                <ul class="destination-main__intro__description__highlights">
                     <?php
-                    if ($locations) :
-                        foreach ($locations as $l) : ?>
-                            <?php $location = ($destinationType == 'region') ? $l['destination'] : $l['location'] ?>
-                            <li>
-                                <?php echo get_field('navigation_title', $location); ?>
-                            </li>
-                    <?php endforeach;
-                    endif;
-
-                    ?>
-
+                    foreach ($highlights as $h) : ?>
+                        <li>
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
+                            </svg>
+                            <span>
+                                <?php echo $h['highlight'] ?>
+                            </span>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
-
-            </div>
-            <div class="destination-main__intro__lists__experiences">
-                <div class="destination-main__intro__lists__experiences__title">
-                    <?php echo ($destinationType == 'destination') ? 'Things to do' : 'Experiences' ?>
-                </div>
-                <ul class="destination-main__intro__lists__experiences__list">
-
-                    <?php if ($destinationType == 'destination') {
-                        if ($activities) :
-                            foreach ($activities as $a) : ?>
-                                <?php $activity = $a['activity'] ?>
-                                <li>
-                                    <?php echo get_field('navigation_title', $activity); ?>
-                                </li>
-                        <?php endforeach;
-                        endif; ?>
-                        <?php } else if ($destinationType == 'region') {
-                        if (have_rows('tour_experiences')) : ?>
-                            <?php while (have_rows('tour_experiences')) : the_row();
-                                $experience = get_sub_field('experience');
-                            ?>
-                                <li>
-                                    <?php echo get_the_title($experience); ?>
-                                </li>
-                            <?php endwhile; ?>
-                    <?php endif;
-                    } ?>
-                </ul>
-            </div>
+            <?php endif; ?>
 
         </div>
+
     </div>
 
     <!-- Packages -->

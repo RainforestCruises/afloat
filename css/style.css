@@ -85,6 +85,15 @@ body {
   height: 100%;
   height: -webkit-fill-available; }
 
+p a:link, p a:visited {
+  color: #305a7c;
+  transition: all .2s;
+  text-decoration: none;
+  font-weight: 500; }
+
+p a:hover {
+  color: #40739c; }
+
 .heading-1, .heading-2, .heading-3, .heading-4, .heading-5 {
   font-family: "Metropolis", sans-serif;
   font-weight: 400; }
@@ -193,8 +202,8 @@ p {
   margin: 4rem 0;
   font-family: "Old Standard TT", serif;
   color: #142838;
-  font-size: 6rem;
-  line-height: 7rem;
+  font-size: 4.5rem;
+  line-height: 5.5rem;
   letter-spacing: 0.3rem;
   font-weight: 500;
   display: grid;
@@ -205,12 +214,12 @@ p {
     grid-column: full-start / full-end; }
   @media only screen and (max-width: 50em) {
     .page-divider {
-      font-size: 5rem;
-      line-height: 6rem; } }
+      font-size: 3.5rem;
+      line-height: 4.2rem; } }
   @media only screen and (max-width: 37.5em) {
     .page-divider {
-      font-size: 4rem;
-      line-height: 5rem; } }
+      font-size: 3rem;
+      line-height: 3.7rem; } }
   @media only screen and (max-width: 25em) {
     .page-divider {
       font-size: 2.5rem;
@@ -4746,41 +4755,71 @@ h5 {
     grid-row: 1 / span 1;
     z-index: 10;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr;
     column-gap: 8rem;
     padding: 8rem 0;
     font-size: 1.6rem; }
     @media only screen and (max-width: 50em) {
       .destination-main__intro {
-        grid-template-columns: 1fr;
         row-gap: 4rem;
-        text-align: center;
         padding: 4rem 0; } }
     .destination-main__intro__description__title {
-      font-size: 4rem;
-      line-height: 5rem;
+      font-size: 3.5rem;
+      line-height: 4.3rem;
       color: #142838;
       letter-spacing: 0.2rem;
       font-weight: 700;
-      margin-bottom: 2rem; }
+      margin-bottom: 2rem;
+      width: 70%; }
+      @media only screen and (max-width: 50em) {
+        .destination-main__intro__description__title {
+          text-align: center;
+          width: 100%; } }
     .destination-main__intro__description__text {
       line-height: 3.2rem;
-      margin-bottom: 2.5rem; }
+      margin-bottom: 5rem;
+      width: 70%; }
+      @media only screen and (max-width: 50em) {
+        .destination-main__intro__description__text {
+          text-align: center;
+          width: 100%; } }
+    .destination-main__intro__description__highlights-title {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: .2rem;
+      font-weight: 600;
+      color: #142838;
+      margin-bottom: 2rem; }
+      @media only screen and (max-width: 50em) {
+        .destination-main__intro__description__highlights-title {
+          text-align: center; } }
     .destination-main__intro__description__highlights {
-      line-height: 3.2rem;
-      list-style: none; }
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 2rem; }
+      @media only screen and (max-width: 50em) {
+        .destination-main__intro__description__highlights {
+          max-width: 85%;
+          margin: 0 auto; } }
+      @media only screen and (max-width: 37.5em) {
+        .destination-main__intro__description__highlights {
+          grid-template-columns: 1fr; } }
       .destination-main__intro__description__highlights li {
-        display: flex; }
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        margin-bottom: 1.2rem; }
         .destination-main__intro__description__highlights li svg {
           align-self: flex-start;
-          margin-right: .5rem;
-          margin-top: .5rem;
-          height: 2rem;
-          width: 2rem;
-          fill: #142838 !important; }
-        @media only screen and (max-width: 50em) {
-          .destination-main__intro__description__highlights li {
-            justify-content: center; } }
+          margin-right: 0.7rem;
+          height: 2.2rem;
+          width: 2.2rem;
+          fill: #142838 !important;
+          color: #142838 !important;
+          stroke-width: 3; }
+        .destination-main__intro__description__highlights li span p {
+          font-size: 1.4rem;
+          line-height: 2.4rem; }
     .destination-main__intro__lists {
       display: grid;
       grid-template-columns: 1fr;
@@ -4809,7 +4848,7 @@ h5 {
             padding: 1rem 0;
             text-decoration: none;
             color: currentColor;
-            transition: all .3s; }
+            transition: all 0.3s; }
             .destination-main__intro__lists__locations__list li a:hover {
               color: #40739c; }
       .destination-main__intro__lists__experiences__title {
@@ -4889,7 +4928,7 @@ h5 {
           margin: 0 1.5rem; }
           @media only screen and (max-width: 50em) {
             .destination-main__packages__best-selling__slider .slick-slide {
-              margin: 0 .75rem; } }
+              margin: 0 0.75rem; } }
         .destination-main__packages__best-selling__slider .slick-list {
           padding: 0 25% !important; }
           @media only screen and (max-width: 62.5em) {
@@ -4914,7 +4953,7 @@ h5 {
     font-size: 3rem;
     text-transform: uppercase;
     color: #142838;
-    letter-spacing: .3rem;
+    letter-spacing: 0.3rem;
     font-weight: 600;
     z-index: 10; }
     .destination-main__experiences-title::before {
@@ -6756,7 +6795,9 @@ h5 {
         stroke-width: 3;
         height: 5rem;
         width: 5rem;
-        color: #142838; }
+        color: #142838 !important;
+        fill: #142838 !important;
+        stroke: #142838 !important; }
     .experience-intro__feature__title {
       text-transform: uppercase;
       color: #142838;
