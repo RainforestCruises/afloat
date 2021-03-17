@@ -7,6 +7,11 @@
     display: grid;
     grid-template-columns: $page-container;
     grid-template-rows: 9rem 1fr;
+
+    @media only screen and (max-width: $bp-large) {
+        grid-template-rows: 7rem 1fr;
+    }
+
     height: 100%;
 
     min-height: 100vh;
@@ -24,7 +29,7 @@
         object-fit: cover;
 
         height: 100%;
-        width: 100%; 
+        width: 100%;
         z-index: 1;
         max-height: 100vh;
 
@@ -69,9 +74,7 @@
                 height: 100%;
                 width: 100%;
                 z-index: 0;
-
             }
-   
         }
 
         ////----ZOOM EFFECT
@@ -79,13 +82,13 @@
 
         //     animation: zoomEffect 9s forwards;
         //     animation-timing-function: ease-out;
-            
+
         //   }
 
-        // & .slick-slide[aria-hidden="true"] img { 
-        //     visibility: hidden; 
+        // & .slick-slide[aria-hidden="true"] img {
+        //     visibility: hidden;
         // }
-     
+
         &:after {
             //gradient overlay
             content: "";
@@ -123,20 +126,18 @@
 
         column-gap: 16rem;
         row-gap: 2rem;
-        padding-bottom: 8rem;
-
-        
+        padding-bottom: 7rem;
 
         @media only screen and (max-width: $bp-large) {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
+            max-height: 100vh;
         }
-
-        // @media only screen and (max-width: $bp-small) {
-        //     padding-bottom: 2rem;
-        // }
+        @media only screen and (max-width: $bp-medium) {
+            padding-bottom: 10rem;
+        }
 
         &__breadcrumb {
             margin-top: 3rem;
@@ -144,18 +145,18 @@
             letter-spacing: 0.2rem;
 
             font-weight: 400;
-        
+
             display: flex;
-            position: relative;           
+            position: relative;
             list-style: none;
             height: max-content;
             width: max-content;
 
             @media only screen and (max-width: $bp-large) {
                 justify-self: center;
-                //display: none;
-
             }
+
+           
 
             & li {
                 display: inline-block;
@@ -164,38 +165,34 @@
                     content: " / ";
                     //padding-left: 1px;
                     padding-right: 4px;
-                } 
+                }
 
                 & a {
                     position: relative;
                     text-decoration: none;
                     color: currentColor;
-                    
+
                     &::after {
                         content: "";
                         position: absolute;
-                        bottom: -.3rem;
+                        bottom: -0.3rem;
                         left: 0;
                         width: 97%;
                         height: 1px;
                         background-color: $color-white;
-                        transition: all .2s;
+                        transition: all 0.2s;
                         opacity: 0;
                     }
 
                     &:hover {
-
                         &::after {
                             color: $color-white;
                             opacity: 1;
                         }
-                        
                     }
-
                 }
             }
         }
-
 
         &__title-group {
             height: min-content;
@@ -205,10 +202,8 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin: 2rem 0;
+                //margin: 2rem 0;
             }
-
-           
 
             &__title {
                 font-size: 5rem;
@@ -521,18 +516,17 @@
                 justify-self: flex-start;
                 height: 100%;
 
-               & .slick-active {
-                animation: slideFade 1s both;
-                animation-timing-function: ease-out;
-                animation-delay: .5s;
-
-
-                & .goto-button {
+                & .slick-active {
                     animation: slideFade 1s both;
                     animation-timing-function: ease-out;
-                    animation-delay: 1s;
+                    animation-delay: 0.5s;
+
+                    & .goto-button {
+                        animation: slideFade 1s both;
+                        animation-timing-function: ease-out;
+                        animation-delay: 1s;
+                    }
                 }
-               }
 
                 &__item {
                     &__title {
@@ -561,8 +555,6 @@
                         width: max-content;
                     }
                 }
-
-            
 
                 &__arrow-left {
                     position: absolute;

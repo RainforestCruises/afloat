@@ -4317,6 +4317,9 @@ h5 {
   grid-template-rows: 9rem 1fr;
   height: 100%;
   min-height: 100vh; }
+  @media only screen and (max-width: 62.5em) {
+    .destination-hero {
+      grid-template-rows: 7rem 1fr; } }
   @media only screen and (max-width: 37.5em) {
     .destination-hero {
       grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
@@ -4382,13 +4385,17 @@ h5 {
     text-transform: uppercase;
     column-gap: 16rem;
     row-gap: 2rem;
-    padding-bottom: 8rem; }
+    padding-bottom: 7rem; }
     @media only screen and (max-width: 62.5em) {
       .destination-hero__content {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around; } }
+        justify-content: space-around;
+        max-height: 100vh; } }
+    @media only screen and (max-width: 50em) {
+      .destination-hero__content {
+        padding-bottom: 10rem; } }
     .destination-hero__content__breadcrumb {
       margin-top: 3rem;
       font-size: 1.2rem;
@@ -4415,12 +4422,12 @@ h5 {
           .destination-hero__content__breadcrumb li a::after {
             content: "";
             position: absolute;
-            bottom: -.3rem;
+            bottom: -0.3rem;
             left: 0;
             width: 97%;
             height: 1px;
             background-color: #fff;
-            transition: all .2s;
+            transition: all 0.2s;
             opacity: 0; }
           .destination-hero__content__breadcrumb li a:hover::after {
             color: #fff;
@@ -4432,8 +4439,7 @@ h5 {
         .destination-hero__content__title-group {
           display: flex;
           flex-direction: column;
-          align-items: center;
-          margin: 2rem 0; } }
+          align-items: center; } }
       .destination-hero__content__title-group__title {
         font-size: 5rem;
         line-height: 5.8rem;
@@ -4661,7 +4667,7 @@ h5 {
         .destination-hero__content__location__slider .slick-active {
           animation: slideFade 1s both;
           animation-timing-function: ease-out;
-          animation-delay: .5s; }
+          animation-delay: 0.5s; }
           .destination-hero__content__location__slider .slick-active .goto-button {
             animation: slideFade 1s both;
             animation-timing-function: ease-out;
