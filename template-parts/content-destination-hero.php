@@ -35,26 +35,33 @@
           <?php endforeach; ?>
       </div>
       <div class="destination-hero__content">
-          <div class="destination-hero__content__title-group">
-              <div class="destination-hero__content__title-group__breadcrumb">
-                  <ol class="destination-hero__content__title-group__breadcrumb__path">
-                      <li>
-                          <a href="#">Destinations</a>
 
-                      </li>
-                      <li>
-                          <?php echo $title ?>
-                      </li>
-                  </ol>
-              </div>
+          <!-- Breadcrumb -->
+
+          <ol class="destination-hero__content__breadcrumb">
+              <li>
+                  <a href="<?php echo get_home_url(); ?>">Home</a>
+              </li>
+              <?php if ($destinationType != 'region') : ?>
+                  <li>
+                      <a href="<?php echo get_field('breadcrumb_link') ?>"><?php echo get_field('breadcrumb_name') ?></a>
+                  </li>
+              <?php endif; ?>
+              <li>
+                  <?php echo get_field('navigation_title', $destination) ?>
+              </li>
+          </ol>
+
+
+          <!-- Title -->
+          <div class="destination-hero__content__title-group">
               <div class="destination-hero__content__title-group__title">
                   <?php echo get_the_title(); ?>
               </div>
           </div>
 
-
+          <!-- Nav -->
           <div class="destination-hero__content__page-nav">
-
 
               <!-- sticky wrapper -->
               <nav class="destination-hero__content__page-nav__sticky-wrapper" id="template-nav">

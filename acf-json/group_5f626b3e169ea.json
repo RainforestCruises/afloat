@@ -52,6 +52,49 @@
             "ui": 1
         },
         {
+            "key": "field_6052316fa143f",
+            "label": "Breadcrumb Link",
+            "name": "breadcrumb_link",
+            "type": "page_link",
+            "instructions": "Select the parent landing page for the link",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:expedition-bucket-list",
+                "category:destinations"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
+        },
+        {
+            "key": "field_605233023a2f2",
+            "label": "Breadcrumb Name",
+            "name": "breadcrumb_name",
+            "type": "text",
+            "instructions": "The breadcrumb link text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5fea3d89c55ed",
             "label": "Hero Slider",
             "name": "hero_slider",
@@ -1181,5 +1224,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1615910677
+    "modified": 1616000051
 }

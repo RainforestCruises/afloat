@@ -4377,7 +4377,7 @@ h5 {
     z-index: 5;
     display: grid;
     grid-template-columns: 2fr 3fr;
-    grid-template-rows: 1fr 30rem;
+    grid-template-rows: min-content 1fr 30rem;
     color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
     column-gap: 16rem;
@@ -4385,11 +4385,46 @@ h5 {
     padding-bottom: 8rem; }
     @media only screen and (max-width: 62.5em) {
       .destination-hero__content {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr; } }
-    @media only screen and (max-width: 37.5em) {
-      .destination-hero__content {
-        padding-bottom: 2rem; } }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around; } }
+    .destination-hero__content__breadcrumb {
+      margin-top: 3rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.2rem;
+      font-weight: 400;
+      display: flex;
+      position: relative;
+      list-style: none;
+      height: max-content;
+      width: max-content; }
+      @media only screen and (max-width: 62.5em) {
+        .destination-hero__content__breadcrumb {
+          justify-self: center; } }
+      .destination-hero__content__breadcrumb li {
+        display: inline-block;
+        width: max-content; }
+        .destination-hero__content__breadcrumb li:not(:last-child):after {
+          content: " / ";
+          padding-right: 4px; }
+        .destination-hero__content__breadcrumb li a {
+          position: relative;
+          text-decoration: none;
+          color: currentColor; }
+          .destination-hero__content__breadcrumb li a::after {
+            content: "";
+            position: absolute;
+            bottom: -.3rem;
+            left: 0;
+            width: 97%;
+            height: 1px;
+            background-color: #fff;
+            transition: all .2s;
+            opacity: 0; }
+          .destination-hero__content__breadcrumb li a:hover::after {
+            color: #fff;
+            opacity: 1; }
     .destination-hero__content__title-group {
       height: min-content;
       align-self: center; }
@@ -4399,45 +4434,6 @@ h5 {
           flex-direction: column;
           align-items: center;
           margin: 2rem 0; } }
-      .destination-hero__content__title-group__breadcrumb {
-        font-size: 1.4rem;
-        letter-spacing: 0.4rem;
-        font-weight: 600;
-        margin-top: 1rem;
-        margin-bottom: 3.5rem;
-        width: min-content; }
-        @media only screen and (max-width: 37.5em) {
-          .destination-hero__content__title-group__breadcrumb {
-            margin-bottom: 2rem; } }
-        .destination-hero__content__title-group__breadcrumb__path {
-          display: flex;
-          position: relative;
-          padding: 0.75rem 2rem;
-          padding-top: 0.6rem;
-          list-style: none; }
-          .destination-hero__content__title-group__breadcrumb__path li {
-            display: inline-block;
-            width: max-content; }
-            .destination-hero__content__title-group__breadcrumb__path li:not(:last-child):after {
-              content: ">";
-              padding-left: 1px;
-              padding-right: 3px; }
-            .destination-hero__content__title-group__breadcrumb__path li a {
-              text-decoration: none;
-              color: currentColor; }
-              .destination-hero__content__title-group__breadcrumb__path li a:hover {
-                color: #fff; }
-          .destination-hero__content__title-group__breadcrumb__path::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-50%);
-            height: 100%;
-            width: 100%;
-            border-radius: 2.5rem;
-            border: 2px solid currentColor;
-            z-index: -1; }
       .destination-hero__content__title-group__title {
         font-size: 5rem;
         line-height: 6rem;
@@ -4476,6 +4472,7 @@ h5 {
       z-index: 10; }
       @media only screen and (max-width: 62.5em) {
         .destination-hero__content__page-nav {
+          align-self: center;
           text-align: center;
           font-size: 1.8rem;
           font-weight: 500; } }
