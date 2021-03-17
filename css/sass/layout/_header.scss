@@ -236,7 +236,8 @@
     justify-items: center;
 
     height: calc(100vh - 7rem);
-    min-height: -webkit-fill-available;
+    //min-height: -webkit-fill-available;
+    width: 100%;
 
     &--active {
         display: grid;
@@ -510,21 +511,7 @@
          
         }
 
-        // &__sub-link {
-        //     height: 100%;
 
-        //     margin: 3rem 0;
-
-        //     display: inline-block;
-
-        //     position: relative;
-        //     transition: all 0.2s;
-        //     cursor: pointer;
-
-        //     &:hover {
-        //         color: $color-supporting-light;
-        //     }
-        // }
     }
 }
 
