@@ -26,13 +26,19 @@
     &__bg {
         z-index: 0;
         grid-column: col-end 4 / -1;
-        grid-row: 1 / span 3;
-  
+        grid-row: 1 / -1;
+        position: relative;
+        & img {
+            position: absolute;
+            top: 0;
+            left: 10%;
+            max-height: 100rem;
+            max-width: 80rem;
+        }
 
-        @media only screen and (max-width: $bp-largest) {
+        @media only screen and (max-width: $bp-xlargest) {
             & img {
-                max-height: 80rem;
-               
+                max-height: 80rem;   
             }
         }
         @media only screen and (max-width: $bp-medium) {
@@ -50,16 +56,16 @@
         display: grid;
         grid-template-columns: 1fr;
         column-gap: 8rem;
-        padding: 8rem 0;
+        padding-bottom: 8rem;
         font-size: 1.6rem;
 
         @media only screen and (max-width: $bp-medium) {
             row-gap: 4rem;
-            padding: 4rem 0;
+            padding-bottom: 4rem;
         }
 
         &__description {
-            
+            margin-top: 8rem;
             &__title {
                 font-size: 3.5rem;
                 line-height: 4.3rem;

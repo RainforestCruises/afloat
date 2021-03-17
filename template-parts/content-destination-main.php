@@ -20,7 +20,8 @@ $highlights = get_field('highlights');
 
     <!-- Map Background -->
     <div class="destination-main__bg">
-        <img src="<?php echo esc_url($background_map['url']); ?>" alt="">
+        <img <?php afloat_responsive_image($background_map['id'], 'bg-portrait', array('bg-portrait')); ?> alt="">
+
     </div>
 
     <!-- Intro -->

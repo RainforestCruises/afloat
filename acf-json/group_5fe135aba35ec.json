@@ -398,7 +398,7 @@
             "label": "Background Map",
             "name": "background_map",
             "type": "image",
-            "instructions": "Black and white outline map",
+            "instructions": "Black and white outline map - 800 x 1000 minimum",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -406,14 +406,11 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "return_format": "array",
             "preview_size": "medium",
             "library": "all",
-            "min_width": "",
-            "min_height": "",
+            "min_width": 800,
+            "min_height": 1000,
             "min_size": "",
             "max_width": "",
             "max_height": "",
@@ -1103,5 +1100,5 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1616000126
+    "modified": 1616009625
 }
