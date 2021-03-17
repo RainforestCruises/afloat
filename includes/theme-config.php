@@ -37,6 +37,7 @@ function afloat_images_sizes()
 
     //portrait
     add_image_size('vertical-medium', 400, 600, true);
+    add_image_size('vertical-small', 360, 480, true);
 
     //bg
     add_image_size('bg-portrait', 800, 1000, false);

@@ -6028,7 +6028,6 @@ h5 {
   position: relative;
   grid-column: 1 / -1;
   padding-top: 6rem;
-  margin-bottom: 6rem;
   outline: none;
   position: relative; }
   .home-destinations::before {
@@ -6063,21 +6062,24 @@ h5 {
     display: flex;
     justify-content: center;
     margin: 0 10rem;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     height: min-content; }
     @media only screen and (max-width: 37.5em) {
       .home-destinations__destinations-area {
         margin: 0;
-        margin-bottom: 6rem; } }
+        margin-bottom: 3rem; } }
     .home-destinations__destinations-area__slider {
-      max-width: 130rem;
+      max-width: 120rem;
       width: 100%;
       margin: 0 6rem; }
+      .home-destinations__destinations-area__slider .slick-track {
+        display: flex !important; }
       .home-destinations__destinations-area__slider .slick-slide {
-        margin: 2rem; }
+        margin: 0 2rem;
+        height: inherit !important; }
         @media only screen and (max-width: 37.5em) {
           .home-destinations__destinations-area__slider .slick-slide {
-            margin: 1rem; } }
+            margin: 0 1rem; } }
     .home-destinations__destinations-area__btn--left {
       position: absolute;
       z-index: 10;
@@ -6095,56 +6097,6 @@ h5 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap; }
-
-.home-destination-card {
-  background-color: grey;
-  display: grid !important;
-  margin-bottom: 4rem;
-  height: 100%;
-  text-decoration: none;
-  position: relative;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-  @media only screen and (max-width: 37.5em) {
-    .home-destination-card {
-      min-height: 50vh; } }
-  .home-destination-card img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    grid-row: 1 / -1;
-    grid-column: 1 / -1;
-    z-index: 0; }
-  .home-destination-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-    border-radius: .4rem;
-    background-image: linear-gradient(to top, rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0)); }
-  .home-destination-card__title-area {
-    grid-row: 1 / -1;
-    grid-column: 1 / -1;
-    z-index: 5;
-    text-transform: uppercase;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-direction: column;
-    margin-bottom: 6rem; }
-    .home-destination-card__title-area__title {
-      font-family: "Old Standard TT", serif;
-      font-size: 2.5rem;
-      line-height: 3.2rem;
-      letter-spacing: 0.5rem;
-      margin-bottom: 1rem; }
-    .home-destination-card__title-area__subtitle {
-      font-size: 1.4rem;
-      letter-spacing: 0.3rem;
-      font-weight: 300; }
 
 .home-featured {
   display: grid;
@@ -7235,6 +7187,52 @@ h5 {
       font-size: 1.6rem;
       display: flex;
       margin-bottom: 2rem; }
+
+.home-destination-card {
+  background-color: grey;
+  height: 100%;
+  text-decoration: none;
+  position: relative;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  margin-bottom: 3rem; }
+  .home-destination-card img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    z-index: 0; }
+  .home-destination-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    border-radius: .4rem;
+    background-image: linear-gradient(to top, rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0)); }
+  .home-destination-card__title-area {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    text-transform: uppercase;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding: 3rem 2rem;
+    text-align: center; }
+    .home-destination-card__title-area__title {
+      font-family: "Old Standard TT", serif;
+      font-size: 2.5rem;
+      line-height: 3.2rem;
+      letter-spacing: 0.5rem; }
+    .home-destination-card__title-area__subtitle {
+      font-size: 1.4rem;
+      letter-spacing: 0.3rem;
+      font-weight: 300; }
 
 .lds-dual-ring {
   display: inline-block;

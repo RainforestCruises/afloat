@@ -4,7 +4,6 @@
     position: relative;
     grid-column: 1 / -1;
     padding-top: 6rem;
-    margin-bottom: 6rem;
     outline: none;
     position: relative;
 
@@ -13,8 +12,8 @@
         position: absolute;
         height: 100%;
         width: 100%;
-        background-image:  
-        linear-gradient(to top, rgba($color-white, .8), rgba($color-white, .8)), url(img/bg/topo-1.png);
+        background-image: linear-gradient(to top, rgba($color-white, 0.8), rgba($color-white, 0.8)),
+            url(img/bg/topo-1.png);
         opacity: 0.35;
         top: 0;
         left: 0;
@@ -50,24 +49,35 @@
         display: flex;
         justify-content: center;
         margin: 0 10rem;
-        margin-bottom: 6rem;
+        margin-bottom: 4rem;
         height: min-content;
+
+     
 
         @media only screen and (max-width: $bp-small) {
             margin: 0;
-            margin-bottom: 6rem;
+            margin-bottom: 3rem;
         }
         &__slider {
-            max-width: 130rem;
+            max-width: 120rem;
             width: 100%;
             margin: 0 6rem;
-            
+
+      
+
+            .slick-track {
+                display: flex !important;
+            }
+
             .slick-slide {
-                margin: 2rem;
+                margin: 0 2rem; 
+                height: inherit !important;
+
                 @media only screen and (max-width: $bp-small) {
-                    margin: 1rem
+                    margin: 0 1rem; 
                 }
             }
+
         }
 
         &__btn {
@@ -93,75 +103,5 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-    }
-}
-
-.home-destination-card {
-    background-color: grey;
-    display: grid !important;
-
-    margin-bottom: 4rem;
-    //height: 36rem;
-    height: 100%;
-    text-decoration: none;
-    position: relative;
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-
-    @media only screen and (max-width: $bp-small) {
-        min-height: 50vh;
-    }
-
-    & img {
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
-
-        grid-row: 1 / -1;
-        grid-column: 1 / -1;
-        z-index: 0;
-    }
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 2;
-        border-radius: .4rem;
-        background-image: linear-gradient(to top, rgba($color-black, .6), rgba($color-black, 0));
-    }
-
-    
-
-    &__title-area {
-        grid-row: 1 / -1;
-        grid-column: 1 / -1;
-        z-index: 5;
-
-        text-transform: uppercase;
-        color: $color-white;
-
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        flex-direction: column;
-
-        margin-bottom: 6rem;
-
-        &__title {
-            font-family: $font-secondary;
-            font-size: 2.5rem;
-            line-height: 3.2rem;
-
-            letter-spacing: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        &__subtitle {
-            font-size: 1.4rem;
-            letter-spacing: 0.3rem;
-            font-weight: 300;
-        }
     }
 }

@@ -23,7 +23,8 @@ $destinations_subtext = get_field('destinations_title_subtext');
                     $image = $d['image'];
                 ?>
                     <a href="<?php echo $d['page_link'] ?>" class="home-destination-card">
-                        <img src="<?php echo esc_url($image['url']); ?>">
+                        <img <?php afloat_responsive_image($image['id'], 'vertical-small', array('vertical-small')); ?> alt="">
+
                         <div class="home-destination-card__title-area">
                             <div class="home-destination-card__title-area__title">
                                 <?php echo get_field('navigation_title', $destinationPost) ?>

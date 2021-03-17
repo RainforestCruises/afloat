@@ -568,3 +568,80 @@
         }
     }
 }
+
+
+
+.home-destination-card {
+    background-color: grey;
+    //display: grid !important;
+
+    
+    height: 100%;
+    
+    text-decoration: none;
+    position: relative;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    margin-bottom: 3rem;
+
+    
+    // @media only screen and (max-width: $bp-small) {
+    //     height: 42rem;
+    // }
+
+    & img {
+
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+
+        //grid-row: 1 / -1;
+        //grid-column: 1 / -1;
+        z-index: 0;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        
+        width: 100%;
+        z-index: 2;
+        border-radius: .4rem;
+        background-image: linear-gradient(to top, rgba($color-black, .6), rgba($color-black, 0));
+    }
+
+    
+
+    &__title-area {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+
+        text-transform: uppercase;
+        color: $color-white;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+        padding: 3rem 2rem;
+        text-align: center;
+        &__title {
+            font-family: $font-secondary;
+            font-size: 2.5rem;
+            line-height: 3.2rem;
+
+            letter-spacing: 0.5rem;
+        }
+
+        &__subtitle {
+            font-size: 1.4rem;
+            letter-spacing: 0.3rem;
+            font-weight: 300;
+            
+        }
+    }
+}
