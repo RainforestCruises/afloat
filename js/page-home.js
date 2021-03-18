@@ -70,14 +70,12 @@ jQuery(document).ready(function ($) {
             {
                 breakpoint: 800,
                 settings: {
+                    slidesToShow: 1,
                     centerMode: true,
                     fade: false,
                     arrows: false
                 }
-            },
-
-
-
+            }
         ]
     });
 
@@ -98,6 +96,7 @@ jQuery(document).ready(function ($) {
                     arrows: false
                 }
             },
+           
 
         ]
     });

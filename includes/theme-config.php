@@ -52,6 +52,10 @@ function afloat_images_sizes()
     add_image_size('featured-medium', 500, 350, true);
     add_image_size('featured-small', 400, 260, true);
 
+
+    //square
+    add_image_size('featured-square', 600, 500, true);
+
     //logo
     //add_image_size('logo-vertical', 120, 100, true);
     //add_image_size('logo-horizontal', 165, 45, true);

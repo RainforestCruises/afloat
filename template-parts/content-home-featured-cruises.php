@@ -25,15 +25,16 @@ $featured_cruise_subtext = get_field('featured_title_subtext');
             ?>
                     <!-- Cruise Item -->
                     <div class="home-featured-item">
-                        <div class="home-featured-item__title">
-                            <?php echo $c_title ?>
-                        </div>
+
                         <div class="home-featured-item__content">
+                            <div class="home-featured-item__content__title">
+                                <?php echo $c_title ?>
+                            </div>
                             <div class="home-featured-item__content__text">
                                 <?php echo $c_snippet ?>
                             </div>
                             <div class="home-featured-item__content__cta">
-                                <a href="<?php echo $cruise_page ?>" class="goto-button goto-button--dark"><?php echo $c_linktext ?>
+                                <a href="<?php echo $cruise_page ?>" class="goto-button goto-button--dark goto-button--small"><?php echo $c_linktext ?>
                                     <svg>
                                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
                                     </svg>
@@ -41,7 +42,8 @@ $featured_cruise_subtext = get_field('featured_title_subtext');
                             </div>
                         </div>
                         <div class="home-featured-item__image-area">
-                            <img src="<?php echo esc_url($c_image['url']); ?>" alt="">
+                        <img <?php afloat_responsive_image($c_image['id'], 'featured-square', array('featured-square')); ?> alt="">
+
                         </div>
                     </div>
 

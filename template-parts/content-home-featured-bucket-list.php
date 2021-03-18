@@ -26,15 +26,16 @@ $featured_bucket_list_title_subtext = get_field('featured_second_title_subtext')
             ?>
                     <!-- Cruise Item -->
                     <div class="home-featured-item ">
-                        <div class="home-featured-item__title home-featured-item__title--inverse">
-                            <?php echo $b_title ?>
-                        </div>
+
                         <div class="home-featured-item__content home-featured-item__content--inverse">
+                            <div class="home-featured-item__content__title">
+                                <?php echo $b_title ?>
+                            </div>
                             <div class="home-featured-item__content__text">
                                 <?php echo $b_snippet ?>
                             </div>
                             <div class="home-featured-item__content__cta ">
-                                <a href="<?php echo $b_page ?>" class="goto-button goto-button--dark"><?php echo $b_linktext ?>
+                                <a href="<?php echo $b_page ?>" class="goto-button goto-button--dark  goto-button--small"><?php echo $b_linktext ?>
                                     <svg>
                                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
                                     </svg>
@@ -42,7 +43,7 @@ $featured_bucket_list_title_subtext = get_field('featured_second_title_subtext')
                             </div>
                         </div>
                         <div class="home-featured-item__image-area home-featured-item__image-area--inverse">
-                            <img src="<?php echo esc_url($b_image['url']); ?>" alt="">
+                            <img <?php afloat_responsive_image($b_image['id'], 'featured-square', array('featured-square')); ?> alt="">
                         </div>
                     </div>
 
