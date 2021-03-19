@@ -2,19 +2,6 @@
 $intro_image = get_field('intro_image');
 $intro_testimonials = get_field('intro_testimonials');
 
-// //cloudinary magic
-// $new_intro_image = cloudinary_url($intro_image['filename'], array("width" => 200, "height" => 150, "crop" => "fill", "gravity" => "auto", "fetch_format" => "auto" ));
-
-// console_log($intro_image['url']);
-// console_log($new_intro_image);
-
-
-//$srcset = wp_get_attachment_metadata( $intro_image['ID']); -- this shows cloudinary array
-//$srcset = wp_get_attachment_image_srcset( $intro_image['id'] );
-
-//console_log($srcset);
-
-
 ?>
 
 
@@ -23,7 +10,10 @@ $intro_testimonials = get_field('intro_testimonials');
 
 <div class="home-intro">
     <div class="home-intro__top">
-        <img <?php afloat_responsive_image($intro_image['id'], 'vertical-medium', array('vertical-medium')); ?> alt="" class="home-intro__top__img">
+        <div class="home-intro__top__image-area">
+            <img <?php afloat_responsive_image($intro_image['id'], 'vertical-medium', array('vertical-medium')); ?> alt="" class="home-intro__top__img">
+
+        </div>
 
         <div class="home-intro__top__content">
             <div class="home-intro__top__content__pretitle">
@@ -32,12 +22,11 @@ $intro_testimonials = get_field('intro_testimonials');
             <div class="home-intro__top__content__title">
                 <?php echo get_field('intro_title'); ?>
             </div>
-            <div class="home-intro__top__content__testimonials" id="intro-testimonials">
+            <div class="home-intro__top__content__testimonials">
                 <?php if ($intro_testimonials) :
-                    foreach ($intro_testimonials as $i) :
                         //$i = $intro_testimonials[0];
-                        $i_image = $i['avatar'];
-                        $i_snippet = $i['snippet'];
+                        $i_image = $intro_testimonials[0]['avatar'];
+                        $i_snippet = $intro_testimonials[0]['snippet'];
                 ?>
                         <div class="home-intro__top__content__testimonials__testimonial">
                             <div class="home-intro__top__content__testimonials__testimonial__image">
@@ -47,8 +36,8 @@ $intro_testimonials = get_field('intro_testimonials');
                                 <?php echo $i_snippet; ?>
                             </div>
                         </div>
-                <?php endforeach;
-                endif; ?>
+              
+                <?php endif; ?>
             </div>
 
         </div>
@@ -89,7 +78,7 @@ $intro_testimonials = get_field('intro_testimonials');
         </div>
     </div>
     <div class="home-intro__cta">
-        <button class="btn-outline">Learn More</button>
+        <button class="btn-cta-square btn-cta-square--white">Learn More</button>
     </div>
 
 </div>

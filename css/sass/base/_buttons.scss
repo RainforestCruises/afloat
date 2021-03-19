@@ -691,5 +691,17 @@
     transition: all .1s;
   }
 
+  &--white {
+    color: $color-primary;
+    background-color: $color-white;
+    box-shadow: $inner-border-dark;
+    &:hover {
+      color: $color-white;
+      background-color: $color-primary;
+      //box-shadow: $inner-border-dark;
+  
+ 
+    }
+  }
   
 }
