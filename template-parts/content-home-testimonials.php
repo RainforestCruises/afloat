@@ -20,9 +20,13 @@ $testimonials = get_field('testimonials');
         <?php endforeach;
         endif; ?>
     </div>
+    <div class="home-testimonials__publications-title">
+        Traveler Reviews:
+    </div>
     <div class="home-testimonials__testimonials">
         <div class="home-testimonials__testimonials__slider" id="main-testimonials">
             <?php if ($testimonials) :
+                $t_count = 0;
                 foreach ($testimonials as $t) :
                     $t_image = $t['image'];
                     $t_person_name = $t['person_name'];
@@ -38,12 +42,13 @@ $testimonials = get_field('testimonials');
                                 - <?php echo $t_person_name ?>
                             </div>
                         </div>
-                        <div class="home-testimonial__image-area">
-                            <img src="<?php echo esc_url($t_image['url']); ?>" alt="">
+        
+                        <div class="home-testimonial__image-area <?php echo ($t_count % 2 != 0) ? "" : "" ;?>">
+                            <img <?php afloat_responsive_image($t_image['id'], 'vertical-small', array('vertical-small')); ?> alt="">
                         </div>
                     </div>
 
-            <?php endforeach;
+            <?php $t_count++; endforeach;
             endif; ?>
         </div>
 

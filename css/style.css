@@ -4448,7 +4448,8 @@ h5 {
         grid-column: 1 / span 1;
         align-self: center;
         position: relative;
-        margin-bottom: 2rem; }
+        margin-bottom: 2rem;
+        margin-top: 1rem; }
         .destination-hero__content__title-group__title::after {
           content: "";
           position: absolute;
@@ -4465,8 +4466,8 @@ h5 {
               transform: translateX(-50%); } }
         @media only screen and (max-width: 37.5em) {
           .destination-hero__content__title-group__title {
-            font-size: 4rem;
-            line-height: 4.7rem; } }
+            font-size: 2.8rem;
+            line-height: 3.5rem; } }
     .destination-hero__content__page-nav {
       user-select: none;
       grid-column: 1 / span 1;
@@ -6192,7 +6193,8 @@ h5 {
     @media only screen and (max-width: 50em) {
       .home-featured-item__content {
         width: 100%;
-        margin: 3rem; } }
+        margin: 3rem;
+        margin-bottom: 2rem; } }
     .home-featured-item__content__title {
       font-family: "Old Standard TT", serif;
       font-size: 3.5rem;
@@ -6209,6 +6211,10 @@ h5 {
       @media only screen and (max-width: 50em) {
         .home-featured-item__content__title {
           padding: 0 1rem; } }
+      @media only screen and (max-width: 37.5em) {
+        .home-featured-item__content__title {
+          font-size: 2rem;
+          line-height: 2.6rem; } }
     .home-featured-item__content__text {
       font-size: 1.6rem;
       width: 80%;
@@ -6270,7 +6276,7 @@ h5 {
   flex-direction: column;
   position: relative;
   width: 100%;
-  padding-bottom: 12rem; }
+  padding-bottom: 6rem; }
   .home-testimonials::before {
     content: "";
     position: absolute;
@@ -6295,7 +6301,6 @@ h5 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 2rem;
     z-index: 5; }
     @media only screen and (max-width: 37.5em) {
       .home-testimonials__publications {
@@ -6309,12 +6314,13 @@ h5 {
       .home-testimonials__publications__logo-area img {
         margin: 2rem 3rem;
         object-fit: contain; }
-        @media only screen and (max-width: 37.5em) {
+        @media only screen and (max-width: 75em) {
           .home-testimonials__publications__logo-area img {
             transform: scale(0.75);
             margin: 1rem 1.5rem; } }
   .home-testimonials__testimonials {
-    margin: 8rem 10rem;
+    margin: 6rem 10rem;
+    margin-top: 3rem;
     z-index: 5;
     width: 100%;
     display: flex;
@@ -6323,7 +6329,7 @@ h5 {
       max-width: 114rem;
       width: 100%; }
       .home-testimonials__testimonials__slider .slick-dots {
-        bottom: -10rem; }
+        bottom: -9rem; }
         @media only screen and (max-width: 37.5em) {
           .home-testimonials__testimonials__slider .slick-dots {
             bottom: -8rem; } }
@@ -6350,26 +6356,34 @@ h5 {
         color: transparent; }
 
 .home-testimonial {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr;
+  display: flex !important;
   color: #fff;
   column-gap: 6rem;
   width: 100%;
   padding: 0 6rem; }
-  @media only screen and (max-width: 50em) {
-    .home-testimonial {
-      grid-template-columns: 1fr;
-      padding: 0 3rem;
-      text-align: center; } }
   .home-testimonial__content {
+    width: 60%;
     align-self: center;
     display: flex;
     flex-direction: column; }
+    @media only screen and (max-width: 37.5em) {
+      .home-testimonial__content {
+        width: 100%; } }
     .home-testimonial__content__snippet {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       font-family: "Old Standard TT", serif;
       letter-spacing: 0.1rem;
       font-weight: 300; }
+      @media only screen and (max-width: 62.5em) {
+        .home-testimonial__content__snippet {
+          font-size: 2rem;
+          align-self: center; } }
+      @media only screen and (max-width: 50em) {
+        .home-testimonial__content__snippet {
+          font-size: 1.8rem; } }
+      @media only screen and (max-width: 37.5em) {
+        .home-testimonial__content__snippet {
+          width: 90%; } }
     .home-testimonial__content__person {
       margin-top: 2rem;
       margin-right: 8rem;
@@ -6380,15 +6394,21 @@ h5 {
       display: flex;
       justify-content: flex-end; }
   .home-testimonial__image-area {
+    width: 40%;
     display: flex;
     justify-content: center;
-    align-content: center; }
-    @media only screen and (max-width: 50em) {
+    align-content: center;
+    order: -1; }
+    .home-testimonial__image-area--inverse {
+      order: 2; }
+    @media only screen and (max-width: 37.5em) {
       .home-testimonial__image-area {
         display: none; } }
     .home-testimonial__image-area img {
-      height: 42.5rem;
-      width: 42.5rem; }
+      max-height: 48rem;
+      object-fit: contain;
+      height: auto;
+      width: 100%; }
 
 .experience-hero {
   width: 100%;
@@ -7255,29 +7275,32 @@ h5 {
     transform: rotate(360deg); } }
 
 .newsletter {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   grid-column: center-start / center-end;
-  column-gap: 6rem;
-  padding: 8rem; }
-  @media only screen and (max-width: 62.5em) {
-    .newsletter {
-      padding: 4rem; } }
-  @media only screen and (max-width: 50em) {
-    .newsletter {
-      grid-template-columns: 1fr;
-      margin-bottom: 3rem; } }
+  margin: 8rem 0; }
   .newsletter__content {
-    width: 100%;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    justify-content: center; }
+    justify-content: center;
+    padding-right: 8rem; }
+    @media only screen and (max-width: 62.5em) {
+      .newsletter__content {
+        padding-right: 4rem; } }
+    @media only screen and (max-width: 50em) {
+      .newsletter__content {
+        width: 100%;
+        padding-right: 0rem; } }
     .newsletter__content__title {
       font-size: 5rem;
       line-height: 5.8rem;
       font-family: "Old Standard TT", serif;
       color: #142838;
       margin-bottom: 4rem; }
+      @media only screen and (max-width: 62.5em) {
+        .newsletter__content__title {
+          font-size: 3.5rem;
+          line-height: 4.2rem; } }
       @media only screen and (max-width: 50em) {
         .newsletter__content__title {
           text-align: center; } }
@@ -7320,24 +7343,27 @@ h5 {
         color: #fff;
         letter-spacing: 0.3rem;
         font-size: 1.5rem;
-        border: 2px solid currentColor;
+        border: 2px solid #142838;
         text-transform: uppercase; }
         @media only screen and (max-width: 37.5em) {
           .newsletter__content__email__button {
             width: 50%;
             margin-top: 4rem; } }
   .newsletter__image {
-    width: 40rem;
-    height: 60rem; }
+    width: 40%; }
     @media only screen and (max-width: 50em) {
       .newsletter__image {
         display: none; } }
     .newsletter__image img {
       height: 100%;
+      max-height: 60rem;
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
       position: relative; }
+      @media only screen and (max-width: 62.5em) {
+        .newsletter__image img {
+          max-height: 48rem; } }
 
 .header {
   grid-column: full-start / -1;
