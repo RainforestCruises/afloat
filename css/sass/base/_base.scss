@@ -29,9 +29,8 @@ body {
     height: -webkit-fill-available; 
 }
 
+//paragraph links
 p a {
-
-
     &:link,
     &:visited {
         color: $color-supporting;
@@ -45,6 +44,11 @@ p a {
     }
 }
 
+//telephone number styling removed
+a[href^="tel"]{
+    color:inherit;
+    text-decoration:none;
+}
 
 
 

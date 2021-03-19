@@ -7,6 +7,10 @@
     width: 100%;
     padding-bottom: 6rem;
 
+    @media only screen and (max-width: $bp-small) {
+        padding-bottom: 3rem;
+    }
+
     &::before {
         content: "";
         position: absolute;
@@ -37,16 +41,12 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        //margin-bottom: 2rem;
         z-index: 5;
-        //display: none;
         
         @media only screen and (max-width: $bp-small) {
             width: 80%;
             flex-direction: column;
             flex-wrap: nowrap;
-
-
         }
 
         &__logo-area {

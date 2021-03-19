@@ -94,6 +94,10 @@ p a:link, p a:visited {
 p a:hover {
   color: #40739c; }
 
+a[href^="tel"] {
+  color: inherit;
+  text-decoration: none; }
+
 .heading-1, .heading-2, .heading-3, .heading-4, .heading-5 {
   font-family: "Metropolis", sans-serif;
   font-weight: 400; }
@@ -6277,6 +6281,9 @@ h5 {
   position: relative;
   width: 100%;
   padding-bottom: 6rem; }
+  @media only screen and (max-width: 37.5em) {
+    .home-testimonials {
+      padding-bottom: 3rem; } }
   .home-testimonials::before {
     content: "";
     position: absolute;
@@ -7277,7 +7284,7 @@ h5 {
 .newsletter {
   display: flex;
   grid-column: center-start / center-end;
-  margin: 8rem 0; }
+  margin: 10rem 0; }
   .newsletter__content {
     width: 60%;
     display: flex;
