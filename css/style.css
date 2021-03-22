@@ -6040,7 +6040,7 @@ h5 {
       position: relative; }
       @media only screen and (max-width: 50em) {
         .home-intro__bottom__feature {
-          padding: 5rem; }
+          padding: 5rem 3rem; }
           .home-intro__bottom__feature::after {
             content: "";
             position: absolute;
@@ -7934,6 +7934,7 @@ h5 {
         row-gap: 5rem; } }
     @media only screen and (max-width: 25em) {
       .footer__navigation {
+        text-align: center;
         grid-template-columns: max-content; } }
     .footer__navigation__group__title {
       color: #d9a402;

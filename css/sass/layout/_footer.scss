@@ -175,8 +175,7 @@
     &__navigation {
         grid-row: 3 / span 1;
         grid-column: center-start / center-end;
-        //display: grid;
-        //grid-template-columns: repeat(4, 1fr);
+
         width: 100%;
         margin: 6rem 0;
         display: flex;
@@ -192,17 +191,14 @@
         }
 
         @media only screen and (max-width: $bp-xsmall) {
-
+            text-align: center;
             grid-template-columns: max-content;
        
         }
 
 
         &__group {
-            // @media only screen and (max-width: $bp-medium) {
-            //     width: 22rem;
-            //     margin: 0 2rem;
-            // }
+
             &__title {
                 color: $color-gold;
                 text-transform: uppercase;
