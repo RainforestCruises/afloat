@@ -359,6 +359,11 @@
       border: 1px solid $color-primary;
     }
   }
+  &--noborder {
+    &::after {
+      border: none;
+    }
+  }
 
 
   

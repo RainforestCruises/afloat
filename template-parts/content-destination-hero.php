@@ -6,17 +6,6 @@
 
     $destinationType = $args['destinationType'];
 
-
-    //CLOUDINARY
-    // foreach ($sliderContent as $s) :
-    //     $sliderImage = $s['image'];
-    //     $cloud_image = cloudinary_url($sliderImage['filename'], array("width" => 750, "height" => 1334, "crop" => "fill", "gravity" => "auto", "fetch_format" => "auto"));
-    //     console_log($cloud_image);
-    // endforeach; 
-
-
-
-
     ?>
 
 
@@ -37,7 +26,6 @@
       <div class="destination-hero__content">
 
           <!-- Breadcrumb -->
-
           <ol class="destination-hero__content__breadcrumb">
               <li>
                   <a href="<?php echo get_home_url(); ?>">Home</a>
@@ -189,7 +177,9 @@
                   </nav>
               </nav>
 
-              <div class="destination-hero__content__page-nav__arrow">
+              
+          </div>
+          <div class="destination-hero__content__arrow">
                   <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="<?php echo ($destinationType == 'cruise' ? '#cruises' : '#packages') ?>">
                       <svg class="btn-circle--arrow-main">
                           <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
@@ -198,8 +188,6 @@
                           <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
                       </svg></button>
               </div>
-          </div>
-
 
           <div class="destination-hero__content__location">
               <?php

@@ -91,12 +91,13 @@ jQuery(document).ready(function ($) {
         var target = $(id).offset().top;
         $('.page-nav__collapse').removeClass('page-nav__collapse--active');
         $('.page-nav__button').removeClass('page-nav__button--active');
+        target = target - 90;
 
-        if (id != "#tours") {
-            target = target - 140;
-        } else {
-            target = target - 80;
-        }
+        // if (id != "#tours") {
+        //     target = target - 140;
+        // } else {
+        //     target = target - 80;
+        // }
 
         $('html, body').animate({ scrollTop: target }, 500);
 
@@ -134,7 +135,7 @@ jQuery(document).ready(function ($) {
 
     function getTargetTop(elem) {
         var id = elem.attr("href");
-        var offset = 70;
+        var offset = 90;
 
         return $(id).offset().top - offset;
     }
@@ -150,8 +151,15 @@ jQuery(document).ready(function ($) {
         draggable: false,
         fade: true,
         arrows: false,
-
-        speed: 1800
+        speed: 1800,
+        responsive: [
+            {
+                breakpoint: 1000,
+                settings: {
+                    speed: 800,
+                }
+            },
+        ]
     });
 
 
@@ -175,8 +183,18 @@ jQuery(document).ready(function ($) {
         draggable: false,
         fade: true,
         speed: 1800,
-        prevArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-        nextArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+        prevArrow: '<button class="btn-circle btn-circle--small   btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+        nextArrow: '<button class="btn-circle btn-circle--small  btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+        responsive: [
+            {
+                breakpoint: 1000,
+                settings: {
+                    prevArrow: '<button class="btn-circle btn-circle--noborder    btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+                    nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+                    speed: 800,
+                }
+            },
+        ]
     }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         var num = (nextSlide + 1);
         setTimeout(function () {

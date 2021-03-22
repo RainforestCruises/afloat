@@ -135,9 +135,9 @@ $highlights = get_field('highlights');
         </div>
 
     </div>
-    <div class="destination-main__experiences-title">
+    <!-- <div class="destination-main__experiences-title">
         <?php echo $title ?> Experiences
-    </div>
+    </div> -->
     <div class="destination-main__experiences-sub-text">
         <?php echo get_field('tour_experience_title_subtext') ?>
     </div>

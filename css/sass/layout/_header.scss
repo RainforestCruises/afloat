@@ -525,10 +525,7 @@
     align-items: center;
     transition: all 0.3s;
 
-    // & .burger-menu__bar {
-    //     transition:  .3s;
 
-    // }
 
     @media only screen and (max-width: $bp-large) {
         display: flex;
@@ -536,27 +533,27 @@
 
     &:hover {
         & .burger-menu__bar {
-            &::before {
-                transform: translateY(-1.3rem);
-            }
-            &::after {
-                transform: translateY(1.3rem);
-            }
+            // &::before {
+            //     transform: translateY(-1.3rem);
+            // }
+            // &::after {
+            //     transform: translateY(1.3rem);
+            // }
         }
     }
 
     &__bar {
-        width: 4rem;
-        height: 2px;
+        width: 3rem;
+        height: 1px;
         background-color: $color-white;
         display: block;
 
         &::before {
             content: "";
             position: absolute;
-            transform: translateY(-1rem);
-            width: 4rem;
-            height: 2px;
+            transform: translateY(-.8rem);
+            width: 3rem;
+            height: 1px;
             background-color: inherit;
             display: block;
 
@@ -566,10 +563,10 @@
         &::after {
             content: "";
             position: absolute;
-            transform: translateY(1rem);
+            transform: translateY(.8rem);
 
-            width: 4rem;
-            height: 2px;
+            width: 3rem;
+            height: 1px;
             background-color: inherit;
             display: block;
 

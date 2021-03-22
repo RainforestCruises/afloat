@@ -119,7 +119,7 @@
         display: grid;
         grid-template-columns: 2fr 3fr;
 
-        grid-template-rows: min-content 1fr 30rem;
+        grid-template-rows: min-content 1fr 30rem min-content;
 
         color: rgba($color-white, 0.9);
         text-transform: uppercase;
@@ -127,16 +127,21 @@
         column-gap: 16rem;
         row-gap: 2rem;
         padding-bottom: 7rem;
+        max-height: 100vh;
 
         @media only screen and (max-width: $bp-large) {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
-            max-height: 100vh;
+            
+
+            grid-column: 1 / -1;
+            
+
         }
         @media only screen and (max-width: $bp-medium) {
-            padding-bottom: 10rem;
+            padding-bottom: 9rem;
         }
 
         &__breadcrumb {
@@ -234,9 +239,17 @@
                     }
                 }
 
+                @media only screen and (max-width: $bp-medium) {
+                    font-size: 3.5rem;
+                    line-height: 4.2rem;
+                    letter-spacing: 0.4rem;
+                }
+
                 @media only screen and (max-width: $bp-small) {
                     font-size: 2.8rem;
                     line-height: 3.5rem;
+                    letter-spacing: 0.3rem;
+
                 }
             }
         }
@@ -257,6 +270,7 @@
                 text-align: center;
                 font-size: 1.8rem;
                 font-weight: 500;
+                display: none;
             }
 
             &__sticky-wrapper {
@@ -482,13 +496,18 @@
                 }
             }
 
-            &__arrow {
-                margin-top: 2rem;
-                transform: translateX(-1rem) translateY(1rem);
-                @media only screen and (max-width: $bp-large) {
-                    transform: translateX(0);
-                    margin-bottom: 2rem;
-                }
+           
+        }
+
+        &__arrow {
+            margin-top: 2rem;
+            transform: translateX(-1rem) translateY(1rem);
+            @media only screen and (max-width: $bp-large) {
+                transform: translateX(0);
+                margin-bottom: 2rem;
+                order: 5;
+                margin-top: 0;
+
             }
         }
 
@@ -503,7 +522,13 @@
             //padding-top: 10rem;
 
             @media only screen and (max-width: $bp-large) {
-                display: none;
+                align-self: center;
+                text-align: center;
+                height: min-content;
+                width:  100%;
+                padding: 0 9rem;
+                margin-top: 2rem;
+
             }
 
             //top content
@@ -516,19 +541,41 @@
                 justify-self: flex-start;
                 height: 100%;
 
+                @media only screen and (max-width: $bp-large) {
+                    height: min-content;         
+                }
+
                 & .slick-active {
                     animation: slideFade 1s both;
                     animation-timing-function: ease-out;
                     animation-delay: 0.5s;
 
+                    @media only screen and (max-width: $bp-large) {
+                        animation: none;
+                             
+                    }
+             
+
                     & .goto-button {
-                        animation: slideFade 1s both;
-                        animation-timing-function: ease-out;
-                        animation-delay: 1s;
+                        animation: slideFade .5s both;
+                        animation-delay: .4s;
+
+                        @media only screen and (max-width: $bp-large) {
+                            animation: none;
+                                 
+                        }
                     }
                 }
 
                 &__item {
+
+                    @media only screen and (max-width: $bp-large) {
+                        display: flex !important;
+                        flex-direction: column;
+                        align-items: center;
+                       
+                    }
+
                     &__title {
                         text-transform: uppercase;
                         letter-spacing: 0.3rem;
@@ -536,6 +583,12 @@
                         position: relative;
                         display: inline-block;
                         margin-bottom: 1rem;
+
+                        @media only screen and (max-width: $bp-medium) {
+                            font-size: 2rem;
+                            line-height: 2.6rem;                    
+                        }
+
                         &::after {
                             // content: "";
                             position: absolute;
@@ -548,23 +601,58 @@
                     }
                     &__text {
                         line-height: 3.5rem;
+
+                        @media only screen and (max-width: $bp-large) {
+                            font-size: 1.4rem;
+                            line-height: 2.2rem; 
+                            max-width: 60rem;  
+                            margin: 0 6rem;                 
+                        }
+                        @media only screen and (max-width: $bp-small) {       
+                            margin: 0 1rem;                 
+                        }
+                        @media only screen and (max-width: $bp-xsmall) {       
+                            margin: 0;                 
+                        }
+
                     }
 
                     &__cta {
                         padding-top: 4rem;
                         width: max-content;
+
+                        & svg {
+                            @media only screen and (max-width: $bp-medium) {
+                                display: none;                    
+                            }
+                        }
+                      
                     }
                 }
 
                 &__arrow-left {
                     position: absolute;
                     bottom: -4rem;
-                    right: 10rem;
+                    right: 12rem;
+
+                    @media only screen and (max-width: $bp-large) {
+                        top: 5%;
+                        left: -7rem;
+              
+                       
+                    }
                 }
                 &__arrow-right {
                     position: absolute;
                     bottom: -4rem;
                     right: 5rem;
+
+                    @media only screen and (max-width: $bp-large) {
+                        top: 5%;
+                        right: -7rem;
+                    
+                    }
+
                 }
             }
 
@@ -572,8 +660,12 @@
             &__progress {
                 display: flex;
                 width: 30rem;
-                //transform: translateY(5rem);
                 align-items: center;
+
+                @media only screen and (max-width: $bp-large) {
+                    display: none;
+                }
+
                 &__bar {
                     width: 20rem;
                     height: 2px;
