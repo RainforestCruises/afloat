@@ -703,10 +703,14 @@
     &:hover {
       color: $color-white;
       background-color: $color-primary;
-      //box-shadow: $inner-border-dark;
-  
- 
     }
+  }
+
+  &--small {
+      height: 4rem;
+      box-shadow: inset 0px 0px 0px 1px $color-grey-light-2;
+      min-width: 10rem;
+
   }
   
 }

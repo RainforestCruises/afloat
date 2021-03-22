@@ -1,4 +1,6 @@
 .page-nav {
+    display: flex;
+    justify-content: space-between;
     &__button {
         display: none;
 
@@ -15,11 +17,12 @@
 
         padding-left: 3rem;
         color: $color-primary;
+        width: max-content;
 
         & svg {
             height: 2rem;
             width: 2rem;
-            fill: currentColor;
+            fill: $color-grey-light-2;
             transition: all 0.2s;
             opacity: 1;
             margin-left: 1rem;
@@ -30,6 +33,21 @@
                 transform: rotate(90deg);
                 opacity: 1;
             }
+        }
+    }
+
+    &__cta {
+        display: none;
+        align-items: center;
+
+        @media only screen and (max-width: $bp-large) {
+            display: flex;
+        }
+    
+
+        & button {
+            margin: 0 3rem; 
+            border-radius: 2rem;
         }
     }
 

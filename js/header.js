@@ -138,11 +138,11 @@ jQuery(document).ready(function ($) {
       $('.nav-mobile__content-panel').removeClass('slide-center');
       document.body.classList.add('lock-scroll');
 
-      $('#page-nav').hide();
+      //$('#page-nav').hide();
 
       //on close
     } else {
-      $('#page-nav').show();
+      //$('#page-nav').show();
       document.body.classList.remove('lock-scroll');
       if (window.scrollY <= topOfNav) {
         if (opaqueNavAlways == false) {

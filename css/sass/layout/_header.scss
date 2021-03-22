@@ -575,27 +575,22 @@
     }
 
     &--active {
-        //background-color: $color-supporting-light-2;
-        background-color: $color-primary;
+
 
         & .burger-menu__bar {
-            background-color: $color-white;
             visibility: hidden;
             &::before {
                 transform: rotate(-45deg) translateY(0);
                 visibility: visible;
-                //color: $color-white;
             }
             &::after {
                 transform: rotate(45deg) translateY(0);
                 visibility: visible;
-                //color: $color-white;
             }
         }
 
         &:hover {
             & .burger-menu__bar {
-                color: $color-primary;
 
                 visibility: hidden;
                 &::before {

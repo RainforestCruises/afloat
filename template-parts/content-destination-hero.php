@@ -112,12 +112,20 @@
                           <a href="#faq" class="destination-hero__content__page-nav__list__item__link">FAQ</a>
                       </li>
                   </ul>
-                  <div class="page-nav__button">
-                      <?php echo $title  ?>
-                      <svg>
-                          <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                      </svg>
+                  <div class="page-nav">
+                      <div class="page-nav__button">
+                          <?php echo $title  ?>
+                          <svg>
+                              <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                          </svg>
+                      </div>
+                      <div class="page-nav__cta">
+                          <button class="btn-cta-square btn-cta-square--small btn-cta-square--white">
+                              Inquire
+                          </button>
+                      </div>
                   </div>
+
                   <!-- page-nav__collapse--active -->
                   <nav class="page-nav__collapse ">
                       <ul class="page-nav__collapse__list">
@@ -177,17 +185,17 @@
                   </nav>
               </nav>
 
-              
+
           </div>
           <div class="destination-hero__content__arrow">
-                  <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="<?php echo ($destinationType == 'cruise' ? '#cruises' : '#packages') ?>">
-                      <svg class="btn-circle--arrow-main">
-                          <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
-                      </svg>
-                      <svg class="btn-circle--arrow-animate">
-                          <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
-                      </svg></button>
-              </div>
+              <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="<?php echo ($destinationType == 'cruise' ? '#cruises' : '#packages') ?>">
+                  <svg class="btn-circle--arrow-main">
+                      <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
+                  </svg>
+                  <svg class="btn-circle--arrow-animate">
+                      <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
+                  </svg></button>
+          </div>
 
           <div class="destination-hero__content__location">
               <?php
