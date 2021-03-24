@@ -21,7 +21,7 @@ $currentYear = $args['currentYear'];
     </div>
 
     <div id="sentinal-prices"></div>
-    <h2 class="page-divider ">
+    <h2 class="page-divider product-prices__divider ">
         Tour Pricing
     </h2>
 

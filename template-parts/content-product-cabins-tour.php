@@ -33,7 +33,7 @@ $hotels = get_field('hotels');
     <?php
     $propertyCount = 0;
     if ($properties) : ?>
-        <h2 class="page-divider u-margin-bottom-small">
+        <h2 class="page-divider product-cabins__divider">
             Tour Accommodations
         </h2>
         <?php foreach ($properties as $property) : ?>
@@ -77,7 +77,7 @@ $hotels = get_field('hotels');
     <?php endif; ?>
 
 
-    <div class="<?php echo ($properties) ? 'sub-divider' : 'page-divider u-margin-bottom-small'; ?>">
+    <div class="<?php echo ($properties) ? 'sub-divider u-margin-bottom-small' : 'page-divider u-margin-bottom-small'; ?>">
         Hotel Options
     </div>
     <div class="sub-divider-text">

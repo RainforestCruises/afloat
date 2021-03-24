@@ -37,7 +37,7 @@ if ($args['propertyType'] == 'Cruise') {
     <div id="sentinal-cabins"></div>
 
     <!-- H2 Title -->
-    <h2 class="page-divider u-margin-bottom-small">
+    <h2 class="page-divider product-cabins__divider">
         Suites & Cabins
     </h2>
 

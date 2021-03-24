@@ -77,6 +77,9 @@
                 @media only screen and (max-width: $bp-medium) {
                     text-align: center;
                     width: 100%;
+
+                    font-size: 2.8rem;
+                    line-height: 3.5rem;
                 }
             }
 
@@ -321,37 +324,10 @@
     }
 
     &__experiences-title {
-        grid-column: center-start / center-end;
-        text-align: center;
-        margin: 4rem 0;
-        margin-bottom: 2rem;
 
-        display: grid;
-        grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr); //FIX THIS
-        align-items: center;
-        column-gap: 2.5rem;
+         margin-top: 4rem;
+         margin-bottom: 2rem;
 
-        font-size: 3rem;
-        text-transform: uppercase;
-        color: $color-primary;
-        letter-spacing: 0.3rem;
-        font-weight: 600;
-        z-index: 10;
-
-        //lines on both sides effect
-        &::before {
-            content: "";
-            height: 1px;
-            display: block;
-            background-color: currentColor;
-        }
-
-        &::after {
-            content: "";
-            height: 1px;
-            display: block;
-            background-color: currentColor;
-        }
     }
 
     &__experiences-sub-text {

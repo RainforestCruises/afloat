@@ -42,7 +42,7 @@ if ($args['propertyType'] == 'Cruise') {
     </div>
 
     <div id="sentinal-prices"></div>
-    <h2 class="page-divider ">
+    <h2 class="page-divider product-prices__divider">
         <?php echo ($charter_view) ? 'Charter Pricing' : 'Price List'; ?>
     </h2>
 

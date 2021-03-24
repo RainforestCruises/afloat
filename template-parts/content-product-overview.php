@@ -35,7 +35,7 @@ if ($args['propertyType'] == 'Cruise') {
 
     <!-- H2 Title -->
     <div id="sentinal-overview"></div>
-    <h2 class="page-divider  u-margin-bottom-none product-overview__divider">
+    <h2 class="page-divider product-overview__divider">
         <?php echo $args['propertyType'] ?> Overview
     </h2>
 

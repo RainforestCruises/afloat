@@ -132,7 +132,7 @@ $cruise_experiences = get_field('cruise_experiences');
     <!-- countries -->
     <?php $hideDesinations = get_field('hide_cruise_destinations') ?>
     <?php if ($hideDesinations == false) : ?>
-        <div class="destination-main__experiences-title">
+        <div class="sub-divider destination-main__experiences-title">
             <?php echo $title ?> Destinations
         </div>
         <div class="destination-main__experiences-sub-text">
@@ -173,7 +173,7 @@ $cruise_experiences = get_field('cruise_experiences');
     <!-- experiences -->
 
 
-    <div class="destination-main__experiences-title">
+    <div class="sub-divider destination-main__experiences-title">
         <?php echo $title ?> Experiences
     </div>
     <div class="destination-main__experiences-sub-text">

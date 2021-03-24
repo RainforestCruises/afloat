@@ -477,15 +477,25 @@
 
         &__title {
             font-size: 2.5rem;
+            line-height: 3.2rem;
             letter-spacing: 0.3rem;
             font-weight: 600;
             z-index: 2;
+            @media only screen and (max-width: $bp-medium) {
+                font-size: 2rem;
+                line-height: 2.7rem;
+                letter-spacing: 0.2rem;
+            }
         }
 
         &__availability {
             font-size: 1.5rem;
             letter-spacing: 0.2rem;
             z-index: 2;
+
+            @media only screen and (max-width: $bp-medium) {
+                font-size: 1.3rem;
+            }
         }
 
         &::before {

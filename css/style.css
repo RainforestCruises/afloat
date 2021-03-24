@@ -202,46 +202,38 @@ p {
 
 .page-divider {
   grid-column: center-start / center-end;
-  text-align: center;
-  margin: 4rem 0;
-  font-family: "Old Standard TT", serif;
+  display: flex;
+  flex-direction: row;
   color: #142838;
+  font-family: "Old Standard TT", serif;
   font-size: 4.5rem;
   line-height: 5.5rem;
   letter-spacing: 0.3rem;
   font-weight: 500;
-  display: grid;
-  grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr);
-  align-items: center;
-  column-gap: 2.5rem; }
-  .page-divider--full {
-    grid-column: full-start / full-end; }
-  @media only screen and (max-width: 50em) {
-    .page-divider {
-      font-size: 3.5rem;
-      line-height: 4.2rem; } }
-  @media only screen and (max-width: 37.5em) {
-    .page-divider {
-      font-size: 3rem;
-      line-height: 3.7rem; } }
-  @media only screen and (max-width: 25em) {
-    .page-divider {
-      font-size: 2.5rem;
-      letter-spacing: 0.1rem;
-      line-height: 3rem;
-      column-gap: 1rem; } }
+  text-align: center; }
   .page-divider::before {
     content: "";
-    height: 1px;
-    display: block;
-    background-color: currentColor; }
+    flex: 1 1;
+    border-bottom: 1px solid currentColor;
+    margin: auto;
+    margin-right: 2rem; }
+    @media only screen and (max-width: 50em) {
+      .page-divider::before {
+        margin-right: 1.5rem; } }
   .page-divider::after {
     content: "";
-    height: 1px;
-    display: block;
-    background-color: currentColor; }
-  .page-divider--dark {
-    color: #9ea0a4; }
+    flex: 1 1;
+    border-bottom: 1px solid currentColor;
+    margin: auto;
+    margin-left: 2rem; }
+    @media only screen and (max-width: 50em) {
+      .page-divider::after {
+        margin-left: 1.5rem; } }
+  @media only screen and (max-width: 50em) {
+    .page-divider {
+      font-size: 3.2rem;
+      line-height: 4rem;
+      letter-spacing: 0.2rem; } }
 
 .svg-divider {
   height: 9rem;
@@ -289,31 +281,37 @@ p {
 .sub-divider {
   grid-column: center-start / center-end;
   text-align: center;
-  margin: 4rem 0;
-  margin-bottom: 2rem;
-  display: grid;
-  grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr);
-  align-items: center;
-  column-gap: 2.5rem;
+  display: flex;
+  flex-direction: row;
   font-size: 3rem;
+  line-height: 3.8rem;
   text-transform: uppercase;
   color: #142838;
-  letter-spacing: .3rem;
+  letter-spacing: 0.3rem;
   font-weight: 600;
   z-index: 10; }
-  @media only screen and (max-width: 50em) {
-    .sub-divider {
-      font-size: 2rem; } }
   .sub-divider::before {
     content: "";
-    height: 1px;
-    display: block;
-    background-color: currentColor; }
+    flex: 1 1;
+    border-bottom: 1px solid currentColor;
+    margin: auto;
+    margin-right: 2rem; }
+    @media only screen and (max-width: 50em) {
+      .sub-divider::before {
+        margin-right: 1.5rem; } }
   .sub-divider::after {
     content: "";
-    height: 1px;
-    display: block;
-    background-color: currentColor; }
+    flex: 1 1;
+    border-bottom: 1px solid currentColor;
+    margin: auto;
+    margin-left: 2rem; }
+    @media only screen and (max-width: 37.5em) {
+      .sub-divider::after {
+        margin-left: 1.5rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .sub-divider {
+      font-size: 2rem;
+      line-height: 2.7rem; } }
 
 .sub-divider-text {
   grid-column: center-start / center-end;
@@ -2421,6 +2419,8 @@ h5 {
     grid-row: 1 / span 1;
     z-index: -10;
     border-bottom: 1px solid #e6e6e6; }
+  .product-overview__divider {
+    margin-top: 3rem; }
   .product-overview__description {
     grid-column: full-start / full-end;
     display: grid;
@@ -2543,7 +2543,8 @@ h5 {
     .product-itineraries__itinerary__title {
       grid-column: center-start / center-end;
       grid-row: 1 / span 1;
-      margin-bottom: 4.5rem; }
+      margin-bottom: 4.5rem;
+      margin-top: 3rem; }
       @media only screen and (max-width: 37.5em) {
         .product-itineraries__itinerary__title {
           margin-bottom: 2.5rem; } }
@@ -2888,6 +2889,8 @@ h5 {
     grid-row: 1 / span 1;
     z-index: -10;
     border-bottom: 1px solid #e6e6e6; }
+  .product-cabins__divider {
+    margin-top: 3rem; }
   .product-cabins__cabin {
     grid-column: full-start / full-end;
     display: grid;
@@ -3107,6 +3110,8 @@ h5 {
     grid-row: 1 / span 1;
     z-index: -10;
     border-bottom: 1px solid #e6e6e6; }
+  .product-prices__divider {
+    margin-top: 3rem; }
   .product-prices__price-group {
     grid-column: full-start / full-end;
     display: grid;
@@ -4761,7 +4766,8 @@ h5 {
         .destination-hero__content__location__slider__arrow-left {
           position: absolute;
           bottom: -4rem;
-          right: 12rem; }
+          right: 12rem;
+          z-index: 10; }
           @media only screen and (max-width: 62.5em) {
             .destination-hero__content__location__slider__arrow-left {
               top: 5%;
@@ -4769,7 +4775,8 @@ h5 {
         .destination-hero__content__location__slider__arrow-right {
           position: absolute;
           bottom: -4rem;
-          right: 5rem; }
+          right: 5rem;
+          z-index: 10; }
           @media only screen and (max-width: 62.5em) {
             .destination-hero__content__location__slider__arrow-right {
               top: 5%;
@@ -4864,7 +4871,9 @@ h5 {
         @media only screen and (max-width: 50em) {
           .destination-main__intro__description__title {
             text-align: center;
-            width: 100%; } }
+            width: 100%;
+            font-size: 2.8rem;
+            line-height: 3.5rem; } }
       .destination-main__intro__description__text {
         line-height: 3.2rem;
         margin-bottom: 5rem;
@@ -5032,30 +5041,8 @@ h5 {
         .destination-main__packages__best-selling__slider .slick-current .wide-slider-card::after {
           opacity: 0; }
   .destination-main__experiences-title {
-    grid-column: center-start / center-end;
-    text-align: center;
-    margin: 4rem 0;
-    margin-bottom: 2rem;
-    display: grid;
-    grid-template-columns: minmax(6rem, 1fr) minmax(min-content, max-content) minmax(6rem, 1fr);
-    align-items: center;
-    column-gap: 2.5rem;
-    font-size: 3rem;
-    text-transform: uppercase;
-    color: #142838;
-    letter-spacing: 0.3rem;
-    font-weight: 600;
-    z-index: 10; }
-    .destination-main__experiences-title::before {
-      content: "";
-      height: 1px;
-      display: block;
-      background-color: currentColor; }
-    .destination-main__experiences-title::after {
-      content: "";
-      height: 1px;
-      display: block;
-      background-color: currentColor; }
+    margin-top: 4rem;
+    margin-bottom: 2rem; }
   .destination-main__experiences-sub-text {
     grid-column: center-start / center-end;
     text-align: center;
@@ -7217,13 +7204,22 @@ h5 {
     position: relative; }
     .category-card__content__title {
       font-size: 2.5rem;
+      line-height: 3.2rem;
       letter-spacing: 0.3rem;
       font-weight: 600;
       z-index: 2; }
+      @media only screen and (max-width: 50em) {
+        .category-card__content__title {
+          font-size: 2rem;
+          line-height: 2.7rem;
+          letter-spacing: 0.2rem; } }
     .category-card__content__availability {
       font-size: 1.5rem;
       letter-spacing: 0.2rem;
       z-index: 2; }
+      @media only screen and (max-width: 50em) {
+        .category-card__content__availability {
+          font-size: 1.3rem; } }
     .category-card__content::before {
       content: "";
       position: absolute;

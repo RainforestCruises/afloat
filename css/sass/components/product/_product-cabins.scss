@@ -30,6 +30,10 @@
         border-bottom: 1px solid $color-grey-light-1a;
     }
 
+    &__divider {
+        margin-top: 3rem;
+    }
+
     &__cabin {
         grid-column: full-start / full-end;
         display: grid;
