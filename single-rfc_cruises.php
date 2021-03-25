@@ -94,7 +94,7 @@ while (have_posts()) :
     </div>
 
     <!-- 4. Prices Content -->
-    <div class="product-page__section-prices" id="prices">
+    <div class="product-page__section-prices" id="prices" style="display: none;">
       <?php
       get_template_part('template-parts/content', 'product-prices', $args);
       ?>
@@ -112,7 +112,7 @@ while (have_posts()) :
 
     <!-- Reviews -->
   
-    <section class="product-page__section-reviews">
+    <section class="product-page__section-reviews" style="display: none;">
       <?php
       get_template_part('template-parts/content', 'product-reviews', $args);
       ?>

@@ -77,7 +77,7 @@ jQuery(document).ready(function ($) {
   })
 
   //Navigation Events - change anchor
-  $('.product-nav__tab-list__item__link, .goto-cabins, .goto-itineraries, .goto-prices, .goto-dates').click(function (event) {
+  $('.product-hero__top__content__tab-list__item__link, .goto-cabins, .goto-itineraries, .goto-prices, .goto-dates').click(function (event) {
     event.preventDefault();
     var tab_id = $(this).attr('href');
     window.location.hash = tab_id;
@@ -89,7 +89,7 @@ jQuery(document).ready(function ($) {
   function changeTabs(identifier) {
     tab_id = identifier.substring(1); //remove hash
 
-    $('.product-nav__tab-list__item').removeClass('current');
+    $('.product-hero__top__content__tab-list__item').removeClass('current');
     $('.product-content__page.tab-content').removeClass('current');
 
     $(".tab-" + tab_id).addClass('current'); //apply to both original / clone (sticky) -- class is same name as data-tab id
@@ -373,7 +373,7 @@ jQuery(document).ready(function ($) {
           var newNav = $(navbar).clone(true); //clone the nav and append it to header (pass true to clone events also)
           newNav.attr('id', 'page-nav');
 
-          $(newNav).addClass('product-nav__sticky-wrapper--active');
+          $(newNav).addClass('product-hero__top__content__sticky-wrapper--active');
           $('#header').append(newNav);
         }
 
@@ -381,7 +381,7 @@ jQuery(document).ready(function ($) {
         if (elementExists == null) {
           var newTitle = $(subnavTitle).clone(true);
           newTitle.attr('id', 'page-nav-title')
-          $(newTitle).addClass('product-nav__caption__title-group__title--sticky'); //create common style
+          $(newTitle).addClass('product-hero__top__content__title-group__title--sticky'); //create common style
           $('#page-nav').append(newTitle);
         }
       }
@@ -522,7 +522,7 @@ jQuery(document).ready(function ($) {
   });
 
   //Nav Rotate slick
-  $('#product-nav__slick').on('init', function (event, slick) {
+  $('#product-hero__top__content__slick').on('init', function (event, slick) {
     $(this).find('.slick-slide[data-slick-index="' + 2 + '"]').addClass('product-slick-enlarge');
   }).slick({
     infinite: true,
@@ -534,8 +534,8 @@ jQuery(document).ready(function ($) {
     focusOnSelect: true,
     arrows: true,
     //centerMode: true,
-    prevArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--left product-nav__slick__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-    nextArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--right product-nav__slick__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+    prevArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--left product-hero__top__content__slick__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+    nextArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--right product-hero__top__content__slick__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
   }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
     $(this).find('.slick-slide[data-slick-index="' + (+nextSlide - 0) + '"]').addClass('product-slick-enlarge');
     $(this).find('.slick-slide[data-slick-index="' + (+currentSlide - 0) + '"]').removeClass('product-slick-enlarge');

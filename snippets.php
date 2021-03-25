@@ -68,3 +68,27 @@
       get_template_part('template-parts/content', 'product-related', $args);
       ?>
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="product-nav__slick" id="product-nav__slick">
+                    <?php
+                    $images = get_field('highlight_gallery');
+                    if ($images) : ?>
+                        <?php foreach ($images as $image) : ?>
+                            <div class="product-nav__slick__item">
+                                <img src="<?php echo esc_url($image['url']); ?>" alt="">
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
