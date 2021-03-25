@@ -537,7 +537,7 @@ jQuery(document).ready(function ($) {
     nextArrow: '<button class="btn-circle btn-circle--small  btn-circle--right product-hero__gallery__slick__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
     responsive: [
       {
-        breakpoint: 1600,
+        breakpoint: 1750,
         settings: {
           slidesToShow: 2,
 

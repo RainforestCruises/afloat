@@ -2148,40 +2148,41 @@ h5 {
             justify-self: center; } }
   .product-hero__gallery {
     position: absolute;
-    bottom: 8rem;
+    bottom: 0rem;
     right: 0;
     z-index: 12;
-    height: 34rem;
+    height: 42rem;
     width: calc(50% - 6rem);
     display: flex;
-    align-items: center; }
+    align-items: flex-end; }
     @media only screen and (max-width: 62.5em) {
       .product-hero__gallery {
         display: none; } }
     .product-hero__gallery__slick {
       z-index: 20;
-      height: 100%;
+      height: min-content;
       width: 100%;
-      position: relative; }
+      margin-bottom: 9rem; }
       @media only screen and (max-width: 62.5em) {
         .product-hero__gallery__slick {
           display: none; } }
       .product-hero__gallery__slick .slick-slide {
         outline: none;
-        margin: 1rem 2rem;
-        margin-bottom: 3rem; }
+        margin: 1rem;
+        margin-bottom: 3rem;
+        transition: all .3s; }
       .product-hero__gallery__slick__item {
         color: white;
         font-size: 2rem;
         position: relative;
         background-color: rosybrown;
-        height: 30rem;
+        height: min-content;
         width: 100%;
         box-shadow: 0 2rem 2rem -1rem rgba(0, 0, 0, 0.25); }
         .product-hero__gallery__slick__item img {
           height: 100%;
           width: 100%;
-          object-fit: cover; }
+          object-fit: contain; }
       .product-hero__gallery__slick__btn--left {
         position: absolute;
         bottom: -4rem;

@@ -332,100 +332,7 @@
         }
       }
 
-      // &__slick {
-      //   display: grid;
-      //   align-items: start;
-      //   //height: 55vh;
-      //   z-index: 20;
-
-      //   display: none;
-      //   @media only screen and (max-width: $bp-large) {
-      //     display: none;
-      //   }
-
-      //   .slick-slide {
-      //     outline: none;
-      //   }
-
-      //   &__item {
-      //     height: 50vh !important;
-      //     width: 45rem !important;
-      //     padding: 1rem 2rem !important;
-      //     padding-bottom: 4rem !important;
-      //     color: white; //text
-      //     font-size: 2rem;
-      //     position: relative;
-
-      //     @media only screen and (max-width: $bp-largest) {
-      //       height: 40vh !important;
-      //       width: 45rem !important;
-      //     }
-
-      //     display: grid !important;
-
-      //     img {
-      //       grid-row: 1 / -1;
-      //       grid-column: 1 / -1;
-      //       align-self: center;
-      //       height: 80%;
-      //       width: 100%;
-      //       object-fit: cover; //needs to set width and height
-      //       display: block;
-      //       z-index: 0;
-      //       transition: all 0.5s;
-      //       box-shadow: $shadow-medium-bottom;
-      //       position: relative;
-      //     }
-      //     &::after {
-      //       content: "";
-      //       grid-row: 1 / -1;
-      //       grid-column: 1 / -1;
-      //       align-self: center;
-      //       height: 80%;
-      //       width: 100%;
-      //       z-index: 8;
-      //       opacity: 0;
-      //       transition: all 0.5s;
-      //       background-image: linear-gradient(to right, rgba($color-primary, 0.6), rgba($color-primary, 0.6));
-      //     }
-
-      //     &__title {
-      //       grid-row: 1 / -1;
-      //       grid-column: 1 / -1;
-      //       align-self: center;
-      //       z-index: 10;
-      //       opacity: 0;
-      //       height: 80%;
-      //       width: 100%;
-      //       font-size: 1.5rem;
-      //       padding: 1rem 2rem;
-      //       color: $color-white;
-      //       letter-spacing: 0.1rem;
-      //       display: flex;
-      //       align-items: flex-end;
-      //       //justify-content: center;
-
-      //       transition: all 0.5s;
-      //       position: absolute;
-      //       background-image: linear-gradient(to top, rgba($color-black, 0.6), rgba($color-black, 0) 20%);
-      //     }
-      //   }
-
-      //   &__btn {
-      //     &--left {
-      //       position: absolute;
-      //       top: -1rem;
-      //       left: -5rem;
-      //       z-index: 8;
-      //     }
-      //     &--right {
-      //       position: absolute;
-      //       top: -1rem;
-      //       left: 46rem;
-      //       z-index: 8;
-      //     }
-      //   }
-      // }
+     
     }
   }
 
@@ -576,16 +483,21 @@
 
   &__gallery {
     position: absolute;
-    bottom: 8rem;
+    bottom: 0rem;
     right: 0;
     z-index: 12;
-    height: 34rem; //item is 30rem + 4rem margins t/b
+    height: 42rem; //item is 30rem + 4rem margins t/b
     width: calc(50% - 6rem);
+
+
+
+
+
 
     //background-color: rgba($color-red, 0.6);
 
     display: flex;
-    align-items: center;
+    align-items: flex-end;
 
     @media only screen and (max-width: $bp-large) {
       display: none;
@@ -596,18 +508,33 @@
       z-index: 20;
 
 
-      height: 100%;
+      height: min-content;
+      
       width: 100%;
-      position: relative;
+      //background-color: rgba($color-green, 0.6);
+      margin-bottom: 9rem;
 
       @media only screen and (max-width: $bp-large) {
         display: none;
       }
 
+      .slick-track {
+        //position: relative;
+        
+
+
+      }
+
       .slick-slide {
         outline: none;
-        margin: 1rem 2rem;
+        margin: 1rem;
         margin-bottom: 3rem;
+
+        transition: all .3s;
+      }
+
+      .slick-current {
+        //transform: scale(1.2);
       }
 
       &__item {
@@ -616,7 +543,7 @@
         position: relative;
         background-color: rosybrown;
 
-        height: 30rem; //35w about
+        height: min-content; //slick determins h/w
         width: 100%;
 
         box-shadow: $shadow-medium-bottom;
@@ -624,8 +551,9 @@
         & img {
           height: 100%;
           width: 100%;
-          object-fit: cover; //needs to set width and height
+          object-fit: contain; //needs to set width and height
         }
+        
 
       }
 
