@@ -117,6 +117,19 @@ if ($args['propertyType'] == 'Cruise') {
     <!-- Gallery -->
     <div class="product-hero__gallery">
 
+        <div class="product-hero__gallery__slick" id="product-gallery">
+            <?php
+            $images = get_field('highlight_gallery');
+            if ($images) : ?>
+                <?php foreach ($images as $image) : ?>
+                    <div class="product-hero__gallery__slick__item">
+                        <!-- <div class="product-hero__gallery__slick__item__image-area"> -->
+                            <img src="<?php echo esc_url($image['url']); ?>" alt="">
+                        <!-- </div> -->
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
     </div>
 
 </div>

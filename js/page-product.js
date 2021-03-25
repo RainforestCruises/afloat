@@ -522,23 +522,33 @@ jQuery(document).ready(function ($) {
   });
 
   //Nav Rotate slick
-  $('#product-hero__top__content__slick').on('init', function (event, slick) {
-    $(this).find('.slick-slide[data-slick-index="' + 2 + '"]').addClass('product-slick-enlarge');
+  $('#product-gallery').on('init', function (event, slick) {
+    //$(this).find('.slick-slide[data-slick-index="' + 2 + '"]').addClass('product-slick-enlarge');
   }).slick({
     infinite: true,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     lazyLoad: 'ondemand',
-    initialSlide: 2,
-    variableWidth: true,
+    initialSlide: 1,
+    //variableWidth: true,
     focusOnSelect: true,
     arrows: true,
+    prevArrow: '<button class="btn-circle btn-circle--small  btn-circle--left product-hero__gallery__slick__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+    nextArrow: '<button class="btn-circle btn-circle--small  btn-circle--right product-hero__gallery__slick__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+    responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 2,
+
+
+        }
+      }
+    ],
     //centerMode: true,
-    prevArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--left product-hero__top__content__slick__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-    nextArrow: '<button class="btn-circle btn-circle--small btn-white btn-circle--right product-hero__top__content__slick__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
-  }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-    $(this).find('.slick-slide[data-slick-index="' + (+nextSlide - 0) + '"]').addClass('product-slick-enlarge');
-    $(this).find('.slick-slide[data-slick-index="' + (+currentSlide - 0) + '"]').removeClass('product-slick-enlarge');
+   }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+    //$(this).find('.slick-slide[data-slick-index="' + (+nextSlide - 0) + '"]').addClass('product-slick-enlarge');
+    //$(this).find('.slick-slide[data-slick-index="' + (+currentSlide - 0) + '"]').removeClass('product-slick-enlarge');
   });
 
 
