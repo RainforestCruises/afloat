@@ -2,11 +2,13 @@
     position: relative;
 
     display: flex;
-    grid-row: nav-start / hero-end;
-    grid-column: center-start / -1;
+    //grid-row: nav-start / hero-end;
+   // grid-column: center-start / -1;
 
     user-select: none;
     z-index: 3;
+
+    align-self: flex-end;
 
     &__caption {
         color: $color-grey-light-1;
@@ -92,13 +94,13 @@
         }
     }
 
-    @media only screen and (max-width: $bp-large) {
-        display: grid;
-        align-content: end;
-        height: 100%;
+    // @media only screen and (max-width: $bp-large) {
+    //     display: grid;
+    //     align-content: end;
+    //     height: 100%;
 
-        grid-column: center-start / center-end;
-    }
+    //     grid-column: center-start / center-end;
+    // }
 
     @media only screen and (max-width: $bp-small) {
         grid-column: 1 / -1;
@@ -296,7 +298,7 @@
         align-self: flex-end;
         transform: translateY(60%);
         z-index: 4;
-
+       
         @media only screen and (max-width: $bp-largest) {
             transform: translateY(70%);
 
@@ -309,7 +311,7 @@
         //height: 55vh;
         z-index: 20;
 
-
+        display: none;
         @media only screen and (max-width: $bp-large) {
             display: none;
         }

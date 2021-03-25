@@ -1,32 +1,32 @@
 .product-overview {
-    display: grid;
-    grid-template-columns: $page-container;
-    grid-template-rows: minmax(30vh, min-content);
-    position: relative;
+     display: grid;
+     grid-template-columns: $page-container;
+    // grid-template-rows: minmax(30vh, min-content);
+    // position: relative;
 
-    @media only screen and (max-width: $bp-large) {
-        grid-template-rows: minmax(22vh, min-content);
-    }
+    // @media only screen and (max-width: $bp-large) {
+    //     grid-template-rows: minmax(22vh, min-content);
+    // }
 
-    @media only screen and (max-width: $bp-small) {
-        grid-template-columns: $page-container-small;
-    }
+    // @media only screen and (max-width: $bp-small) {
+    //     grid-template-columns: $page-container-small;
+    // }
 
-    &::after {
-        //intro background
-        content: "";
-        background-color: $color-grey-light-1;
-        height: 100%;
-        width: 100%;
-        grid-column: full-start / full-end;
-        grid-row: 1 / span 1;
-        z-index: -10;
-        border-bottom: 1px solid $color-grey-light-1a;
-    }
+    // &::after {
+    //     //intro background
+    //     content: "";
+    //     background-color: $color-grey-light-1;
+    //     height: 100%;
+    //     width: 100%;
+    //     grid-column: full-start / full-end;
+    //     grid-row: 1 / span 1;
+    //     z-index: -10;
+    //     border-bottom: 1px solid $color-grey-light-1a;
+    // }
 
-    &__divider {
-        margin-top: 3rem;
-    }
+    // &__divider {
+    //     margin-top: 3rem;
+    // }
 
     //Description
     &__description {
@@ -34,9 +34,15 @@
         display: grid;
         grid-template-columns: $page-container;
         position: relative;
-        overflow-x: hidden;
+        overflow: hidden;
 
         margin-top: 4rem;
+        max-height:60rem;
+
+        &.expand{
+            max-height: 5000px !important;
+            transition:max-height 0.35s ease-in-out;
+          }
 
         @media only screen and (max-width: $bp-small) {
             grid-template-columns:
@@ -149,9 +155,32 @@
             }
         }
     }
+ 
+    &__fade {
+        grid-column: 1 / -1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        padding-top: 3rem;
 
-    &__btn {
-        grid-column: center-start / center-end;
-        justify-self: center;
+        &::after {
+            content: "";
+            height: 8rem;
+            width: 100%;
+            position: absolute;
+            top: calc(-100% + 3rem);
+            left: 0;
+            background-image: linear-gradient(to bottom, transparent, $color-white);
+        }
+
+        &.expand {
+
+            &::after {
+                display: none;
+            }
+        }
+
+
     }
 }

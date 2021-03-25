@@ -10,21 +10,8 @@ $monthNames = $args['monthNames'];
 ?>
 
 <div class="product-dates">
-    <div class="product-intro">
-        <!-- Info -->
-        <div class="product-intro__info">
-            <div class="product-intro__info__starting-price">Starting at: <span><?php echo "$" . number_format($cruise_data['LowestPrice'], 0); ?></span></div>
-            <div class="product-intro__info__cta">
-                <button class="btn-cta-round">Book Now</button>
-            </div>
-        </div>
-        <!-- Caption -->
-        <div class="product-intro__caption">
-            <?php echo get_field('dates_intro'); ?>
-        </div>
 
-    </div>
-    <div id="sentinal-dates"></div>
+    <!-- <div id="sentinal-dates"></div> -->
 
     <h2 class="product-dates__title page-divider u-margin-bottom-none">
         Availability

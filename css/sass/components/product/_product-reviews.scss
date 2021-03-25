@@ -1,7 +1,14 @@
 
 .product-reviews {
-    grid-column: full-start / -1;
 
+    display: grid;
+    grid-column: full-start / -1;
+    grid-template-columns: $page-container;
+    position: relative;
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: $page-container-small;
+    }
 }
 
 
@@ -9,6 +16,8 @@
   max-width: 114rem; //media query
   margin: 0 auto;
   position: relative !important;
+
+  grid-column: 1 / -1;
 
 
   @media only screen and (max-width: $bp-medium) {

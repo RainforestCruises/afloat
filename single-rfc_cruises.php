@@ -64,79 +64,68 @@ while (have_posts()) :
 
   <!-- Product Page Container -->
   <div class="product-page">
-    <?php
-    get_template_part('template-parts/content', 'product-hero-nav', $args);
-    ?>
-    <section class="product-content">
-
-      <!-- 1. Overview Content -->
-      <div class="product-content__page tab-content current" id="overview">
-        <?php
-        get_template_part('template-parts/content', 'product-overview', $args);
-        ?>
-      </div>
-
-      <!-- 2. Itineraries Content -->
-      <div class="product-content__page tab-content " id="itineraries">
-        <?php
-        get_template_part('template-parts/content', 'product-itineraries', $args);
-        ?>
-      </div>
-
-      <!-- 3. Cabins Content -->
-      <div class="product-content__page tab-content " id="cabins">
-        <?php
-        get_template_part('template-parts/content', 'product-cabins', $args);
-        ?>
-      </div>
-
-      <!-- 4. Prices Content -->
-      <div class="product-content__page tab-content " id="prices">
-        <?php
-        get_template_part('template-parts/content', 'product-prices', $args);
-        ?>
-      </div>
-
-      <?php if (!$charter_view) : ?>
-        <!-- 5. Dates Content -->
-        <div class="product-content__page tab-content " id="dates">
-          <?php
-          get_template_part('template-parts/content', 'product-dates', $args);
-          ?>
-        </div>
-      <?php endif; ?>
-
-    </section>
-
-    <!-- Areas -->
-    <h2 class="page-divider">
-      Explore
-    </h2>
-    <section class="product-areas">
+    <!-- Hero -->
+    <section class="product-page__section-hero" id="overview">
       <?php
-      get_template_part('template-parts/content', 'product-explore', $args);
+      get_template_part('template-parts/content', 'product-hero-nav', $args);
       ?>
     </section>
 
+
+    <!-- 1. Overview Content -->
+    <section class="product-page__section-overview" id="overview">
+      <?php
+      get_template_part('template-parts/content', 'product-overview', $args);
+      ?>
+    </section>
+
+    <!-- 2. Itineraries Content -->
+    <section class="product-page__section-itineraries" id="itineraries">
+      <?php
+      get_template_part('template-parts/content', 'product-itineraries', $args);
+      ?>
+    </section>
+
+    <!-- 3. Cabins Content -->
+    <div class="product-page__section-accommodation" id="accommodation">
+      <?php
+      get_template_part('template-parts/content', 'product-cabins', $args);
+      ?>
+    </div>
+
+    <!-- 4. Prices Content -->
+    <div class="product-page__section-prices" id="prices">
+      <?php
+      get_template_part('template-parts/content', 'product-prices', $args);
+      ?>
+    </div>
+
+    <?php if (!$charter_view) : ?>
+      <!-- 5. Dates Content -->
+      <div class="product-page__section-dates" id="dates">
+        <?php
+        get_template_part('template-parts/content', 'product-dates', $args);
+        ?>
+      </div>
+    <?php endif; ?>
+
+
     <!-- Reviews -->
-    <h2 class="page-divider">
-      Guest Reviews
-    </h2>
-    <section class="product-reviews">
+  
+    <section class="product-page__section-reviews">
       <?php
       get_template_part('template-parts/content', 'product-reviews', $args);
       ?>
     </section>
 
-    <!-- Related Travel -->
-    <h2 class="page-divider">
-      Related Cruises
-    </h2>
-    <section class="product-related">
+      <!-- Related Travel -->
+ 
+    <section class="product-page__section-related">
       <?php
       get_template_part('template-parts/content', 'product-related', $args);
       ?>
     </section>
+
 
   </div>
 

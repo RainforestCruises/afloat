@@ -15,67 +15,54 @@ $charter_only = false;
 
 if ($args['propertyType'] == 'Cruise') {
     if ($args['charter_view'] == true) {
-        $charter_view = true;      
+        $charter_view = true;
     }
 
-    if($args['charter_only'] == true){
+    if ($args['charter_only'] == true) {
         $charter_only = true;
     }
 }
-console_log($cruise_data);
 ?>
 <div class="product-itineraries">
 
+    <h2 class="page-divider">
+        Itineraries
+    </h2>
+
     <!-- Intro -->
-    <div class="product-intro">
-
-        <!-- Info -->
-        <div class="product-intro__info">
-            <?php if ($charter_view == false) : ?>
-                <div class="product-intro__info__starting-price">Itineraries: <span><?php echo $cruise_data['LowestLengthInDays'] ?>&mdash;<?php echo $cruise_data['HighestLengthInDays'] ?> Days</span></div>
-            <?php else : ?>
-                <div class="product-intro__info__starting-price">Flexible from: <span><?php echo ($charter_min_days == 1 ? $charter_min_days . ' Day +' : $charter_min_days . ' Days +') ?></span> </div>
-            <?php endif; ?>
-            <div class="product-intro__info__cta">
-                <button class="btn-cta-round">Book Now</button>
-            </div>
-        </div>
-
-        <!-- Caption -->
-        <div class="product-intro__caption">
-            <?php echo get_field('itineraries_intro'); ?>
-        </div>
+    <div class="product-itineraries__nav">
 
         <!-- Attributes -->
-        <nav class="product-intro__nav">
-            <ul class="product-intro__nav__list">
-                <?php
-                $count = 1;
-                foreach ($cruise_data['Itineraries'] as $item) {
+        <ul class="product-itineraries__nav__list">
+            <?php
+            $count = 1;
+            foreach ($cruise_data['Itineraries'] as $item) {
 
-                    if($charter_only == true && $item['IsSample'] == false) :
-                        //skip non sample itineraries
-                        $count++;
-                        continue;
-                    endif;
-                ?>
-                    <li class="product-intro__nav__list__item <?php echo ($count == 1 ? 'current' : ''); ?>" data-tab="tab-itinerary-<?php echo $count ?>" id="tab-itinerary-<?php echo $count ?>-nav">
-                        <?php echo $item['LengthInDays'] ?>-Day
-                    </li>
-                <?php
+                if ($charter_only == true && $item['IsSample'] == false) :
+                    //skip non sample itineraries
                     $count++;
-                } ?>
-            </ul>
+                    continue;
+                endif;
+            ?>
+                <li class="product-itineraries__nav__list__item <?php echo ($count == 1 ? 'current' : ''); ?>" data-tab="tab-itinerary-<?php echo $count ?>" id="tab-itinerary-<?php echo $count ?>-nav">
+                    <?php echo $item['LengthInDays'] ?>-Day
+                </li>
+            <?php
+                $count++;
+            } ?>
+        </ul>
         </nav>
+        <!-- <div id="sentinal-itineraries"></div> -->
+
     </div>
-    <div id="sentinal-itineraries"></div>
+
     <!-- TAB CONTENT -->
     <!-- Itineraries -->
     <?php
     $count = 1;
     foreach ($cruise_data['Itineraries'] as $itinerary) :
 
-        if($charter_only == true && $itinerary['IsSample'] == false) :
+        if ($charter_only == true && $itinerary['IsSample'] == false) :
             //skip non sample itineraries
             $count++;
             continue;
@@ -84,7 +71,7 @@ console_log($cruise_data);
         <!-- Itinerary -->
         <div class="product-itineraries__itinerary  tab-content <?php echo ($count == 1 ? 'current' : ''); ?>" id="tab-itinerary-<?php echo $count ?>">
             <div class="product-itineraries__itinerary__title">
-                <h2 class="page-divider product-itineraries__itinerary__title__main">
+                <h2 class="sub-divider product-itineraries__itinerary__title__main">
                     <?php echo $itinerary['Name'] ?>
                 </h2>
                 <h3 class="product-itineraries__itinerary__title__subtitle">
@@ -380,16 +367,14 @@ console_log($cruise_data);
         </div>
     <?php $count++;
     endforeach; ?>
-</div>
+    <?php
+    function sortDays($a, $b)
+    {
 
-<?php
-function sortDays($a, $b)
-{
-
-    if (is_object($a) && is_object($b)) {
-        return strcmp($a->DayNumber, $b->DayNumber);
+        if (is_object($a) && is_object($b)) {
+            return strcmp($a->DayNumber, $b->DayNumber);
+        }
     }
-}
 
 
-?>
+    ?>

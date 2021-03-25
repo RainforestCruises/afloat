@@ -20,28 +20,9 @@ if ($args['propertyType'] == 'Cruise') {
 
 ?>
 <div class="product-prices">
-    <!-- Intro -->
-    <div class="product-intro">
+    
 
-        <!-- Info -->
-        <div class="product-intro__info">
-            <?php if ($charter_view == false) : ?>
-                <div class="product-intro__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span></div>
-            <?php else : ?>
-                <div class="product-intro__info__starting-price">Charter: <span><?php echo "$" . number_format($args['charter_daily_price'], 0); ?> </span> <span class="u-small-text"> / Day</span></div>
-            <?php endif; ?> <div class="product-intro__info__cta">
-                <button class="btn-cta-round">Book Now</button>
-            </div>
-        </div>
-        <!-- Caption -->
-        <div class="product-intro__caption">
-            <?php echo get_field('prices_intro'); ?>
-
-        </div>
-
-    </div>
-
-    <div id="sentinal-prices"></div>
+    <!-- <div id="sentinal-prices"></div> -->
     <h2 class="page-divider product-prices__divider">
         <?php echo ($charter_view) ? 'Charter Pricing' : 'Price List'; ?>
     </h2>
@@ -263,12 +244,7 @@ if ($args['propertyType'] == 'Cruise') {
 
     <?php endif; ?>
 
-    <?php if (get_post_type() == 'rfc_cruises' && !$charter_view) { ?>
-        <div class="product-prices__btn  u-margin-bottom-medium u-margin-top-medium">
-            <button class="btn-outline goto-dates" href="#dates">View Availability</button>
-        </div>
 
-    <?php } ?>
 
 
     <?php

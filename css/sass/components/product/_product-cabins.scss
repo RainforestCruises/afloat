@@ -1,7 +1,7 @@
 .product-cabins {
     display: grid;
     grid-template-columns: $page-container;
-    grid-template-rows: minmax(30vh, min-content);
+    //grid-template-rows: minmax(30vh, min-content);
     position: relative;
 
 
@@ -14,9 +14,6 @@
     }
 
 
-    @media only screen and (max-width: $bp-large) {
-        grid-template-rows: minmax(22vh, min-content);
-    }
 
     &::after {
         //intro background

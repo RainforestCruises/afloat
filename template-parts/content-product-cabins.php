@@ -12,29 +12,8 @@ if ($args['propertyType'] == 'Cruise') {
 
 
 <div class="product-cabins">
-    <!-- Intro -->
-    <div class="product-intro">
 
-        <!-- Info -->
-        <div class="product-intro__info">
-            <?php if ($charter_view == false) : ?>
-                <div class="product-intro__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span></div>
-            <?php else : ?>
-                <div class="product-intro__info__starting-price">Charter: <span><?php echo "$" . number_format($args['charter_daily_price'], 0); ?> </span> <span class="u-small-text"> / Day</span></div>
-            <?php endif; ?>
-            <div class="product-intro__info__cta">
-                <button class="btn-cta-round">Book Now</button>
-            </div>
-        </div>
-        <!-- Caption -->
-        <div class="product-intro__caption">
-            <?php echo get_field('cabins_intro'); ?>
-
-        </div>
-
-
-    </div>
-    <div id="sentinal-cabins"></div>
+    <!-- <div id="sentinal-cabins"></div> -->
 
     <!-- H2 Title -->
     <h2 class="page-divider product-cabins__divider">

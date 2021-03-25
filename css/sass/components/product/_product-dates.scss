@@ -1,28 +1,13 @@
 .product-dates {
     display: grid;
     grid-template-columns: $page-container;
-    grid-template-rows: minmax(30vh, min-content);
     position: relative;
 
-    @media only screen and (max-width: $bp-large) {
-        grid-template-rows: minmax(22vh, min-content);
-    }
-
+ 
     @media only screen and (max-width: $bp-small) {
         grid-template-columns: $page-container-small;
     }
 
-    &::after {
-        //intro background
-        content: "";
-        background-color: $color-grey-light-1; //DARK MODE HERE
-        height: 100%;
-        width: 100%;
-        grid-column: full-start / full-end;
-        grid-row: 1 / span 1;
-        z-index: -10;
-        border-bottom: 1px solid $color-grey-light-1a;
-    }
 
     &__title {
         grid-column: center-start / center-end;

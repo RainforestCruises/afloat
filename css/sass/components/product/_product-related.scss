@@ -1,30 +1,33 @@
 .product-related {
     grid-column: full-start / -1;
+
+    //for bg needs to be 100% width
+    // display: flex;
+    // justify-content: space-around;
+    // width: 100%;
+    // padding-top: 3rem;
+    // position: relative;
+
+    display: grid;
+    grid-template-columns: $page-container;
+    position: relative;
+
     background-image: linear-gradient(to top, rgba($color-white, 0) 70%, rgba($color-white, 1)),
         url("img/bg/background-topo.jpg");
     background-position: center;
     background-size: cover;
     position: relative;
-
-    //for bg needs to be 100% width
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding-top: 3rem;
-    position: relative;
-
-    &__title {
-        
-    }
 }
 
 .related-slider {
+
+    grid-column: 1 / -1;
     max-width: 80%; //media query
     margin: 0 auto;
     height: 55rem;
 
     @media only screen and (max-width: $bp-small) {
-        max-width: 100%; //media query       
+        max-width: 100%; //media query
     }
 
     .slick-track {
@@ -35,7 +38,7 @@
     .slick-slide {
         margin: 2.5rem;
         box-shadow: $shadow-dark-bottom;
-        min-width: 0;     
+        min-width: 0;
     }
 
     //break this out into common element
@@ -48,17 +51,16 @@
         z-index: 0;
         cursor: pointer;
 
-
-        &:hover{
+        &:hover {
             & img {
                 height: 28rem;
             }
         }
 
         @media only screen and (max-width: $bp-small) {
-            &:hover{
+            &:hover {
                 & img {
-                   height: 25rem;
+                    height: 25rem;
                 }
             }
         }
@@ -83,7 +85,7 @@
             object-position: center;
             position: relative;
             z-index: 0;
-            transition: all .3s;
+            transition: all 0.3s;
         }
         &__title-group {
             grid-column: 1 / -1;
@@ -179,7 +181,7 @@
                     font-size: 1.1rem;
                     text-transform: uppercase;
                     margin-left: 0.5rem;
-                    margin-bottom: .2rem;
+                    margin-bottom: 0.2rem;
                 }
 
                 &__numbers {
@@ -197,9 +199,8 @@
                     text-align: right;
                     font-size: 1.1rem;
                     text-transform: uppercase;
-                    margin-right: .5rem;
-                    margin-bottom: .2rem;
-
+                    margin-right: 0.5rem;
+                    margin-bottom: 0.2rem;
                 }
 
                 &__numbers {
@@ -224,5 +225,3 @@
         }
     }
 }
-
-

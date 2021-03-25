@@ -1,3 +1,9 @@
+
+
+<div class="product-reviews">
+<h2 class="page-divider">
+    Guest Reviews
+</h2>
 <div class="reviews-slider" id="reviews-slider">
     <?php
     $rows = get_field('testimonials');
@@ -31,4 +37,5 @@
     <?php
         }
     } ?>
+</div>
 </div>

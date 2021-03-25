@@ -1,5 +1,26 @@
 jQuery(document).ready(function ($) {
 
+
+  $("#readmore-button").click( function(e) {
+    // record if our text is expanded
+    var isExpanded =  $(e.target).parent().hasClass("expand");
+    
+    //close all open paragraphs
+    $(".product-overview__description.expand").removeClass("expand");
+    $("#readmore-button").parent().removeClass("expand");
+    
+    // if target wasn't expand, then expand it
+    if (!isExpanded){
+      $('.product-overview__description').addClass( "expand" );
+      $(e.target).parent().addClass("expand");  
+      $(e.target).text("Read Less");  
+    } else {
+      $(e.target).text("Read More");  
+
+    }
+  });
+
+
   //Hotels Slider (must initialize before tab nav functions for position init)
   $('#hotels-slider').slick({
     slidesToShow: 4,
@@ -446,7 +467,7 @@ jQuery(document).ready(function ($) {
     ]
   });
 
-
+  var relatedCount = 4;
   var slidesToShow = 4;
   if (relatedCount > 3) {
     slidesToShow = 4;
@@ -526,11 +547,11 @@ jQuery(document).ready(function ($) {
 
 
   //Tabs Nav Itinerary (3/4/5 day...)
-  $('.product-intro__nav__list li').click(function () {
+  $('.product-itineraries__nav__list li').click(function () {
     var tab_id = $(this).attr('data-tab');
 
 
-    $('.product-intro__nav__list__item').removeClass('current');
+    $('.product-itineraries__nav__list__item').removeClass('current');
     $('.product-itineraries__itinerary.tab-content').removeClass('current');
 
     $(this).addClass('current');
@@ -542,7 +563,7 @@ jQuery(document).ready(function ($) {
     var tab_id = $(this).attr('data-tab');
     console.log(tab_id)
     $('.product-itineraries__itinerary.tab-content').removeClass('current');
-    $(".product-itineraries__intro__nav__item").removeClass('current');
+    $(".product-itineraries__nav__item").removeClass('current');
     $("#" + tab_id + "-nav").addClass('current');
     $("#" + tab_id).addClass('current');
   })
