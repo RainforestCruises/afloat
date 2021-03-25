@@ -2100,7 +2100,7 @@ h5 {
             row-gap: 2rem; } }
       .product-hero__bottom__content__caption {
         grid-row: 2 / span 1;
-        margin-bottom: 3rem;
+        margin: 3rem 0;
         font-size: 1.6rem;
         width: 50%; }
         @media only screen and (max-width: 62.5em) {
@@ -2162,7 +2162,7 @@ h5 {
       z-index: 20;
       height: min-content;
       width: 100%;
-      margin-bottom: 9rem; }
+      margin-bottom: 10rem; }
       @media only screen and (max-width: 62.5em) {
         .product-hero__gallery__slick {
           display: none; } }

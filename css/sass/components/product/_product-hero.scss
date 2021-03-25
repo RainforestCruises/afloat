@@ -412,7 +412,8 @@
 
       &__caption {
         grid-row: 2 / span 1;
-        margin-bottom: 3rem;
+        margin: 3rem 0;
+        //margin-bottom: 9rem;
         font-size: 1.6rem;
         //text-align: justify;
         width: 50%;
@@ -512,7 +513,7 @@
       
       width: 100%;
       //background-color: rgba($color-green, 0.6);
-      margin-bottom: 9rem;
+      margin-bottom: 10rem;
 
       @media only screen and (max-width: $bp-large) {
         display: none;
