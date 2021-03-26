@@ -153,6 +153,10 @@
           width: max-content;
         }
 
+        @media only screen and (max-width: $bp-small) {
+          display: none;
+        }
+
         &--active {
           width: 100%;
           display: grid;

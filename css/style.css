@@ -1243,7 +1243,9 @@ h5 {
     grid-column: full-start / -1;
     margin: 4rem 0;
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    width: 100%;
+    padding: 0 6rem; }
   .product-page__section-accommodation {
     grid-column: full-start / -1;
     margin: 4rem 0; }
@@ -1927,6 +1929,9 @@ h5 {
         @media only screen and (max-width: 62.5em) {
           .product-hero__top__content__sticky-wrapper {
             width: max-content; } }
+        @media only screen and (max-width: 37.5em) {
+          .product-hero__top__content__sticky-wrapper {
+            display: none; } }
         .product-hero__top__content__sticky-wrapper--active {
           width: 100%;
           display: grid;
@@ -2499,39 +2504,71 @@ h5 {
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 112rem; }
   .product-itineraries__nav {
-    grid-column: center-start / center-end;
-    width: 100%; }
-    .product-itineraries__nav__list {
+    width: 100%;
+    margin-top: 2rem; }
+    .product-itineraries__nav__slider {
       list-style: none;
-      display: grid;
-      grid-auto-flow: column; }
-      .product-itineraries__nav__list .current {
-        background-color: #fff;
-        border: 1px solid #e6e6e6;
-        border-bottom: 1px solid #fff;
-        color: #305a7c;
-        height: 100%; }
-      .product-itineraries__nav__list__item {
+      color: #142838;
+      padding-right: 12rem;
+      transform: translateY(1px); }
+      .product-itineraries__nav__slider .slick-current {
+        color: #305a7c !important; }
+        .product-itineraries__nav__slider .slick-current .product-itineraries__nav__slider__item {
+          border: 1px solid #e6e6e6;
+          border-bottom: 1px solid white;
+          z-index: 20; }
+      .product-itineraries__nav__slider .slick-slide {
+        outline: none; }
+      .product-itineraries__nav__slider__item {
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        font-weight: 500;
         text-transform: uppercase;
-        font-size: 1.8rem;
-        font-weight: 700;
-        position: relative;
-        cursor: pointer;
-        display: block;
-        align-self: end;
-        transition: all 0.2s;
-        padding: 1rem;
+        letter-spacing: .2rem;
+        border: 1px solid white;
+        border-bottom: 1px solid #e6e6e6;
+        transition: all .3s;
         text-align: center;
-        height: 95%;
-        box-sizing: border-box;
-        border: 1px solid transparent; }
-        .product-itineraries__nav__list__item:hover {
-          background-color: #fff;
-          color: #40739c; }
-          .product-itineraries__nav__list__item:hover:not(.current) {
-            border: 1px solid #e6e6e6; }
+        cursor: pointer; }
+        .product-itineraries__nav__slider__item:hover {
+          color: rgba(48, 90, 124, 0.6); }
+      .product-itineraries__nav__slider__btn {
+        height: 100%;
+        width: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        border: 1px solid #e6e6e6;
+        color: #919598;
+        cursor: pointer;
+        transition: all .2s;
+        outline: none;
+        z-index: 5; }
+        .product-itineraries__nav__slider__btn:hover {
+          color: #142838;
+          border: 1px solid #142838;
+          z-index: 20; }
+        .product-itineraries__nav__slider__btn svg {
+          height: 3rem;
+          width: 3rem;
+          fill: currentColor; }
+        .product-itineraries__nav__slider__btn--left {
+          position: absolute;
+          bottom: 0;
+          right: 6rem;
+          z-index: 8;
+          border-right: none; }
+        .product-itineraries__nav__slider__btn--right {
+          position: absolute;
+          bottom: 0;
+          right: 0rem;
+          z-index: 8; }
+  .product-itineraries__content {
+    border: 1px solid #e6e6e6; }
   .product-itineraries__itinerary {
     grid-column: full-start / full-end;
     animation: fadein 0.8s;
@@ -2685,7 +2722,7 @@ h5 {
                 letter-spacing: 0.2rem; }
                 @media only screen and (max-width: 37.5em) {
                   .product-itineraries__itinerary__d2d__days__day__image-content__badges__count-badge {
-                    margin: .5rem 1.5rem; } }
+                    margin: 0.5rem 1.5rem; } }
                 .product-itineraries__itinerary__d2d__days__day__image-content__badges__count-badge span {
                   color: #142838; }
               .product-itineraries__itinerary__d2d__days__day__image-content__badges__location-badge {
@@ -2703,7 +2740,7 @@ h5 {
                 letter-spacing: 0.2rem; }
                 @media only screen and (max-width: 37.5em) {
                   .product-itineraries__itinerary__d2d__days__day__image-content__badges__location-badge {
-                    margin: .5rem 1.5rem; } }
+                    margin: 0.5rem 1.5rem; } }
           .product-itineraries__itinerary__d2d__days__day__content {
             font-size: 1.6rem;
             padding: 0 3rem;
@@ -2873,6 +2910,11 @@ h5 {
   font-style: italic;
   border: 1px solid #e6e6e6;
   padding: 1.5rem; }
+
+.product-itinerary-slide {
+  height: 30rem;
+  font-size: 3rem;
+  padding: 2rem 3rem; }
 
 .product-cabins {
   display: grid;

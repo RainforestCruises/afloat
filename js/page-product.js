@@ -1,21 +1,64 @@
 jQuery(document).ready(function ($) {
 
 
-  $("#readmore-button").click( function(e) {
-    // record if our text is expanded
-    var isExpanded =  $(e.target).parent().hasClass("expand");
+
+  //Areas Slider (must select class for chained sliders)
+  $('#itineraries-slider').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    centerMode: true,
     
+  });
+  $('#itineraries-slider-nav').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    asNavFor: '#itineraries-slider',
+    dots: false,
+    //centerMode: true,
+    focusOnSelect: true,
+    arrows: true,
+    prevArrow: '<button class="product-itineraries__nav__slider__btn product-itineraries__nav__slider__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
+    nextArrow: '<button class="product-itineraries__nav__slider__btn product-itineraries__nav__slider__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+
+        }
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+
+        }
+      }
+    ]
+  });
+
+
+
+
+
+  // Read More
+  $("#readmore-button").click(function (e) {
+    // record if our text is expanded
+    var isExpanded = $(e.target).parent().hasClass("expand");
+
     //close all open paragraphs
     $(".product-overview__description.expand").removeClass("expand");
     $("#readmore-button").parent().removeClass("expand");
-    
+
     // if target wasn't expand, then expand it
-    if (!isExpanded){
-      $('.product-overview__description').addClass( "expand" );
-      $(e.target).parent().addClass("expand");  
-      $(e.target).text("Read Less");  
+    if (!isExpanded) {
+      $('.product-overview__description').addClass("expand");
+      $(e.target).parent().addClass("expand");
+      $(e.target).text("Read Less");
     } else {
-      $(e.target).text("Read More");  
+      $(e.target).text("Read More");
 
     }
   });
@@ -546,7 +589,7 @@ jQuery(document).ready(function ($) {
       }
     ],
     //centerMode: true,
-   }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+  }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
     //$(this).find('.slick-slide[data-slick-index="' + (+nextSlide - 0) + '"]').addClass('product-slick-enlarge');
     //$(this).find('.slick-slide[data-slick-index="' + (+currentSlide - 0) + '"]').removeClass('product-slick-enlarge');
   });
