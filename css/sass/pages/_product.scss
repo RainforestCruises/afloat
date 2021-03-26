@@ -28,6 +28,10 @@
   &__section-itineraries {
     grid-column: full-start / -1;
     margin: 4rem 0;
+
+    display: flex;
+    justify-content: center;
+    
   }
 
   &__section-accommodation {

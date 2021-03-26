@@ -1241,7 +1241,9 @@ h5 {
     margin: 4rem 0; }
   .product-page__section-itineraries {
     grid-column: full-start / -1;
-    margin: 4rem 0; }
+    margin: 4rem 0;
+    display: flex;
+    justify-content: center; }
   .product-page__section-accommodation {
     grid-column: full-start / -1;
     margin: 4rem 0; }
@@ -2494,12 +2496,10 @@ h5 {
       display: none; }
 
 .product-itineraries {
-  display: grid;
-  grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-  position: relative; }
-  @media only screen and (max-width: 37.5em) {
-    .product-itineraries {
-      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 112rem; }
   .product-itineraries__nav {
     grid-column: center-start / center-end;
     width: 100%; }
