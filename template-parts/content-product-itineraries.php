@@ -31,24 +31,27 @@ if ($args['propertyType'] == 'Cruise') {
     </h2>
 
     <!-- Nav -->
-    <div class="product-itineraries__nav">     
+    <div class="product-itineraries__nav">
         <div class="product-itineraries__nav__slider" id="itineraries-slider-nav">
+
+            <?php
+            $count = 1;
+            foreach ($cruise_data['Itineraries'] as $item) :
+
+                if ($charter_only == true && $item['IsSample'] == false) :
+                    //skip non sample itineraries
+                    $count++;
+                    continue;
+                endif;
+            ?>
                 <div class="product-itineraries__nav__slider__item">
-                    1-Day
+                    <?php echo $item['LengthInDays'] ?>-Day
                 </div>
-                <div class="product-itineraries__nav__slider__item">
-                    2-Day
-                </div>
-                <div class="product-itineraries__nav__slider__item">
-                    3-Day
-                </div>
-                <div class="product-itineraries__nav__slider__item">
-                    4-Day
-                </div>
-                <div class="product-itineraries__nav__slider__item">
-                    5-Day
-                </div>
-        </div>        
+            <?php
+                $count++;
+            endforeach; ?>
+
+        </div>
     </div>
     <!-- End Nav -->
 
@@ -57,21 +60,172 @@ if ($args['propertyType'] == 'Cruise') {
     <div class="product-itineraries__content">
         <div class="product-itineraries__content__slider" id="itineraries-slider">
 
-            <div class="product-itinerary-slide">
-                Itinerary 1
-            </div>
-            <div class="product-itinerary-slide">
-                Itinerary 2
-            </div>
-            <div class="product-itinerary-slide">
-                Itinerary 3
-            </div>
-            <div class="product-itinerary-slide">
-                Itinerary 4
-            </div>
-            <div class="product-itinerary-slide">
-                Itinerary 5
-            </div>
+            <!-- Itineraries -->
+            <?php
+            $count = 1;
+            foreach ($cruise_data['Itineraries'] as $itinerary) :
+
+                if ($charter_only == true && $itinerary['IsSample'] == false) :
+                    //skip non sample itineraries
+                    $count++;
+                    continue;
+                endif;
+            ?>
+
+                <!-- Slide -->
+                <div class="product-itinerary-slide">
+                    <div class="product-itinerary-slide__top">
+
+                        <!-- Map Area -->
+                        <div class="product-itinerary-slide__top__map-area">
+                            <div class="product-itinerary-slide__top__map-area__title">
+                                <?php echo $itinerary['Name'] ?> - <?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night
+                            </div>
+                            <!-- Map -->
+                            <?php $itineraryImages = $itinerary['MapImageDTOs']; ?>
+                            <a class="product-itineraries__itinerary__map product-itineraries__itinerary__map--no-summary" id="map-lightbox" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
+                                <?php if ($itineraryImages) : ?>
+                                    <img src="<?php echo $itineraryImages[0]['ImageUrl']; ?>" alt="">
+                                    <svg>
+                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
+                                    </svg>
+                                <?php endif ?>
+                            </a>
+                        </div>
+
+                        <!-- Info Area -->
+                        <div class="product-itinerary-slide__top__info">
+                            <div class="product-itinerary-slide__top__info__tabs">
+                                <div class="product-itinerary-slide__top__info__tabs__item current">Overview</div>
+                                <div class="product-itinerary-slide__top__info__tabs__item">Inclusions</div>
+                                <div class="product-itinerary-slide__top__info__tabs__item">Exclusions</div>
+                            </div>
+                            <div class="product-itinerary-slide__top__info__content">
+                                <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) { ?>
+                                    <!-- Dates -->
+                                    <div class="product-itinerary-slide__top__info__content__widget">
+                                        <div class="product-itinerary-slide__top__info__content__widget__top-section">
+                                            <!-- Title -->
+                                            <h4 class="product-itinerary-slide__top__info__content__widget__top-section__title">
+                                                Availability
+                                            </h4>
+                                            <!-- Select-Box -->
+                                            <div class="itinerary-year-select-group">
+                                                <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
+                                                    <?php foreach ($years as $year) { ?>
+                                                        <option><?php echo $year ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- Date-Grid  -->
+                                        <?php $departureYears = $itinerary['DepartureYears']; ?>
+                                        <?php foreach ($departureYears as $departureYear) { ?>
+                                            <ul class="date-grid date-grid__<?php echo $departureYear['Year'] ?>" data-tab="<?php echo $count; ?>">
+                                                <!-- Check if before current year / month, then display as available or sold out (HasDepartures)-->
+                                                <?php foreach ($departureYear['DepartureMonths'] as $departureMonth) { ?>
+                                                    <?php if (($departureMonth['Month'] < $currentMonth) && ($departureYear['Year'] == $currentYear)) { ?>
+                                                        <li class="date-grid__item">
+                                                            <?php echo $departureMonth['MonthNameShort']; ?>
+                                                        </li>
+                                                    <?php } else { ?>
+                                                        <?php if ($departureMonth['HasDepartures'] == false) { ?>
+                                                            <li class="date-grid__item date-grid__item--sold-out">
+                                                                <?php echo $departureMonth['MonthNameShort']; ?>
+                                                            </li>
+                                                        <?php } else { ?>
+                                                            <li class="date-grid__item date-grid__item--available">
+                                                                <?php echo $departureMonth['MonthNameShort']; ?>
+                                                            </li>
+                                                        <?php } ?>
+                                                    <?php } ?>
+                                                <?php } ?>
+                                            </ul>
+                                        <?php } ?>
+                                        <div class="product-itinerary-slide__top__info__content__widget__legend">
+                                            <div class="product-itinerary-slide__top__info__content__widget__legend__item product-itinerary-slide__top__info__content__widget__legend__item--available">
+                                                Available
+                                            </div>
+                                            <div class="product-itinerary-slide__top__info__content__widget__legend__item product-itinerary-slide__top__info__content__widget__legend__item--sold-out">
+                                                Sold Out
+                                            </div>
+                                            <button class="product-itinerary-slide__top__info__content__widget__legend__item product-itinerary-slide__top__info__content__widget__legend__item--button text-button goto-dates" href="#dates">
+                                                View Dates
+                                                <svg>
+                                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+
+
+                                <?php if ($charter_view == false) : ?>
+                                    <!-- Prices -->
+                                    <div class="product-itinerary-slide__top__info__content__widget">
+                                        <div class="product-itinerary-slide__top__info__content__widget__top-section">
+                                            <h4 class="product-itinerary-slide__top__info__content__widget__top-section__title">
+                                                Prices
+                                            </h4>
+                                            <?php if (get_post_type() == 'rfc_lodges') { ?>
+                                                <?php $yearCount = 0; ?>
+                                                <!-- Select-Box -->
+                                                <div class="itinerary-year-select-group">
+                                                    <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
+                                                        <?php while ($yearCount <= 1) { ?>
+                                                            <option><?php echo ($currentYear + $yearCount) ?></option>
+                                                        <?php $yearCount++;
+                                                        } ?>
+                                                    </select>
+                                                </div>
+
+                                            <?php } ?>
+                                        </div>
+                                        <!-- Price-Grid  -->
+                                        <?php $rateYears = $itinerary['RateYears']; ?>
+                                        <?php foreach ($rateYears as $rateYear) { ?>
+                                            <div class="price-grid price-grid__<?php echo $rateYear['Year'] ?>" data-tab="<?php echo $count; ?>">
+                                                <?php $rateYears = $itinerary['RateYears']; ?>
+                                                <?php foreach ($rateYear['Rates'] as $rate) { ?>
+                                                    <div class="price-grid__item">
+                                                        <div class="price-grid__item__cabin">
+                                                            <?php echo  $rate['Cabin'] ?>
+                                                        </div>
+                                                        <div class="price-grid__item__price">
+                                                            <?php echo "$ " . number_format($rate['WebAmount'], 0);  ?>
+                                                        </div>
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
+                                        <?php } ?>
+
+                                    </div>
+                                <?php else : ?>
+                                    <div class="product-itinerary-slide__top__info__content__widget">
+                                        <div class="charter-info-box">
+                                            This itinerary is only a sample. Charter itineraries are completely customizable. Speak with one of our travel specialists for details and charter availability.
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="product-itinerary-slide__bottom">
+                        <div class="product-itinerary-slide__bottom__slider">
+                            Slider
+                        </div>
+                    </div>
+                </div>
+
+
+            <?php $count++;
+            endforeach; ?>
+
+
+
+
+
 
         </div>
     </div>
@@ -79,3 +233,15 @@ if ($args['propertyType'] == 'Cruise') {
 
 
 </div>
+
+
+
+<!-- Sort -->
+<?php
+function sortDays($a, $b)
+{
+    if (is_object($a) && is_object($b)) {
+        return strcmp($a->DayNumber, $b->DayNumber);
+    }
+}
+?>

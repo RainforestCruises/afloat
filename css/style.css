@@ -2508,10 +2508,10 @@ h5 {
   max-width: 112rem; }
   .product-itineraries__nav {
     width: 100%;
-    margin-top: 2rem; }
+    margin-top: 4rem; }
     .product-itineraries__nav__slider {
       list-style: none;
-      color: #142838;
+      color: #9ea0a4;
       padding-right: 12rem;
       transform: translateY(1px); }
       .product-itineraries__nav__slider .slick-current {
@@ -2781,68 +2781,12 @@ h5 {
             bottom: -2.5rem;
             left: 50%;
             transform: translateX(-50%); }
-    .product-itineraries__itinerary__side-content {
-      grid-row: 4 / span 1;
-      grid-column: col-mid / center-end; }
-      @media only screen and (max-width: 50em) {
-        .product-itineraries__itinerary__side-content {
-          grid-row: 5 / span 1;
-          grid-column: center-start / center-end;
-          margin-top: 6rem; } }
-      .product-itineraries__itinerary__side-content__detail {
-        display: grid;
-        grid-template-rows: repeat(2, min-content); }
-        .product-itineraries__itinerary__side-content__detail__widget {
-          position: relative;
-          margin-bottom: 4rem; }
-          .product-itineraries__itinerary__side-content__detail__widget:not(:last-child) {
-            margin-bottom: 8rem; }
-          .product-itineraries__itinerary__side-content__detail__widget select {
-            visibility: hidden !important; }
-          .product-itineraries__itinerary__side-content__detail__widget__top-section {
-            display: flex;
-            justify-content: space-between;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #e6e6e6;
-            position: relative; }
-          .product-itineraries__itinerary__side-content__detail__widget__legend {
-            margin-top: 1rem;
-            display: grid;
-            grid-template-columns: max-content max-content 1fr;
-            font-size: 1.2rem; }
-            .product-itineraries__itinerary__side-content__detail__widget__legend__item {
-              padding-left: 1.5rem;
-              margin-right: 2.5rem;
-              position: relative;
-              display: flex;
-              align-content: center; }
-              .product-itineraries__itinerary__side-content__detail__widget__legend__item::after {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 0;
-                transform: translateY(-50%);
-                background-color: currentColor;
-                height: 0.6rem;
-                width: 0.6rem;
-                border-radius: 4rem; }
-              .product-itineraries__itinerary__side-content__detail__widget__legend__item--available {
-                color: #142838; }
-              .product-itineraries__itinerary__side-content__detail__widget__legend__item--sold-out {
-                color: #de5c52; }
-              .product-itineraries__itinerary__side-content__detail__widget__legend__item--button {
-                justify-self: end; }
-                .product-itineraries__itinerary__side-content__detail__widget__legend__item--button::after {
-                  content: none; }
-        @media only screen and (max-width: 50em) {
-          .product-itineraries__itinerary__side-content__detail {
-            margin: auto; } }
 
 .date-grid {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase; }
@@ -2862,36 +2806,21 @@ h5 {
       border-color: #de5c52; }
 
 .price-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  margin-top: 3rem;
-  gap: 1rem; }
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem; }
   .price-grid__item {
     display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    border: 1px solid #e6e6e6;
-    padding: 1rem;
+    font-size: 1.6rem;
     color: #142838;
-    background-color: #fff;
-    font-size: 1.7rem;
-    font-weight: 500;
-    text-align: center;
-    transition: all 0.2s;
-    user-select: none; }
+    justify-content: space-between;
+    font-weight: 500; }
     .price-grid__item__cabin {
       margin-bottom: 0.3rem;
       font-weight: 500; }
     .price-grid__item__price {
-      font-size: 1.5rem;
       color: #919598;
       letter-spacing: 0.1rem; }
-    .price-grid__item:hover {
-      color: #fff;
-      background-color: #142838; }
-      .price-grid__item:hover .price-grid__item__price {
-        color: #f8f8f8; }
 
 .inclusions-area {
   margin-top: 2rem;
@@ -2912,9 +2841,112 @@ h5 {
   padding: 1.5rem; }
 
 .product-itinerary-slide {
-  height: 30rem;
-  font-size: 3rem;
-  padding: 2rem 3rem; }
+  padding: 2rem 3rem;
+  display: flex !important;
+  flex-direction: column; }
+  .product-itinerary-slide__top {
+    height: min-content;
+    display: flex; }
+    @media only screen and (max-width: 50em) {
+      .product-itinerary-slide__top {
+        flex-direction: column; } }
+    .product-itinerary-slide__top__map-area {
+      width: 100%;
+      max-width: 50rem;
+      margin-bottom: 2rem; }
+      @media only screen and (max-width: 50em) {
+        .product-itinerary-slide__top__map-area {
+          max-width: 100%; } }
+      .product-itinerary-slide__top__map-area__title {
+        color: #142838;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        margin-bottom: 2rem; }
+      .product-itinerary-slide__top__map-area img {
+        object-fit: contain;
+        width: 100%;
+        height: auto; }
+    .product-itinerary-slide__top__info {
+      flex-grow: 1;
+      margin-left: 4rem; }
+      .product-itinerary-slide__top__info__tabs {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e6e6e6;
+        transform: translateY(-1.5rem); }
+        .product-itinerary-slide__top__info__tabs__item {
+          text-align: center;
+          flex-grow: 1;
+          font-size: 1.3rem;
+          letter-spacing: .2rem;
+          text-transform: uppercase;
+          font-weight: 600;
+          color: #9ea0a4;
+          padding: 2rem 0;
+          position: relative;
+          transition: color .2s;
+          cursor: pointer; }
+          .product-itinerary-slide__top__info__tabs__item:hover {
+            color: #305a7c; }
+          .product-itinerary-slide__top__info__tabs__item:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #e6e6e6;
+            height: 50%;
+            width: 1px; }
+          .product-itinerary-slide__top__info__tabs__item.current {
+            color: #305a7c; }
+      .product-itinerary-slide__top__info__content__widget {
+        position: relative;
+        margin-top: 2rem;
+        margin-bottom: 3rem; }
+        .product-itinerary-slide__top__info__content__widget select {
+          visibility: hidden !important; }
+        .product-itinerary-slide__top__info__content__widget__top-section {
+          display: flex;
+          justify-content: space-between;
+          position: relative; }
+          .product-itinerary-slide__top__info__content__widget__top-section__title {
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: .2rem; }
+        .product-itinerary-slide__top__info__content__widget__legend {
+          margin-top: 1rem;
+          display: grid;
+          grid-template-columns: max-content max-content 1fr;
+          font-size: 1.2rem; }
+          .product-itinerary-slide__top__info__content__widget__legend__item {
+            padding-left: 1.5rem;
+            margin-right: 2.5rem;
+            position: relative;
+            display: flex;
+            align-content: center; }
+            .product-itinerary-slide__top__info__content__widget__legend__item::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 0;
+              transform: translateY(-50%);
+              background-color: currentColor;
+              height: 0.6rem;
+              width: 0.6rem;
+              border-radius: 4rem; }
+            .product-itinerary-slide__top__info__content__widget__legend__item--available {
+              color: #142838; }
+            .product-itinerary-slide__top__info__content__widget__legend__item--sold-out {
+              color: #de5c52; }
+            .product-itinerary-slide__top__info__content__widget__legend__item--button {
+              justify-self: end; }
+              .product-itinerary-slide__top__info__content__widget__legend__item--button::after {
+                content: none; }
+  .product-itinerary-slide__bottom {
+    background-color: darkkhaki;
+    height: 20rem; }
 
 .product-cabins {
   display: grid;
