@@ -96,24 +96,6 @@ if ($args['propertyType'] == 'Cruise') {
         </div>
     </div>
 
-    <div class="product-hero__bottom">
-        <div class="product-hero__bottom__content">
-            <div class="product-hero__bottom__content__info">
-                <?php if ($charter_view == false) : ?>
-                    <div class="product-hero__bottom__content__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span></div>
-                <?php else : ?>
-                    <div class="product-hero__bottom__content__info__starting-price">Charter: <span><?php echo "$" . number_format($args['charter_daily_price'], 0); ?> </span> <span class="u-small-text"> / Day</span></div>
-                <?php endif; ?>
-                <div class="product-hero__bottom__content__info__cta">
-                    <button class="btn-cta-round">Book Now</button>
-                </div>
-            </div>
-            <div class="product-hero__bottom__content__caption">
-                <?php echo get_field('overview_intro'); ?>
-            </div>
-        </div>
-    </div>
-
     <!-- Gallery -->
     <div class="product-hero__gallery">
 
@@ -124,12 +106,61 @@ if ($args['propertyType'] == 'Cruise') {
                 <?php foreach ($images as $image) : ?>
                     <div class="product-hero__gallery__slick__item">
                         <!-- <div class="product-hero__gallery__slick__item__image-area"> -->
-                            <img src="<?php echo esc_url($image['url']); ?>" alt="">
+                        <img src="<?php echo esc_url($image['url']); ?>" alt="">
                         <!-- </div> -->
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
     </div>
+
+    <div class="product-hero__bottom">
+        <div class="product-hero__bottom__content">
+            <div class="product-hero__bottom__content__info-group">
+                <div class="product-hero__bottom__content__info-group__info">
+                    <?php if ($charter_view == false) : ?>
+                        <div class="product-hero__bottom__content__info-group__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span></div>
+                    <?php else : ?>
+                        <div class="product-hero__bottom__content__info-group__info__starting-price">Charter: <span><?php echo "$" . number_format($args['charter_daily_price'], 0); ?> </span> <span class="u-small-text"> / Day</span></div>
+                    <?php endif; ?>
+                    <div class="product-hero__bottom__content__info-group__info__cta">
+                        <button class="btn-cta-round">Inquire</button>
+                    </div>
+                </div>
+                <div class="product-hero__bottom__content__info-group__attributes">
+
+                    <div class="product-hero__bottom__content__info-group__attributes__item">
+                        <div class="product-hero__bottom__content__info-group__attributes__item__title">
+                            Itineraries
+                        </div>
+                        <div class="product-hero__bottom__content__info-group__attributes__item__data">
+                            4-8 Days
+                        </div>
+                    </div>
+                    <div class="product-hero__bottom__content__info-group__attributes__item">
+                        <div class="product-hero__bottom__content__info-group__attributes__item__title">
+                            Capacity
+                        </div>
+                        <div class="product-hero__bottom__content__info-group__attributes__item__data">
+                            16 Guests
+                        </div>
+                    </div>
+                    <div class="product-hero__bottom__content__info-group__attributes__item">
+                        <div class="product-hero__bottom__content__info-group__attributes__item__title">
+                            Availability
+                        </div>
+                        <div class="product-hero__bottom__content__info-group__attributes__item__data" style="color: #00a84b">
+                            High
+                        </div>
+                    </div>
+                
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
 
 </div>

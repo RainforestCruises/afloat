@@ -15,8 +15,15 @@
       grid-row: 1 / -1;
       grid-column: 1 / -1;
       z-index: 1;
-
+     
       position: relative;
+      max-height: 71rem; //FIX
+      
+      @media only screen and (max-width: $bp-large) {
+        max-height: 100%;
+
+      } 
+
       & img {
         background-position: center center;
         background-repeat: no-repeat;
@@ -344,7 +351,9 @@
     background-color: $color-grey-light-1;
     display: flex;
     justify-content: center;
-    min-height: 25rem;
+    //min-height: 25rem;
+    border-bottom: 1px solid $color-grey-light-1a;
+    border-top: 1px solid $color-grey-light-1a;
 
     //bottom content (info)
     &__content {
@@ -353,74 +362,123 @@
 
       display: flex;
       flex-direction: column;
+      //margin-bottom: 6rem;
 
-      &__info {
-        grid-row: 1 / span 1;
+
+      &__info-group {
+
         display: flex;
+        flex-direction: column;
+        //background-color: rgba($color-primary, 0.3);
         width: 50%;
-        justify-content: space-between;
-        position: relative;
-        padding: 2.5rem 0;
-
-        &::after {
-          content: "";
-          position: absolute;
-          height: 1px;
+        @media only screen and (max-width: $bp-large) {
           width: 100%;
-          bottom: 0rem;
-          left: 0;
-          background-color: $color-grey-light-2;
         }
-
-        &__starting-price {
-          letter-spacing: 0.1rem;
-          color: $color-primary;
-          white-space: nowrap; //no line breaks
-          position: relative;
-          margin-right: 3rem;
-          font-size: 2rem;
+        &__info {
+          //grid-row: 1 / span 1;
           display: flex;
-          align-items: flex-end;
-          span {
+          
+          justify-content: space-between;
+          position: relative;
+          padding: 2.5rem 0;
+  
+          &::after {
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            bottom: 0rem;
+            left: 0;
+            background-color: $color-grey-light-2;
+          }
+  
+          &__starting-price {
+            letter-spacing: 0.1rem;
+            color: $color-primary;
+            white-space: nowrap; //no line breaks
+            position: relative;
+            margin-right: 3rem;
+            font-size: 2rem;
             display: flex;
             align-items: flex-end;
-            line-height: 4rem;
-            color: $color-supporting-light;
-            padding-left: 1rem;
-            font-size: 3.5rem;
-            font-weight: 500;
+            span {
+              display: flex;
+              align-items: flex-end;
+              line-height: 4rem;
+              color: $color-supporting-light;
+              padding-left: 1rem;
+              font-size: 3.5rem;
+              font-weight: 500;
+            }
+  
+            @media only screen and (max-width: $bp-large) {
+              margin-right: 3rem;
+            }
+            @media only screen and (max-width: $bp-medium) {
+              margin-right: 0rem;
+            }
           }
-
+  
           @media only screen and (max-width: $bp-large) {
-            margin-right: 3rem;
+            justify-content: center;
+            width: 100%;
           }
           @media only screen and (max-width: $bp-medium) {
-            margin-right: 0rem;
+            display: grid;
+            justify-content: center;
+            row-gap: 2rem;
           }
         }
+  
+        &__attributes {
 
-        @media only screen and (max-width: $bp-large) {
-          justify-content: center;
-          width: 100%;
-        }
-        @media only screen and (max-width: $bp-medium) {
-          display: grid;
-          justify-content: center;
-          row-gap: 2rem;
+          display: flex;
+          //justify-content: space-between;
+          
+          margin: 2rem 0;
+          margin-bottom: 4rem;
+          font-size: 1.4rem;
+          letter-spacing: .1rem;
+
+          &__item {
+            position: relative;
+            padding: .5rem 1rem;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            flex: 0 1 33%;
+            flex-direction: column;
+
+            &:not(:last-child)::after {
+              content: '';
+              position: absolute;
+              right: -2px;
+              top: 25%;
+              width: 1px;
+              height: 50%;
+              background-color:$color-primary;
+            }
+
+            &__title {
+              //font-weight: 700;
+              color: $color-grey-2;
+              margin-bottom: .4rem;
+            }
+
+            &__data {
+              color: $color-supporting;
+              font-size: 2.5rem;
+              font-weight: 700;
+            }
+
+
+          }
+          
         }
       }
 
-      &__caption {
-        grid-row: 2 / span 1;
-        margin: 3rem 0;
-        //margin-bottom: 9rem;
-        font-size: 1.6rem;
-        //text-align: justify;
-        width: 50%;
-        @media only screen and (max-width: $bp-large) {
-          width: 100%;
-        }
-      }
+    
 
       &__nav {
         grid-row: 3 / -1;

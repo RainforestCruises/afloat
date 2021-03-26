@@ -1830,7 +1830,11 @@ h5 {
       grid-row: 1 / -1;
       grid-column: 1 / -1;
       z-index: 1;
-      position: relative; }
+      position: relative;
+      max-height: 71rem; }
+      @media only screen and (max-width: 62.5em) {
+        .product-hero__top__bg {
+          max-height: 100%; } }
       .product-hero__top__bg img {
         background-position: center center;
         background-repeat: no-repeat;
@@ -2045,67 +2049,95 @@ h5 {
     background-color: #f8f8f8;
     display: flex;
     justify-content: center;
-    min-height: 25rem; }
+    border-bottom: 1px solid #e6e6e6;
+    border-top: 1px solid #e6e6e6; }
     .product-hero__bottom__content {
       width: 100%;
       max-width: 114rem;
       display: flex;
       flex-direction: column; }
-      .product-hero__bottom__content__info {
-        grid-row: 1 / span 1;
+      .product-hero__bottom__content__info-group {
         display: flex;
-        width: 50%;
-        justify-content: space-between;
-        position: relative;
-        padding: 2.5rem 0; }
-        .product-hero__bottom__content__info::after {
-          content: "";
-          position: absolute;
-          height: 1px;
-          width: 100%;
-          bottom: 0rem;
-          left: 0;
-          background-color: #c2c6c9; }
-        .product-hero__bottom__content__info__starting-price {
-          letter-spacing: 0.1rem;
-          color: #142838;
-          white-space: nowrap;
-          position: relative;
-          margin-right: 3rem;
-          font-size: 2rem;
-          display: flex;
-          align-items: flex-end; }
-          .product-hero__bottom__content__info__starting-price span {
-            display: flex;
-            align-items: flex-end;
-            line-height: 4rem;
-            color: #40739c;
-            padding-left: 1rem;
-            font-size: 3.5rem;
-            font-weight: 500; }
-          @media only screen and (max-width: 62.5em) {
-            .product-hero__bottom__content__info__starting-price {
-              margin-right: 3rem; } }
-          @media only screen and (max-width: 50em) {
-            .product-hero__bottom__content__info__starting-price {
-              margin-right: 0rem; } }
-        @media only screen and (max-width: 62.5em) {
-          .product-hero__bottom__content__info {
-            justify-content: center;
-            width: 100%; } }
-        @media only screen and (max-width: 50em) {
-          .product-hero__bottom__content__info {
-            display: grid;
-            justify-content: center;
-            row-gap: 2rem; } }
-      .product-hero__bottom__content__caption {
-        grid-row: 2 / span 1;
-        margin: 3rem 0;
-        font-size: 1.6rem;
+        flex-direction: column;
         width: 50%; }
         @media only screen and (max-width: 62.5em) {
-          .product-hero__bottom__content__caption {
+          .product-hero__bottom__content__info-group {
             width: 100%; } }
+        .product-hero__bottom__content__info-group__info {
+          display: flex;
+          justify-content: space-between;
+          position: relative;
+          padding: 2.5rem 0; }
+          .product-hero__bottom__content__info-group__info::after {
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            bottom: 0rem;
+            left: 0;
+            background-color: #c2c6c9; }
+          .product-hero__bottom__content__info-group__info__starting-price {
+            letter-spacing: 0.1rem;
+            color: #142838;
+            white-space: nowrap;
+            position: relative;
+            margin-right: 3rem;
+            font-size: 2rem;
+            display: flex;
+            align-items: flex-end; }
+            .product-hero__bottom__content__info-group__info__starting-price span {
+              display: flex;
+              align-items: flex-end;
+              line-height: 4rem;
+              color: #40739c;
+              padding-left: 1rem;
+              font-size: 3.5rem;
+              font-weight: 500; }
+            @media only screen and (max-width: 62.5em) {
+              .product-hero__bottom__content__info-group__info__starting-price {
+                margin-right: 3rem; } }
+            @media only screen and (max-width: 50em) {
+              .product-hero__bottom__content__info-group__info__starting-price {
+                margin-right: 0rem; } }
+          @media only screen and (max-width: 62.5em) {
+            .product-hero__bottom__content__info-group__info {
+              justify-content: center;
+              width: 100%; } }
+          @media only screen and (max-width: 50em) {
+            .product-hero__bottom__content__info-group__info {
+              display: grid;
+              justify-content: center;
+              row-gap: 2rem; } }
+        .product-hero__bottom__content__info-group__attributes {
+          display: flex;
+          margin: 2rem 0;
+          margin-bottom: 4rem;
+          font-size: 1.4rem;
+          letter-spacing: .1rem; }
+          .product-hero__bottom__content__info-group__attributes__item {
+            position: relative;
+            padding: .5rem 1rem;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            flex: 0 1 33%;
+            flex-direction: column; }
+            .product-hero__bottom__content__info-group__attributes__item:not(:last-child)::after {
+              content: '';
+              position: absolute;
+              right: -2px;
+              top: 25%;
+              width: 1px;
+              height: 50%;
+              background-color: #142838; }
+            .product-hero__bottom__content__info-group__attributes__item__title {
+              color: #919598;
+              margin-bottom: .4rem; }
+            .product-hero__bottom__content__info-group__attributes__item__data {
+              color: #305a7c;
+              font-size: 2.5rem;
+              font-weight: 700; }
       .product-hero__bottom__content__nav {
         grid-row: 3 / -1;
         justify-self: start;

@@ -29,7 +29,7 @@ if ($args['propertyType'] == 'Cruise') {
         Itineraries
     </h2>
 
-    <!-- Intro -->
+    <!-- Nav -->
     <div class="product-itineraries__nav">
 
         <!-- Attributes -->
@@ -79,25 +79,7 @@ if ($args['propertyType'] == 'Cruise') {
                 </h3>
             </div>
 
-            <?php if ($itinerary['HasSummary'] == true) { ?>
-                <!-- Intro -->
-                <div class="product-itineraries__itinerary__intro drop-cap-1">
-                    <?php echo $itinerary['Summary'] ?>
-                </div>
 
-                <!-- Map -->
-                <?php $itineraryImages = $itinerary['MapImageDTOs']; ?>
-                <a class="product-itineraries__itinerary__map" id="map-lightbox" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
-                    <?php if ($itineraryImages) : ?>
-                        <img src="<?php echo $itineraryImages[0]['ImageUrl']; ?>" alt="">
-                        <svg>
-                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
-                        </svg>
-                    <?php endif ?>
-                </a>
-                <div class="product-itineraries__itinerary__divider"></div>
-
-            <?php } ?>
 
 
             <!-- D2D -->
@@ -180,30 +162,29 @@ if ($args['propertyType'] == 'Cruise') {
                 <!-- Details - Availability / Prices -->
                 <div class="product-itineraries__itinerary__side-content__detail">
 
-                    <?php if ($itinerary['HasSummary'] == false) { ?>
-                        <?php if (get_post_type() == 'rfc_cruises') : ?>
-                            <div class="product-itineraries__itinerary__side-content__detail__widget">
-                                <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
-                                    <h4 class="heading-4">
-                                        Route Map
-                                    </h4>
 
-                                </div>
-                                <!-- Map -->
-                                <?php $itineraryImages = $itinerary['MapImageDTOs']; ?>
-                                <a class="product-itineraries__itinerary__map product-itineraries__itinerary__map--no-summary" id="map-lightbox" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
-                                    <?php if ($itineraryImages) : ?>
-                                        <img src="<?php echo $itineraryImages[0]['ImageUrl']; ?>" alt="">
-                                        <svg>
-                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
-                                        </svg>
-                                    <?php endif ?>
-                                </a>
+                    <?php if (get_post_type() == 'rfc_cruises') : ?>
+                        <div class="product-itineraries__itinerary__side-content__detail__widget">
+                            <div class="product-itineraries__itinerary__side-content__detail__widget__top-section">
+                                <h4 class="heading-4">
+                                    Route Map
+                                </h4>
+
                             </div>
+                            <!-- Map -->
+                            <?php $itineraryImages = $itinerary['MapImageDTOs']; ?>
+                            <a class="product-itineraries__itinerary__map product-itineraries__itinerary__map--no-summary" id="map-lightbox" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
+                                <?php if ($itineraryImages) : ?>
+                                    <img src="<?php echo $itineraryImages[0]['ImageUrl']; ?>" alt="">
+                                    <svg>
+                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
+                                    </svg>
+                                <?php endif ?>
+                            </a>
+                        </div>
 
 
-                    <?php endif;
-                    } ?>
+                    <?php endif; ?>
                     <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) { ?>
                         <!-- Dates -->
                         <div class="product-itineraries__itinerary__side-content__detail__widget">
