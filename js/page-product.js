@@ -2,14 +2,18 @@ jQuery(document).ready(function ($) {
 
 
 
-  //Areas Slider (must select class for chained sliders)
+  //Main Itinerery
   $('#itineraries-slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     fade: true,
+    draggable: false,
+    swipe: false,
+    swipeToSlide: false,
     centerMode: true,
-    
+    adaptiveHeight: true,
+
   });
   $('#itineraries-slider-nav').slick({
     slidesToShow: 3,
@@ -38,6 +42,32 @@ jQuery(document).ready(function ($) {
       }
     ]
   });
+
+
+
+
+
+
+  $('.product-itinerary-slide__bottom__days').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    //centerMode: true,
+    adaptiveHeight: true,
+    fade: true,
+    //asNavFor: '#slider-bottom-nav-' + i,
+    focusOnSelect: true,
+    arrows: true,
+    dots: true,
+    customPaging: function (slider, i) {
+      var thumb = $(slider.$slides[i]).data();
+      return '<a class="dot">' + (i + 1) + '</a>';
+    },
+  })
+    .on('afterChange', function (event, slick, currentSlide, nextSlide) {
+      $('#itineraries-slider').slick("setOption", '', '', true);
+    });
+
+
 
 
 

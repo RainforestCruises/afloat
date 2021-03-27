@@ -100,6 +100,7 @@ if ($args['propertyType'] == 'Cruise') {
                                 <div class="product-itinerary-slide__top__info__tabs__item">Inclusions</div>
                                 <div class="product-itinerary-slide__top__info__tabs__item">Exclusions</div>
                             </div>
+
                             <div class="product-itinerary-slide__top__info__content">
                                 <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) { ?>
                                     <!-- Dates -->
@@ -208,13 +209,54 @@ if ($args['propertyType'] == 'Cruise') {
                                     </div>
                                 <?php endif; ?>
                             </div>
-
+                            <!-- Inclusions / Exclusions -->
                         </div>
                     </div>
                     <div class="product-itinerary-slide__bottom">
-                        <div class="product-itinerary-slide__bottom__slider">
-                            Slider
+
+                
+                        <div class="product-itinerary-slide__bottom__days" id="slider-bottom-days-<?php echo $count ?>">
+                            <?php
+                            $days = $itinerary['ItineraryDays'];
+                            $dayImages = $itinerary['DayImageDTOs'];
+                            $dayCount = 1;
+                            if ($days) :
+                                usort($days, "sortDays");
+                                foreach ($days as $day) : ?>
+                                    <?php
+                                    $img = null;
+                                    foreach ($dayImages as $dayImage) {
+                                        if ($dayCount == $dayImage['DayNumber']) {
+                                            $img = $dayImage;
+                                            break;
+                                        }
+                                    }
+                                    ?>
+                                    <div class="product-itinerary-slide__bottom__days__item">
+
+                                        <div class="product-itinerary-slide__bottom__days__item__content">
+                                            <div class="product-itinerary-slide__bottom__days__item__content__title">
+                                                <?php echo $day['Title']; ?>
+                                            </div>
+                                            <div class="product-itinerary-slide__bottom__days__item__content__text">
+                                                <?php echo $day['Excerpt'] ?>
+                                            </div>
+                                        </div>
+
+
+                                        <?php if ($img != null) : ?>
+                                            <div class="product-itinerary-slide__bottom__days__item__image-area">
+                                                <img src="<?php echo $img['ImageUrl'] ?>" alt="<?php echo $img['AltText'] ?>">
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                            <?php
+                                    $dayCount++;
+                                endforeach;
+                            endif; ?>
                         </div>
+
+
                     </div>
                 </div>
 

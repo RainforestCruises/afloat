@@ -87,7 +87,7 @@ while (have_posts()) :
     </section>
 
     <!-- 3. Cabins Content -->
-    <div class="product-page__section-accommodation" id="accommodation">
+    <div class="product-page__section-accommodation" id="cabins">
       <?php
       get_template_part('template-parts/content', 'product-cabins', $args);
       ?>
