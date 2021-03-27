@@ -2871,11 +2871,13 @@ h5 {
         width: 100%;
         height: auto; }
     .product-itinerary-slide__top__info {
-      flex-grow: 1;
+      width: 60%;
       margin-left: 4rem; }
       @media only screen and (max-width: 50em) {
         .product-itinerary-slide__top__info {
-          margin-left: 0rem; } }
+          margin-left: 0rem;
+          width: 100%;
+          margin-bottom: 6rem; } }
       .product-itinerary-slide__top__info__tabs {
         display: flex;
         justify-content: space-between;
@@ -2907,49 +2909,64 @@ h5 {
             width: 1px; }
           .product-itinerary-slide__top__info__tabs__item.current {
             color: #305a7c; }
-      .product-itinerary-slide__top__info__content__widget {
-        position: relative;
-        margin-top: 2rem;
-        margin-bottom: 3rem; }
-        .product-itinerary-slide__top__info__content__widget select {
-          visibility: hidden !important; }
-        .product-itinerary-slide__top__info__content__widget__top-section {
-          display: flex;
-          justify-content: space-between;
-          position: relative; }
-          .product-itinerary-slide__top__info__content__widget__top-section__title {
-            font-size: 1.6rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2rem; }
-        .product-itinerary-slide__top__info__content__widget__legend {
-          margin-top: 1rem;
-          display: grid;
-          grid-template-columns: max-content max-content 1fr;
-          font-size: 1.2rem; }
-          .product-itinerary-slide__top__info__content__widget__legend__item {
-            padding-left: 1.5rem;
-            margin-right: 2.5rem;
-            position: relative;
+      .product-itinerary-slide__top__info__content {
+        display: none; }
+        .product-itinerary-slide__top__info__content.current {
+          display: block; }
+        .product-itinerary-slide__top__info__content__widget {
+          position: relative;
+          margin-bottom: 3rem; }
+          .product-itinerary-slide__top__info__content__widget select {
+            visibility: hidden !important; }
+          .product-itinerary-slide__top__info__content__widget__top-section {
             display: flex;
-            align-content: center; }
-            .product-itinerary-slide__top__info__content__widget__legend__item::after {
-              content: "";
-              position: absolute;
-              top: 50%;
-              left: 0;
-              transform: translateY(-50%);
-              background-color: currentColor;
-              height: 0.6rem;
-              width: 0.6rem;
-              border-radius: 4rem; }
-            .product-itinerary-slide__top__info__content__widget__legend__item--available {
-              color: #142838; }
-            .product-itinerary-slide__top__info__content__widget__legend__item--sold-out {
-              color: #de5c52; }
-            .product-itinerary-slide__top__info__content__widget__legend__item--button {
-              justify-self: end; }
-              .product-itinerary-slide__top__info__content__widget__legend__item--button::after {
-                content: none; }
+            justify-content: space-between;
+            position: relative; }
+            .product-itinerary-slide__top__info__content__widget__top-section__title {
+              font-size: 1.5rem;
+              text-transform: uppercase;
+              letter-spacing: 0.1rem; }
+          .product-itinerary-slide__top__info__content__widget__legend {
+            margin-top: 1rem;
+            display: grid;
+            grid-template-columns: max-content max-content 1fr;
+            font-size: 1.2rem; }
+            .product-itinerary-slide__top__info__content__widget__legend__item {
+              padding-left: 1.5rem;
+              margin-right: 2.5rem;
+              position: relative;
+              display: flex;
+              align-content: center; }
+              .product-itinerary-slide__top__info__content__widget__legend__item::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                background-color: currentColor;
+                height: 0.6rem;
+                width: 0.6rem;
+                border-radius: 4rem; }
+              .product-itinerary-slide__top__info__content__widget__legend__item--available {
+                color: #142838; }
+              .product-itinerary-slide__top__info__content__widget__legend__item--sold-out {
+                color: #de5c52; }
+              .product-itinerary-slide__top__info__content__widget__legend__item--button {
+                justify-self: end; }
+                .product-itinerary-slide__top__info__content__widget__legend__item--button::after {
+                  content: none; }
+        .product-itinerary-slide__top__info__content__inclusions-list {
+          list-style: none; }
+          .product-itinerary-slide__top__info__content__inclusions-list li {
+            display: grid;
+            grid-template-columns: 2rem 1fr; }
+            .product-itinerary-slide__top__info__content__inclusions-list li svg {
+              transform: translateY(1px);
+              height: 1.5rem;
+              width: 1.5rem;
+              fill: #142838; }
+            .product-itinerary-slide__top__info__content__inclusions-list li span {
+              font-size: 1.3rem; }
   .product-itinerary-slide__bottom {
     margin-top: 4rem;
     position: relative; }
@@ -2981,18 +2998,68 @@ h5 {
           .product-itinerary-slide__bottom__days__item__content__text {
             font-size: 1.4rem;
             padding-right: 4rem; }
-        .product-itinerary-slide__bottom__days__item__image-area {
+        .product-itinerary-slide__bottom__days__item__side {
           width: 40%;
-          padding-top: 4rem; }
+          padding-top: 2rem;
+          display: flex;
+          flex-direction: column; }
           @media only screen and (max-width: 50em) {
-            .product-itinerary-slide__bottom__days__item__image-area {
+            .product-itinerary-slide__bottom__days__item__side {
               width: 100%; } }
-          .product-itinerary-slide__bottom__days__item__image-area img {
-            object-fit: contain;
-            width: 100%;
-            height: auto; }
+          .product-itinerary-slide__bottom__days__item__side__image-area {
+            width: 100%; }
+            .product-itinerary-slide__bottom__days__item__side__image-area img {
+              object-fit: contain;
+              width: 100%;
+              height: auto; }
+          .product-itinerary-slide__bottom__days__item__side__detail {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: space-between; }
+            .product-itinerary-slide__bottom__days__item__side__detail__item__title {
+              font-size: 1.3rem;
+              letter-spacing: 0.2rem;
+              text-transform: uppercase; }
+            .product-itinerary-slide__bottom__days__item__side__detail__item__data {
+              font-size: 1.6rem;
+              color: #142838; }
+      .product-itinerary-slide__bottom__days__btn {
+        height: 4rem;
+        width: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        border: 1px solid #e6e6e6;
+        border-bottom: none;
+        color: #919598;
+        cursor: pointer;
+        transition: all 0.2s;
+        outline: none;
+        z-index: 5; }
+        .product-itinerary-slide__bottom__days__btn:hover {
+          color: #142838;
+          border: 1px solid #142838;
+          z-index: 20; }
+        .product-itinerary-slide__bottom__days__btn svg {
+          height: 3rem;
+          width: 3rem;
+          fill: currentColor; }
+        .product-itinerary-slide__bottom__days__btn--left {
+          position: absolute;
+          top: -5rem;
+          right: 4rem;
+          z-index: 8;
+          border-right: none; }
+        .product-itinerary-slide__bottom__days__btn--right {
+          position: absolute;
+          top: -5rem;
+          right: 0rem;
+          z-index: 8; }
       .product-itinerary-slide__bottom__days .slick-slider {
         position: relative; }
+      .product-itinerary-slide__bottom__days .slick-dotted.slick-slider {
+        margin-bottom: 0px !important; }
       .product-itinerary-slide__bottom__days .slick-dots {
         top: -4rem;
         left: 5rem;

@@ -1,6 +1,39 @@
 jQuery(document).ready(function ($) {
 
 
+  //Side Info Tabs - Overview / Inclusions / Exclusions
+  const tabArray = [...document.querySelectorAll('.product-itinerary-slide__top__info__tabs__item')];
+  tabArray.forEach(item => {
+    item.addEventListener('click', () => {
+      let itineraryTab = item.getAttribute("itinerary-tab");
+      let tabType = item.getAttribute("tab-type");
+
+      //content panes
+      let tabPanes = [...document.querySelectorAll('.product-itinerary-slide__top__info__content[itinerary-tab="' + itineraryTab + '"]')];
+      tabPanes.forEach((x) => {
+        x.classList.remove('current');
+      });
+
+      tabPanes.forEach((x) => {
+        if (x.getAttribute('tab-type') == tabType) {
+          x.classList.add('current')
+        }
+      });
+
+      //tabs nav
+      let tabNavs = [...document.querySelectorAll('.product-itinerary-slide__top__info__tabs__item[itinerary-tab="' + itineraryTab + '"]')];
+      tabNavs.forEach((x) => {     
+        x.classList.remove('current');
+      });
+
+      tabNavs.forEach((x) => {     
+        if(x.getAttribute('tab-type') == tabType){
+          x.classList.add('current')
+        }
+      });
+
+    });
+  })
 
   //Main Itinerery
   $('#itineraries-slider').slick({
@@ -45,19 +78,18 @@ jQuery(document).ready(function ($) {
 
 
 
-
-
-
+  //Days slider
   $('.product-itinerary-slide__bottom__days').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
-    //centerMode: true,
     adaptiveHeight: true,
     fade: true,
-    //asNavFor: '#slider-bottom-nav-' + i,
     focusOnSelect: true,
     arrows: true,
     dots: true,
+    prevArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
+    nextArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
+
     customPaging: function (slider, i) {
       var thumb = $(slider.$slides[i]).data();
       return '<a class="dot">' + (i + 1) + '</a>';

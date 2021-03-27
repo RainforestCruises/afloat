@@ -502,13 +502,11 @@
             @media only screen and (max-width: $bp-medium) {
                 max-width: 100%;
             }
- 
 
             &__title {
                 color: $color-primary;
                 font-size: 2.2rem;
                 font-weight: 600;
-                //letter-spacing: 0.1rem;
                 margin-bottom: 2rem;
             }
 
@@ -520,12 +518,14 @@
         }
 
         &__info {
-            flex-grow: 1;
-            //background-color: darkseagreen;
+            width: 60%;
             margin-left: 4rem;
 
             @media only screen and (max-width: $bp-medium) {
                 margin-left: 0rem;
+                width: 100%;
+                margin-bottom: 6rem;
+
             }
 
             &__tabs {
@@ -573,9 +573,14 @@
             }
 
             &__content {
+                display: none;
+
+                &.current {
+                    display: block;
+                }
+
                 &__widget {
                     position: relative;
-                    margin-top: 2rem;
                     margin-bottom: 3rem;
 
                     & select {
@@ -588,9 +593,10 @@
                         position: relative;
 
                         &__title {
-                            font-size: 1.6rem;
+                            font-size: 1.5rem;
                             text-transform: uppercase;
-                            letter-spacing: 0.2rem;
+                            letter-spacing: 0.1rem;
+                            //border-bottom: 2px solid $color-grey-light-2;
                         }
                     }
 
@@ -633,22 +639,36 @@
                         }
                     }
                 }
-            }
 
-            // &__heading {
-            //     color: $color-primary;
-            //     font-size: 1.5rem;
-            //     font-weight: 600;
-            //     letter-spacing: .3rem;
-            //     text-transform: uppercase;
-            // }
+                &__inclusions-list {
+                
+                        list-style: none;
+                        li {
+                            display: grid;
+                            grid-template-columns: 2rem 1fr;
+
+                            svg {
+                               transform: translateY(1px);
+                                height: 1.5rem;
+                                width: 1.5rem;
+                                fill: $color-primary;
+                            }
+
+                            span {
+                                //margin-left: 1rem;
+                                font-size: 1.3rem;
+                            }
+                        }
+                  
+                }
+            }
         }
     }
 
     &__bottom {
         margin-top: 4rem;
         position: relative;
-        
+
         &::after {
             content: "";
             position: absolute;
@@ -687,25 +707,94 @@
                     }
                 }
 
-                &__image-area {
+                &__side {
                     width: 40%;
-                    padding-top: 4rem;
+                    padding-top: 2rem;
 
                     @media only screen and (max-width: $bp-medium) {
                         width: 100%;
                     }
-                    & img {
-                        object-fit: contain;
+
+                    display: flex;
+                    flex-direction: column;
+                    &__image-area {
                         width: 100%;
-                        height: auto;
+                        & img {
+                            object-fit: contain;
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+
+                    &__detail {
+                        margin-top: 3rem;
+                        display: flex;
+                        justify-content: space-between;
+
+                        &__item {
+                            //text-align: center;
+                            &__title {
+                                font-size: 1.3rem;
+                                letter-spacing: 0.2rem;
+                                text-transform: uppercase;
+                            }
+
+                            &__data {
+                                font-size: 1.6rem;
+                                color: $color-primary;
+                            }
+                        }
                     }
                 }
             }
 
-          
+            &__btn {
+                height: 4rem;
+                width: 4rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: transparent;
+                border: 1px solid $color-grey-light-1a;
+                border-bottom: none;
+                color: $color-grey-2;
+                cursor: pointer;
+                transition: all 0.2s;
+                outline: none;
+                z-index: 5;
+                &:hover {
+                    color: $color-primary;
+                    border: 1px solid $color-primary;
+                    z-index: 20;
+                }
+
+                & svg {
+                    height: 3rem;
+                    width: 3rem;
+                    fill: currentColor;
+                }
+
+                &--left {
+                    position: absolute;
+                    top: -5rem;
+                    right: 4rem;
+                    z-index: 8;
+                    border-right: none;
+                }
+                &--right {
+                    position: absolute;
+                    top: -5rem;
+                    right: 0rem;
+                    z-index: 8;
+                }
+            }
 
             & .slick-slider {
                 position: relative;
+            }
+
+            & .slick-dotted.slick-slider {
+                margin-bottom: 0px !important;
             }
 
             & .slick-dots {
@@ -713,39 +802,31 @@
                 left: 5rem;
                 text-align: start;
 
-                position: absolute; 
+                position: absolute;
                 font-size: 1.6rem;
                 color: $color-primary;
                 font-weight: 600;
                 &::before {
                     content: "DAY: ";
-                    position: absolute; 
+                    position: absolute;
                     left: -5rem;
                     top: 0;
-
                 }
 
                 & .slick-active {
                     color: $color-primary;
-                    & a.dot{
+                    & a.dot {
                         color: $color-primary;
-
-          
-                      }
-                    
-
+                    }
                 }
             }
-            a.dot{
-              padding: 10px 10px;
-              color: $color-grey-2;
-              //position: relative;
-
+            a.dot {
+                padding: 10px 10px;
+                color: $color-grey-2;
+                //position: relative;
             }
-            a.dot:hover{
-                
+            a.dot:hover {
                 background-color: $color-grey-light-1;
-                
             }
         }
     }

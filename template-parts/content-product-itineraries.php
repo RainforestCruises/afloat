@@ -96,12 +96,13 @@ if ($args['propertyType'] == 'Cruise') {
                         <!-- Info Area -->
                         <div class="product-itinerary-slide__top__info">
                             <div class="product-itinerary-slide__top__info__tabs">
-                                <div class="product-itinerary-slide__top__info__tabs__item current">Overview</div>
-                                <div class="product-itinerary-slide__top__info__tabs__item">Inclusions</div>
-                                <div class="product-itinerary-slide__top__info__tabs__item">Exclusions</div>
+                                <div class="product-itinerary-slide__top__info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">Overview</div>
+                                <div class="product-itinerary-slide__top__info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">Inclusions</div>
+                                <div class="product-itinerary-slide__top__info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</div>
                             </div>
 
-                            <div class="product-itinerary-slide__top__info__content">
+                            <!-- Info -->
+                            <div class="product-itinerary-slide__top__info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">
                                 <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) { ?>
                                     <!-- Dates -->
                                     <div class="product-itinerary-slide__top__info__content__widget">
@@ -210,11 +211,41 @@ if ($args['propertyType'] == 'Cruise') {
                                 <?php endif; ?>
                             </div>
                             <!-- Inclusions / Exclusions -->
+                            <div class="product-itinerary-slide__top__info__content" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">
+                            <h4>What's Incuded</h4>
+                                <ul class="product-itinerary-slide__top__info__content__inclusions-list">
+                                    <?php foreach ($itinerary['Inclusions'] as $inclusion) : ?>
+                                        <li>
+                                            <svg>
+                                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                                            </svg>
+                                            <span><?php echo $inclusion['Description'] ?></span>
+                                        </li>
+                                    <?php endforeach; ?>
+
+                                </ul>
+
+                            </div>
+                            <div class="product-itinerary-slide__top__info__content" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">
+                                <h4>What's Excluded</h4>
+                                <ul class="product-itinerary-slide__top__info__content__inclusions-list">
+
+                                    <?php foreach ($itinerary['Exclusions'] as $exclusion) : ?>
+                                        <li>
+                                            <svg>
+                                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                                            </svg>
+                                            <span><?php echo $exclusion['Description'] ?></span>
+                                        </li>
+                                    <?php endforeach; ?>
+
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="product-itinerary-slide__bottom">
 
-                
+
                         <div class="product-itinerary-slide__bottom__days" id="slider-bottom-days-<?php echo $count ?>">
                             <?php
                             $days = $itinerary['ItineraryDays'];
@@ -243,12 +274,35 @@ if ($args['propertyType'] == 'Cruise') {
                                             </div>
                                         </div>
 
+                                        <div class="product-itinerary-slide__bottom__days__item__side">
+                                            <div class="product-itinerary-slide__bottom__days__item__side__image-area">
+                                                <?php if ($img != null) : ?>
 
-                                        <?php if ($img != null) : ?>
-                                            <div class="product-itinerary-slide__bottom__days__item__image-area">
-                                                <img src="<?php echo $img['ImageUrl'] ?>" alt="<?php echo $img['AltText'] ?>">
+                                                    <img src="<?php echo $img['ImageUrl'] ?>" alt="<?php echo $img['AltText'] ?>">
+                                                <?php endif; ?>
                                             </div>
-                                        <?php endif; ?>
+                                            <div class="product-itinerary-slide__bottom__days__item__side__detail">
+                                                <div class="product-itinerary-slide__bottom__days__item__side__detail__item">
+                                                    <div class="product-itinerary-slide__bottom__days__item__side__detail__item__title">
+                                                        Location
+                                                    </div>
+                                                    <div class="product-itinerary-slide__bottom__days__item__side__detail__item__data">
+                                                        <?php echo $day['Location']; ?>
+                                                    </div>
+                                                </div>
+                                                <div class="product-itinerary-slide__bottom__days__item__side__detail__item">
+                                                    <div class="product-itinerary-slide__bottom__days__item__side__detail__item__title">
+                                                        Day
+                                                    </div>
+                                                    <div class="product-itinerary-slide__bottom__days__item__side__detail__item__data">
+                                                        <span><?php echo $day['DayNumber']; ?></span> / <?php echo $itinerary['LengthInDays']; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
                                     </div>
                             <?php
                                     $dayCount++;
