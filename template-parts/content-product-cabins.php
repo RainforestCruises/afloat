@@ -16,10 +16,12 @@ if ($args['propertyType'] == 'Cruise') {
     <!-- <div id="sentinal-cabins"></div> -->
 
     <!-- H2 Title -->
-    <h2 class="page-divider product-cabins__divider">
-        Suites & Cabins
+    <h2 class="page-divider">
+        Accommodations
     </h2>
-
+    <div class="xsub-divider u-margin-bottom-small">
+        Suites & Cabins
+    </div>
     <!-- Cabins -->
     <?php
     $cabins = $cruise_data['CabinDTOs'];
@@ -33,20 +35,14 @@ if ($args['propertyType'] == 'Cruise') {
                 $occupancy = $occupancy + $cabins[$cabinCount]['SecondaryOccupancy'];
             }
 
-            //For Flip, every other row, just change picture and content with --flipped
-            $flipClass = "";
-            if ($cabinCount % 2 != 0) {
-                $flipClass = "--flipped";
-            }
 
             ?>
             <div class="product-cabins__cabin ">
-                <div class="product-cabins__cabin__picture product-cabins__cabin__picture<?php echo $flipClass ?>">
-                    <img class="product-cabins__cabin__picture__img" src="<?php echo esc_html($cabins[$cabinCount]['ImageDTOs'][0]['ImageUrl']); ?>" alt="">
+                <div class="product-cabins__cabin__image-area">
+                    <img src="<?php echo esc_html($cabins[$cabinCount]['ImageDTOs'][0]['ImageUrl']); ?>" alt="">
                 </div>
-                <div class="product-cabins__cabin__content product-cabins__cabin__content<?php echo $flipClass ?>">
+                <div class="product-cabins__cabin__content">
                     <div class="product-cabins__cabin__content__title">
-                        <span><?php echo ($cabinCount + 1); ?></span>
                         <h3 class="heading-3 heading-3--underline"><?php echo ($cabins[$cabinCount]['Name']); ?></h3>
                     </div>
                     <div class="product-cabins__cabin__content__feature-grid">
@@ -70,9 +66,7 @@ if ($args['propertyType'] == 'Cruise') {
                         </div>
                     </div>
                     <?php echo ($cabins[$cabinCount]['Features']); ?>
-                    <div class="product-cabins__cabin__content__cta">
-                        <button class="btn-outline goto-prices" href="#prices">Check Prices</button>
-                    </div>
+
                 </div>
             </div>
             <?php

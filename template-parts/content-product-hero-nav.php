@@ -60,13 +60,22 @@ if ($args['propertyType'] == 'Cruise') {
                     <?php endif;
                     } ?>
                 </ul>
-                <div class="page-nav__button">
-                    <!-- for tour name Tour Name -->
-                    <?php echo get_the_title() ?>
-                    <svg>
-                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                    </svg>
+                <div class="page-nav">
+                    <div class="page-nav__button">
+                        <!-- for tour name Tour Name -->
+                        <?php echo get_the_title() ?>
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                        </svg>
+                    </div>
+
+                    <!-- <div class="page-nav__cta">
+                        <button class="btn-cta-square btn-cta-square--small btn-cta-square--white">
+                            Inquire
+                        </button>
+                    </div> -->
                 </div>
+
                 <!-- page-nav__collapse--active -->
                 <nav class="page-nav__collapse ">
                     <ul class="page-nav__collapse__list">
@@ -153,7 +162,7 @@ if ($args['propertyType'] == 'Cruise') {
                             High
                         </div>
                     </div>
-                
+
 
                 </div>
             </div>

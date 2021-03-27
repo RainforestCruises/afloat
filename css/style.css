@@ -121,7 +121,8 @@ a[href^="tel"] {
   margin-bottom: 1.5rem;
   letter-spacing: 0.2rem;
   font-weight: 600;
-  font-size: 2.4rem;
+  font-size: 2rem;
+  line-height: 2.7rem;
   color: #142838;
   display: inline-block; }
   @media only screen and (max-width: 37.5em) {
@@ -133,8 +134,8 @@ a[href^="tel"] {
     width: 50%;
     display: block;
     background-color: #c2c6c9;
-    margin: 1.5rem 0;
-    margin-top: 1rem;
+    margin: 1.2rem 0;
+    margin-top: .7rem;
     z-index: 9; }
   .heading-3--underline-white::after {
     content: "";
@@ -312,6 +313,18 @@ p {
     .sub-divider {
       font-size: 2rem;
       line-height: 2.7rem; } }
+
+.xsub-divider {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  text-transform: uppercase;
+  color: #9ea0a4;
+  letter-spacing: 0.3rem;
+  font-weight: 600;
+  z-index: 10; }
 
 .sub-divider-text {
   grid-column: center-start / center-end;
@@ -1251,7 +1264,14 @@ h5 {
         padding: 0 2rem; } }
   .product-page__section-accommodation {
     grid-column: full-start / -1;
-    margin: 4rem 0; }
+    margin: 4rem 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 6rem; }
+    @media only screen and (max-width: 37.5em) {
+      .product-page__section-accommodation {
+        padding: 0 2rem; } }
   .product-page__section-prices {
     grid-column: full-start / -1;
     margin: 4rem 0; }
@@ -2877,7 +2897,7 @@ h5 {
         .product-itinerary-slide__top__info {
           margin-left: 0rem;
           width: 100%;
-          margin-bottom: 6rem; } }
+          margin-bottom: 3rem; } }
       .product-itinerary-slide__top__info__tabs {
         display: flex;
         justify-content: space-between;
@@ -3084,87 +3104,53 @@ h5 {
         background-color: #f8f8f8; }
 
 .product-cabins {
-  display: grid;
-  grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-  position: relative; }
-  @media only screen and (max-width: 37.5em) {
-    .product-cabins {
-      grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }
-  .product-cabins::after {
-    content: "";
-    background-color: #f8f8f8;
-    height: 100%;
-    width: 100%;
-    grid-column: full-start / full-end;
-    grid-row: 1 / span 1;
-    z-index: -10;
-    border-bottom: 1px solid #e6e6e6; }
-  .product-cabins__divider {
-    margin-top: 3rem; }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 112rem; }
   .product-cabins__cabin {
-    grid-column: full-start / full-end;
-    display: grid;
-    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    width: 100%;
+    display: flex;
     position: relative;
-    overflow-x: hidden;
-    padding-top: 4rem;
-    padding-bottom: 8rem;
-    row-gap: 8rem;
-    align-items: center;
-    grid-template-rows: min-content; }
-    @media only screen and (max-width: 62.5em) {
-      .product-cabins__cabin {
-        padding-top: 2rem;
-        padding-bottom: 3rem; } }
+    padding: 4rem 0;
+    grid-template-rows: min-content;
+    align-items: center; }
+    .product-cabins__cabin:nth-child(even) .product-cabins__cabin__image-area {
+      order: 2;
+      padding-right: 0rem;
+      padding-left: 4rem; }
     @media only screen and (max-width: 50em) {
       .product-cabins__cabin {
-        row-gap: 4rem;
-        grid-template-rows: min-content min-content; } }
-    .product-cabins__cabin__picture {
-      grid-column: full-start / col-end 4;
-      justify-self: end;
-      margin-right: 4rem;
-      margin-left: 4rem;
-      position: relative; }
+        flex-direction: column; }
+        .product-cabins__cabin:nth-child(even) .product-cabins__cabin__image-area {
+          order: -1;
+          padding-right: 0rem;
+          padding-left: 0rem;
+          margin-bottom: 2rem; } }
+    .product-cabins__cabin__image-area {
+      width: 50%;
+      padding-right: 4rem; }
       @media only screen and (max-width: 50em) {
-        .product-cabins__cabin__picture {
-          grid-column: full-start / full-end;
-          grid-row: 1 / span 1;
-          justify-self: center;
-          max-width: 100%; } }
-      .product-cabins__cabin__picture--flipped {
-        grid-column: col-start 5 / full-end;
-        justify-self: start; }
-        @media only screen and (max-width: 50em) {
-          .product-cabins__cabin__picture--flipped {
-            grid-column: full-start / full-end; } }
-      .product-cabins__cabin__picture img {
+        .product-cabins__cabin__image-area {
+          width: 100%;
+          margin-bottom: 2rem;
+          padding-right: 0rem;
+          padding-left: 0rem; } }
+      .product-cabins__cabin__image-area img {
         object-fit: contain;
         width: 100%;
         height: auto;
         box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2); }
+        @media only screen and (max-width: 50em) {
+          .product-cabins__cabin__image-area img {
+            box-shadow: none; } }
     .product-cabins__cabin__content {
-      grid-column: col-start 5 / center-end;
-      grid-row: 1 / span 1; }
+      width: 50%;
+      height: min-content; }
       @media only screen and (max-width: 50em) {
         .product-cabins__cabin__content {
-          grid-column: full-start / full-end;
-          grid-row: 2 / span 1;
-          margin-left: 6rem;
-          margin-right: 6rem; } }
-      @media only screen and (max-width: 37.5em) {
-        .product-cabins__cabin__content {
-          margin: 0 3rem; } }
-      .product-cabins__cabin__content--flipped {
-        grid-column: center-start / col-end 4;
-        margin-left: 0; }
-        @media only screen and (max-width: 50em) {
-          .product-cabins__cabin__content--flipped {
-            grid-column: full-start / full-end;
-            margin: 0 6rem; } }
-        @media only screen and (max-width: 37.5em) {
-          .product-cabins__cabin__content--flipped {
-            margin: 0 3rem; } }
+          width: 100%; } }
       .product-cabins__cabin__content__title {
         position: relative;
         z-index: 1; }
@@ -3193,12 +3179,14 @@ h5 {
         flex-direction: column; }
         .product-cabins__cabin__content__feature-item span {
           display: block;
-          font-size: 1.8rem;
-          font-weight: 600; }
-        .product-cabins__cabin__content__feature-item__title {
           font-size: 1.6rem;
-          font-weight: 700;
           color: #142838; }
+        .product-cabins__cabin__content__feature-item__title {
+          font-size: 1.4rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: .2rem;
+          color: #919598; }
       .product-cabins__cabin__content__description {
         margin-bottom: 1rem; }
       .product-cabins__cabin__content__listing {
@@ -3237,7 +3225,7 @@ h5 {
         box-shadow: 0 1rem 1rem -1rem rgba(0, 0, 0, 0.25); }
         @media only screen and (max-width: 37.5em) {
           .product-cabins__hotels__slider .slick-slide {
-            margin: .5rem;
+            margin: 0.5rem;
             margin-bottom: 3rem; } }
     .product-cabins__hotels__btn--left {
       position: absolute;
@@ -3279,7 +3267,7 @@ h5 {
         height: 2rem;
         width: 2rem;
         opacity: 0;
-        transition: all .3s; }
+        transition: all 0.3s; }
       .product-cabins__deckplan__picture:hover svg {
         opacity: 1; }
     .product-cabins__deckplan__content ul {
