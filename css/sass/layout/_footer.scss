@@ -11,7 +11,6 @@
     font-size: 1.6rem;
     position: relative;
 
-
     @media only screen and (max-width: $bp-medium) {
         grid-template-rows: 15rem repeat(5, min-content);
         justify-items: center;
@@ -20,18 +19,16 @@
     @media only screen and (max-width: $bp-small) {
         grid-template-columns: $page-container-small;
     }
-    
 
-    &::after{
+    &::after {
         content: "";
         grid-column: 1 / -1;
         grid-row: 1 / span 1;
         height: 2px;
         width: 100%;
         background-color: $color-white;
-        margin-top: 7.5rem;    
+        margin-top: 7.5rem;
     }
-
 
     &__first {
         grid-row: 1 / span 1;
@@ -47,7 +44,7 @@
             background-color: $color-primary;
             padding: 0 2rem;
             & svg {
-                transform: translateY(.5rem);
+                transform: translateY(0.5rem);
                 height: 7rem;
                 width: 7rem;
                 fill: currentColor;
@@ -64,9 +61,9 @@
                 &:link,
                 &:visited {
                     color: $color-white;
-                    transition: all .2s;
+                    transition: all 0.2s;
                 }
-                &:hover{
+                &:hover {
                     color: $color-gold;
                 }
 
@@ -81,10 +78,7 @@
             @media only screen and (max-width: $bp-small) {
                 display: none;
             }
-         
         }
-
-    
     }
 
     &__tagline {
@@ -97,8 +91,6 @@
         font-family: $font-secondary;
         margin-right: 5rem;
 
-   
-
         @media only screen and (max-width: $bp-medium) {
             grid-row: 2 / span 1;
             grid-column: center-start / center-end;
@@ -109,7 +101,6 @@
             font-size: 4rem;
             line-height: 5rem;
             margin-right: 0;
-
         }
     }
 
@@ -121,7 +112,6 @@
         align-content: center;
         justify-content: center;
 
-
         @media only screen and (max-width: $bp-medium) {
             grid-row: 3 / span 1;
             grid-column: center-start / center-end;
@@ -130,7 +120,6 @@
         }
         @media only screen and (max-width: $bp-small) {
             max-width: 95%;
-
         }
 
         &__button {
@@ -148,11 +137,10 @@
             margin-bottom: 2rem;
             cursor: pointer;
 
-            transition: all .2s;
+            transition: all 0.2s;
             &:hover {
                 border: 2px solid $color-white;
             }
-
 
             @media only screen and (max-width: $bp-small) {
                 white-space: normal;
@@ -168,8 +156,6 @@
             letter-spacing: 0.3rem;
             font-weight: 500;
         }
-
-
     }
 
     &__navigation {
@@ -193,17 +179,14 @@
         @media only screen and (max-width: $bp-xsmall) {
             text-align: center;
             grid-template-columns: max-content;
-       
         }
 
-
         &__group {
-
             &__title {
                 color: $color-gold;
                 text-transform: uppercase;
 
-                letter-spacing: 0.3rem; 
+                letter-spacing: 0.3rem;
                 font-weight: 500;
             }
 
@@ -213,7 +196,6 @@
                     &__item {
                         margin: 0.5rem 0;
                         & a {
-
                             &:link,
                             &:visited {
                                 text-decoration: none;
@@ -225,10 +207,8 @@
 
                                 @media only screen and (max-width: $bp-small) {
                                     //font-size: 1.8rem;
-
                                 }
                             }
-                            
 
                             &::after {
                                 content: "";
@@ -241,7 +221,7 @@
                                 background-color: $color-grey-light-1;
                                 transition: all 0.2s;
                             }
-                
+
                             &:hover {
                                 &::after {
                                     content: "";
@@ -267,12 +247,10 @@
             margin-bottom: 3rem;
         }
 
-
         & img {
             height: 10rem;
             width: auto;
         }
-
     }
 
     &__copyright {
@@ -292,6 +270,5 @@
             margin: 1rem 0;
             text-align: center;
         }
-
     }
 }

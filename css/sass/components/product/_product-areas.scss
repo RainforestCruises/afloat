@@ -1,87 +1,48 @@
 .product-areas {
-  grid-column: full-start / -1;
-
-  &__btn {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 4rem;
-  }
-}
-
-.areas-slider {
-
-  max-width: 114rem;
-  margin: 6rem auto;
-  margin-bottom: 0rem;
-
-  @media only screen and (max-width: $bp-largest) {
-    margin: 2rem auto;
-  }
-
-  @media only screen and (max-width: $bp-medium) {
-    margin: 0 auto;
-    
-  }
-
-
-  &__slider-for {
-    
-
-    .slick-slide {
-      margin: 8rem 8rem;
-      margin-top: 2rem;
-
-      @media only screen and (max-width: $bp-medium) {
-        margin: 4rem 4rem;
-
-      }
-
-      @media only screen and (max-width: $bp-small) {
-        margin: 1rem 2rem;
-        margin-bottom: 4rem;
-      }
-  
-    }
-
-
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin: 2rem 0;
+  margin-bottom: 4rem;
+  &__slider {
+   width: 100%;
+   max-width: 140rem;
+    margin-top: .3rem;
+   & .slick-slide {
+      padding: 2rem .3rem;
+      outline: none;
+   }
     &__item {
-      box-shadow: $shadow-medium-short;
-      position: relative;
+
+      
+      // position: relative;
     
       img {
-        height: 100%;
+        min-height: 35rem;
         width: 100%;
         object-fit: cover;
         background-position: center;
         z-index: 0;
       }
 
-      &__title {
-        font-size: 2rem;
-        position: absolute;
-        bottom: 2rem;
-        left: 3rem;
-        color: $color-white;
-        z-index: 2;
-      }
+   
     }
   }
 
   &__slider-nav {
-    color: $color-primary;
-    font-size: 1.6rem;
-    overflow: hidden;
-
-    @media only screen and (max-width: $bp-xsmall) {
-      font-size: 1.4rem;
-    }
+    color: $color-grey-2;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 90rem;
 
     & .slick-slide {
-      outline: none; // this one
-    }
-
+      outline: none;
+   }
     & .slick-current {
-      color: $color-supporting-light;
+      color: $color-primary;
     }
     &__item {
       display: flex !important;
@@ -89,15 +50,11 @@
       text-align: center;
       cursor: pointer;
       font-weight: 700;
-      letter-spacing: 0.1rem;
+      letter-spacing: 0.2rem;
       transition: all 0.5s;
+      padding: 0 3rem;
     }
 
-    & div[aria-hidden="true"]{
-      //display: none !important;
-      transition: opacity .3s;
-      opacity: 0 !important;
-    }
   }
 
   &__btn {
@@ -114,4 +71,5 @@
       z-index: 40;
     }
   }
+ 
 }

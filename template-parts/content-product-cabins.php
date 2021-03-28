@@ -15,10 +15,7 @@ if ($args['propertyType'] == 'Cruise') {
 
     <!-- <div id="sentinal-cabins"></div> -->
 
-    <!-- H2 Title -->
-    <h2 class="page-divider">
-        Accommodations
-    </h2>
+
     <div class="xsub-divider u-margin-bottom-small">
         Suites & Cabins
     </div>
@@ -74,20 +71,22 @@ if ($args['propertyType'] == 'Cruise') {
             ?>
         <?php endforeach; ?>
     <?php endif; ?>
+</div>
 
+<!-- Technical Info -->
+<?php if ($deck_plan) { ?>
 
-    <?php if ($deck_plan) { ?>
-        <h2 class="page-divider product-cabins__page-divider">
+    <div class="product-technical">
+        <div class="xsub-divider">
             Technical Information
-        </h2>
-        <div class="product-cabins__deckplan u-margin-bottom-big">
-
-            <div class="product-cabins__deckplan__picture">
-                <div class="product-cabins__deckplan__picture__title">
-                    <h3 class="heading-3 heading-3--underline"><?php echo (get_post_type() == 'rfc_cruises') ? 'Deck Plan' : 'Property Layout' ?></h3>
+        </div>
+        <div class="product-technical__content">
+            <div class="product-technical__content__image-area">
+                <div class="product-technical__content__image-area__title">
+                    <?php echo (get_post_type() == 'rfc_cruises') ? 'Deck Plan' : 'Property Layout' ?>
                 </div>
-                <a class="product-cabins__deckplan__picture" id="map-lightbox" href="<?php echo esc_url($deck_plan['url']); ?>" title="Deckplan">
-                    <img class="product-cabins__deckplan__picture__img" src="<?php echo esc_url($deck_plan['url']); ?>" alt="">
+                <a class="product-technical__content__image-area" id="map-lightbox" href="<?php echo esc_url($deck_plan['url']); ?>" title="Deckplan">
+                    <img src="<?php echo esc_url($deck_plan['url']); ?>" alt="">
                     <svg>
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
                     </svg>
@@ -95,43 +94,41 @@ if ($args['propertyType'] == 'Cruise') {
             </div>
 
 
-            <div class="product-cabins__deckplan__content">
-                <div class="product-cabins__deckplan__content__title">
-                    <h3 class="heading-3 heading-3--underline">Features</h3>
+            <div class="product-technical__content__info">
+                <div class="product-technical__content__info__title">
+                    Features
                 </div>
 
                 <?php
                 $ship_features = get_field('ship_features');
                 if ($ship_features) : ?>
 
-                    <ul class="product-cabins__ship-info__content__list">
-                        <li class="product-cabins__ship-info__content__item">
-                            <span>Number of Cabins: </span>
-                            <p><?php echo $ship_features['number_of_cabins']; ?></p>
+                    <ul class="product-technical__content__info__list">
+                        <li class="product-technical__content__info__list__item">
+                            <div class="product-technical__content__info__list__item__title">Number of Cabins: </div>
+                            <div class="product-technical__content__info__list__item__data"><?php echo $ship_features['number_of_cabins']; ?></div>
                         </li>
-                        <li class="product-cabins__ship-info__content__item">
-                            <span>Capacity: </span>
-                            <p><?php echo $ship_features['capacity']; ?> guests</p>
+                        <li class="product-technical__content__info__list__item">
+                            <div class="product-technical__content__info__list__item__title">Capacity: </div>
+                            <div class="product-technical__content__info__list__item__data"><?php echo $ship_features['capacity']; ?> guests</div>
                         </li>
-                        <li class="product-cabins__ship-info__content__item">
-                            <span>Interconnectable Cabins: </span>
-                            <p><?php echo $ship_features['interconnectable_cabins']; ?></p>
+                        <li class="product-technical__content__info__list__item">
+                            <div class="product-technical__content__info__list__item__title">Interconnectable Cabins: </div>
+                            <div class="product-technical__content__info__list__item__data"><?php echo $ship_features['interconnectable_cabins']; ?></div>
                         </li>
-                        <li class="product-cabins__ship-info__content__item">
-                            <span>Air-Conditioning: </span>
-                            <p><?php echo $ship_features['air_conditioning']; ?></p>
+                        <li class="product-technical__content__info__list__item">
+                            <div class="product-technical__content__info__list__item__title">Air-Conditioning: </div>
+                            <div class="product-technical__content__info__list__item__data"><?php echo $ship_features['air_conditioning']; ?></div>
                         </li>
-                        <li class="product-cabins__ship-info__content__item">
-                            <span>Bathrooms: </span>
-                            <p><?php echo $ship_features['bathrooms']; ?></p>
+                        <li class="product-technical__content__info__list__item product-technical__content__info__list__item--vertical">
+                            <div class="product-technical__content__info__list__item__title">Bathrooms: </div>
+                            <div class="product-technical__content__info__list__item__data product-technical__content__info__list__item__data--vertical"><?php echo $ship_features['bathrooms']; ?></div>
                         </li>
                     </ul>
                 <?php endif; ?>
             </div>
-
         </div>
-    <?php } ?>
 
 
-
-</div>
+    </div>
+<?php } ?>

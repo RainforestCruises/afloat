@@ -87,7 +87,10 @@ while (have_posts()) :
     </section>
 
     <!-- 3. Cabins Content -->
-    <div class="product-page__section-accommodation" id="cabins">
+    <div class="product-page__section-accommodation" id="accommodations">
+      <?php
+      get_template_part('template-parts/content', 'product-explore', $args);
+      ?>
       <?php
       get_template_part('template-parts/content', 'product-cabins', $args);
       ?>
@@ -111,15 +114,15 @@ while (have_posts()) :
 
 
     <!-- Reviews -->
-  
+
     <section class="product-page__section-reviews" style="display: none;">
       <?php
       get_template_part('template-parts/content', 'product-reviews', $args);
       ?>
     </section>
 
-      <!-- Related Travel -->
- 
+    <!-- Related Travel -->
+
     <section class="product-page__section-related">
       <?php
       get_template_part('template-parts/content', 'product-related', $args);

@@ -17,24 +17,28 @@
     width: 100%;
     max-width: $page-width; //defines max width
 
+    padding: 0 6rem;
+    margin-bottom: 6rem;
+    @media only screen and (max-width: $bp-small) {
+        padding: 0 3rem;
+    }
+
     &__cabin {
         width: 100%;
         display: flex;
         position: relative;
         padding: 4rem 0;
 
-        grid-template-rows: min-content;
+        //grid-template-rows: min-content;
         align-items: center;
-
 
         &:nth-child(even) {
             .product-cabins__cabin__image-area {
                 order: 2;
                 padding-right: 0rem;
-                padding-left: 4rem;          
+                padding-left: 4rem;
             }
         }
-
 
         @media only screen and (max-width: $bp-medium) {
             flex-direction: column;
@@ -43,16 +47,11 @@
                 .product-cabins__cabin__image-area {
                     order: -1;
                     padding-right: 0rem;
-                    padding-left: 0rem;  
+                    padding-left: 0rem;
                     margin-bottom: 2rem;
-        
                 }
             }
         }
-
-
-
-  
 
         &__image-area {
             width: 50%;
@@ -94,7 +93,7 @@
                 z-index: 1;
                 span {
                     position: absolute;
-  
+
                     right: 0rem;
                     top: 0rem;
                     font-family: $font-secondary;
@@ -135,7 +134,7 @@
                     font-size: 1.4rem;
                     font-weight: 600;
                     text-transform: uppercase;
-                    letter-spacing: .2rem;
+                    letter-spacing: 0.2rem;
                     color: $color-grey-2;
                 }
             }
@@ -227,26 +226,94 @@
             font-size: 2.5rem;
         }
     }
+}
 
-    &__deckplan {
-        grid-column: center-start / center-end;
+.product-technical {
+    width: 100%;
+    display: flex;
+    position: relative;
+    padding: 4rem 0;
+    justify-content: center;
+    background-color: $color-primary;
+    align-items: center;
+    flex-direction: column;
 
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 8rem;
 
-        row-gap: 4rem;
+    &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(to top, rgba($color-white, 0.8), rgba($color-white, 0.8)),
+            url(img/bg/topo-1.png);
 
-        @media only screen and (max-width: $bp-medium) {
-            grid-template-columns: 1fr;
+        filter: invert(100%);
+        opacity: 0.35;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    &__content {
+        width: 100%;
+        max-width: $page-width;
+        display: flex;
+        justify-content: space-between;
+        margin: 6rem 0;
+        z-index: 10;
+        align-items: flex-start;
+
+        //side padding
+        padding: 0 6rem;
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 3rem;
         }
 
-        &__picture {
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            margin: 3rem 0;
+        }
+
+
+        &__image-area {
             position: relative;
-            &__img {
+            width: 40%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            @media only screen and (max-width: $bp-small) {
+                width: 100%;
+                margin-bottom: 4rem;
+            }
+            
+
+            &__title {
+                font-size: 1.4rem;
+                text-transform: uppercase;
+                letter-spacing: .2rem;
+                color: $color-grey-light-1a;
+                margin-bottom: 1.5rem;
+
+                @media only screen and (max-width: $bp-small) {
+                    text-align: center;
+                }
+            }
+
+
+            & a {
+                width: 100%;
+                //height: 100%;
+                display: flex;
+                justify-content: start;
+            }
+            & img {
                 object-fit: contain;
                 width: 100%;
-                height: auto;
+                height: 100%;
+                max-height: 35rem;
+                //border: 1px solid $color-grey-1;
             }
             & svg {
                 position: absolute;
@@ -265,29 +332,75 @@
             }
         }
 
-        &__content {
-            ul {
-                list-style: none;
+        &__info {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 6rem;
+
+            @media only screen and (max-width: $bp-small) {
+                width: 100%;
+                margin-left: 0rem;
+
             }
 
-            li {
-                font-size: 1.6rem;
-                display: grid;
-                width: 100%;
-                grid-template-columns: 1fr 2fr;
-                font-weight: 600;
-                margin: 1rem;
-                margin-left: 0;
-                span {
-                    color: $color-primary;
-                    margin-right: 1rem;
-                }
-                svg {
-                    height: 2rem;
-                    width: 2rem;
-                    fill: $color-primary;
+            &__title {
+                font-size: 1.4rem;
+                text-transform: uppercase;
+                letter-spacing: .2rem;
+                color: $color-grey-light-1a;
+                margin-bottom: 1.2rem;
+
+                @media only screen and (max-width: $bp-small) {
+                    text-align: center;
                 }
             }
+
+
+            
+            &__list {
+                list-style: none;
+
+                &__item {
+                    font-size: 1.6rem;
+                    display: flex;
+                    width: 100%; 
+                    justify-content: space-between;
+
+                    &--vertical {
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        margin-top: 2rem;
+                        
+                    }
+                    
+                    &__title {
+                        color: $color-supporting-light-3;
+                        font-weight: 600;
+                        
+                    }
+
+                    &__data {
+                        color: $color-grey-light-1a;
+                        text-align: right;
+
+                        &--vertical {
+                            text-align: left;   
+                            text-justify: inter-character;          
+                        }
+                    }
+
+                    svg {
+                        height: 2rem;
+                        width: 2rem;
+                        fill: $color-primary;
+                    }
+                }
+            }
+
+        
         }
     }
 }

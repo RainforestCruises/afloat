@@ -514,38 +514,45 @@ jQuery(document).ready(function ($) {
 
 
   //Areas Slider (must select class for chained sliders)
-  $('.areas-slider__slider-for').slick({
-    slidesToShow: 1,
+  $('.product-areas__slider').slick({
+    slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: true,
-    fade: true,
+    arrows: false,
+    fade: false,
     centerMode: true,
-    lazyLoad: 'ondemand',
-    asNavFor: '.areas-slider__slider-nav',
-    prevArrow: '<button class="btn-circle btn-dark btn-circle--left areas-slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-    nextArrow: '<button class="btn-circle btn-dark btn-circle--right areas-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+    asNavFor: '.product-areas__slider-nav',
+    focusOnSelect: true,
     responsive: [
       {
         breakpoint: 1000,
         settings: {
-          arrows: false,
+          slidesToShow: 2,
+
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
 
         }
       }
     ]
   });
-  $('.areas-slider__slider-nav').slick({
-    slidesToShow: 3,
+  $('.product-areas__slider-nav').slick({
+    slidesToShow: 5,
     slidesToScroll: 1,
-    asNavFor: '.areas-slider__slider-for',
+    asNavFor: '.product-areas__slider',
     dots: false,
     centerMode: true,
     focusOnSelect: true,
+    variableWidth: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
 
         }
       }
