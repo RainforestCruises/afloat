@@ -4,7 +4,7 @@
   grid-column: 1 / -1;
 
   grid-template-rows:
-    [nav-start] minmax(100vh, min-content) [hero-end content-start]
+    [nav-start] min-content [hero-end content-start]
     repeat(8, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end]; //grid blowout
 
   grid-template-columns: $page-container;
@@ -14,11 +14,6 @@
   }
 
 
-//   display: flex;
-//   grid-row: content-start / content-end;
-//   grid-column: 1 / -1;
-
-//  flex-direction: column;
 
   &__section-hero {
     grid-row: nav-start / hero-end;

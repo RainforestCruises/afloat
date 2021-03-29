@@ -65,7 +65,7 @@ while (have_posts()) :
   <!-- Product Page Container -->
   <div class="product-page">
     <!-- Hero -->
-    <section class="product-page__section-hero" id="overview">
+    <section class="product-page__section-hero" id="top">
       <?php
       get_template_part('template-parts/content', 'product-hero-nav', $args);
       ?>

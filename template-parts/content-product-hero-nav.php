@@ -101,8 +101,10 @@ if ($args['propertyType'] == 'Cruise') {
                     </ul>
                 </nav>
             </div>
+
+            <!-- CTA -->
             <div class="product-hero__top__content__cta">
-                <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#packages">
+                <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button">
                     <svg class="btn-circle--arrow-main">
                         <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-down"></use>
                     </svg>
@@ -110,6 +112,10 @@ if ($args['propertyType'] == 'Cruise') {
                         <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-down"></use>
                     </svg></button>
             </div>
+
+            <div class="product-hero__top__content__gallery-expand">
+        Photos
+    </div>
         </div>
     </div>
 
@@ -130,6 +136,8 @@ if ($args['propertyType'] == 'Cruise') {
             <?php endif; ?>
         </div>
     </div>
+
+ 
 
     <div class="product-hero__bottom">
         <div class="product-hero__bottom__content">

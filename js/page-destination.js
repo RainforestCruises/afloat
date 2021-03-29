@@ -93,14 +93,7 @@ jQuery(document).ready(function ($) {
         $('.page-nav__button').removeClass('page-nav__button--active');
         target = target - 90;
 
-        // if (id != "#tours") {
-        //     target = target - 140;
-        // } else {
-        //     target = target - 80;
-        // }
-
         $('html, body').animate({ scrollTop: target }, 500);
-
         window.location.hash = id;
     }
 

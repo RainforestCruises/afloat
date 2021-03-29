@@ -1,6 +1,16 @@
 jQuery(document).ready(function ($) {
 
 
+
+  const downCta = document.querySelector('#down-arrow-button');
+  downCta.addEventListener('click', () => {
+      var target = $('#overview').offset().top - 125;
+      $('html, body').animate({ scrollTop: target }, 500);
+      console.log('boom');
+  });
+
+
+
   //Side Info Tabs - Overview / Inclusions / Exclusions
   const tabArray = [...document.querySelectorAll('.product-itinerary-slide__top__info__tabs__item')];
   tabArray.forEach(item => {
@@ -22,12 +32,12 @@ jQuery(document).ready(function ($) {
 
       //tabs nav
       let tabNavs = [...document.querySelectorAll('.product-itinerary-slide__top__info__tabs__item[itinerary-tab="' + itineraryTab + '"]')];
-      tabNavs.forEach((x) => {     
+      tabNavs.forEach((x) => {
         x.classList.remove('current');
       });
 
-      tabNavs.forEach((x) => {     
-        if(x.getAttribute('tab-type') == tabType){
+      tabNavs.forEach((x) => {
+        if (x.getAttribute('tab-type') == tabType) {
           x.classList.add('current')
         }
       });
@@ -164,23 +174,23 @@ jQuery(document).ready(function ($) {
 
 
 
-  //Anchor behavior
-  //on load
-  var identifier = window.location.hash;
-  if ($(identifier).length) {
-    changeTabs(identifier);
-  }
+  // //Anchor behavior
+  // //on load
+  // var identifier = window.location.hash;
+  // if ($(identifier).length) {
+  //   changeTabs(identifier);
+  // }
 
-  //fires when anchor changed
-  window.addEventListener('hashchange', function () {
-    var identifier = window.location.hash;
-    if ($(identifier).length) {
-      changeTabs(identifier);
-    } else {
-      changeTabs('#overview');
+  // //fires when anchor changed
+  // window.addEventListener('hashchange', function () {
+  //   var identifier = window.location.hash;
+  //   if ($(identifier).length) {
+  //     changeTabs(identifier);
+  //   } else {
+  //     changeTabs('#overview');
 
-    }
-  })
+  //   }
+  // })
 
   //Navigation Events - change anchor
   $('.product-hero__top__content__tab-list__item__link, .goto-cabins, .goto-itineraries, .goto-prices, .goto-dates').click(function (event) {
@@ -237,7 +247,6 @@ jQuery(document).ready(function ($) {
         scrollTop: $("#sentinal-" + tab_id).offset().top - offset
       }, 300);
     } else {
-      console.log('no')
 
     }
   }
