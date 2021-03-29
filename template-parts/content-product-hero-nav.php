@@ -101,7 +101,15 @@ if ($args['propertyType'] == 'Cruise') {
                     </ul>
                 </nav>
             </div>
-
+            <div class="product-hero__top__content__cta">
+                <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#packages">
+                    <svg class="btn-circle--arrow-main">
+                        <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-down"></use>
+                    </svg>
+                    <svg class="btn-circle--arrow-animate">
+                        <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-down"></use>
+                    </svg></button>
+            </div>
         </div>
     </div>
 
