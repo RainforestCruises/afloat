@@ -13,6 +13,13 @@
     grid-template-columns: $page-container-small;
   }
 
+
+//   display: flex;
+//   grid-row: content-start / content-end;
+//   grid-column: 1 / -1;
+
+//  flex-direction: column;
+
   &__section-hero {
     grid-row: nav-start / hero-end;
     grid-column: full-start / -1;
