@@ -13,6 +13,8 @@ $charter_min_days = $args['charter_min_days'];
 $charter_view = false;
 $charter_only = false;
 
+console_log($cruise_data);
+
 if ($args['propertyType'] == 'Cruise') {
     if ($args['charter_view'] == true) {
         $charter_view = true;
@@ -187,15 +189,25 @@ if ($args['propertyType'] == 'Cruise') {
                                         <?php $rateYears = $itinerary['RateYears']; ?>
                                         <?php foreach ($rateYears as $rateYear) { ?>
                                             <div class="price-grid price-grid__<?php echo $rateYear['Year'] ?>" data-tab="<?php echo $count; ?>">
+                                                <div class="price-grid__header">
+                                                    <div class="price-grid__header__title">
+                                                    Cabin Class
+                                                    </div>
+                                                    <div class="price-grid__header__title">
+                                                    Price
+                                                    </div>
+                                             
+                                                </div>
                                                 <?php $rateYears = $itinerary['RateYears']; ?>
                                                 <?php foreach ($rateYear['Rates'] as $rate) { ?>
                                                     <div class="price-grid__item">
-                                                        <div class="price-grid__item__cabin">
+                                                        <div class="price-grid__item__data">
                                                             <?php echo  $rate['Cabin'] ?>
                                                         </div>
-                                                        <div class="price-grid__item__price">
+                                                        <div class="price-grid__item__data">
                                                             <?php echo "$ " . number_format($rate['WebAmount'], 0);  ?>
                                                         </div>
+                                                    
                                                     </div>
                                                 <?php } ?>
                                             </div>

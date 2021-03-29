@@ -16,7 +16,7 @@ if ($args['propertyType'] == 'Cruise') {
     <!-- <div id="sentinal-cabins"></div> -->
 
 
-    <div class="xsub-divider u-margin-bottom-small">
+    <div class="xsub-divider xsub-divider--dark u-margin-bottom-small">
         Suites & Cabins
     </div>
     <!-- Cabins -->

@@ -12,23 +12,21 @@ $featured_image = get_field('featured_image');
 
     <!-- H2 Title -->
     <!-- <div id="sentinal-overview"></div> -->
-    <h2 class="page-divider product-overview__divider">
-        <?php echo $args['propertyType'] ?> Overview
+    <h2 class="page-divider u-margin-bottom-medium">
+        Overview
     </h2>
 
-    <!-- Description  -->
-    <div class="product-overview__description">
-        <div class="product-overview__description__detail">
-            <div class="product-overview__description__detail__picture">
-                <img class="product-overview__description__detail__picture__img" src="<?php echo esc_url($featured_image['url']); ?>" alt="">
-                <div class="product-overview__description__detail__picture__title">
-                    <?php echo get_the_title() ?>
-                </div>
+    <!-- Content  -->
+    <div class="product-overview__content">
+
+        <aside class="product-overview__content__side-detail">
+            <div class="product-overview__content__side-detail__image-area">
+                <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">        
             </div>
-            <!-- Highlights ACF REPEATER -->
-            <aside class="product-overview__description__detail__highlights">
+            <!-- Highlights -->
+            <div class="product-overview__content__side-detail__highlights">
                 <h3 class="heading-3 heading-3--underline">Highlights</h3>
-                <ul class="list-svg">
+                <ul class="list-svg list-svg--large">
                     <?php if (have_rows('highlights')) : ?>
                         <?php while (have_rows('highlights')) : the_row(); ?>
                             <li>
@@ -40,9 +38,11 @@ $featured_image = get_field('featured_image');
                         <?php endwhile; ?>
                     <?php endif; ?>
                 </ul>
-            </aside>
-        </div>
-        <div class="product-overview__description__text drop-cap-1 ">
+            </div>
+        </aside>
+
+                
+        <div class="product-overview__content__text drop-cap-1 ">
             <?php echo get_field('overview_content') ?>
         </div>
     </div>

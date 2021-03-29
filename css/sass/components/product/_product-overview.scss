@@ -1,158 +1,85 @@
 .product-overview {
-     display: grid;
-     grid-template-columns: $page-container;
-    // grid-template-rows: minmax(30vh, min-content);
-    // position: relative;
 
-    // @media only screen and (max-width: $bp-large) {
-    //     grid-template-rows: minmax(22vh, min-content);
-    // }
 
-    // @media only screen and (max-width: $bp-small) {
-    //     grid-template-columns: $page-container-small;
-    // }
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
-    // &::after {
-    //     //intro background
-    //     content: "";
-    //     background-color: $color-grey-light-1;
-    //     height: 100%;
-    //     width: 100%;
-    //     grid-column: full-start / full-end;
-    //     grid-row: 1 / span 1;
-    //     z-index: -10;
-    //     border-bottom: 1px solid $color-grey-light-1a;
-    // }
 
-    // &__divider {
-    //     margin-top: 3rem;
-    // }
+    max-width: $page-width;
+    padding: 0 6rem;
+    @media only screen and (max-width: $bp-small) {
+        padding: 0 3rem;
+    }
 
-    //Description
-    &__description {
-        grid-column: full-start / full-end;
-        display: grid;
-        grid-template-columns: $page-container;
-        position: relative;
+    &__content {
+        width: 100%;
         overflow: hidden;
-
-        margin-top: 4rem;
-        max-height:60rem;
+        max-height:50rem;
+        display: flex;
 
         &.expand{
             max-height: 5000px !important;
             transition:max-height 0.35s ease-in-out;
-          }
-
-        @media only screen and (max-width: $bp-small) {
-            grid-template-columns:
-                [full-start] minmax(3rem, 1fr) [center-start] repeat(
-                    8,
-                    [col-start] minmax(min-content, 14rem) [col-end]
-                )
-                [center-end] minmax(3rem, 1fr) [full-end];
         }
 
-        &__detail {
-            grid-column: full-start / col-end 4;
-            justify-self: end;
 
-            display: grid;
-            grid-template-rows: min-content min-content;
-            row-gap: 3rem;
-            margin-left: 6rem;
-            margin-right: 6rem;
+        @media only screen and (max-width: $bp-medium) {
+            flex-direction: column;
+            
+        }
+
+        &__side-detail {
+      
+            width: 40%;
+
+            display: flex;
+            flex-direction: column;
+            
 
             @media only screen and (max-width: $bp-medium) {
-                grid-column: center-start / center-end;
-                grid-row: 1 / span 1;
-                margin-bottom: 4rem;
-                margin-right: 0rem;
-                margin-left: 0rem;
-
-                display: block;
+                width: 100%;
             }
-            @media only screen and (max-width: $bp-small) {
-                margin-bottom: 2rem;
-            }
+  
 
-            &__picture {
+            &__image-area {
                 position: relative;
                 z-index: 0;
                 width: 100%;
-                &__img {
+                margin-bottom: 3rem;
+                display: flex;
+                justify-content: center;
+
+                & img {
                     height: auto;
                     width: 100%;
                     max-width: 60rem;
                     object-fit: contain;
                     position: relative;
                     z-index: 0;
-                    box-shadow: $shadow-medium-short;
-
-                    @media only screen and (max-width: $bp-medium) {
-                        max-width: 100%;
-
-                    }
+                    //box-shadow: $shadow-medium-short;
 
                 }
-
-                &__title {
-                    font-size: 2rem;
-                    position: absolute;
-                    bottom: 2rem;
-                    left: 3rem;
-                    color: $color-white;
-                    z-index: 2;
-                    
-                }
+        
             }
 
             &__highlights {
-                grid-row: 2 / span 1;
-                font-size: 1.4rem;
-
-                max-width: 48rem;
-                margin: 0 4rem;
-                padding-left: 6rem;
-                position: relative;
-
-                @media only screen and (max-width: $bp-large) {
-                    padding-left: 4rem;
-                }
-
-                @media only screen and (max-width: $bp-medium) {
-                    margin: 0;
-                    margin-top: 2rem;
-                    max-width: 100%;
-                    padding-left: 0;
-
-                    & ul {
-                        //margin-left: 4rem;
-
-                        
-                    }
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        bottom: -4rem;
-                        height: 1px;
-                        width: 100%;
-                        background-color: $color-grey-light-1a;
-                    }
-                }
+                //list svg      
             }
         }
 
         &__text {
-            grid-column: col-start 5 / center-end;
-            grid-row: 1 / span 2;
+           width: 60%;
+            margin-left: 4rem;
 
             @media only screen and (max-width: $bp-medium) {
-                grid-column: center-start / center-end;
-                margin-top: 4rem;
-                grid-row: 2 / span 1;
+                width: 100%;
+                margin-left: 0rem;
+                margin-bottom: 3rem;
+                order: -1;
             }
+     
         }
     }
  

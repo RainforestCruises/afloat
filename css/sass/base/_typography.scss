@@ -40,7 +40,8 @@
     display: inline-block;
 
     @media only screen and (max-width: $bp-small) {
-        font-size: 2.8rem;
+        font-size: 1.5rem;
+        line-height: 2.2rem;
     }
 
     &--underline {
@@ -51,7 +52,7 @@
             display: block;
             background-color: $color-grey-light-2;
             margin: 1.2rem 0;
-            margin-top: .7rem;
+            margin-top: 0.7rem;
             z-index: 9;
         }
     }
@@ -151,15 +152,17 @@ p {
 
     color: $color-primary;
     font-family: $font-secondary;
-    font-size: 4.5rem;
-    line-height: 5.5rem;
+    font-size: 3.5rem;
+    line-height: 3.5rem;
     letter-spacing: 0.3rem;
     font-weight: 500;
     text-align: center;
 
-    padding: 0 6rem;
-    @media only screen and (max-width: $bp-small) {
-        padding: 0 3rem;
+    &--padding {
+        padding: 0 6rem;
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 3rem;
+        }
     }
 
     &::before {
@@ -188,11 +191,10 @@ p {
     }
 
     @media only screen and (max-width: $bp-medium) {
-        font-size: 3.2rem;
-        line-height: 4rem;
+        font-size: 2.8rem;
+        line-height: 3.5rem;
         letter-spacing: 0.2rem;
     }
-
 }
 
 .svg-divider {
@@ -250,10 +252,9 @@ p {
 }
 
 .sub-divider {
-
     grid-column: center-start / center-end;
     text-align: center;
-    
+
     display: flex;
     flex-direction: row;
 
@@ -264,7 +265,6 @@ p {
     letter-spacing: 0.3rem;
     font-weight: 600;
     z-index: 10;
-
 
     &::before {
         content: "";
@@ -334,7 +334,6 @@ p {
 }
 
 .xsub-divider {
-
     text-align: center;
     justify-content: center;
     display: flex;
@@ -342,7 +341,7 @@ p {
     font-size: 2rem;
     line-height: 2.8rem;
     text-transform: uppercase;
-    color: $color-grey-1;
+    color: $color-grey-light-1a;
     letter-spacing: 0.3rem;
     font-weight: 600;
     z-index: 10;
@@ -352,6 +351,9 @@ p {
         padding: 0 3rem;
     }
 
+    &--dark {
+        color: $color-primary;
+    }
 }
 
 .sub-divider-text {
@@ -362,24 +364,21 @@ p {
 }
 
 .list-svg {
-    display: grid;
     list-style: none;
-    row-gap: 1rem;
-
     li {
         display: grid;
-        grid-template-columns: min-content 1fr;
+        grid-template-columns: 2rem 1fr;
 
         svg {
-            margin-top: 2px;
-            height: 1.8rem;
-            width: 1.8rem;
+            transform: translateY(1px);
+            height: 1.5rem;
+            width: 1.5rem;
             fill: $color-primary;
         }
 
         span {
-            margin-left: 1rem;
-            font-size: 1.6rem;
+            //margin-left: 1rem;
+            font-size: 1.3rem;
         }
     }
 }

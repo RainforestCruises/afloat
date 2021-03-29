@@ -97,7 +97,7 @@ $bp-xxsmall: 22em; // 352px -- iphone 5/SE
 
 
 //FLEX
-$page-width: 112rem;
+$page-width: calc(112rem + 12rem);
 
 //GRID TEMPLATES
 $page-container: [full-start] minmax(6rem, 1fr) [center-start]

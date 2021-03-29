@@ -1,5 +1,5 @@
     <!-- H2 Title -->
-    <h2 class="page-divider u-margin-bottom-small">
+    <h2 class="page-divider page-divider--padding u-margin-bottom-small">
         Accommodations
     </h2>
 

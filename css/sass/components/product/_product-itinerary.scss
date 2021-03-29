@@ -4,9 +4,10 @@
     flex-direction: column;
     width: 100%;
     max-width: $page-width; //defines max width
-
-  
-
+    padding: 0 6rem;
+    @media only screen and (max-width: $bp-small) {
+        padding: 0 3rem;
+    }
     &__nav {
         width: 100%;
         margin-top: 4rem;
@@ -34,7 +35,7 @@
             &__item {
                 padding: 1rem 2rem;
                 font-size: 1.5rem;
-                font-weight: 500;
+                font-weight: 700;
                 text-transform: uppercase;
                 letter-spacing: 0.2rem;
                 border: 1px solid white;
@@ -43,7 +44,7 @@
                 text-align: center;
                 cursor: pointer;
                 &:hover {
-                    color: rgba($color-supporting, 0.6);
+                    color: $color-supporting !important;
                 }
             }
 
@@ -432,23 +433,31 @@
 .price-grid {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
+
+    &__header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: $color-grey-1;
+        margin-bottom: .5rem;
+
+        
+        &__title {
+            width: max-content;
+            border-bottom: 1px solid $color-grey-light-1a;
+        }
+    }
 
     &__item {
         display: flex;
         font-size: 1.6rem;
         color: $color-primary;
         justify-content: space-between;
-        font-weight: 500;
-
-        &__cabin {
-            margin-bottom: 0.3rem;
-            font-weight: 500;
-        }
-        &__price {
-            color: $color-grey-2;
-            letter-spacing: 0.1rem;
-        }
+        width: 100%;
+        margin: .1rem 0;
+  
     }
 }
 
@@ -527,7 +536,6 @@
                 margin-left: 0rem;
                 width: 100%;
                 margin-bottom: 3rem;
-
             }
 
             &__tabs {
@@ -545,7 +553,7 @@
                     text-transform: uppercase;
                     font-weight: 600;
                     color: $color-grey-1;
-                    padding: 2rem 0;
+                    padding: 1.5rem 0;
                     position: relative;
                     transition: color 0.2s;
                     cursor: pointer;
@@ -576,18 +584,24 @@
 
             &__content {
                 display: none;
+            
 
                 &.current {
                     display: block;
+                    animation: fadein .3s both;
+                    animation-timing-function: ease-out;
                 }
 
                 &__widget {
                     position: relative;
-                    margin-bottom: 3rem;
+                    padding-bottom: 2rem;
+                    margin-bottom: 2rem;
+                    position: relative;
 
-                    & select {
-                        visibility: hidden !important;
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $color-grey-light-1a;
                     }
+
                     &__top-section {
                         display: flex;
                         justify-content: space-between;
@@ -598,7 +612,6 @@
                             font-size: 1.5rem;
                             text-transform: uppercase;
                             letter-spacing: 0.1rem;
-                            //border-bottom: 2px solid $color-grey-light-2;
                         }
                     }
 
@@ -643,25 +656,23 @@
                 }
 
                 &__inclusions-list {
-                
-                        list-style: none;
-                        li {
-                            display: grid;
-                            grid-template-columns: 2rem 1fr;
+                    list-style: none;
+                    li {
+                        display: grid;
+                        grid-template-columns: 2rem 1fr;
 
-                            svg {
-                               transform: translateY(1px);
-                                height: 1.5rem;
-                                width: 1.5rem;
-                                fill: $color-primary;
-                            }
-
-                            span {
-                                //margin-left: 1rem;
-                                font-size: 1.3rem;
-                            }
+                        svg {
+                            transform: translateY(1px);
+                            height: 1.5rem;
+                            width: 1.5rem;
+                            fill: $color-primary;
                         }
-                  
+
+                        span {
+                            //margin-left: 1rem;
+                            font-size: 1.3rem;
+                        }
+                    }
                 }
             }
         }

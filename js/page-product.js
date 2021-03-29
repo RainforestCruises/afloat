@@ -87,6 +87,7 @@ jQuery(document).ready(function ($) {
     focusOnSelect: true,
     arrows: true,
     dots: true,
+    swipe: true,
     prevArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
     nextArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
 
@@ -111,12 +112,12 @@ jQuery(document).ready(function ($) {
     var isExpanded = $(e.target).parent().hasClass("expand");
 
     //close all open paragraphs
-    $(".product-overview__description.expand").removeClass("expand");
+    $(".product-overview__content.expand").removeClass("expand");
     $("#readmore-button").parent().removeClass("expand");
 
     // if target wasn't expand, then expand it
     if (!isExpanded) {
-      $('.product-overview__description').addClass("expand");
+      $('.product-overview__content').addClass("expand");
       $(e.target).parent().addClass("expand");
       $(e.target).text("Read Less");
     } else {
