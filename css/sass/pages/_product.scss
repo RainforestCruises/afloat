@@ -3,27 +3,19 @@
   grid-row: content-start / content-end;
   grid-column: 1 / -1;
 
-  grid-template-rows:
-    [nav-start] min-content [hero-end content-start]
-    repeat(8, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end]; //grid blowout
-
   grid-template-columns: $page-container;
 
-  @media only screen and (max-width: $bp-small) {
-    grid-template-columns: $page-container-small;
-  }
+ 
 
-
+  
 
   &__section-hero {
-    grid-row: nav-start / hero-end;
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     background-color: $color-black;
   }
 
   &__section-overview {
-    grid-row: content-start / span 1;
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin: 4rem 0;
 
     display: flex;
@@ -34,19 +26,18 @@
   }
 
   &__section-itineraries {
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin: 4rem 0;
 
     display: flex;
     justify-content: center;
     width: 100%;
-
     
   }
 
   &__section-accommodation {
     
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin: 4rem 0; 
 
     display: flex;
@@ -59,44 +50,25 @@
   }
 
   &__section-prices {
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin: 4rem 0;
   }
 
   &__section-dates {
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin: 4rem 0;
   }
 
   &__section-reviews {
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin: 4rem 0;
   }
 
   &__section-related {
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin-top: 4rem;
   }
 
-  // &__section-hero {
-  //   grid-column: 1 / -1;
-
-  //   grid-row: nav-start / hero-end;
-
-  //   height: 100%;
-
-  //   position: relative;
-  // }
 }
+ 
 
-// //Tab Child Content
-// .product-content {
-//   grid-row: content-start / span 1;
-//   grid-column: full-start / -1;
-//   z-index: 0;
-//   &__page {
-//     animation: fadein 0.8s;
-//   }
-// }
-
-//common to all content sections

@@ -64,6 +64,7 @@ while (have_posts()) :
 
   <!-- Product Page Container -->
   <div class="product-page">
+
     <!-- Hero -->
     <section class="product-page__section-hero" id="top">
       <?php
@@ -72,31 +73,34 @@ while (have_posts()) :
     </section>
 
 
-    <!-- 1. Overview Content -->
+    <!-- Overview Content -->
     <section class="product-page__section-overview" id="overview">
       <?php
       get_template_part('template-parts/content', 'product-overview', $args);
       ?>
     </section>
 
-    <!-- 2. Itineraries Content -->
+    <!-- Itineraries Content -->
     <section class="product-page__section-itineraries" id="itineraries">
       <?php
       get_template_part('template-parts/content', 'product-itineraries', $args);
       ?>
     </section>
 
-    <!-- 3. Cabins Content -->
-    <div class="product-page__section-accommodation" id="accommodations">
+    <!-- Accommodations Content -->
+    <section class="product-page__section-accommodation" id="accommodations">
       <?php
-      get_template_part('template-parts/content', 'product-explore', $args);
+      get_template_part('template-parts/content', 'product-explore', $args); //common areas gallery
       ?>
       <?php
       get_template_part('template-parts/content', 'product-cabins', $args);
       ?>
-    </div>
+      <?php
+      get_template_part('template-parts/content', 'product-technical', $args);
+      ?>
+    </section>
 
-    <!-- 4. Prices Content -->
+    <!-- Prices Content -->
     <div class="product-page__section-prices" id="prices" style="display: none;">
       <?php
       get_template_part('template-parts/content', 'product-prices', $args);
@@ -104,8 +108,8 @@ while (have_posts()) :
     </div>
 
     <?php if (!$charter_view) : ?>
-      <!-- 5. Dates Content -->
-      <div class="product-page__section-dates" id="dates">
+      <!-- Dates Content -->
+      <div class="product-page__section-dates" id="dates" style="display: none;">
         <?php
         get_template_part('template-parts/content', 'product-dates', $args);
         ?>
@@ -123,7 +127,7 @@ while (have_posts()) :
 
     <!-- Related Travel -->
 
-    <section class="product-page__section-related">
+    <section class="product-page__section-related" >
       <?php
       get_template_part('template-parts/content', 'product-related', $args);
       ?>

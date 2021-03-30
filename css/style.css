@@ -1161,18 +1161,12 @@ h5 {
   display: grid;
   grid-row: content-start / content-end;
   grid-column: 1 / -1;
-  grid-template-rows: [nav-start] min-content [hero-end content-start] repeat(8, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end];
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
-  @media only screen and (max-width: 37.5em) {
-    .product-page {
-      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
   .product-page__section-hero {
-    grid-row: nav-start / hero-end;
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     background-color: #1e1e1e; }
   .product-page__section-overview {
-    grid-row: content-start / span 1;
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin: 4rem 0;
     display: flex;
     justify-content: center;
@@ -1180,13 +1174,13 @@ h5 {
     flex-direction: column;
     width: 100%; }
   .product-page__section-itineraries {
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin: 4rem 0;
     display: flex;
     justify-content: center;
     width: 100%; }
   .product-page__section-accommodation {
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin: 4rem 0;
     display: flex;
     justify-content: center;
@@ -1194,16 +1188,16 @@ h5 {
     flex-direction: column;
     width: 100%; }
   .product-page__section-prices {
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin: 4rem 0; }
   .product-page__section-dates {
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin: 4rem 0; }
   .product-page__section-reviews {
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin: 4rem 0; }
   .product-page__section-related {
-    grid-column: full-start / -1;
+    grid-column: 1 / -1;
     margin-top: 4rem; }
 
 .search-page {
@@ -1806,11 +1800,15 @@ h5 {
     .product-hero__top__content {
       z-index: 8;
       width: 100%;
-      max-width: 114rem;
       justify-self: center;
       display: flex;
       flex-direction: column;
-      position: relative; }
+      position: relative;
+      max-width: calc(112rem + 12rem);
+      padding: 0 6rem; }
+      @media only screen and (max-width: 37.5em) {
+        .product-hero__top__content {
+          padding: 0 3rem; } }
       @media only screen and (max-width: 62.5em) {
         .product-hero__top__content {
           align-items: center;
@@ -2052,9 +2050,13 @@ h5 {
         height: 30rem; } }
     .product-hero__bottom__content {
       width: 100%;
-      max-width: 114rem;
       display: flex;
-      flex-direction: column; }
+      flex-direction: column;
+      max-width: calc(112rem + 12rem);
+      padding: 0 6rem; }
+      @media only screen and (max-width: 37.5em) {
+        .product-hero__bottom__content {
+          padding: 0 3rem; } }
       .product-hero__bottom__content__info-group {
         display: flex;
         flex-direction: column;
@@ -2527,218 +2529,6 @@ h5 {
           z-index: 8; }
   .product-itineraries__content {
     border: 1px solid #e6e6e6; }
-  .product-itineraries__itinerary {
-    grid-column: full-start / full-end;
-    animation: fadein 0.8s;
-    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] minmax(50rem, 70rem) [col-mid] minmax(min-content, 42rem) [center-end] minmax(6rem, 1fr) [full-end];
-    grid-template-rows: repeat(3, min-content); }
-    @media only screen and (max-width: 50em) {
-      .product-itineraries__itinerary {
-        grid-template-rows: repeat(2, min-content);
-        grid-template-columns: [center-start] 1fr [center-end];
-        margin: 0 6rem; } }
-    @media only screen and (max-width: 37.5em) {
-      .product-itineraries__itinerary {
-        margin: 0 3rem; } }
-    .product-itineraries__itinerary__title {
-      grid-column: center-start / center-end;
-      grid-row: 1 / span 1;
-      margin-bottom: 4.5rem;
-      margin-top: 3rem; }
-      @media only screen and (max-width: 37.5em) {
-        .product-itineraries__itinerary__title {
-          margin-bottom: 2.5rem; } }
-      .product-itineraries__itinerary__title__main {
-        margin-bottom: 0; }
-      .product-itineraries__itinerary__title__subtitle {
-        color: rgba(48, 90, 124, 0.6);
-        letter-spacing: 0.4rem;
-        font-family: "Old Standard TT", serif;
-        font-size: 1.6rem;
-        text-transform: uppercase;
-        justify-self: center;
-        text-align: center;
-        bottom: 2.5rem;
-        left: 50%;
-        font-weight: 400; }
-    .product-itineraries__itinerary__intro {
-      grid-row: 2 / span 1;
-      grid-column: center-start / col-mid;
-      margin-right: 6rem; }
-      @media only screen and (max-width: 50em) {
-        .product-itineraries__itinerary__intro {
-          grid-column: center-start / center-end;
-          margin-right: 0rem; } }
-    .product-itineraries__itinerary__map {
-      grid-row: 2 / span 1;
-      grid-column: col-mid / center-end;
-      position: relative;
-      height: 40rem;
-      cursor: pointer; }
-      .product-itineraries__itinerary__map img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-        display: block; }
-      .product-itineraries__itinerary__map svg {
-        position: absolute;
-        bottom: 7rem;
-        left: 2rem;
-        fill: #142838;
-        height: 2rem;
-        width: 2rem;
-        opacity: 0;
-        transition: all 0.3s; }
-      .product-itineraries__itinerary__map--no-summary svg {
-        display: none; }
-      .product-itineraries__itinerary__map:hover svg {
-        opacity: 1; }
-      @media only screen and (max-width: 50em) {
-        .product-itineraries__itinerary__map {
-          grid-row: 3 / span 1;
-          grid-column: center-start / center-end;
-          margin-top: 5rem;
-          height: auto;
-          width: 100%;
-          margin-bottom: 5rem; }
-          .product-itineraries__itinerary__map svg {
-            bottom: 10rem; } }
-    .product-itineraries__itinerary__divider {
-      grid-row: 3 / span 1;
-      grid-column: center-start / center-end;
-      position: relative;
-      margin: 8rem 0; }
-      .product-itineraries__itinerary__divider::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background-color: #e6e6e6; }
-      @media only screen and (max-width: 50em) {
-        .product-itineraries__itinerary__divider {
-          display: none; } }
-    .product-itineraries__itinerary__d2d {
-      grid-row: 4 / span 1;
-      grid-column: center-start / col-mid;
-      margin-right: 6rem; }
-      @media only screen and (max-width: 50em) {
-        .product-itineraries__itinerary__d2d {
-          grid-row: 4 / span 1;
-          grid-column: center-start / center-end;
-          margin-right: 0rem; } }
-      .product-itineraries__itinerary__d2d__days {
-        width: 100%;
-        position: relative;
-        height: auto;
-        list-style: none; }
-        .product-itineraries__itinerary__d2d__days__day {
-          position: relative;
-          width: 100%;
-          height: auto;
-          box-sizing: border-box;
-          border-radius: 0.4rem;
-          box-shadow: inset 0px 0px 0px 1px #e6e6e6;
-          margin-bottom: 4rem;
-          transition: all 0.3s; }
-          .product-itineraries__itinerary__d2d__days__day--active {
-            box-shadow: inset 0px 0px 0px 2px #142838; }
-            .product-itineraries__itinerary__d2d__days__day--active .product-itineraries__itinerary__d2d__days__day__count {
-              display: none; }
-            .product-itineraries__itinerary__d2d__days__day--active .product-itineraries__itinerary__d2d__days__day__button {
-              transform: rotate(180deg) translateX(50%); }
-              .product-itineraries__itinerary__d2d__days__day--active .product-itineraries__itinerary__d2d__days__day__button::after {
-                border: 2px solid #142838; }
-          .product-itineraries__itinerary__d2d__days__day__image-content {
-            position: relative;
-            display: none; }
-            .product-itineraries__itinerary__d2d__days__day__image-content__img {
-              height: auto;
-              width: 100%;
-              object-fit: contain;
-              border-top-left-radius: 0.4rem;
-              border-top-right-radius: 0.4rem; }
-            .product-itineraries__itinerary__d2d__days__day__image-content__badges {
-              position: absolute;
-              bottom: 2rem;
-              display: flex;
-              justify-content: space-between;
-              flex-wrap: wrap;
-              width: 100%; }
-              .product-itineraries__itinerary__d2d__days__day__image-content__badges__count-badge {
-                display: inline-block;
-                margin: 1rem 3rem;
-                white-space: nowrap;
-                padding: 0.5rem 1rem;
-                padding-bottom: 0.2rem;
-                border-radius: 2rem;
-                background-color: #fff;
-                font-size: 1.3rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.2rem; }
-                @media only screen and (max-width: 37.5em) {
-                  .product-itineraries__itinerary__d2d__days__day__image-content__badges__count-badge {
-                    margin: 0.5rem 1.5rem; } }
-                .product-itineraries__itinerary__d2d__days__day__image-content__badges__count-badge span {
-                  color: #142838; }
-              .product-itineraries__itinerary__d2d__days__day__image-content__badges__location-badge {
-                display: inline-block;
-                margin: 1rem 3rem;
-                white-space: nowrap;
-                padding: 0.5rem 1rem;
-                padding-bottom: 0.2rem;
-                border-radius: 2rem;
-                color: #fff;
-                background-color: #40739c;
-                font-size: 1.3rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.2rem; }
-                @media only screen and (max-width: 37.5em) {
-                  .product-itineraries__itinerary__d2d__days__day__image-content__badges__location-badge {
-                    margin: 0.5rem 1.5rem; } }
-          .product-itineraries__itinerary__d2d__days__day__content {
-            font-size: 1.6rem;
-            padding: 0 3rem;
-            padding-top: 1rem;
-            padding-bottom: 3rem;
-            display: none; }
-          .product-itineraries__itinerary__d2d__days__day__snippet {
-            font-size: 1.6rem;
-            padding: 0 3rem;
-            padding-top: 1rem;
-            padding-bottom: 3rem; }
-          .product-itineraries__itinerary__d2d__days__day__count {
-            font-size: 1.3rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.2rem;
-            display: inline-block;
-            background-color: #fff;
-            position: absolute;
-            top: -0.8rem;
-            left: 3rem;
-            padding: 0 1rem; }
-            .product-itineraries__itinerary__d2d__days__day__count span {
-              color: #142838; }
-          .product-itineraries__itinerary__d2d__days__day__header {
-            font-size: 2rem;
-            text-decoration: none;
-            letter-spacing: 0.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            color: #142838;
-            padding: 0 3rem;
-            padding-top: 2rem; }
-            .product-itineraries__itinerary__d2d__days__day__header:hover {
-              color: #40739c; }
-          .product-itineraries__itinerary__d2d__days__day__button {
-            position: absolute;
-            bottom: -2.5rem;
-            left: 50%;
-            transform: translateX(-50%); }
 
 .date-grid {
   list-style: none;

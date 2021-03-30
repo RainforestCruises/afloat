@@ -18,15 +18,16 @@ if ($args['propertyType'] == 'Cruise') {
 
 <div class="product-hero">
 
+    <!-- Top Section -->
     <div class="product-hero__top">
         <div class="product-hero__top__bg" id="top">
             <img src="<?php echo esc_url($hero_image['url']); ?>" alt="">
         </div>
 
-        <!-- Page Title/Nav -->
+        <!-- Title / Navigation -->
         <div class="product-hero__top__content">
 
-            <!-- H1 Title / H2 Subtitle-->
+            <!-- H1 Title / Subtitle -->
             <div class="product-hero__top__content__title-group">
                 <h1 class="product-hero__top__content__title-group__title" id="template-nav-title"><?php echo $productTitle ?></h1>
                 <h2 class="product-hero__top__content__title-group__subtitle"><?php echo get_field('top_snippet') ?></h2>
@@ -113,14 +114,15 @@ if ($args['propertyType'] == 'Cruise') {
                     </svg></button>
             </div>
 
+            <!-- Expand Gallery -->
             <div class="product-hero__top__content__gallery-expand" id="gallery-expand-button">
                 Photos
             </div>
         </div>
     </div>
 
-    <!-- Gallery -->
-    <div class="product-hero__gallery">
+    <!-- Gallery  -->
+    <div class="product-hero__gallery" >
 
         <div class="product-hero__gallery__slick" id="product-gallery">
             <?php
@@ -138,10 +140,14 @@ if ($args['propertyType'] == 'Cruise') {
     </div>
 
 
-
+    <!-- Bottom Section -->
     <div class="product-hero__bottom">
+
+        <!-- Info Area -->
         <div class="product-hero__bottom__content">
             <div class="product-hero__bottom__content__info-group">
+
+                <!-- Starting Price / CTA -->
                 <div class="product-hero__bottom__content__info-group__info">
                     <?php if ($charter_view == false) : ?>
                         <div class="product-hero__bottom__content__info-group__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span></div>
@@ -152,8 +158,9 @@ if ($args['propertyType'] == 'Cruise') {
                         <button class="btn-cta-round">Inquire</button>
                     </div>
                 </div>
-                <div class="product-hero__bottom__content__info-group__attributes">
 
+                <!-- KSPs -->
+                <div class="product-hero__bottom__content__info-group__attributes">
                     <div class="product-hero__bottom__content__info-group__attributes__item">
                         <div class="product-hero__bottom__content__info-group__attributes__item__title">
                             Itineraries

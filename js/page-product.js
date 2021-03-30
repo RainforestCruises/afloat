@@ -263,14 +263,14 @@ jQuery(document).ready(function ($) {
 
 
 
-  //Image Lightboxes
-  $("a#map-lightbox").fancybox(
-    {
-      'overlayShow': true,
-      'transitionIn': 'elastic',
-      'transitionOut': 'elastic'
-    }
-  );
+  // //Image Lightboxes
+  // $("a#map-lightbox").fancybox(
+  //   {
+  //     'overlayShow': true,
+  //     'transitionIn': 'elastic',
+  //     'transitionOut': 'elastic'
+  //   }
+  // );
 
 
   //Itineraries --------------------------------
@@ -651,7 +651,7 @@ jQuery(document).ready(function ($) {
     slidesToShow: 3,
     slidesToScroll: 1,
     lazyLoad: 'ondemand',
-    initialSlide: 1,
+    initialSlide: 0,
     //variableWidth: true,
     focusOnSelect: true,
     arrows: true,
@@ -659,7 +659,7 @@ jQuery(document).ready(function ($) {
     nextArrow: '<button class="btn-circle btn-circle--small btn-circle--noborder btn-circle--right product-hero__gallery__slick__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
     responsive: [
       {
-        breakpoint: 1750,
+        breakpoint: 1375,
         settings: {
           slidesToShow: 2,
 
@@ -669,6 +669,9 @@ jQuery(document).ready(function ($) {
     ],
   })
 
+
+  //Magnific Images
+  //Gallery
   $('#product-gallery').magnificPopup({
     delegate: '.slick-slide:not(.slick-cloned) .product-hero__gallery__slick__item a', 
     type: 'image',
@@ -681,7 +684,6 @@ jQuery(document).ready(function ($) {
   });
 
   $('#gallery-expand-button').on('click', function () {
-    console.log('xxx');
 		
 		var gallery = $('#product-gallery');
     
@@ -697,9 +699,14 @@ jQuery(document).ready(function ($) {
  });
 
  
-
-
-
+//Itinerary Map
+$('#itinerary-map-image').magnificPopup({
+  type: 'image',
+});
+//deckplan
+$('#deckplan-image').magnificPopup({
+  type: 'image',
+});
 
 
 

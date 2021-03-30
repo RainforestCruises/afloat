@@ -13,7 +13,6 @@ $charter_min_days = $args['charter_min_days'];
 $charter_view = false;
 $charter_only = false;
 
-console_log($cruise_data);
 
 if ($args['propertyType'] == 'Cruise') {
     if ($args['charter_view'] == true) {
@@ -25,14 +24,15 @@ if ($args['propertyType'] == 'Cruise') {
     }
 }
 ?>
-<!-- <div id="sentinal-itineraries"></div> -->
+
+<!-- Itineraries -->
 <div class="product-itineraries">
 
     <h2 class="page-divider">
         Itineraries
     </h2>
 
-    <!-- Nav -->
+    <!-- Itinerary Slider Nav -->
     <div class="product-itineraries__nav">
         <div class="product-itineraries__nav__slider" id="itineraries-slider-nav">
 
@@ -55,27 +55,24 @@ if ($args['propertyType'] == 'Cruise') {
 
         </div>
     </div>
-    <!-- End Nav -->
 
 
-    <!-- Content -->
+    <!-- Itinerary Slider Content -->
     <div class="product-itineraries__content">
-        <div class="product-itineraries__content__slider" id="itineraries-slider">
-
-            <!-- Itineraries -->
+        <div class="product-itineraries__content__slider" id="itineraries-slider">     
             <?php
-            $count = 1;
+            $count = 1; //loop itineraries
             foreach ($cruise_data['Itineraries'] as $itinerary) :
-
-                if ($charter_only == true && $itinerary['IsSample'] == false) :
-                    //skip non sample itineraries
+                if ($charter_only == true && $itinerary['IsSample'] == false) :        
                     $count++;
-                    continue;
+                    continue; //skip non sample itineraries for charter only vessels
                 endif;
             ?>
 
-                <!-- Slide -->
+                <!-- Itineraries Slide Item-->
                 <div class="product-itinerary-slide">
+
+                    <!-- Map / Side Info - Top Section -->
                     <div class="product-itinerary-slide__top">
 
                         <!-- Map Area -->
@@ -85,17 +82,15 @@ if ($args['propertyType'] == 'Cruise') {
                             </div>
                             <!-- Map -->
                             <?php $itineraryImages = $itinerary['MapImageDTOs']; ?>
-                            <a class="product-itineraries__itinerary__map product-itineraries__itinerary__map--no-summary" id="map-lightbox" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
+                            <a class="" id="itinerary-map-image" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
                                 <?php if ($itineraryImages) : ?>
                                     <img src="<?php echo $itineraryImages[0]['ImageUrl']; ?>" alt="">
-                                    <svg>
-                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
-                                    </svg>
+
                                 <?php endif ?>
                             </a>
                         </div>
 
-                        <!-- Info Area -->
+                        <!-- Side Info Area -->
                         <div class="product-itinerary-slide__top__info">
                             <div class="product-itinerary-slide__top__info__tabs">
                                 <div class="product-itinerary-slide__top__info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">Overview</div>
@@ -103,10 +98,11 @@ if ($args['propertyType'] == 'Cruise') {
                                 <div class="product-itinerary-slide__top__info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</div>
                             </div>
 
-                            <!-- Info -->
+                            <!-- Overview-->
                             <div class="product-itinerary-slide__top__info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">
-                                <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) { ?>
-                                    <!-- Dates -->
+
+                                <!-- Dates -->
+                                <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) : ?>                
                                     <div class="product-itinerary-slide__top__info__content__widget">
                                         <div class="product-itinerary-slide__top__info__content__widget__top-section">
                                             <!-- Title -->
@@ -161,11 +157,10 @@ if ($args['propertyType'] == 'Cruise') {
                                             </button>
                                         </div>
                                     </div>
-                                <?php } ?>
+                                <?php endif; ?>
 
-
-                                <?php if ($charter_view == false) : ?>
-                                    <!-- Prices -->
+                                <!-- Prices -->
+                                <?php if ($charter_view == false) : ?>                                
                                     <div class="product-itinerary-slide__top__info__content__widget">
                                         <div class="product-itinerary-slide__top__info__content__widget__top-section">
                                             <h4 class="product-itinerary-slide__top__info__content__widget__top-section__title">
@@ -191,12 +186,12 @@ if ($args['propertyType'] == 'Cruise') {
                                             <div class="price-grid price-grid__<?php echo $rateYear['Year'] ?>" data-tab="<?php echo $count; ?>">
                                                 <div class="price-grid__header">
                                                     <div class="price-grid__header__title">
-                                                    Cabin Class
+                                                        Cabin Class
                                                     </div>
                                                     <div class="price-grid__header__title">
-                                                    Price
+                                                        Price
                                                     </div>
-                                             
+
                                                 </div>
                                                 <?php $rateYears = $itinerary['RateYears']; ?>
                                                 <?php foreach ($rateYear['Rates'] as $rate) { ?>
@@ -207,7 +202,7 @@ if ($args['propertyType'] == 'Cruise') {
                                                         <div class="price-grid__item__data">
                                                             <?php echo "$ " . number_format($rate['WebAmount'], 0);  ?>
                                                         </div>
-                                                    
+
                                                     </div>
                                                 <?php } ?>
                                             </div>
@@ -222,9 +217,10 @@ if ($args['propertyType'] == 'Cruise') {
                                     </div>
                                 <?php endif; ?>
                             </div>
-                            <!-- Inclusions / Exclusions -->
+
+                            <!-- Inclusions -->
                             <div class="product-itinerary-slide__top__info__content" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">
-                            <h4>What's Incuded</h4>
+                                <h4>What's Incuded</h4>
                                 <ul class="product-itinerary-slide__top__info__content__inclusions-list">
                                     <?php foreach ($itinerary['Inclusions'] as $inclusion) : ?>
                                         <li>
@@ -234,10 +230,10 @@ if ($args['propertyType'] == 'Cruise') {
                                             <span><?php echo $inclusion['Description'] ?></span>
                                         </li>
                                     <?php endforeach; ?>
-
                                 </ul>
-
                             </div>
+
+                             <!-- Exclusions -->
                             <div class="product-itinerary-slide__top__info__content" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">
                                 <h4>What's Excluded</h4>
                                 <ul class="product-itinerary-slide__top__info__content__inclusions-list">
@@ -250,14 +246,16 @@ if ($args['propertyType'] == 'Cruise') {
                                             <span><?php echo $exclusion['Description'] ?></span>
                                         </li>
                                     <?php endforeach; ?>
-
                                 </ul>
                             </div>
+
                         </div>
                     </div>
+
+                    <!-- D2D - Bottom Section -->
                     <div class="product-itinerary-slide__bottom">
 
-
+                        <!-- Slider -->
                         <div class="product-itinerary-slide__bottom__days" id="slider-bottom-days-<?php echo $count ?>">
                             <?php
                             $days = $itinerary['ItineraryDays'];
@@ -275,8 +273,11 @@ if ($args['propertyType'] == 'Cruise') {
                                         }
                                     }
                                     ?>
+
+                                    <!-- Day Slide -->
                                     <div class="product-itinerary-slide__bottom__days__item">
 
+                                        <!-- Content -->
                                         <div class="product-itinerary-slide__bottom__days__item__content">
                                             <div class="product-itinerary-slide__bottom__days__item__content__title">
                                                 <?php echo $day['Title']; ?>
@@ -286,6 +287,7 @@ if ($args['propertyType'] == 'Cruise') {
                                             </div>
                                         </div>
 
+                                        <!-- Side / Image -->
                                         <div class="product-itinerary-slide__bottom__days__item__side">
                                             <div class="product-itinerary-slide__bottom__days__item__side__image-area">
                                                 <?php if ($img != null) : ?>
@@ -313,38 +315,24 @@ if ($args['propertyType'] == 'Cruise') {
                                             </div>
                                         </div>
 
-
-
                                     </div>
                             <?php
                                     $dayCount++;
                                 endforeach;
                             endif; ?>
                         </div>
-
-
                     </div>
                 </div>
-
-
             <?php $count++;
             endforeach; ?>
-
-
-
-
-
-
         </div>
     </div>
-
-
 
 </div>
 
 
 
-<!-- Sort -->
+<!-- Sort by Day Number -->
 <?php
 function sortDays($a, $b)
 {

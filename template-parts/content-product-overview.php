@@ -7,11 +7,6 @@ $featured_image = get_field('featured_image');
 
 <div class="product-overview">
 
-
-
-
-    <!-- H2 Title -->
-    <!-- <div id="sentinal-overview"></div> -->
     <h2 class="page-divider u-margin-bottom-medium">
         Overview
     </h2>
@@ -19,6 +14,7 @@ $featured_image = get_field('featured_image');
     <!-- Content  -->
     <div class="product-overview__content">
 
+        <!-- Side / Image & Highlights -->
         <aside class="product-overview__content__side-detail">
             <div class="product-overview__content__side-detail__image-area">
                 <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">        
@@ -41,11 +37,13 @@ $featured_image = get_field('featured_image');
             </div>
         </aside>
 
-                
+        <!-- Text -->
         <div class="product-overview__content__text drop-cap-1 ">
             <?php echo get_field('overview_content') ?>
         </div>
     </div>
+
+    <!-- Fade / Read More -->
     <div class="product-overview__fade">
         <button class="btn-outline" id="readmore-button">Read More</button>
     </div>
