@@ -113,9 +113,9 @@ if ($args['propertyType'] == 'Cruise') {
                     </svg></button>
             </div>
 
-            <div class="product-hero__top__content__gallery-expand">
-        Photos
-    </div>
+            <div class="product-hero__top__content__gallery-expand" id="gallery-expand-button">
+                Photos
+            </div>
         </div>
     </div>
 
@@ -128,16 +128,16 @@ if ($args['propertyType'] == 'Cruise') {
             if ($images) : ?>
                 <?php foreach ($images as $image) : ?>
                     <div class="product-hero__gallery__slick__item">
-                        <!-- <div class="product-hero__gallery__slick__item__image-area"> -->
-                        <img src="<?php echo esc_url($image['url']); ?>" alt="">
-                        <!-- </div> -->
+                        <a href="<?php echo esc_url($image['url']); ?>">
+                            <img src="<?php echo esc_url($image['url']); ?>" alt="">
+                        </a>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
     </div>
 
- 
+
 
     <div class="product-hero__bottom">
         <div class="product-hero__bottom__content">
