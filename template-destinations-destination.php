@@ -1,6 +1,9 @@
 <?php
 /*Template Name: Destinations - Destination*/
+wp_enqueue_script('page-nav', get_template_directory_uri() . '/js/page-nav.js', array('jquery'), false, true);
+
 wp_enqueue_script('page-destination', get_template_directory_uri() . '/js/page-destination.js', array('jquery'), false, true);
+
 ?>
 
 <?php

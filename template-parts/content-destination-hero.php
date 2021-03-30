@@ -53,26 +53,29 @@
 
               <!-- sticky wrapper -->
               <nav class="destination-hero__content__page-nav__sticky-wrapper" id="template-nav">
-                  <div class="destination-hero__content__page-nav__title" id="template-nav-title" href="#top">
-                      <?php echo $title  ?>
+                  <div class="page-nav-title" href="#top">
+                    <?php echo $title  ?>
                   </div>
+                  <!-- <div class="destination-hero__content__page-nav__title" id="template-nav-title" href="#top">
+                      <?php echo $title  ?>
+                  </div> -->
                   <ul class="destination-hero__content__page-nav__list">
                       <!-- Order depending on template type -->
                       <?php if ($destinationType == 'region' || $destinationType == 'destination') { ?>
                           <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#packages" class="destination-hero__content__page-nav__list__item__link ">Packages</a>
+                              <a href="#packages" class="destination-hero__content__page-nav__list__item__link page-nav-template">Packages</a>
                           </li>
 
                           <?php if ($destinationType == 'destination') {
                                 $hide_cruises = get_field('hide_cruises');
                                 if (!$hide_cruises) { ?>
                                   <li class="destination-hero__content__page-nav__list__item">
-                                      <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
+                                      <a href="#cruises" class="destination-hero__content__page-nav__list__item__link page-nav-template">Cruises</a>
                                   </li>
                               <?php }
                             } else { ?>
                               <li class="destination-hero__content__page-nav__list__item">
-                                  <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
+                                  <a href="#cruises" class="destination-hero__content__page-nav__list__item__link page-nav-template">Cruises</a>
                               </li>
                           <?php } ?>
 
@@ -81,35 +84,35 @@
                                 $hide_accommodations = get_field('hide_accommodations');
                                 if (!$hide_accommodations) { ?>
                                   <li class="destination-hero__content__page-nav__list__item">
-                                      <a href="#accommodation" class="destination-hero__content__page-nav__list__item__link">Accommodation</a>
+                                      <a href="#accommodation" class="destination-hero__content__page-nav__list__item__link page-nav-template">Accommodation</a>
                                   </li>
                               <?php }
                             } else { ?>
                               <li class="destination-hero__content__page-nav__list__item">
-                                  <a href="#accommodation" class="destination-hero__content__page-nav__list__item__link">Accommodation</a>
+                                  <a href="#accommodation" class="destination-hero__content__page-nav__list__item__link page-nav-template">Accommodation</a>
                               </li>
                           <?php } ?>
 
 
                       <?php } else if ($destinationType == 'cruise') { ?>
                           <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#cruises" class="destination-hero__content__page-nav__list__item__link ">Cruises</a>
+                              <a href="#cruises" class="destination-hero__content__page-nav__list__item__link page-nav-template">Cruises</a>
                           </li>
                           <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#packages" class="destination-hero__content__page-nav__list__item__link ">Packages</a>
+                              <a href="#packages" class="destination-hero__content__page-nav__list__item__link page-nav-template">Packages</a>
                           </li>
                       <?php } ?>
 
 
 
                       <li class="destination-hero__content__page-nav__list__item">
-                          <a href="#travel-guide" class="destination-hero__content__page-nav__list__item__link">Travel Guide</a>
+                          <a href="#travel-guide" class="destination-hero__content__page-nav__list__item__link page-nav-template">Travel Guide</a>
                       </li>
                       <li class="destination-hero__content__page-nav__list__item">
-                          <a href="#testimonials" class="destination-hero__content__page-nav__list__item__link">Testimonials</a>
+                          <a href="#testimonials" class="destination-hero__content__page-nav__list__item__link page-nav-template">Testimonials</a>
                       </li>
                       <li class="destination-hero__content__page-nav__list__item">
-                          <a href="#faq" class="destination-hero__content__page-nav__list__item__link">FAQ</a>
+                          <a href="#faq" class="destination-hero__content__page-nav__list__item__link page-nav-template">FAQ</a>
                       </li>
                   </ul>
                   <div class="page-nav">

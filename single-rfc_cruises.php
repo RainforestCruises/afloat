@@ -1,9 +1,10 @@
 <?php
-get_header();
+wp_enqueue_script('page-nav', get_template_directory_uri() . '/js/page-nav.js', array('jquery'), false, true);
 wp_enqueue_script('page-product', get_template_directory_uri() . '/js/page-product.js', array('jquery'), false, true);
-wp_enqueue_script('page-product', get_template_directory_uri() . '/js/page-product-nav.js', array('jquery'), false, true);
 
+get_header();
 ?>
+
 <?php
 while (have_posts()) :
   the_post();
@@ -101,19 +102,19 @@ while (have_posts()) :
     </section>
 
     <!-- Prices Content -->
-    <div class="product-page__section-prices" id="prices" style="display: none;">
+    <section class="product-page__section-prices" id="prices" >
       <?php
       get_template_part('template-parts/content', 'product-prices', $args);
       ?>
-    </div>
+    </section>
 
     <?php if (!$charter_view) : ?>
       <!-- Dates Content -->
-      <div class="product-page__section-dates" id="dates" style="display: none;">
+      <section class="product-page__section-dates" id="dates">
         <?php
         get_template_part('template-parts/content', 'product-dates', $args);
         ?>
-      </div>
+      </section>
     <?php endif; ?>
 
 

@@ -35,32 +35,39 @@ if ($args['propertyType'] == 'Cruise') {
 
 
             <!-- Navigation Wrapper -->
-            <div class="product-hero__top__content__sticky-wrapper" id="template-nav">
-                <ul class="product-hero__top__content__tab-list">
-                    <?php if ($showOverview) : ?>
+            <nav class="product-hero__top__content__nav" id="template-nav">
 
-                        <li class="product-hero__top__content__tab-list__item tab-overview current">
-                            <a href="#overview" class="product-hero__top__content__tab-list__item__link">Overview</a>
+                <!-- Hidden title -->
+                <div class="page-nav-title">
+                    <?php echo $productTitle ?>
+                </div>
+
+                <!-- nav list -->
+                <ul class="product-hero__top__content__nav__list">
+                    <?php if ($showOverview) : ?>
+                        <li class="product-hero__top__content__nav__list__item">
+                            <a href="#overview" class="product-hero__top__content__nav__list__item__link page-nav-template">Overview</a>
                         </li>
                     <?php endif; ?>
-                    <li class="product-hero__top__content__tab-list__item tab-itineraries <?php echo ($showOverview ? '' : 'current') ?>">
-                        <a href="#itineraries" class="product-hero__top__content__tab-list__item__link"><?php echo (get_post_type() == 'rfc_cruises') ? ('Itineraries') : ('Itinerary'); ?></a>
+                    <li class="product-hero__top__content__nav__list__item <?php echo ($showOverview ? '' : 'current') ?>">
+                        <a href="#itineraries" class="product-hero__top__content__nav__list__item__link page-nav-template"><?php echo (get_post_type() == 'rfc_cruises') ? ('Itineraries') : ('Itinerary'); ?></a>
                     </li>
-                    <li class="product-hero__top__content__tab-list__item tab-cabins">
-                        <a href="#cabins" class="product-hero__top__content__tab-list__item__link"><?php echo (get_post_type() == 'rfc_cruises') ? ('Cabins') : ('Accommodations'); ?></a>
+                    <li class="product-hero__top__content__nav__list__item ">
+                        <a href="#accommodations" class="product-hero__top__content__nav__list__item__link page-nav-template">Accommodations</a>
                     </li>
-                    <li class="product-hero__top__content__tab-list__item tab-prices" data-tab="tab-prices">
-                        <a href="#prices" class="product-hero__top__content__tab-list__item__link">Prices</a>
+                    <!-- <li class="product-hero__top__content__nav__list__item ">
+                        <a href="#prices" class="product-hero__top__content__nav__list__item__link page-nav-template">Prices</a>
                     </li>
                     <?php if (get_post_type() == 'rfc_cruises') { ?>
                         <?php if (!$args['charter_view']) : ?>
-
-                            <li class="product-hero__top__content__tab-list__item tab-dates" data-tab="tab-dates">
-                                <a href="#dates" class="product-hero__top__content__tab-list__item__link">Dates</a>
+                            <li class="product-hero__top__content__nav__list__item tab-dates">
+                                <a href="#dates" class="product-hero__top__content__nav__list__item__link page-nav-template">Dates</a>
                             </li>
                     <?php endif;
-                    } ?>
+                    } ?> -->
                 </ul>
+
+                <!-- mobile menu header -->
                 <div class="page-nav">
                     <div class="page-nav__button">
                         <!-- for tour name Tour Name -->
@@ -70,14 +77,14 @@ if ($args['propertyType'] == 'Cruise') {
                         </svg>
                     </div>
 
-                    <!-- <div class="page-nav__cta">
+                    <div class="page-nav__cta">
                         <button class="btn-cta-square btn-cta-square--small btn-cta-square--white">
                             Inquire
                         </button>
-                    </div> -->
+                    </div>
                 </div>
 
-                <!-- page-nav__collapse--active -->
+                <!--mobile menu expand-->
                 <nav class="page-nav__collapse ">
                     <ul class="page-nav__collapse__list">
                         <?php if ($showOverview) : ?>
@@ -89,23 +96,23 @@ if ($args['propertyType'] == 'Cruise') {
                             <a class="page-nav__collapse__list__item__link" href="#itineraries">Itineraries</a>
                         </li>
                         <li class="page-nav__collapse__list__item">
-                            <a class="page-nav__collapse__list__item__link" href="#cabins"><?php echo (get_post_type() == 'rfc_cruises') ? ('Cabins') : ('Accommodations'); ?></a>
+                            <a class="page-nav__collapse__list__item__link" href="#accommodations">Accommodations</a>
                         </li>
-                        <li class="page-nav__collapse__list__item">
+                        <!-- <li class="page-nav__collapse__list__item">
                             <a class="page-nav__collapse__list__item__link" href="#prices">Prices</a>
                         </li>
                         <?php if (get_post_type() == 'rfc_cruises') { ?>
                             <li class="page-nav__collapse__list__item">
                                 <a class="page-nav__collapse__list__item__link" href="#dates">Dates</a>
                             </li>
-                        <?php } ?>
+                        <?php } ?> -->
                     </ul>
                 </nav>
-            </div>
+            </nav>
 
             <!-- CTA -->
             <div class="product-hero__top__content__cta">
-                <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button">
+                <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#overview">
                     <svg class="btn-circle--arrow-main">
                         <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-down"></use>
                     </svg>
@@ -122,7 +129,7 @@ if ($args['propertyType'] == 'Cruise') {
     </div>
 
     <!-- Gallery  -->
-    <div class="product-hero__gallery" >
+    <div class="product-hero__gallery">
 
         <div class="product-hero__gallery__slick" id="product-gallery">
             <?php

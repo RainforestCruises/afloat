@@ -9,6 +9,8 @@
     grid-template-columns: $page-container;
     user-select: none;
 
+    justify-content: center;
+
     &__main {
         grid-column: 1/-1;
 
