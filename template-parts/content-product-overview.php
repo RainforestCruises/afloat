@@ -17,7 +17,7 @@ $featured_image = get_field('featured_image');
         <!-- Side / Image & Highlights -->
         <aside class="product-overview__content__side-detail">
             <div class="product-overview__content__side-detail__image-area">
-                <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">        
+                <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
             </div>
             <!-- Highlights -->
             <div class="product-overview__content__side-detail__highlights">

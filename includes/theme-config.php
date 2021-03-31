@@ -31,6 +31,12 @@ function afloat_images_sizes()
     add_image_size('full-hero-small', 800, 1080, true);
     add_image_size('full-hero-xsmall', 500, 800, true);
 
+    // //partial hero
+    // add_image_size('partial-hero-large', 1920, 730, true);
+    // add_image_size('partial-hero-medium', 1200, 730, true);
+    // add_image_size('partial-hero-small', 800, 730, true);
+    // add_image_size('partial-hero-xsmall', 500, 730, true);
+
     //landscape
     add_image_size('wide-slider-medium', 700, 380, true);
     add_image_size('wide-slider-small', 500, 380, true);
@@ -54,13 +60,12 @@ function afloat_images_sizes()
 
 
     //square
+    add_image_size('square-medium', 750, 750, true);
+    add_image_size('square-small', 325, 325, true);
+
+
+    //featured
     add_image_size('featured-square', 600, 500, true);
-
-    //logo
-    //add_image_size('logo-vertical', 120, 100, true);
-    //add_image_size('logo-horizontal', 165, 45, true);
-
-
 }
 
 // add_filter( 'image_size_names_choose', 'afloat_images_sizes_add' );

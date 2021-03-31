@@ -516,10 +516,11 @@
                 margin-bottom: 0px !important;
             }
 
-            & .slick-dots {
+            & .slick-dots { //check for long itineraries
                 top: -4rem;
                 left: 5rem;
                 text-align: start;
+                height: min-content;
 
                 position: absolute;
                 font-size: 1.6rem;

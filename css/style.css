@@ -2629,6 +2629,7 @@ h5 {
         top: -4rem;
         left: 5rem;
         text-align: start;
+        height: min-content;
         position: absolute;
         font-size: 1.6rem;
         color: #142838;
