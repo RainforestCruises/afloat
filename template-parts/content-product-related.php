@@ -31,7 +31,9 @@ $relatedCount = 0;
 ?>
 
 <div class="product-related">
-
+    <h2 class="page-divider page-divider--padding u-margin-bottom-medium">
+        Related Cruises
+    </h2>
     <div class="product-related__slider" id="related-slider">
 
         <?php
