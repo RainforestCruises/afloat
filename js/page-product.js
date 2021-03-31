@@ -1,16 +1,6 @@
 jQuery(document).ready(function ($) {
 
 
-
-  // const downCta = document.querySelector('#down-arrow-button');
-  // downCta.addEventListener('click', () => {
-  //     var target = $('#overview').offset().top - 125;
-  //     $('html, body').animate({ scrollTop: target }, 500);
-  //     console.log('boom');
-  // });
-
-
-
   //Side Info Tabs - Overview / Inclusions / Exclusions
   const tabArray = [...document.querySelectorAll('.product-itinerary-slide__top__info__tabs__item')];
   tabArray.forEach(item => {
@@ -422,15 +412,6 @@ jQuery(document).ready(function ($) {
     ]
   });
 
-  var relatedCount = 4;
-  var slidesToShow = 4;
-  if (relatedCount > 3) {
-    slidesToShow = 4;
-  } else if (relatedCount > 1) {
-    slidesToShow = 2;
-  } else {
-    slidesToShow = 1;
-  }
 
 
 
@@ -440,36 +421,33 @@ jQuery(document).ready(function ($) {
   //Related Products Slider
   $('#related-slider').slick({
     infinite: true,
-    slidesToShow: slidesToShow,
+    slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
     lazyLoad: 'ondemand',
     arrows: true,
     dots: false,
-    prevArrow: '<button class="btn-circle btn-dark btn-circle--left related-slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-    nextArrow: '<button class="btn-circle btn-dark btn-circle--right related-slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+    prevArrow: '<button class="btn-circle btn-dark btn-circle--left product-related__slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+    nextArrow: '<button class="btn-circle btn-dark btn-circle--right product-related__slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
     responsive: [
       {
-        breakpoint: 1460,
+        breakpoint: 1400,
         settings: {
-          slidesToShow: (slidesToShow < 3) ? slidesToShow : 3,
-          slidesToScroll: (slidesToShow < 3) ? slidesToShow : 3,
-          infinite: true,
+          slidesToShow: 3,
         }
       },
       {
-        breakpoint: 1000,
+        breakpoint: 800,
         settings: {
-          slidesToShow: (slidesToShow < 2) ? slidesToShow : 2,
-          slidesToScroll: (slidesToShow < 2) ? slidesToShow : 2
+          slidesToShow: 2,
         }
       },
       {
-        breakpoint: 680,
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
           arrows: false,
+          dots: true
 
         }
       }

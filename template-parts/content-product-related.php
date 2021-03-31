@@ -26,23 +26,17 @@ if ($destinations) {
 }
 
 
-
-
 $posts = get_posts($queryArgs);
 $relatedCount = 0;
 ?>
 
 <div class="product-related">
-    <h2 class="page-divider">
-        Related Cruises
-    </h2>
-    <div class="related-slider" id="related-slider">
+
+    <div class="product-related__slider" id="related-slider">
 
         <?php
         if ($posts) :
-            foreach ($posts as $p) {
-
-
+            foreach ($posts as $p) :
 
                 $relatedCount++;
 
@@ -78,55 +72,34 @@ $relatedCount = 0;
                 }
         ?>
 
-                <div class="related-slider__item" onClick="parent.location='<?php echo get_permalink($p); ?>'">
-                    <div class="related-slider__item__title-group">
-                        <div class="related-slider__item__title-group__name">
-                            <?php echo get_the_title($p) ?>
-                        </div>
-                        <div class="related-slider__item__title-group__country">
-                            <?php
-                            echo countriesInDestinations($relatedItemDestinations, '/')
-                            ?>
-                        </div>
+                <!-- Card -->
+                <a class="product-card" href="<?php echo get_permalink($p); ?>">
+                    <div class="product-card__image-area">
+                        <?php if ($featured_image) : ?>
+                            <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
+                        <?php endif; ?>
                     </div>
-                    <img src="<?php echo esc_url($featured_image['url']); ?>" alt="product" class="related-slider__item__img">
-                    <div class="related-slider__item__bottom">
-                        <div class="related-slider__item__bottom__header">
-                            <?php productType($p) ?>
-                        </div>
-                        <div class="related-slider__item__bottom__description">
-                            <?php echo $top_snippet; ?>
-                        </div>
-                        <div class="related-slider__item__bottom__last-section">
-                            <div class="related-slider__item__bottom__length">
-                                <span class="related-slider__item__bottom__length__numbers"><?php echo (get_post_type($p) == 'rfc_tours') ? $tour_length : $lowest . '-' . $highest ?></span>
-                                <span class="related-slider__item__bottom__length__text">Days</span>
+                    <div class="product-card__bottom">
+                        <div class="product-card__bottom__title-group">
+                            <div class="product-card__bottom__title-group__product-name">
+                                <?php echo get_the_title($p) ?>
                             </div>
-                            <div class="related-slider__item__bottom__price">
-                                <div class="related-slider__item__bottom__price__text">
-                                    From
-                                </div>
-                                <div class="related-slider__item__bottom__price__numbers">
-                                    <?php echo "$" . number_format($lowestPrice, 0);  ?>
-                                </div>
+                            <div class="product-card__bottom__title-group__price">
+                                <span class="from-price">From</span> <?php echo "$" . number_format($lowestPrice, 0);  ?> <span class="currency-price">USD</span>
                             </div>
                         </div>
-
+                        <div class="product-card__bottom__text">
+                            <?php echo $top_snippet ?>
+                        </div>
+                        <div class="product-card__bottom__info">
+                            <?php echo (get_post_type($p) == 'rfc_tours') ? $tour_length  . " Day Tour" : itineraryRange($cruise_data, " - ") . " Day Cruises"; ?>
+                        </div>
                     </div>
-                </div>
+                </a>
 
         <?php
-
-            }
+            endforeach;
         endif;
-        ?>
-
-
-
-
-
-        <?php
-
         ?>
     </div>
 </div>

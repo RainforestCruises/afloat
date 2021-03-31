@@ -102,7 +102,7 @@ while (have_posts()) :
     </section>
 
     <!-- Prices Content -->
-    <section class="product-page__section-prices" id="prices" >
+    <section class="product-page__section-prices" id="prices" style="display: none;">
       <?php
       get_template_part('template-parts/content', 'product-prices', $args);
       ?>
@@ -110,7 +110,7 @@ while (have_posts()) :
 
     <?php if (!$charter_view) : ?>
       <!-- Dates Content -->
-      <section class="product-page__section-dates" id="dates">
+      <section class="product-page__section-dates" id="dates" style="display: none;">
         <?php
         get_template_part('template-parts/content', 'product-dates', $args);
         ?>

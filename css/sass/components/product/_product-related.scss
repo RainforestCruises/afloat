@@ -1,227 +1,74 @@
 .product-related {
-    grid-column: full-start / -1;
-
-    //for bg needs to be 100% width
-    // display: flex;
-    // justify-content: space-around;
-    // width: 100%;
-    // padding-top: 3rem;
-    // position: relative;
-
-    display: grid;
-    grid-template-columns: $page-container;
+    width: 100%;
+    display: flex;
     position: relative;
+    padding: 4rem 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-    background-image: linear-gradient(to top, rgba($color-white, 0) 70%, rgba($color-white, 1)),
-        url("img/bg/background-topo.jpg");
-    background-position: center;
-    background-size: cover;
-    position: relative;
-}
+    //background-color: $color-grey-light-1a;
 
-.related-slider {
-
-    grid-column: 1 / -1;
-    max-width: 80%; //media query
-    margin: 0 auto;
-    height: 55rem;
-
-    @media only screen and (max-width: $bp-small) {
-        max-width: 100%; //media query
+    &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(to top, rgba($color-white, 0.8), rgba($color-white, 0.8)),
+            url(img/bg/topo-1.png);
+        opacity: 0.35;
+        top: 0;
+        left: 0;
+        z-index: -3;
     }
 
-    .slick-track {
-        padding-bottom: 8rem; //for shadow
+    &__slider {
+        
 
         width: 100%;
-    }
-    .slick-slide {
-        margin: 2.5rem;
-        box-shadow: $shadow-dark-bottom;
-        min-width: 0;
-    }
+        max-width: 140rem;
 
-    //break this out into common element
-    &__item {
-        display: grid !important;
-        align-content: center;
-        background-color: $color-white;
+        z-index: 10;
+  
 
-        position: relative;
-        z-index: 0;
-        cursor: pointer;
-
-        &:hover {
-            & img {
-                height: 28rem;
-            }
-        }
-
+        //side padding
+        padding: 0 9rem; //extra +3 for buttons
         @media only screen and (max-width: $bp-small) {
-            &:hover {
-                & img {
-                    height: 25rem;
-                }
-            }
+            padding: 0 3rem;
         }
 
-        //overlay gradient
-        &:after {
-            content: "";
-            grid-row: 1 / 1;
-            grid-column: 1 / -1;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            background-image: linear-gradient(to top, rgba($color-primary, 0.5), rgba($color-primary, 0) 70%);
+        //max 6?
+        .slick-dots {
+            max-width: 35rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .slick-slide {
+            margin: 1.5rem;
+            margin-bottom: 4rem;
+            box-shadow: $shadow-medium-bottom;
+            min-width: 0;
         }
 
-        &__img {
-            grid-column: 1 / -1;
-            grid-row: 1 / 1;
-            width: 100%;
-            height: 25rem;
-            object-fit: cover;
-            object-position: center;
-            position: relative;
-            z-index: 0;
-            transition: all 0.3s;
-        }
-        &__title-group {
-            grid-column: 1 / -1;
-            grid-row: 1 / 1;
-            margin-bottom: 1.4rem;
-            align-self: end;
-            display: flex;
-            flex-direction: column;
-            z-index: 5;
-            align-items: center;
+    
+        &__btn {
+            &--left {
+                transform: translateY(-50%);
 
-            &__name {
-                display: block;
-                font-size: 2rem;
-                color: $color-white;
-                letter-spacing: 0.15rem;
-                margin: 0.3rem 2rem;
-                font-weight: 400;
-                text-align: center;
+                position: absolute;
+                z-index: 10;
+                top: 50%;
+                left: 1.5rem;
             }
+            &--right {
+                transform: translateY(-50%);
 
-            &__country {
-                display: block;
-                font-size: 1.4;
-                color: $color-white;
-                text-transform: uppercase;
-                letter-spacing: 0.4rem;
+                position: absolute;
+                z-index: 10;
+                top: 50%;
+                right: 1.5rem;
             }
-        }
-
-        &__bottom {
-            margin: 1rem 1.5rem;
-            font-size: 1.4rem;
-            display: grid;
-            grid-template-columns: 1fr max-content; //fix
-            grid-template-rows: repeat(3, min-content);
-            min-height: 12rem;
-            align-content: space-between;
-
-            letter-spacing: 0.1rem;
-
-            &__header {
-                font-size: 1.4rem;
-                letter-spacing: 0.05rem;
-                color: $color-grey-2;
-                font-family: $font-secondary;
-                grid-column: 1 / -1;
-                grid-row: 1 / span 1;
-                text-align: center;
-
-                //lines on both sides effect
-                display: grid;
-                grid-template-columns: 1fr max-content 1fr;
-                align-items: center;
-                column-gap: 15px;
-                &::before {
-                    content: "";
-                    height: 1px;
-                    display: block;
-                    background-color: $color-grey-light-1a;
-                }
-                &::after {
-                    content: "";
-                    height: 1px;
-                    display: block;
-                    background-color: $color-grey-light-1a;
-                }
-            }
-
-            &__description {
-                text-align: center;
-                grid-column: 1 / -1;
-                font-size: 1.2rem;
-                color: $color-primary;
-                padding: 0.5rem;
-            }
-
-            &__last-section {
-                grid-row: 3 / span 1;
-                grid-column: 1 / -1;
-                display: flex;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                font-weight: 500;
-            }
-
-            &__length {
-                font-size: 1.2rem;
-                display: flex;
-                align-items: flex-end;
-                flex-wrap: wrap;
-                &__text {
-                    font-size: 1.1rem;
-                    text-transform: uppercase;
-                    margin-left: 0.5rem;
-                    margin-bottom: 0.2rem;
-                }
-
-                &__numbers {
-                    font-size: 1.4rem;
-                    color: $color-primary;
-                }
-            }
-
-            &__price {
-                font-size: 1.6rem;
-                display: flex;
-                align-items: flex-end;
-                flex-wrap: wrap;
-                &__text {
-                    text-align: right;
-                    font-size: 1.1rem;
-                    text-transform: uppercase;
-                    margin-right: 0.5rem;
-                    margin-bottom: 0.2rem;
-                }
-
-                &__numbers {
-                    font-size: 1.6rem;
-                    color: $color-primary;
-                }
-            }
-        }
-    }
-    &__btn {
-        &--left {
-            position: absolute;
-            z-index: 10;
-            bottom: 60%;
-            left: -7rem;
-        }
-        &--right {
-            position: absolute;
-            z-index: 10;
-            bottom: 60%;
-            right: -7rem;
         }
     }
 }

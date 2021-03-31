@@ -28,9 +28,9 @@ $currentYear = date("Y");
                 <!-- Card -->
 
                 <a class="product-card" href="<?php echo get_permalink($c); ?>">
-                    <div class="product-card__image">
+                    <div class="product-card__image-area">
                         <?php if ($featured_image) : ?>
-                            <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-small', 'featured-medium')); ?> alt="">
+                            <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
                         <?php endif; ?>
                     </div>
                     <div class="product-card__bottom">
