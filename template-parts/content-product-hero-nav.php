@@ -173,7 +173,7 @@ if ($args['propertyType'] == 'Cruise') {
                             <?php echo (get_post_type($p) == 'rfc_tours') ? "Length" : "Itineraries"; ?>
                         </div>
                         <div class="product-hero__bottom__content__info-group__attributes__item__data">
-                            <?php echo (get_post_type($p) == 'rfc_tours') ? $tour_length  . " Days" : itineraryRange($args['cruiseData'], " - ") . " Days"; ?>
+                            <?php echo (get_post_type($p) == 'rfc_tours') ? get_field('length') . " Days" : itineraryRange($args['cruiseData'], " - ") . " Days"; ?>
                         </div>
                     </div>
                     <div class="product-hero__bottom__content__info-group__attributes__item">

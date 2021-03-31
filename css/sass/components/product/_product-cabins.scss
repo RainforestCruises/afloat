@@ -166,55 +166,7 @@
         }
     }
 
-    &__hotels {
-        grid-column: 1 / -1;
-        display: flex;
-        justify-content: center;
-        margin: 0 10rem;
-        margin-bottom: 2rem;
 
-        @media only screen and (max-width: $bp-small) {
-            margin: 0;
-            margin-bottom: 2rem;
-        }
-
-        &__slider {
-            max-width: 114rem;
-            width: 100%;
-            margin: 0 6rem;
-            .slick-track {
-                width: 100%;
-            }
-
-            .slick-slide {
-                margin: 1rem;
-                margin-bottom: 3rem;
-                box-shadow: $shadow-short-bottom;
-
-                @media only screen and (max-width: $bp-small) {
-                    margin: 0.5rem;
-                    margin-bottom: 3rem;
-                }
-            }
-        }
-
-        &__btn {
-            &--left {
-                position: absolute;
-                z-index: 10;
-                bottom: 50%;
-                left: -7rem;
-                transform: translateY(60%);
-            }
-            &--right {
-                position: absolute;
-                z-index: 10;
-                bottom: 50%;
-                right: -7rem;
-                transform: translateY(60%);
-            }
-        }
-    }
 
     //Note
     &__note {
@@ -405,4 +357,61 @@
     }
 }
 
-//
+
+
+
+.product-hotels {
+    width: 100%;
+    display: flex;
+    position: relative;
+    padding-bottom: 4rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__slider {
+        width: 100%;
+        max-width: 140rem;
+
+        z-index: 10;
+
+        //side padding
+        padding: 0 9rem; //extra +3 for buttons
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 3rem;
+        }
+
+        //max 6?
+        .slick-dots {
+            max-width: 35rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .slick-slide {
+            margin: 1.5rem;
+            //margin-bottom: 4rem;
+            box-shadow: $shadow-short-bottom;
+            min-width: 0;
+        }
+
+        &__btn {
+            &--left {
+                transform: translateY(-50%);
+
+                position: absolute;
+                z-index: 10;
+                top: 50%;
+                left: 1.5rem;
+            }
+            &--right {
+                transform: translateY(-50%);
+
+                position: absolute;
+                z-index: 10;
+                top: 50%;
+                right: 1.5rem;
+            }
+        }
+    }
+}

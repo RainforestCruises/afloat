@@ -361,6 +361,13 @@ p {
     text-align: center;
     font-size: 1.6rem;
     margin-bottom: 4rem;
+    max-width: $page-width;
+
+    //side padding
+    padding: 0 6rem;
+    @media only screen and (max-width: $bp-small) {
+        padding: 0 3rem;
+    }
 }
 
 .list-svg {

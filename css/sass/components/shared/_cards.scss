@@ -200,59 +200,79 @@
 
     &__bottom {
         background-color: $color-white;
-        min-height: 18rem;
-        padding: 1rem;
-        display: grid;
-        row-gap: 1rem;
-        grid-template-rows: min-content 1fr 4rem;
+        //min-height: 18rem;
+        padding: 1rem 1.5rem;
+     
+        display: flex;
+        flex-direction: column;
 
         &__title-group {
-            font-size: 1.7rem;
-            font-weight: 600;
-            color: $color-primary;
-            display: grid;
-            grid-template-columns: 1fr max-content;
-
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             &__product-name {
+                font-size: 1.8rem;
+                line-height: 2.2rem;
+                font-weight: 600;
+                color: $color-primary;
+                margin-bottom: .5rem;
             }
-
-            &__price {
-                & .from-price {
-                    font-size: 1.4rem;
+    
+            &__price-group {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+     
+                &__from {
+                    font-size: 1.2rem;
+                    line-height: 1.6rem;
                     color: $color-grey-1;
+                    margin-right: .4rem;
+    
                 }
+    
+                &__data {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    align-items: flex-end;
+                    font-size: 1.5rem;
+                    line-height: 2.2rem;
+                    color: $color-primary;
+                    font-weight: 600;
 
-                & .currency-price {
-                    font-size: 1.4rem;
-                    text-transform: uppercase;
+    
+                    & span { //usd
+                        margin-left: .3rem;
+                        font-size: 1.1rem;
+                        text-transform: uppercase;
+                    }
+                 
                 }
             }
         }
 
+     
+
         &__text {
             font-size: 1.3rem;
+            margin-top: .5rem;
+            margin-bottom: .5rem;
             padding-bottom: 1rem;
-            display: flex;
-            //align-items: center;
+            position: relative;
+
+            border-bottom: 1px solid $color-grey-light-1a;
+
         }
 
         &__info {
             position: relative;
-            padding-top: 1.5rem;
+            padding-top: .5rem;
             font-weight: 500;
             font-size: 1.4rem;
             text-transform: uppercase;
             letter-spacing: 0.2rem;
             text-align: center;
-            &::before {
-                content: "";
-                width: 100%;
-                height: 1px;
-                position: absolute;
-                top: 0;
-                left: 0;
-                background-color: $color-grey-light-1a;
-            }
+           
         }
     }
 }
@@ -581,8 +601,6 @@
 
 .home-destination-card {
     background-color: grey;
-    //display: grid !important;
-
     
     height: 100%;
     
@@ -591,19 +609,11 @@
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
     margin-bottom: 3rem;
 
-    
-    // @media only screen and (max-width: $bp-small) {
-    //     height: 42rem;
-    // }
-
     & img {
 
         object-fit: cover;
         height: 100%;
         width: 100%;
-
-        //grid-row: 1 / -1;
-        //grid-column: 1 / -1;
         z-index: 0;
     }
     &::after {
@@ -619,7 +629,6 @@
         background-image: linear-gradient(to top, rgba($color-black, .6), rgba($color-black, 0));
     }
 
-    
 
     &__title-area {
         position: absolute;

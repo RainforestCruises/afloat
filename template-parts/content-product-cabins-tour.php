@@ -8,135 +8,111 @@ $hotels = get_field('hotels');
 ?>
 
 
+<?php if ($properties) : ?>
+    <div class="product-cabins u-margin-bottom-small">
 
-<div class="product-cabins">
-    <!-- Intro -->
-    <div class="product-intro">
-
-        <!-- Info -->
-        <div class="product-intro__info">
-            <div class="product-intro__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span></div>
-            <div class="product-intro__info__cta">
-                <button class="btn-cta-round">Book Now</button>
-            </div>
-        </div>
-        <!-- Caption -->
-        <div class="product-intro__caption">
-            <?php echo get_field('accommodations_intro'); ?>
-
+        <div class="xsub-divider xsub-divider--dark u-margin-bottom-small">
+            Cruises & Lodges
         </div>
 
 
-    </div>
-    <div id="sentinal-cabins"></div>
 
-    <?php
-    $propertyCount = 0;
-    if ($properties) : ?>
-        <h2 class="page-divider product-cabins__divider">
-            Tour Accommodations
-        </h2>
         <?php foreach ($properties as $property) : ?>
             <?php
             $propertyPost = get_post($property);
-            $flipClass = "";
-            if ($propertyCount % 2 != 0) {
-                $flipClass = "--flipped";
-            }
             $featured_image = get_field('featured_image',  $property);
             $propertyTitle = get_the_title($property);
             $propertySnippet = get_field('overview_intro',  $property);
             $propertyIntro = get_field('cabins_intro',  $property);
-
-
             ?>
+            <!-- Product Card -->
             <div class="product-cabins__cabin ">
-                <div class="product-cabins__cabin__picture product-cabins__cabin__picture<?php echo $flipClass ?>">
+                <div class="product-cabins__cabin__image-area">
                     <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
                 </div>
-                <div class="product-cabins__cabin__content product-cabins__cabin__content<?php echo $flipClass ?>">
+                <div class="product-cabins__cabin__content">
                     <div class="product-cabins__cabin__content__title">
-                        <span><?php echo ($propertyCount + 1); ?></span>
                         <h3 class="heading-3 heading-3--underline"><?php echo $propertyTitle; ?></h3>
                     </div>
-                    <div class="product-cabins__cabin__content__description">
-                        <?php echo $propertySnippet; ?>
-                        <?php echo $propertyIntro; ?>
-                    </div>
 
+                    <?php echo $propertyIntro; ?>
 
-                    <div class="product-cabins__cabin__content__cta">
-                        <a href="<?php echo get_site_url() . '/cruises/' . get_post_field('post_name', $property); ?>" target="_blank" class="btn-outline" data-tab="tab-prices">Learn More</a>
-                    </div>
                 </div>
             </div>
-            <?php
-            $propertyCount++;
-            ?>
+
+
+            <!-- New -->
+
+
         <?php endforeach; ?>
-    <?php endif; ?>
 
 
-    <div class="<?php echo ($properties) ? 'sub-divider u-margin-bottom-small' : 'page-divider u-margin-bottom-small'; ?>">
-        Hotel Options
+
     </div>
-    <div class="sub-divider-text">
-        <p><?php echo get_field('hotels_snippet') ?></p>
-    </div>
+<?php endif; ?>
+<?php if ($hotels) : ?>
+    <div class="product-hotels">
 
-    <?php if ($hotels) : ?>
+        <div class="xsub-divider xsub-divider--dark u-margin-bottom-small">
+            Hotel Options
+        </div>
+        <div class="sub-divider-text">
+            <p><?php echo get_field('hotels_snippet') ?></p>
+        </div>
 
-        <div class="product-cabins__hotels">
-            <div class="product-cabins__hotels__slider" id="hotels-slider">
-                <?php foreach ($hotels as $hotel) : ?>
-                    <?php
-                    $hotelPost = get_post($hotel);
-                    $featured_image = get_field('featured_image',  $hotelPost);
-                    $hotelTitle = get_field('navigation_title',  $hotelPost);
-                    $priceLevelPost = get_field('price_level',  $hotelPost);
-                    $hotelLocations = get_field('locations', $hotelPost);
 
-                    $hotelCity = null;
-                    if ($hotelLocations) {
-                        $hotelCity = $hotelLocations[0];
-                    }
 
-                    $hotelPriceLevel = null;
-                    if ($priceLevelPost) {
-                        $hotelPriceLevel = get_the_title($priceLevelPost);
-                    }
+        <div class="product-hotels__slider" id="hotels-slider">
+            <?php foreach ($hotels as $hotel) : ?>
+                <?php
+                $hotelPost = get_post($hotel);
+                $featured_image = get_field('featured_image',  $hotelPost);
+                $hotelTitle = get_field('navigation_title',  $hotelPost);
+                $priceLevelPost = get_field('price_level',  $hotelPost);
+                $hotelLocations = get_field('locations', $hotelPost);
 
-                    ?>
+                $hotelCity = null;
+                if ($hotelLocations) {
+                    $hotelCity = $hotelLocations[0];
+                }
 
-                    <div class="card-square">
-                        <div class="card-square__title-group">
-                            <div class="card-square__title-group__level">
-                                <?php echo $hotelPriceLevel; ?>
-                            </div>
-                            <div>
-                                <div class="card-square__title-group__name">
-                                    <?php echo  $hotelTitle ?>
-                                </div>
-                                <div class="card-square__title-group__subtext">
-                                    <?php echo get_field('navigation_title', $hotelCity) ?>
-                                </div>
-                            </div>
+                $hotelPriceLevel = null;
+                if ($priceLevelPost) {
+                    $hotelPriceLevel = get_the_title($priceLevelPost);
+                }
 
+                ?>
+
+                <div class="card-square">
+                    <div class="card-square__title-group">
+                        <div class="card-square__title-group__level">
+                            <?php echo $hotelPriceLevel; ?>
                         </div>
-                        <img class="card-square__image" src="<?php echo $featured_image['url']; ?>" alt="">
+                        <div>
+                            <div class="card-square__title-group__name">
+                                <?php echo  $hotelTitle ?>
+                            </div>
+                            <div class="card-square__title-group__subtext">
+                                <?php echo get_field('navigation_title', $hotelCity) ?>
+                            </div>
+                        </div>
+
                     </div>
+                    <img class="card-square__image" src="<?php echo $featured_image['url']; ?>" alt="">
+                </div>
 
-                <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
+
+
+        <!-- <div class="product-cabins__note">
+            <div class="attention-box">
+                <?php $destination = get_field('destination'); ?>
+                <p>All itineraries are completely customizable. Contact our travel specialists to build your perfect vacation</p>
             </div>
-        </div>
-    <?php
-    endif; ?>
+        </div> -->
 
-    <div class="product-cabins__note">
-        <div class="attention-box">
-            <?php $destination = get_field('destination'); ?>
-            <p>All itineraries are completely customizable. Contact our travel specialists to build your perfect vacation</p>
-        </div>
     </div>
 
-</div>
+<?php
+endif; ?>

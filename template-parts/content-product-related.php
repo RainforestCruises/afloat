@@ -32,7 +32,7 @@ $relatedCount = 0;
 
 <div class="product-related">
     <h2 class="page-divider page-divider--padding u-margin-bottom-medium u-margin-top-small">
-        Related Cruises
+        Related <?php echo get_post_type() == 'rfc_cruises' ? "Cruises" : "Tours"; ?>
     </h2>
     <div class="product-related__slider" id="related-slider">
 
@@ -82,17 +82,22 @@ $relatedCount = 0;
                         <?php endif; ?>
                     </div>
                     <div class="product-card__bottom">
+
                         <div class="product-card__bottom__title-group">
                             <div class="product-card__bottom__title-group__product-name">
-                                <?php echo get_the_title($p) ?>
+                                <?php echo (get_post_type($p) == 'rfc_tours') ? get_field('tour_name', $p) : get_the_title($p) ?>
                             </div>
-                            <div class="product-card__bottom__title-group__price">
-                                <span class="from-price">From</span> <?php echo "$" . number_format($lowestPrice, 0);  ?> <span class="currency-price">USD</span>
+                            <div class="product-card__bottom__title-group__price-group">
+                                <div class="product-card__bottom__title-group__price-group__from">From</div>
+                                <div class="product-card__bottom__title-group__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
                             </div>
                         </div>
+
+
                         <div class="product-card__bottom__text">
                             <?php echo $top_snippet ?>
                         </div>
+
                         <div class="product-card__bottom__info">
                             <?php echo (get_post_type($p) == 'rfc_tours') ? $tour_length  . " Day Tour" : itineraryRange($cruise_data, " - ") . " Day Cruises"; ?>
                         </div>

@@ -344,7 +344,12 @@ p {
   grid-column: center-start / center-end;
   text-align: center;
   font-size: 1.6rem;
-  margin-bottom: 4rem; }
+  margin-bottom: 4rem;
+  max-width: calc(112rem + 12rem);
+  padding: 0 6rem; }
+  @media only screen and (max-width: 37.5em) {
+    .sub-divider-text {
+      padding: 0 3rem; } }
 
 .list-svg {
   list-style: none; }
@@ -2747,42 +2752,6 @@ h5 {
         @media only screen and (max-width: 50em) {
           .product-cabins__cabin__content__cta {
             padding-top: 0rem; } }
-  .product-cabins__hotels {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: center;
-    margin: 0 10rem;
-    margin-bottom: 2rem; }
-    @media only screen and (max-width: 37.5em) {
-      .product-cabins__hotels {
-        margin: 0;
-        margin-bottom: 2rem; } }
-    .product-cabins__hotels__slider {
-      max-width: 114rem;
-      width: 100%;
-      margin: 0 6rem; }
-      .product-cabins__hotels__slider .slick-track {
-        width: 100%; }
-      .product-cabins__hotels__slider .slick-slide {
-        margin: 1rem;
-        margin-bottom: 3rem;
-        box-shadow: 0 1rem 1rem -1rem rgba(0, 0, 0, 0.25); }
-        @media only screen and (max-width: 37.5em) {
-          .product-cabins__hotels__slider .slick-slide {
-            margin: 0.5rem;
-            margin-bottom: 3rem; } }
-    .product-cabins__hotels__btn--left {
-      position: absolute;
-      z-index: 10;
-      bottom: 50%;
-      left: -7rem;
-      transform: translateY(60%); }
-    .product-cabins__hotels__btn--right {
-      position: absolute;
-      z-index: 10;
-      bottom: 50%;
-      right: -7rem;
-      transform: translateY(60%); }
   .product-cabins__note {
     grid-column: center-start / center-end; }
   @media only screen and (max-width: 50em) {
@@ -2908,6 +2877,43 @@ h5 {
             height: 2rem;
             width: 2rem;
             fill: #142838; }
+
+.product-hotels {
+  width: 100%;
+  display: flex;
+  position: relative;
+  padding-bottom: 4rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .product-hotels__slider {
+    width: 100%;
+    max-width: 140rem;
+    z-index: 10;
+    padding: 0 9rem; }
+    @media only screen and (max-width: 37.5em) {
+      .product-hotels__slider {
+        padding: 0 3rem; } }
+    .product-hotels__slider .slick-dots {
+      max-width: 35rem;
+      left: 50%;
+      transform: translateX(-50%); }
+    .product-hotels__slider .slick-slide {
+      margin: 1.5rem;
+      box-shadow: 0 1rem 1rem -1rem rgba(0, 0, 0, 0.25);
+      min-width: 0; }
+    .product-hotels__slider__btn--left {
+      transform: translateY(-50%);
+      position: absolute;
+      z-index: 10;
+      top: 50%;
+      left: 1.5rem; }
+    .product-hotels__slider__btn--right {
+      transform: translateY(-50%);
+      position: absolute;
+      z-index: 10;
+      top: 50%;
+      right: 1.5rem; }
 
 .product-prices {
   display: grid;
@@ -6776,43 +6782,55 @@ h5 {
       border-top-right-radius: 0.5rem; }
   .product-card__bottom {
     background-color: #fff;
-    min-height: 18rem;
-    padding: 1rem;
-    display: grid;
-    row-gap: 1rem;
-    grid-template-rows: min-content 1fr 4rem; }
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column; }
     .product-card__bottom__title-group {
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: #142838;
-      display: grid;
-      grid-template-columns: 1fr max-content; }
-      .product-card__bottom__title-group__price .from-price {
-        font-size: 1.4rem;
-        color: #9ea0a4; }
-      .product-card__bottom__title-group__price .currency-price {
-        font-size: 1.4rem;
-        text-transform: uppercase; }
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      .product-card__bottom__title-group__product-name {
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+        font-weight: 600;
+        color: #142838;
+        margin-bottom: .5rem; }
+      .product-card__bottom__title-group__price-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; }
+        .product-card__bottom__title-group__price-group__from {
+          font-size: 1.2rem;
+          line-height: 1.6rem;
+          color: #9ea0a4;
+          margin-right: .4rem; }
+        .product-card__bottom__title-group__price-group__data {
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: flex-end;
+          font-size: 1.5rem;
+          line-height: 2.2rem;
+          color: #142838;
+          font-weight: 600; }
+          .product-card__bottom__title-group__price-group__data span {
+            margin-left: .3rem;
+            font-size: 1.1rem;
+            text-transform: uppercase; }
     .product-card__bottom__text {
       font-size: 1.3rem;
+      margin-top: .5rem;
+      margin-bottom: .5rem;
       padding-bottom: 1rem;
-      display: flex; }
+      position: relative;
+      border-bottom: 1px solid #e6e6e6; }
     .product-card__bottom__info {
       position: relative;
-      padding-top: 1.5rem;
+      padding-top: .5rem;
       font-weight: 500;
       font-size: 1.4rem;
       text-transform: uppercase;
       letter-spacing: 0.2rem;
       text-align: center; }
-      .product-card__bottom__info::before {
-        content: "";
-        width: 100%;
-        height: 1px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #e6e6e6; }
 
 .wide-slider-card {
   display: grid !important;
