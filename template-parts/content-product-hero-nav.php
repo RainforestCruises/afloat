@@ -170,10 +170,10 @@ if ($args['propertyType'] == 'Cruise') {
                 <div class="product-hero__bottom__content__info-group__attributes">
                     <div class="product-hero__bottom__content__info-group__attributes__item">
                         <div class="product-hero__bottom__content__info-group__attributes__item__title">
-                            Itineraries
+                            <?php echo (get_post_type($p) == 'rfc_tours') ? "Length" : "Itineraries"; ?>
                         </div>
                         <div class="product-hero__bottom__content__info-group__attributes__item__data">
-                            4-8 Days
+                            <?php echo (get_post_type($p) == 'rfc_tours') ? $tour_length  . " Days" : itineraryRange($args['cruiseData'], " - ") . " Days"; ?>
                         </div>
                     </div>
                     <div class="product-hero__bottom__content__info-group__attributes__item">
@@ -181,7 +181,8 @@ if ($args['propertyType'] == 'Cruise') {
                             Capacity
                         </div>
                         <div class="product-hero__bottom__content__info-group__attributes__item__data">
-                            16 Guests
+                        <?php echo (get_post_type($p) == 'rfc_tours') ? "" : get_field('vessel_capacity') . " Guests"; ?>
+
                         </div>
                     </div>
                     <div class="product-hero__bottom__content__info-group__attributes__item">
