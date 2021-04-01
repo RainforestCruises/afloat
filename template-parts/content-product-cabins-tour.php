@@ -1,13 +1,13 @@
 <?php
 
 $properties = get_field('properties');
-
 $hotels = get_field('hotels');
-
 
 ?>
 
 
+
+<!-- Cruises & Lodges -->
 <?php if ($properties) : ?>
     <div class="product-cabins u-margin-bottom-small">
 
@@ -15,20 +15,19 @@ $hotels = get_field('hotels');
             Cruises & Lodges
         </div>
 
-
-
         <?php foreach ($properties as $property) : ?>
             <?php
             $propertyPost = get_post($property);
             $featured_image = get_field('featured_image',  $property);
             $propertyTitle = get_the_title($property);
             $propertySnippet = get_field('overview_intro',  $property);
-            $propertyIntro = get_field('cabins_intro',  $property);
+            $propertyIntro = get_field('cabins_intro',  $property); //make editable field in this template -- repeater for cruises / lodges
             ?>
+
             <!-- Product Card -->
             <div class="product-cabins__cabin ">
                 <div class="product-cabins__cabin__image-area">
-                    <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
+                    <img <?php afloat_responsive_image($featured_image['id'], 'featured-large', array('featured-large', 'featured-medium', 'featured-small')); ?> alt="">
                 </div>
                 <div class="product-cabins__cabin__content">
                     <div class="product-cabins__cabin__content__title">
@@ -50,8 +49,10 @@ $hotels = get_field('hotels');
 
     </div>
 <?php endif; ?>
+
+<!-- Hotels -->
 <?php if ($hotels) : ?>
-    <div class="product-hotels">
+    <div class="product-hotels u-margin-top-medium">
 
         <div class="xsub-divider xsub-divider--dark u-margin-bottom-small">
             Hotel Options
@@ -98,7 +99,11 @@ $hotels = get_field('hotels');
                         </div>
 
                     </div>
-                    <img class="card-square__image" src="<?php echo $featured_image['url']; ?>" alt="">
+                    <div class="card-square__image-area">
+                        <img <?php afloat_responsive_image($featured_image['id'], 'square-medium', array('square-medium','square-small')); ?> alt="">
+
+                    </div>
+
                 </div>
 
             <?php endforeach; ?>

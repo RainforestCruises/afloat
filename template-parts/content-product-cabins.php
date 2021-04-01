@@ -26,6 +26,7 @@ $cruise_data = $args['cruiseData'];
             ?>
             <div class="product-cabins__cabin ">
                 <div class="product-cabins__cabin__image-area">
+                    <!-- Image from DF -->
                     <img src="<?php echo esc_html($cabins[$cabinCount]['ImageDTOs'][0]['ImageUrl']); ?>" alt="">
                 </div>
                 <div class="product-cabins__cabin__content">

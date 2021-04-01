@@ -62,6 +62,8 @@ while (have_posts()) :
       ?>
     </section>
 
+    <!-- Reviews -->
+
 
     <!-- Related Travel -->
     <section class="product-page__section-related">

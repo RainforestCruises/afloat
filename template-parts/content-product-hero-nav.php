@@ -176,7 +176,11 @@ if ($args['propertyType'] == 'Cruise') {
                             <?php echo (get_post_type($p) == 'rfc_tours') ? "Length" : "Itineraries"; ?>
                         </div>
                         <div class="product-hero__bottom__content__info-group__attributes__item__data">
+                            <?php if($charter_view == false) : ?>
                             <?php echo (get_post_type($p) == 'rfc_tours') ? get_field('length') . " Days" : itineraryRange($args['cruiseData'], " - ") . " Days"; ?>
+                            <?php else : 
+                                echo get_field('charter_min_days') . " Days +";
+                            endif; ?>
                         </div>
                     </div>
                     <div class="product-hero__bottom__content__info-group__attributes__item">

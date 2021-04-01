@@ -137,12 +137,12 @@ jQuery(document).ready(function ($) {
         breakpoint: 1000,
         settings: {
           slidesToShow: 3,
-          arrows: true,
+          
 
         }
       },
       {
-        breakpoint: 750,
+        breakpoint: 800,
         settings: {
           slidesToShow: 2,
 

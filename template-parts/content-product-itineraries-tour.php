@@ -168,8 +168,8 @@ $img = get_field('map');
                 $dayCount = 1;
                 $img;
                 if ($days) :
-                    foreach ($days as $day) : ?>
-                        <?php
+                    foreach ($days as $day) : 
+
                         $img = $day['day_image']
                         ?>
 
@@ -190,8 +190,7 @@ $img = get_field('map');
                                 <div class="product-itinerary-slide__bottom__days__item__side">
                                     <div class="product-itinerary-slide__bottom__days__item__side__image-area">
                                         <?php if ($img != null) : ?>
-
-                                            <img src="<?php echo $img['url'] ?>">
+                                            <img <?php afloat_responsive_image($img['id'], 'featured-large', array('featured-large', 'featured-small')); ?> alt="">
                                         <?php endif; ?>
                                     </div>
                                     <div class="product-itinerary-slide__bottom__days__item__side__detail">

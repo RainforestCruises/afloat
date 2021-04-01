@@ -87,18 +87,23 @@
         }
         @media only screen and (max-width: $bp-small) {
           margin-bottom: 2rem;
+          width: 100%;
         }
 
         &__title {
           font-size: 6rem;
           font-weight: 300;
           letter-spacing: 0.3rem;
-          display: block;
+          display: block; 
           align-self: end;
           line-height: 6.5rem;
 
           @media only screen and (max-width: $bp-small) {
             font-size: 4rem;
+            line-height: 4.5rem;
+            margin-bottom: 2rem;
+            
+
           }
 
           &.active {

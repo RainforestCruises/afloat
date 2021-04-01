@@ -8,7 +8,10 @@ $years = $args['years'];
 $months = $args['months'];
 $monthNames = $args['monthNames'];
 
-$charter_min_days = $args['charter_min_days'];
+// if(get_post_type() == 'rfc_cruises') {
+//     $charter_min_days = $args['charter_min_days'];
+
+// }
 
 $charter_view = false;
 $charter_only = false;

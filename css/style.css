@@ -1832,7 +1832,8 @@ h5 {
             margin-bottom: 4rem; } }
         @media only screen and (max-width: 37.5em) {
           .product-hero__top__content__title-group {
-            margin-bottom: 2rem; } }
+            margin-bottom: 2rem;
+            width: 100%; } }
         .product-hero__top__content__title-group__title {
           font-size: 6rem;
           font-weight: 300;
@@ -1842,7 +1843,9 @@ h5 {
           line-height: 6.5rem; }
           @media only screen and (max-width: 37.5em) {
             .product-hero__top__content__title-group__title {
-              font-size: 4rem; } }
+              font-size: 4rem;
+              line-height: 4.5rem;
+              margin-bottom: 2rem; } }
           .product-hero__top__content__title-group__title.active {
             grid-column: 1 / span 1;
             grid-row: 2 / span 1;
@@ -2185,6 +2188,9 @@ h5 {
       margin-bottom: 4rem;
       box-shadow: 0 2rem 2rem -1rem rgba(0, 0, 0, 0.25);
       min-width: 0; }
+      @media only screen and (max-width: 37.5em) {
+        .product-related__slider .slick-slide {
+          margin-bottom: 3rem; } }
     .product-related__slider__btn--left {
       transform: translateY(-50%);
       position: absolute;
@@ -2883,10 +2889,13 @@ h5 {
   width: 100%;
   display: flex;
   position: relative;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
   justify-content: center;
   align-items: center;
   flex-direction: column; }
+  @media only screen and (max-width: 37.5em) {
+    .product-hotels {
+      padding-bottom: 0rem; } }
   .product-hotels__slider {
     width: 100%;
     max-width: 140rem;
@@ -2894,7 +2903,7 @@ h5 {
     padding: 0 9rem; }
     @media only screen and (max-width: 37.5em) {
       .product-hotels__slider {
-        padding: 0 3rem; } }
+        padding: 0rem; } }
     .product-hotels__slider .slick-dots {
       max-width: 35rem;
       left: 50%;
@@ -6639,8 +6648,7 @@ h5 {
   align-content: center;
   background-color: #fff;
   position: relative;
-  z-index: 0;
-  width: 25rem; }
+  z-index: 0; }
   .card-square:after {
     content: "";
     grid-row: 1 / 1;
@@ -6649,19 +6657,14 @@ h5 {
     height: 100%;
     z-index: 2;
     background-image: linear-gradient(to top, rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0) 40%), linear-gradient(to bottom, rgba(30, 30, 30, 0.2), rgba(30, 30, 30, 0) 20%); }
-  .card-square__image {
-    grid-column: 1 / -1;
+  .card-square__image-area {
+    height: min-content;
     grid-row: 1 / 1;
-    width: 100%;
-    height: 25rem;
-    object-fit: cover;
-    object-position: center;
-    position: relative;
-    z-index: 0; }
-    @media only screen and (max-width: 37.5em) {
-      .card-square__image {
-        margin: 0;
-        height: 40rem; } }
+    grid-column: 1 / -1; }
+    .card-square__image-area img {
+      object-fit: contain;
+      height: 100%;
+      width: 100%; }
   .card-square__title-group {
     grid-column: 1 / -1;
     grid-row: 1 / 1;
