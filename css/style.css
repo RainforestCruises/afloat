@@ -3415,6 +3415,9 @@ h5 {
   align-items: center;
   flex-direction: column;
   min-height: 50rem; }
+  @media only screen and (max-width: 37.5em) {
+    .product-reviews {
+      min-height: 30rem; } }
   .product-reviews__bg {
     position: absolute;
     z-index: 0;
