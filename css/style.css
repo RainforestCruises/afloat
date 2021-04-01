@@ -1810,9 +1810,12 @@ h5 {
       z-index: 8;
       width: 100%;
       justify-self: center;
+      height: calc(100% - 9rem);
       display: flex;
       flex-direction: column;
       position: relative;
+      justify-content: space-between;
+      color: #fff;
       max-width: calc(112rem + 12rem);
       padding: 0 6rem; }
       @media only screen and (max-width: 37.5em) {
@@ -1821,19 +1824,54 @@ h5 {
       @media only screen and (max-width: 62.5em) {
         .product-hero__top__content {
           align-items: center;
-          text-align: center;
-          height: 100%;
-          justify-content: flex-end; } }
+          text-align: center; } }
+      .product-hero__top__content__breadcrumb {
+        margin-top: 3rem;
+        font-size: 1.2rem;
+        letter-spacing: 0.2rem;
+        justify-self: flex-start;
+        font-weight: 400;
+        display: flex;
+        position: relative;
+        list-style: none;
+        height: max-content;
+        width: max-content; }
+        @media only screen and (max-width: 62.5em) {
+          .product-hero__top__content__breadcrumb {
+            justify-self: center;
+            margin-top: 1rem; } }
+        .product-hero__top__content__breadcrumb li {
+          display: inline-block;
+          width: max-content; }
+          .product-hero__top__content__breadcrumb li:not(:last-child):after {
+            content: " / ";
+            padding-right: 4px; }
+          .product-hero__top__content__breadcrumb li a {
+            position: relative;
+            text-decoration: none;
+            color: currentColor; }
+            .product-hero__top__content__breadcrumb li a::after {
+              content: "";
+              position: absolute;
+              bottom: -0.3rem;
+              left: 0;
+              width: 97%;
+              height: 1px;
+              background-color: #fff;
+              transition: all 0.2s;
+              opacity: 0; }
+            .product-hero__top__content__breadcrumb li a:hover::after {
+              color: #fff;
+              opacity: 1; }
       .product-hero__top__content__title-group {
-        width: 50%;
-        color: #f8f8f8; }
+        width: 50%; }
         @media only screen and (max-width: 62.5em) {
           .product-hero__top__content__title-group {
-            margin-bottom: 4rem; } }
+            margin-bottom: 4rem;
+            width: 100%; } }
         @media only screen and (max-width: 37.5em) {
           .product-hero__top__content__title-group {
-            margin-bottom: 2rem;
-            width: 100%; } }
+            margin-bottom: 2rem; } }
         .product-hero__top__content__title-group__title {
           font-size: 6rem;
           font-weight: 300;
