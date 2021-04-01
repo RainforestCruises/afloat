@@ -37,7 +37,7 @@ $img = get_field('map');
                 <!-- Map Area -->
                 <div class="product-itinerary-slide__top__map-area">
                     <div class="product-itinerary-slide__top__map-area__title">
-                    <?php echo get_field('tour_name') ?> - <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night
+                        <?php echo get_field('tour_name') ?> - <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night
                     </div>
                     <!-- Map -->
                     <a class="" id="itinerary-map-image" href="<?php echo $img['url']; ?>" title="<?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night - <?php echo get_field('tour_name') ?>">
@@ -61,7 +61,7 @@ $img = get_field('map');
 
                         <!-- Prices -->
                         <div class="product-itinerary-slide__top__info__content__widget">
-                            <div class="product-itinerary-slide__top__info__content__widget__top-section">
+                            <div class="product-itinerary-slide__top__info__content__widget__top-section u-margin-bottom-small">
                                 <h4 class="product-itinerary-slide__top__info__content__widget__top-section__title">
                                     Prices
                                 </h4>
@@ -85,20 +85,46 @@ $img = get_field('map');
                             ?>
 
                             <?php while ($yearCount <= 1) { ?>
-                                <div class="price-grid price-grid__<?php echo ($currentYear + $yearCount) ?>" data-tab="1">
-
+                                <div class="price-grid price-grid__<?php echo ($currentYear + $yearCount) ?>" data-tab="<?php echo $count; ?>">
+                                    <div class="price-grid__header">
+                                        <div class="price-grid__header__title">
+                                            Accommodation Level
+                                        </div>
+                                        <div class="price-grid__header__details">
+                                            <div class="price-grid__header__details__item">
+                                                Double
+                                            </div>
+                                            <div class="price-grid__header__details__item">
+                                                Single
+                                            </div>
+                                        </div>
+                                    </div>
                                     <?php
                                     if ($pricePackages) {
                                         foreach ($pricePackages as $pricePackage) {
                                             $price_level = $pricePackage['price_level'];
-                                            if ($pricePackage['year'] == ($currentYear + $yearCount)) { ?>
-                                                <div class="price-grid__item">
-                                                    <div class="price-grid__item__cabin">
+                                            if ($pricePackage['year'] == ($currentYear + $yearCount)) {
+                                                $price = ($pricePackage['price'] != "") ? $pricePackage['price'] : 0;
+                                                $single_supplement = ($pricePackage['single_supplement'] != "") ? $pricePackage['single_supplement'] : 0;
+                                                $single_price = intval($price) + intval($single_supplement);
+                                                $price_level = $pricePackage['price_level'];
+                                    ?>
+
+
+
+                                                <div class="price-grid__row">
+                                                    <div class="price-grid__row__title">
                                                         <?php echo get_the_title($price_level); ?>
                                                     </div>
-                                                    <div class="price-grid__item__price">
-                                                        <?php echo "$ " . number_format($pricePackage['price'], 0);  ?>
+                                                    <div class="price-grid__row__details">
+                                                        <div class="price-grid__row__details__item">
+                                                            <?php echo "$ " . number_format($price, 0);  ?>
+                                                        </div>
+                                                        <div class="price-grid__row__details__item">
+                                                            <?php echo "$ " . number_format($single_price, 0);  ?>
+                                                        </div>
                                                     </div>
+
                                                 </div>
 
                                     <?php
@@ -163,15 +189,15 @@ $img = get_field('map');
 
                 <!-- Slider -->
                 <div class="product-itinerary-slide__bottom__days" id="slider-bottom-days-<?php echo $count ?>">
-                <?php
-                $days = get_field('daily_activities');
-                $dayCount = 1;
-                $img;
-                if ($days) :
-                    foreach ($days as $day) : 
+                    <?php
+                    $days = get_field('daily_activities');
+                    $dayCount = 1;
+                    $img;
+                    if ($days) :
+                        foreach ($days as $day) :
 
-                        $img = $day['day_image']
-                        ?>
+                            $img = $day['day_image']
+                    ?>
 
                             <!-- Day Slide -->
                             <div class="product-itinerary-slide__bottom__days__item">
@@ -179,10 +205,10 @@ $img = get_field('map');
                                 <!-- Content -->
                                 <div class="product-itinerary-slide__bottom__days__item__content">
                                     <div class="product-itinerary-slide__bottom__days__item__content__title">
-                                    <?php echo $day['day_title']; ?>
+                                        <?php echo $day['day_title']; ?>
                                     </div>
                                     <div class="product-itinerary-slide__bottom__days__item__content__text">
-                                    <?php echo $day['day_description']; ?>
+                                        <?php echo $day['day_description']; ?>
                                     </div>
                                 </div>
 

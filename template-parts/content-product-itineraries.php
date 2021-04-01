@@ -3,7 +3,7 @@
 $cruise_data = $args['cruiseData'];
 $currentYear = $args['currentYear'];
 $currentMonth = $args['currentMonth'];
-
+console_log($cruise_data);
 $years = $args['years'];
 $months = $args['months'];
 $monthNames = $args['monthNames'];
@@ -62,11 +62,11 @@ if ($args['propertyType'] == 'Cruise') {
 
     <!-- Itinerary Slider Content -->
     <div class="product-itineraries__content">
-        <div class="product-itineraries__content__slider" id="itineraries-slider">     
+        <div class="product-itineraries__content__slider" id="itineraries-slider">
             <?php
             $count = 1; //loop itineraries
             foreach ($cruise_data['Itineraries'] as $itinerary) :
-                if ($charter_only == true && $itinerary['IsSample'] == false) :        
+                if ($charter_only == true && $itinerary['IsSample'] == false) :
                     $count++;
                     continue; //skip non sample itineraries for charter only vessels
                 endif;
@@ -105,7 +105,7 @@ if ($args['propertyType'] == 'Cruise') {
                             <div class="product-itinerary-slide__top__info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">
 
                                 <!-- Dates -->
-                                <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) : ?>                
+                                <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) : ?>
                                     <div class="product-itinerary-slide__top__info__content__widget">
                                         <div class="product-itinerary-slide__top__info__content__widget__top-section">
                                             <!-- Title -->
@@ -152,18 +152,13 @@ if ($args['propertyType'] == 'Cruise') {
                                             <div class="product-itinerary-slide__top__info__content__widget__legend__item product-itinerary-slide__top__info__content__widget__legend__item--sold-out">
                                                 Sold Out
                                             </div>
-                                            <button class="product-itinerary-slide__top__info__content__widget__legend__item product-itinerary-slide__top__info__content__widget__legend__item--button text-button goto-dates" href="#dates">
-                                                View Dates
-                                                <svg>
-                                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                                                </svg>
-                                            </button>
+                                            
                                         </div>
                                     </div>
                                 <?php endif; ?>
 
                                 <!-- Prices -->
-                                <?php if ($charter_view == false) : ?>                                
+                                <?php if ($charter_view == false) : ?>
                                     <div class="product-itinerary-slide__top__info__content__widget">
                                         <div class="product-itinerary-slide__top__info__content__widget__top-section">
                                             <h4 class="product-itinerary-slide__top__info__content__widget__top-section__title">
@@ -185,31 +180,39 @@ if ($args['propertyType'] == 'Cruise') {
                                         </div>
                                         <!-- Price-Grid  -->
                                         <?php $rateYears = $itinerary['RateYears']; ?>
-                                        <?php foreach ($rateYears as $rateYear) { ?>
+                                        <?php foreach ($rateYears as $rateYear) : ?>
                                             <div class="price-grid price-grid__<?php echo $rateYear['Year'] ?>" data-tab="<?php echo $count; ?>">
                                                 <div class="price-grid__header">
                                                     <div class="price-grid__header__title">
-                                                        Cabin Class
+                                                        Accommodation Level
                                                     </div>
-                                                    <div class="price-grid__header__title">
-                                                        Price
+                                                    <div class="price-grid__header__details">
+                                                        <div class="price-grid__header__details__item">
+                                                            Double 
+                                                        </div>
+                                                        <!-- Add single -->
+                                                    </div>
+                                                </div>
+                                                <?php $rateYears = $itinerary['RateYears']; ?>
+                                                <?php foreach ($rateYear['Rates'] as $rate) : ?>
+                         
+
+
+                                                    <div class="price-grid__row">
+                                                    <div class="price-grid__row__title">
+                                                    <?php echo  $rate['Cabin'] ?>
+                                                    </div>
+                                                    <div class="price-grid__row__details">
+                                                        <div class="price-grid__row__details__item">
+                                                        <?php echo "$ " . number_format($rate['WebAmount'], 0);  ?>
+                                                        </div>
+                                                       <!-- Add single -->
                                                     </div>
 
                                                 </div>
-                                                <?php $rateYears = $itinerary['RateYears']; ?>
-                                                <?php foreach ($rateYear['Rates'] as $rate) { ?>
-                                                    <div class="price-grid__item">
-                                                        <div class="price-grid__item__data">
-                                                            <?php echo  $rate['Cabin'] ?>
-                                                        </div>
-                                                        <div class="price-grid__item__data">
-                                                            <?php echo "$ " . number_format($rate['WebAmount'], 0);  ?>
-                                                        </div>
-
-                                                    </div>
-                                                <?php } ?>
+                                                <?php endforeach; ?>
                                             </div>
-                                        <?php } ?>
+                                        <?php endforeach; ?>
 
                                     </div>
                                 <?php else : ?>
@@ -236,7 +239,7 @@ if ($args['propertyType'] == 'Cruise') {
                                 </ul>
                             </div>
 
-                             <!-- Exclusions -->
+                            <!-- Exclusions -->
                             <div class="product-itinerary-slide__top__info__content" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">
                                 <h4>What's Excluded</h4>
                                 <ul class="product-itinerary-slide__top__info__content__inclusions-list">

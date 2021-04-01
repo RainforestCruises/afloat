@@ -183,7 +183,8 @@ jQuery(document).ready(function ($) {
   $('.itinerary-year-select').on('change', function () {
     var year = $(this).val();
     var tab_id = $(this).attr('data-tab');
-
+    console.log(year);
+    console.log(tab_id);
     $('.date-grid[data-tab="' + tab_id + '"]').hide();
     $('.date-grid__' + year + '[data-tab="' + tab_id + '"]').show();
 
@@ -193,53 +194,53 @@ jQuery(document).ready(function ($) {
   });
 
 
-  //D2D - Expand Day
-  $(".product-itineraries__itinerary__d2d__days__day__button, .product-itineraries__itinerary__d2d__days__day__header").on("click", function (e) {
-    e.preventDefault();
-    let $this = $(this);
+  // //D2D - Expand Day
+  // $(".product-itineraries__itinerary__d2d__days__day__button, .product-itineraries__itinerary__d2d__days__day__header").on("click", function (e) {
+  //   e.preventDefault();
+  //   let $this = $(this);
 
-    $this.parent().toggleClass('product-itineraries__itinerary__d2d__days__day--active') //day
+  //   $this.parent().toggleClass('product-itineraries__itinerary__d2d__days__day--active') //day
 
-    $this.parent().find('.product-itineraries__itinerary__d2d__days__day__image-content').slideToggle(350);
-    $this.parent().find('.product-itineraries__itinerary__d2d__days__day__content').slideToggle(350);
-    $this.parent().find('.product-itineraries__itinerary__d2d__days__day__snippet').toggle(175);
+  //   $this.parent().find('.product-itineraries__itinerary__d2d__days__day__image-content').slideToggle(350);
+  //   $this.parent().find('.product-itineraries__itinerary__d2d__days__day__content').slideToggle(350);
+  //   $this.parent().find('.product-itineraries__itinerary__d2d__days__day__snippet').toggle(175);
 
-    if (!$this.parent().hasClass('product-itineraries__itinerary__d2d__days__day--active')) {
-      //closing -- scroll to top of element
-      let dayHeader = $this.parent();
-      $('html, body').animate({
-        scrollTop: $(dayHeader).offset().top - 180 //#DIV_ID is an example. Use the id of your destination on the page
-      }, 'fast');
+  //   if (!$this.parent().hasClass('product-itineraries__itinerary__d2d__days__day--active')) {
+  //     //closing -- scroll to top of element
+  //     let dayHeader = $this.parent();
+  //     $('html, body').animate({
+  //       scrollTop: $(dayHeader).offset().top - 180 //#DIV_ID is an example. Use the id of your destination on the page
+  //     }, 'fast');
 
-    }
+  //   }
 
-  });
+  // });
 
-  //Inclusions / Exclusions
-  $('.view-exclusions').click(function () {
+  // //Inclusions / Exclusions
+  // $('.view-exclusions').click(function () {
 
-    var tab_id = $(this).val();
+  //   var tab_id = $(this).val();
 
-    var exclusions = $('#exclusions-list[data-tab="' + tab_id + '"]');
-    var inclusions = $('#inclusions-list[data-tab="' + tab_id + '"]');
-    exclusions.removeClass('inclusions-area__itinerary-inclusions--hidden');
-    inclusions.addClass('inclusions-area__itinerary-inclusions--hidden');
+  //   var exclusions = $('#exclusions-list[data-tab="' + tab_id + '"]');
+  //   var inclusions = $('#inclusions-list[data-tab="' + tab_id + '"]');
+  //   exclusions.removeClass('inclusions-area__itinerary-inclusions--hidden');
+  //   inclusions.addClass('inclusions-area__itinerary-inclusions--hidden');
 
-    $('#InclusionsTitle[data-tab="' + tab_id + '"]').text("What's Excluded");
+  //   $('#InclusionsTitle[data-tab="' + tab_id + '"]').text("What's Excluded");
 
-  })
+  // })
 
-  $('.view-inclusions').click(function () {
-    var tab_id = $(this).val();
+  // $('.view-inclusions').click(function () {
+  //   var tab_id = $(this).val();
 
-    var inclusions = $('#inclusions-list[data-tab="' + tab_id + '"]');
-    var exclusions = $('#exclusions-list[data-tab="' + tab_id + '"]');
+  //   var inclusions = $('#inclusions-list[data-tab="' + tab_id + '"]');
+  //   var exclusions = $('#exclusions-list[data-tab="' + tab_id + '"]');
 
-    inclusions.removeClass('inclusions-area__itinerary-inclusions--hidden');
-    exclusions.addClass('inclusions-area__itinerary-inclusions--hidden');
-    $('#InclusionsTitle[data-tab="' + tab_id + '"]').text("What's Included");
+  //   inclusions.removeClass('inclusions-area__itinerary-inclusions--hidden');
+  //   exclusions.addClass('inclusions-area__itinerary-inclusions--hidden');
+  //   $('#InclusionsTitle[data-tab="' + tab_id + '"]').text("What's Included");
 
-  })
+  // })
 
   //Dates --------------------------------------
   //Controls
@@ -447,7 +448,9 @@ jQuery(document).ready(function ($) {
         settings: {
           slidesToShow: 1,
           arrows: false,
+          centerMode: true,
           dots: true
+
 
         }
       }

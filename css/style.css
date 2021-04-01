@@ -2178,7 +2178,7 @@ h5 {
     padding: 0 9rem; }
     @media only screen and (max-width: 37.5em) {
       .product-related__slider {
-        padding: 0 3rem; } }
+        padding: 0rem; } }
     .product-related__slider .slick-dots {
       max-width: 35rem;
       left: 50%;
@@ -2380,17 +2380,34 @@ h5 {
     font-size: 1.3rem;
     font-weight: 700;
     color: #9ea0a4;
-    margin-bottom: .5rem; }
+    margin-bottom: .8rem;
+    flex-direction: row; }
+    .price-grid__header__details {
+      display: flex;
+      justify-content: flex-end;
+      text-align: center; }
+      .price-grid__header__details__item {
+        width: 8rem;
+        border-bottom: 1px solid #e6e6e6;
+        margin-left: 4rem; }
     .price-grid__header__title {
-      width: max-content;
       border-bottom: 1px solid #e6e6e6; }
-  .price-grid__item {
+  .price-grid__row {
     display: flex;
     font-size: 1.6rem;
     color: #142838;
     justify-content: space-between;
     width: 100%;
     margin: .1rem 0; }
+    .price-grid__row__details {
+      text-align: center;
+      display: flex;
+      justify-content: flex-end; }
+      .price-grid__row__details__item {
+        width: 8rem;
+        margin-left: 4rem; }
+    .price-grid__row__title {
+      font-weight: 600; }
 
 .inclusions-area {
   margin-top: 2rem;
@@ -2499,12 +2516,12 @@ h5 {
               letter-spacing: 0.1rem; }
           .product-itinerary-slide__top__info__content__widget__legend {
             margin-top: 1rem;
-            display: grid;
-            grid-template-columns: max-content max-content 1fr;
+            display: flex;
+            justify-content: flex-end;
             font-size: 1.2rem; }
             .product-itinerary-slide__top__info__content__widget__legend__item {
               padding-left: 1.5rem;
-              margin-right: 2.5rem;
+              margin-left: 2.5rem;
               position: relative;
               display: flex;
               align-content: center; }
