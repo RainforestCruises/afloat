@@ -80,7 +80,7 @@ while (have_posts()) :
 
     <!-- Reviews -->
 
-    <section class="product-page__section-reviews" style="display: none;">
+    <section class="product-page__section-reviews">
       <?php
       get_template_part('template-parts/content', 'product-reviews', $args);
       ?>

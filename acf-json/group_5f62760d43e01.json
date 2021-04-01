@@ -495,6 +495,30 @@
             "endpoint": 0
         },
         {
+            "key": "field_606630a92a676",
+            "label": "Reviews Background",
+            "name": "reviews_background",
+            "type": "image",
+            "instructions": "1920 x 730 min",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 1920,
+            "min_height": 730,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_5f6d02c79f3e5",
             "label": "Testimonials",
             "name": "testimonials",
@@ -602,60 +626,6 @@
                     "maxlength": 200,
                     "rows": 4,
                     "new_lines": ""
-                },
-                {
-                    "key": "field_5f6d04139f3e9",
-                    "label": "Guest Thumbnail",
-                    "name": "guest_thumbnail",
-                    "type": "image",
-                    "instructions": "Image will be cropped as circle. (200 x 200)",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": "",
-                    "admin_column_taxonomies": "",
-                    "return_format": "array",
-                    "preview_size": "thumbnail",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                },
-                {
-                    "key": "field_5f6d04939f3ea",
-                    "label": "Testimonial Image",
-                    "name": "testimonial_image",
-                    "type": "image",
-                    "instructions": "Image of the testimonial (480 x 560)",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": "",
-                    "admin_column_taxonomies": "",
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
                 },
                 {
                     "key": "field_5f6d097d025f0",
@@ -1671,5 +1641,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Cruise - CPT",
-    "modified": 1617305759
+    "modified": 1617310715
 }

@@ -62,8 +62,18 @@ while (have_posts()) :
       ?>
     </section>
 
-    <!-- Reviews -->
 
+    <?php $show_testimonials = get_field('show_testimonials');
+    if ($show_testimonials) :
+    ?>
+
+      <!-- Reviews -->
+      <section class="product-page__section-reviews u-margin-top-medium">
+        <?php
+        get_template_part('template-parts/content', 'product-reviews', $args);
+        ?>
+      </section>
+    <?php endif; ?>
 
     <!-- Related Travel -->
     <section class="product-page__section-related">

@@ -1,116 +1,42 @@
-<?php
-get_header();
-wp_enqueue_script('page-product', get_template_directory_uri() . '/js/page-product.js', array('jquery'), false, true);
-?>
-<?php
-while (have_posts()) :
-  the_post();
 
 
-  $cruise_data = get_field('cruise_data');
+<div class="product-reviews">
+<h2 class="page-divider page-divider--padding u-margin-bottom-medium u-margin-top-small">
+        Reviews
+    </h2>
 
-  //Time Variables
-  $currentYear = date("Y");
-  $currentMonth = date("m");
-  $years = array($currentYear, ($currentYear + 1), ($currentYear + 2));
-  $months = array("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC");
-  $monthNames = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-
-  console_log($cruise_data);
-
-  $args = array( 
-    'lowestPrice' => $cruise_data['LowestPrice'],
-    'cruiseData' => $cruise_data,
-    'propertyType' => 'Lodge',
-    'currentYear' => $currentYear,
-    'currentMonth' => $currentMonth,
-    'years' => $years,
-    'months' => $months,
-    'monthNames' => $monthNames,
-  );
-
-?>
-
-  <!-- Product Page Container -->
-  <div class="product-page">
+<div class="product-reviews__slider" id="reviews-slider">
     <?php
-    get_template_part('template-parts/content', 'product-hero-nav');
+    $rows = get_field('testimonials');
+    if ($rows) {
+        foreach ($rows as $row) {
+            $guest_thumbnail = $row['guest_thumbnail'];
+            $testimonial_image = $row['testimonial_image'];
     ?>
-    <section class="product-content">
+            <div class="product-reviews__slider__item">
+                <div class="product-reviews__slider__item__content">
+                    <svg class="product-reviews__slider__item__content__quote">
+                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-quote"></use>
+                    </svg>
+                    <p class="product-reviews__slider__item__content__text"><?php echo $row['guest_review']; ?></p>
+                    <h3 class="product-reviews__slider__item__content__date"><?php echo $row['review_date']; ?></h3>
+                    <div class="product-reviews__slider__item__content__profile">
+                        <img src="<?php echo esc_html($guest_thumbnail['url']); ?>" alt="" class="product-reviews__slider__item__content__profile__img">
+                        <div class="product-reviews__slider__item__content__profile__user">
+                            <div class="product-reviews__slider__item__content__profile__name">
+                                <?php echo $row['guest_name']; ?>
+                            </div>
+                            <div class="product-reviews__slider__item__content__profile__location">
+                                <?php echo $row['guest_location']; ?>
+                            </div>
+                        </div>
 
-      <!-- 1. Overview Content -->
-      <div class="product-content__page tab-content current" id="overview">
-        <?php
-        get_template_part('template-parts/content', 'product-overview', $args);
-        ?>
-      </div>
-
-      <!-- 2. Itineraries Content -->
-      <div class="product-content__page tab-content" id="itineraries">
-        <?php
-        get_template_part('template-parts/content', 'product-itineraries', $args);
-        ?>
-      </div>
-
-      <!-- 3. Cabins Content -->
-      <div class="product-content__page tab-content " id="cabins">
-        <?php
-        get_template_part('template-parts/content', 'product-cabins', $args);
-        ?>
-      </div>
-
-      <!-- 4. Prices Content -->
-      <div class="product-content__page tab-content " id="prices">
-        <?php
-        get_template_part('template-parts/content', 'product-prices', $args);
-        ?>
-      </div>
-
-
-    </section>
-
- <!-- Areas -->
- <div class="page-divider">
-      Explore
-    </div>
-    <section class="product-areas">
-      <?php
-      get_template_part('template-parts/content', 'product-explore', $args);
-      ?>
-    </section>
-
-    <!-- Reviews -->
-    <div class="page-divider">
-      Guest Reviews
-    </div>
-    <section class="product-reviews">
-      <?php
-      get_template_part('template-parts/content', 'product-reviews', $args);
-      ?>
-    </section>
-
-    <!-- Related Travel -->
-    <div class="page-divider">
-      Related Tours
-    </div>
-    <section class="product-related">
-      <?php
-      get_template_part('template-parts/content', 'product-related', $args);
-      ?>
-    </section>
-  </div>
-
-
-
-
-
-  <script>
-    var currentYear = '<?php echo $currentYear = date("Y"); ?>';
-    var templateUrl = '<?php echo bloginfo('template_url') ?>';
-  </script>
-
-<?php
-endwhile;
-?>
-<!-- #site-wrapper end-->
-<?php get_footer() ?>
+                    </div>
+                </div>
+                <img src="<?php echo esc_html($testimonial_image['url']); ?>" alt="" class="product-reviews__slider__item__image">
+            </div>
+    <?php
+        }
+    } ?>
+</div>
+</div>

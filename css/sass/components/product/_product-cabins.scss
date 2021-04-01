@@ -1,15 +1,4 @@
 .product-cabins {
-    // display: grid;
-    // grid-template-columns: $page-container;
-    // //grid-template-rows: minmax(30vh, min-content);
-    // position: relative;
-
-    // @media only screen and (max-width: $bp-small) {
-    //     grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(
-    //         8,
-    //         [col-start] minmax(min-content, 14rem) [col-end]
-    //       ) [center-end] minmax(3rem, 1fr) [full-end];
-    // }
 
     position: relative;
     display: flex;
@@ -185,6 +174,7 @@
     display: flex;
     position: relative;
     padding: 4rem 0;
+    padding-top: 8rem;
     justify-content: center;
     background-color: $color-primary;
     align-items: center;
@@ -364,15 +354,12 @@
     width: 100%;
     display: flex;
     position: relative;
-    padding-bottom: 2rem;
+    padding-bottom: 6rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
-    @media only screen and (max-width: $bp-small) {
-        padding-bottom: 0rem;
-
-    }
+ 
 
     &__slider {
         width: 100%;

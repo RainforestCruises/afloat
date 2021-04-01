@@ -119,15 +119,13 @@ while (have_posts()) :
 
 
     <!-- Reviews -->
-
-    <section class="product-page__section-reviews" style="display: none;">
+    <section class="product-page__section-reviews">
       <?php
       get_template_part('template-parts/content', 'product-reviews', $args);
       ?>
     </section>
 
     <!-- Related Travel -->
-
     <section class="product-page__section-related" >
       <?php
       get_template_part('template-parts/content', 'product-related', $args);

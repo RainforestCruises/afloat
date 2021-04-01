@@ -1,41 +1,45 @@
-
-
 <div class="product-reviews">
-<h2 class="page-divider">
-    Guest Reviews
-</h2>
-<div class="reviews-slider" id="reviews-slider">
-    <?php
-    $rows = get_field('testimonials');
-    if ($rows) {
-        foreach ($rows as $row) {
-            $guest_thumbnail = $row['guest_thumbnail'];
-            $testimonial_image = $row['testimonial_image'];
-    ?>
-            <div class="reviews-slider__item">
-                <div class="reviews-slider__item__content">
-                    <svg class="reviews-slider__item__content__quote">
-                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-quote"></use>
-                    </svg>
-                    <p class="reviews-slider__item__content__text"><?php echo $row['guest_review']; ?></p>
-                    <h3 class="reviews-slider__item__content__date"><?php echo $row['review_date']; ?></h3>
-                    <div class="reviews-slider__item__content__profile">
-                        <img src="<?php echo esc_html($guest_thumbnail['url']); ?>" alt="" class="reviews-slider__item__content__profile__img">
-                        <div class="reviews-slider__item__content__profile__user">
-                            <div class="reviews-slider__item__content__profile__name">
-                                <?php echo $row['guest_name']; ?>
-                            </div>
-                            <div class="reviews-slider__item__content__profile__location">
-                                <?php echo $row['guest_location']; ?>
-                            </div>
-                        </div>
+    <div class="xsub-divider u-margin-top-medium">
+        Guest Reviews
+    </div>
+    <?php $reviews_background = get_field('reviews_background'); ?>
 
+    <div class="product-reviews__bg" style="background-image:url(<?php echo $reviews_background['url'] ?>)">
+        <!-- <img <?php afloat_responsive_image($reviews_background['id'], 'full-hero-large', array('full-hero-large, full-hero-medium, full-hero-small')); ?> alt=""> -->
+
+    </div>
+    <div class="product-reviews__slider" id="reviews-slider">
+        <?php
+        $testimonials = get_field('testimonials');
+        if ($testimonials) :
+            $t_count = 0;
+            foreach ($testimonials as $t) :
+                $t_person_name = $t['guest_name'];
+                $t_snippet = $t['guest_review'];
+                $t_location = $t['guest_location'];
+                $review_date = $t['review_date'];
+
+        ?>
+                <!-- Testimonial -->
+                <div class="product-reviews__slider__item">
+                    <div class="product-reviews__slider__item__detail">
+                        <?php echo $t_person_name ?>
+                    </div>
+                    <div class="product-reviews__slider__item__snippet">
+                        <?php echo $t_snippet ?>
+                    </div>
+                    <div class="product-reviews__slider__item__detail">
+                        <div>
+                            <?php echo $review_date ?>
+                        </div>
+                        <div>
+                            <?php echo $t_location ?>
+                        </div>
                     </div>
                 </div>
-                <img src="<?php echo esc_html($testimonial_image['url']); ?>" alt="" class="reviews-slider__item__image">
-            </div>
-    <?php
-        }
-    } ?>
-</div>
+
+        <?php $t_count++;
+            endforeach;
+        endif; ?>
+    </div>
 </div>
