@@ -273,10 +273,32 @@
             }
 
             &__title {
-                color: $color-primary;
-                font-size: 2.2rem;
-                font-weight: 600;
+            
                 margin-bottom: 2rem;
+                display: flex;
+                justify-content: space-between;
+
+                &__text {
+                    color: $color-primary;
+                    font-size: 2.2rem;
+                    line-height: 2.7rem;
+                    font-weight: 600;
+                }
+
+                &__badge-area {
+                        width: max-content;
+                        transform: translateY(.4rem);
+                        margin-left: .5rem;
+                        & span {
+                            white-space: nowrap;
+                            padding: 1rem 1.5rem;
+                            background-color: $color-supporting;
+                            color: $color-white;
+                            border-radius: 5rem;
+                            font-size: 1.1rem;
+
+                        }
+                }
             }
 
             
@@ -289,6 +311,7 @@
           
         }
 
+        //Side Info
         &__info {
             width: 60%;
             margin-left: 4rem;
@@ -321,9 +344,10 @@
 
                     @media only screen and (max-width: $bp-small) { //super small screen       
                         font-size: 1.1rem;
-                        letter-spacing: 0rem;
+                        letter-spacing: .1rem;
                         padding: 1rem .5rem;
                     }
+
 
                     &:hover {
                         color: $color-supporting;
@@ -367,6 +391,13 @@
 
                     &:not(:last-child) {
                         border-bottom: 1px solid $color-grey-light-1a;
+                    }
+
+                    &.noborder {
+                        margin-bottom: 0rem;
+                        &:not(:last-child) {
+                            border-bottom: none;
+                        }
                     }
 
                     &__top-section {
@@ -420,6 +451,39 @@
                             }
                         }
                     }
+
+                    &__small-title {
+                            font-size: 1.5rem;
+                            text-transform: uppercase;
+                            letter-spacing: 0.1rem;
+                            color: $color-primary;
+                            font-weight: bold;
+                    }
+
+                    &__list {
+                        list-style: none;
+                        display: flex;
+                        font-size: 1.6rem;
+                        & li {
+                            position: relative;
+
+                            &:not(:last-child){
+                                &::after{
+                                    content: ",";
+                                    margin-right: .5rem;
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                &__fine-print {
+                    font-size: 1.2rem;
+                    color: $color-grey-1;
+                   
+                    letter-spacing: .1rem;
+
                 }
 
                 &__inclusions-list {
@@ -523,6 +587,9 @@
                     &__text {
                         font-size: 1.4rem;
                         padding-right: 4rem;
+                        @media only screen and (max-width: $bp-medium) {
+                            padding-right: 0rem;
+                        }
                     }
                 }
 

@@ -37,7 +37,15 @@ $img = get_field('map');
                 <!-- Map Area -->
                 <div class="product-itinerary-slide__top__map-area">
                     <div class="product-itinerary-slide__top__map-area__title">
-                        <?php echo get_field('tour_name') ?> - <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night
+                        <div class="product-itinerary-slide__top__map-area__title__text">
+                            <?php echo get_field('tour_name') ?>
+                        </div>
+                        <div class="product-itinerary-slide__top__map-area__title__badge-area">
+                            <span>
+                                <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night
+                            </span>
+                        </div>
+
                     </div>
                     <!-- Map -->
                     <a class="" id="itinerary-map-image" href="<?php echo $img['url']; ?>" title="<?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night - <?php echo get_field('tour_name') ?>">
@@ -138,6 +146,54 @@ $img = get_field('map');
 
                         </div>
 
+
+                        <!-- Locations -->
+                        <div class="product-itinerary-slide__top__info__content__widget noborder">
+                            <?php $locations = get_field('locations');
+                            if ($locations) : ?>
+                                <div class="product-itinerary-slide__top__info__content__widget__small-title">
+                                    Places of Interest
+                                </div>
+                                <ul class="product-itinerary-slide__top__info__content__widget__list">
+                                    <?php foreach ($locations as $l) : ?>
+                                        <li><?php echo get_field('navigation_title', $l) ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Experiences -->
+                        <div class="product-itinerary-slide__top__info__content__widget noborder">
+                            <?php $experiences = get_field('experiences');
+                            if ($experiences) : ?>
+                                <div class="product-itinerary-slide__top__info__content__widget__small-title">
+                                    Experiences
+                                </div>
+                                <ul class="product-itinerary-slide__top__info__content__widget__list">
+                                    <?php foreach ($experiences as $e) : ?>
+                                        <li><?php echo get_the_title($e) ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Activities -->
+                        <div class="product-itinerary-slide__top__info__content__widget noborder">
+                            <?php $activities = get_field('activities');
+                            if ($activities) : ?>
+                                <div class="product-itinerary-slide__top__info__content__widget__small-title">
+                                    Activities
+                                </div>
+                                <ul class="product-itinerary-slide__top__info__content__widget__list">
+                                    <?php foreach ($activities as $a) : ?>
+                                        <li><?php echo get_the_title($a) ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </div>
+                        <!-- <div class="product-itinerary-slide__top__info__content__fine-print">
+                                - Call for Availability
+                        </div> -->
                     </div>
 
                     <!-- Inclusions -->

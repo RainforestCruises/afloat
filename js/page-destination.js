@@ -151,7 +151,7 @@ jQuery(document).ready(function ($) {
         nextArrow: '<button class="btn-circle btn-dark btn-circle--right product-related__slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
         responsive: [
             {
-                breakpoint: 1000,
+                breakpoint: 800,
                 settings: {
                     slidesToShow: 2,
                 }
@@ -161,6 +161,7 @@ jQuery(document).ready(function ($) {
                 settings: {
                     slidesToShow: 1,
                     arrows: false,
+                    centerMode: true
                     
                 }
             },

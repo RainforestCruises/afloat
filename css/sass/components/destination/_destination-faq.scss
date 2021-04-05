@@ -30,8 +30,8 @@
             }
 
             &__question {
-                font-size: 2.5rem;
-                line-height: 3.5rem;
+                font-size: 2rem;
+                line-height: 2.6rem;
                 font-weight: 600;
                 color: $color-primary;
                 position: relative;
@@ -41,6 +41,12 @@
                 align-items: center;
                 cursor: pointer;
                 transition: all .3s;
+
+                @media only screen and (max-width: $bp-medium) {
+                    font-size: 1.5rem;
+                    line-height: 2rem;
+                }
+
                 &::after{
                     content: "";
                     position: absolute;
@@ -88,6 +94,26 @@
       width: 20px;
       transition: transform .3s ease;
     }
+
+    @media only screen and (max-width: $bp-medium) {
+        height: 12px;
+        position: relative;
+        width: 12px;
+
+        &:before,
+        &:after{
+          background: currentColor;
+          content: '';
+          height: 2px;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 12px;
+          transition: transform .3s ease;
+        }
+    }
+
+
     &:after {
       transform-origin: center;
     }

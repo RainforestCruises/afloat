@@ -66,7 +66,7 @@ endforeach;
                 endif;
             ?>
                 <div class="product-itineraries__nav__slider__item">
-                    <?php echo $item['LengthInDays'] ?>-Day 
+                    <?php echo $item['LengthInDays'] ?>-Day
                 </div>
             <?php
                 $count++;
@@ -97,8 +97,16 @@ endforeach;
                         <!-- Map Area -->
                         <div class="product-itinerary-slide__top__map-area">
                             <div class="product-itinerary-slide__top__map-area__title">
-                                <?php echo $itinerary['Name'] ?> - <?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night
+                                <div class="product-itinerary-slide__top__map-area__title__text">
+                                    <?php echo $itinerary['Name'] ?>
+                                </div>
+                                <div class="product-itinerary-slide__top__map-area__title__badge-area">
+                                    <span>
+                                        <?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night
+                                    </span>
+                                </div>
                             </div>
+
                             <!-- Map -->
                             <?php $itineraryImages = $itinerary['MapImageDTOs']; ?>
                             <a class="" id="itinerary-map-image" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">

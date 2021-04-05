@@ -425,7 +425,7 @@
 
     //expand higher
     @media only screen and (max-width: $bp-small) {
-      height: 30rem;
+      height: 32rem;
     }
 
     //bottom content (info)
@@ -437,8 +437,8 @@
 
       //side padding
       padding: 0 6rem;
-      @media only screen and (max-width: $bp-small) {
-        padding: 0 3rem;
+      @media only screen and (max-width: $bp-large) {
+        padding: 0rem;
       }
 
       &__info-group {
@@ -485,11 +485,7 @@
             display: flex;
             align-items: flex-end;
 
-            @media only screen and (max-width: $bp-small) {
-              margin-right: 0rem;
-              margin-bottom: 2rem;
-            }
-
+    
             span {
               display: flex;
               align-items: flex-end;
@@ -498,6 +494,23 @@
               padding-left: 1rem;
               font-size: 3.5rem;
               font-weight: 500;
+            }
+
+            @media only screen and (max-width: $bp-small) {
+              margin-right: 0rem;
+              font-size: 1.5rem;
+              align-items: center;
+              & span {
+                font-size: 3rem;
+              }
+            }
+
+          }
+
+          &__cta {
+            @media only screen and (max-width: $bp-small) {
+              display: none;
+
             }
           }
         }
@@ -516,10 +529,14 @@
             padding: 0.5rem 1rem;
             display: flex;
             text-align: center;
-            justify-content: center;
+            //justify-content: center;
             align-items: center;
             flex: 0 1 33%;
             flex-direction: column;
+
+            &.tour {
+              flex: 0 1 50%;
+            }
 
             &:not(:last-child)::after {
               content: "";
@@ -546,6 +563,15 @@
               @media only screen and (max-width: $bp-small) {
                 font-size: 1.8rem;
                 line-height: 2.4rem;
+              }
+
+              & ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+
+                //font-size: 1.6rem;
+               // line-height: 2.2rem;
               }
             }
           }

@@ -16,6 +16,9 @@ if ($args['propertyType'] == 'Cruise') {
         $charter_view = true;
     }
 }
+
+
+$images = get_field('highlight_gallery');
 ?>
 
 <div class="product-hero">
@@ -149,9 +152,12 @@ if ($args['propertyType'] == 'Cruise') {
 
 
             <!-- Expand Gallery -->
-            <div class="product-hero__top__content__gallery-expand" id="gallery-expand-button">
-                Photos
-            </div>
+            <?php if ($images) : ?>
+                <div class="product-hero__top__content__gallery-expand" id="gallery-expand-button">
+                    Photos
+                </div>
+            <?php endif; ?>
+
         </div>
     </div>
 
@@ -160,7 +166,7 @@ if ($args['propertyType'] == 'Cruise') {
 
         <div class="product-hero__gallery__slick" id="product-gallery">
             <?php
-            $images = get_field('highlight_gallery');
+
             if ($images) : ?>
                 <?php foreach ($images as $image) : ?>
                     <div class="product-hero__gallery__slick__item">
@@ -197,7 +203,7 @@ if ($args['propertyType'] == 'Cruise') {
 
                 <!-- KSPs -->
                 <div class="product-hero__bottom__content__info-group__attributes">
-                    <div class="product-hero__bottom__content__info-group__attributes__item">
+                    <div class="product-hero__bottom__content__info-group__attributes__item <?php echo (get_post_type($p) == 'rfc_tours') ? "tour" : ""; ?>">
                         <div class="product-hero__bottom__content__info-group__attributes__item__title">
                             <?php echo (get_post_type($p) == 'rfc_tours') ? "Length" : "Itineraries"; ?>
                         </div>
@@ -209,23 +215,38 @@ if ($args['propertyType'] == 'Cruise') {
                             endif; ?>
                         </div>
                     </div>
-                    <div class="product-hero__bottom__content__info-group__attributes__item">
+                    <div class="product-hero__bottom__content__info-group__attributes__item <?php echo (get_post_type($p) == 'rfc_tours') ? "tour" : ""; ?>">
                         <div class="product-hero__bottom__content__info-group__attributes__item__title">
-                            Capacity
+                            <?php echo (get_post_type($p) == 'rfc_tours') ? "Experience" : "Capacity"; ?>
                         </div>
                         <div class="product-hero__bottom__content__info-group__attributes__item__data">
-                            <?php echo (get_post_type($p) == 'rfc_tours') ? "" : get_field('vessel_capacity') . " Guests"; ?>
+                            <?php if (get_post_type($p) == 'rfc_tours') : ?>
+                                <?php $experiences = get_field('experiences');
+                                if ($experiences) : ?>
+                                    <ul>
+                                        <?php foreach ($experiences as $e) : ?>
+                                            <li><?php echo get_the_title($e) ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php endif; ?>
+                            
+                            <?php else :
+                                echo get_field('vessel_capacity') . ' Guests';
+                            endif; ?>
+
 
                         </div>
                     </div>
-                    <div class="product-hero__bottom__content__info-group__attributes__item">
-                        <div class="product-hero__bottom__content__info-group__attributes__item__title">
-                            Availability
+                    <?php if (get_post_type($p) != 'rfc_tours') : ?>
+                        <div class="product-hero__bottom__content__info-group__attributes__item ">
+                            <div class="product-hero__bottom__content__info-group__attributes__item__title">
+                                Availability
+                            </div>
+                            <div class="product-hero__bottom__content__info-group__attributes__item__data" style="color: #00a84b">
+                                High
+                            </div>
                         </div>
-                        <div class="product-hero__bottom__content__info-group__attributes__item__data" style="color: #00a84b">
-                            High
-                        </div>
-                    </div>
+                    <?php endif; ?>
 
 
                 </div>

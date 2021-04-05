@@ -11,7 +11,7 @@
         display: grid;
         grid-template-columns: $page-container;
 
-        margin-bottom: 6rem;
+        margin-bottom: 3rem;
         @media only screen and (max-width: $bp-small) {
             grid-template-columns: $page-container-small;
         }
@@ -38,27 +38,12 @@
         grid-column: 1 / -1;
         display: flex;
         justify-content: center;
-        margin: 0 10rem;
-        margin-bottom: 6rem;
-
-
-        // position: relative;
-        // &::before {
-        //     content: "";
-        //     position: absolute;
-        //     height: 100%;
-        //     width: 100%;
-        //     background-image: linear-gradient(to top, rgba($color-white, 0.8), rgba($color-white, 0.8)),
-        //         url(img/bg/topo-1.png);
-        //     opacity: 0.35;
-        //     top: 0;
-        //     left: 0;
-        //     z-index: -3;
-        // }
+        //margin: 0 10rem;
+        margin-bottom: 4rem;
 
         @media only screen and (max-width: $bp-small) {
-            margin: 3rem;
-            margin-bottom: 6rem;
+            //margin-: 3rem;
+            margin-bottom: 2rem;
         }
         &__slider {
             width: 100%;
@@ -69,7 +54,7 @@
             //side padding
             padding: 0 9rem; //extra +3 for buttons
             @media only screen and (max-width: $bp-small) {
-                padding: 0 3rem;
+                padding: 0rem;
             }
 
             .slick-slide {
