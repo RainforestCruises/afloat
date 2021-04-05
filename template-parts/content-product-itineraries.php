@@ -28,6 +28,19 @@ if ($args['propertyType'] == 'Cruise') {
 }
 ?>
 
+
+
+<?php //total count of all itineraries
+$totalCount = 0;
+foreach ($cruise_data['Itineraries'] as $item) :
+    if ($charter_only == true && $item['IsSample'] == false) :
+        $totalCount++;
+        continue;
+    endif;
+    $totalCount++;
+endforeach;
+?>
+
 <!-- Itineraries -->
 <div class="product-itineraries">
 
@@ -35,10 +48,13 @@ if ($args['propertyType'] == 'Cruise') {
         Itineraries
     </h2>
 
+
+
     <!-- Itinerary Slider Nav -->
     <div class="product-itineraries__nav">
-        <div class="product-itineraries__nav__slider" id="itineraries-slider-nav">
+        <div class="product-itineraries__nav__counter" id="itineraries-slider-counter">Itinerary: <?php echo '1 / ' . $totalCount ?></div>
 
+        <div class="product-itineraries__nav__slider" id="itineraries-slider-nav">
             <?php
             $count = 1;
             foreach ($cruise_data['Itineraries'] as $item) :
@@ -50,7 +66,7 @@ if ($args['propertyType'] == 'Cruise') {
                 endif;
             ?>
                 <div class="product-itineraries__nav__slider__item">
-                    <?php echo $item['LengthInDays'] ?>-Day
+                    <?php echo $item['LengthInDays'] ?>-Day 
                 </div>
             <?php
                 $count++;
@@ -152,7 +168,7 @@ if ($args['propertyType'] == 'Cruise') {
                                             <div class="product-itinerary-slide__top__info__content__widget__legend__item product-itinerary-slide__top__info__content__widget__legend__item--sold-out">
                                                 Sold Out
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 <?php endif; ?>
@@ -188,28 +204,28 @@ if ($args['propertyType'] == 'Cruise') {
                                                     </div>
                                                     <div class="price-grid__header__details">
                                                         <div class="price-grid__header__details__item">
-                                                            Double 
+                                                            Double
                                                         </div>
                                                         <!-- Add single -->
                                                     </div>
                                                 </div>
                                                 <?php $rateYears = $itinerary['RateYears']; ?>
                                                 <?php foreach ($rateYear['Rates'] as $rate) : ?>
-                         
+
 
 
                                                     <div class="price-grid__row">
-                                                    <div class="price-grid__row__title">
-                                                    <?php echo  $rate['Cabin'] ?>
-                                                    </div>
-                                                    <div class="price-grid__row__details">
-                                                        <div class="price-grid__row__details__item">
-                                                        <?php echo "$ " . number_format($rate['WebAmount'], 0);  ?>
+                                                        <div class="price-grid__row__title">
+                                                            <?php echo  $rate['Cabin'] ?>
                                                         </div>
-                                                       <!-- Add single -->
-                                                    </div>
+                                                        <div class="price-grid__row__details">
+                                                            <div class="price-grid__row__details__item">
+                                                                <?php echo "$ " . number_format($rate['WebAmount'], 0);  ?>
+                                                            </div>
+                                                            <!-- Add single -->
+                                                        </div>
 
-                                                </div>
+                                                    </div>
                                                 <?php endforeach; ?>
                                             </div>
                                         <?php endforeach; ?>
@@ -263,6 +279,7 @@ if ($args['propertyType'] == 'Cruise') {
 
                         <!-- Slider -->
                         <div class="product-itinerary-slide__bottom__days" id="slider-bottom-days-<?php echo $count ?>">
+
                             <?php
                             $days = $itinerary['ItineraryDays'];
                             $dayImages = $itinerary['DayImageDTOs'];
@@ -327,6 +344,8 @@ if ($args['propertyType'] == 'Cruise') {
                                 endforeach;
                             endif; ?>
                         </div>
+                        <span class="product-itinerary-slide__bottom__counter">1 / <?php echo ($dayCount - 1); ?></span>
+
                     </div>
                 </div>
             <?php $count++;

@@ -245,6 +245,9 @@ $img = get_field('map');
                         endforeach;
                     endif; ?>
                 </div>
+
+                <span class="product-itinerary-slide__bottom__counter">1 / <?php echo ($dayCount - 1); ?></span>
+
             </div>
         </div>
     </div>
