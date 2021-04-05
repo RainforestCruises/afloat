@@ -2013,9 +2013,9 @@ h5 {
   @media only screen and (max-width: 62.5em) and (max-width: 37.5em) {
     .product-hero__bottom {
       padding: 0 3rem; } }
-    @media only screen and (max-width: 37.5em) {
+    @media only screen and (max-width: 50em) {
       .product-hero__bottom {
-        height: 32rem; } }
+        height: 35rem; } }
     .product-hero__bottom__content {
       width: 100%;
       display: flex;
@@ -2322,7 +2322,7 @@ h5 {
       position: absolute;
       top: calc(-100% + 3rem);
       left: 0;
-      background-image: linear-gradient(to bottom, transparent, #fff); }
+      background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0), #fff); }
     .product-overview__fade.expand::after {
       display: none; }
 

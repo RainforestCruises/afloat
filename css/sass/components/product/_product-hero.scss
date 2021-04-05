@@ -424,8 +424,8 @@
     }
 
     //expand higher
-    @media only screen and (max-width: $bp-small) {
-      height: 32rem;
+    @media only screen and (max-width: $bp-medium) {
+      height: 35rem;
     }
 
     //bottom content (info)

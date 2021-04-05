@@ -428,9 +428,6 @@ jQuery(document).ready(function ($) {
           slidesToShow: 1,
           arrows: false,
           centerMode: true,
-          dots: true
-
-
         }
       }
     ]

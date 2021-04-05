@@ -142,10 +142,10 @@ $images = get_field('highlight_gallery');
                 <div class="product-hero__top__content__cta">
                     <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#overview">
                         <svg class="btn-circle--arrow-main">
-                            <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-down"></use>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
                         </svg>
                         <svg class="btn-circle--arrow-animate">
-                            <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-arrow-down"></use>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
                         </svg></button>
                 </div>
             </div>
