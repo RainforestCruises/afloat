@@ -259,4 +259,52 @@ foreach ($menuitems as $m) {
 
         </nav>
 
+        <?php if (get_post_type() == 'rfc_cruises' || get_post_type() == 'rfc_tours' || get_post_type() == 'rfc_lodges') : ?>
+
+            <?php
+            $productTitle = "";
+            $showOverview = true;
+
+            if (get_post_type() == 'rfc_tours') :
+                $productTitle = get_field('tour_name');
+                $showOverview  = false;
+            else :
+                $productTitle = get_the_title();
+            endif;
+
+
+
+            ?>
+
+
+            <nav class="nav-product">
+                <div class="nav-product__main">
+                    <div class="nav-product__main__title-area">
+                        <a class="nav-product__main__title-area__title" href="#top">
+                            <?php echo $productTitle ?>
+                        </a>
+
+                    </div>
+                    <ul class="nav-product__main__links">
+                        <?php if ($showOverview) : ?>
+                            <li>
+                                <a href="#overview">Overview</a>
+                            </li>
+                        <?php endif; ?>
+                        <li>
+                            <a href="#itineraries"><?php echo (get_post_type() == 'rfc_cruises') ? ('Itineraries') : ('Itinerary'); ?></a>
+                        </li>
+                        <li>
+                            <a href="#accommodations">Accommodations</a>
+                        </li>
+                    </ul>
+                    <div class="nav-product__main__cta">
+                        <button class="btn-cta-round btn-cta-round--small btn-cta-round--white">
+                            Inquire
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        <?php endif; ?>
+
     </header>

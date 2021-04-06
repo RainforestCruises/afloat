@@ -1134,11 +1134,6 @@ h5 {
   font-weight: 500;
   text-transform: none; }
 
-.global {
-  display: grid;
-  grid-template-rows: [nav-start content-start] 9rem [nav-end] min-content [content-end footer-start] min-content [footer-end];
-  grid-template-columns: [full-start] 1fr [full-end]; }
-
 .home-page {
   display: grid;
   grid-row: content-start / content-end;
@@ -7393,17 +7388,11 @@ h5 {
           max-height: 48rem; } }
 
 .header {
-  grid-column: full-start / -1;
-  grid-row: nav-start / nav-end;
   z-index: 100;
   position: fixed;
   width: 100%;
-  display: grid;
-  grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-  user-select: none;
-  justify-content: center; }
+  user-select: none; }
   .header__main {
-    grid-column: 1/-1;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -7414,9 +7403,6 @@ h5 {
     letter-spacing: 0.2rem;
     font-weight: 600;
     color: #f8f8f8;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     border-bottom: 1px solid rgba(194, 198, 201, 0.1);
     background-color: rgba(255, 255, 255, 0.1);
     -webkit-backdrop-filter: blur(8px);
@@ -7449,6 +7435,7 @@ h5 {
     .header__main--small-nav {
       height: 7rem; }
     .header__main__logo-area {
+      width: min-content;
       z-index: 5;
       position: relative;
       display: flex;
@@ -7473,7 +7460,7 @@ h5 {
     .header__main__nav {
       display: flex;
       width: 100%;
-      max-width: 106rem;
+      max-width: 102.5rem;
       justify-content: flex-start;
       z-index: 18;
       height: 100%;
@@ -7633,7 +7620,6 @@ h5 {
 .nav-mega {
   flex: 1;
   z-index: 18;
-  grid-column: 1 / -1;
   display: none;
   width: 100%;
   justify-content: center;
@@ -7643,7 +7629,7 @@ h5 {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  border-bottom: 1px solid rgba(194, 198, 201, 0.9);
+  border-bottom: 1px solid #c2c6c9;
   transition: all 0.5s;
   opacity: 0; }
   .nav-mega--active {
@@ -7708,6 +7694,65 @@ h5 {
           color: #747474; }
         .nav-mega__nav__sub-group__link:hover, .nav-mega__nav__sub-group__link:active {
           color: #40739c; }
+
+.nav-product {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #c2c6c9;
+  height: 5rem;
+  display: flex;
+  justify-content: center; }
+  .nav-product__main {
+    flex-grow: 1;
+    display: flex;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    align-items: center;
+    height: 100%; }
+    .nav-product__main__title-area {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      margin-left: 6rem;
+      margin-right: 1rem;
+      flex-grow: 1; }
+      .nav-product__main__title-area__title {
+        text-decoration: none;
+        width: max-content; }
+        .nav-product__main__title-area__title:link, .nav-product__main__title-area__title:visited {
+          color: #40739c; }
+        .nav-product__main__title-area__title:hover {
+          color: #4381b3; }
+      .nav-product__main__title-area::after {
+        content: "";
+        position: absolute;
+        right: -2rem;
+        top: 50%;
+        width: 1px;
+        height: 100%;
+        transform: translateY(-50%);
+        background-color: #e6e6e6; }
+    .nav-product__main__links {
+      max-width: 120rem;
+      width: 100%;
+      display: flex;
+      list-style: none; }
+      .nav-product__main__links li {
+        margin-left: 3rem; }
+        .nav-product__main__links li a {
+          text-decoration: none; }
+          .nav-product__main__links li a:visited, .nav-product__main__links li a:link {
+            color: #747474; }
+          .nav-product__main__links li a:hover {
+            color: #40739c; }
+    .nav-product__main__cta {
+      flex-grow: 1;
+      width: max-content;
+      display: flex;
+      padding-right: 4rem; }
+      .nav-product__main__cta button {
+        transform: scale(0.6); }
 
 .burger-menu {
   grid-column: col-end 8 / -1;
