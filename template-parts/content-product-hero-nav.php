@@ -61,14 +61,8 @@ $images = get_field('highlight_gallery');
                     <h2 class="product-hero__top__content__title-group__subtitle"><?php echo get_field('top_snippet') ?></h2>
                 </div>
 
-
                 <!-- Navigation Wrapper -->
                 <nav class="product-hero__top__content__nav" id="template-nav">
-
-                    <!-- Hidden title -->
-                    <div class="page-nav-title">
-                        <?php echo $productTitle ?>
-                    </div>
 
                     <!-- nav list -->
                     <ul class="product-hero__top__content__nav__list">
@@ -94,48 +88,6 @@ $images = get_field('highlight_gallery');
                     <?php endif;
                     } ?> -->
                     </ul>
-
-                    <!-- mobile menu header -->
-                    <div class="page-nav">
-                        <div class="page-nav__button">
-                            <!-- for tour name Tour Name -->
-                            <?php echo get_the_title() ?>
-                            <svg>
-                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                            </svg>
-                        </div>
-
-                        <div class="page-nav__cta">
-                            <button class="btn-cta-square btn-cta-square--small btn-cta-square--white">
-                                Inquire
-                            </button>
-                        </div>
-                    </div>
-
-                    <!--mobile menu expand-->
-                    <nav class="page-nav__collapse ">
-                        <ul class="page-nav__collapse__list">
-                            <?php if ($showOverview) : ?>
-                                <li class="page-nav__collapse__list__item">
-                                    <a class="page-nav__collapse__list__item__link" href="#overview">Overview</a>
-                                </li>
-                            <?php endif; ?>
-                            <li class="page-nav__collapse__list__item">
-                                <a class="page-nav__collapse__list__item__link" href="#itineraries">Itineraries</a>
-                            </li>
-                            <li class="page-nav__collapse__list__item">
-                                <a class="page-nav__collapse__list__item__link" href="#accommodations">Accommodations</a>
-                            </li>
-                            <!-- <li class="page-nav__collapse__list__item">
-                            <a class="page-nav__collapse__list__item__link" href="#prices">Prices</a>
-                        </li>
-                        <?php if (get_post_type() == 'rfc_cruises') { ?>
-                            <li class="page-nav__collapse__list__item">
-                                <a class="page-nav__collapse__list__item__link" href="#dates">Dates</a>
-                            </li>
-                        <?php } ?> -->
-                        </ul>
-                    </nav>
                 </nav>
 
                 <!-- CTA -->
@@ -190,7 +142,7 @@ $images = get_field('highlight_gallery');
             <div class="product-hero__bottom__content__info-group">
 
                 <!-- Starting Price / CTA -->
-                <div class="product-hero__bottom__content__info-group__info">
+                <div class="product-hero__bottom__content__info-group__info" id="page-title">
                     <?php if ($charter_view == false) : ?>
                         <div class="product-hero__bottom__content__info-group__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span></div>
                     <?php else : ?>

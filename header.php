@@ -142,9 +142,7 @@ foreach ($menuitems as $m) {
                     <span class="burger-menu__bar "></span>
                 </div>
             </div>
-
         </div>
-
 
 
         <!-- Mega desktop -->
@@ -171,6 +169,7 @@ foreach ($menuitems as $m) {
                 <?php endforeach; ?>
             </div>
         </div>
+
 
         <!-- Mega mobile -->
         <nav class="nav-mobile">
@@ -259,6 +258,7 @@ foreach ($menuitems as $m) {
 
         </nav>
 
+        <!-- Product Secondary Nav -->
         <?php if (get_post_type() == 'rfc_cruises' || get_post_type() == 'rfc_tours' || get_post_type() == 'rfc_lodges') : ?>
 
             <?php
@@ -271,21 +271,23 @@ foreach ($menuitems as $m) {
             else :
                 $productTitle = get_the_title();
             endif;
-
-
-
             ?>
 
-
-            <nav class="nav-product">
-                <div class="nav-product__main">
-                    <div class="nav-product__main__title-area">
-                        <a class="nav-product__main__title-area__title" href="#top">
+            <nav class="nav-secondary" id="nav-secondary">
+                <div class="nav-secondary__main">
+                    <div class="nav-secondary__main__title-area">
+                        <a class="nav-secondary__main__title-area__title" id="nav-secondary-title" href="#top">
                             <?php echo $productTitle ?>
                         </a>
+                        <button class="nav-secondary__main__title-area__button" id="nav-secondary-button">
+                            <?php echo $productTitle ?>
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                            </svg>
+                        </button>
 
                     </div>
-                    <ul class="nav-product__main__links">
+                    <ul class="nav-secondary__main__links">
                         <?php if ($showOverview) : ?>
                             <li>
                                 <a href="#overview">Overview</a>
@@ -298,13 +300,190 @@ foreach ($menuitems as $m) {
                             <a href="#accommodations">Accommodations</a>
                         </li>
                     </ul>
-                    <div class="nav-product__main__cta">
+                    <div class="nav-secondary__main__cta">
                         <button class="btn-cta-round btn-cta-round--small btn-cta-round--white">
                             Inquire
                         </button>
                     </div>
                 </div>
             </nav>
+
+
+
+            <!--mobile menu expand-->
+            <nav class="nav-secondary-mobile ">
+                <ul class="nav-secondary-mobile__list">
+                    <?php if ($showOverview) : ?>
+                        <li class="nav-secondary-mobile__list__item">
+                            <a class="nav-secondary-mobile__list__item__link" href="#overview">Overview</a>
+                        </li>
+                    <?php endif; ?>
+                    <li class="nav-secondary-mobile__list__item">
+                        <a class="nav-secondary-mobile__list__item__link" href="#itineraries">Itineraries</a>
+                    </li>
+                    <li class="nav-secondary-mobile__list__item">
+                        <a class="nav-secondary-mobile__list__item__link" href="#accommodations">Accommodations</a>
+                    </li>
+                </ul>
+            </nav>
+        <?php endif; ?>
+
+
+
+        <!-- Destination Secondary Nav -->
+        <?php
+        if (is_page_template('template-destinations-destination.php') || is_page_template('template-destinations-cruise.php') || is_page_template('template-destinations-region.php')) : ?>
+            <?php
+            $navTitle = "";
+            $destinationType = "";
+
+            if (is_page_template('template-destinations-region.php')) :
+                $r = get_field('region_post');
+                $navTitle = get_field('navigation_title', $r);
+                $destinationType = "region";
+            elseif (is_page_template('template-destinations-destination.php')) :
+                $d = get_field('destination_post');
+                $navTitle = get_field('navigation_title', $d);
+                $destinationType = "destination";
+            else :
+                $d = get_field('destination_post');
+                $navTitle = get_field('navigation_title', $d);
+                $destinationType = "cruise";
+            endif; ?>
+
+            <nav class="nav-secondary" id="nav-secondary">
+                <div class="nav-secondary__main">
+                    <div class="nav-secondary__main__title-area">
+                        <a class="nav-secondary__main__title-area__title" id="nav-secondary-title" href="#top">
+                            <?php echo $navTitle ?>
+                        </a>
+                        <button class="nav-secondary__main__title-area__button" id="nav-secondary-button">
+                            <?php echo $navTitle ?>
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                            </svg>
+                        </button>
+
+                    </div>
+                    <ul class="nav-secondary__main__links">
+
+                        <!-- Order depending on template type -->
+                        <?php if ($destinationType == 'region' || $destinationType == 'destination') { ?>
+                            <li>
+                                <a href="#packages">Packages</a>
+                            </li>
+                            <?php if ($destinationType == 'destination') {
+                                $hide_cruises = get_field('hide_cruises');
+                                if (!$hide_cruises) { ?>
+                                    <li>
+                                        <a href="#cruises">Cruises</a>
+                                    </li>
+                                <?php }
+                            } else { ?>
+                                <li>
+                                    <a href="#cruises">Cruises</a>
+                                </li>
+                            <?php } ?>
+
+                            <?php if ($destinationType == 'destination') {
+                                $hide_accommodations = get_field('hide_accommodations');
+                                if (!$hide_accommodations) { ?>
+                                    <li>
+                                        <a href="#accommodation">Accommodation</a>
+                                    </li>
+                                <?php }
+                            } else { ?>
+                                <li>
+                                    <a href="#accommodation">Accommodation</a>
+                                </li>
+                            <?php } ?>
+
+                        <?php } else if ($destinationType == 'cruise') { ?>
+                            <li>
+                                <a href="#cruises">Cruises</a>
+                            </li>
+                            <li>
+                                <a href="#packages">Packages</a>
+                            </li>
+                        <?php } ?>
+
+                        <li>
+                            <a href="#travel-guide">Travel Guide</a>
+                        </li>
+                        <li>
+                            <a href="#testimonials">Testimonials</a>
+                        </li>
+                        <li href="#faq">
+                            <a href="#faq">FAQ</a>
+                        </li>
+                    </ul>
+                    <div class="nav-secondary__main__cta">
+                        <button class="btn-cta-round btn-cta-round--small btn-cta-round--white">
+                            Inquire
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+
+
+            <!--mobile menu expand-->
+            <nav class="nav-secondary-mobile ">
+                <ul class="nav-secondary-mobile__list">
+
+                    <!-- Order depending on template type -->
+                    <?php if ($destinationType == 'region' || $destinationType == 'destination') { ?>
+                        <li class="nav-secondary-mobile__list__item">
+                            <a href="#packages" class="nav-secondary-mobile__list__item__link">Packages</a>
+                        </li>
+                        <?php if ($destinationType == 'destination') {
+                            $hide_cruises = get_field('hide_cruises');
+                            if (!$hide_cruises) { ?>
+                                <li class="nav-secondary-mobile__list__item">
+                                    <a href="#cruises" class="nav-secondary-mobile__list__item__link">Cruises</a>
+                                </li>
+                            <?php }
+                        } else { ?>
+                            <li class="nav-secondary-mobile__list__item">
+                                <a href="#cruises" class="nav-secondary-mobile__list__item__link">Cruises</a>
+                            </li>
+                        <?php } ?>
+
+                        <?php if ($destinationType == 'destination') {
+                            $hide_accommodations = get_field('hide_accommodations');
+                            if (!$hide_accommodations) { ?>
+                                <li class="nav-secondary-mobile__list__item">
+                                    <a href="#accommodation" class="nav-secondary-mobile__list__item__link">Accommodation</a>
+                                </li>
+                            <?php }
+                        } else { ?>
+                            <li class="nav-secondary-mobile__list__item">
+                                <a href="#accommodation" class="nav-secondary-mobile__list__item__link">Accommodation</a>
+                            </li>
+                        <?php } ?>
+
+                    <?php } else if ($destinationType == 'cruise') { ?>
+                        <li class="nav-secondary-mobile__list__item">
+                            <a href="#cruises" class="nav-secondary-mobile__list__item__link">Cruises</a>
+                        </li>
+                        <li class="nav-secondary-mobile__list__item">
+                            <a href="#packages" class="nav-secondary-mobile__list__item__link">Packages</a>
+                        </li>
+                    <?php } ?>
+
+                    <li class="nav-secondary-mobile__list__item">
+                        <a href="#travel-guide" class="nav-secondary-mobile__list__item__link">Travel Guide</a>
+                    </li>
+                    <li class="nav-secondary-mobile__list__item">
+                        <a href="#testimonials" class="nav-secondary-mobile__list__item__link">Testimonials</a>
+                    </li>
+                    <li class="nav-secondary-mobile__list__item" href="#faq">
+                        <a href="#faq" class="nav-secondary-mobile__list__item__link">FAQ</a>
+                    </li>
+
+                </ul>
+            </nav>
+
         <?php endif; ?>
 
     </header>

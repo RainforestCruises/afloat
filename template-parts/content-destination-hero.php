@@ -43,7 +43,7 @@
 
           <!-- Title -->
           <div class="destination-hero__content__title-group">
-              <div class="destination-hero__content__title-group__title">
+              <div class="destination-hero__content__title-group__title" id="page-title">
                   <?php echo get_the_title(); ?>
               </div>
           </div>
@@ -129,63 +129,7 @@
                       </div>
                   </div>
 
-                  <!-- page-nav__collapse--active -->
-                  <nav class="page-nav__collapse ">
-                      <ul class="page-nav__collapse__list">
-                          <!-- Order depending on template type -->
-                          <?php if ($destinationType == 'region' || $destinationType == 'destination') { ?>
-                              <li class="page-nav__collapse__list__item">
-                                  <a href="#packages" class="page-nav__collapse__list__item__link">Packages</a>
-                              </li>
-                              <?php if ($destinationType == 'destination') {
-                                    $hide_cruises = get_field('hide_cruises');
-                                    if (!$hide_cruises) { ?>
-                                      <li class="page-nav__collapse__list__item">
-                                          <a href="#cruises" class="page-nav__collapse__list__item__link">Cruises</a>
-                                      </li>
-                                  <?php }
-                                } else { ?>
-                                  <li class="page-nav__collapse__list__item">
-                                      <a href="#cruises" class="page-nav__collapse__list__item__link">Cruises</a>
-                                  </li>
-                              <?php } ?>
-
-                              <?php if ($destinationType == 'destination') {
-                                    $hide_accommodations = get_field('hide_accommodations');
-                                    if (!$hide_accommodations) { ?>
-                                      <li class="page-nav__collapse__list__item">
-                                          <a href="#accommodation" class="page-nav__collapse__list__item__link">Accommodation</a>
-                                      </li>
-                                  <?php }
-                                } else { ?>
-                                  <li class="page-nav__collapse__list__item">
-                                      <a href="#accommodation" class="page-nav__collapse__list__item__link">Accommodation</a>
-                                  </li>
-                              <?php } ?>
-
-
-
-                          <?php } else if ($destinationType == 'cruise') { ?>
-                              <li class="page-nav__collapse__list__item">
-                                  <a href="#cruises" class="page-nav__collapse__list__item__link">Cruises</a>
-                              </li>
-                              <li class="page-nav__collapse__list__item">
-                                  <a href="#packages" class="page-nav__collapse__list__item__link">Packages</a>
-                              </li>
-                          <?php } ?>
-
-                          <li class="page-nav__collapse__list__item">
-                              <a href="#travel-guide" class="page-nav__collapse__list__item__link">Travel Guide</a>
-
-                          </li>
-                          <li class="page-nav__collapse__list__item">
-                              <a href="#testimonials" class="page-nav__collapse__list__item__link">Testimonials</a>
-                          </li>
-                          <li class="page-nav__collapse__list__item" href="#faq">
-                              <a href="#faq" class="page-nav__collapse__list__item__link">FAQ</a>
-                          </li>
-                      </ul>
-                  </nav>
+              
               </nav>
 
 

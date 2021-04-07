@@ -6,39 +6,21 @@ jQuery(document).ready(function ($) {
         changePosition(identifier);
     }
 
-    //PAGE NAV
-    var navbar = document.querySelector('#template-nav');
-    var subnavTitle = document.querySelector('#template-nav-title');
-    var offsetY = navbar.offsetTop;
-
 
     //On Scroll Listener
     window.onscroll = function () { scrollCheck() };
     function scrollCheck() {
 
-        var templateNavVisible = Utils.isElementInView($('#template-nav'), false);
+        var titleVisible = Utils.isElementInView($('#page-title'), false);
 
-        if (templateNavVisible) {
-            $('#page-nav').remove();
-            $('.page-nav__collapse').removeClass('page-nav__collapse--active');
-            $('.page-nav__button').removeClass('page-nav__button--active');
-
+        if (titleVisible) {      
+            $('.nav-secondary').removeClass('active');
+            $('.nav-secondary-mobile').removeClass('active');
+            $("#nav-secondary-button").removeClass('active');
         } else { //if template nav is out of view
-
             //and if burger menu isnt active
             if ($(".burger-menu").hasClass('burger-menu--active') != true) {
-
-                //Page Nav
-                var pageNavExists = document.getElementById("page-nav"); //and not already there
-                if (pageNavExists == null) {
-                    var newNav = $(navbar).clone(true); //clone the nav and append it to header (pass true to clone events also)
-                    newNav.attr('id', 'page-nav'); //give it the id page-nav (cloned from template nav)
-
-                    $(newNav).addClass('active'); //fix
-                    $('#header').append(newNav);
-                }
-
-
+                $('.nav-secondary').addClass('active');
             }
         }
 
@@ -46,7 +28,7 @@ jQuery(document).ready(function ($) {
     }
 
     //On Scroll -- Apply current to nav links
-    var sections = $('.page-nav-template');
+    var sections = $('.nav-secondary__main__links li a');
     function isSelected(scrolledTo) {
         var threshold = 200;
         var i;
@@ -59,7 +41,9 @@ jQuery(document).ready(function ($) {
                 var sectionHref = $(section).attr('href');
                 var active = $('a[href="' + sectionHref + '"]');
 
-                $('.page-nav-template').removeClass("current");
+                $('.nav-secondary__main__links li a').removeClass("current");
+                $('.nav-secondary-mobile__list li a').removeClass("current");
+
                 if (active != null) {
                     active.addClass("current");
                 }
@@ -74,7 +58,7 @@ jQuery(document).ready(function ($) {
     }
 
     // On Click - Nav Links, href change position
-    $('.page-nav-template, .page-nav__collapse__list__item__link, #template-nav-title,  #down-arrow-button').click(function (event) {
+    $('.page-nav-template, .nav-secondary__main__links li a,  .nav-secondary-mobile__list li a, #nav-secondary-title,  #down-arrow-button').click(function (event) {
         var id = $(this).attr('href');
         changePosition(id)
         event.preventDefault();
@@ -83,8 +67,8 @@ jQuery(document).ready(function ($) {
     // Animate Change Position
     function changePosition(id) {
 
-        $('.page-nav__collapse').removeClass('page-nav__collapse--active'); //if mobile open - close menu / button
-        $('.page-nav__button').removeClass('page-nav__button--active');
+        $('.nav-secondary-mobile').removeClass('active'); //if mobile open - close menu / button
+        $("#nav-secondary-button").removeClass('active');
 
         var target = $(id).offset().top;
         target = target - 160;
@@ -99,18 +83,18 @@ jQuery(document).ready(function ($) {
 
     //Burger
     //Burger Menu -- click
-    $(".page-nav__button").on("click", function () {
+    $("#nav-secondary-button").on("click", function () {
 
-        $('.page-nav__button').toggleClass('page-nav__button--active');
-        $('.page-nav__collapse').toggleClass('page-nav__collapse--active');
+        $('#nav-secondary-button').toggleClass('active');
+        $('.nav-secondary-mobile').toggleClass('active');
 
     });
 
     //Burger Menu -- resize window -- remove collapse menu over 1000
     $(window).resize(function () {
         if ($(window).width() > 600) {
-            $('.page-nav__collapse').removeClass('page-nav__collapse--active');
-            $('.page-nav__button').removeClass('page-nav__button--active');
+            $('.nav-secondary-mobile').removeClass('active');
+            $("#nav-secondary-button").removeClass('active');
 
         }
     });

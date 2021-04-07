@@ -11,7 +11,7 @@
         text-transform: uppercase;
         justify-content: start;
         align-items: center;
-
+ 
         font-size: 1.5rem;
         height: 100%;
 
@@ -20,6 +20,8 @@
         padding: 1.5rem 3rem;
         color: $color-primary;
         width: max-content;
+        outline: none;
+
 
         & svg {
             height: 2rem;
@@ -30,7 +32,7 @@
             margin-left: 1rem;
         }
 
-        &--active {
+        &.active {
             svg {
                 transform: rotate(90deg);
                 opacity: 1;
@@ -117,7 +119,7 @@
     color: $color-supporting-light; 
                     
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     letter-spacing: 0.3rem;
     text-transform: uppercase;
     align-items: center;
@@ -179,7 +181,7 @@
                     color: $color-grey-1;       
                     
                     font-weight: 500;
-                    font-size: 1.2rem;
+                    font-size: 1.3rem;
           
         
                     letter-spacing: 0.3rem;

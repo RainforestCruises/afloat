@@ -76,7 +76,7 @@ $args = array(
         ?>
     </section>
 
-    <div class="destination-page__section-main" id="packages">
+    <div class="destination-page__section-main" >
         <?php
         get_template_part('template-parts/content', 'destination-main', $args);
         ?>

@@ -18,7 +18,7 @@ jQuery(document).ready(function ($) {
       $('.header__main').addClass('header__main--small-nav header__main--opaque-nav');
     } else {
       //if mega not active
-      if ($('.nav-mega').hasClass('nav-mega--active') != true) {
+      if ($('.nav-mega').hasClass('active') != true) {
 
         $('.header__main').removeClass('header__main--small-nav ');
 
@@ -48,7 +48,7 @@ jQuery(document).ready(function ($) {
       if ($('.header__main').hasClass('header__main--small-nav') != true) {
 
         if ($('.burger-menu').hasClass('burger-menu--active') != true) {
-          if ($('.nav-mega').hasClass('nav-mega--active') != true) {
+          if ($('.nav-mega').hasClass('active') != true) {
             if (opaqueNavAlways == false) {
               $('.header__main').removeClass('header__main--opaque-nav');
             }
@@ -63,7 +63,7 @@ jQuery(document).ready(function ($) {
 
   //remove mega when mouse out of window
   $(document).mouseleave(function () {
-    $('.nav-mega').removeClass('nav-mega--active');
+    $('.nav-mega').removeClass('active');
   });
 
   //MEGA
@@ -78,7 +78,7 @@ jQuery(document).ready(function ($) {
         //if product-nav then dont do (sticky wrapper)
         var elementExists = document.getElementById("page-nav");
         if (elementExists == null) {
-          $('.nav-mega').removeClass('nav-mega--active');
+          $('.nav-mega').removeClass('active');
         }
 
         //if not header small -- remove opaque from header__main
@@ -96,7 +96,7 @@ jQuery(document).ready(function ($) {
   $('.header__main__nav__list__item__link.mega').hover(
     function () {
       var navelement = this.getAttribute("navelement");
-      $('.nav-mega').addClass('nav-mega--active');
+      $('.nav-mega').addClass('active');
 
       if (navelement == "Destinations") {
         $('.nav-mega__nav--experiences').hide();
@@ -114,7 +114,7 @@ jQuery(document).ready(function ($) {
   );
   $('.header__main__nav__list__item__link.no-mega').hover(
     function () {
-      $('.nav-mega').removeClass('nav-mega--active');
+      $('.nav-mega').removeClass('active');
 
     },
   );
@@ -162,7 +162,7 @@ jQuery(document).ready(function ($) {
 
     }
     if ($(window).width() <= 1000) {
-      $('.nav-mega').removeClass('nav-mega--active');
+      $('.nav-mega').removeClass('active');
     }
   });
 
@@ -205,7 +205,7 @@ jQuery(document).ready(function ($) {
     function () { },
     function () {
       if ($(".burger-menu").hasClass('burger-menu--active') != true) {
-        $('.nav-mega').removeClass('nav-mega--active');
+        $('.nav-mega').removeClass('active');
       }
     }
   );

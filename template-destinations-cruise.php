@@ -88,7 +88,7 @@ $args = array(
 
 
     <!-- Tours-->
-    <section class="destination-page__section-secondary" id="packages">
+    <section class="destination-page__section-secondary">
         <?php
         get_template_part('template-parts/content', 'destination-secondary-cruise', $args);
         ?>

@@ -58,7 +58,7 @@ $highlights = get_field('highlights');
     </div>
 
     <!-- Packages -->
-    <div class="destination-main__packages">
+    <div class="destination-main__packages" id="packages">
         <div class="destination-main__packages__header">
             <div class="destination-main__packages__header__title page-divider">
                 <?php echo $title ?> <?php echo ($is_bucket_list) ? ' Tour Packages' : ' Vacation Packages' ?>
