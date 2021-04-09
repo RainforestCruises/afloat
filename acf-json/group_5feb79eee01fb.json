@@ -3,6 +3,25 @@
     "title": "Travel Guide Post",
     "fields": [
         {
+            "key": "field_6070a0a12f18d",
+            "label": "Navigation Title",
+            "name": "navigation_title",
+            "type": "text",
+            "instructions": "Display title",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5feb942a2e7b1",
             "label": "Featured Image",
             "name": "featured_image",
@@ -181,5 +200,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide - CPT",
-    "modified": 1617989187
+    "modified": 1617993913
 }

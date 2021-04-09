@@ -10,11 +10,14 @@ get_header();
 <?php
 $destination = get_field('destination');
 $region = get_field('region');
+$location = get_field('location');
 
 $image = get_field('image');
 $intro_snippet = get_field('intro_snippet');
 
 $destination_type = get_field('destination_type');
+
+$pageTitle = "";
 
 $categories = get_posts(array(
     'post_type' => 'rfc_guide_categories',
@@ -38,6 +41,8 @@ if ($destination_type == 'rfc_destinations') {
         )
 
     );
+
+    $pageTitle = get_field('navigation_title', $destination);
 };
 
 if ($destination_type == 'rfc_regions') {
@@ -49,14 +54,35 @@ if ($destination_type == 'rfc_regions') {
                 'key' => 'region', // name of custom field
                 'value' => $region->ID,
                 'compare' => 'LIKE'
+            ),
+            array(
+                'key' => 'is_region_level', // name of custom field
+                'value' => true,
+                'compare' => 'LIKE'
             )
         )
 
     );
-    $destination = $region;
-
+    $pageTitle = get_field('navigation_title', $region);
     //get all posts from child destinations also here
 }
+
+
+if ($destination_type == 'rfc_locations') {
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_travel_guides',
+        'meta_query' => array(
+            array(
+                'key' => 'locations', // name of custom field
+                'value' => $location->ID,
+                'compare' => 'LIKE'
+            )
+        )
+    );
+    $pageTitle = get_field('navigation_title', $location);
+
+};
 
 $travelGuidePosts = new WP_Query($args);
 
@@ -67,8 +93,9 @@ $travelGuidePosts = new WP_Query($args);
     <!-- Intro -->
     <div class="travel-guide-landing-page__header">
         <div class="travel-guide-landing-page__header__image-area">
-            <img <?php afloat_responsive_image($image['ID'], 'pill-large', array('pill-large', 'featured-small', 'featured-large', 'pill-large')); ?> alt="">
-
+            <?php if ($image) : ?>
+                <img <?php afloat_responsive_image($image['ID'], 'pill-large', array('pill-large', 'featured-small', 'featured-large', 'pill-large')); ?> alt="">
+            <?php endif; ?>
         </div>
 
         <div class="travel-guide-landing-page__header__icon-area">
@@ -82,7 +109,7 @@ $travelGuidePosts = new WP_Query($args);
     <!-- Content -->
     <div class="travel-guide-landing-page__content">
         <div class="travel-guide-landing-page__content__title">
-            <?php echo get_field('navigation_title', $destination) ?> Travel Guide
+            <?php echo $pageTitle ?> Travel Guide
         </div>
         <div class="travel-guide-landing-page__content__subtext">
             <?php echo $intro_snippet ?>
@@ -133,7 +160,7 @@ $travelGuidePosts = new WP_Query($args);
                                 endif;  ?>
                             </ul>
                             <a class="guide-item__bottom__title" href="<?php echo the_permalink() ?>">
-                                <?php echo get_the_title(); ?>
+                                <?php echo get_field('navigation_title'); ?>
                             </a>
                             <div class="guide-item__bottom__snippet">
                                 <?php

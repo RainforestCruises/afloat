@@ -42,7 +42,8 @@ while (have_posts()) :
         Travel Inspiration
       </div>
       <div class="travel-guide__title">
-        <?php echo get_the_title(); ?>
+      <?php echo get_field('navigation_title'); ?>
+
       </div>
       <div class="travel-guide__image">
         <img <?php afloat_responsive_image($image['ID'], 'featured-largest', array('featured-small', 'featured-medium', 'featured-large', 'featured-largest')); ?> alt="">
