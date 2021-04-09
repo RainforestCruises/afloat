@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.4',
+  'version' => '5.4.2',
   'title' => 'Travel Guides',
   'type' => 'rfc_travel_guides',
   'id' => '5feced60af61d',
-  'updated' => 1610740906,
+  'updated' => 1617989332,
   'columns' => 
   array (
     'title' => 
@@ -19,14 +19,17 @@ return array (
       'edit' => 'off',
       'bulk_edit' => 'on',
       'search' => 'on',
+      'name' => 'title',
     ),
-    '6001f4aada501' => 
+    '60708e6d558108' => 
     array (
       'type' => 'column-acf_field',
-      'label' => 'Destination Type',
+      'label' => 'Region',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_6001f34a94706',
+      'field' => 'field_6001f3e694707',
+      'post_property_display' => 'title',
+      'post_link_to' => 'edit_post',
       'export' => 'off',
       'sort' => 'on',
       'edit' => 'on',
@@ -34,6 +37,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '60708e6d558108',
     ),
     '5feced9f16588' => 
     array (
@@ -52,16 +56,18 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5feced9f16588',
     ),
-    '6001f4aada504' => 
+    '60708e900c49bc' => 
     array (
       'type' => 'column-acf_field',
-      'label' => 'Region',
+      'label' => 'Locations',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_6001f3e694707',
+      'field' => 'field_6070813a18fb3',
       'post_property_display' => 'title',
       'post_link_to' => 'edit_post',
+      'number_of_items' => '10',
       'export' => 'off',
       'sort' => 'on',
       'edit' => 'on',
@@ -69,6 +75,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '60708e900c49bc',
     ),
     '5ff8c3a786683' => 
     array (
@@ -87,11 +94,12 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5ff8c3a786683',
     ),
-    '6001e215873ef' => 
+    '60708eb0970a3c' => 
     array (
       'type' => 'column-acf_field',
-      'label' => 'Is Featured',
+      'label' => 'Is Region Level',
       'width' => '',
       'width_unit' => '%',
       'field' => 'field_6001e154ac7e9',
@@ -102,22 +110,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
-    ),
-    '6001e215873f1' => 
-    array (
-      'type' => 'column-acf_field',
-      'label' => 'Rank',
-      'width' => '',
-      'width_unit' => '%',
-      'field' => 'field_6001e185ac7ea',
-      'number_format' => '',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'on',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
+      'name' => '60708eb0970a3c',
     ),
     '5feced9f1658c' => 
     array (
@@ -136,6 +129,24 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5feced9f1658c',
+    ),
+    '60708ec7a45a1c' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Importance',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_6001e185ac7ea',
+      'number_format' => '',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '60708ec7a45a1c',
     ),
     '5feced9f1658e' => 
     array (
@@ -152,6 +163,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5feced9f1658e',
     ),
     'date' => 
     array (
@@ -167,6 +179,7 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'filter_format' => '',
+      'name' => 'date',
     ),
   ),
   'settings' => 

@@ -25,7 +25,7 @@ $categories = get_posts(array(
 
 //all related posts
 
-if($destination_type == 'rfc_destinations'){
+if ($destination_type == 'rfc_destinations') {
     $args = array(
         'posts_per_page' => -1,
         'post_type' => 'rfc_travel_guides',
@@ -36,11 +36,11 @@ if($destination_type == 'rfc_destinations'){
                 'compare' => 'LIKE'
             )
         )
-    
+
     );
 };
 
-if($destination_type == 'rfc_regions'){
+if ($destination_type == 'rfc_regions') {
     $args = array(
         'posts_per_page' => -1,
         'post_type' => 'rfc_travel_guides',
@@ -51,12 +51,12 @@ if($destination_type == 'rfc_regions'){
                 'compare' => 'LIKE'
             )
         )
-    
+
     );
     $destination = $region;
 
     //get all posts from child destinations also here
-} 
+}
 
 $travelGuidePosts = new WP_Query($args);
 
@@ -66,17 +66,17 @@ $travelGuidePosts = new WP_Query($args);
 
     <!-- Intro -->
     <div class="travel-guide-landing-page__header">
-        <div class="travel-guide-landing-page__header__hero">
-            <img src="<?php echo esc_url($image['url']); ?>" alt="">
-            <div class="travel-guide-landing-page__header__hero__icon">
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-04"></use>
-                </svg>
-            </div>
-            <input type="text" placeholder="Search Guide..." id="quicksearch">
+        <div class="travel-guide-landing-page__header__image-area">
+            <img <?php afloat_responsive_image($image['ID'], 'pill-large', array('pill-large', 'featured-small', 'featured-large', 'pill-large')); ?> alt="">
+
         </div>
 
-
+        <div class="travel-guide-landing-page__header__icon-area">
+            <svg>
+                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-04"></use>
+            </svg>
+        </div>
+        <input type="text" placeholder="Search Guide..." id="quicksearch">
     </div>
 
     <!-- Content -->
@@ -116,8 +116,8 @@ $travelGuidePosts = new WP_Query($args);
 
             ?>
                     <div class="guide-item <?php echo $isoClasses ?>">
-                        <div class="guide-item__image">
-                            <img src="<?php echo esc_url($featured_image['url']); ?>" alt="">
+                        <div class="guide-item__image-area">
+                            <img <?php afloat_responsive_image($featured_image['ID'], 'featured-medium', array('featured-small', 'featured-medium')); ?> alt="">
                         </div>
                         <div class="guide-item__bottom">
                             <ul class="guide-item__bottom__category">
@@ -125,7 +125,8 @@ $travelGuidePosts = new WP_Query($args);
                                     foreach ($guideCategories as $c) : ?>
                                         <li>
                                             <?php
-                                            echo trim(get_the_title($c));
+                                            $catTitle = get_the_title($c);
+                                            echo trim($catTitle);
                                             ?>
                                         </li>
                                 <?php endforeach;

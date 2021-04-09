@@ -32,14 +32,7 @@ while (have_posts()) :
 
   <?php
   $image  = get_field('featured_image');
-  $image_srcset = wp_get_attachment_image_srcset($image['ID']);
-  //$image_meta = wp_get_attachment_metadata( $image['ID'] );
-  //$image_responsive =  wp_get_attachment_image_url( $image['ID'], 'landscape-small');
-  //$image_sizes =  wp_get_attachment_image_sizes( $image['ID'], 'landscape-large');
 
-  //$code = acf_responsive_image($image['ID'],'landscape-large', array('landscape-small','landscape-medium','landscape-large'), '1200px');
-  //$test = wp_get_attachment_image($image['ID'], 'landscape-small');
-  //console_log($code);
   ?>
 
   <!-- Product Page Container -->
@@ -52,8 +45,7 @@ while (have_posts()) :
         <?php echo get_the_title(); ?>
       </div>
       <div class="travel-guide__image">
-        <!-- responsive image -->
-        <img <?php afloat_responsive_image($image['ID'], 'landscape-large', array('landscape-small', 'landscape-medium', 'landscape-large')); ?> alt="">
+        <img <?php afloat_responsive_image($image['ID'], 'featured-largest', array('featured-small', 'featured-medium', 'featured-large', 'featured-largest')); ?> alt="">
       </div>
       <div class="travel-guide__disclaimer">
         <div class="disclaimer-box">
@@ -136,7 +128,7 @@ while (have_posts()) :
           ?>
               <!-- Item -->
               <div class="travel-guide-related__slider-area__slider__item">
-                <img src="<?php echo esc_url($post_featured_image['url']); ?>" alt="product" class="travel-guide-related__slider-area__slider__item__image">
+                <img <?php afloat_responsive_image($post_featured_image['id'], 'featured-medium', array('featured-medium', 'featured-small')); ?> alt="" class="travel-guide-related__slider-area__slider__item__image">
                 <div class="travel-guide-related__slider-area__slider__item__content">
                   <a class="travel-guide-related__slider-area__slider__item__content__title" href="<?php echo the_permalink(); ?>">
                     <?php echo the_title(); ?>

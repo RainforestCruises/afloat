@@ -7,7 +7,10 @@ jQuery(document).ready(function ($) {
     // init Isotope
     var resultsGrid = $('#results').isotope({
         itemSelector: '.guide-item',
-        layoutMode: 'fitRows',
+        masonry: {
+            columnWidth: 40,
+            isFitWidth: true
+            },
         filter: function () {
             var $this = $(this);
             var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
@@ -56,37 +59,6 @@ jQuery(document).ready(function ($) {
             setTimeout(delayed, threshold || 100);
         };
     }
-
-
-
-
-
-
-
-    // // external js: isotope.pkgd.js
-
-    // // init Isotope
-    // var resultsGrid = $('#results').isotope({
-    //     itemSelector: '.guide-item',
-    //     layoutMode: 'fitRows'
-
-    // });
-
-    // // bind filter button click
-    // $('.filters-button-group').on('click', 'button', function () {
-    //     var filterValue = $(this).attr('data-filter');
-
-    //     resultsGrid.isotope({ filter: filterValue });
-    // });
-    // // change is-checked class on buttons
-    // $('.button-group').each(function (i, buttonGroup) {
-    //     var $buttonGroup = $(buttonGroup);
-    //     $buttonGroup.on('click', 'button', function () {
-    //         $buttonGroup.find('.is-checked').removeClass('is-checked');
-    //         $(this).addClass('is-checked');
-    //     });
-    // });
-
 
 
 

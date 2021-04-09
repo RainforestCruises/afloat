@@ -1,28 +1,30 @@
 .travel-guide-page {
-    grid-row: nav-end / content-end; //fits into global grid
-    grid-column: 1 / -1;
 
-    display: grid;
-    grid-template-columns: $page-container;
-    @media only screen and (max-width: $bp-small) {
-        grid-template-columns: $page-container-small;
-    }
+    padding-top: 6rem;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 
     position: relative;
     z-index: 0;
 }
 
 .travel-guide {
-    display: grid;
-    grid-column: center-start / center-end;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    height: 100%;
-    z-index: 3;
-
-    justify-items: center;
+    max-width: $page-width;
+    padding: 0 6rem;
+    @media only screen and (max-width: $bp-small) {
+        padding: 0 3rem;
+    }
 
     &__category {
-        font-size: 1.6rem;
+        font-size: 1.6rem; 
         letter-spacing: 0.2rem;
         text-transform: uppercase;
         color: $color-supporting;
@@ -76,7 +78,7 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
-            padding: 5rem 3rem;
+            padding: 5rem 0;
             padding-bottom: 7rem;
             margin-bottom: 6rem;
         }
@@ -256,22 +258,15 @@
 }
 
 .travel-guide-related {
-    grid-column: 1 / -1;
-
     background-color: $color-primary;
-
-    display: grid;
     justify-content: center;
-    padding: 0 10rem;
-    padding-bottom: 8rem;
-    grid-template-columns: $page-container;
-    @media only screen and (max-width: $bp-small) {
-        grid-template-columns: $page-container-small;
-        padding: 0 2rem;
-    }
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     &__title {
-        grid-column: 1 / -1;
 
         text-align: center;
         font-size: 1.8rem;
@@ -286,13 +281,20 @@
     }
 
     &__slider-area {
-        grid-column: 1 / -1;
         display: flex;
         justify-content: center;
         width: 100%;
 
+        max-width: $page-width;
+        padding: 0 6rem;
+
+        margin-bottom: 6rem;
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 3rem;
+        }
+
         &__slider {
-            max-width: 114rem;
+           // max-width: 114rem;
             width: 100%;
             margin: 0 6rem;
             .slick-slide {

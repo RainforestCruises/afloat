@@ -3,11 +3,11 @@
     "title": "Travel Guide Post",
     "fields": [
         {
-            "key": "field_6001f34a94706",
-            "label": "Destination Type",
-            "name": "destination_type",
-            "type": "radio",
-            "instructions": "Select if this should link to destinations or a region",
+            "key": "field_5feb942a2e7b1",
+            "label": "Featured Image",
+            "name": "featured_image",
+            "type": "image",
+            "instructions": "1120 x 650 min",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,16 +15,16 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "rfc_destinations": "Destination",
-                "rfc_regions": "Region"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "rfc_destinations",
-            "layout": "vertical",
-            "return_format": "value",
-            "save_other_choice": 0
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 1120,
+            "min_height": 650,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         },
         {
             "key": "field_6001f3e694707",
@@ -33,15 +33,7 @@
             "type": "post_object",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6001f34a94706",
-                        "operator": "==",
-                        "value": "rfc_regions"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -63,15 +55,7 @@
             "type": "relationship",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6001f34a94706",
-                        "operator": "==",
-                        "value": "rfc_destinations"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -79,6 +63,31 @@
             },
             "post_type": [
                 "rfc_destinations"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
+            "key": "field_6070813a18fb3",
+            "label": "Locations",
+            "name": "locations",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_locations"
             ],
             "taxonomy": "",
             "filters": [
@@ -116,10 +125,10 @@
         },
         {
             "key": "field_6001e154ac7e9",
-            "label": "Is Featured",
-            "name": "is_featured",
+            "label": "Is Region Level",
+            "name": "is_region_level",
             "type": "true_false",
-            "instructions": "Check to make eligible to appear in the Destination Template Grid",
+            "instructions": "Check to make eligible to appear in Region level tour guide landing pages, ie: Asia & South America",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -135,10 +144,10 @@
         },
         {
             "key": "field_6001e185ac7ea",
-            "label": "Rank",
-            "name": "rank",
+            "label": "Importance",
+            "name": "importance",
             "type": "number",
-            "instructions": "Lower numbers will have priority, ie: rank 1 will appear before a post with rank 4.",
+            "instructions": "Lower numbers will have priority, ie: rank 1 will appear before a post with 4.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -153,30 +162,6 @@
             "min": 1,
             "max": 999,
             "step": ""
-        },
-        {
-            "key": "field_5feb942a2e7b1",
-            "label": "Featured Image",
-            "name": "featured_image",
-            "type": "image",
-            "instructions": "1120 x 635",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
         }
     ],
     "location": [
@@ -196,5 +181,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide - CPT",
-    "modified": 1610742414
+    "modified": 1617989187
 }
