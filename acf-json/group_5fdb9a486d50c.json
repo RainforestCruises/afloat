@@ -827,6 +827,49 @@
             "delay": 0
         },
         {
+            "key": "field_6075ceae9c5a6",
+            "label": "Travel Guide Posts",
+            "name": "travel_guide_posts",
+            "type": "repeater",
+            "instructions": "Select 6 travel guides to highlight. Order as needed",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_6075cedf9c5a7",
+                    "label": "Travel Guide",
+                    "name": "travel_guide",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "rfc_travel_guides"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                }
+            ]
+        },
+        {
             "key": "field_5ffe1d9191484",
             "label": "View All Guide Link",
             "name": "view_all_guide_link",
@@ -840,11 +883,13 @@
                 "id": ""
             },
             "post_type": [
-                "rfc_travel_guides"
+                "page"
             ],
-            "taxonomy": "",
+            "taxonomy": [
+                "category:travel-guide"
+            ],
             "allow_null": 0,
-            "allow_archives": 1,
+            "allow_archives": 0,
             "multiple": 0
         },
         {
@@ -1083,5 +1128,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1616009567
+    "modified": 1618333530
 }

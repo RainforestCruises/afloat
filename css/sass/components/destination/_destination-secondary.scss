@@ -59,9 +59,13 @@
 
             .slick-slide {
                 margin: 1.5rem;
-                //margin-bottom: 4rem;
-                //box-shadow: $shadow-medium-bottom;
+
                 min-width: 0;
+
+                @media only screen and (max-width: $bp-large) {
+                    margin: .5rem;
+
+                }
             }
         }
     }

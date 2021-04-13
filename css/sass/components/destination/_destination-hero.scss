@@ -1,71 +1,41 @@
 .destination-hero {
-    height: 100%;
-    grid-row: nav-start / hero-end;
+    display: flex;
+    width: 100%;
+    height: 100vh;
     position: relative;
-    z-index: 0;
-
-    display: grid;
-    grid-template-columns: $page-container;
-    grid-template-rows: 9rem 1fr;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80rem;
 
     @media only screen and (max-width: $bp-large) {
-        grid-template-rows: 7rem 1fr;
-    }
+        min-height: 60rem;
 
-    height: 100%;
-
-    min-height: 100vh;
-
-    @media only screen and (max-width: $bp-small) {
-        grid-template-columns: $page-container-small;
     }
 
     &__bg-slider {
-        grid-column: 1 / -1;
-        grid-row: 1 / -1;
-
-        background-position: center center;
-        background-repeat: no-repeat;
-        object-fit: cover;
-
-        height: 100%;
-        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
         z-index: 1;
-        max-height: 100vh;
-        position: relative;
+        width: 100%;
+        height: 100%;
 
-        //prevent bg not going 100% of height in small mobile
-        @media only screen and (max-width: $bp-xlargest) {
-            max-height: 100%;
-        }
 
         //Must Specify 100% height on all three elements!!
         & .slick-list {
             height: 100% !important;
-
-            @media only screen and (max-width: $bp-xlargest) {
-                max-height: 100%;
-            }
         }
         & .slick-track {
             height: 100% !important;
-
-            @media only screen and (max-width: $bp-xlargest) {
-                max-height: 100%;
-            }
+    
         }
         & .slick-slide div {
-            height: 100% !important;
-
-            @media only screen and (max-width: $bp-xlargest) {
-                max-height: 100%;
-            }
+            height: 100% !important;  
         }
 
         &__slide {
             height: 100%;
             width: 100%;
-            overflow: hidden;
 
             & img {
                 background-position: center center;
@@ -77,18 +47,6 @@
                 z-index: 0;
             }
         }
-
-        ////----ZOOM EFFECT
-        // & .slick-active img {
-
-        //     animation: zoomEffect 9s forwards;
-        //     animation-timing-function: ease-out;
-
-        //   }
-
-        // & .slick-slide[aria-hidden="true"] img {
-        //     visibility: hidden;
-        // }
 
         &:after {
             //gradient overlay
@@ -113,36 +71,42 @@
     }
 
     &__content {
-        grid-row: 2 / -1;
-        grid-column: center-start / center-end;
-        z-index: 5;
 
         display: grid;
         grid-template-columns: 2fr 3fr;
-
+        column-gap: 12rem;
+        row-gap: 2rem;
         grid-template-rows: min-content 1fr 30rem min-content;
 
         color: rgba($color-white, 0.9);
         text-transform: uppercase;
 
-        column-gap: 16rem;
-        row-gap: 2rem;
-        padding-bottom: 7rem;
-        max-height: 100vh;
+        z-index: 8;
+        width: 100%;
+        justify-self: center;
+        height: 100%;
+        margin-top: 9rem;
+        margin-bottom: 6rem;
+
+        position: relative;
+        color: $color-white;
+  
+        max-width: 130rem; //slightly wider
 
         @media only screen and (max-width: $bp-large) {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
-            
+          }
+  
+        //side padding
+        padding: 0 6rem;
+        @media only screen and (max-width: $bp-small) {
+          padding: 0rem;
 
-            grid-column: 1 / -1;
-            
-
-        }
-        @media only screen and (max-width: $bp-medium) {
-            padding-bottom: 9rem;
+          margin-top: 7rem;
+          margin-bottom: 10rem;
         }
 
         &__breadcrumb {
@@ -160,6 +124,8 @@
 
             @media only screen and (max-width: $bp-large) {
                 justify-self: center;
+                margin: 0 2rem;
+                margin-top: 2rem;
             }
 
            
@@ -203,11 +169,13 @@
         &__title-group {
             height: min-content;
             align-self: center;
+            
 
             @media only screen and (max-width: $bp-large) {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                margin: 0 2rem;
             }
 
             &__title {
