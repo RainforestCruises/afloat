@@ -2351,8 +2351,8 @@ h5 {
       color: #9ea0a4;
       font-weight: 600;
       width: 100%;
-      margin-bottom: .5rem;
-      letter-spacing: .1rem; }
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1rem; }
     .product-itineraries__nav__slider {
       list-style: none;
       color: #9ea0a4;
@@ -2442,41 +2442,62 @@ h5 {
 .price-grid {
   display: flex;
   flex-direction: column; }
-  .price-grid__header {
+  .price-grid__season {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
+    text-align: center;
     font-size: 1.3rem;
-    font-weight: 700;
     color: #9ea0a4;
-    margin-bottom: .8rem;
-    flex-direction: row; }
-    .price-grid__header__details {
-      display: flex;
-      justify-content: flex-end;
-      text-align: center; }
-      .price-grid__header__details__item {
-        width: 8rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase; }
+    .price-grid__season::before {
+      content: "";
+      flex: 1 1;
+      border-bottom: 1px solid #e6e6e6;
+      margin: auto;
+      margin-right: 2rem; }
+      @media only screen and (max-width: 50em) {
+        .price-grid__season::before {
+          margin-right: 1.5rem; } }
+    .price-grid__season::after {
+      content: "";
+      flex: 1 1;
+      border-bottom: 1px solid #e6e6e6;
+      margin: auto;
+      margin-left: 2rem; }
+      @media only screen and (max-width: 50em) {
+        .price-grid__season::after {
+          margin-left: 1.5rem; } }
+  .price-grid__grid {
+    display: grid;
+    grid-template-columns: 1fr max-content max-content;
+    column-gap: 3rem;
+    row-gap: .5rem; }
+    .price-grid__grid__title {
+      width: 100%; }
+      .price-grid__grid__title__text {
+        display: inline-block;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #9ea0a4;
         border-bottom: 1px solid #e6e6e6;
-        margin-left: 4rem; }
-    .price-grid__header__title {
-      border-bottom: 1px solid #e6e6e6; }
-  .price-grid__row {
-    display: flex;
-    font-size: 1.6rem;
-    color: #142838;
-    justify-content: space-between;
-    width: 100%;
-    margin: .1rem 0; }
-    .price-grid__row__details {
-      text-align: center;
-      display: flex;
-      justify-content: flex-end; }
-      .price-grid__row__details__item {
-        width: 8rem;
-        margin-left: 4rem; }
-    .price-grid__row__title {
-      font-weight: 600; }
+        padding-bottom: 0.2rem;
+        margin-bottom: 0.4rem; }
+      .price-grid__grid__title.right {
+        text-align: right; }
+    .price-grid__grid__cabin-type {
+      font-size: 1.5rem;
+      color: #142838;
+      font-weight: 500; }
+    .price-grid__grid__double-price {
+      font-size: 1.5rem;
+      color: #142838;
+      text-align: right; }
+    .price-grid__grid__single-price {
+      font-size: 1.5rem;
+      color: #142838;
+      text-align: right; }
 
 .inclusions-area {
   margin-top: 2rem;
@@ -2526,7 +2547,7 @@ h5 {
         .product-itinerary-slide__top__map-area__title__badge-area {
           width: max-content;
           transform: translateY(0.4rem);
-          margin-left: .5rem; }
+          margin-left: 0.5rem; }
           .product-itinerary-slide__top__map-area__title__badge-area span {
             white-space: nowrap;
             padding: 1rem 1.5rem;
@@ -2538,21 +2559,21 @@ h5 {
         object-fit: contain;
         width: 100%;
         height: auto; }
-    .product-itinerary-slide__top__info {
+    .product-itinerary-slide__top__side-info {
       width: 60%;
       margin-left: 4rem; }
       @media only screen and (max-width: 50em) {
-        .product-itinerary-slide__top__info {
+        .product-itinerary-slide__top__side-info {
           margin-left: 0rem;
           width: 100%;
           margin-bottom: 3rem; } }
-      .product-itinerary-slide__top__info__tabs {
+      .product-itinerary-slide__top__side-info__tabs {
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid #e6e6e6;
         transform: translateY(-1.5rem); }
-        .product-itinerary-slide__top__info__tabs__item {
+        .product-itinerary-slide__top__side-info__tabs__item {
           text-align: center;
           flex-grow: 1;
           font-size: 1.3rem;
@@ -2565,13 +2586,13 @@ h5 {
           transition: color 0.2s;
           cursor: pointer; }
           @media only screen and (max-width: 37.5em) {
-            .product-itinerary-slide__top__info__tabs__item {
+            .product-itinerary-slide__top__side-info__tabs__item {
               font-size: 1.1rem;
-              letter-spacing: .1rem;
-              padding: 1rem .5rem; } }
-          .product-itinerary-slide__top__info__tabs__item:hover {
+              letter-spacing: 0.1rem;
+              padding: 1rem 0.5rem; } }
+          .product-itinerary-slide__top__side-info__tabs__item:hover {
             color: #305a7c; }
-          .product-itinerary-slide__top__info__tabs__item:not(:last-child)::after {
+          .product-itinerary-slide__top__side-info__tabs__item:not(:last-child)::after {
             content: "";
             position: absolute;
             right: 0;
@@ -2580,45 +2601,45 @@ h5 {
             background-color: #e6e6e6;
             height: 50%;
             width: 1px; }
-          .product-itinerary-slide__top__info__tabs__item.current {
+          .product-itinerary-slide__top__side-info__tabs__item.current {
             color: #305a7c; }
-      .product-itinerary-slide__top__info__content {
+      .product-itinerary-slide__top__side-info__content {
         display: none; }
-        .product-itinerary-slide__top__info__content.current {
+        .product-itinerary-slide__top__side-info__content.current {
           display: block;
-          animation: fadein .3s both;
+          animation: fadein 0.3s both;
           animation-timing-function: ease-out; }
-        .product-itinerary-slide__top__info__content__widget {
+        .product-itinerary-slide__top__side-info__content__widget {
           position: relative;
           padding-bottom: 2rem;
           margin-bottom: 2rem;
           position: relative; }
-          .product-itinerary-slide__top__info__content__widget:not(:last-child) {
+          .product-itinerary-slide__top__side-info__content__widget:not(:last-child) {
             border-bottom: 1px solid #e6e6e6; }
-          .product-itinerary-slide__top__info__content__widget.noborder {
+          .product-itinerary-slide__top__side-info__content__widget.noborder {
             margin-bottom: 0rem; }
-            .product-itinerary-slide__top__info__content__widget.noborder:not(:last-child) {
+            .product-itinerary-slide__top__side-info__content__widget.noborder:not(:last-child) {
               border-bottom: none; }
-          .product-itinerary-slide__top__info__content__widget__top-section {
+          .product-itinerary-slide__top__side-info__content__widget__top-section {
             display: flex;
             justify-content: space-between;
             position: relative; }
-            .product-itinerary-slide__top__info__content__widget__top-section__title {
+            .product-itinerary-slide__top__side-info__content__widget__top-section__title {
               font-size: 1.5rem;
               text-transform: uppercase;
               letter-spacing: 0.1rem; }
-          .product-itinerary-slide__top__info__content__widget__legend {
+          .product-itinerary-slide__top__side-info__content__widget__legend {
             margin-top: 1rem;
             display: flex;
             justify-content: flex-end;
             font-size: 1.2rem; }
-            .product-itinerary-slide__top__info__content__widget__legend__item {
+            .product-itinerary-slide__top__side-info__content__widget__legend__item {
               padding-left: 1.5rem;
               margin-left: 2.5rem;
               position: relative;
               display: flex;
               align-content: center; }
-              .product-itinerary-slide__top__info__content__widget__legend__item::after {
+              .product-itinerary-slide__top__side-info__content__widget__legend__item::after {
                 content: "";
                 position: absolute;
                 top: 50%;
@@ -2628,46 +2649,46 @@ h5 {
                 height: 0.6rem;
                 width: 0.6rem;
                 border-radius: 4rem; }
-              .product-itinerary-slide__top__info__content__widget__legend__item--available {
+              .product-itinerary-slide__top__side-info__content__widget__legend__item--available {
                 color: #142838; }
-              .product-itinerary-slide__top__info__content__widget__legend__item--sold-out {
+              .product-itinerary-slide__top__side-info__content__widget__legend__item--sold-out {
                 color: #de5c52; }
-              .product-itinerary-slide__top__info__content__widget__legend__item--button {
+              .product-itinerary-slide__top__side-info__content__widget__legend__item--button {
                 justify-self: end; }
-                .product-itinerary-slide__top__info__content__widget__legend__item--button::after {
+                .product-itinerary-slide__top__side-info__content__widget__legend__item--button::after {
                   content: none; }
-          .product-itinerary-slide__top__info__content__widget__small-title {
+          .product-itinerary-slide__top__side-info__content__widget__small-title {
             font-size: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 0.1rem;
             color: #142838;
             font-weight: bold; }
-          .product-itinerary-slide__top__info__content__widget__list {
+          .product-itinerary-slide__top__side-info__content__widget__list {
             list-style: none;
             display: flex;
             font-size: 1.6rem;
             flex-wrap: wrap; }
-            .product-itinerary-slide__top__info__content__widget__list li {
+            .product-itinerary-slide__top__side-info__content__widget__list li {
               position: relative;
               white-space: nowrap; }
-              .product-itinerary-slide__top__info__content__widget__list li:not(:last-child)::after {
+              .product-itinerary-slide__top__side-info__content__widget__list li:not(:last-child)::after {
                 content: ",";
-                margin-right: .6rem; }
-        .product-itinerary-slide__top__info__content__fine-print {
+                margin-right: 0.6rem; }
+        .product-itinerary-slide__top__side-info__content__fine-print {
           font-size: 1.2rem;
           color: #9ea0a4;
-          letter-spacing: .1rem; }
-        .product-itinerary-slide__top__info__content__inclusions-list {
+          letter-spacing: 0.1rem; }
+        .product-itinerary-slide__top__side-info__content__inclusions-list {
           list-style: none; }
-          .product-itinerary-slide__top__info__content__inclusions-list li {
+          .product-itinerary-slide__top__side-info__content__inclusions-list li {
             display: grid;
             grid-template-columns: 2rem 1fr; }
-            .product-itinerary-slide__top__info__content__inclusions-list li svg {
+            .product-itinerary-slide__top__side-info__content__inclusions-list li svg {
               transform: translateY(1px);
               height: 1.5rem;
               width: 1.5rem;
               fill: #142838; }
-            .product-itinerary-slide__top__info__content__inclusions-list li span {
+            .product-itinerary-slide__top__side-info__content__inclusions-list li span {
               font-size: 1.3rem; }
   .product-itinerary-slide__bottom {
     margin-top: 4rem;
@@ -2750,6 +2771,7 @@ h5 {
               letter-spacing: 0.2rem;
               text-transform: uppercase; }
             .product-itinerary-slide__bottom__days__item__side__detail__item__data {
+              width: max-content;
               font-size: 1.6rem;
               color: #142838; }
       .product-itinerary-slide__bottom__days__btn {

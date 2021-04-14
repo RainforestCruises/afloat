@@ -57,20 +57,20 @@ $img = get_field('map');
 
                 <!-- Side Info Area -->
                 <?php $count = 0; ?>
-                <div class="product-itinerary-slide__top__info">
-                    <div class="product-itinerary-slide__top__info__tabs">
-                        <div class="product-itinerary-slide__top__info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">Overview</div>
-                        <div class="product-itinerary-slide__top__info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">Inclusions</div>
-                        <div class="product-itinerary-slide__top__info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</div>
+                <div class="product-itinerary-slide__top__side-info">
+                    <div class="product-itinerary-slide__top__side-info__tabs">
+                        <div class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">Overview</div>
+                        <div class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">Inclusions</div>
+                        <div class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</div>
                     </div>
 
                     <!-- Overview-->
-                    <div class="product-itinerary-slide__top__info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">
+                    <div class="product-itinerary-slide__top__side-info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">
 
                         <!-- Prices -->
-                        <div class="product-itinerary-slide__top__info__content__widget">
-                            <div class="product-itinerary-slide__top__info__content__widget__top-section u-margin-bottom-small">
-                                <h4 class="product-itinerary-slide__top__info__content__widget__top-section__title">
+                        <div class="product-itinerary-slide__top__side-info__content__widget">
+                            <div class="product-itinerary-slide__top__side-info__content__widget__top-section u-margin-bottom-small">
+                                <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
                                     Prices
                                 </h4>
 
@@ -94,20 +94,25 @@ $img = get_field('map');
 
                             <?php while ($yearCount <= 1) { ?>
                                 <div class="price-grid price-grid__<?php echo ($currentYear + $yearCount) ?>" data-tab="<?php echo $count; ?>">
-                                    <div class="price-grid__header">
-                                        <div class="price-grid__header__title">
-                                            Accommodation Level
+                                    <div class="price-grid__grid">
+                                        <div class="price-grid__grid__title">
+                                            <div class="price-grid__grid__title__text">
+                                                Accommodations
+                                            </div>
                                         </div>
-                                        <div class="price-grid__header__details">
-                                            <div class="price-grid__header__details__item">
+                                        <div class="price-grid__grid__title right">
+                                            <div class="price-grid__grid__title__text">
                                                 Double
                                             </div>
-                                            <div class="price-grid__header__details__item">
+                                        </div>
+                                        <div class="price-grid__grid__title right">
+                                            <div class="price-grid__grid__title__text">
                                                 Single
                                             </div>
                                         </div>
-                                    </div>
-                                    <?php
+
+
+                                        <?php
                                     if ($pricePackages) {
                                         foreach ($pricePackages as $pricePackage) {
                                             $price_level = $pricePackage['price_level'];
@@ -119,27 +124,26 @@ $img = get_field('map');
                                     ?>
 
 
-
-                                                <div class="price-grid__row">
-                                                    <div class="price-grid__row__title">
-                                                        <?php echo get_the_title($price_level); ?>
-                                                    </div>
-                                                    <div class="price-grid__row__details">
-                                                        <div class="price-grid__row__details__item">
-                                                            <?php echo "$ " . number_format($price, 0);  ?>
-                                                        </div>
-                                                        <div class="price-grid__row__details__item">
-                                                            <?php echo "$ " . number_format($single_price, 0);  ?>
-                                                        </div>
-                                                    </div>
-
+                                                <div class="price-grid__grid__cabin-type">
+                                                    <?php echo get_the_title($price_level); ?>
                                                 </div>
+                                                <div class="price-grid__grid__double-price">
+                                                    <?php echo "$ " . number_format($price, 0);  ?>
+                                                </div>
+                                                <div class="price-grid__grid__single-price">
+                                                    <?php echo "$ " . number_format($single_price, 0);  ?>
+                                                </div>
+
+
 
                                     <?php
                                             }
                                         }
                                     }
                                     ?>
+
+                                    </div>
+                                   
                                 </div>
                             <?php $yearCount++;
                             } ?>
@@ -148,13 +152,13 @@ $img = get_field('map');
 
 
                         <!-- Locations -->
-                        <div class="product-itinerary-slide__top__info__content__widget noborder">
+                        <div class="product-itinerary-slide__top__side-info__content__widget noborder">
                             <?php $locations = get_field('locations');
                             if ($locations) : ?>
-                                <div class="product-itinerary-slide__top__info__content__widget__small-title">
+                                <div class="product-itinerary-slide__top__side-info__content__widget__small-title">
                                     Places of Interest
                                 </div>
-                                <ul class="product-itinerary-slide__top__info__content__widget__list">
+                                <ul class="product-itinerary-slide__top__side-info__content__widget__list">
                                     <?php foreach ($locations as $l) : ?>
                                         <li><?php echo get_field('navigation_title', $l) ?></li>
                                     <?php endforeach; ?>
@@ -163,13 +167,13 @@ $img = get_field('map');
                         </div>
 
                         <!-- Experiences -->
-                        <div class="product-itinerary-slide__top__info__content__widget noborder">
+                        <div class="product-itinerary-slide__top__side-info__content__widget noborder">
                             <?php $experiences = get_field('experiences');
                             if ($experiences) : ?>
-                                <div class="product-itinerary-slide__top__info__content__widget__small-title">
+                                <div class="product-itinerary-slide__top__side-info__content__widget__small-title">
                                     Experiences
                                 </div>
-                                <ul class="product-itinerary-slide__top__info__content__widget__list">
+                                <ul class="product-itinerary-slide__top__side-info__content__widget__list">
                                     <?php foreach ($experiences as $e) : ?>
                                         <li><?php echo get_the_title($e) ?></li>
                                     <?php endforeach; ?>
@@ -178,28 +182,28 @@ $img = get_field('map');
                         </div>
 
                         <!-- Activities -->
-                        <div class="product-itinerary-slide__top__info__content__widget noborder">
+                        <div class="product-itinerary-slide__top__side-info__content__widget noborder">
                             <?php $activities = get_field('activities');
                             if ($activities) : ?>
-                                <div class="product-itinerary-slide__top__info__content__widget__small-title">
+                                <div class="product-itinerary-slide__top__side-info__content__widget__small-title">
                                     Activities
                                 </div>
-                                <ul class="product-itinerary-slide__top__info__content__widget__list">
+                                <ul class="product-itinerary-slide__top__side-info__content__widget__list">
                                     <?php foreach ($activities as $a) : ?>
                                         <li><?php echo get_the_title($a) ?></li>
                                     <?php endforeach; ?>
                                 </ul>
                             <?php endif; ?>
                         </div>
-                        <!-- <div class="product-itinerary-slide__top__info__content__fine-print">
+                        <!-- <div class="product-itinerary-slide__top__side-info__content__fine-print">
                                 - Call for Availability
                         </div> -->
                     </div>
 
                     <!-- Inclusions -->
-                    <div class="product-itinerary-slide__top__info__content" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">
+                    <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">
                         <h4>What's Incuded</h4>
-                        <ul class="product-itinerary-slide__top__info__content__inclusions-list">
+                        <ul class="product-itinerary-slide__top__side-info__content__inclusions-list">
                             <?php
                             $inclusions = get_field('inclusions');
                             if ($inclusions) :
@@ -218,7 +222,7 @@ $img = get_field('map');
                     </div>
 
                     <!-- Exclusions -->
-                    <div class="product-itinerary-slide__top__info__content" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">
+                    <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">
                         <h4>What's Excluded</h4>
                         <ul class="product-itinerary-slide__top__info__content__inclusions-list">
 

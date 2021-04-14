@@ -9,7 +9,6 @@
         padding: 0 3rem;
     }
 
- 
     &__nav {
         width: 100%;
         margin-top: 2rem;
@@ -21,10 +20,9 @@
             color: $color-grey-1;
             font-weight: 600;
             width: 100%;
-            margin-bottom: .5rem;
-            letter-spacing: .1rem;      
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1rem;
         }
-
 
         &__slider {
             list-style: none;
@@ -44,7 +42,6 @@
 
                 & .product-itineraries__nav__slider__item__counter {
                     display: inline;
-
                 }
             }
 
@@ -66,8 +63,6 @@
                 &:hover {
                     color: $color-supporting !important;
                 }
-
-               
             }
 
             &__btn {
@@ -118,8 +113,6 @@
         &__slider {
         }
     }
-
- 
 }
 
 //Widgets -------------------------
@@ -159,64 +152,153 @@
     display: flex;
     flex-direction: column;
 
-    &__header {
+    &__season {
         display: flex;
-        width: 100%;
-        justify-content: space-between;
+
+        text-align: center;
         font-size: 1.3rem;
-        font-weight: 700;
         color: $color-grey-1;
-        margin-bottom: .8rem;
-        flex-direction: row;
-        &__details {
-            display: flex;
-            justify-content: flex-end;
-            text-align: center;
-            &__item {
-                width: 8rem;
-                border-bottom: 1px solid $color-grey-light-1a;
-                margin-left: 4rem;
-            }
+        margin-bottom: 0.8rem;
 
-        }
+        font-size: 1.3rem;
+        letter-spacing: 0.2rem;
+        text-transform: uppercase;
 
-        
-        &__title {
-            
+        &::before {
+            content: "";
+            flex: 1 1;
             border-bottom: 1px solid $color-grey-light-1a;
-     
+            margin: auto;
+
+            margin-right: 2rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                margin-right: 1.5rem;
+            }
+        }
+        &::after {
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid $color-grey-light-1a;
+            margin: auto;
+
+            margin-left: 2rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                margin-left: 1.5rem;
+            }
         }
     }
 
-    &__row {
-        display: flex;
-        font-size: 1.6rem;
-        color: $color-primary;
-        justify-content: space-between;
-        width: 100%;
-        margin: .1rem 0;
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr max-content max-content;
+        column-gap: 3rem;
+        row-gap: .5rem;
+
+        &__title {
+            width: 100%;
+            &__text {
+                   
+                display: inline-block;
+
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: $color-grey-1;
 
 
-        &__details {
-            text-align: center;
-            display: flex;
-            justify-content: flex-end;
-            
-            &__item {
-                width: 8rem;
-                margin-left: 4rem;
+                border-bottom: 1px solid $color-grey-light-1a;
+                padding-bottom: 0.2rem;
+                margin-bottom: 0.4rem;
             }
 
+            &.right {
+                text-align: right;
+                // & div {
+                //     display: block;
+
+                // }
+            }
         }
 
-        
-        &__title {
-            
-            font-weight: 600;
-     
+        &__cabin-type {
+      
+            font-size: 1.5rem;
+            color: $color-primary;
+            font-weight: 500;
+
         }
-  
+
+        &__double-price {
+            font-size: 1.5rem;
+            color: $color-primary;
+            text-align: right;
+
+        }
+
+        &__single-price {
+            font-size: 1.5rem;
+            color: $color-primary;
+            text-align: right;
+
+        }
     }
+
+    // &__header {
+    //     display: flex;
+    //     width: 100%;
+    //     justify-content: space-between;
+    //     font-size: 1.3rem;
+    //     font-weight: 700;
+    //     color: $color-grey-1;
+
+    //     flex-direction: row;
+
+    //     // &__details {
+    //     //     display: flex;
+    //     //     justify-content: flex-end;
+    //     //     text-align: center;
+    //     //     &__item {
+    //     //         width: 8rem;
+    //     //         border-bottom: 1px solid $color-grey-light-1a;
+    //     //         margin-left: 4rem;
+    //     //     }
+    //     // }
+
+    //     &__title {
+    //         width: 100%;
+    //         &__text {
+    //             display: inline-block;
+    //             border-bottom: 1px solid $color-grey-light-1a;
+    //             padding-bottom: 0.2rem;
+    //             margin-bottom: .4rem;
+    //         }
+    //     }
+    // }
+
+    // &__row {
+    //     display: flex;
+    //     font-size: 1.6rem;
+    //     color: $color-primary;
+    //     justify-content: space-between;
+    //     width: 100%;
+    //     margin: 0.1rem 0;
+
+    //     &__details {
+    //         text-align: center;
+    //         display: flex;
+    //         justify-content: flex-end;
+
+    //         &__item {
+    //             width: 8rem;
+    //             margin-left: 4rem;
+    //         }
+    //     }
+
+    //     &__title {
+    //         font-weight: 600;
+    //     }
+    // }
 }
 
 .inclusions-area {
@@ -273,7 +355,6 @@
             }
 
             &__title {
-            
                 margin-bottom: 2rem;
                 display: flex;
                 justify-content: space-between;
@@ -286,33 +367,29 @@
                 }
 
                 &__badge-area {
-                        width: max-content;
-                        transform: translateY(.4rem);
-                        margin-left: .5rem;
-                        & span {
-                            white-space: nowrap;
-                            padding: 1rem 1.5rem;
-                            background-color: $color-supporting;
-                            color: $color-white;
-                            border-radius: 5rem;
-                            font-size: 1.1rem;
-
-                        }
+                    width: max-content;
+                    transform: translateY(0.4rem);
+                    margin-left: 0.5rem;
+                    & span {
+                        white-space: nowrap;
+                        padding: 1rem 1.5rem;
+                        background-color: $color-supporting;
+                        color: $color-white;
+                        border-radius: 5rem;
+                        font-size: 1.1rem;
+                    }
                 }
             }
 
-            
             & img {
                 object-fit: contain;
                 width: 100%;
                 height: auto;
             }
-
-          
         }
 
         //Side Info
-        &__info {
+        &__side-info {
             width: 60%;
             margin-left: 4rem;
 
@@ -342,12 +419,12 @@
                     transition: color 0.2s;
                     cursor: pointer;
 
-                    @media only screen and (max-width: $bp-small) { //super small screen       
+                    @media only screen and (max-width: $bp-small) {
+                        //super small screen
                         font-size: 1.1rem;
-                        letter-spacing: .1rem;
-                        padding: 1rem .5rem;
+                        letter-spacing: 0.1rem;
+                        padding: 1rem 0.5rem;
                     }
-
 
                     &:hover {
                         color: $color-supporting;
@@ -375,11 +452,10 @@
 
             &__content {
                 display: none;
-            
 
                 &.current {
                     display: block;
-                    animation: fadein .3s both;
+                    animation: fadein 0.3s both;
                     animation-timing-function: ease-out;
                 }
 
@@ -406,7 +482,7 @@
 
                         position: relative;
 
-                        &__title { 
+                        &__title {
                             font-size: 1.5rem;
                             text-transform: uppercase;
                             letter-spacing: 0.1rem;
@@ -427,7 +503,7 @@
                             &::after {
                                 content: "";
                                 position: absolute;
-                                top: 50%; 
+                                top: 50%;
                                 left: 0;
                                 transform: translateY(-50%);
                                 background-color: currentColor;
@@ -453,11 +529,11 @@
                     }
 
                     &__small-title {
-                            font-size: 1.5rem;
-                            text-transform: uppercase;
-                            letter-spacing: 0.1rem;
-                            color: $color-primary;
-                            font-weight: bold;
+                        font-size: 1.5rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.1rem;
+                        color: $color-primary;
+                        font-weight: bold;
                     }
 
                     &__list {
@@ -469,13 +545,12 @@
                             position: relative;
                             white-space: nowrap;
 
-                            &:not(:last-child){
-                                &::after{
+                            &:not(:last-child) {
+                                &::after {
                                     content: ",";
-                                    margin-right: .6rem;
+                                    margin-right: 0.6rem;
                                 }
                             }
-                            
                         }
                     }
                 }
@@ -483,9 +558,8 @@
                 &__fine-print {
                     font-size: 1.2rem;
                     color: $color-grey-1;
-                   
-                    letter-spacing: .1rem;
 
+                    letter-spacing: 0.1rem;
                 }
 
                 &__inclusions-list {
@@ -554,14 +628,7 @@
                 left: -5rem;
                 top: 0;
             }
-
-         
-
-
         }
-
-
-
 
         &__days {
             position: relative;
@@ -628,6 +695,7 @@
                             }
 
                             &__data {
+                                width: max-content;
                                 font-size: 1.6rem;
                                 color: $color-primary;
                             }
@@ -685,7 +753,8 @@
                 margin-bottom: 0px !important;
             }
 
-            & .slick-dots { //check for long itineraries
+            & .slick-dots {
+                //check for long itineraries
                 top: -4rem;
                 left: 5rem;
                 text-align: start;

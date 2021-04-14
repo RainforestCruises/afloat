@@ -2,14 +2,14 @@ jQuery(document).ready(function ($) {
 
 
   //Side Info Tabs - Overview / Inclusions / Exclusions
-  const tabArray = [...document.querySelectorAll('.product-itinerary-slide__top__info__tabs__item')];
+  const tabArray = [...document.querySelectorAll('.product-itinerary-slide__top__side-info__tabs__item')];
   tabArray.forEach(item => {
     item.addEventListener('click', () => {
       let itineraryTab = item.getAttribute("itinerary-tab");
       let tabType = item.getAttribute("tab-type");
 
       //content panes
-      let tabPanes = [...document.querySelectorAll('.product-itinerary-slide__top__info__content[itinerary-tab="' + itineraryTab + '"]')];
+      let tabPanes = [...document.querySelectorAll('.product-itinerary-slide__top__side-info__content[itinerary-tab="' + itineraryTab + '"]')];
       tabPanes.forEach((x) => {
         x.classList.remove('current');
       });
@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
       });
 
       //tabs nav
-      let tabNavs = [...document.querySelectorAll('.product-itinerary-slide__top__info__tabs__item[itinerary-tab="' + itineraryTab + '"]')];
+      let tabNavs = [...document.querySelectorAll('.product-itinerary-slide__top__side-info__tabs__item[itinerary-tab="' + itineraryTab + '"]')];
       tabNavs.forEach((x) => {
         x.classList.remove('current');
       });
