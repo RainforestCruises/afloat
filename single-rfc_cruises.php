@@ -108,14 +108,6 @@ while (have_posts()) :
       ?>
     </section>
 
-    <?php if (!$charter_view) : ?>
-      <!-- Dates Content -->
-      <section class="product-page__section-dates" id="dates" style="display: none;">
-        <?php
-        get_template_part('template-parts/content', 'product-dates', $args);
-        ?>
-      </section>
-    <?php endif; ?>
 
 
     <!-- Reviews -->
@@ -126,16 +118,33 @@ while (have_posts()) :
     </section>
 
     <!-- Related Travel -->
-    <section class="product-page__section-related" >
+    <section class="product-page__section-related">
       <?php
       get_template_part('template-parts/content', 'product-related', $args);
       ?>
     </section>
 
 
+
+
   </div>
 
+  <!-- Date Search Form -->
+  <form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">
 
+    <!-- Direct to function within functions.php -->
+    <input type="hidden" name="testfield" id="testfield" value="test">
+    <input type="hidden" name="form-itinerary" id="form-itinerary" value="">
+    <input type="hidden" name="form-year" id="form-year" value="">
+    <input type="hidden" name="form-month" id="form-month" value="">
+
+    <input type="hidden" name="action" value="productsearch">
+    <input type="hidden" name="productId" value="<?php echo get_the_ID() ?>">
+
+  </form>
+  <!-- Results -->
+  <div class="product-dates__search-area__results" id="response">
+  </div>
 
 
 

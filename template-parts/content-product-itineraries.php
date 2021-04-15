@@ -127,223 +127,229 @@ endforeach;
 
                             <!-- Overview-->
                             <div class="product-itinerary-slide__top__side-info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">
-
-                                <!-- Dates -->
-                                <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) : ?>
-                                    <div class="product-itinerary-slide__top__side-info__content__widget">
-                                        <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
-                                            <!-- Title -->
-                                            <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
-                                                Availability
-                                            </h4>
-                                            <!-- Select-Box -->
-                                            <div class="itinerary-year-select-group">
-                                                <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
-                                                    <?php foreach ($years as $year) { ?>
-                                                        <option><?php echo $year ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <!-- Date-Grid  -->
-                                        <?php $departureYears = $itinerary['DepartureYears']; ?>
-                                        <?php foreach ($departureYears as $departureYear) { ?>
-                                            <ul class="date-grid date-grid__<?php echo $departureYear['Year'] ?>" data-tab="<?php echo $count; ?>">
-                                                <!-- Check if before current year / month, then display as available or sold out (HasDepartures)-->
-                                                <?php foreach ($departureYear['DepartureMonths'] as $departureMonth) { ?>
-                                                    <?php if (($departureMonth['Month'] < $currentMonth) && ($departureYear['Year'] == $currentYear)) { ?>
-                                                        <li class="date-grid__item">
-                                                            <?php echo $departureMonth['MonthNameShort']; ?>
-                                                        </li>
-                                                    <?php } else { ?>
-                                                        <?php if ($departureMonth['HasDepartures'] == false) { ?>
-                                                            <li class="date-grid__item date-grid__item--sold-out">
-                                                                <?php echo $departureMonth['MonthNameShort']; ?>
-                                                            </li>
-                                                        <?php } else { ?>
-                                                            <li class="date-grid__item date-grid__item--available">
-                                                                <?php echo $departureMonth['MonthNameShort']; ?>
-                                                            </li>
-                                                        <?php } ?>
-                                                    <?php } ?>
-                                                <?php } ?>
-                                            </ul>
-                                        <?php } ?>
-                                        <div class="product-itinerary-slide__top__side-info__content__widget__legend">
-                                            <div class="product-itinerary-slide__top__side-info__content__widget__legend__item product-itinerary-slide__top__side-info__content__widget__legend__item--available">
-                                                Available
-                                            </div>
-                                            <div class="product-itinerary-slide__top__side-info__content__widget__legend__item product-itinerary-slide__top__side-info__content__widget__legend__item--sold-out">
-                                                Sold Out
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                <?php endif; ?>
-
-                                <!-- Prices -->
-                                <?php if ($charter_view == false) : ?>
-                                    <div class="product-itinerary-slide__top__side-info__content__widget">
-                                        <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
-                                            <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
-                                                Prices
-                                            </h4>
-                                            <?php if (get_post_type() == 'rfc_lodges') { ?>
-                                                <?php $yearCount = 0; ?>
+                                <div class="side-info-panel" itinerary-tab="<?php echo $count; ?>" tab-type="all">
+                                    <!-- Dates -->
+                                    <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) : ?>
+                                        <div class="product-itinerary-slide__top__side-info__content__widget noborder">
+                                            <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
+                                                <!-- Title -->
+                                                <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
+                                                    Availability
+                                                </h4>
                                                 <!-- Select-Box -->
                                                 <div class="itinerary-year-select-group">
                                                     <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
-                                                        <?php while ($yearCount <= 1) { ?>
-                                                            <option><?php echo ($currentYear + $yearCount) ?></option>
-                                                        <?php $yearCount++;
-                                                        } ?>
+                                                        <?php foreach ($years as $year) { ?>
+                                                            <option><?php echo $year ?></option>
+                                                        <?php } ?>
                                                     </select>
                                                 </div>
+                                            </div>
+                                            <!-- Date-Grid  -->
+                                            <?php $departureYears = $itinerary['DepartureYears']; ?>
+                                            <?php foreach ($departureYears as $departureYear) { ?>
+                                                
+                                                    <ul class="date-grid date-grid__<?php echo $departureYear['Year'] ?>" data-tab="<?php echo $count; ?>">
+                                                        <!-- Check if before current year / month, then display as available or sold out (HasDepartures)-->
+                                                        <?php foreach ($departureYear['DepartureMonths'] as $departureMonth) { ?>
+                                                            <?php if (($departureMonth['Month'] < $currentMonth) && ($departureYear['Year'] == $currentYear)) { ?>
+                                                                <li class="date-grid__item" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
+                                                                    <?php echo $departureMonth['MonthNameShort']; ?>
+                                                                </li>
+                                                            <?php } else { ?>
+                                                                <?php if ($departureMonth['HasDepartures'] == false) { ?>
+                                                                    <li class="date-grid__item date-grid__item--sold-out" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
+                                                                        <?php echo $departureMonth['MonthNameShort']; ?>
+                                                                    </li>
+                                                                <?php } else { ?>
+                                                                    <li class="date-grid__item date-grid__item--available" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
+                                                                        <?php echo $departureMonth['MonthNameShort']; ?>
+                                                                    </li>
+                                                                <?php } ?>
+                                                            <?php } ?>
+                                                        <?php } ?>
+                                                    </ul>
 
+                                                
                                             <?php } ?>
-                                        </div>
-                                        <!-- Price-Grid  -->
-                                        <?php $rateYears = $itinerary['RateYears']; ?>
-                                        <?php foreach ($rateYears as $rateYear) :
-                                            $hasSeasons = false;
-                                            if ($rateYear['HasHighSeason'] == true || $rateYear['HasLowSeason'] == true) :
-                                                $hasSeasons = true;
-                                            endif;
-                                        ?>
-                                            <div class="price-grid price-grid__<?php echo $rateYear['Year'] ?>" data-tab="<?php echo $count; ?>">
-
-                                                <!-- Regular Season -->
-                                                <?php if ($hasSeasons) : ?>
-                                                    <div class="price-grid__season">
-                                                        Regular Season
-                                                    </div>
-                                                <?php endif; ?>
-                                             
-                                                <div class="price-grid__grid">
-
-                                                    <div class="price-grid__grid__title">
-                                                        <div class="price-grid__grid__title__text">
-                                                            Cabin Type
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-grid__grid__title right">
-                                                        <div class="price-grid__grid__title__text">
-                                                            Double
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-grid__grid__title right">
-                                                        <div class="price-grid__grid__title__text">
-                                                            Single
-                                                        </div>
-                                                    </div>
-
-                                                    <?php $rateYears = $itinerary['RateYears']; ?>
-                                                    <?php foreach ($rateYear['Rates'] as $rate) : ?>
-                                                        <div class="price-grid__grid__cabin-type">
-                                                            <?php echo  $rate['Cabin'] ?>
-                                                        </div>
-                                                        <div class="price-grid__grid__double-price">
-                                                            <?php echo "$ " . number_format($rate['WebAmount'], 0);  ?>
-                                                        </div>
-                                                        <div class="price-grid__grid__single-price">
-                                                            <?php echo "$ " . number_format($rate['SingleWebAmount'], 0);  ?>
-                                                        </div>
-                                                    <?php endforeach; ?>
-
+                                            <div class="product-itinerary-slide__top__side-info__content__widget__legend">
+                                                <div class="product-itinerary-slide__top__side-info__content__widget__legend__item product-itinerary-slide__top__side-info__content__widget__legend__item--available">
+                                                    Available
+                                                </div>
+                                                <div class="product-itinerary-slide__top__side-info__content__widget__legend__item product-itinerary-slide__top__side-info__content__widget__legend__item--sold-out">
+                                                    Sold Out
                                                 </div>
 
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
 
+                                    <!-- Prices -->
+                                    <?php if ($charter_view == false) : ?>
+                                        <?php $rateYears = $itinerary['RateYears']; ?>
+                                        <div class="product-itinerary-slide__top__side-info__content__widget">
+                                            <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
+                                                <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
+                                                    Prices
+                                                </h4>
+                                            </div>
+                                            <!-- Price-Grid  -->
 
-                                                <!-- High Season -->
-                                                <?php if ($rateYear['HasHighSeason'] == true) : ?>
-                                                    <div class="price-grid__season">
-                                                        High Season
+                                            <?php foreach ($rateYears as $rateYear) : ?>
+
+                                                <div class="price-grid price-grid__<?php echo $rateYear['Year'] ?>" data-tab="<?php echo $count; ?>">
+
+                                                    <!-- Select Here -->
+
+                                                    <!-- Regular Season -->
+                                                    <div class="season-panel" data-tab="regular">
+                                                        <div class="price-grid__season">
+                                                            Regular Season
+                                                        </div>
+                                                        <div class="price-grid__grid">
+
+                                                            <div class="price-grid__grid__title">
+                                                                <div class="price-grid__grid__title__text">
+                                                                    Cabin Type
+                                                                </div>
+                                                            </div>
+                                                            <div class="price-grid__grid__title right">
+                                                                <div class="price-grid__grid__title__text">
+                                                                    Double
+                                                                </div>
+                                                            </div>
+                                                            <div class="price-grid__grid__title right">
+                                                                <div class="price-grid__grid__title__text">
+                                                                    Single
+                                                                </div>
+                                                            </div>
+
+                                                            <?php $rateYears = $itinerary['RateYears']; ?>
+                                                            <?php foreach ($rateYear['Rates'] as $rate) : ?>
+                                                                <div class="price-grid__grid__cabin-type">
+                                                                    <?php echo  $rate['Cabin'] ?>
+                                                                </div>
+                                                                <div class="price-grid__grid__double-price">
+                                                                    <?php echo "$ " . number_format($rate['WebAmount'], 0);  ?>
+                                                                </div>
+                                                                <div class="price-grid__grid__single-price">
+                                                                    <?php echo "$ " . number_format($rate['SingleWebAmount'], 0);  ?>
+                                                                </div>
+                                                            <?php endforeach; ?>
+
+                                                        </div>
                                                     </div>
-                                                    <div class="price-grid__grid">
 
-                                                        <div class="price-grid__grid__title">
-                                                            <div class="price-grid__grid__title__text">
-                                                                Cabin Type
+                                                    <!-- High Season -->
+                                                    <?php if ($rateYear['HasHighSeason'] == true) : ?>
+                                                        <div class="season-panel" data-tab="high">
+                                                            <div class="price-grid__season">
+                                                                High Season
+                                                            </div>
+                                                            <div class="price-grid__grid">
+                                                                <div class="price-grid__grid__title">
+                                                                    <div class="price-grid__grid__title__text">
+                                                                        Cabin Type
+                                                                    </div>
+                                                                </div>
+                                                                <div class="price-grid__grid__title right">
+                                                                    <div class="price-grid__grid__title__text">
+                                                                        Double
+                                                                    </div>
+                                                                </div>
+                                                                <div class="price-grid__grid__title right">
+                                                                    <div class="price-grid__grid__title__text">
+                                                                        Single
+                                                                    </div>
+                                                                </div>
+
+                                                                <?php $rateYears = $itinerary['RateYears']; ?>
+                                                                <?php foreach ($rateYear['Rates'] as $rate) : ?>
+                                                                    <div class="price-grid__grid__cabin-type">
+                                                                        <?php echo  $rate['Cabin'] ?>
+                                                                    </div>
+                                                                    <div class="price-grid__grid__double-price">
+                                                                        <?php echo "$ " . number_format($rate['HighSeasonWeb'], 0);  ?>
+                                                                    </div>
+                                                                    <div class="price-grid__grid__single-price">
+                                                                        <?php echo "$ " . number_format($rate['SingleHighSeasonWeb'], 0);  ?>
+                                                                    </div>
+                                                                <?php endforeach; ?>
+
                                                             </div>
                                                         </div>
-                                                        <div class="price-grid__grid__title right">
-                                                            <div class="price-grid__grid__title__text">
-                                                                Double
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-grid__grid__title right">
-                                                            <div class="price-grid__grid__title__text">
-                                                                Single
-                                                            </div>
-                                                        </div>
-
-                                                        <?php $rateYears = $itinerary['RateYears']; ?>
-                                                        <?php foreach ($rateYear['Rates'] as $rate) : ?>
-                                                            <div class="price-grid__grid__cabin-type">
-                                                                <?php echo  $rate['Cabin'] ?>
-                                                            </div>
-                                                            <div class="price-grid__grid__double-price">
-                                                                <?php echo "$ " . number_format($rate['HighSeasonWeb'], 0);  ?>
-                                                            </div>
-                                                            <div class="price-grid__grid__single-price">
-                                                                <?php echo "$ " . number_format($rate['SingleHighSeasonWeb'], 0);  ?>
-                                                            </div>
-                                                        <?php endforeach; ?>
-
-                                                    </div>
-                                                <?php endif; ?>
-
+                                                    <?php endif; ?>
 
                                                     <!-- Low Season -->
-                                                <?php if ($rateYear['HasLowSeason'] == true) : ?>
-                                                    <div class="price-grid__season">
-                                                        Low Season
-                                                    </div>
-                                                    <div class="price-grid__grid">
+                                                    <?php if ($rateYear['HasLowSeason'] == true) : ?>
+                                                        <div class="season-panel" data-tab="low">
+                                                            <div class="price-grid__season">
+                                                                Low Season
+                                                            </div>
+                                                            <div class="price-grid__grid">
 
-                                                        <div class="price-grid__grid__title">
-                                                            <div class="price-grid__grid__title__text">
-                                                                Cabin Type
+                                                                <div class="price-grid__grid__title">
+                                                                    <div class="price-grid__grid__title__text">
+                                                                        Cabin Type
+                                                                    </div>
+                                                                </div>
+                                                                <div class="price-grid__grid__title right">
+                                                                    <div class="price-grid__grid__title__text">
+                                                                        Double
+                                                                    </div>
+                                                                </div>
+                                                                <div class="price-grid__grid__title right">
+                                                                    <div class="price-grid__grid__title__text">
+                                                                        Single
+                                                                    </div>
+                                                                </div>
+
+                                                                <?php $rateYears = $itinerary['RateYears']; ?>
+                                                                <?php foreach ($rateYear['Rates'] as $rate) : ?>
+                                                                    <div class="price-grid__grid__cabin-type">
+                                                                        <?php echo  $rate['Cabin'] ?>
+                                                                    </div>
+                                                                    <div class="price-grid__grid__double-price">
+                                                                        <?php echo "$ " . number_format($rate['LowSeasonWeb'], 0);  ?>
+                                                                    </div>
+                                                                    <div class="price-grid__grid__single-price">
+                                                                        <?php echo "$ " . number_format($rate['SingleLowSeasonWeb'], 0);  ?>
+                                                                    </div>
+                                                                <?php endforeach; ?>
+
                                                             </div>
                                                         </div>
-                                                        <div class="price-grid__grid__title right">
-                                                            <div class="price-grid__grid__title__text">
-                                                                Double
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-grid__grid__title right">
-                                                            <div class="price-grid__grid__title__text">
-                                                                Single
-                                                            </div>
-                                                        </div>
+                                                    <?php endif; ?>
 
-                                                        <?php $rateYears = $itinerary['RateYears']; ?>
-                                                        <?php foreach ($rateYear['Rates'] as $rate) : ?>
-                                                            <div class="price-grid__grid__cabin-type">
-                                                                <?php echo  $rate['Cabin'] ?>
-                                                            </div>
-                                                            <div class="price-grid__grid__double-price">
-                                                                <?php echo "$ " . number_format($rate['LowSeasonWeb'], 0);  ?>
-                                                            </div>
-                                                            <div class="price-grid__grid__single-price">
-                                                                <?php echo "$ " . number_format($rate['SingleLowSeasonWeb'], 0);  ?>
-                                                            </div>
-                                                        <?php endforeach; ?>
 
-                                                    </div>
-                                                <?php endif; ?>
+                                                </div>
+                                            <?php endforeach; ?>
 
+                                        </div>
+                                    <?php else : ?>
+                                        <div class="product-itinerary-slide__top__side-info__content__widget">
+                                            <div class="charter-info-box">
+                                                This itinerary is only a sample. Charter itineraries are completely customizable. Speak with one of our travel specialists for details and charter availability.
                                             </div>
-                                        <?php endforeach; ?>
-
-                                    </div>
-                                <?php else : ?>
-                                    <div class="product-itinerary-slide__top__side-info__content__widget">
-                                        <div class="charter-info-box">
-                                            This itinerary is only a sample. Charter itineraries are completely customizable. Speak with one of our travel specialists for details and charter availability.
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="side-info-panel" itinerary-tab="<?php echo $count; ?>" tab-type="dates" style="display: none;">
+                                    <div class="side-info-panel__top">
+                                        <div class="side-info-panel__top__month">
+                                            Month / Year
+                                        </div>
+                                        <div class="side-info-panel__top__close-button">
+                                            Close
                                         </div>
                                     </div>
-                                <?php endif; ?>
+
+                                    <div class="side-info-panel__departure-grid">
+
+                                    </div>
+
+                                </div>
+
                             </div>
 
                             <!-- Inclusions -->

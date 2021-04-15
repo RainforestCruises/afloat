@@ -2,8 +2,8 @@
 
 
 //Product Date Search
-add_action('wp_ajax_productSearch', 'search_filter_product_search'); // wp_ajax_{ACTION HERE} 
-add_action('wp_ajax_nopriv_productSearch', 'search_filter_product_search');
+add_action('wp_ajax_productsearch', 'search_filter_product_search'); // wp_ajax_{ACTION HERE} 
+add_action('wp_ajax_nopriv_productsearch', 'search_filter_product_search');
 
 function search_filter_product_search()
 {
@@ -12,16 +12,11 @@ function search_filter_product_search()
     //Pass Along Post Id (WP ID of Product)
 
     $productId = $_POST['productId'];
+    $selectedItinerary = $_POST['form-itinerary'];
+    $selectedMonth = $_POST['form-month'];
+    $selectedYear = $_POST['form-year'];
 
 
-    if (isset($_POST['dates-itinerary-select']) && $_POST['dates-itinerary-select'])
-        $selectedItinerary = $_POST['dates-itinerary-select'];
-
-    if (isset($_POST['dates-month-select']) && $_POST['dates-month-select'])
-        $selectedMonth = $_POST['dates-month-select'];
-
-    if (isset($_POST['dates-year-select']) && $_POST['dates-year-select'])
-        $selectedYear = $_POST['dates-year-select'];
 
 
     $args = array(
@@ -30,7 +25,9 @@ function search_filter_product_search()
         'selectedYear' => $selectedYear,
         'productId' => $productId,
     );
-    get_template_part('template-parts/content', 'product-dates-results', $args);
+
+    console_log($args);
+    get_template_part('template-parts/content', 'product-dates-grid', $args);
 
 
 

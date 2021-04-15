@@ -6,9 +6,9 @@ $cruise_data = get_field('cruise_data', $currentPost);
 
 $currentYear = date("Y");
 $currentMonth = date("m");
+
 $limitResults = false;
 $limitCount = 4;
-
 $timePhrase = "";
 
 if ($args['selectedYear'] == null && $args['selectedMonth'] == null) { //none selected
@@ -32,12 +32,17 @@ if ($args['selectedYear'] == null && $args['selectedMonth'] == null) { //none se
 }
 
 
-
+$startDate = strtotime($args['selectedYear'] . '-' . $args['selectedMonth']);
+$endDate = strtotime(($args['selectedYear'] . '-' . $args['selectedMonth']) . " +1 month");
+$timePhrase = " in " . date('F Y', $startDate);
 
 
 //filter itineraries if selection
 $itineraries = $cruise_data['Itineraries'];
 $filteredItineraries = [];
+
+
+//Need ID of selected itinerary, will always be one itinerary loop not needed...
 
 if ($args['selectedItinerary'] != null) {
     
@@ -69,6 +74,28 @@ foreach ($filteredItineraries as $itinerary) {
             }
         }
     }
+
+
+    //DISPLAY ------------
+    // foreach ($filteredDepartures as $result) {
+    //     echo date("M j", strtotime($result['DepartureDate'])); //DATE
+    //     if ($result['IsHighSeason'] == true) { //SEASON
+    //         echo 'High';
+    //     } else if ($result['IsLowSeason'] == true) {
+    //         echo 'Low';
+    //     } else {
+    //         echo 'Regular';
+    //     } 
+
+    //     //PROMO
+    //     if ($result['HasPromo'] == true) { 
+
+    //     } 
+    // }
+
+    //there will always be departures...
+
+
 ?>
     <!-- Itinerary Group -->
     <div class="product-dates__search-area__results__itinerary-group">

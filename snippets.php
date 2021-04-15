@@ -1,166 +1,93 @@
-<!-- 1. Overview Content -->
-<section class="product-page__section-overview" id="overview">
-  <?php
-  get_template_part('template-parts/content', 'product-overview', $args);
-  ?>
-</section>
+<?php
+$hasSeasons = false;
+if ($rateYears[$count]['HasHighSeason'] == true || $rateYears[$count]['HasLowSeason'] == true) :
+  $hasSeasons = true;
+endif; ?>
 
-<!-- 2. Itineraries Content -->
-<div class="product-page__section-itineraries" id="itineraries">
-  <?php
-  get_template_part('template-parts/content', 'product-itineraries', $args);
-  ?>
-</div>
+<?php if ($hasSeasons) : ?>
+  <select class="season-select" data-tab="<?php echo $count; ?>">
+    <option value="regular">Regular</option>
+    <?php if ($rateYear['HasHighSeason'] == true) : ?>
+      <option value="high">High</option>
+    <?php endif; ?>
+    <?php if ($rateYear['HasLowSeason'] == true) : ?>
+      <option value="low">Low</option>
+    <?php endif; ?>
+  </select>
+<?php endif; ?>
 
-<!-- 3. Cabins Content -->
-<div class="product-page__section-accommodation" id="accommodation">
-  <?php
-  get_template_part('template-parts/content', 'product-cabins', $args);
-  ?>
-</div>
 
-<!-- 4. Prices Content -->
-<div class="product-page__section-prices" id="prices">
-  <?php
-  get_template_part('template-parts/content', 'product-prices', $args);
-  ?>
-</div>
 
-<?php if (!$charter_view) : ?>
-  <!-- 5. Dates Content -->
-  <div class="product-page__section-dates" id="dates">
-    <?php
-    get_template_part('template-parts/content', 'product-dates', $args);
-    ?>
+
+<!-- Lodges Select -->
+
+<?php if (get_post_type() == 'rfc_lodges') : ?>
+  <?php $yearCount = 0; ?>
+  <!-- Select-Box -->
+  <div class="itinerary-year-select-group">
+    <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
+      <?php while ($yearCount <= 1) { ?>
+        <option><?php echo ($currentYear + $yearCount) ?></option>
+      <?php $yearCount++;
+      } ?>
+    </select>
   </div>
 <?php endif; ?>
 
 
 
 
+<form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">
 
-<!-- Areas -->
-<h2 class="page-divider">
-  Explore
-</h2>
-<section class="product-areas">
-  <?php
-  get_template_part('template-parts/content', 'product-explore', $args);
-  ?>
-</section>
+  <input type="hidden" name="form-itinerary" id="form-itinerary" value="">
+  <input type="hidden" name="form-year" id="form-year" value="">
+  <input type="hidden" name="form-month" id="form-month" value="">
 
-<!-- Reviews -->
-<h2 class="page-divider">
-  Guest Reviews
-</h2>
-<section class="product-reviews">
-  <?php
-  get_template_part('template-parts/content', 'product-reviews', $args);
-  ?>
-</section>
-
-<!-- Related Travel -->
-<h2 class="page-divider">
-  Related Cruises
-</h2>
-<section class="product-related">
-  <?php
-  get_template_part('template-parts/content', 'product-related', $args);
-  ?>
-</section>
+  <input type="hidden" name="action" value="productsearch">
+  <input type="hidden" name="productId" value="<?php echo get_the_ID() ?>">
+</form>
 
 
+<?php if (!$charter_view) : ?>
+      <!-- Dates Content -->
+      <section class="product-page__section-dates" id="dates" style="display: none;">
+        <?php
+        get_template_part('template-parts/content', 'product-dates', $args);
+        ?>
+      </section>
+    <?php endif; ?>
 
 
+    <label class="product-dates__search-area__controls__control" for="dates-month-select">
+                <span class="product-dates__search-area__controls__control__label-text">Month</span>
 
+                <select id="dates-month-select" name="dates-month-select" data-tab="<?php echo $count; ?>">
+                    <option></option>
+                    <?php
+                    $monthCount = 1;
+                    foreach ($monthNames as $monthName) { ?>
+                        <option value="<?php echo $monthCount ?>"><?php echo $monthName ?></option>
+                    <?php $monthCount++;
+                    } ?>
+                </select>
 
-
-
-
-
-
-
-
-<div class="product-nav__slick" id="product-nav__slick">
-  <?php
-  $images = get_field('highlight_gallery');
-  if ($images) : ?>
-    <?php foreach ($images as $image) : ?>
-      <div class="product-nav__slick__item">
-        <img src="<?php echo esc_url($image['url']); ?>" alt="">
-      </div>
-    <?php endforeach; ?>
-  <?php endif; ?>
-</div>
-
-
-
-
-
-
-
-
-
-<?php if ($itinerary['HasSummary'] == true) { ?>
-  <!-- Intro -->
-  <div class="product-itineraries__itinerary__intro drop-cap-1">
-    <?php echo $itinerary['Summary'] ?>
-  </div>
-
-  <!-- Map -->
-  <?php $itineraryImages = $itinerary['MapImageDTOs']; ?>
-  <a class="product-itineraries__itinerary__map" id="map-lightbox" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
-    <?php if ($itineraryImages) : ?>
-      <img src="<?php echo $itineraryImages[0]['ImageUrl']; ?>" alt="">
-      <svg>
-        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
-      </svg>
-    <?php endif ?>
-  </a>
-  <div class="product-itineraries__itinerary__divider"></div>
-
-<?php } ?>
-
-
-
-
-
-
-
-
-
-
-
-    <!-- H2 Title -->
-    <h2 class="page-divider">
-        Accommodations
-    </h2>
-    <div class="xsub-divider u-margin-bottom-small">
-        Ship Ammenities
-    </div>
-
-    <div class="product-areas">
-        <div class="areas-slider">
-            <div class="areas-slider__slider-nav" id="areas-slider__slider-nav">
-                <?php
-                $areaImages = get_field('areas_gallery');
-                if ($areaImages) : ?>
-                    <?php foreach ($areaImages as $areaImage) : ?>
-                        <div class="areas-slider__slider-nav__item">
-                            <?php echo esc_html($areaImage['title']); ?>
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-            <div class="areas-slider__slider-for">
-                <?php
-                if ($areaImages) : ?>
-                    <?php foreach ($areaImages as $areaImage) : ?>
-                        <div class="areas-slider__slider-for__item" id="areas-slider__slider-for">
-                            <img class="areas-slider__slider-for__item__img" src="<?php echo esc_html($areaImage['url']); ?>" alt="">
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
+            </label>
+            <label class="product-dates__search-area__controls__control" for="dates-year-select">
+                <span class="product-dates__search-area__controls__control__label-text">Year</span>
+                <select id="dates-year-select" name="dates-year-select" data-tab="<?php echo $count; ?>">
+                    <option></option>
+                    <?php foreach ($years as $year) { ?>
+                        <option value="<?php echo $year ?>"><?php echo $year ?></option>
+                    <?php } ?>
+                </select>
+            </label>
+            <label class="product-dates__search-area__controls__control" for="dates-itinerary-select">
+                <span class="product-dates__search-area__controls__control__label-text">Itinerary</span>
+                <select id="dates-itinerary-select" name="dates-itinerary-select" data-tab="<?php echo $count; ?>">
+                    <option></option>
+                    <option value="0">Any</option>
+                    <?php foreach ($cruise_data['Itineraries'] as $itinerary) { ?>
+                        <option value="<?php echo $itinerary['Id'] ?>"><?php echo $itinerary['Name'] . ' - ' . $itinerary['ShortName'] ?></option>
+                    <?php } ?>
+                </select>
+            </label>

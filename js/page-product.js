@@ -76,11 +76,13 @@ jQuery(document).ready(function ($) {
       }
     ]
   }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
-      var counterDiv = $('#itineraries-slider-counter');
+    var counterDiv = $('#itineraries-slider-counter');
 
-      var i = (currentSlide ? currentSlide : 0) + 1;
-      counterDiv.text('Itinerary: ' + i + ' / ' + slick.slideCount);
-    });
+    var i = (currentSlide ? currentSlide : 0) + 1;
+    counterDiv.text('Itinerary: ' + i + ' / ' + slick.slideCount);
+    $('.side-info-panel[tab-type="all"').show();
+    $('.side-info-panel[tab-type="dates"').hide();
+  });
 
 
 
@@ -111,7 +113,7 @@ jQuery(document).ready(function ($) {
     ]
 
 
-   
+
   })
     .on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
       $('#itineraries-slider').slick("setOption", '', '', true);
@@ -158,7 +160,7 @@ jQuery(document).ready(function ($) {
         breakpoint: 1000,
         settings: {
           slidesToShow: 3,
-          
+
 
         }
       },
@@ -181,6 +183,49 @@ jQuery(document).ready(function ($) {
   });
 
 
+  //date-grid__item
+  const dateGridItems = [...document.querySelectorAll('.date-grid__item')];
+  dateGridItems.forEach(item => {
+    item.addEventListener('click', () => {
+      selectedYear = item.getAttribute("departure-year");
+      selectedMonth = item.getAttribute("departure-month");
+      itineraryTab = item.getAttribute("itinerary-tab");
+      itineraryId = item.getAttribute("itinerary-id");
+
+      var formattedMonth = moment(selectedMonth, 'MM').format('MMMM')
+      $('.side-info-panel__top__month').text(formattedMonth + ", " + selectedYear);
+
+      $('.side-info-panel[itinerary-tab="' + itineraryTab + '"][tab-type="all"').hide();
+      $('.side-info-panel[itinerary-tab="' + itineraryTab + '"][tab-type="dates"').show();
+
+      $('#form-itinerary').val(itineraryId);
+      $('#form-month').val(selectedMonth);
+      $('#form-year').val(selectedYear);
+
+      //$('#testfield').val('js-test');
+
+      //console.log('xxx');
+      reloadResults();
+      // $('#search-form').submit(function (event) {
+      //   event.preventDefault();
+      //   //reloadResults();
+      //   return false;
+      // });
+    });
+  })
+
+  const closeButtons = [...document.querySelectorAll('.side-info-panel__top__close-button')];
+  closeButtons.forEach(item => {
+    item.addEventListener('click', () => {
+
+
+      $('.side-info-panel[tab-type="dates"').hide();
+      $('.side-info-panel[tab-type="all"').show();
+
+    });
+  })
+
+
 
 
   //Date and Price Grid Time Config
@@ -192,6 +237,11 @@ jQuery(document).ready(function ($) {
   $('.price-grid__' + currentYear).show();
 
 
+  //Season
+  $('.season-select').select2({
+    width: '100%',
+    minimumResultsForSearch: -1
+  });
 
   //Itineraries --------------------------------
   //Price / Availability
@@ -243,7 +293,7 @@ jQuery(document).ready(function ($) {
   //selection controls
   $('#dates-itinerary-select').on('change', function () {
     var itineraryId = $(this).val();
-    $('#search-form').submit();
+    reloadResults();
   });
 
   $('#dates-month-select').on('change', function () {
@@ -258,21 +308,24 @@ jQuery(document).ready(function ($) {
         $('#dates-year-select').val(d.getFullYear()).trigger("change");
       }
     }
-    $('#search-form').submit();
+    reloadResults();
   });
 
   $('#dates-year-select').on('change', function () {
     var year = $(this).val();
-    $('#search-form').submit();
+    //$('#search-form').submit();
+
+    reloadResults();
+
   });
 
 
   //SEARCH SUBMIT
   reloadResults(); //first time page loads
-  $('#search-form').submit(function () {
-    reloadResults();
-    return false;
-  });
+  // $('search-form').submit(function () {
+  //   reloadResults();
+  //   return false;
+  // });
 
   //SEARCH FUNCTION
   function reloadResults() {
@@ -282,38 +335,40 @@ jQuery(document).ready(function ($) {
       data: searchForm.serialize(), // form data
       type: searchForm.attr('method'), // POST
       beforeSend: function () {
-        $('#response').html('<div class="product-dates__search-area__results__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
+        $('.side-info-panel__departure-grid').html('<div class="product-dates__search-area__results__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
       },
       success: function (data) {
-        $('#response').html(data); // insert data
+        console.log('success');
+        $('.side-info-panel__departure-grid').html(data); // insert data
 
-        //Product Navigation
-        $('.results-goto-itineraries').click(function () {
-          var tab_id = $(this).attr('href');
-          window.location.hash = tab_id;
+        // //Product Navigation
+        // $('.results-goto-itineraries').click(function () {
+        //   var tab_id = $(this).attr('href');
+        //   window.location.hash = tab_id;
 
 
-          var subTabId = $(this).attr('data-tab');
+        //   var subTabId = $(this).attr('data-tab');
 
-          $('.product-intro__nav__list__item').removeClass('current');
-          $('.product-itineraries__itinerary.tab-content').removeClass('current');
+        //   $('.product-intro__nav__list__item').removeClass('current');
+        //   $('.product-itineraries__itinerary.tab-content').removeClass('current');
 
-          $("#" + subTabId + "-nav").addClass('current'); //add current class to both nav tab and content
-          $("#" + subTabId).addClass('current');
-        })
-        //End Product Nav
+        //   $("#" + subTabId + "-nav").addClass('current'); //add current class to both nav tab and content
+        //   $("#" + subTabId).addClass('current');
+        // })
+        // //End Product Nav
 
-        //expand item detail
-        $(".departure-expand").on("click", function (e) {
-          e.preventDefault();
-          let $this = $(this);
-          $this.parent().parent().next().slideToggle(350); //bottom div
-          $this.parent().parent().parent().toggleClass('product-dates__search-area__results__itinerary-group__departures__departure--active') //departure
-        });
+        // //expand item detail
+        // $(".departure-expand").on("click", function (e) {
+        //   e.preventDefault();
+        //   let $this = $(this);
+        //   $this.parent().parent().next().slideToggle(350); //bottom div
+        //   $this.parent().parent().parent().toggleClass('product-dates__search-area__results__itinerary-group__departures__departure--active') //departure
+        // });
 
       }
     });
     //return false;
+
   }
 
 
@@ -463,40 +518,40 @@ jQuery(document).ready(function ($) {
   //Magnific Images
   //Gallery
   $('#product-gallery').magnificPopup({
-    delegate: '.slick-slide:not(.slick-cloned) .product-hero__gallery__slick__item a', 
+    delegate: '.slick-slide:not(.slick-cloned) .product-hero__gallery__slick__item a',
     type: 'image',
-    navigateByImgClick: true, 
-    gallery:{
-      enabled:true,
+    navigateByImgClick: true,
+    gallery: {
+      enabled: true,
       navigateByImgClick: true,
-      preload: [0,1] // Will preload 0 - before current, and 1 after 
+      preload: [0, 1] // Will preload 0 - before current, and 1 after 
     }
   });
 
   $('#gallery-expand-button').on('click', function () {
-		
-		var gallery = $('#product-gallery');
-    
-		$(gallery).magnificPopup({
-      delegate: '.slick-slide:not(.slick-cloned) .product-hero__gallery__slick__item a', 
-			type:'image',
-			gallery: {
-        enabled:true,
-        navigateByImgClick: true,
-        preload: [0,1] // Will preload 0 - before current, and 1 after 
-			}
-		}).magnificPopup('open');
- });
 
- 
-//Itinerary Map
-$('#itinerary-map-image').magnificPopup({
-  type: 'image',
-});
-//deckplan
-$('#deckplan-image').magnificPopup({
-  type: 'image',
-});
+    var gallery = $('#product-gallery');
+
+    $(gallery).magnificPopup({
+      delegate: '.slick-slide:not(.slick-cloned) .product-hero__gallery__slick__item a',
+      type: 'image',
+      gallery: {
+        enabled: true,
+        navigateByImgClick: true,
+        preload: [0, 1] // Will preload 0 - before current, and 1 after 
+      }
+    }).magnificPopup('open');
+  });
+
+
+  //Itinerary Map
+  $('#itinerary-map-image').magnificPopup({
+    type: 'image',
+  });
+  //deckplan
+  $('#deckplan-image').magnificPopup({
+    type: 'image',
+  });
 
 
 
