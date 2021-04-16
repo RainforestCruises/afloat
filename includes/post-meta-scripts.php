@@ -7,9 +7,9 @@
 add_filter('cron_schedules', 'rfc_add_cron_interval');
 function rfc_add_cron_interval($schedules)
 {
-    $schedules['every_ten_seconds'] = array(
-        'interval'  => 60,
-        'display'   => __('Every 10 Seconds', 'textdomain')
+    $schedules['every_three_minutes'] = array(
+        'interval'  => 180,
+        'display'   => __('Every 3 Minutes', 'textdomain')
     );
     return $schedules;
 }
@@ -18,7 +18,7 @@ function rfc_add_cron_interval($schedules)
 
 // Schedule an action if it's not already scheduled
 if (!wp_next_scheduled('rfc_add_cron_interval')) {
-    wp_schedule_event(time(), 'every_ten_seconds', 'rfc_add_cron_interval');
+    wp_schedule_event(time(), 'every_three_minutes', 'rfc_add_cron_interval');
 }
 
 // IMPORTANT - Hook into that action that'll fire every 10 seconds

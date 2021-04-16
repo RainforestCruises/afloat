@@ -52,7 +52,7 @@ endforeach;
 
     <!-- Itinerary Slider Nav -->
     <div class="product-itineraries__nav">
-        <div class="product-itineraries__nav__counter" id="itineraries-slider-counter">Itinerary: <?php echo '1 / ' . $totalCount ?></div>
+        <div class="product-itineraries__nav__counter" id="itineraries-slider-counter"><?php echo '1 / ' . $totalCount ?></div>
 
         <div class="product-itineraries__nav__slider" id="itineraries-slider-nav">
             <?php
@@ -98,13 +98,9 @@ endforeach;
                         <div class="product-itinerary-slide__top__map-area">
                             <div class="product-itinerary-slide__top__map-area__title">
                                 <div class="product-itinerary-slide__top__map-area__title__text">
-                                    <?php echo $itinerary['Name'] ?>
+                                <?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>
                                 </div>
-                                <div class="product-itinerary-slide__top__map-area__title__badge-area">
-                                    <span>
-                                        <?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night
-                                    </span>
-                                </div>
+                              
                             </div>
 
                             <!-- Map -->
@@ -137,7 +133,11 @@ endforeach;
                                                     Availability
                                                 </h4>
                                                 <!-- Select-Box -->
-                                                <div class="itinerary-year-select-group">
+                                                <div class="product-itinerary-slide__select-group">
+                                                    <label>
+                                                        Year:
+                                                    </label>
+
                                                     <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
                                                         <?php foreach ($years as $year) { ?>
                                                             <option><?php echo $year ?></option>
@@ -148,37 +148,44 @@ endforeach;
                                             <!-- Date-Grid  -->
                                             <?php $departureYears = $itinerary['DepartureYears']; ?>
                                             <?php foreach ($departureYears as $departureYear) { ?>
-                                                
-                                                    <ul class="date-grid date-grid__<?php echo $departureYear['Year'] ?>" data-tab="<?php echo $count; ?>">
-                                                        <!-- Check if before current year / month, then display as available or sold out (HasDepartures)-->
-                                                        <?php foreach ($departureYear['DepartureMonths'] as $departureMonth) { ?>
-                                                            <?php if (($departureMonth['Month'] < $currentMonth) && ($departureYear['Year'] == $currentYear)) { ?>
-                                                                <li class="date-grid__item" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
+
+                                                <ul class="date-grid date-grid__<?php echo $departureYear['Year'] ?>" data-tab="<?php echo $count; ?>">
+                                                    <!-- Check if before current year / month, then display as available or sold out (HasDepartures)-->
+                                                    <?php foreach ($departureYear['DepartureMonths'] as $departureMonth) { ?>
+                                                        <?php if (($departureMonth['Month'] < $currentMonth) && ($departureYear['Year'] == $currentYear)) { ?>
+                                                            <li class="date-grid__item" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
+                                                                <?php echo $departureMonth['MonthNameShort']; ?>
+                                                            </li>
+                                                        <?php } else { ?>
+                                                            <?php if ($departureMonth['HasDepartures'] == false) { ?>
+                                                                <li class="date-grid__item date-grid__item--sold-out" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
                                                                     <?php echo $departureMonth['MonthNameShort']; ?>
                                                                 </li>
                                                             <?php } else { ?>
-                                                                <?php if ($departureMonth['HasDepartures'] == false) { ?>
-                                                                    <li class="date-grid__item date-grid__item--sold-out" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
-                                                                        <?php echo $departureMonth['MonthNameShort']; ?>
-                                                                    </li>
-                                                                <?php } else { ?>
-                                                                    <li class="date-grid__item date-grid__item--available" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
-                                                                        <?php echo $departureMonth['MonthNameShort']; ?>
-                                                                    </li>
-                                                                <?php } ?>
+                                                                <li class="date-grid__item date-grid__item--available" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
+                                                                    <?php echo $departureMonth['MonthNameShort']; ?>
+                                                                </li>
                                                             <?php } ?>
                                                         <?php } ?>
-                                                    </ul>
+                                                    <?php } ?>
+                                                </ul>
 
-                                                
+
                                             <?php } ?>
                                             <div class="product-itinerary-slide__top__side-info__content__widget__legend">
-                                                <div class="product-itinerary-slide__top__side-info__content__widget__legend__item product-itinerary-slide__top__side-info__content__widget__legend__item--available">
-                                                    Available
+                                                <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors__fine-print">
+                                                    Select month to view departures
                                                 </div>
-                                                <div class="product-itinerary-slide__top__side-info__content__widget__legend__item product-itinerary-slide__top__side-info__content__widget__legend__item--sold-out">
-                                                    Sold Out
+
+                                                <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors">
+                                                    <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors__item product-itinerary-slide__top__side-info__content__widget__legend__colors__item--available">
+                                                        Available
+                                                    </div>
+                                                    <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors__item product-itinerary-slide__top__side-info__content__widget__legend__colors__item--sold-out">
+                                                        Sold Out
+                                                    </div>
                                                 </div>
+
 
                                             </div>
                                         </div>
@@ -192,6 +199,36 @@ endforeach;
                                                 <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
                                                     Prices
                                                 </h4>
+
+                                                <!-- Select-Box -->
+                                                <div class="product-itinerary-slide__select-group">
+                                                 
+
+                                                    <?php
+                                                    //just check first rate year for all seasons -- only defines what goes in dropdown
+                                                    $hasHighSeason =  $rateYears[0]['HasHighSeason'];
+                                                    $hasLowSeason =  $rateYears[0]['HasLowSeason'];
+                                                    $hasSeasons = false;
+                                                    if ($hasHighSeason || $hasLowSeason) {
+                                                        $hasSeasons = true;
+                                                    }
+                                                    ?>
+
+                                                    <?php if ($hasSeasons) : ?>
+                                                        <label>
+                                                        Season:
+                                                    </label>
+                                                        <select class="season-select" itinerary-tab="<?php echo $count; ?>">
+                                                            <option value="regular">Regular</option>
+                                                            <?php if ($hasHighSeason) : ?>
+                                                                <option value="high">High</option>
+                                                            <?php endif; ?>
+                                                            <?php if ($hasLowSeason) : ?>
+                                                                <option value="low">Low</option>
+                                                            <?php endif; ?>
+                                                        </select>
+                                                    <?php endif; ?>
+                                                </div>
                                             </div>
                                             <!-- Price-Grid  -->
 
@@ -199,13 +236,10 @@ endforeach;
 
                                                 <div class="price-grid price-grid__<?php echo $rateYear['Year'] ?>" data-tab="<?php echo $count; ?>">
 
-                                                    <!-- Select Here -->
 
                                                     <!-- Regular Season -->
-                                                    <div class="season-panel" data-tab="regular">
-                                                        <div class="price-grid__season">
-                                                            Regular Season
-                                                        </div>
+                                                    <div class="season-panel" itinerary-tab="<?php echo $count; ?>" data-tab="regular">
+                                                   
                                                         <div class="price-grid__grid">
 
                                                             <div class="price-grid__grid__title">
@@ -242,10 +276,8 @@ endforeach;
 
                                                     <!-- High Season -->
                                                     <?php if ($rateYear['HasHighSeason'] == true) : ?>
-                                                        <div class="season-panel" data-tab="high">
-                                                            <div class="price-grid__season">
-                                                                High Season
-                                                            </div>
+                                                        <div class="season-panel" itinerary-tab="<?php echo $count; ?>" data-tab="high" style="display: none;">
+                                           
                                                             <div class="price-grid__grid">
                                                                 <div class="price-grid__grid__title">
                                                                     <div class="price-grid__grid__title__text">
@@ -282,10 +314,8 @@ endforeach;
 
                                                     <!-- Low Season -->
                                                     <?php if ($rateYear['HasLowSeason'] == true) : ?>
-                                                        <div class="season-panel" data-tab="low">
-                                                            <div class="price-grid__season">
-                                                                Low Season
-                                                            </div>
+                                                        <div class="season-panel" itinerary-tab="<?php echo $count; ?>" data-tab="low" style="display: none;">
+                                                 
                                                             <div class="price-grid__grid">
 
                                                                 <div class="price-grid__grid__title">
@@ -337,11 +367,11 @@ endforeach;
                                 <div class="side-info-panel" itinerary-tab="<?php echo $count; ?>" tab-type="dates" style="display: none;">
                                     <div class="side-info-panel__top">
                                         <div class="side-info-panel__top__month">
-                                            Month / Year
+                                            Availability
                                         </div>
-                                        <div class="side-info-panel__top__close-button">
-                                            Close
-                                        </div>
+                                        <button class="side-info-panel__top__close-button close-button">
+
+                                        </button>
                                     </div>
 
                                     <div class="side-info-panel__departure-grid">
@@ -354,7 +384,7 @@ endforeach;
 
                             <!-- Inclusions -->
                             <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">
-                                <h4>What's Incuded</h4>
+                                <h4 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Incuded</h4>
                                 <ul class="product-itinerary-slide__top__side-info__content__inclusions-list">
                                     <?php foreach ($itinerary['Inclusions'] as $inclusion) : ?>
                                         <li>
@@ -369,7 +399,7 @@ endforeach;
 
                             <!-- Exclusions -->
                             <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">
-                                <h4>What's Excluded</h4>
+                                <h4  class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Excluded</h4>
                                 <ul class="product-itinerary-slide__top__side-info__content__inclusions-list">
 
                                     <?php foreach ($itinerary['Exclusions'] as $exclusion) : ?>

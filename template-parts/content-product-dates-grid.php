@@ -52,26 +52,27 @@ foreach ($departures as $departure) {
     <div class="side-info-panel__departure-grid__grid__heading-title">
         Season
     </div>
-    <div class="side-info-panel__departure-grid__grid__heading-title">
 
-    </div>
     <div class="side-info-panel__departure-grid__grid__heading-title">
         Price Range
     </div>
     <div class="side-info-panel__departure-grid__grid__heading-title">
     </div>
-    <?php foreach ($filteredDepartures as $result) : 
-            
-            $nights = $selectedItinerary['LengthInNights'];
+    <?php foreach ($filteredDepartures as $result) :
 
-            $departureStartDate = strtotime($result['DepartureDate']);
+        $nights = $selectedItinerary['LengthInNights'];
 
-            $departureEndDate = strtotime($result['DepartureDate'] . " +" . $nights . " days");
+        $departureStartDate = strtotime($result['DepartureDate']);
 
-        ?>
+        $departureEndDate = strtotime($result['DepartureDate'] . " +" . $nights . " days");
+
+    ?>
 
         <div class="side-info-panel__departure-grid__grid__date">
             <?php echo date("M j", $departureStartDate); ?> - <?php echo date("M j", $departureEndDate); ?>
+            <?php if ($result['HasPromo'] == true) : ?>
+                <span>Promo</span>
+            <?php endif; ?>
         </div>
         <div class="side-info-panel__departure-grid__grid__season">
             <?php
@@ -84,17 +85,15 @@ foreach ($departures as $departure) {
             }
             ?>
         </div>
-        <div class="side-info-panel__departure-grid__grid__promo">
-            <?php if ($result['HasPromo'] == true) : ?>
-                <div class="badge-solid badge-solid--red badge-solid--small">Promo</div>
-            <?php endif; ?>
-        </div>
+
         <div class="side-info-panel__departure-grid__grid__price-range">
             <?php echo "$ " . number_format($result['LowestPrice'], 0);  ?> &mdash; <?php echo "$ " . number_format($result['HighestPrice'], 0);  ?>
 
         </div>
         <div class="side-info-panel__departure-grid__grid__cta">
-            BOOK
+            <button class="btn-cta-round btn-cta-round--small ">
+                Book
+            </button>
         </div>
     <?php endforeach; ?>
 </div>

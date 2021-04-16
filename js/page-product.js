@@ -79,7 +79,7 @@ jQuery(document).ready(function ($) {
     var counterDiv = $('#itineraries-slider-counter');
 
     var i = (currentSlide ? currentSlide : 0) + 1;
-    counterDiv.text('Itinerary: ' + i + ' / ' + slick.slideCount);
+    counterDiv.text(i + ' / ' + slick.slideCount);
     $('.side-info-panel[tab-type="all"').show();
     $('.side-info-panel[tab-type="dates"').hide();
   });
@@ -184,7 +184,7 @@ jQuery(document).ready(function ($) {
 
 
   //date-grid__item
-  const dateGridItems = [...document.querySelectorAll('.date-grid__item')];
+  const dateGridItems = [...document.querySelectorAll('.date-grid__item--available')];
   dateGridItems.forEach(item => {
     item.addEventListener('click', () => {
       selectedYear = item.getAttribute("departure-year");
@@ -264,6 +264,27 @@ jQuery(document).ready(function ($) {
 
   });
 
+  //season-select
+  $('.season-select').on('change', function () {
+    var season = $(this).val();
+    var tab_id = $(this).attr('itinerary-tab');
+    // console.log(year);
+    console.log(tab_id);
+    $('.season-panel[itinerary-tab="' + tab_id + '"]').hide();
+
+
+    $('.season-panel[data-tab="' + season + '"][itinerary-tab="' + tab_id + '"]').show();
+
+
+
+
+    // $('.date-grid[data-tab="' + tab_id + '"]').hide();
+    // $('.date-grid__' + year + '[data-tab="' + tab_id + '"]').show();
+
+    // $('.price-grid[data-tab="' + tab_id + '"]').hide();
+    // $('.price-grid__' + year + '[data-tab="' + tab_id + '"]').show();
+
+  });
 
   //Dates --------------------------------------
   //Controls
