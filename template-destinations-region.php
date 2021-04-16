@@ -10,8 +10,9 @@ get_header();
 
 <?php
 $destinationType = 'region';
-$destination = get_field('region_post'); //actually a region
-$activities = get_field('activities', $destination);
+$region = get_field('region_post'); //actually a region
+
+$activities = get_field('activities', $region);
 $locations = get_field('destinations_list'); //locations (actually destinations) list 
 
 
@@ -19,11 +20,7 @@ $tour_experiences = get_field('tour_experiences');
 $sliderContent = get_field('hero_slider');
 
 //Title (Destination)
-$title = $destination->post_title;
-
-
-//REGION
-$region = get_field('region_post');
+$title = $region->post_title;
 
 
 //DESTINATIONS - for slider criterias
@@ -31,10 +28,12 @@ $destinationCriteria = array(
     'posts_per_page' => -1,
     'post_type' => 'rfc_destinations',
     "meta_key" => "region",
-    "meta_value" => $destination->ID
+    "meta_value" => $region->ID
 );
 $destinations = get_posts($destinationCriteria); 
-$destinationCount = count($destinations); //pass count to JS?
+$destinationCount = count($destinations); 
+
+console_log($destinations);
 
 //get destination IDs
 $destinationIds = [];
@@ -47,7 +46,7 @@ $queryargs = array();
 $queryargs['relation'] = 'OR';
 foreach ($destinationIds as $d) {
     $queryargs[] = array(
-        'key'     => 'destination',
+        'key'     => 'destinations',
         'value'   => serialize(strval($d)),
         'compare' => 'LIKE'
     );
@@ -71,13 +70,13 @@ $cruises = get_posts($cruiseCriteria);
 
 
 //Title (Region)
-$title = $destination->post_title;
+$title = $region->post_title;
 
 
 
 
 $args = array(
-    'destination' => $destination,
+    'destination' => $region, //exception - all template parts expect destination
     'locations' => $locations,
     'activities' => $activities,
 

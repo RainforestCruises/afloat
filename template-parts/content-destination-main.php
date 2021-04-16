@@ -1,4 +1,6 @@
 <?php
+//$region = get_field('region_post');
+
 $destination = $args['destination'];
 $is_bucket_list = get_field('is_bucket_list', $destination);
 $locations = $args['locations'];
@@ -20,8 +22,9 @@ $highlights = get_field('highlights');
 
     <!-- Map Background -->
     <div class="destination-main__bg">
-        <img <?php afloat_responsive_image($background_map['id'], 'bg-portrait', array('bg-portrait')); ?> alt="">
-
+        <?php if ($background_map) : ?>
+            <img <?php afloat_responsive_image($background_map['id'], 'bg-portrait', array('bg-portrait')); ?> alt="">
+        <?php endif; ?>
     </div>
 
     <!-- Intro -->
@@ -75,7 +78,7 @@ $highlights = get_field('highlights');
 
                 <?php foreach ($tours as $t) : ?>
                     <?php
-                    $best_selling = get_field('best_selling', $t);
+                    $best_selling = ($destinationType != 'region') ? get_field('best_selling', $t) : get_field('best_selling_regional', $t);
 
                     if ($best_selling) :
                         $hero_image = get_field('best_selling_image', $t);

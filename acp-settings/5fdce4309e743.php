@@ -5,7 +5,7 @@ return array (
   'title' => 'Tours',
   'type' => 'rfc_tours',
   'id' => '5fdce4309e743',
-  'updated' => 1613491528,
+  'updated' => 1618592356,
   'columns' => 
   array (
     'title' => 
@@ -146,6 +146,22 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '5fdce577c6105',
+    ),
+    '6079c255220c48' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Best Selling Regional',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_6079c1c8a3ccc',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '6079c255220c48',
     ),
     '60145e4406664' => 
     array (
