@@ -2066,7 +2066,7 @@ h5 {
       padding: 0 3rem; } }
     @media only screen and (max-width: 50em) {
       .product-hero__bottom {
-        height: 28rem; } }
+        height: 40vh; } }
     .product-hero__bottom__content {
       width: 100%;
       display: flex;
