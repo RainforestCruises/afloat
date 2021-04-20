@@ -38,14 +38,8 @@ $img = get_field('map');
                 <div class="product-itinerary-slide__top__map-area">
                     <div class="product-itinerary-slide__top__map-area__title">
                         <div class="product-itinerary-slide__top__map-area__title__text">
-                            <?php echo get_field('tour_name') ?>
+                            <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night - <?php echo get_field('tour_name') ?>
                         </div>
-                        <div class="product-itinerary-slide__top__map-area__title__badge-area">
-                            <span>
-                                <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night
-                            </span>
-                        </div>
-
                     </div>
                     <!-- Map -->
                     <a class="" id="itinerary-map-image" href="<?php echo $img['url']; ?>" title="<?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night - <?php echo get_field('tour_name') ?>">
@@ -68,15 +62,18 @@ $img = get_field('map');
                     <div class="product-itinerary-slide__top__side-info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">
 
                         <!-- Prices -->
+
                         <div class="product-itinerary-slide__top__side-info__content__widget">
                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section u-margin-bottom-small">
                                 <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
                                     Prices
                                 </h4>
-
                                 <?php $yearCount = 0; ?>
-                                <!-- Select-Box -->
-                                <div class="itinerary-year-select-group">
+                                <div class="product-itinerary-slide__select-group">
+                                    <label>
+                                        Year:
+                                    </label>
+
                                     <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
                                         <?php while ($yearCount <= 1) { ?>
                                             <option><?php echo ($currentYear + $yearCount) ?></option>
@@ -84,6 +81,9 @@ $img = get_field('map');
                                         } ?>
                                     </select>
                                 </div>
+
+
+                         
 
                             </div>
                             <!-- Price-Grid  -->
@@ -113,37 +113,37 @@ $img = get_field('map');
 
 
                                         <?php
-                                    if ($pricePackages) {
-                                        foreach ($pricePackages as $pricePackage) {
-                                            $price_level = $pricePackage['price_level'];
-                                            if ($pricePackage['year'] == ($currentYear + $yearCount)) {
-                                                $price = ($pricePackage['price'] != "") ? $pricePackage['price'] : 0;
-                                                $single_supplement = ($pricePackage['single_supplement'] != "") ? $pricePackage['single_supplement'] : 0;
-                                                $single_price = intval($price) + intval($single_supplement);
+                                        if ($pricePackages) {
+                                            foreach ($pricePackages as $pricePackage) {
                                                 $price_level = $pricePackage['price_level'];
-                                    ?>
+                                                if ($pricePackage['year'] == ($currentYear + $yearCount)) {
+                                                    $price = ($pricePackage['price'] != "") ? $pricePackage['price'] : 0;
+                                                    $single_supplement = ($pricePackage['single_supplement'] != "") ? $pricePackage['single_supplement'] : 0;
+                                                    $single_price = intval($price) + intval($single_supplement);
+                                                    $price_level = $pricePackage['price_level'];
+                                        ?>
 
 
-                                                <div class="price-grid__grid__cabin-type">
-                                                    <?php echo get_the_title($price_level); ?>
-                                                </div>
-                                                <div class="price-grid__grid__double-price">
-                                                    <?php echo "$ " . number_format($price, 0);  ?>
-                                                </div>
-                                                <div class="price-grid__grid__single-price">
-                                                    <?php echo "$ " . number_format($single_price, 0);  ?>
-                                                </div>
+                                                    <div class="price-grid__grid__cabin-type">
+                                                        <?php echo get_the_title($price_level); ?>
+                                                    </div>
+                                                    <div class="price-grid__grid__double-price">
+                                                        <?php echo "$ " . number_format($price, 0);  ?>
+                                                    </div>
+                                                    <div class="price-grid__grid__single-price">
+                                                        <?php echo "$ " . number_format($single_price, 0);  ?>
+                                                    </div>
 
 
 
-                                    <?php
+                                        <?php
+                                                }
                                             }
                                         }
-                                    }
-                                    ?>
+                                        ?>
 
                                     </div>
-                                   
+
                                 </div>
                             <?php $yearCount++;
                             } ?>
@@ -156,7 +156,7 @@ $img = get_field('map');
                             <?php $locations = get_field('locations');
                             if ($locations) : ?>
                                 <div class="product-itinerary-slide__top__side-info__content__widget__small-title">
-                                    Places of Interest
+                                    Places Visited
                                 </div>
                                 <ul class="product-itinerary-slide__top__side-info__content__widget__list">
                                     <?php foreach ($locations as $l) : ?>
@@ -166,20 +166,6 @@ $img = get_field('map');
                             <?php endif; ?>
                         </div>
 
-                        <!-- Experiences -->
-                        <div class="product-itinerary-slide__top__side-info__content__widget noborder">
-                            <?php $experiences = get_field('experiences');
-                            if ($experiences) : ?>
-                                <div class="product-itinerary-slide__top__side-info__content__widget__small-title">
-                                    Experiences
-                                </div>
-                                <ul class="product-itinerary-slide__top__side-info__content__widget__list">
-                                    <?php foreach ($experiences as $e) : ?>
-                                        <li><?php echo get_the_title($e) ?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-                        </div>
 
                         <!-- Activities -->
                         <div class="product-itinerary-slide__top__side-info__content__widget noborder">
@@ -195,14 +181,14 @@ $img = get_field('map');
                                 </ul>
                             <?php endif; ?>
                         </div>
-                        <!-- <div class="product-itinerary-slide__top__side-info__content__fine-print">
-                                - Call for Availability
-                        </div> -->
+                        <div class="product-itinerary-slide__top__side-info__content__fine-print">
+                                Availability on request
+                        </div>
                     </div>
 
                     <!-- Inclusions -->
                     <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">
-                        <h4>What's Incuded</h4>
+                        <h4 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Incuded</h4>
                         <ul class="product-itinerary-slide__top__side-info__content__inclusions-list">
                             <?php
                             $inclusions = get_field('inclusions');
@@ -223,8 +209,8 @@ $img = get_field('map');
 
                     <!-- Exclusions -->
                     <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">
-                        <h4>What's Excluded</h4>
-                        <ul class="product-itinerary-slide__top__info__content__inclusions-list">
+                        <h4 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Excluded</h4>
+                        <ul class="product-itinerary-slide__top__side-info__content__inclusions-list">
 
                             <?php
                             $exclusions = get_field('exclusions');

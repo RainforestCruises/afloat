@@ -77,7 +77,6 @@
         align-items: center;
         text-align: center;
         //height: 100%;
-        
       }
 
       &__breadcrumb {
@@ -96,7 +95,6 @@
         @media only screen and (max-width: $bp-large) {
           justify-self: center;
           margin-top: 1rem;
-
         }
 
         & li {
@@ -145,7 +143,6 @@
         }
         @media only screen and (max-width: $bp-small) {
           margin-bottom: 2rem;
-          
         }
 
         &__title {
@@ -425,7 +422,10 @@
 
     //expand higher
     @media only screen and (max-width: $bp-medium) {
-      height: 40vh;
+      height: 30rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+      height: 40rem;
     }
 
     //bottom content (info)
@@ -439,22 +439,27 @@
       padding: 0 6rem;
       @media only screen and (max-width: $bp-large) {
         padding: 0rem;
+        align-items: center;
       }
 
       &__info-group {
         display: flex;
         flex-direction: column;
-        //background-color: rgba($color-primary, 0.3);
         width: 50%;
         @media only screen and (max-width: $bp-large) {
           width: 100%;
         }
+        // @media only screen and (max-width: $bp-small) {
+        //   height: 100%;
+        // }
+
+        //Starting At / CTA
         &__info {
           display: flex;
 
           justify-content: space-between;
           position: relative;
-          padding: 2.5rem 0;
+          padding: 2rem 0;
 
           @media only screen and (max-width: $bp-large) {
             justify-content: center;
@@ -481,11 +486,13 @@
             white-space: nowrap; //no line breaks
             position: relative;
             margin-right: 3rem;
-            font-size: 2rem;
-            display: flex;
-            align-items: flex-end;
 
-    
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+
             span {
               display: flex;
               align-items: flex-end;
@@ -504,74 +511,112 @@
                 font-size: 3rem;
               }
             }
-
           }
 
           &__cta {
-            @media only screen and (max-width: $bp-small) {
-              display: none;
+            transform: scale(0.85);
 
+            @media only screen and (max-width: $bp-small) {
+              margin: 1rem 0;
             }
+
           }
         }
 
         &__attributes {
           display: flex;
-          //justify-content: space-between;
-
           margin: 2rem 0;
           margin-bottom: 4rem;
           font-size: 1.4rem;
           letter-spacing: 0.1rem;
+          
+          @media only screen and (max-width: $bp-large) {
+            flex-wrap: wrap;
+            justify-content: center;
+            height: 100%;
+          }
+          @media only screen and (max-width: $bp-medium) {
+            margin-top: 3rem;
+          }
+          // @media only screen and (max-width: $bp-small) {
+          //   justify-content: space-around;
+
+          // }
 
           &__item {
             position: relative;
-            padding: 0.5rem 1rem;
+            margin-right: 4rem;
             display: flex;
             text-align: center;
-            //justify-content: center;
             align-items: center;
-            flex: 0 1 33%;
             flex-direction: column;
 
-            &.tour {
-              flex: 0 1 50%;
+            &.nomargin-attributes {
+              @media only screen and (max-width: $bp-medium) {
+                margin-right: 0rem;
+
+              }
+
             }
 
-            &:not(:last-child)::after {
-              content: "";
-              position: absolute;
-              right: -2px;
-              top: 25%;
-              width: 1px;
-              height: 50%;
-              background-color: $color-primary;
+            &.experience-attributes {
+              @media only screen and (max-width: $bp-medium) {
+                width: 100%;
+                margin-top: 3rem;
+                margin-right: 1rem;
+                margin-left: 1rem;
+              }
             }
+
+            // @media only screen and (max-width: $bp-small) {
+            //   margin-right: 0rem;
+            //   margin-bottom: 2rem;
+            // }
 
             &__title {
-              //font-weight: 700;
               color: $color-grey-2;
               margin-bottom: 0.4rem;
             }
 
             &__data {
-              color: $color-supporting;
-              font-size: 2.5rem;
-              line-height: 3rem;
-              font-weight: 700;
+              color: $color-primary;
+              display: flex;
+              align-items: center;
+              height: 100%;
+              text-align: start;
 
-              @media only screen and (max-width: $bp-small) {
-                font-size: 1.8rem;
-                line-height: 2.4rem;
+              &__icon {
+                margin-right: 1rem;
+                display: flex;
+                align-items: center;
+                & svg {
+                  stroke: $color-primary;
+                  stroke-width: 4;
+                  height: 3rem;
+                  width: 3rem;
+                  color: $color-primary;
+                  fill: $color-primary;
+                }
+              }
+
+              &__text {
+                font-size: 1.6rem;
+                line-height: 2.5rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                width: max-content;
+
+                & .sub-attribute {
+                  font-size: 1.1rem;
+                  line-height: 1.6rem;
+                  font-weight: 600;
+                }
               }
 
               & ul {
                 list-style: none;
                 display: flex;
-                flex-direction: column;
-
-                //font-size: 1.6rem;
-               // line-height: 2.2rem;
+                font-size: 1.2rem;
               }
             }
           }

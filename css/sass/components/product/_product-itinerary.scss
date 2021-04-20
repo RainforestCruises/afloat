@@ -153,6 +153,10 @@
             display: grid;
             width: 100%;
             grid-template-columns: repeat(4, minmax(max-content, 100%));
+
+           
+
+
             row-gap: 1.5rem;
             column-gap: 1.5rem;
 
@@ -176,10 +180,39 @@
                 color: $color-grey-2;
             }
 
-            &__date {
-                & span {
+            &__season {
+                display: flex;
+                align-items: center;
+                @media only screen and (max-width: $bp-small) {
+                    flex-direction: column;
+                }
+
+                & .promo-div {
                     color: $color-green;
-                    margin-left: 0.4rem;
+                    margin-left: 1rem;
+                    border-radius: 1.5rem;
+                    border: 2px solid currentColor;
+                    padding: .1rem .8rem;
+                    font-size: 1.2rem;
+
+                    @media only screen and (max-width: $bp-small) {
+                        margin-left: 0;
+                    }
+                }
+            }
+
+            &__date {
+                display: flex;
+                @media only screen and (max-width: $bp-small) {
+                    flex-direction: column;
+                }
+              
+            }
+
+            &__price-range {
+                display: flex;
+                @media only screen and (max-width: $bp-small) {
+                    flex-direction: column;
                 }
             }
 
@@ -188,6 +221,11 @@
                 justify-content: flex-end;
                 font-weight: 600;
             }
+        }
+
+        &__note {
+            margin-top: 2rem;
+            font-size: 1.2rem;
         }
     }
 }
@@ -203,7 +241,7 @@
         text-transform: uppercase;
 
         margin: 0.5rem 1rem 0.5rem 0;
-        padding: .5rem 1rem;
+        padding: 0.5rem 1rem;
 
         border-radius: 15px;
         border: 2px solid $color-grey-light-2;
@@ -211,6 +249,12 @@
         align-content: center;
         justify-content: center;
         user-select: none;
+
+        &.promo-date {
+            color: $color-supporting-light !important;
+            border-color: $color-supporting-light !important;
+
+        }
 
         &--available {
             color: $color-primary;
@@ -337,14 +381,7 @@
     }
 }
 
-.charter-info-box {
-    text-align: center;
-    font-size: 1.3rem;
-    // letter-spacing: .1rem;
-    font-style: italic;
-    border: 1px solid $color-grey-light-1a;
-    padding: 1.5rem;
-}
+
 
 .product-itinerary-slide {
     //height: 30rem;
@@ -423,6 +460,10 @@
                 align-items: center;
                 border-bottom: 1px solid $color-grey-light-1a;
                 transform: translateY(-1.5rem);
+
+                @media only screen and (max-width: $bp-medium) {
+                    margin-top: 3rem;
+                }
 
                 &__item {
                     text-align: center;
@@ -511,8 +552,8 @@
                             display: flex;
                             align-items: center;
                             &__item {
-                                padding-left: 1.5rem;
-                                margin-left: 2.5rem;
+                                padding-left: 1.3rem;
+                                margin-left: 2rem;
                                 position: relative;
                                 display: flex;
                                 align-content: center;
@@ -522,10 +563,10 @@
                                     position: absolute;
                                     top: 50%;
                                     left: 0;
-                                    transform: translateY(-50%);
+                                    transform: translateY(-60%);
                                     background-color: currentColor;
-                                    height: 0.6rem;
-                                    width: 0.6rem;
+                                    height: 0.8rem;
+                                    width: 0.8rem;
                                     border-radius: 4rem;
                                 }
                                 &--available {
@@ -535,6 +576,12 @@
                                 &--sold-out {
                                     color: $color-red;
                                 }
+
+                                &--promo {
+                                    color: $color-supporting-light;
+                                }
+
+                              
                                 &--button {
                                     justify-self: end;
 
@@ -577,7 +624,7 @@
                     font-size: 1.2rem;
                     color: $color-grey-1;
 
-                    letter-spacing: 0.1rem;
+                    //letter-spacing: 0.1rem;
                 }
 
                 &__inclusions-title {
@@ -816,4 +863,91 @@
             }
         }
     }
+}
+
+.charter-pricing {
+
+    &__overall {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        margin-top: 1rem;
+        width: 100%;
+        column-gap: 3rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+
+        &__info-group {
+            margin-bottom: 2rem;
+    
+            font-weight: 700;   
+            font-size: 1.5rem;
+            letter-spacing: .1rem;
+            color: $color-primary;
+            text-transform: uppercase;
+
+            @media only screen and (max-width: $bp-medium) {
+                width: max-content;
+            }
+
+
+            &__title {
+          
+            }
+    
+            &__data {
+                font-size: 2.4rem;
+    
+        
+                color: $color-supporting-light;
+
+                & div {
+                    transform: translateY(-.5rem);
+                    font-size: 1.4rem;
+                }
+            }
+        }
+
+    }
+
+    &__estimates {
+        display: flex;
+
+        padding-top: 2rem;
+        justify-content: space-between;
+        &__itinerary {
+            margin-right: 2rem;
+            text-align: center;
+            &__title {
+                font-size: 2rem;
+                color: $color-primary;
+                font-weight: 600;
+            }
+
+            &__price {
+                font-size: 2rem;
+                color: $color-supporting-light;
+            }
+        }
+    }
+}
+
+.charter-info-snippet {
+    font-size: 1.6rem;
+    border-top: 1px solid $color-grey-light-1a;
+    padding-top: 2.5rem;
+   
+}
+
+.charter-info-box {
+    text-align: center;
+    font-size: 1.3rem;
+    // letter-spacing: .1rem;
+    font-style: italic;
+    border: 1px solid $color-grey-light-1a;
+    padding: 1.5rem;
 }

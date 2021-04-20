@@ -210,13 +210,28 @@
             </g>
         </symbol>
 
-        <symbol id="icon-boat-front" viewBox="0 0 48 48">
+        <symbol id="icon-m-time" viewBox="0 0 64 64">
+            <title>m time</title>
             <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke="currentColor">
-                <path fill="none" stroke-miterlimit="10" d="M2,38.202 c0,4.418,3.582,8,8,8c3.036,0,5.645-1.711,7-4.202c1.355,2.491,3.964,4.202,7,4.202s5.645-1.711,7-4.202 c1.355,2.491,3.964,4.202,7,4.202c4.418,0,8-3.582,8-8"/>
-                <polyline fill="none" stroke-miterlimit="10" points=" 20,12 20,2 28,2 28,12 "/>
-                <path data-cap="butt" fill="none" stroke="currentColor" stroke-miterlimit="10" d="M10,27.778V15c0-1.657,1.343-3,3-3h22 c1.657,0,3,1.343,3,3v12.778" stroke-linecap="butt"/>
-                <polyline fill="none" stroke="currentColor" stroke-miterlimit="10" points="10,38 6,30 24,20 42,30 38,38 "/>
-                <line data-cap="butt" fill="none" stroke="currentColor" stroke-miterlimit="10" x1="24" y1="20" x2="24" y2="34" stroke-linecap="butt"/>
+                <polyline points="50 43 50 49 56 49" fill="none" stroke-miterlimit="10"/>
+                <polyline points="34 56.8 22 52 2 58 2 10 22 4 42 12 62 6 62 35" fill="none" stroke="currentColor" stroke-miterlimit="10"/>
+                <circle cx="50" cy="49" r="12" fill="none" stroke-miterlimit="10"/>
+                <line x1="22" y1="4" x2="22" y2="52" fill="none" stroke="currentColor" stroke-miterlimit="10" data-cap="butt" stroke-linecap="butt"/>
+                <line x1="42" y1="12" x2="42" y2="32" fill="none" stroke="currentColor" stroke-miterlimit="10" data-cap="butt" stroke-linecap="butt"/>
+            </g>
+        </symbol>
+
+        <symbol id="icon-boat-front" viewBox="0 0 64 64">
+            <title>boat front</title>
+            <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke="currentColor">
+                <path fill="none" stroke-miterlimit="10" d="M3,54 c0,4.418,3.582,8,8,8c3.036,0,5.645-1.711,7-4.202C19.355,60.289,21.964,62,25,62s5.645-1.711,7-4.202 C33.355,60.289,35.964,62,39,62s5.645-1.711,7-4.202C47.355,60.289,49.964,62,53,62c4.418,0,8-3.582,8-8"/>
+                <line fill="none" stroke-miterlimit="10" x1="27" y1="8" x2="37" y2="8"/>
+                <polyline fill="none" stroke="currentColor" stroke-miterlimit="10" points="27,17 27,2 37,2 37,17 "/>
+                <path data-cap="butt" fill="none" stroke="currentColor" stroke-miterlimit="10" d="M14,37.5V20c0-1.657,1.343-3,3-3h30 c1.657,0,3,1.343,3,3v17.5" stroke-linecap="butt"/>
+                <line data-cap="butt" fill="none" stroke="currentColor" stroke-miterlimit="10" x1="32" y1="27" x2="32" y2="51" stroke-linecap="butt"/>
+                <polyline fill="none" stroke="currentColor" stroke-miterlimit="10" points="12,53 8,41 32,27 56,41 52,53 "/>
+                <line fill="none" stroke-miterlimit="10" x1="26" y1="38" x2="26" y2="40"/>
+                <line fill="none" stroke-miterlimit="10" x1="38" y1="38" x2="38" y2="40"/>
             </g>
         </symbol>
 

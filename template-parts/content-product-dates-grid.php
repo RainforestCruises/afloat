@@ -34,10 +34,15 @@ foreach ($itineraries as $itinerary) {
 console_log($selectedItinerary);
 $departures = $selectedItinerary['Departures'];
 $filteredDepartures = [];
+
+$hasPromo = false;
 foreach ($departures as $departure) {
     $dateString = strtotime($departure['DepartureDate']);
     if ($dateString >= $startDate && $dateString <= $endDate) {
         $filteredDepartures[] = $departure;
+        if ($departure['HasPromo'] == true) {
+            $hasPromo = true;
+        }
     }
 }
 
@@ -69,25 +74,40 @@ foreach ($departures as $departure) {
     ?>
 
         <div class="side-info-panel__departure-grid__grid__date">
-            <?php echo date("M j", $departureStartDate); ?> - <?php echo date("M j", $departureEndDate); ?>
-            <?php if ($result['HasPromo'] == true) : ?>
-                <span>Promo</span>
-            <?php endif; ?>
+            <div>
+                <?php echo date("M j", $departureStartDate); ?> &mdash; &nbsp;
+            </div>
+            <div>
+                <?php echo date("M j", $departureEndDate); ?>
+            </div>
+
+
         </div>
         <div class="side-info-panel__departure-grid__grid__season">
-            <?php
-            if ($result['IsHighSeason'] == true) { //SEASON
-                echo 'High';
-            } else if ($result['IsLowSeason'] == true) {
-                echo 'Low';
-            } else {
-                echo 'Regular';
-            }
-            ?>
+            <div>
+                <?php
+                if ($result['IsHighSeason'] == true) { //SEASON
+                    echo 'High';
+                } else if ($result['IsLowSeason'] == true) {
+                    echo 'Low';
+                } else {
+                    echo 'Regular';
+                }
+                ?>
+            </div>
+            <?php if ($result['HasPromo'] == true) : ?>
+                <div class="promo-div">Promo</div>
+            <?php endif; ?>
+
         </div>
 
         <div class="side-info-panel__departure-grid__grid__price-range">
-            <?php echo "$ " . number_format($result['LowestPrice'], 0);  ?> &mdash; <?php echo "$ " . number_format($result['HighestPrice'], 0);  ?>
+            <div>
+                <?php echo "$ " . number_format($result['LowestPrice'], 0);  ?> &mdash; &nbsp;
+            </div>
+            <div>
+                <?php echo " " . "$ " . number_format($result['HighestPrice'], 0);  ?>
+            </div>
 
         </div>
         <div class="side-info-panel__departure-grid__grid__cta">
@@ -97,3 +117,10 @@ foreach ($departures as $departure) {
         </div>
     <?php endforeach; ?>
 </div>
+
+<?php if ($hasPromo) : ?>
+    <div class="side-info-panel__departure-grid__note">
+        Contact us for promotion details
+    </div>
+
+<?php endif; ?>

@@ -12,6 +12,7 @@ $queryArgsDestination = array();
 $queryArgsDestination['relation'] = 'OR';
 
 $destinations = get_field('destinations');
+console_log($destinations);
 if ($destinations) {
     foreach ($destinations as $d) {
         if (get_field('is_country', $d) == true) {
@@ -27,20 +28,18 @@ if ($destinations) {
 
 
 $posts = get_posts($queryArgs);
-$relatedCount = 0;
 ?>
 
 <div class="product-related">
     <h2 class="page-divider page-divider--padding u-margin-bottom-medium u-margin-top-small">
         Related <?php echo get_post_type() == 'rfc_cruises' ? "Cruises" : "Tours"; ?>
     </h2>
+    <?php if ($posts) : ?>
     <div class="product-related__slider" id="related-slider">
 
         <?php
-        if ($posts) :
             foreach ($posts as $p) :
 
-                $relatedCount++;
 
                 $featured_image = get_field('featured_image', $p);
                 $cruise_data = get_field('cruise_data', $p);
@@ -106,13 +105,11 @@ $relatedCount = 0;
 
         <?php
             endforeach;
-        endif;
+      
         ?>
     </div>
+    <?php endif; ?>
 </div>
 
 
 
-<script>
-    var relatedCount = '<?php echo $relatedCount; ?>';
-</script>

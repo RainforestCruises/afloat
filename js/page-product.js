@@ -566,7 +566,7 @@ jQuery(document).ready(function ($) {
 
 
   //Itinerary Map
-  $('#itinerary-map-image').magnificPopup({
+  $('.itinerary-map-image').magnificPopup({
     type: 'image',
   });
   //deckplan

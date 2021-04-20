@@ -17,7 +17,18 @@ endif; ?>
 <?php endif; ?>
 
 
+<div class="charter-pricing__overall__info-group">
+  <div class="charter-pricing__overall__info-group__title">
+    <?php echo ($nights + 1) ?>D/<?php echo $nights ?>N Per Person
+  </div>
+  <div class="charter-pricing__overall__info-group__data">
 
+    <?php echo "$ " . number_format($price, 0);  ?>
+    <div>
+      <?php echo "$ " . number_format($price_per_person, 0);  ?> Per Night
+    </div>
+  </div>
+</div>
 
 <!-- Lodges Select -->
 
@@ -49,45 +60,45 @@ endif; ?>
 
 
 <?php if (!$charter_view) : ?>
-      <!-- Dates Content -->
-      <section class="product-page__section-dates" id="dates" style="display: none;">
-        <?php
-        get_template_part('template-parts/content', 'product-dates', $args);
-        ?>
-      </section>
-    <?php endif; ?>
+  <!-- Dates Content -->
+  <section class="product-page__section-dates" id="dates" style="display: none;">
+    <?php
+    get_template_part('template-parts/content', 'product-dates', $args);
+    ?>
+  </section>
+<?php endif; ?>
 
 
-    <label class="product-dates__search-area__controls__control" for="dates-month-select">
-                <span class="product-dates__search-area__controls__control__label-text">Month</span>
+<label class="product-dates__search-area__controls__control" for="dates-month-select">
+  <span class="product-dates__search-area__controls__control__label-text">Month</span>
 
-                <select id="dates-month-select" name="dates-month-select" data-tab="<?php echo $count; ?>">
-                    <option></option>
-                    <?php
-                    $monthCount = 1;
-                    foreach ($monthNames as $monthName) { ?>
-                        <option value="<?php echo $monthCount ?>"><?php echo $monthName ?></option>
-                    <?php $monthCount++;
-                    } ?>
-                </select>
+  <select id="dates-month-select" name="dates-month-select" data-tab="<?php echo $count; ?>">
+    <option></option>
+    <?php
+    $monthCount = 1;
+    foreach ($monthNames as $monthName) { ?>
+      <option value="<?php echo $monthCount ?>"><?php echo $monthName ?></option>
+    <?php $monthCount++;
+    } ?>
+  </select>
 
-            </label>
-            <label class="product-dates__search-area__controls__control" for="dates-year-select">
-                <span class="product-dates__search-area__controls__control__label-text">Year</span>
-                <select id="dates-year-select" name="dates-year-select" data-tab="<?php echo $count; ?>">
-                    <option></option>
-                    <?php foreach ($years as $year) { ?>
-                        <option value="<?php echo $year ?>"><?php echo $year ?></option>
-                    <?php } ?>
-                </select>
-            </label>
-            <label class="product-dates__search-area__controls__control" for="dates-itinerary-select">
-                <span class="product-dates__search-area__controls__control__label-text">Itinerary</span>
-                <select id="dates-itinerary-select" name="dates-itinerary-select" data-tab="<?php echo $count; ?>">
-                    <option></option>
-                    <option value="0">Any</option>
-                    <?php foreach ($cruise_data['Itineraries'] as $itinerary) { ?>
-                        <option value="<?php echo $itinerary['Id'] ?>"><?php echo $itinerary['Name'] . ' - ' . $itinerary['ShortName'] ?></option>
-                    <?php } ?>
-                </select>
-            </label>
+</label>
+<label class="product-dates__search-area__controls__control" for="dates-year-select">
+  <span class="product-dates__search-area__controls__control__label-text">Year</span>
+  <select id="dates-year-select" name="dates-year-select" data-tab="<?php echo $count; ?>">
+    <option></option>
+    <?php foreach ($years as $year) { ?>
+      <option value="<?php echo $year ?>"><?php echo $year ?></option>
+    <?php } ?>
+  </select>
+</label>
+<label class="product-dates__search-area__controls__control" for="dates-itinerary-select">
+  <span class="product-dates__search-area__controls__control__label-text">Itinerary</span>
+  <select id="dates-itinerary-select" name="dates-itinerary-select" data-tab="<?php echo $count; ?>">
+    <option></option>
+    <option value="0">Any</option>
+    <?php foreach ($cruise_data['Itineraries'] as $itinerary) { ?>
+      <option value="<?php echo $itinerary['Id'] ?>"><?php echo $itinerary['Name'] . ' - ' . $itinerary['ShortName'] ?></option>
+    <?php } ?>
+  </select>
+</label>

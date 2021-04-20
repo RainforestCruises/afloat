@@ -18,6 +18,13 @@ if ($args['propertyType'] == 'Cruise') {
 }
 
 
+$itineraryCount = 0;
+
+if(get_post_type() != 'rfc_tours') {
+    $itineraryCount = count($args['cruiseData']['Itineraries']);
+}
+
+
 $images = get_field('highlight_gallery');
 ?>
 
@@ -155,50 +162,72 @@ $images = get_field('highlight_gallery');
 
                 <!-- KSPs -->
                 <div class="product-hero__bottom__content__info-group__attributes">
-                    <div class="product-hero__bottom__content__info-group__attributes__item <?php echo (get_post_type($p) == 'rfc_tours') ? "tour" : ""; ?>">
-                        <div class="product-hero__bottom__content__info-group__attributes__item__title">
-                            <?php echo (get_post_type($p) == 'rfc_tours') ? "Length" : "Itineraries"; ?>
-                        </div>
-                        <div class="product-hero__bottom__content__info-group__attributes__item__data">
-                            <?php if ($charter_view == false) : ?>
-                                <?php echo (get_post_type($p) == 'rfc_tours') ? get_field('length') . " Days" : itineraryRange($args['cruiseData'], " - ") . " Days"; ?>
-                            <?php else :
-                                echo get_field('charter_min_days') . " Days +";
-                            endif; ?>
-                        </div>
-                    </div>
-                    <div class="product-hero__bottom__content__info-group__attributes__item <?php echo (get_post_type($p) == 'rfc_tours') ? "tour" : ""; ?>">
-                        <div class="product-hero__bottom__content__info-group__attributes__item__title">
-                            <?php echo (get_post_type($p) == 'rfc_tours') ? "Experience" : "Capacity"; ?>
-                        </div>
-                        <div class="product-hero__bottom__content__info-group__attributes__item__data">
-                            <?php if (get_post_type($p) == 'rfc_tours') : ?>
-                                <?php $experiences = get_field('experiences');
-                                if ($experiences) : ?>
-                                    <ul>
-                                        <?php foreach ($experiences as $e) : ?>
-                                            <li><?php echo get_the_title($e) ?></li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                <?php endif; ?>
-                            
-                            <?php else :
-                                echo get_field('vessel_capacity') . ' Guests';
-                            endif; ?>
 
+                    <!-- Itineraries -->
+                    <div class="product-hero__bottom__content__info-group__attributes__item <?php echo (get_post_type($p) == 'rfc_tours' ? "nomargin-attributes" : "") ?>">
+                        <div class="product-hero__bottom__content__info-group__attributes__item__data">
+                            <div class="product-hero__bottom__content__info-group__attributes__item__data__icon">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
+                                </svg>
+                            </div>
+                            <div class="product-hero__bottom__content__info-group__attributes__item__data__text">
+                                <?php if ($charter_view == false) : ?>
+                                    <?php echo (get_post_type($p) == 'rfc_tours') ? get_field('length') . " Days / " . (get_field('length') - 1) . " Nights" : itineraryRange($args['cruiseData'], " - ") . " Days"; ?>
+                                <?php else :
+                                    echo get_field('charter_min_days') . " Days +";
+                                endif; ?>
+                                <?php if($itineraryCount > 0 && $charter_view == false) : ?>
+                                <div class="sub-attribute">
+                                    <?php echo $itineraryCount ?> Itineraries
+                                </div>
+                                <?php endif; ?>
+                            </div>
 
                         </div>
                     </div>
                     <?php if (get_post_type($p) != 'rfc_tours') : ?>
-                        <div class="product-hero__bottom__content__info-group__attributes__item ">
-                            <div class="product-hero__bottom__content__info-group__attributes__item__title">
-                                Availability
-                            </div>
-                            <div class="product-hero__bottom__content__info-group__attributes__item__data" style="color: #00a84b">
-                                High
+                        <!-- Capacity -->
+                        <div class="product-hero__bottom__content__info-group__attributes__item nomargin-attributes">
+
+                            <div class="product-hero__bottom__content__info-group__attributes__item__data">
+
+                                <div class="product-hero__bottom__content__info-group__attributes__item__data__icon">
+                                    <svg>
+                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-boat-front"></use>
+                                    </svg>
+                                </div>
+                                <div class="product-hero__bottom__content__info-group__attributes__item__data__text">
+                                    <?php echo get_field('vessel_capacity') . ' Guests'; ?>
+                                    <div class="sub-attribute">
+                                        22 Cabins
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     <?php endif; ?>
+                    <!-- Experiences -->
+                    <div class="product-hero__bottom__content__info-group__attributes__item experience-attributes">
+                        <div class="product-hero__bottom__content__info-group__attributes__item__data">
+                            <?php $experiences = get_field('experiences');
+                            if ($experiences) : ?>
+                                <ul>
+                                    <?php foreach ($experiences as $e) : ?>
+                                        <li>
+
+                                            <div class="experience-icon">
+                                                <?php echo get_field('icon', $e); ?>
+
+                                            </div>
+
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
 
 
                 </div>

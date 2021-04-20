@@ -560,3 +560,44 @@ h5 {
     letter-spacing: 0.1rem;
     margin-bottom: 0.5rem;
 }
+
+
+.experience-icon {
+    color: $color-grey-light-2;
+    background-color: transparent;
+    padding: 1.5rem;
+    border: none;
+  
+    letter-spacing: 0.1rem;
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 .5rem;
+    
+
+    & svg {
+        height: 2rem;
+        width: 2rem;
+        color: $color-primary;
+        fill: $color-primary;
+    }
+
+    &::after {
+        content: "";
+        transition: all 0.15s;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        border: 1px solid currentColor;
+    }
+
+}
