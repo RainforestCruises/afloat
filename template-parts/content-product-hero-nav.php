@@ -218,7 +218,7 @@ $images = get_field('highlight_gallery');
 
                                             <div class="experience-icon">
                                                 <?php echo get_field('icon', $e); ?>
-
+                                                <span class="tooltiptext"><?php echo get_the_title($e); ?></span>
                                             </div>
 
                                         </li>

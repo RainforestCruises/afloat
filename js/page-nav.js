@@ -13,7 +13,7 @@ jQuery(document).ready(function ($) {
 
         var titleVisible = Utils.isElementInView($('#page-title'), false);
 
-        if (titleVisible) {      
+        if (titleVisible) {
             $('.nav-secondary').removeClass('active');
             $('.nav-secondary-mobile').removeClass('active');
             $("#nav-secondary-button").removeClass('active');
@@ -71,7 +71,12 @@ jQuery(document).ready(function ($) {
         $("#nav-secondary-button").removeClass('active');
 
         var target = $(id).offset().top;
-        target = target - 160;
+
+        if ($(window).width() > 1200) {
+            target = target - 160;
+        } else { // small screen correction
+            target = target - 120;
+        }
 
         $('html, body').animate({ scrollTop: target }, 500);
         window.location.hash = id;

@@ -152,14 +152,14 @@ p {
 
     color: $color-primary;
     font-family: $font-secondary;
-    font-size: 4rem; 
+    font-size: 4rem;
     line-height: 4.5rem;
     letter-spacing: 0.3rem;
     font-weight: 500;
     text-align: center;
 
     &--padding {
-        padding: 0 6rem; 
+        padding: 0 6rem;
         @media only screen and (max-width: $bp-small) {
             padding: 0 3rem;
         }
@@ -191,8 +191,8 @@ p {
     }
 
     @media only screen and (max-width: $bp-medium) {
-        font-size: 3rem;
-        line-height: 3.5rem;
+        font-size: 3.5rem;
+        line-height: 4rem;
         letter-spacing: 0.2rem;
     }
 }
@@ -385,7 +385,7 @@ p {
 
         span {
             //margin-left: 1rem;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
     }
 }
@@ -561,13 +561,12 @@ h5 {
     margin-bottom: 0.5rem;
 }
 
-
 .experience-icon {
     color: $color-grey-light-2;
     background-color: transparent;
     padding: 1.5rem;
     border: none;
-  
+
     letter-spacing: 0.1rem;
     outline: none;
     font-size: 1.5rem;
@@ -577,14 +576,37 @@ h5 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 .5rem;
-    
+    margin: 0 0.5rem;
+    cursor: pointer;
+
+    &:hover .tooltiptext {
+        visibility: visible;
+    }
+
+    & .tooltiptext {
+        visibility: hidden;
+        width: max-content;
+        background-color: $color-grey-light-1;
+        border: 1px solid $color-grey-light-2;
+        color: $color-primary;
+        text-align: center;
+        border-radius: 6px;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        /* Position the tooltip */
+        position: absolute;
+        bottom: -3.5rem;
+        z-index: 1;
+    }
 
     & svg {
         height: 2rem;
         width: 2rem;
         color: $color-primary;
         fill: $color-primary;
+        stroke: $color-primary;
+        stroke-width: 6;
     }
 
     &::after {
@@ -599,5 +621,4 @@ h5 {
         border-radius: 50%;
         border: 1px solid currentColor;
     }
-
 }

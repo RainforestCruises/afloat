@@ -240,8 +240,8 @@ p {
         margin-left: 1.5rem; } }
   @media only screen and (max-width: 50em) {
     .page-divider {
-      font-size: 3rem;
-      line-height: 3.5rem;
+      font-size: 3.5rem;
+      line-height: 4rem;
       letter-spacing: 0.2rem; } }
 
 .svg-divider {
@@ -362,7 +362,7 @@ p {
       width: 1.5rem;
       fill: #142838; }
     .list-svg li span {
-      font-size: 1.3rem; }
+      font-size: 1.4rem; }
 
 .link-social svg {
   margin-top: 2px;
@@ -507,12 +507,32 @@ h5 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 .5rem; }
+  margin: 0 0.5rem;
+  cursor: pointer; }
+  .experience-icon:hover .tooltiptext {
+    visibility: visible; }
+  .experience-icon .tooltiptext {
+    visibility: hidden;
+    width: max-content;
+    background-color: #f8f8f8;
+    border: 1px solid #c2c6c9;
+    color: #142838;
+    text-align: center;
+    border-radius: 6px;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    /* Position the tooltip */
+    position: absolute;
+    bottom: -3.5rem;
+    z-index: 1; }
   .experience-icon svg {
     height: 2rem;
     width: 2rem;
     color: #142838;
-    fill: #142838; }
+    fill: #142838;
+    stroke: #142838;
+    stroke-width: 6; }
   .experience-icon::after {
     content: "";
     transition: all 0.15s;
@@ -1968,8 +1988,8 @@ h5 {
           line-height: 6.5rem; }
           @media only screen and (max-width: 37.5em) {
             .product-hero__top__content__title-group__title {
-              font-size: 4rem;
-              line-height: 4.5rem;
+              font-size: 5rem;
+              line-height: 5.5rem;
               margin-bottom: 2rem; } }
           .product-hero__top__content__title-group__title.active {
             grid-column: 1 / span 1;
@@ -2007,6 +2027,9 @@ h5 {
           display: block;
           padding-bottom: 2rem;
           padding-top: 0.8rem; }
+          @media only screen and (max-width: 62.5em) {
+            .product-hero__top__content__title-group__subtitle {
+              font-weight: 400; } }
       .product-hero__top__content__nav {
         user-select: none;
         width: 50%; }
@@ -7889,6 +7912,7 @@ h5 {
       display: flex; }
       @media only screen and (max-width: 62.5em) {
         .nav-secondary__main__cta {
+          margin-right: 3rem;
           flex-grow: 0; }
           .nav-secondary__main__cta::after {
             display: none; } }
