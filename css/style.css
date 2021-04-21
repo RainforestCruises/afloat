@@ -357,7 +357,7 @@ p {
     display: grid;
     grid-template-columns: 2rem 1fr; }
     .list-svg li svg {
-      transform: translateY(1px);
+      transform: translateY(3px);
       height: 1.5rem;
       width: 1.5rem;
       fill: #142838; }
@@ -2839,9 +2839,15 @@ h5 {
             display: flex;
             justify-content: space-between;
             font-size: 1.2rem; }
+            @media only screen and (max-width: 37.5em) {
+              .product-itinerary-slide__top__side-info__content__widget__legend {
+                margin-top: 2rem; } }
+            .product-itinerary-slide__top__side-info__content__widget__legend__fine-print {
+              min-width: 18rem; }
             .product-itinerary-slide__top__side-info__content__widget__legend__colors {
               display: flex;
-              align-items: center; }
+              align-items: center;
+              flex-wrap: wrap; }
               .product-itinerary-slide__top__side-info__content__widget__legend__colors__item {
                 padding-left: 1.3rem;
                 margin-left: 2rem;

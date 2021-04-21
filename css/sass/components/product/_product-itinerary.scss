@@ -547,12 +547,20 @@
                         display: flex;
                         justify-content: space-between;
                         font-size: 1.2rem;
-                        &__fine-print {
+
+                        @media only screen and (max-width: $bp-small) {
+                            margin-top: 2rem;
+
                         }
+
+                        &__fine-print {
+                            min-width: 18rem;
+                        } 
 
                         &__colors {
                             display: flex;
                             align-items: center;
+                            flex-wrap: wrap;
                             &__item {
                                 padding-left: 1.3rem;
                                 margin-left: 2rem;

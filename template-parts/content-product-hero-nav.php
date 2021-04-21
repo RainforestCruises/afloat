@@ -99,7 +99,7 @@ $images = get_field('highlight_gallery');
 
                 <!-- CTA -->
                 <div class="product-hero__top__content__cta">
-                    <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#overview">
+                    <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="<?php echo (get_post_type() != 'rfc_tours') ? '#overview' : '#itineraries'; ?>">
                         <svg class="btn-circle--arrow-main">
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
                         </svg>

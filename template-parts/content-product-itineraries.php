@@ -176,7 +176,7 @@ endforeach;
 
                                             <?php } ?>
                                             <div class="product-itinerary-slide__top__side-info__content__widget__legend">
-                                                <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors__fine-print">
+                                                <div class="product-itinerary-slide__top__side-info__content__widget__legend__fine-print">
                                                     Select month to view departures
                                                 </div>
 
