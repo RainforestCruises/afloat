@@ -67,9 +67,6 @@ while (have_posts()) :
       <?php
       get_template_part('template-parts/content', 'product-cabins', $args);
       ?>
-      <?php
-      get_template_part('template-parts/content', 'product-technical', $args);
-      ?>
     </section>
 
     <!-- Prices Content -->

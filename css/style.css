@@ -512,6 +512,7 @@ h5 {
   .experience-icon:hover .tooltiptext {
     visibility: visible; }
   .experience-icon .tooltiptext {
+    box-sizing: border-box;
     visibility: hidden;
     width: max-content;
     background-color: #f8f8f8;
@@ -2352,16 +2353,6 @@ h5 {
   justify-content: center;
   align-items: center;
   flex-direction: column; }
-  .product-related::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(img/bg/topo-1.png);
-    opacity: 0.35;
-    top: 0;
-    left: 0;
-    z-index: -3; }
   .product-related__slider {
     width: 100%;
     max-width: 140rem;
@@ -3132,6 +3123,9 @@ h5 {
     position: relative;
     padding: 4rem 0;
     align-items: center; }
+    @media only screen and (max-width: 37.5em) {
+      .product-cabins__cabin {
+        padding: 3rem 0; } }
     .product-cabins__cabin:nth-child(even) .product-cabins__cabin__image-area {
       order: 2;
       padding-right: 0rem;
@@ -3169,7 +3163,34 @@ h5 {
           width: 100%; } }
       .product-cabins__cabin__content__title {
         position: relative;
-        z-index: 1; }
+        z-index: 1;
+        font-size: 1.4rem; }
+        @media only screen and (max-width: 50em) {
+          .product-cabins__cabin__content__title.center-title {
+            text-align: center; } }
+        .product-cabins__cabin__content__title h3 {
+          position: relative;
+          margin-bottom: 1.5rem;
+          letter-spacing: 0.2rem;
+          font-weight: 600;
+          font-size: 2.5rem;
+          color: #142838;
+          display: inline-block; }
+          @media only screen and (max-width: 37.5em) {
+            .product-cabins__cabin__content__title h3 {
+              font-size: 2rem; } }
+          .product-cabins__cabin__content__title h3::after {
+            content: "";
+            height: 2px;
+            width: 50%;
+            display: block;
+            background-color: #c2c6c9;
+            margin: 1.2rem 0;
+            margin-top: 0.7rem;
+            z-index: 9; }
+            @media only screen and (max-width: 50em) {
+              .product-cabins__cabin__content__title h3::after {
+                width: 100%; } }
         .product-cabins__cabin__content__title span {
           position: absolute;
           right: 0rem;
@@ -3178,6 +3199,52 @@ h5 {
           color: rgba(20, 40, 56, 0.1);
           font-size: 3.5rem;
           z-index: -1; }
+      .product-cabins__cabin__content__snippet {
+        font-size: 1.4rem; }
+        @media only screen and (max-width: 50em) {
+          .product-cabins__cabin__content__snippet {
+            text-align: center; } }
+      .product-cabins__cabin__content__attributes {
+        display: flex;
+        margin: 2rem 0;
+        margin-bottom: 4rem;
+        font-size: 1.4rem;
+        letter-spacing: 0.1rem; }
+        @media only screen and (max-width: 50em) {
+          .product-cabins__cabin__content__attributes {
+            justify-content: center; } }
+        .product-cabins__cabin__content__attributes__item {
+          position: relative;
+          display: flex;
+          text-align: center;
+          align-items: center;
+          flex-direction: column; }
+          .product-cabins__cabin__content__attributes__item:not(:last-child) {
+            margin-right: 4rem;
+            padding-right: 4rem;
+            border-right: 1px solid #e6e6e6; }
+          .product-cabins__cabin__content__attributes__item__title {
+            color: #919598;
+            margin-bottom: 0.4rem; }
+          .product-cabins__cabin__content__attributes__item__data {
+            color: #142838;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            text-align: start; }
+            @media only screen and (max-width: 50em) {
+              .product-cabins__cabin__content__attributes__item__data {
+                text-align: center; } }
+            .product-cabins__cabin__content__attributes__item__data__text {
+              font-size: 1.6rem;
+              line-height: 2.5rem;
+              font-weight: 700;
+              text-transform: uppercase;
+              width: max-content; }
+              .product-cabins__cabin__content__attributes__item__data__text .sub-attribute {
+                font-size: 1.1rem;
+                line-height: 1.6rem;
+                font-weight: 600; }
       .product-cabins__cabin__content__feature-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -3250,35 +3317,44 @@ h5 {
     width: 100%;
     max-width: calc(112rem + 12rem);
     display: flex;
-    justify-content: space-between;
     margin: 6rem 0;
     z-index: 10;
     align-items: flex-start;
     padding: 0 6rem; }
-    @media only screen and (max-width: 37.5em) {
+    @media only screen and (max-width: 50em) {
       .product-technical__content {
+        flex-direction: column;
+        align-items: center;
         padding: 0 3rem; } }
     @media only screen and (max-width: 37.5em) {
       .product-technical__content {
-        flex-direction: column;
         margin: 3rem 0; } }
     .product-technical__content__image-area {
       position: relative;
-      width: 40%;
+      flex-grow: 1;
+      max-width: 50rem;
       display: flex;
       flex-direction: column;
-      justify-content: center; }
-      @media only screen and (max-width: 37.5em) {
+      justify-content: center;
+      margin-right: 10rem; }
+      .product-technical__content__image-area.half-width {
+        width: 100%; }
+      @media only screen and (max-width: 62.5em) {
+        .product-technical__content__image-area {
+          margin-right: 4rem; } }
+      @media only screen and (max-width: 50em) {
         .product-technical__content__image-area {
           width: 100%;
-          margin-bottom: 4rem; } }
+          margin-bottom: 4rem;
+          max-width: 100%;
+          margin-right: 0rem; } }
       .product-technical__content__image-area__title {
         font-size: 1.4rem;
         text-transform: uppercase;
-        letter-spacing: .2rem;
+        letter-spacing: 0.2rem;
         color: #e6e6e6;
         margin-bottom: 1.5rem; }
-        @media only screen and (max-width: 37.5em) {
+        @media only screen and (max-width: 50em) {
           .product-technical__content__image-area__title {
             text-align: center; } }
       .product-technical__content__image-area a {
@@ -3301,50 +3377,59 @@ h5 {
         transition: all 0.3s; }
       .product-technical__content__image-area:hover svg {
         opacity: 1; }
-    .product-technical__content__info {
-      width: 60%;
+    .product-technical__content__columns {
+      flex-grow: 1;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-left: 6rem; }
+      align-items: flex-start;
+      width: 90%; }
       @media only screen and (max-width: 37.5em) {
-        .product-technical__content__info {
-          width: 100%;
-          margin-left: 0rem; } }
-      .product-technical__content__info__title {
-        font-size: 1.4rem;
-        text-transform: uppercase;
-        letter-spacing: .2rem;
-        color: #e6e6e6;
-        margin-bottom: 1.2rem; }
-        @media only screen and (max-width: 37.5em) {
-          .product-technical__content__info__title {
-            text-align: center; } }
-      .product-technical__content__info__list {
-        list-style: none; }
-        .product-technical__content__info__list__item {
-          font-size: 1.6rem;
-          display: flex;
-          width: 100%;
-          justify-content: space-between; }
-          .product-technical__content__info__list__item--vertical {
-            flex-direction: column;
+        .product-technical__content__columns {
+          flex-direction: column; } }
+      .product-technical__content__columns__info {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        .product-technical__content__columns__info:not(:last-child) {
+          margin-right: 6rem; }
+          @media only screen and (max-width: 50em) {
+            .product-technical__content__columns__info:not(:last-child) {
+              margin-right: 0rem; } }
+        @media only screen and (max-width: 50em) {
+          .product-technical__content__columns__info {
+            width: 100%;
+            margin-left: 0rem;
+            margin-right: 0rem;
+            margin-bottom: 3rem; } }
+        .product-technical__content__columns__info__title {
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          letter-spacing: 0.2rem;
+          color: #e6e6e6;
+          margin-bottom: 1.2rem; }
+          @media only screen and (max-width: 37.5em) {
+            .product-technical__content__columns__info__title {
+              text-align: center; } }
+        .product-technical__content__columns__info__list {
+          list-style: none; }
+          .product-technical__content__columns__info__list__item {
+            font-size: 1.6rem;
+            display: flex;
+            width: 100%;
             justify-content: flex-start;
-            align-items: flex-start;
-            margin-top: 2rem; }
-          .product-technical__content__info__list__item__title {
-            color: #6da9db;
-            font-weight: 600; }
-          .product-technical__content__info__list__item__data {
-            color: #e6e6e6;
-            text-align: right; }
-            .product-technical__content__info__list__item__data--vertical {
-              text-align: left;
-              text-justify: inter-character; }
-          .product-technical__content__info__list__item svg {
-            height: 2rem;
-            width: 2rem;
-            fill: #142838; }
+            color: #e6e6e6; }
+            @media only screen and (max-width: 50em) {
+              .product-technical__content__columns__info__list__item {
+                justify-content: center; } }
+            .product-technical__content__columns__info__list__item svg {
+              height: 2rem;
+              width: 2rem;
+              fill: #00a84b;
+              margin-right: 2rem; }
+              .product-technical__content__columns__info__list__item svg.no-feature {
+                fill: #de5c52; }
+            .product-technical__content__columns__info__list__item span {
+              width: 100%; }
 
 .product-hotels {
   width: 100%;

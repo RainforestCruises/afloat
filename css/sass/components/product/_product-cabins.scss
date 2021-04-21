@@ -1,5 +1,4 @@
 .product-cabins {
-
     position: relative;
     display: flex;
     flex-direction: column;
@@ -18,7 +17,10 @@
         position: relative;
         padding: 4rem 0;
 
-        //grid-template-rows: min-content;
+        @media only screen and (max-width: $bp-small) {
+            padding: 3rem 0;
+        }
+
         align-items: center;
 
         &:nth-child(even) {
@@ -72,14 +74,46 @@
             @media only screen and (max-width: $bp-medium) {
                 width: 100%;
             }
-
-            // & p {
-            //     font-size: 1.4rem;
-            // }
-
             &__title {
                 position: relative;
                 z-index: 1;
+                font-size: 1.4rem;
+
+                &.center-title {
+                    @media only screen and (max-width: $bp-medium) {
+                        text-align: center;
+                    }
+                }
+
+                & h3 {
+                    position: relative;
+                    margin-bottom: 1.5rem;
+                    letter-spacing: 0.2rem;
+                    font-weight: 600;
+                    font-size: 2.5rem;
+
+                    @media only screen and (max-width: $bp-small) {
+                        font-size: 2rem;
+                    }
+
+                    color: $color-primary;
+                    display: inline-block;
+                    &::after {
+                        content: "";
+                        height: 2px;
+                        width: 50%;
+                        display: block;
+                        background-color: $color-grey-light-2;
+                        margin: 1.2rem 0;
+                        margin-top: 0.7rem;
+                        z-index: 9;
+
+                        @media only screen and (max-width: $bp-medium) {
+                            width: 100%;
+                        }
+                    }
+                }
+
                 span {
                     position: absolute;
 
@@ -89,6 +123,71 @@
                     color: rgba($color-primary, $alpha: 0.1);
                     font-size: 3.5rem;
                     z-index: -1;
+                }
+            }
+
+            &__snippet {
+                font-size: 1.4rem;
+
+                @media only screen and (max-width: $bp-medium) {
+                    text-align: center;
+                }
+            }
+
+            &__attributes {
+                display: flex;
+                margin: 2rem 0;
+                margin-bottom: 4rem;
+                font-size: 1.4rem;
+                letter-spacing: 0.1rem;
+
+                @media only screen and (max-width: $bp-medium) {
+                    justify-content: center;
+                }
+
+                &__item {
+                    position: relative;
+
+                    display: flex;
+                    text-align: center;
+                    align-items: center;
+                    flex-direction: column;
+                    &:not(:last-child) {
+                        margin-right: 4rem;
+                        padding-right: 4rem;
+                        border-right: 1px solid $color-grey-light-1a;
+                    }
+
+                    &__title {
+                        color: $color-grey-2;
+                        margin-bottom: 0.4rem;
+                    }
+
+                    &__data {
+                        color: $color-primary;
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        text-align: start;
+
+                        @media only screen and (max-width: $bp-medium) {
+                            text-align: center;
+                        }
+
+                        &__text {
+                            font-size: 1.6rem;
+                            line-height: 2.5rem;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                            width: max-content;
+
+                            & .sub-attribute {
+                                font-size: 1.1rem;
+                                line-height: 1.6rem;
+                                font-weight: 600;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -155,8 +254,6 @@
         }
     }
 
-
-
     //Note
     &__note {
         grid-column: center-start / center-end;
@@ -180,7 +277,6 @@
     align-items: center;
     flex-direction: column;
 
-
     &::before {
         content: "";
         position: absolute;
@@ -200,49 +296,58 @@
         width: 100%;
         max-width: $page-width;
         display: flex;
-        justify-content: space-between;
+        //justify-content: space-between;
         margin: 6rem 0;
         z-index: 10;
         align-items: flex-start;
 
         //side padding
         padding: 0 6rem;
-        @media only screen and (max-width: $bp-small) {
+        @media only screen and (max-width: $bp-medium) {
+            flex-direction: column;
+            align-items: center;
             padding: 0 3rem;
         }
 
         @media only screen and (max-width: $bp-small) {
-            flex-direction: column;
             margin: 3rem 0;
         }
 
-
         &__image-area {
             position: relative;
-            width: 40%;
-
+            flex-grow: 1;
+            max-width: 50rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            margin-right: 10rem;
 
-            @media only screen and (max-width: $bp-small) {
+            &.half-width {
+                width: 100%;
+            }
+
+            @media only screen and (max-width: $bp-large) {
+                margin-right: 4rem;
+            }
+
+            @media only screen and (max-width: $bp-medium) {
                 width: 100%;
                 margin-bottom: 4rem;
+                max-width: 100%;
+                margin-right: 0rem;
             }
-            
 
             &__title {
                 font-size: 1.4rem;
                 text-transform: uppercase;
-                letter-spacing: .2rem;
+                letter-spacing: 0.2rem;
                 color: $color-grey-light-1a;
                 margin-bottom: 1.5rem;
 
-                @media only screen and (max-width: $bp-small) {
+                @media only screen and (max-width: $bp-medium) {
                     text-align: center;
                 }
             }
-
 
             & a {
                 width: 100%;
@@ -274,81 +379,87 @@
             }
         }
 
-        &__info {
-            width: 60%;
+        &__columns {
+            flex-grow: 1;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-left: 6rem;
+            align-items: flex-start;
+            width: 90%;
 
             @media only screen and (max-width: $bp-small) {
-                width: 100%;
-                margin-left: 0rem;
-
-            }
-
-            &__title {
-                font-size: 1.4rem;
-                text-transform: uppercase;
-                letter-spacing: .2rem;
-                color: $color-grey-light-1a;
-                margin-bottom: 1.2rem;
-
-                @media only screen and (max-width: $bp-small) {
-                    text-align: center;
-                }
+                flex-direction: column;
             }
 
 
-            
-            &__list {
-                list-style: none;
+            &__info {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
 
-                &__item {
-                    font-size: 1.6rem;
-                    display: flex;
-                    width: 100%; 
-                    justify-content: space-between;
-
-                    &--vertical {
-                        flex-direction: column;
-                        justify-content: flex-start;
-                        align-items: flex-start;
-                        margin-top: 2rem;
-                        
-                    }
+                &:not(:last-child){
+                    margin-right: 6rem;
+                    @media only screen and (max-width: $bp-medium) {
+                  
+                        margin-right: 0rem;
                     
-                    &__title {
-                        color: $color-supporting-light-3;
-                        font-weight: 600;
-                        
                     }
+                }
 
-                    &__data {
+                @media only screen and (max-width: $bp-medium) {
+                    width: 100%;
+                    margin-left: 0rem;
+                    margin-right: 0rem;
+                    margin-bottom: 3rem;
+                }
+
+
+
+                &__title {
+                    font-size: 1.4rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.2rem;
+                    color: $color-grey-light-1a;
+                    margin-bottom: 1.2rem;
+
+                    @media only screen and (max-width: $bp-small) {
+                        text-align: center;
+                    }
+                }
+
+                &__list {
+                    list-style: none;
+
+                    &__item {
+                        font-size: 1.6rem;
+                        display: flex;
+                        width: 100%;
+                        justify-content: flex-start;
                         color: $color-grey-light-1a;
-                        text-align: right;
 
-                        &--vertical {
-                            text-align: left;   
-                            text-justify: inter-character;          
+                        @media only screen and (max-width: $bp-medium) {
+                            justify-content: center;
+                        }
+
+                        & svg {
+                            height: 2rem;
+                            width: 2rem;
+                            fill: $color-green;
+                            margin-right: 2rem;
+
+                            &.no-feature {
+                                fill: $color-red;
+                            }
+                        }
+
+                        & span {
+                            width: 100%;
                         }
                     }
-
-                    svg {
-                        height: 2rem;
-                        width: 2rem;
-                        fill: $color-primary;
-                    }
                 }
             }
-
-        
         }
     }
 }
-
-
-
 
 .product-hotels {
     width: 100%;
@@ -358,8 +469,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
- 
 
     &__slider {
         width: 100%;

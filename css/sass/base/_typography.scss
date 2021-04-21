@@ -584,6 +584,7 @@ h5 {
     }
 
     & .tooltiptext {
+        box-sizing: border-box;
         visibility: hidden;
         width: max-content;
         background-color: $color-grey-light-1;

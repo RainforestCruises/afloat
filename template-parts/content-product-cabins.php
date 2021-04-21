@@ -31,7 +31,7 @@ $cruise_data = $args['cruiseData'];
                 </div>
                 <div class="product-cabins__cabin__content">
                     <div class="product-cabins__cabin__content__title">
-                        <h3 class="heading-3 heading-3--underline"><?php echo ($cabins[$cabinCount]['Name']); ?></h3>
+                        <h3><?php echo ($cabins[$cabinCount]['Name']); ?></h3>
                     </div>
                     <div class="product-cabins__cabin__content__feature-grid">
                         <div class="product-cabins__cabin__content__feature-item">

@@ -499,7 +499,7 @@
             "label": "Reviews Background",
             "name": "reviews_background",
             "type": "image",
-            "instructions": "1920 x 730 min",
+            "instructions": "1920 x 730 min (Parallax background image behind testimonials)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -665,7 +665,7 @@
         },
         {
             "key": "field_5f97077f52779",
-            "label": "Overview Tab",
+            "label": "Overview",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -681,7 +681,7 @@
         },
         {
             "key": "field_5f779cf174656",
-            "label": "Overview Intro",
+            "label": "Overview Intro (deprecated)",
             "name": "overview_intro",
             "type": "wysiwyg",
             "instructions": "",
@@ -692,9 +692,6 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
@@ -779,46 +776,8 @@
             ]
         },
         {
-            "key": "field_5f970890cab58",
-            "label": "Itineraries Tab",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_5f779d1174657",
-            "label": "Itineraries Intro",
-            "name": "itineraries_intro",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
             "key": "field_5f9708afcab59",
-            "label": "Cabins Tab",
+            "label": "Technical Info",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -831,39 +790,6 @@
             },
             "placement": "top",
             "endpoint": 0
-        },
-        {
-            "key": "field_5f779d2974658",
-            "label": "Cabins Intro",
-            "name": "cabins_intro",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": [
-                "post",
-                "page",
-                "rfc_cruises",
-                "rfc_destinations",
-                "rfc_sub_destinations",
-                "rfc_countries"
-            ],
-            "admin_column_taxonomies": [
-                "category",
-                "post_tag",
-                "link_category"
-            ],
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0
         },
         {
             "key": "field_5f6d1c43f3d45",
@@ -893,9 +819,9 @@
             "mime_types": ""
         },
         {
-            "key": "field_5f6d1c52f3d46",
-            "label": "Ship Features",
-            "name": "ship_features",
+            "key": "field_608040896b4b2",
+            "label": "Features",
+            "name": "features",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -908,10 +834,10 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5f6d1caff3d47",
-                    "label": "Number of Cabins",
-                    "name": "number_of_cabins",
-                    "type": "text",
+                    "key": "field_608041ad6b4b3",
+                    "label": "Connecting Cabins",
+                    "name": "connecting_cabins",
+                    "type": "true_false",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -920,32 +846,17 @@
                         "class": "",
                         "id": ""
                     },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": [
-                        "post",
-                        "page",
-                        "rfc_cruises",
-                        "rfc_destinations",
-                        "rfc_sub_destinations",
-                        "rfc_countries",
-                        "rfc_travel_styles"
-                    ],
-                    "admin_column_taxonomies": [
-                        "category",
-                        "post_tag",
-                        "link_category"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 },
                 {
-                    "key": "field_5f6d1cc6f3d48",
-                    "label": "Capacity",
-                    "name": "capacity",
-                    "type": "text",
+                    "key": "field_608042906b4b4",
+                    "label": "Cabins with Balconies",
+                    "name": "cabins_with_balconies",
+                    "type": "true_false",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -954,66 +865,17 @@
                         "class": "",
                         "id": ""
                     },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": [
-                        "post",
-                        "page",
-                        "rfc_cruises",
-                        "rfc_destinations",
-                        "rfc_sub_destinations",
-                        "rfc_countries",
-                        "rfc_travel_styles"
-                    ],
-                    "admin_column_taxonomies": [
-                        "category",
-                        "post_tag",
-                        "link_category"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 },
                 {
-                    "key": "field_5f6d1ccef3d49",
-                    "label": "Interconnectable Cabins",
-                    "name": "interconnectable_cabins",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": [
-                        "post",
-                        "page",
-                        "rfc_cruises",
-                        "rfc_destinations",
-                        "rfc_sub_destinations",
-                        "rfc_countries",
-                        "rfc_travel_styles"
-                    ],
-                    "admin_column_taxonomies": [
-                        "category",
-                        "post_tag",
-                        "link_category"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5f6d1cdaf3d4a",
+                    "key": "field_608047b243680",
                     "label": "Air Conditioning",
                     "name": "air_conditioning",
-                    "type": "text",
+                    "type": "true_false",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -1022,32 +884,17 @@
                         "class": "",
                         "id": ""
                     },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": [
-                        "post",
-                        "page",
-                        "rfc_cruises",
-                        "rfc_destinations",
-                        "rfc_sub_destinations",
-                        "rfc_countries",
-                        "rfc_travel_styles"
-                    ],
-                    "admin_column_taxonomies": [
-                        "category",
-                        "post_tag",
-                        "link_category"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 },
                 {
-                    "key": "field_5f6d1d5a9ad87",
-                    "label": "Bathrooms",
-                    "name": "bathrooms",
-                    "type": "text",
+                    "key": "field_608042b86b4b5",
+                    "label": "Pool \/ Jacuzzi",
+                    "name": "pool_jacuzzi",
+                    "type": "true_false",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -1056,32 +903,327 @@
                         "class": "",
                         "id": ""
                     },
-                    "admin_column_enabled": 0,
-                    "admin_column_post_types": [
-                        "post",
-                        "page",
-                        "rfc_cruises",
-                        "rfc_destinations",
-                        "rfc_sub_destinations",
-                        "rfc_countries",
-                        "rfc_travel_styles"
-                    ],
-                    "admin_column_taxonomies": [
-                        "category",
-                        "post_tag",
-                        "link_category"
-                    ],
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_608042e86b4b6",
+                    "label": "Exercise Room",
+                    "name": "excercise_room",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_608047cc43681",
+                    "label": "Massage Room",
+                    "name": "massage_room",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_608047dc43682",
+                    "label": "Lecture Room",
+                    "name": "lecture_room",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_608047ec43683",
+                    "label": "Wheelchair Access",
+                    "name": "wheelchair_access",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_608047fc43684",
+                    "label": "Camera Room",
+                    "name": "camera_room",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                }
+            ]
+        },
+        {
+            "key": "field_6080433a6b4bc",
+            "label": "Show Equipment",
+            "name": "show_equipment",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_608043036b4b7",
+            "label": "Equipment",
+            "name": "equipment",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6080433a6b4bc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_608043036b4b8",
+                    "label": "Diving Gear",
+                    "name": "diving_gear",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_608043036b4b9",
+                    "label": "Nitrox",
+                    "name": "nitrox",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_6080480f43685",
+                    "label": "Snorkeling Gear",
+                    "name": "snorkeling_gear",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_6080482143686",
+                    "label": "Stand Up Paddle Board",
+                    "name": "stand_up_paddle_board",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_6080483543687",
+                    "label": "Kayaks \/ Canoes",
+                    "name": "kayaks_canoes",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_6080484443688",
+                    "label": "Wakeboard \/ Water Ski",
+                    "name": "wakeboard_water_ski",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_6080485e43689",
+                    "label": "Surf Boards",
+                    "name": "surf_boards",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_6080486d4368a",
+                    "label": "Jet Skis",
+                    "name": "jet_skis",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_6080487b4368b",
+                    "label": "Fishing Equipment",
+                    "name": "fishing_equipment",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 }
             ]
         },
         {
             "key": "field_5f97090ccab5a",
-            "label": "Prices Tab",
+            "label": "Prices Extra",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -1094,69 +1236,6 @@
             },
             "placement": "top",
             "endpoint": 0
-        },
-        {
-            "key": "field_5f779d4374659",
-            "label": "Prices Intro",
-            "name": "prices_intro",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": [
-                "post",
-                "page",
-                "rfc_cruises",
-                "rfc_destinations",
-                "rfc_sub_destinations",
-                "rfc_countries"
-            ],
-            "admin_column_taxonomies": [
-                "category",
-                "post_tag",
-                "link_category"
-            ],
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_5f77563c03e8b",
-            "label": "Prices Imagery",
-            "name": "prices_imagery",
-            "type": "gallery",
-            "instructions": "Need one image for every itinerary. (450 x 675)",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
-            "return_format": "array",
-            "preview_size": "medium",
-            "insert": "append",
-            "library": "all",
-            "min": "",
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
         },
         {
             "key": "field_5f77564d03e8c",
@@ -1594,55 +1673,6 @@
             "toolbar": "full",
             "media_upload": 0,
             "delay": 0
-        },
-        {
-            "key": "field_5f970d07751b2",
-            "label": "Dates Tab",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_5f970ce9751b1",
-            "label": "Dates Intro",
-            "name": "dates_intro",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": [
-                "post",
-                "page",
-                "rfc_cruises",
-                "rfc_destinations",
-                "rfc_sub_destinations",
-                "rfc_countries"
-            ],
-            "admin_column_taxonomies": [
-                "category",
-                "post_tag",
-                "link_category"
-            ],
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
         }
     ],
     "location": [
@@ -1662,5 +1692,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Cruise - CPT",
-    "modified": 1618851734
+    "modified": 1619019929
 }

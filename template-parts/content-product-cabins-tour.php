@@ -20,8 +20,10 @@ $hotels = get_field('hotels');
             $propertyPost = get_post($property);
             $featured_image = get_field('featured_image',  $property);
             $propertyTitle = get_the_title($property);
-            $propertySnippet = get_field('overview_intro',  $property);
-            $propertyIntro = get_field('cabins_intro',  $property); //make editable field in this template -- repeater for cruises / lodges
+            $propertySnippet = get_field('top_snippet',  $property);
+            $number_of_cabins = get_field('number_of_cabins',  $property);
+            $vessel_capacity = get_field('vessel_capacity',  $property);
+            $isCruise = (get_post_type($property) == 'rfc_cruises' ? true : false);
             ?>
 
             <!-- Product Card -->
@@ -30,11 +32,31 @@ $hotels = get_field('hotels');
                     <img <?php afloat_responsive_image($featured_image['id'], 'featured-large', array('featured-large', 'featured-medium', 'featured-small')); ?> alt="">
                 </div>
                 <div class="product-cabins__cabin__content">
-                    <div class="product-cabins__cabin__content__title">
-                        <h3 class="heading-3 heading-3--underline"><?php echo $propertyTitle; ?></h3>
+                    <div class="product-cabins__cabin__content__title center-title">
+                        <h3><?php echo $propertyTitle; ?></h3>
+                    </div>
+                    <div class="product-cabins__cabin__content__snippet">
+                        <?php echo $propertySnippet; ?>
                     </div>
 
-                    <?php echo $propertyIntro; ?>
+                    <!-- New -->
+                    <?php if($isCruise) : ?>
+                    <div class="product-cabins__cabin__content__attributes">
+                        <!-- Capacity -->
+                        <div class="product-cabins__cabin__content__attributes__item">
+                            <div class="product-cabins__cabin__content__attributes__item__data">
+                                <div class="product-cabins__cabin__content__attributes__item__data__text">
+                                    <?php echo $vessel_capacity; ?> Guests 
+                                    <div class="sub-attribute">
+                                    <?php echo $number_of_cabins; ?> Cabins
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php endif; ?>
 
                 </div>
             </div>
@@ -100,7 +122,7 @@ $hotels = get_field('hotels');
 
                     </div>
                     <div class="card-square__image-area">
-                        <img <?php afloat_responsive_image($featured_image['id'], 'square-medium', array('square-medium','square-small')); ?> alt="">
+                        <img <?php afloat_responsive_image($featured_image['id'], 'square-medium', array('square-medium', 'square-small')); ?> alt="">
 
                     </div>
 
