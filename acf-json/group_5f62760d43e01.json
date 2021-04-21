@@ -354,6 +354,48 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_602bf5195119f",
+            "label": "Vessel Capacity",
+            "name": "vessel_capacity",
+            "type": "number",
+            "instructions": "Total number of guests",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_607db776d548b",
+            "label": "Number of Cabins",
+            "name": "number_of_cabins",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 99,
+            "step": ""
+        },
+        {
             "key": "field_5f68f3acab0ab",
             "label": "Hero Image",
             "name": "hero_image",
@@ -1502,48 +1544,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_602bf5195119f",
-            "label": "Vessel Capacity",
-            "name": "vessel_capacity",
-            "type": "number",
-            "instructions": "Total number of guests",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
-        },
-        {
-            "key": "field_607db776d548b",
-            "label": "Number of Cabins",
-            "name": "number_of_cabins",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": 1,
-            "max": 99,
-            "step": ""
-        },
-        {
             "key": "field_602bf565511a0",
             "label": "Charter Available",
             "name": "charter_available",
@@ -1692,5 +1692,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Cruise - CPT",
-    "modified": 1619019929
+    "modified": 1619033277
 }

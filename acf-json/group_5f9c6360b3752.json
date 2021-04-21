@@ -327,6 +327,48 @@
             "new_lines": ""
         },
         {
+            "key": "field_60807d59f68bb",
+            "label": "Lodge Capacity",
+            "name": "vessel_capacity",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_60807d91f68bc",
+            "label": "Number of Cabins",
+            "name": "number_of_cabins",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_5f9c6360c2997",
             "label": "Hero Image",
             "name": "hero_image",
@@ -1101,5 +1143,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Lodge - CPT",
-    "modified": 1619014186
+    "modified": 1619033516
 }
