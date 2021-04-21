@@ -28,316 +28,237 @@ $equipment = get_field('equipment');
         </div>
 
         <div class="product-technical__content__columns">
- <!-- Features -->
- <div class="product-technical__content__columns__info">
+            <!-- Features -->
+            <div class="product-technical__content__columns__info">
 
-<!-- Features -->
-<div class="product-technical__content__columns__info__title">
-    Features
-</div>
-<ul class="product-technical__content__columns__info__list">
+                <!-- Features -->
+                <div class="product-technical__content__columns__info__title">
+                    Features
+                </div>
+                <ul class="product-technical__content__columns__info__list">
 
-    <!-- Connecting Cabins -->
-    <li class="product-technical__content__columns__info__list__item">
-        <?php if ($features['connecting_cabins']) : ?>
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-            </svg>
-        <?php else : ?>
-            <svg class="no-feature">
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-            </svg>
-        <?php endif; ?>
-        <span>
-            Connecting cabins
-        </span>
-    </li>
 
-    <!-- Cabins with Balconies -->
-    <li class="product-technical__content__columns__info__list__item">
-        <?php if ($features['cabins_with_balconies']) : ?>
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-            </svg>
-        <?php else : ?>
-            <svg class="no-feature">
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-            </svg>
-        <?php endif; ?>
-        <span>
-            Cabins with balconies
-        </span>
-    </li>
+                    <!-- Connecting Cabins -->
+                    <?php if ($features['connecting_cabins']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Connecting cabins
+                            </span>
+                        </li>
+                    <?php endif; ?>
 
-    <!-- Air conditioning -->
-    <li class="product-technical__content__columns__info__list__item">
-        <?php if ($features['air_conditioning']) : ?>
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-            </svg>
-        <?php else : ?>
-            <svg class="no-feature">
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-            </svg>
-        <?php endif; ?>
-        <span>
-            Air conditioning
-        </span>
-    </li>
+                    <!-- Cabins with Balconies -->
+                    <?php if ($features['cabins_with_balconies']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Cabins with balconies
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Air conditioning -->
+                    <?php if ($features['air_conditioning']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Air conditioning
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Pool / Jacuzzi -->
+                    <?php if ($features['pool_jacuzzi']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Pool / Jacuzzi
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Excercise room -->
+                    <?php if ($features['excercise_room']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Excercise room
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Massage room -->
+                    <?php if ($features['massage_room']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Massage room
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Lecture room -->
+                    <?php if ($features['lecture_room']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Lecture room
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Wheelchair access -->
+                    <?php if ($features['wheelchair_access']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Wheelchair access
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Camera Room -->
+                    <?php if ($features['camera_room']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Camera room
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+                <!-- End Features -->
 
-    <!-- Pool / Jacuzzi -->
-    <li class="product-technical__content__columns__info__list__item">
-        <?php if ($features['pool_jacuzzi']) : ?>
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-            </svg>
-        <?php else : ?>
-            <svg class="no-feature">
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-            </svg>
-        <?php endif; ?>
-        <span>
-            Pool / Jacuzzi
-        </span>
-    </li>
-    <!-- Excercise room -->
-    <li class="product-technical__content__columns__info__list__item">
-        <?php if ($features['excercise_room']) : ?>
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-            </svg>
-        <?php else : ?>
-            <svg class="no-feature">
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-            </svg>
-        <?php endif; ?>
-        <span>
-            Excercise room
-        </span>
-    </li>
-    <!-- Massage room -->
-    <li class="product-technical__content__columns__info__list__item">
-        <?php if ($features['massage_room']) : ?>
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-            </svg>
-        <?php else : ?>
-            <svg class="no-feature">
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-            </svg>
-        <?php endif; ?>
-        <span>
-            Massage room
-        </span>
-    </li>
-    <!-- Lecture room -->
-    <li class="product-technical__content__columns__info__list__item">
-        <?php if ($features['lecture_room']) : ?>
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-            </svg>
-        <?php else : ?>
-            <svg class="no-feature">
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-            </svg>
-        <?php endif; ?>
-        <span>
-            Lecture room
-        </span>
-    </li>
-    <!-- Wheelchair access -->
-    <li class="product-technical__content__columns__info__list__item">
-        <?php if ($features['wheelchair_access']) : ?>
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-            </svg>
-        <?php else : ?>
-            <svg class="no-feature">
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-            </svg>
-        <?php endif; ?>
-        <span>
-            Wheelchair access
-        </span>
-    </li>
-    <!-- Camera Room -->
-    <li class="product-technical__content__columns__info__list__item">
-        <?php if ($features['camera_room']) : ?>
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-            </svg>
-        <?php else : ?>
-            <svg class="no-feature">
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-            </svg>
-        <?php endif; ?>
-        <span>
-            Camera room
-        </span>
-    </li>
-</ul>
-<!-- End Features -->
+            </div>
 
-</div>
+            <!-- Equipment -->
+            <?php if ($show_equipment) : ?>
+                <div class="product-technical__content__columns__info">
 
-<!-- Equipment -->
-<?php if ($show_equipment) : ?>
-<div class="product-technical__content__columns__info">
+                    <div class="product-technical__content__columns__info__title">
+                        Equipment
+                    </div>
 
-    <div class="product-technical__content__columns__info__title">
-        Equipment
-    </div>
+                    <ul class="product-technical__content__columns__info__list">
+                        <!-- Diving gear -->
+                        <?php if ($equipment['diving_gear']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Diving gear
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <!-- Nitrox -->
+                        <?php if ($equipment['nitrox']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Nitrox
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <!-- Snorkeling gear -->
+                        <?php if ($equipment['snorkeling_gear']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Snorkeling gear
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <!-- Stand up paddle board -->
+                        <?php if ($equipment['stand_up_paddle_board']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Stand up paddleboard
+                                </span>
+                            </li>
+                        <?php endif; ?>
 
-    <ul class="product-technical__content__columns__info__list">
-        <!-- Diving gear -->
-        <li class="product-technical__content__columns__info__list__item">
-            <?php if ($equipment['diving_gear']) : ?>
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-                </svg>
-            <?php else : ?>
-                <svg class="no-feature">
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-                </svg>
+                        <!-- Kayaks / Canoes -->
+                        <?php if ($equipment['kayaks_canoes']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Kayaks / Canoes
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <!-- Wakeboard / Water Ski -->
+                        <?php if ($equipment['wakeboard_water_ski']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Wakeboard / Water Ski
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <!-- Surf Boards-->
+                        <?php if ($equipment['surf_boards']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Surf boards
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <!-- Jet Skis-->
+                        <?php if ($equipment['jet_skis']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Jet skis
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <!-- Fishing Equipment-->
+                        <?php if ($equipment['fishing_equipment']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Fishing equipment
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+
+                </div>
             <?php endif; ?>
-            <span>
-                Diving gear
-            </span>
-        </li>
-
-        <!-- Nitrox -->
-        <li class="product-technical__content__columns__info__list__item">
-            <?php if ($equipment['nitrox']) : ?>
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-                </svg>
-            <?php else : ?>
-                <svg class="no-feature">
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-                </svg>
-            <?php endif; ?>
-            <span>
-                Nitrox
-            </span>
-        </li>
-
-        <!-- Snorkeling gear -->
-        <li class="product-technical__content__columns__info__list__item">
-            <?php if ($equipment['snorkeling_gear']) : ?>
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-                </svg>
-            <?php else : ?>
-                <svg class="no-feature">
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-                </svg>
-            <?php endif; ?>
-            <span>
-                Snorkeling gear
-            </span>
-        </li>
-
-        <!-- Stand up paddle board -->
-        <li class="product-technical__content__columns__info__list__item">
-            <?php if ($equipment['stand_up_paddle_board']) : ?>
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-                </svg>
-            <?php else : ?>
-                <svg class="no-feature">
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-                </svg>
-            <?php endif; ?>
-            <span>
-                Stand up paddleboard
-            </span>
-        </li>
-
-
-        <!-- Kayaks / Canoes -->
-        <li class="product-technical__content__columns__info__list__item">
-            <?php if ($equipment['kayaks_canoes']) : ?>
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-                </svg>
-            <?php else : ?>
-                <svg class="no-feature">
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-                </svg>
-            <?php endif; ?>
-            <span>
-                Kayaks / Canoes
-            </span>
-        </li>
-
-        <!-- Wakeboard / Water Ski -->
-        <li class="product-technical__content__columns__info__list__item">
-            <?php if ($equipment['wakeboard_water_ski']) : ?>
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-                </svg>
-            <?php else : ?>
-                <svg class="no-feature">
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-                </svg>
-            <?php endif; ?>
-            <span>
-                Wakeboard / Water Ski
-            </span>
-        </li>
-        <!-- Surf Boards-->
-        <li class="product-technical__content__columns__info__list__item">
-            <?php if ($equipment['surf_boards']) : ?>
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-                </svg>
-            <?php else : ?>
-                <svg class="no-feature">
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-                </svg>
-            <?php endif; ?>
-            <span>
-                Surf boards
-            </span>
-        </li>
-        <!-- Jet Skis-->
-        <li class="product-technical__content__columns__info__list__item">
-            <?php if ($equipment['jet_skis']) : ?>
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-                </svg>
-            <?php else : ?>
-                <svg class="no-feature">
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-                </svg>
-            <?php endif; ?>
-            <span>
-                Jet skis
-            </span>
-        </li>
-        <!-- Fishing Equipment-->
-        <li class="product-technical__content__columns__info__list__item">
-            <?php if ($equipment['fishing_equipment']) : ?>
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
-                </svg>
-            <?php else : ?>
-                <svg class="no-feature">
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-x"></use>
-                </svg>
-            <?php endif; ?>
-            <span>
-                Fishing equipment
-            </span>
-        </li>
-
-    </ul>
-
-</div>
-<?php endif; ?>
-<!-- End Equipment -->
+            <!-- End Equipment -->
         </div>
-       
+
     </div>
 
 
