@@ -1342,13 +1342,16 @@ h5 {
   width: 100%; }
 
 .travel-guide-page {
-  padding-top: 6rem;
+  padding-top: 15rem;
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
   position: relative;
   z-index: 0; }
+  @media only screen and (max-width: 37.5em) {
+    .travel-guide-page {
+      padding-top: calc($page-top-padding - 3rem); } }
 
 .travel-guide {
   display: flex;
@@ -1365,10 +1368,11 @@ h5 {
     text-transform: uppercase;
     color: #305a7c;
     text-align: center;
-    margin-top: 9rem;
-    font-weight: 500; }
+    font-weight: 500;
+    margin-bottom: 1rem; }
   .travel-guide__title {
     font-size: 5rem;
+    line-height: 5.8rem;
     color: #142838;
     font-weight: 600;
     text-align: center;
@@ -1521,14 +1525,14 @@ h5 {
     margin-bottom: 6rem; }
     .travel-guide__social__link:link, .travel-guide__social__link:visited {
       color: #142838;
-      transition: all .2s; }
+      transition: all 0.2s; }
     .travel-guide__social__link:hover {
       color: #40739c; }
     .travel-guide__social__link svg {
       height: 3rem;
       width: 3rem;
       fill: currentColor;
-      margin: 0rem .5rem; }
+      margin: 0rem 0.5rem; }
 
 .travel-guide-related {
   background-color: #142838;
@@ -1551,15 +1555,14 @@ h5 {
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: calc(112rem + 12rem);
-    padding: 0 6rem;
+    max-width: 140rem;
     margin-bottom: 6rem; }
-    @media only screen and (max-width: 37.5em) {
-      .travel-guide-related__slider-area {
-        padding: 0 3rem; } }
     .travel-guide-related__slider-area__slider {
       width: 100%;
-      margin: 0 6rem; }
+      padding: 0 9rem; }
+      @media only screen and (max-width: 37.5em) {
+        .travel-guide-related__slider-area__slider {
+          padding: 0rem; } }
       .travel-guide-related__slider-area__slider .slick-slide {
         margin: 0 1.5rem; }
       .travel-guide-related__slider-area__slider__item {
@@ -1593,6 +1596,18 @@ h5 {
           .travel-guide-related__slider-area__slider__item__content__cta {
             font-size: 1.6rem;
             text-transform: uppercase; }
+      .travel-guide-related__slider-area__slider__btn--left {
+        transform: translateY(-50%);
+        position: absolute;
+        z-index: 10;
+        top: 40%;
+        left: 1.5rem; }
+      .travel-guide-related__slider-area__slider__btn--right {
+        transform: translateY(-50%);
+        position: absolute;
+        z-index: 10;
+        top: 40%;
+        right: 1.5rem; }
 
 .disclaimer-box {
   margin: 3rem;
@@ -1874,6 +1889,132 @@ h5 {
     display: flex;
     align-items: center;
     flex-direction: column; }
+
+.contact-page {
+  padding-top: 15rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  z-index: 0; }
+  @media only screen and (max-width: 37.5em) {
+    .contact-page {
+      padding-top: 12rem; } }
+  .contact-page__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: calc(112rem + 12rem);
+    padding: 0 6rem;
+    margin-bottom: 6rem; }
+    @media only screen and (max-width: 37.5em) {
+      .contact-page__intro {
+        padding: 0 3rem; } }
+    .contact-page__intro__category {
+      font-size: 1.6rem;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      color: #305a7c;
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 1rem; }
+    .contact-page__intro__title {
+      font-size: 5rem;
+      line-height: 5.8rem;
+      color: #142838;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 2rem; }
+    .contact-page__intro__subtitle {
+      font-size: 1.6rem;
+      text-align: center;
+      max-width: 75rem; }
+
+.contact {
+  width: 100%;
+  max-width: calc(80rem + 12rem);
+  padding: 0 6rem; }
+  @media only screen and (max-width: 37.5em) {
+    .contact {
+      padding: 0 3rem; } }
+  .contact__wrapper {
+    padding: 6rem 2rem;
+    padding-bottom: 3rem;
+    border: 2px solid #142838;
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .contact__wrapper__intro {
+      margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid #e6e6e6;
+      padding-bottom: 3rem;
+      width: 100%;
+      max-width: 60rem; }
+      .contact__wrapper__intro__icon {
+        display: flex;
+        justify-content: center; }
+        .contact__wrapper__intro__icon svg {
+          height: 4rem;
+          width: 4rem;
+          color: #142838; }
+      .contact__wrapper__intro__title {
+        font-size: 3rem;
+        color: #142838;
+        font-weight: 700;
+        text-align: center; }
+      .contact__wrapper__intro__subtitle {
+        font-size: 1.6rem;
+        text-align: center;
+        max-width: 30rem;
+        margin-bottom: 3rem; }
+      .contact__wrapper__intro__phone {
+        font-size: 3rem;
+        color: #142838;
+        font-weight: 700;
+        text-align: center; }
+    .contact__wrapper__form {
+      width: 100%;
+      max-width: 60rem; }
+
+.form-general {
+  color: #142838;
+  font-family: "Metropolis", sans-serif; }
+  .form-general .wpforms-field-label {
+    text-transform: uppercase !important;
+    font-size: 1.3rem !important;
+    letter-spacing: 0.1rem !important; }
+  .form-general .wpforms-field-sublabel {
+    font-size: 1.3rem !important; }
+  .form-general input {
+    border-radius: 0px !important;
+    font-size: 1.6rem !important; }
+  .form-general textarea {
+    font-family: "Metropolis", sans-serif !important;
+    font-size: 1.6rem !important; }
+  .form-general button[type="submit"] {
+    color: #fff !important;
+    background-color: #142838 !important;
+    padding: 0 3rem !important;
+    letter-spacing: 0.3rem !important;
+    cursor: pointer;
+    border: none !important;
+    font-size: 1.3rem !important;
+    font-family: "Metropolis", sans-serif !important;
+    text-transform: uppercase !important;
+    font-weight: 500 !important;
+    height: 5rem !important;
+    width: 100% !important;
+    margin-top: 3rem !important; }
+    .form-general button[type="submit"]:hover {
+      color: #142838 !important;
+      background-color: #fff !important;
+      box-shadow: inset 0px 0px 0px 2px #142838 !important; }
 
 .product-hero {
   display: flex;
@@ -7692,7 +7833,9 @@ h5 {
       .header__main__right__item {
         display: flex;
         align-items: center;
-        margin-right: 4rem; }
+        margin-right: 4rem;
+        color: currentColor;
+        text-decoration: none; }
         .header__main__right__item svg {
           transform: translateY(-1px);
           stroke-width: 4;

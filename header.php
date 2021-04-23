@@ -119,14 +119,14 @@ foreach ($menuitems as $m) {
                 </div>
             </nav>
             <div class="header__main__right">
-                <div class="header__main__right__item header__main__right__item--contact">
+                <a href="<?php echo get_home_url(); ?>/contact" class="header__main__right__item header__main__right__item--contact">
                     <svg>
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_mail_outline_24px"></use>
                     </svg>
                     <span>
                         Contact
                     </span>
-                </div>
+                </a>
                 <div class="header__main__right__item header__main__right__item--phone">
                     <svg>
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-phone-call"></use>

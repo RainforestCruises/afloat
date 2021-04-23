@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
 
 
   var opaqueNavAlways = false;
-  if ($("body").hasClass("page-template-template-search") || $("body").hasClass("single-rfc_travel_guides") || $("body").hasClass("page-template-template-travel-guide")) {
+  if ($("body").hasClass("page-template-template-contact") || $("body").hasClass("page-template-template-search") || $("body").hasClass("single-rfc_travel_guides") || $("body").hasClass("page-template-template-travel-guide")) {
     opaqueNavAlways = true;
     $('.header__main').addClass('header__main--opaque-nav');
 

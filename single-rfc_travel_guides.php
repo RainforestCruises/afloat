@@ -19,13 +19,16 @@ while (have_posts()) :
 
   $destinations = get_field('destinations');
 
-  foreach ($destinations as $d) {
-    $queryArgsDestination[] = array(
-      'key'     => 'destinations',
-      'value'   => serialize(strval($d->ID)),
-      'compare' => 'LIKE'
-    );
-  }
+  if ($destinations) {
+    foreach ($destinations as $d) {
+      $queryArgsDestination[] = array(
+        'key'     => 'destinations',
+        'value'   => serialize(strval($d->ID)),
+        'compare' => 'LIKE'
+      );
+    }
+  };
+  
   $queryArgs['meta_query'][] = $queryArgsDestination;
   $travelGuidePosts = new WP_Query($queryArgs);
 ?>
@@ -42,7 +45,7 @@ while (have_posts()) :
         Travel Inspiration
       </div>
       <div class="travel-guide__title">
-      <?php echo get_field('navigation_title'); ?>
+        <?php echo get_field('navigation_title'); ?>
 
       </div>
       <div class="travel-guide__image">

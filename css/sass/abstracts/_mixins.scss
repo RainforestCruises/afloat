@@ -4,3 +4,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
+@mixin flexPadding {
+    padding: 0 6rem;
+    @media only screen and (max-width: $bp-small) {
+        padding: 0 3rem;
+    }
+}
