@@ -97,5 +97,9 @@ while (have_posts()) :
 <?php
 endwhile;
 ?>
-<!-- #site-wrapper end-->
+
+ <!-- Contact Modal -->
+ <?php
+  get_template_part('template-parts/content', 'shared-contact-modal', $args);
+  ?>
 <?php get_footer() ?>

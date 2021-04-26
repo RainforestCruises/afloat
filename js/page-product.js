@@ -1,5 +1,48 @@
 jQuery(document).ready(function ($) {
+  //Contact
+  var $body = $('body');
+  var dateResultsActive = false;
 
+  $('.close-button').on('click', () => {
+    $('.popup').removeClass('active');
+    $body.removeClass('no-scroll');
+  });
+
+
+  // const contactForm = document.querySelector('.contact');
+  // const popup = document.querySelector('.popup');
+  // const button = document.querySelector('#nav-secondary-cta');
+  // const buttonPage = document.querySelector('#nav-page-cta');
+
+  // document.addEventListener('click', evt => {
+  //   const isContact = contactForm.contains(evt.target);
+  //   const isButton = button.contains(evt.target);
+  //   const isButtonPage = buttonPage.contains(evt.target);
+
+
+  //   const isActive = popup.classList.contains('active');
+  //   if (isActive) {
+
+  //     if (!isContact && !isButton && !isButtonPage && !dateResultsActive) {
+  //       $('.popup').toggleClass('active');
+  //       $body.removeClass('no-scroll');
+  //     }
+  //   }
+
+  // });
+
+  $('#nav-secondary-cta, #nav-page-cta').on('click', () => {
+    $('.popup').addClass('active');
+    $body.addClass('no-scroll');
+  });
+
+
+
+  $('.form-general').on('submit', function () {
+    $('.contact__wrapper__intro__title').text('Thank You');
+    $('.contact__wrapper__intro__introtext').hide();
+    console.log('submitted');
+  });
 
   //Side Info Tabs - Overview / Inclusions / Exclusions
   const tabArray = [...document.querySelectorAll('.product-itinerary-slide__top__side-info__tabs__item')];
@@ -218,7 +261,7 @@ jQuery(document).ready(function ($) {
   closeButtons.forEach(item => {
     item.addEventListener('click', () => {
 
-
+      dateResultsActive = false;
       $('.side-info-panel[tab-type="dates"').hide();
       $('.side-info-panel[tab-type="all"').show();
 
@@ -276,13 +319,6 @@ jQuery(document).ready(function ($) {
     $('.season-panel[data-tab="' + season + '"][itinerary-tab="' + tab_id + '"]').show();
 
 
-
-
-    // $('.date-grid[data-tab="' + tab_id + '"]').hide();
-    // $('.date-grid__' + year + '[data-tab="' + tab_id + '"]').show();
-
-    // $('.price-grid[data-tab="' + tab_id + '"]').hide();
-    // $('.price-grid__' + year + '[data-tab="' + tab_id + '"]').show();
 
   });
 
@@ -342,11 +378,7 @@ jQuery(document).ready(function ($) {
 
 
   //SEARCH SUBMIT
-  reloadResults(); //first time page loads
-  // $('search-form').submit(function () {
-  //   reloadResults();
-  //   return false;
-  // });
+  //reloadResults(); //first time page loads
 
   //SEARCH FUNCTION
   function reloadResults() {
@@ -359,37 +391,25 @@ jQuery(document).ready(function ($) {
         $('.side-info-panel__departure-grid').html('<div class="product-dates__search-area__results__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
       },
       success: function (data) {
-        console.log('success');
         $('.side-info-panel__departure-grid').html(data); // insert data
 
-        // //Product Navigation
-        // $('.results-goto-itineraries').click(function () {
-        //   var tab_id = $(this).attr('href');
-        //   window.location.hash = tab_id;
+        const buttonArray = [...document.querySelectorAll('.departure-cta-button')];
 
+        dateResultsActive = true;
+        var $pagebody = $('body');
 
-        //   var subTabId = $(this).attr('data-tab');
+        //add click event handler to each LI
+        buttonArray.forEach(item => {
+          item.addEventListener('click', () => {
+            $('.popup').toggleClass('active');
+            $pagebody.removeClass('no-scroll');
+          });
+        })
 
-        //   $('.product-intro__nav__list__item').removeClass('current');
-        //   $('.product-itineraries__itinerary.tab-content').removeClass('current');
-
-        //   $("#" + subTabId + "-nav").addClass('current'); //add current class to both nav tab and content
-        //   $("#" + subTabId).addClass('current');
-        // })
-        // //End Product Nav
-
-        // //expand item detail
-        // $(".departure-expand").on("click", function (e) {
-        //   e.preventDefault();
-        //   let $this = $(this);
-        //   $this.parent().parent().next().slideToggle(350); //bottom div
-        //   $this.parent().parent().parent().toggleClass('product-dates__search-area__results__itinerary-group__departures__departure--active') //departure
-        // });
+      
 
       }
     });
-    //return false;
-
   }
 
 

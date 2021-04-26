@@ -142,9 +142,11 @@ while (have_posts()) :
     <input type="hidden" name="productId" value="<?php echo get_the_ID() ?>">
 
   </form>
-  <!-- Results -->
-  <div class="product-dates__search-area__results" id="response">
-  </div>
+
+  <!-- Contact Modal -->
+  <?php
+  get_template_part('template-parts/content', 'shared-contact-modal', $args);
+  ?>
 
 
 
