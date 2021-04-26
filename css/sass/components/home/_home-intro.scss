@@ -1,9 +1,15 @@
 .home-intro {
+
+
     margin-top: 14rem;
     margin-bottom: 6rem;
 
     display: flex;
     flex-direction: column;
+
+    max-width: $page-width;
+    @include flexPadding;
+
 
     @media only screen and (max-width: $bp-medium) {
         margin-top: 8rem;

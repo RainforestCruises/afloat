@@ -16,9 +16,12 @@
 
   <!--  Hero -->
   <div class="home-hero">
-      <?php if ($hero_image) : ?>
-          <img <?php afloat_responsive_image($hero_image['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> class="home-hero__bg" alt="">
-      <?php endif; ?>
+      <div class="home-hero__bg">
+          <?php if ($hero_image) : ?>
+              <img <?php afloat_responsive_image($hero_image['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?>  alt="">
+          <?php endif; ?>
+      </div>
+
       <div class="home-hero__content">
           <div class="home-hero__content__title-group">
               <h2 class="home-hero__content__title-group__title">

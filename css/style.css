@@ -1252,28 +1252,15 @@ h5 {
   font-weight: 500;
   text-transform: none; }
 
-.home-page {
-  display: grid;
-  grid-row: content-start / content-end;
-  grid-column: 1 / -1;
-  grid-template-rows: [nav-start] minmax(100vh, min-content) [hero-end content-start] repeat(5, [row-start] min-content [row-end]) [content-end footer-start] min-content [footer-end];
-  grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
-  @media only screen and (max-width: 37.5em) {
-    .home-page {
-      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
-  .home-page__section-hero {
-    grid-row: nav-start / hero-end;
-    grid-column: full-start / -1;
-    background-color: #1e1e1e; }
-  .home-page__section-intro {
-    grid-row: content-start / span 1;
-    grid-column: center-start / center-end; }
-  .home-page__section-destinations {
-    grid-column: full-start / -1; }
-  .home-page__section-featured {
-    grid-column: full-start / -1; }
-  .home-page__section-testimonials {
-    grid-column: full-start / -1; }
+.home-page__section-hero {
+  background-color: #1e1e1e; }
+
+.home-page__section-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%; }
 
 .product-page__section-hero {
   background-color: #1e1e1e; }
@@ -1347,9 +1334,6 @@ h5 {
 
 .destination-page__section-hero {
   background-color: #1e1e1e; }
-
-.destination-page__section-intro {
-  grid-row: content-start / span 1; }
 
 .destination-page__section-travel-guides {
   margin-top: 4rem;
@@ -5808,50 +5792,52 @@ h5 {
     transform: rotate(180deg); }
 
 .home-hero {
+  display: flex;
   width: 100%;
-  grid-row: nav-start / hero-end;
+  height: 100vh;
   position: relative;
-  z-index: 0;
-  display: grid;
-  grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
-  grid-template-rows: 9rem 1fr;
-  height: 100%; }
-  @media only screen and (max-width: 37.5em) {
+  flex-direction: column;
+  align-items: center;
+  min-height: 80rem; }
+  @media only screen and (max-width: 62.5em) {
     .home-hero {
-      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
-  .home-hero::after {
-    content: "";
+      min-height: 60rem; } }
+  .home-hero__bg {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 20%), linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 30%), linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); }
-    @media only screen and (max-width: 50em) {
-      .home-hero::after {
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 20%), linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 60%), linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); } }
-  .home-hero__bg {
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
-    background-position: center center;
-    background-repeat: no-repeat;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
     z-index: 1;
-    max-height: 100vh; }
-    @media only screen and (max-width: 50em) {
-      .home-hero__bg {
-        max-height: 100%; } }
+    width: 100%;
+    height: 100%; }
+    .home-hero__bg img {
+      position: relative;
+      object-fit: cover;
+      height: 100%;
+      width: 100%; }
+    .home-hero__bg::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 2;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 20%), linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 30%), linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); }
+      @media only screen and (max-width: 50em) {
+        .home-hero__bg::after {
+          background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 20%), linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 60%), linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); } }
   .home-hero__content {
-    grid-column: center-start / center-end;
-    grid-row: 2 / -1;
     z-index: 5;
+    height: 100%;
+    margin-top: 12rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around; }
+    justify-content: space-around;
+    padding: 0 6rem; }
+    @media only screen and (max-width: 37.5em) {
+      .home-hero__content {
+        padding: 0 3rem; } }
     @media only screen and (max-width: 37.5em) {
       .home-hero__content {
         padding-bottom: 3rem; } }
@@ -6263,7 +6249,12 @@ h5 {
   margin-top: 14rem;
   margin-bottom: 6rem;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  max-width: calc(112rem + 12rem);
+  padding: 0 6rem; }
+  @media only screen and (max-width: 37.5em) {
+    .home-intro {
+      padding: 0 3rem; } }
   @media only screen and (max-width: 50em) {
     .home-intro {
       margin-top: 8rem;
@@ -6750,6 +6741,9 @@ h5 {
   column-gap: 6rem;
   width: 100%;
   padding: 0 6rem; }
+  @media only screen and (max-width: 37.5em) {
+    .home-testimonial {
+      padding: 0 3rem; } }
   .home-testimonial__content {
     width: 60%;
     align-self: center;
