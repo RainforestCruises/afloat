@@ -111,7 +111,7 @@ foreach ($departures as $departure) {
 
         </div>
         <div class="side-info-panel__departure-grid__grid__cta">
-            <button class="btn-cta-round btn-cta-round--small departure-cta-button">
+            <button class="btn-cta-round btn-cta-round--small departure-cta-button" itineraryNights="<?php echo $selectedItinerary['LengthInNights'] ?>" departureDate="<?php echo $result['DepartureDate'] ?>">
                 Book
             </button>
         </div>

@@ -80,6 +80,14 @@
             width: 100%;
             max-width: 60rem;
 
+            &__departure {
+                font-size: 1.6rem;
+                font-weight: 700;
+                color: $color-supporting;
+                display: none;
+                margin-bottom: 1rem;
+            }
+
             &__introtext {
                 font-size: 1.6rem;
                 text-align: center;

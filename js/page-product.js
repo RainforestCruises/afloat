@@ -1,48 +1,33 @@
 jQuery(document).ready(function ($) {
   //Contact
-  var $body = $('body');
-  var dateResultsActive = false;
-
-  $('.close-button').on('click', () => {
-    $('.popup').removeClass('active');
-    $body.removeClass('no-scroll');
-  });
-
-
-  // const contactForm = document.querySelector('.contact');
-  // const popup = document.querySelector('.popup');
-  // const button = document.querySelector('#nav-secondary-cta');
-  // const buttonPage = document.querySelector('#nav-page-cta');
-
-  // document.addEventListener('click', evt => {
-  //   const isContact = contactForm.contains(evt.target);
-  //   const isButton = button.contains(evt.target);
-  //   const isButtonPage = buttonPage.contains(evt.target);
-
-
-  //   const isActive = popup.classList.contains('active');
-  //   if (isActive) {
-
-  //     if (!isContact && !isButton && !isButtonPage && !dateResultsActive) {
-  //       $('.popup').toggleClass('active');
-  //       $body.removeClass('no-scroll');
-  //     }
-  //   }
-
-  // });
+  var body = $('body');
+  var modal = document.getElementById("contactModal");
+  var departureFormText = document.getElementById("contactModalDeparture");
 
   $('#nav-secondary-cta, #nav-page-cta').on('click', () => {
-    $('.popup').addClass('active');
-    $body.addClass('no-scroll');
+    body.addClass('no-scroll');
+    modal.style.display = "flex";
+    departureFormText.style.display = "none";
+
   });
 
+  $('.close-button').on('click', () => {
 
+    modal.style.display = "none";
+    body.removeClass('no-scroll');
 
-  $('.form-general').on('submit', function () {
-    $('.contact__wrapper__intro__title').text('Thank You');
-    $('.contact__wrapper__intro__introtext').hide();
-    console.log('submitted');
   });
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      body.removeClass('no-scroll');
+    }
+  }
+
+
+
+
 
   //Side Info Tabs - Overview / Inclusions / Exclusions
   const tabArray = [...document.querySelectorAll('.product-itinerary-slide__top__side-info__tabs__item')];
@@ -261,7 +246,6 @@ jQuery(document).ready(function ($) {
   closeButtons.forEach(item => {
     item.addEventListener('click', () => {
 
-      dateResultsActive = false;
       $('.side-info-panel[tab-type="dates"').hide();
       $('.side-info-panel[tab-type="all"').show();
 
@@ -326,59 +310,6 @@ jQuery(document).ready(function ($) {
   //Controls
   //departure-expand
 
-  $('#dates-year-select').select2({
-    placeholder: "Select Year",
-    minimumResultsForSearch: -1,
-    dropdownAutoWidth: true,
-    width: 'auto',
-  });
-  $('#dates-month-select').select2({
-    placeholder: "Select Month",
-    dropdownAutoWidth: true,
-    width: 'auto',
-
-    minimumResultsForSearch: -1
-  });
-  $('#dates-itinerary-select').select2({
-    placeholder: "Select Itinerary",
-    dropdownAutoWidth: true,
-    width: 'auto',
-    minimumResultsForSearch: -1,
-    //theme: 'material'
-  });
-
-  //selection controls
-  $('#dates-itinerary-select').on('change', function () {
-    var itineraryId = $(this).val();
-    reloadResults();
-  });
-
-  $('#dates-month-select').on('change', function () {
-    var monthNumber = $(this).val();
-    var year = $('#dates-year-select').val();
-    if (year == '') { //if year not selected yet
-      var d = new Date();
-      var currentMonth = (d.getMonth()) + 1;
-      if (monthNumber < currentMonth) { // if selected month is before this month -- select the following year
-        $('#dates-year-select').val(d.getFullYear() + 1).trigger("change");
-      } else { // otherwise select current year
-        $('#dates-year-select').val(d.getFullYear()).trigger("change");
-      }
-    }
-    reloadResults();
-  });
-
-  $('#dates-year-select').on('change', function () {
-    var year = $(this).val();
-    //$('#search-form').submit();
-
-    reloadResults();
-
-  });
-
-
-  //SEARCH SUBMIT
-  //reloadResults(); //first time page loads
 
   //SEARCH FUNCTION
   function reloadResults() {
@@ -393,20 +324,34 @@ jQuery(document).ready(function ($) {
       success: function (data) {
         $('.side-info-panel__departure-grid').html(data); // insert data
 
-        const buttonArray = [...document.querySelectorAll('.departure-cta-button')];
 
-        dateResultsActive = true;
-        var $pagebody = $('body');
+        const buttonArray = [...document.querySelectorAll('.departure-cta-button')];
 
         //add click event handler to each LI
         buttonArray.forEach(item => {
           item.addEventListener('click', () => {
-            $('.popup').toggleClass('active');
-            $pagebody.removeClass('no-scroll');
+            var modal = document.getElementById("contactModal");
+            var body = $('body');
+
+            var departureFormText = document.getElementById("contactModalDeparture");
+            departureFormText.style.display = "block";
+
+
+            modal.style.display = "flex";
+            body.addClass('no-scroll');
+
+            var departureDate = item.getAttribute('departureDate');
+            var itineraryNights = item.getAttribute('itineraryNights');
+            var formattedDate = moment(departureDate).format('MMMM D, YYYY')
+            var formattedName = (+itineraryNights + 1) + 'D/' + (+itineraryNights) + 'N';
+
+            departureFormText.textContent = formattedName + " Departing: " + formattedDate;
+
+            //form-departure-date
+            const hiddenField = document.querySelector('.form-departure-date input');
+            hiddenField.value = formattedName + " - " + formattedDate;
           });
         })
-
-      
 
       }
     });

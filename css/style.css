@@ -1977,6 +1977,12 @@ h5 {
       padding-bottom: 3rem;
       width: 100%;
       max-width: 60rem; }
+      .contact__wrapper__intro__departure {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #305a7c;
+        display: none;
+        margin-bottom: 1rem; }
       .contact__wrapper__intro__introtext {
         font-size: 1.6rem;
         text-align: center;

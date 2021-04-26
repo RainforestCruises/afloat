@@ -7,7 +7,7 @@ if(get_post_type() == 'rfc_cruises' || get_post_type() == 'rfc_lodges' || get_po
 
 }
 ?>
-<div class="popup">
+<div class="popup" id="contactModal">
     <div class="contact">
         <div class="contact__wrapper">
             <button class="contact__wrapper__close-button close-button" tabindex="0">
@@ -15,6 +15,9 @@ if(get_post_type() == 'rfc_cruises' || get_post_type() == 'rfc_lodges' || get_po
             <div class="contact__wrapper__intro">
                 <div class="contact__wrapper__intro__title">
                     Interested in <?php echo $isProduct ? "the " : "" ?> <?php echo get_the_title(); ?><?php echo (get_post_type() == 'rfc_tours') ? " Tour" : "" ?>?
+                </div>
+                <div class="contact__wrapper__intro__departure" id="contactModalDeparture">
+                    
                 </div>
                 <div class="contact__wrapper__intro__introtext">
                     Please fill in the form beneath and we’ll get back to you ASAP.
