@@ -2,6 +2,42 @@
 jQuery(document).ready(function ($) {
 
 
+    //Contact
+    var $body = $('body');
+
+    $('.close-button').on('click', () => {
+        $('.popup').removeClass('active');
+        $body.removeClass('no-scroll');
+    });
+
+    document.addEventListener('click', evt => {
+        const contactForm = document.querySelector('.contact');
+        const popup = document.querySelector('.popup');
+        const button = document.querySelector('#nav-secondary-cta');
+
+        const isContact = contactForm.contains(evt.target);
+        const isButton = button.contains(evt.target);
+        const isActive = popup.classList.contains('active');
+        if(isActive) {
+        
+            if (!isContact && !isButton) {
+                $('.popup').toggleClass('active');
+                $body.removeClass('no-scroll');                  
+            }
+        }
+       
+    });
+
+    $('#nav-secondary-cta').on('click', () => {
+        $('.popup').addClass('active');
+        $body.addClass('no-scroll');
+    });
+
+    $( '.form-general' ).on( 'submit', function() {
+        $('.contact__wrapper__intro__title').text('Thank You');
+        $('.contact__wrapper__intro__introtext').hide();
+        console.log('submitted');
+    } );
 
     //SLIDERS
     $('#destination-hero__bg-slider').slick({
@@ -162,7 +198,7 @@ jQuery(document).ready(function ($) {
                     slidesToShow: 1,
                     arrows: false,
                     centerMode: true
-                    
+
                 }
             },
 

@@ -18,7 +18,7 @@
         //background-color: transparent;
         border-radius: 3px;
         display: flex;
-    
+
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.25);
         transition: all 0.4s 0.2s; //last one is delay
@@ -55,8 +55,6 @@
         }
     }
 }
-
-
 
 //Destination Page Video
 .video-popup {
@@ -114,3 +112,35 @@
         }
     }
 }
+
+
+//Contact Forms
+.popup {
+    position: fixed;
+    background-color: rgba($color-black, .8);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // width: 100%;
+    // height: 100%;
+    display: none;
+    overflow: auto;
+    z-index: 999999;
+    //margin: 0 auto;
+    
+    justify-content: center;
+    padding: 3rem 0 ;
+
+    animation: fadein .2s;
+    //animation-timing-function: ease-out;
+
+
+
+    &.active {
+        display: flex;
+    }
+   
+}
+
+

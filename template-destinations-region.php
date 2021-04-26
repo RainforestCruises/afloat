@@ -30,8 +30,8 @@ $destinationCriteria = array(
     "meta_key" => "region",
     "meta_value" => $region->ID
 );
-$destinations = get_posts($destinationCriteria); 
-$destinationCount = count($destinations); 
+$destinations = get_posts($destinationCriteria);
+$destinationCount = count($destinations);
 
 console_log($destinations);
 
@@ -142,6 +142,12 @@ $args = array(
     </section>
 
 </div>
+
+<!-- Contact Modal -->
+<?php
+get_template_part('template-parts/content', 'shared-contact-modal', $args);
+?>
+
 
 <?php get_footer(); ?>
 

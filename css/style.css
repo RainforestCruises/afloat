@@ -85,6 +85,9 @@ body {
   height: 100%;
   height: -webkit-fill-available; }
 
+body.no-scroll {
+  overflow: hidden; }
+
 p a:link, p a:visited {
   color: #305a7c;
   transition: all .2s;
@@ -606,7 +609,7 @@ h5 {
   height: 3rem;
   color: #142838;
   border: 2px solid currentColor;
-  background-color: transparent;
+  background-color: #fff;
   border-radius: 50%;
   cursor: pointer;
   transition: all .3s; }
@@ -1219,6 +1222,22 @@ h5 {
       height: 8rem;
       width: 8rem;
       fill: #fff; }
+
+.popup {
+  position: fixed;
+  background-color: rgba(30, 30, 30, 0.8);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  overflow: auto;
+  z-index: 999999;
+  justify-content: center;
+  padding: 3rem 0;
+  animation: fadein .2s; }
+  .popup.active {
+    display: flex; }
 
 .tab-content {
   display: none; }
@@ -1941,12 +1960,14 @@ h5 {
       padding: 0 3rem; } }
   .contact__wrapper {
     padding: 6rem 2rem;
-    padding-bottom: 3rem;
+    padding-bottom: 4rem;
+    background-color: #fff;
     border: 2px solid #142838;
     border-radius: 0.4rem;
     display: flex;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    position: relative; }
     .contact__wrapper__intro {
       margin-bottom: 3rem;
       display: flex;
@@ -1956,6 +1977,10 @@ h5 {
       padding-bottom: 3rem;
       width: 100%;
       max-width: 60rem; }
+      .contact__wrapper__intro__introtext {
+        font-size: 1.6rem;
+        text-align: center;
+        margin-bottom: 0; }
       .contact__wrapper__intro__icon {
         display: flex;
         justify-content: center; }
@@ -1965,9 +1990,11 @@ h5 {
           color: #142838; }
       .contact__wrapper__intro__title {
         font-size: 3rem;
+        line-height: 3.5rem;
         color: #142838;
         font-weight: 700;
-        text-align: center; }
+        text-align: center;
+        margin-bottom: 1rem; }
       .contact__wrapper__intro__subtitle {
         font-size: 1.6rem;
         text-align: center;
@@ -1981,6 +2008,10 @@ h5 {
     .contact__wrapper__form {
       width: 100%;
       max-width: 60rem; }
+    .contact__wrapper__close-button {
+      position: absolute;
+      top: 3rem;
+      right: 3rem; }
 
 .form-general {
   color: #142838;
@@ -1991,6 +2022,11 @@ h5 {
     letter-spacing: 0.1rem !important; }
   .form-general .wpforms-field-sublabel {
     font-size: 1.3rem !important; }
+  .form-general .wpforms-submit-spinner {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: -4rem !important; }
   .form-general input {
     border-radius: 0px !important;
     font-size: 1.6rem !important; }

@@ -118,6 +118,11 @@ $args = array(
 
 </div>
 
+<!-- Contact Modal -->
+<?php
+get_template_part('template-parts/content', 'shared-contact-modal', $args);
+?>
+
 <?php get_footer(); ?>
 
 

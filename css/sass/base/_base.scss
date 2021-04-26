@@ -29,6 +29,10 @@ body {
     height: -webkit-fill-available; 
 }
 
+body.no-scroll {
+    overflow: hidden; 
+}
+
 //paragraph links
 p a {
     &:link,

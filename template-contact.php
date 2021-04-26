@@ -6,7 +6,7 @@
 get_header();
 ?>
 
-<!-- Product Page Container -->
+<!-- Contact Page Container -->
 <div class="contact-page">
     <div class="contact-page__intro">
         <div class="contact-page__intro__category">
@@ -19,6 +19,8 @@ get_header();
             Call us on the number below to speak to one of our destination specialists, or alternatively please fill in the form beneath and we'll get back to you ASAP.
         </div>
     </div>
+
+    <!-- Contact Form / Wrapper -->
     <div class="contact u-margin-bottom-big">
         <div class="contact__wrapper">
             <div class="contact__wrapper__intro">
@@ -39,9 +41,10 @@ get_header();
                 </div>
             </div>
 
+            <!-- Form -->
             <div class="contact__wrapper__form">
-                <?php                
-                wpforms_display(1629);?>
+                <?php
+                wpforms_display(1629); ?>
             </div>
         </div>
     </div>

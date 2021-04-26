@@ -56,18 +56,20 @@
 .contact {
     width: 100%;
     max-width: $page-width-narrow;
+   
 
     @include flexPadding;
 
     &__wrapper {
         padding: 6rem 2rem;
-        padding-bottom: 3rem;
-
+        padding-bottom: 4rem;
+        background-color: $color-white;
         border: 2px solid $color-primary;
         border-radius: 0.4rem;
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
         &__intro {
             margin-bottom: 3rem;
             display: flex;
@@ -77,6 +79,13 @@
             padding-bottom: 3rem;
             width: 100%;
             max-width: 60rem;
+
+            &__introtext {
+                font-size: 1.6rem;
+                text-align: center;
+                margin-bottom: 0;
+            }
+
             &__icon {
                 display: flex;
                 justify-content: center;
@@ -89,9 +98,11 @@
 
             &__title {
                 font-size: 3rem;
+                line-height: 3.5rem;
                 color: $color-primary;
                 font-weight: 700;
                 text-align: center;
+                margin-bottom: 1rem;
             }
 
             &__subtitle {
@@ -113,6 +124,12 @@
             width: 100%;
             max-width: 60rem;
         }
+
+        &__close-button {
+           position: absolute;
+           top: 3rem;
+           right: 3rem;
+        }
     }
 }
 
@@ -130,6 +147,14 @@
         //text-transform: uppercase !important;
         font-size: 1.3rem !important;
         //letter-spacing: 0.1rem !important;
+    }
+
+    & .wpforms-submit-spinner {
+        position: absolute !important;
+        //display: block !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: -4rem !important;
     }
 
     & input {
