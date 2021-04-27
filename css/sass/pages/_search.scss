@@ -10,12 +10,14 @@
   position: relative;
   z-index: 0;
 
+  padding-top: 10rem;
 
 
   &__content {
     display: grid;
     grid-column: 1 / -1;
     grid-template-columns: $page-container;
+    
 
     @media only screen and (max-width: $bp-small) {
       grid-template-columns:$page-container-small;

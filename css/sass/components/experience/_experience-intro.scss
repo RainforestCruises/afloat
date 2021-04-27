@@ -3,13 +3,16 @@
     grid-template-columns: repeat(3, 1fr);
     column-gap: 8rem;
     grid-column: 1 / -1;
+
+    max-width: $page-width;
+    @include flexPadding;
     padding-top: 12rem;
     padding-bottom: 4rem;
-    
     @media only screen and (max-width: $bp-large) {
         grid-template-columns: 1fr;
-        row-gap: 8rem;
 
+        padding-top: 0rem;
+        padding-bottom: 2rem;
     }
 
     &__feature {
@@ -28,17 +31,30 @@
             height: 100%;
             background-color: $color-grey-light-1a;
 
-            @media only screen and (max-width: $bp-large) {
-                display: none;
-            }
+            // @media only screen and (max-width: $bp-large) {
+            //     bottom: 0;
+            //     left: 0;
+            //     height: 1px;
+            //     width: 100%;
+            // }
         }
 
-        
+        @media only screen and (max-width: $bp-large) {
+            padding: 5rem 3rem;
+
+            &:not(:last-child):after {
+                top:auto;
+                bottom: 0;
+                left: 0;
+                height: 1px;
+                width: 100%;
+            }
+        }
 
         &__icon {
             display: flex;
             justify-content: center;
-            & svg { 
+            & svg {
                 stroke-width: 3;
                 height: 5rem;
                 width: 5rem;
@@ -61,7 +77,6 @@
             text-align: center;
             font-size: 1.6rem;
             color: $color-grey-1;
-
         }
     }
 }

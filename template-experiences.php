@@ -41,9 +41,15 @@ $experience = get_field('experience_post');
             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
         </svg>
     </div>
-    <?php
-    get_template_part('template-parts/content', 'shared-newsletter');
-    ?>
+
+    <!-- Newsletter -->
+    <section class="experience-page__section-newsletter">
+        <?php
+        get_template_part('template-parts/content', 'shared-newsletter');
+        ?>
+    </section>
+
+
 
 </div>
 
