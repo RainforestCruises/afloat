@@ -26,9 +26,7 @@ if(get_post_type() == 'rfc_cruises' || get_post_type() == 'rfc_lodges' || get_po
             </div>
 
             <div class="contact__wrapper__form">
-            <!-- Use options field -->
-                <?php
-                wpforms_display($primary_contact_form_id); ?>
+                <?php wpforms_display($primary_contact_form_id); ?>
             </div>
         </div>
     </div>

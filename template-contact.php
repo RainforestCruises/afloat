@@ -8,6 +8,8 @@ wp_enqueue_script('page-contact', get_template_directory_uri() . '/js/page-conta
 
 <?php
 get_header();
+$primary_contact_form_id = get_field('primary_contact_form_id', 'options');
+
 ?>
 
 <!-- Contact Page Container -->
@@ -47,8 +49,8 @@ get_header();
 
             <!-- Form -->
             <div class="contact__wrapper__form">
-                <?php
-                wpforms_display(1629); ?>
+            <?php wpforms_display($primary_contact_form_id); ?>
+
             </div>
         </div>
     </div>
