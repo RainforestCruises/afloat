@@ -31,7 +31,13 @@
     }
 
     &__section-testimonials {
-
+        margin-top: 4rem; 
+        margin-bottom: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
     }
 
     &__section-faq {

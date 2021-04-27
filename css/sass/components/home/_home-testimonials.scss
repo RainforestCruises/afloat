@@ -117,15 +117,14 @@
     }
 }
 
-.home-testimonial {
+.testimonial {
     display: flex !important;
     color: $color-white;
     column-gap: 6rem;
     width: 100%;
-    // padding: 0 6rem;
     @include flexPadding;
 
- 
+
 
     &__content {
         width: 60%;
@@ -142,16 +141,14 @@
             font-size: 2.5rem;
             font-family: $font-secondary;
             letter-spacing: 0.1rem;
-            font-weight: 300;
+            //font-weight: 300;
 
             @media only screen and (max-width: $bp-large) {
                 font-size: 2rem;
                 align-self: center;
             }
 
-            @media only screen and (max-width: $bp-medium) {
-                font-size: 1.8rem;
-            }
+    
             @media only screen and (max-width: $bp-small) {
                 width: 90%;
             }

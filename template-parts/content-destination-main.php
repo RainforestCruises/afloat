@@ -18,7 +18,7 @@ $highlights = get_field('highlights');
 
 ?>
 
-<div class="destination-main">
+<div class="destination-main" >
 
     <!-- Map Background -->
     <div class="destination-main__bg">
@@ -28,9 +28,10 @@ $highlights = get_field('highlights');
     </div>
 
     <!-- Intro -->
-    <div class="destination-main__intro">
+    <div class="destination-main__intro" >
         <div class="destination-main__intro__description">
-            <div class="destination-main__intro__description__title">
+        <!-- Jump Link Position -->
+            <div class="destination-main__intro__description__title" id="intro">
                 <?php echo get_field('intro_title') ?>
             </div>
             <div class="destination-main__intro__description__text">

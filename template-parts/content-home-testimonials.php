@@ -33,17 +33,17 @@ $testimonials = get_field('testimonials');
                     $t_snippet = $t['snippet'];
             ?>
                     <!-- Testimonial -->
-                    <div class="home-testimonial">
-                        <div class="home-testimonial__content">
-                            <div class="home-testimonial__content__snippet">
+                    <div class="testimonial">
+                        <div class="testimonial__content">
+                            <div class="testimonial__content__snippet">
                                 <?php echo $t_snippet ?>
                             </div>
-                            <div class="home-testimonial__content__person">
+                            <div class="testimonial__content__person">
                                 - <?php echo $t_person_name ?>
                             </div>
                         </div>
         
-                        <div class="home-testimonial__image-area <?php echo ($t_count % 2 != 0) ? "" : "" ;?>">
+                        <div class="testimonial__image-area <?php echo ($t_count % 2 != 0) ? "" : "" ;?>">
                             <img <?php afloat_responsive_image($t_image['id'], 'vertical-small', array('vertical-small')); ?> alt="">
                         </div>
                     </div>

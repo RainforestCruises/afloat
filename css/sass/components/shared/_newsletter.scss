@@ -1,11 +1,12 @@
 .newsletter {
     display: flex;
-    grid-column: center-start / center-end;
     margin: 10rem 0;
 
     max-width: $page-width;
    
     @include flexPadding;
+
+ 
 
 
     &__content {

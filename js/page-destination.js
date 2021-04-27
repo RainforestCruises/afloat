@@ -18,14 +18,14 @@ jQuery(document).ready(function ($) {
         const isContact = contactForm.contains(evt.target);
         const isButton = button.contains(evt.target);
         const isActive = popup.classList.contains('active');
-        if(isActive) {
-        
+        if (isActive) {
+
             if (!isContact && !isButton) {
                 $('.popup').toggleClass('active');
-                $body.removeClass('no-scroll');                  
+                $body.removeClass('no-scroll');
             }
         }
-       
+
     });
 
     $('#nav-secondary-cta').on('click', () => {
@@ -33,11 +33,11 @@ jQuery(document).ready(function ($) {
         $body.addClass('no-scroll');
     });
 
-    $( '.form-general' ).on( 'submit', function() {
+    $('.form-general').on('submit', function () {
         $('.contact__wrapper__intro__title').text('Thank You');
         $('.contact__wrapper__intro__introtext').hide();
         console.log('submitted');
-    } );
+    });
 
     //SLIDERS
     $('#destination-hero__bg-slider').slick({
@@ -209,11 +209,22 @@ jQuery(document).ready(function ($) {
     $('#testimonials-slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        fade: true,
-        arrows: true,
-        prevArrow: '<button class="btn-circle btn-dark btn-circle--left destination-testimonials__slider-container__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-        nextArrow: '<button class="btn-circle btn-dark btn-circle--right destination-testimonials__slider-container__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+        // fade: true, 
+        adaptiveHeight: true,
 
+        arrows: true,
+        prevArrow: '<button class="btn-icon-move btn-icon-move--right destination-testimonials__slider__btn--right"><svg class="btn-icon-move--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg><svg class="btn-icon-move--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
+        nextArrow: '<button class="btn-icon-move btn-icon-move--left destination-testimonials__slider__btn--left"><svg class="btn-icon-move--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg><svg class="btn-icon-move--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    arrows: false,
+                    dots: true
+                }
+            }
+
+        ]
     });
 
     //faq expand/hide

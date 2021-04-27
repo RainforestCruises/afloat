@@ -135,7 +135,7 @@
 
           </div>
           <div class="destination-hero__content__arrow">
-              <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="<?php echo ($destinationType == 'cruise' ? '#cruises' : '#packages') ?>">
+              <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#intro">
                   <svg class="btn-circle--arrow-main">
                       <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
                   </svg>

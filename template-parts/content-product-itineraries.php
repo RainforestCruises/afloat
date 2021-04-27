@@ -418,7 +418,7 @@ endforeach;
                                         </div>
                                         <div class="product-itinerary-slide__top__side-info__content__widget">
                                             <div class="charter-info-box">
-                                                This itinerary is only a sample. Charter itineraries are completely customizable. Speak with one of our travel specialists for details and charter availability.
+                                                <?php echo get_field('charter_note', 'options'); ?>
                                             </div>
                                         </div>
                                     <?php endif; ?>

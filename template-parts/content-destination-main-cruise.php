@@ -31,7 +31,7 @@ $cruise_experiences = get_field('cruise_experiences');
     <!-- Intro -->
     <div class="destination-main__intro">
         <div class="destination-main__intro__description">
-            <div class="destination-main__intro__description__title">
+            <div class="destination-main__intro__description__title" id="intro">
                 <?php echo get_field('intro_title') ?>
 
             </div>
@@ -62,7 +62,7 @@ $cruise_experiences = get_field('cruise_experiences');
     </div>
 
     <!-- Cruises -->
-    <div class="destination-main__packages">
+    <div class="destination-main__packages" id="cruises">
         <div class="destination-main__packages__header">
             <div class="destination-main__packages__header__title page-divider">
                 <?php echo $title ?> Cruises

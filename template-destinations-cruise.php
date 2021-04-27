@@ -80,7 +80,7 @@ $args = array(
     </section>
 
     <!-- Cruises -->
-    <div class="destination-page__section-main" id="cruises">
+    <div class="destination-page__section-main" >
         <?php
         get_template_part('template-parts/content', 'destination-main-cruise', $args);
         ?>

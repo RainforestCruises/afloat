@@ -1,60 +1,36 @@
-<?php
-$cruises_image = get_field('cruises_image');
-
-?>
-
 <div class="destination-testimonials">
     <div class="destination-testimonials__header page-divider">
         Testimonials
     </div>
-    <div class="destination-testimonials__slider-container">
-        <div class="destination-testimonials__slider-container__slider" id="testimonials-slider">
-            <?php
-            $rows = get_field('testimonials');
-            if ($rows) {
-                foreach ($rows as $row) {
-                    $person = $row['person'];
-                    $test = $row['testimonial'];
-                    $testimonialImage = $row['image'];
-            ?>
-                    <!-- Slide -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-slide__text">
-                            <div class="testimonial-slide__text__stars">
-                                <svg>
-                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-star"></use>
-                                </svg>
-                                <svg>
-                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-star"></use>
-                                </svg>
-                                <svg>
-                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-star"></use>
-                                </svg>
-                                <svg>
-                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-star"></use>
-                                </svg>
-                                <svg>
-                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-star"></use>
-                                </svg>
-                            </div>
-                            <div class="testimonial-slide__text__review">
-                                "<?php echo $test; ?>"
-                            </div>
-                            <div class="testimonial-slide__text__reviewer">
-                                - <?php echo $person; ?>
-                            </div>
+    <div class="destination-testimonials__slider" id="testimonials-slider">
+        <?php
+        $testimonials = get_field('testimonials');
+        if ($testimonials) :
+            foreach ($testimonials as $testimonial) :
+                $t = $testimonial['testimonial'];
+                $t_person = $testimonial['person'];
+                $t_image = $testimonial['image'];
+        ?>
+                <!-- Slide -->
+                <!-- Testimonial -->
+                <div class="destination-testimonial">
+                    <div class="destination-testimonial__content">
+                        <div class="destination-testimonial__content__snippet">
+                            <?php echo $t ?>
                         </div>
-                        <div class="testimonial-slide__image">
-                            <?php if ($testimonialImage) : ?>
-                                <img <?php afloat_responsive_image($testimonialImage['id'], 'vertical-medium', array('vertical-medium')); ?> alt="">
-                            <?php endif; ?>
+                        <div class="destination-testimonial__content__person">
+                            - <?php echo $t_person ?>
                         </div>
-
                     </div>
 
-            <?php
-                }
-            } ?>
-        </div>
+                    <div class="destination-testimonial__image-area ">
+                        <img <?php afloat_responsive_image($t_image['id'], 'vertical-medium', array('vertical-medium')); ?> alt="">
+                    </div>
+                </div>
+
+        <?php
+            endforeach;
+
+        endif; ?>
     </div>
 </div>

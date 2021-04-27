@@ -1,5 +1,9 @@
 <?php
 /*Template Name: Contact*/
+
+
+wp_enqueue_script('page-contact', get_template_directory_uri() . '/js/page-contact.js', array('jquery'), false, true);
+
 ?>
 
 <?php
@@ -7,7 +11,7 @@ get_header();
 ?>
 
 <!-- Contact Page Container -->
-<div class="contact-page">
+<section class="contact-page">
     <div class="contact-page__intro">
         <div class="contact-page__intro__category">
             Contact
@@ -49,8 +53,50 @@ get_header();
         </div>
     </div>
 
+</section>
+
+<div class="destination-testimonials u-margin-bottom-big u-margin-top-big">
+    <div class="contact-page__testimonial-title">
+        What Our Customers are Saying About Us
+    </div>
+    <div class="destination-testimonials__slider" id="testimonials-slider">
+        <?php
+        $testimonials = get_field('testimonials', 'options');
+        
+        if ($testimonials) :
+            foreach ($testimonials as $testimonial) :
+                $t = $testimonial['snippet'];
+                $t_person = $testimonial['person_name'];
+                $t_image = $testimonial['image'];
+        ?>
+                <!-- Slide -->
+                <!-- Testimonial -->
+                <div class="destination-testimonial">
+                    <div class="destination-testimonial__content">
+                        <div class="destination-testimonial__content__snippet">
+                            <?php echo $t ?>
+                        </div>
+                        <div class="destination-testimonial__content__person">
+                            - <?php echo $t_person ?>
+                        </div>
+                    </div>
+
+                    <div class="destination-testimonial__image-area ">
+                        <img <?php afloat_responsive_image($t_image['id'], 'vertical-medium', array('vertical-medium')); ?> alt="">
+                    </div>
+                </div>
+
+        <?php
+            endforeach;
+
+        endif; ?>
+    </div>
 </div>
 
 
 
 <?php get_footer(); ?>
+
+<script>
+    var templateUrl = "<?php echo bloginfo('template_url') ?>";
+</script>

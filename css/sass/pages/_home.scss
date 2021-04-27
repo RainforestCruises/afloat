@@ -40,6 +40,18 @@
     }
     &__section-testimonials {
         //grid-column: full-start / -1;
+
+     
+    }
+
+    &__section-newsletter {
+  
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
     }
 
 }
