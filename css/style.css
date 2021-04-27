@@ -2029,10 +2029,14 @@ h5 {
       position: absolute;
       top: 3rem;
       right: 3rem; }
+      @media only screen and (max-width: 37.5em) {
+        .contact__wrapper__close-button {
+          top: 2rem; } }
 
 .form-general {
   color: #142838;
-  font-family: "Metropolis", sans-serif; }
+  font-family: "Metropolis", sans-serif;
+  font-size: 16px; }
   .form-general .wpforms-field-label {
     text-transform: uppercase !important;
     font-size: 1.3rem !important;
@@ -2045,11 +2049,9 @@ h5 {
     transform: translateX(-50%) !important;
     bottom: -4rem !important; }
   .form-general input {
-    border-radius: 0px !important;
-    font-size: 1.6rem !important; }
+    border-radius: 0px !important; }
   .form-general textarea {
-    font-family: "Metropolis", sans-serif !important;
-    font-size: 1.6rem !important; }
+    font-family: "Metropolis", sans-serif !important; }
   .form-general button[type="submit"] {
     color: #fff !important;
     background-color: #142838 !important;

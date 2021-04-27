@@ -60,15 +60,12 @@
         max-width: 40rem;
         text-align: center;
         margin-bottom: 3rem;
-        
-
     }
 }
 
 .contact {
     width: 100%;
     max-width: $page-width-narrow;
-   
 
     @include flexPadding;
 
@@ -146,9 +143,13 @@
         }
 
         &__close-button {
-           position: absolute;
-           top: 3rem;
-           right: 3rem;
+            position: absolute;
+            top: 3rem;
+            right: 3rem;
+
+            @media only screen and (max-width: $bp-small) {
+                top: 2rem;
+            }
         }
     }
 }
@@ -156,7 +157,7 @@
 .form-general {
     color: $color-primary;
     font-family: $font-primary;
-
+    font-size: 16px;
     & .wpforms-field-label {
         text-transform: uppercase !important;
         font-size: 1.3rem !important;
@@ -179,12 +180,12 @@
 
     & input {
         border-radius: 0px !important;
-        font-size: 1.6rem !important;
+        //font-size: 1.6rem !important;
     }
 
     & textarea {
         font-family: $font-primary !important;
-        font-size: 1.6rem !important;
+        //font-size: 1.6rem !important;
     }
 
     & button[type="submit"] {
