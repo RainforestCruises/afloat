@@ -38,8 +38,9 @@ $currentYear = date("Y");
                             <div class="product-card__bottom__title-group__product-name">
                                 <?php echo get_the_title($c) ?>
                             </div>
-                            <div class="product-card__bottom__title-group__price">
-                                <span class="from-price">From</span> <?php echo "$" . number_format($lowestPrice, 0);  ?> <span class="currency-price">USD</span>
+                            <div class="product-card__bottom__title-group__price-group">
+                                <div class="product-card__bottom__title-group__price-group__from">From</div>
+                                <div class="product-card__bottom__title-group__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
                             </div>
                         </div>
                         <div class="product-card__bottom__text">

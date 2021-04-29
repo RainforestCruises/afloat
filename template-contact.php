@@ -15,9 +15,6 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
 <!-- Contact Page Container -->
 <section class="contact-page">
     <div class="contact-page__intro">
-        <div class="contact-page__intro__category">
-            Contact
-        </div>
         <div class="contact-page__intro__title">
             Plan Your Adventure Today.
         </div>

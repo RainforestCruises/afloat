@@ -187,7 +187,7 @@ foreach ($menuitems as $m) {
 
                     </a>
                 <?php endforeach; ?>
-                <a class="nav-mobile__content-panel__button mobile-link">Contact</a>
+                <a class="nav-mobile__content-panel__button mobile-link" href="<?php echo get_home_url(); ?>/contact">Contact</a>
             </div>
 
 
