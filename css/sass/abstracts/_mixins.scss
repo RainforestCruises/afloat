@@ -12,3 +12,11 @@
         padding: 0 3rem;
     }
 }
+
+
+@mixin pageTopPadding {
+    padding-top: $page-top-padding; //top padding
+    @media only screen and (max-width: $bp-small) {
+        padding-top: $page-top-padding - 3rem;
+    }
+}

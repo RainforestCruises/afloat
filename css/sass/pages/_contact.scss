@@ -1,6 +1,9 @@
 .contact-page {
     padding-top: $page-top-padding; //top padding
-
+    @media only screen and (max-width: $bp-small) {
+        padding-top: $page-top-padding - 3rem;
+    }
+    
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -9,9 +12,7 @@
     position: relative;
     z-index: 0;
 
-    @media only screen and (max-width: $bp-small) {
-        padding-top: $page-top-padding - 3rem;
-    }
+    
 
     &__intro {
         display: flex;
