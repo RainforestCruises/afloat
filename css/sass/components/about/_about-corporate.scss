@@ -1,3 +1,155 @@
+.about-partners {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    padding: 10rem 0;
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 6rem 0;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(to top, rgba($color-white, 0.8), rgba($color-white, 0.8)),
+            url(img/bg/topo-1.png);
+        opacity: 0.35;
+        top: 0;
+        left: 0;
+        z-index: -3;
+    }
+
+    &__content {
+        max-width: 85rem;
+
+        display: flex;
+        @include flexPadding;
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+
+        &__title {
+            color: $color-primary;
+            width: max-content;
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: right;
+            white-space: nowrap;
+            margin-right: 8rem;
+
+            @media only screen and (max-width: $bp-small) {
+                margin-bottom: 2rem;
+                margin-right: 0rem;
+            }
+        }
+
+        &__snippet {
+            width: 100%;
+            font-size: 1.6rem;
+        }
+    }
+}
+
 .about-corporate {
-    
+    display: flex;
+    width: 100%;
+
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column;
+    }
+
+    &__grey {
+        width: 50%;
+        background-color: $color-grey-light-1a;
+        display: flex;
+        justify-content: flex-end;
+        align-content: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            width: 100%;
+            justify-content: center;
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            margin: 10rem 8rem;
+            max-width: 50rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                margin: 8rem 3rem;
+                text-align: center;
+                max-width: 70rem;
+
+            }
+
+
+            &__corporate-info {
+                margin-bottom: 6rem;
+                &__title {
+                    font-size: 3.5rem;
+                    line-height: 4rem;
+                    font-weight: 700;
+                    color: $color-primary;
+                    margin-bottom: 3rem;
+                }
+
+                &__snippet {
+                    font-size: 1.6rem;
+                }
+            }
+
+            &__contact-details {
+                margin-bottom: 6rem;
+                &__title {
+                    font-size: 2rem;
+                    white-space: nowrap;
+                    font-weight: 700;
+                    color: $color-primary;
+                    margin-bottom: 1.5rem;
+                }
+
+                &__snippet {
+                    font-size: 1.6rem;
+                }
+            }
+
+            &__badge-area {
+                margin-bottom: 6rem;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+
+                & img {
+                    height: 13rem;
+                    width: 13rem;
+                    margin: 1rem;
+
+                }
+            }
+        }
+    }
+
+    &__image-area {
+        width: 50%;
+        
+        @media only screen and (max-width: $bp-medium) {
+            display: none;
+        }
+        position: relative;
+        & img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
 }

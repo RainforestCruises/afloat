@@ -34,10 +34,12 @@
 
         @media only screen and (max-width: $bp-medium) {
             height: 60vh;
+
         }
 
         @media only screen and (max-width: $bp-small) {
             height: 45vh;
+            margin-bottom: 0rem;
         }
 
         &__main-image {
@@ -178,6 +180,11 @@
             }
 
             padding: 6rem 8rem;
+
+            @media only screen and (max-width: $bp-small) {
+                padding: 9rem 3rem;
+
+            }
             border-top: 1px solid $color-grey-light-1a;
             border-bottom: 1px solid $color-grey-light-1a;
         }
