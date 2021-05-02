@@ -113,7 +113,12 @@ foreach ($menuitems as $m) {
                         $megaClass = ($toplevelItem->title == 'Destinations' || $toplevelItem->title == 'Experiences') ? 'mega' : 'no-mega';
                     ?>
                         <li class="header__main__nav__list__item">
+                        <?php if ($toplevelItem->object != 'page') : ?>
                             <span class="header__main__nav__list__item__link <?php echo $megaClass ?>" navelement="<?php echo $toplevelItem->title ?>"><?php echo $toplevelItem->title ?></span>
+                        <?php else : ?>
+                            <a class="header__main__nav__list__item__link <?php echo $megaClass ?>" href="<?php echo $toplevelItem->url ?>" navelement="<?php echo $toplevelItem->title ?>"><?php echo $toplevelItem->title ?></a>
+
+                        <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
                 </div>
