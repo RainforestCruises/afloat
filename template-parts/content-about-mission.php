@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="about-mission__imagery__secondary-image">
-            <img <?php afloat_responsive_image($collage_image_2['id'], 'featured-large', array('featured-large', 'featured-small')); ?> alt="">
+            <img <?php afloat_responsive_image($collage_image_2['id'], 'square-medium', array('square-medium')); ?> alt="">
 
         </div>
 
