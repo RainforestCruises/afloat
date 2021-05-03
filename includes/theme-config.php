@@ -47,7 +47,7 @@ function afloat_images_sizes()
     add_image_size('pill-small', 550, 175, true);
 
     //featured
-    add_image_size('featured-largest', 1120, 650, true);
+    add_image_size('featured-largest', 1120, 732, true);
     add_image_size('featured-large', 650, 425, true);
     add_image_size('featured-medium', 500, 350, true);
     add_image_size('featured-small', 400, 260, true);
