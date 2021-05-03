@@ -9,6 +9,15 @@ jQuery(document).ready(function ($) {
 
     })
 
+    $('#search-close').click(function (event) {
+        
+        const body = document.querySelector('body');
+        body.classList.remove('lock-scroll');
+        const overlay = document.querySelector('.home-full-search');
+        overlay.classList.remove('active');
+
+    })
+
     // Down Arrow
     $('#down-arrow-button').click(function (event) {
         var id = $(this).attr('href');

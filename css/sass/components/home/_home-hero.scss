@@ -167,48 +167,53 @@
 
             display: grid;
             grid-template-columns: min-content min-content 1fr;
-            column-gap: 1rem;
+            column-gap: 3rem;
+
 
             @media only screen and (max-width: $bp-large) {
-                grid-template-columns: 1fr 1fr;
                 justify-items: center;
-                margin-bottom: 8rem;
-            }
 
-            @media only screen and (max-width: $bp-medium) {
                 grid-template-columns: 1fr;
-            
+                row-gap: 4rem;
             }
 
-     
+            @media only screen and (max-width: $bp-small) {
+                // background-color: rgba($color-black, 0.85);
+                // border: 1px solid $color-black;           
+                // padding: 1rem;
+                // padding-top: 4rem;
+                // width: min-content;
+
+                display: none;
+                
+            }
 
             &__form-group {
-                margin: 2rem 0;
+                //margin: 2rem 0;
                 display: grid;
                 align-content: center;
 
                 grid-template-columns: min-content 1fr;
                 column-gap: 1rem;
                 width: 40rem;
-  
-
+                width: min-content;
                 @media only screen and (max-width: $bp-small) {
-                    margin: 2rem;
-                    //border: 2px solid $color-gold;
+                    grid-template-columns: 1fr;
+
                 }
 
                 &__icon {
                     display: flex;
                     align-items: center;
-
+                    transform: translateY(-2rem);
                     & svg {
                         color: $color-gold;
                         stroke-width: 2;
-                        height: 5rem;
-                        width: 5rem;
+                        height: 6rem;
+                        width: 6rem;
                     }
 
-                    @media only screen and (max-width: $bp-xxsmall) {
+                    @media only screen and (max-width: $bp-small) {
                         display: none;
                     }
                 }
@@ -218,12 +223,15 @@
                     flex-direction: column;
                     align-self: center;
                     position: relative;
-                    height: 6rem;
-
+                    //height: 6rem;
+                    width: min-content;
                     &__label {
+                        position: absolute;
+                        top: -2rem;
+                        left: 0;
                         letter-spacing: 0.3rem;
                         font-size: 1.5rem;
-                        margin-bottom: 0.3rem;
+                        //margin-bottom: 0.3rem;
                         text-transform: uppercase;
                         font-weight: 600;
                         color: $color-white;
@@ -233,6 +241,8 @@
                         &.open {
                             opacity: 0;
                         }
+
+                        
                     }
                 }
             }
@@ -242,7 +252,7 @@
                 align-items: center;
                 justify-content: center;
                 margin: 2rem;
-
+                transform: translateY(-2rem);
 
                 @media only screen and (max-width: $bp-large) {
                     grid-column: 1 / -1;
@@ -276,8 +286,6 @@
                         font-weight: 600;
                     }
 
-                 
-
                     &.loading {
                         background-color: rgba($color-gold, 0.95);
                         cursor: default;
@@ -293,23 +301,21 @@
             }
         }
 
+        &__mobile-search {
+            // position: absolute;
+            // bottom: 0;
+            // left: 0;
+            width: 100%;
+            //background-color: rgba($color-black, 0.85);
+            z-index: 5;
+            display: none;
+            justify-content: center;
 
-        // &__mobile-search {
-        //     // position: absolute;
-        //     // bottom: 0;
-        //     // left: 0;
-        //     width: 100%;
-        //     //background-color: rgba($color-black, 0.85);
-        //     z-index: 5;
-        //     display: none;
-        //     justify-content: center;
-    
-        //     @media only screen and (max-width: $bp-small) {
-        //         display: flex;
-        //     }
-    
-          
-        // }
+            @media only screen and (max-width: $bp-small) {
+                display: flex;
+            }
+
+        }
 
         &__arrow {
             display: none;
@@ -318,23 +324,18 @@
             }
         }
     }
-
-    
 }
 
 //DESTINATION SELECTION CONTROL ----------------------
 .home-destination-select {
-    position: absolute;
-    top: 2rem;
-    left: 0;
-
+    position: relative;
     color: rgba($color-white, 0.85);
     font-family: $font-primary;
     letter-spacing: 0.1rem;
     font-size: 2rem;
     font-weight: 300;
 
-    height: 4rem;
+    height: 5rem;
     padding: 0 1rem;
     background-color: transparent;
     border: none;
@@ -342,9 +343,10 @@
     width: 34rem;
     box-sizing: border-box;
 
-
     &::-webkit-input-placeholder {
         color: rgba($color-white, 0.85);
+
+    
     }
 
     &:hover {
@@ -391,7 +393,13 @@
     z-index: 15;
     left: 0;
     width: 34rem;
-    bottom: calc(100% - 2rem); //to open vertically
+    //bottom: calc(100% - 2.5rem); //to open vertically
+    bottom: 100%; //to open vertically
+
+    // @media only screen and (max-width: $bp-small) {
+    //     bottom: calc(100%); //to open vertically
+
+    // }
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
 
@@ -459,10 +467,10 @@
 }
 
 .home-date-select {
-    position: absolute;
-    top: 2rem;
-    left: 0;
-    width: 100%;
+    position: relative;
+    // top: 2rem;
+    // left: 0;
+    //width: 100%;
 
     color: rgba($color-white, 0.85);
     font-family: $font-primary;
@@ -470,7 +478,7 @@
     font-size: 2rem;
     font-weight: 300;
 
-    height: 4rem;
+    height: 5rem;
     padding: 0 1rem;
     background-color: transparent;
     transition: 0.3s ease-in-out;
@@ -478,7 +486,6 @@
     display: flex;
     align-items: center;
     box-sizing: border-box;
-
 
     &:hover {
         background-color: rgba($color-black, 0.85);
@@ -510,7 +517,7 @@
     z-index: 15;
     left: 0;
     width: 100%;
-    bottom: calc(100% - 2rem); //to open vertically
+    bottom: 100%; //to open vertically
 
     list-style: none;
     margin-top: 4rem;
@@ -638,10 +645,3 @@
     //     overflow: auto;
     // }
 }
-
-
-
-
-
-
-

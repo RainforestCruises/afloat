@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,user-scalable=0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- this loads stylesheets  -->
@@ -496,10 +496,25 @@ foreach ($menuitems as $m) {
 
         <?php endif; ?>
 
-    </header>
 
-    <?php if (is_page_template('template-home.php')) : ?>
-        <div class="home-full-search">
-        
-        </div>
-    <?php endif; ?>
+        <?php if (is_page_template('template-home.php')) : ?>
+            <div class="home-full-search">
+
+                <div class="home-full-search__input-group">
+                    <div class="home-full-search__input-group__input">
+                        Where would you like to go?
+                    </div>
+                    <div class="home-full-search__input-group__close-button" id="search-close" tabindex="0">
+                        Cancel
+                    </div>
+                </div>
+                <div class="home-full-search__results">
+                    Results
+                </div>
+
+
+
+            </div>
+        <?php endif; ?>
+
+    </header>
