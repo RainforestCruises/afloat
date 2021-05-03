@@ -256,6 +256,17 @@
                 <rect x="2" y="31" fill="none" stroke="currentColor" stroke-miterlimit="10" width="60" height="14"/>
             </g>
         </symbol>
+        <symbol id="icon-bedroom" viewBox="0 0 48 48">
+            <title>bedroom</title>
+            <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke="currentColor">
+                <line x1="2" y1="41" x2="2" y2="7" fill="none" stroke="currentColor" stroke-miterlimit="10"/>
+                <line x1="46" y1="41" x2="46" y2="27" fill="none" stroke="currentColor" stroke-miterlimit="10"/>
+                <line x1="2" y1="35" x2="46" y2="35" fill="none" stroke="currentColor" stroke-miterlimit="10"/>
+                <line x1="2" y1="27" x2="46" y2="27" fill="none" stroke="currentColor" stroke-miterlimit="10"/>
+                <circle cx="11" cy="18" r="4" fill="none" stroke-miterlimit="10"/>
+                <path d="M20,15H42a4,4,0,0,1,4,4v3a0,0,0,0,1,0,0H20a0,0,0,0,1,0,0V15A0,0,0,0,1,20,15Z" fill="none" stroke-miterlimit="10"/>
+            </g>
+        </symbol>
 
         <symbol id="icon-c-warning" viewBox="0 0 24 24">
             <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke="currentColor">

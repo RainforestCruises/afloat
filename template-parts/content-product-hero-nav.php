@@ -20,7 +20,7 @@ if ($args['propertyType'] == 'Cruise') {
 
 $itineraryCount = 0;
 
-if(get_post_type() != 'rfc_tours') {
+if (get_post_type() != 'rfc_tours') {
     $itineraryCount = count($args['cruiseData']['Itineraries']);
 }
 
@@ -177,10 +177,10 @@ $images = get_field('highlight_gallery');
                                 <?php else :
                                     echo get_field('charter_min_days') . " Days +";
                                 endif; ?>
-                                <?php if($itineraryCount > 0 && $charter_view == false) : ?>
-                                <div class="sub-attribute">
-                                    <?php echo $itineraryCount ?> Itineraries
-                                </div>
+                                <?php if ($itineraryCount > 0 && $charter_view == false) : ?>
+                                    <div class="sub-attribute">
+                                        <?php echo $itineraryCount ?> Itineraries
+                                    </div>
                                 <?php endif; ?>
                             </div>
 
@@ -193,14 +193,20 @@ $images = get_field('highlight_gallery');
                             <div class="product-hero__bottom__content__info-group__attributes__item__data">
 
                                 <div class="product-hero__bottom__content__info-group__attributes__item__data__icon">
-                                    <svg>
-                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-boat-front"></use>
-                                    </svg>
+                                    <?php if (get_post_type($p) != 'rfc_lodges') : ?>
+                                        <svg>
+                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-boat-front"></use>
+                                        </svg>
+                                    <?php else : ?>
+                                        <svg>
+                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-bed-23"></use>
+                                        </svg>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="product-hero__bottom__content__info-group__attributes__item__data__text">
                                     <?php echo get_field('vessel_capacity') . ' Guests'; ?>
                                     <div class="sub-attribute">
-                                    <?php echo get_field('number_of_cabins') . ' Cabins'; ?>
+                                        <?php echo get_field('number_of_cabins') . ' Cabins'; ?>
                                     </div>
                                 </div>
 
