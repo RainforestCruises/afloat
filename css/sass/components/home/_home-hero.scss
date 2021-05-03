@@ -1,5 +1,4 @@
 .home-hero {
-
     display: flex;
     width: 100%;
     height: 100vh;
@@ -10,10 +9,7 @@
 
     @media only screen and (max-width: $bp-large) {
         min-height: 60rem;
-
     }
-
-
 
     &__bg {
         position: absolute;
@@ -28,8 +24,6 @@
             object-fit: cover;
             height: 100%;
             width: 100%;
-           
-           
         }
         &::after {
             content: "";
@@ -39,19 +33,17 @@
             height: 100%;
             width: 100%;
             z-index: 2;
-    
+
             background-image: linear-gradient(to bottom, rgba(black, 0.3), transparent 20%),
                 linear-gradient(to top, rgba(black, 0.8), transparent 30%),
                 linear-gradient(to top, rgba(black, 0.2), rgba(black, 0.2));
-    
-            @media only screen and (max-width: $bp-medium) {
+
+            @media only screen and (max-width: $bp-large) {
                 background-image: linear-gradient(to bottom, rgba(black, 0.3), transparent 20%),
                     linear-gradient(to top, rgba(black, 0.8), transparent 60%),
                     linear-gradient(to top, rgba(black, 0.2), rgba(black, 0.2));
             }
         }
-
-       
     }
 
     &__content {
@@ -62,12 +54,13 @@
         margin-top: 12rem;
         display: flex;
         flex-direction: column;
-        align-items: center; 
+        align-items: center;
         justify-content: space-around;
         @include flexPadding;
 
         @media only screen and (max-width: $bp-small) {
-            padding-bottom: 3rem;
+            margin-top: 9rem;
+            margin-bottom: 9rem;
         }
 
         &__title-group {
@@ -91,12 +84,12 @@
                 font-weight: 500;
                 text-transform: uppercase;
 
-                @media only screen and (max-width: $bp-small) {
+                @media only screen and (max-width: $bp-medium) {
                     font-size: 4rem;
                     line-height: 5rem;
                     letter-spacing: 0.2rem;
                 }
-                @media only screen and (max-width: $bp-xsmall) {
+                @media only screen and (max-width: $bp-small) {
                     font-size: 3rem;
                     line-height: 4rem;
                 }
@@ -169,85 +162,76 @@
         }
 
         &__search-form {
-            display: flex;
-            flex-wrap: wrap;
             width: 100%;
             height: min-content;
-            justify-content: space-around;
-            //margin-bottom: 7rem;
-            align-self: center;
+
+            display: grid;
+            grid-template-columns: min-content min-content 1fr;
+            column-gap: 1rem;
+
+            @media only screen and (max-width: $bp-large) {
+                grid-template-columns: 1fr 1fr;
+                justify-items: center;
+                margin-bottom: 8rem;
+            }
 
             @media only screen and (max-width: $bp-medium) {
-                flex-direction: column;
+                grid-template-columns: 1fr;
+            
             }
 
-            @media only screen and (max-width: $bp-largest) {
-                margin-bottom: 0rem;
-            }
+     
 
-            @media only screen and (max-width: $bp-small) {
-                margin-top: 2rem;
-                margin-bottom: 3rem;
-            }
+            &__form-group {
+                margin: 2rem 0;
+                display: grid;
+                align-content: center;
 
-            &__inputs {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
+                grid-template-columns: min-content 1fr;
+                column-gap: 1rem;
+                width: 40rem;
+  
 
-                &__form-group {
-                    margin: 2rem 0;
-                    display: grid;
-                    align-content: center;
+                @media only screen and (max-width: $bp-small) {
+                    margin: 2rem;
+                    //border: 2px solid $color-gold;
+                }
 
-                    grid-template-columns: min-content 1fr;
-                    column-gap: 1rem;
-                    width: 40rem;
-                    //width: min-content;
-                    @media only screen and (max-width: $bp-xsmall) {
-                        font-size: 1.5rem;
-                        width: 28rem;
+                &__icon {
+                    display: flex;
+                    align-items: center;
+
+                    & svg {
+                        color: $color-gold;
+                        stroke-width: 2;
+                        height: 5rem;
+                        width: 5rem;
                     }
+
                     @media only screen and (max-width: $bp-xxsmall) {
-                        //width: 34rem;
-                        grid-template-columns: 1fr;
+                        display: none;
                     }
+                }
 
-                    &__icon {
-                        display: flex;
-                        align-items: center;
+                &__input-group {
+                    display: flex;
+                    flex-direction: column;
+                    align-self: center;
+                    position: relative;
+                    height: 6rem;
 
-                        & svg {
-                            color: $color-gold;
-                            stroke-width: 2;
-                            height: 5rem;
-                            width: 5rem;
-                        }
-
-                        @media only screen and (max-width: $bp-xxsmall) {
-                            display: none;
-                        }
-                    }
-
-                    &__input-group {
-                        display: flex;
-                        flex-direction: column;
-                        align-self: center;
-                        position: relative;
-                        height: 6rem;
-
-                        &__label {
-                            letter-spacing: 0.3rem;
-                            font-size: 1.5rem;
-                            margin-bottom: 0.3rem;
-                            text-transform: uppercase;
-                            font-weight: 600;
-                            color: $color-white;
-                            margin-left: 1rem;
-                            transition: opacity 0.2s;
-                            &.open {
-                                opacity: 0;
-                            }
+                    &__label {
+                        letter-spacing: 0.3rem;
+                        font-size: 1.5rem;
+                        margin-bottom: 0.3rem;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        color: $color-white;
+                        margin-left: 1rem;
+                        transition: opacity 0.2s;
+                        white-space: nowrap;
+                        &.open {
+                            opacity: 0;
                         }
                     }
                 }
@@ -258,6 +242,11 @@
                 align-items: center;
                 justify-content: center;
                 margin: 2rem;
+
+
+                @media only screen and (max-width: $bp-large) {
+                    grid-column: 1 / -1;
+                }
 
                 &__button {
                     background-color: transparent;
@@ -272,13 +261,14 @@
 
                     cursor: pointer;
                     height: 6rem;
-                    width: 16rem;
+                    //width: 16rem;
                     outline: none;
                     transition: all 0.2s;
 
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    padding: 0 5rem;
 
                     &:hover {
                         background-color: rgba($color-gold, 0.95);
@@ -286,11 +276,7 @@
                         font-weight: 600;
                     }
 
-                    @media only screen and (max-width: $bp-small) {
-                        white-space: normal;
-                        line-height: 3rem;
-                        font-size: 1.8rem;
-                    }
+                 
 
                     &.loading {
                         background-color: rgba($color-gold, 0.95);
@@ -306,7 +292,34 @@
                 }
             }
         }
+
+
+        // &__mobile-search {
+        //     // position: absolute;
+        //     // bottom: 0;
+        //     // left: 0;
+        //     width: 100%;
+        //     //background-color: rgba($color-black, 0.85);
+        //     z-index: 5;
+        //     display: none;
+        //     justify-content: center;
+    
+        //     @media only screen and (max-width: $bp-small) {
+        //         display: flex;
+        //     }
+    
+          
+        // }
+
+        &__arrow {
+            display: none;
+            @media only screen and (max-width: $bp-small) {
+                display: flex;
+            }
+        }
     }
+
+    
 }
 
 //DESTINATION SELECTION CONTROL ----------------------
@@ -326,13 +339,9 @@
     background-color: transparent;
     border: none;
     transition: 0.3s ease-in-out;
-    width: 32rem;
+    width: 34rem;
     box-sizing: border-box;
 
-    @media only screen and (max-width: $bp-xsmall) {
-        font-size: 1.5rem;
-        width: 28rem;
-    }
 
     &::-webkit-input-placeholder {
         color: rgba($color-white, 0.85);
@@ -381,7 +390,7 @@
     position: absolute;
     z-index: 15;
     left: 0;
-    width: 32rem;
+    width: 34rem;
     bottom: calc(100% - 2rem); //to open vertically
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
@@ -470,10 +479,6 @@
     align-items: center;
     box-sizing: border-box;
 
-    @media only screen and (max-width: $bp-xsmall) {
-        font-size: 1.5rem;
-        width: 28rem;
-    }
 
     &:hover {
         background-color: rgba($color-black, 0.85);
@@ -633,3 +638,10 @@
     //     overflow: auto;
     // }
 }
+
+
+
+
+
+
+

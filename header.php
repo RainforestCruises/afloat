@@ -113,12 +113,11 @@ foreach ($menuitems as $m) {
                         $megaClass = ($toplevelItem->title == 'Destinations' || $toplevelItem->title == 'Experiences') ? 'mega' : 'no-mega';
                     ?>
                         <li class="header__main__nav__list__item">
-                        <?php if ($toplevelItem->object != 'page') : ?>
-                            <span class="header__main__nav__list__item__link <?php echo $megaClass ?>" navelement="<?php echo $toplevelItem->title ?>"><?php echo $toplevelItem->title ?></span>
-                        <?php else : ?>
-                            <a class="header__main__nav__list__item__link <?php echo $megaClass ?>" href="<?php echo $toplevelItem->url ?>" navelement="<?php echo $toplevelItem->title ?>"><?php echo $toplevelItem->title ?></a>
-
-                        <?php endif; ?>
+                            <?php if ($toplevelItem->object != 'page') : ?>
+                                <span class="header__main__nav__list__item__link <?php echo $megaClass ?>" navelement="<?php echo $toplevelItem->title ?>"><?php echo $toplevelItem->title ?></span>
+                            <?php else : ?>
+                                <a class="header__main__nav__list__item__link <?php echo $megaClass ?>" href="<?php echo $toplevelItem->url ?>" navelement="<?php echo $toplevelItem->title ?>"><?php echo $toplevelItem->title ?></a>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
                 </div>
@@ -182,16 +181,22 @@ foreach ($menuitems as $m) {
             <!-- Top level Menu -->
             <div class="nav-mobile__content-panel nav-mobile__content-panel--top" menuid="top">
                 <?php foreach ($menu_toplevel as $toplevelItem) : ?>
-                    <a class="nav-mobile__content-panel__button nav-mobile__content-panel__button--forward" menuLinkTo="<?php echo $toplevelItem->ID ?>">
-                        <svg>
-                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
-                        </svg>
-                        <span>
-                            <?php echo $toplevelItem->title ?>
-                        </span>
+                    <?php if ($toplevelItem->object != 'page') : ?>
+                        <a class="nav-mobile__content-panel__button nav-mobile__content-panel__button--forward" menuLinkTo="<?php echo $toplevelItem->ID ?>">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
+                            </svg>
+                            <span>
+                                <?php echo $toplevelItem->title ?>
+                            </span>
 
-                    </a>
+                        </a>
+                    <?php else : ?>
+                        <a class="nav-mobile__content-panel__button mobile-link" href="<?php echo get_home_url(); ?>/about">About</a>
+
+                    <?php endif; ?>
                 <?php endforeach; ?>
+
                 <a class="nav-mobile__content-panel__button mobile-link" href="<?php echo get_home_url(); ?>/contact">Contact</a>
             </div>
 
@@ -492,3 +497,9 @@ foreach ($menuitems as $m) {
         <?php endif; ?>
 
     </header>
+
+    <?php if (is_page_template('template-home.php')) : ?>
+        <div class="home-full-search">
+        
+        </div>
+    <?php endif; ?>

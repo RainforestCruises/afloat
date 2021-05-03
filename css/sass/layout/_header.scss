@@ -1,12 +1,10 @@
 .header {
-
     z-index: 100;
     position: fixed;
     width: 100%;
 
     user-select: none;
 
-    
     &__main {
         position: relative;
         display: flex;
@@ -169,7 +167,7 @@
             &__item {
                 display: flex;
                 align-items: center;
-                margin-right: 4rem; 
+                margin-right: 4rem;
                 color: currentColor;
                 text-decoration: none;
                 & svg {
@@ -205,8 +203,6 @@
         }
     }
 }
-
-
 
 .nav-mobile {
     grid-column: 1 / -1;
@@ -245,7 +241,7 @@
         }
 
         &--top {
-            padding-top: 7rem;
+            padding-top: 4rem;
 
             @media only screen and (max-width: $bp-xsmall) {
                 padding-top: 3rem;
@@ -291,13 +287,8 @@
         &__button {
             color: $color-primary;
 
-            font-size: 2rem;
-            letter-spacing: 0.3rem;
-
-            @media only screen and (max-width: $bp-xsmall) {
-                font-size: 1.6rem;
-                letter-spacing: 0.2rem;
-            }
+            font-size: 1.6rem;
+            letter-spacing: 0.2rem;
 
             font-weight: 600;
             background-color: transparent;
@@ -333,7 +324,7 @@
                 //height: 7rem !important;
                 padding: 2rem;
                 border-bottom: 1px solid rgba($color-grey-light-2, 0.9);
-
+                margin-bottom: 2rem;
                 & svg {
                     left: 3rem;
 
@@ -469,8 +460,6 @@
     }
 }
 
-
-
 //Secondary Nav
 .nav-secondary {
     width: 100%;
@@ -498,22 +487,20 @@
         font-weight: 600;
         align-items: center;
         height: 100%;
-        
+
         padding: 0 4rem;
 
         @media only screen and (max-width: $bp-large) {
             justify-content: space-between;
             padding: 0rem;
         }
-   
 
         &__title-area {
             display: flex;
             justify-content: flex-end;
-            
 
             position: relative;
-            
+
             margin-right: 1rem;
             flex-grow: 1;
             width: min-content;
@@ -526,7 +513,6 @@
 
                 &::after {
                     display: none;
-
                 }
             }
 
@@ -543,7 +529,6 @@
                     display: none;
                     white-space: normal;
                 }
-            
 
                 &:link,
                 &:visited {
@@ -554,9 +539,8 @@
                 &:hover {
                     color: $color-supporting-light;
                 }
-                
             }
-            
+
             &::after {
                 content: "";
                 position: absolute;
@@ -568,7 +552,6 @@
                 background-color: $color-grey-light-1a;
             }
 
-
             &__button {
                 border: none;
                 background-color: transparent;
@@ -577,26 +560,23 @@
 
                 font-size: 1.3rem;
                 letter-spacing: 0.2rem;
-                text-transform: uppercase;       
+                text-transform: uppercase;
                 font-weight: 600;
 
                 height: 100%;
-                cursor: pointer;       
+                cursor: pointer;
                 color: $color-primary;
                 width: max-content;
                 font-family: $font-primary;
 
                 outline: none;
 
-                
-
                 display: none;
 
                 @media only screen and (max-width: $bp-large) {
                     display: flex;
                 }
-           
-        
+
                 & svg {
                     height: 2rem;
                     width: 2rem;
@@ -605,7 +585,7 @@
                     opacity: 1;
                     margin-left: 1rem;
                 }
-        
+
                 &.active {
                     svg {
                         transform: rotate(90deg);
@@ -650,21 +630,17 @@
             flex-grow: 1;
             width: max-content;
             display: flex;
-         
-
 
             @media only screen and (max-width: $bp-large) {
                 margin-right: 3rem;
                 flex-grow: 0;
-                
+
                 &::after {
                     display: none;
-
                 }
             }
-
         }
-    } 
+    }
 }
 
 .nav-secondary-mobile {
@@ -676,10 +652,9 @@
 
     &.active {
         display: flex;
-       
+
         animation: fadein 0.4s;
         opacity: 1;
-
 
         &::after {
             content: "";
@@ -693,7 +668,6 @@
         }
 
         & ul {
-
             & li {
                 animation: SlideFromLeft;
                 animation-duration: 0.8s;
@@ -702,26 +676,24 @@
             }
 
             & li:nth-child(1) {
-                animation-delay: -.4s;
+                animation-delay: -0.4s;
             }
             & li:nth-child(2) {
-                animation-delay: -.3s;
+                animation-delay: -0.3s;
             }
             & li:nth-child(3) {
-                animation-delay: -.2s;
+                animation-delay: -0.2s;
             }
             & li:nth-child(4) {
-                animation-delay: -.1s;
+                animation-delay: -0.1s;
             }
             & li:nth-child(5) {
                 animation-delay: 0s;
             }
-            
         }
     }
 
     &__list {
-        
         display: flex;
         flex-direction: column;
         list-style: none;
@@ -737,18 +709,16 @@
                 align-items: center;
                 padding-left: 4rem;
 
-
                 &:link,
                 &:visited {
                     text-decoration: none;
-                    color: $color-grey-2;
+                    color: $color-primary;
                     cursor: pointer;
 
                     font-size: 1.3rem;
                     font-weight: 600;
                     text-transform: uppercase;
-                    letter-spacing: .2rem;
-       
+                    letter-spacing: 0.2rem;
                 }
 
                 &:hover {
@@ -757,7 +727,6 @@
 
                 &.current {
                     color: $color-supporting-light;
-
                 }
             }
         }
@@ -865,9 +834,6 @@
     -webkit-transform: rotate(45deg) translate(-10px, 5px);
     transform: rotate(45deg) translate(-10px, -5px);
 }
-
-
-
 
 //ANIMATOINS
 @keyframes example {

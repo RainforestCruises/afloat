@@ -1,4 +1,28 @@
 jQuery(document).ready(function ($) {
+    // Down Arrow
+    $('#mobile-search-button').click(function (event) {
+        
+        const body = document.querySelector('body');
+        body.classList.add('lock-scroll');
+        const overlay = document.querySelector('.home-full-search');
+        overlay.classList.add('active');
+
+    })
+
+    // Down Arrow
+    $('#down-arrow-button').click(function (event) {
+        var id = $(this).attr('href');
+        changePosition(id)
+        event.preventDefault();
+    })
+
+    // Animate Change Position
+    function changePosition(id) {
+        var target = $(id).offset().top;
+        target = target - 50;
+        $('html, body').animate({ scrollTop: target }, 500);
+        window.location.hash = id;
+    }
 
 
     //SLIDERS
@@ -96,7 +120,7 @@ jQuery(document).ready(function ($) {
                     arrows: false
                 }
             },
-           
+
 
         ]
     });
@@ -239,7 +263,7 @@ jQuery(document).ready(function ($) {
     let selectedMonth = moment().format('MM');
     let currentYear = moment().format('YYYY');
     let currentMonth = moment().format('MM');
-    
+
 
     //Dates LI initialize
     //if current year, disable past months, if prox year, remove all disabled -- on first load
@@ -252,7 +276,7 @@ jQuery(document).ready(function ($) {
             item.classList.remove('disabled');
         }
 
-        if(item.getAttribute('month') == currentMonth){
+        if (item.getAttribute('month') == currentMonth) {
             item.classList.add('selected');
         }
     })
