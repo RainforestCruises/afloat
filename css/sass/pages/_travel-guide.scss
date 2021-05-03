@@ -90,14 +90,15 @@
             align-self: center;
             font-size: 1.6rem;
         }
-
+ 
+        & img {
+            object-fit: cover;
+            height: auto;
+            width: 100%;
+            margin: 3rem 0;
+        }
         & p {
-            & img {
-                object-fit: cover;
-                height: auto;
-                width: 100%;
-                margin: 3rem 0;
-            }
+            
         }
 
         & h2,

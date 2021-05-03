@@ -1433,7 +1433,7 @@ h5 {
       max-width: 80rem;
       align-self: center;
       font-size: 1.6rem; }
-    .travel-guide__content p img {
+    .travel-guide__content img {
       object-fit: cover;
       height: auto;
       width: 100%;
