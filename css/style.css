@@ -70,20 +70,17 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-  height: 100%;
-  height: -webkit-fill-available; }
+  height: 100%; }
   @media only screen and (max-width: 1200px) {
     html {
-      font-size: 50%;
-      -webkit-text-size-adjust: none; } }
+      font-size: 50%; } }
 
 body {
   font-family: "Metropolis", sans-serif;
   color: #747474;
   font-weight: 400;
   line-height: 1.6;
-  height: 100%;
-  height: -webkit-fill-available; }
+  height: 100%; }
 
 body.no-scroll {
   overflow: hidden; }
@@ -8893,7 +8890,8 @@ h5 {
       justify-items: center; } }
   @media only screen and (max-width: 37.5em) {
     .footer {
-      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end]; } }
+      grid-template-columns: [full-start] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end];
+      font-size: 1.2rem; } }
   .footer::after {
     content: "";
     grid-column: 1 / -1;
@@ -8948,12 +8946,12 @@ h5 {
       .footer__tagline {
         grid-row: 2 / span 1;
         grid-column: center-start / center-end;
-        text-align: center; } }
+        text-align: center;
+        margin-right: 0; } }
     @media only screen and (max-width: 37.5em) {
       .footer__tagline {
         font-size: 4rem;
-        line-height: 5rem;
-        margin-right: 0; } }
+        line-height: 5rem; } }
   .footer__explore {
     grid-row: 2 / span 1;
     grid-column: col-end 6 / center-end;
@@ -8970,27 +8968,29 @@ h5 {
     @media only screen and (max-width: 37.5em) {
       .footer__explore {
         max-width: 95%; } }
-    .footer__explore__button {
-      background-color: transparent;
-      border: 2px solid #d9a402;
-      text-transform: uppercase;
-      padding: 1.8rem 3.6rem;
-      font-family: "Metropolis", sans-serif;
-      color: #fff;
-      white-space: nowrap;
-      font-size: 1.5rem;
-      letter-spacing: 0.3rem;
-      font-weight: 500;
-      margin-bottom: 2rem;
-      cursor: pointer;
-      transition: all 0.2s; }
-      .footer__explore__button:hover {
-        border: 2px solid #fff; }
-      @media only screen and (max-width: 37.5em) {
-        .footer__explore__button {
-          white-space: normal;
-          line-height: 3rem;
-          font-size: 1.8rem; } }
+    .footer__explore__cta {
+      display: flex;
+      justify-content: center; }
+      .footer__explore__cta__button {
+        background-color: transparent;
+        border: 2px solid #d9a402;
+        text-transform: uppercase;
+        padding: 1.8rem 3.6rem;
+        font-family: "Metropolis", sans-serif;
+        color: #fff;
+        white-space: nowrap;
+        font-size: 1.5rem;
+        letter-spacing: 0.3rem;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 2rem;
+        cursor: pointer;
+        transition: all 0.2s; }
+        .footer__explore__cta__button:link, .footer__explore__cta__button:visited {
+          text-decoration: none; }
+        .footer__explore__cta__button:hover {
+          background-color: #d9a402;
+          color: #1e1e1e; }
     .footer__explore__phone {
       display: flex;
       justify-content: center;
@@ -9008,14 +9008,10 @@ h5 {
       .footer__navigation {
         grid-row: 4 / span 1;
         display: grid;
-        grid-template-columns: max-content max-content;
+        grid-template-columns: 1fr 1fr;
         justify-content: center;
-        column-gap: 7rem;
+        column-gap: 1rem;
         row-gap: 5rem; } }
-    @media only screen and (max-width: 25em) {
-      .footer__navigation {
-        text-align: center;
-        grid-template-columns: max-content; } }
     .footer__navigation__group__title {
       color: #d9a402;
       text-transform: uppercase;
@@ -9032,6 +9028,9 @@ h5 {
           font-weight: 300;
           color: #fff;
           position: relative; }
+          @media only screen and (max-width: 37.5em) {
+            .footer__navigation__group__nav__list__item a:link, .footer__navigation__group__nav__list__item a:visited {
+              font-size: 1.2rem; } }
         .footer__navigation__group__nav__list__item a::after {
           content: "";
           position: absolute;

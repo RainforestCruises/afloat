@@ -136,7 +136,7 @@ foreach ($menuitems as $m) {
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-phone-call"></use>
                     </svg>
                     <span>
-                        +1.866.783.9029
+                        <?php echo get_field('phone_number', 'options'); ?>
                     </span>
 
                 </div>
@@ -497,6 +497,7 @@ foreach ($menuitems as $m) {
         <?php endif; ?>
 
 
+        <!-- Full search test -->
         <?php if (is_page_template('template-home.php')) : ?>
             <div class="home-full-search">
 

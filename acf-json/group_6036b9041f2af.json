@@ -38,6 +38,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_6091c89083138",
+            "label": "Phone Number Dash Style",
+            "name": "phone_number_dash",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_6036ba036b525",
             "label": "Email",
             "name": "email",
@@ -55,6 +74,54 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_6091c96440e86",
+            "label": "Logo",
+            "name": "logo",
+            "type": "image",
+            "instructions": "Horizontal Logo (main)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6091c97d40e87",
+            "label": "Logo Vertical",
+            "name": "logo_vertical",
+            "type": "image",
+            "instructions": "Vertical Logo (footer) - 100 x 80 min",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         },
         {
             "key": "field_6036b9d26b522",
@@ -365,6 +432,22 @@
             "placeholder": ""
         },
         {
+            "key": "field_6091bf8362930",
+            "label": "Linked In",
+            "name": "linked_in_link",
+            "type": "url",
+            "instructions": "URL to Linked In page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
             "key": "field_60886abf22bab",
             "label": "Contact Forms",
             "name": "",
@@ -419,5 +502,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619553014
+    "modified": 1620167078
 }
