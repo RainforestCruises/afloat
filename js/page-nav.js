@@ -66,7 +66,7 @@ jQuery(document).ready(function ($) {
 
     // Animate Change Position
     function changePosition(id) {
-
+        console.log('change pos');
         $('.nav-secondary-mobile').removeClass('active'); //if mobile open - close menu / button
         $("#nav-secondary-button").removeClass('active');
 
