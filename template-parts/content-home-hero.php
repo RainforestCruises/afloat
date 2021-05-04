@@ -122,13 +122,6 @@
 
               <input type="hidden" name="travel-destination" id="travel-destination" value="">
           </form>
-
-          <div class="home-hero__content__mobile-search">
-              <button class="home-hero__content__search-form__cta__button" id="mobile-search-button">
-                  Travel Search
-              </button>
-          </div> 
-
           <div class="home-hero__content__arrow">
               <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="#intro">
                   <svg class="btn-circle--arrow-main">
@@ -138,6 +131,20 @@
                       <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
                   </svg></button>
           </div>
+          <div class="home-hero__content__mobile-search">
+
+              <div class="home-hero__content__mobile-search__input-group">
+                  Where
+              </div>
+              <div class="home-hero__content__mobile-search__input-group">
+                  When
+              </div>
+              <button class="home-hero__content__search-form__cta__button" id="mobile-search-button">
+                  Search
+              </button>
+          </div>
+
+         
       </div>
 
 
