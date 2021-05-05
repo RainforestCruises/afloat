@@ -106,7 +106,8 @@ console_log($menuitems);
         endforeach; ?>
     </div>
     <div class="footer__logo">
-        <img src="<?php echo bloginfo('template_url') ?>/css/img/logo/logo-vertical-white.png" alt="logo" />
+        <?php $logo_vertical = get_field('logo_vertical', 'options'); ?>
+        <img src="<?php echo $logo_vertical['url']; ?>" alt="logo" />
     </div>
     <div class="footer__copyright">
         &#169; 2021 Rainforest Cruises. All rights reserved.

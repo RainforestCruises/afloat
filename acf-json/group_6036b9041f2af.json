@@ -76,35 +76,11 @@
             "maxlength": ""
         },
         {
-            "key": "field_6091c96440e86",
-            "label": "Logo",
-            "name": "logo",
-            "type": "image",
-            "instructions": "Horizontal Logo (main)",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_6091c97d40e87",
             "label": "Logo Vertical",
             "name": "logo_vertical",
             "type": "image",
-            "instructions": "Vertical Logo (footer) - 100 x 80 min",
+            "instructions": "Vertical Logo (footer) - 100px height min",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -502,5 +478,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1620167078
+    "modified": 1620245331
 }

@@ -388,6 +388,21 @@ p {
             font-size: 1.4rem;
         }
     }
+
+    &--large {
+
+        & li {
+            svg {
+                transform: translateY(2px);
+                height: 1.8rem;
+                width: 1.8rem;
+                fill: $color-primary;
+            }
+            & span {
+                font-size: 1.6rem;
+            }
+        }
+    }
 }
 
 .link-social {
