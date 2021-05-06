@@ -7,7 +7,6 @@ jQuery(document).ready(function ($) {
     $('.header__main').addClass('header__main--opaque-nav');
   }
 
-  console.log(opaqueNavAlways);
   //HEADER --------------
   //Header Main -- Scroll
   const nav = document.querySelector('#header');

@@ -521,7 +521,7 @@ h5 {
   .experience-icon .tooltiptext {
     box-sizing: border-box;
     visibility: hidden;
-    width: max-content;
+    width: max-content2rem;
     background-color: #f8f8f8;
     border: 1px solid #c2c6c9;
     color: #142838;
@@ -2772,7 +2772,26 @@ h5 {
         border-radius: 1.5rem;
         border: 2px solid currentColor;
         padding: .1rem .8rem;
-        font-size: 1.2rem; }
+        font-size: 1.2rem;
+        position: relative;
+        cursor: pointer; }
+        .side-info-panel__departure-grid__grid__season .promo-div:hover .tooltiptext {
+          visibility: visible; }
+        .side-info-panel__departure-grid__grid__season .promo-div .tooltiptext {
+          visibility: hidden;
+          width: 15rem;
+          background-color: #f8f8f8;
+          border: 1px solid #c2c6c9;
+          color: #142838;
+          text-align: center;
+          border-radius: 6px;
+          padding: .5rem 1rem;
+          font-size: 1rem;
+          font-weight: 600;
+          /* Position the tooltip */
+          position: absolute;
+          bottom: -3.5rem;
+          z-index: 1; }
         @media only screen and (max-width: 37.5em) {
           .side-info-panel__departure-grid__grid__season .promo-div {
             margin-left: 0; } }
@@ -8516,10 +8535,10 @@ h5 {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 3rem;
+      padding: 2rem;
       text-align: center; }
       .nav-mobile__content-panel__button:last-child {
-        margin-bottom: 4rem; }
+        margin-bottom: 9rem; }
       .nav-mobile__content-panel__button svg {
         height: 3rem;
         width: 3rem;

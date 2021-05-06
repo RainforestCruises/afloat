@@ -601,7 +601,7 @@ h5 {
     & .tooltiptext {
         box-sizing: border-box;
         visibility: hidden;
-        width: max-content;
+        width: max-content + 2rem;
         background-color: $color-grey-light-1;
         border: 1px solid $color-grey-light-2;
         color: $color-primary;

@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.4.2',
+  'version' => '5.5.1',
   'title' => 'Cruises',
   'type' => 'rfc_cruises',
   'id' => '5fdbe431766d9',
-  'updated' => 1613504471,
+  'updated' => 1620248054,
   'columns' => 
   array (
     'title' => 
@@ -167,6 +167,23 @@ return array (
       'filter_label' => '',
       'filter_format' => '',
       'name' => 'date',
+    ),
+    '609305e9428f5c' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Property Id',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_5f62761a2ee73',
+      'character_limit' => '20',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'off',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '609305e9428f5c',
     ),
   ),
   'settings' => 

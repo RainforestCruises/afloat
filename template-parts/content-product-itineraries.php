@@ -167,6 +167,7 @@ endforeach;
                                                             <?php } else { ?>
                                                                 <li class="date-grid__item date-grid__item--available <?php echo ($departureMonth['HasPromos'] == true ? "promo-date" : ""); ?>" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
                                                                     <?php echo $departureMonth['MonthNameShort']; ?>
+                                                                    
                                                                 </li>
                                                             <?php } ?>
                                                         <?php } ?>

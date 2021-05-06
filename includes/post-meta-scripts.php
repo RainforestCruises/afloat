@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 
@@ -7,9 +7,9 @@
 add_filter('cron_schedules', 'rfc_add_cron_interval');
 function rfc_add_cron_interval($schedules)
 {
-    $schedules['every_three_minutes'] = array(
-        'interval'  => 180,
-        'display'   => __('Every 3 Minutes', 'textdomain')
+    $schedules['every_day'] = array(
+        'interval'  => 'daily',
+        'display'   => __('Every Day')
     );
     return $schedules;
 }
@@ -18,18 +18,21 @@ function rfc_add_cron_interval($schedules)
 
 // Schedule an action if it's not already scheduled
 if (!wp_next_scheduled('rfc_add_cron_interval')) {
-    wp_schedule_event(time(), 'every_three_minutes', 'rfc_add_cron_interval');
+    $timeToRun = strtotime('19:55:00');
+    wp_schedule_event($timeToRun, 'every_day', 'rfc_add_cron_interval');
 }
 
-// IMPORTANT - Hook into that action that'll fire every 10 seconds
-//add_action( 'rfc_add_cron_interval', 'refresh_cruise_info_all' );
+// IMPORTANT - Hook into that action that'll fire every minute
+add_action( 'rfc_add_cron_interval', 'refresh_cruise_info_all' );
 
 //create function refresh_cruise_info_all - loop through all cruises
 function refresh_cruise_info_all()
-{
-    //get property_id of each rfc_cruises post types
+{ 
 
+
+     //get property_id of each rfc_cruises post types
     $args = array(
+        'posts_per_page' => -1,
         'post_type' => array('rfc_cruises', 'rfc_lodges'),
     );
 
@@ -37,12 +40,12 @@ function refresh_cruise_info_all()
     if ($the_query->have_posts()) :
         while ($the_query->have_posts()) :
             $the_query->the_post();
-
             // content goes here
             $pid = get_field('property_id', get_the_ID()); //make sure only cruise
             if ($pid) {
                 // Do something...
                 refresh_cruise_info($pid, get_the_ID());
+                usleep(5000000);
             }
 
         endwhile;
@@ -71,7 +74,7 @@ function my_acf_save_post($post_id)
 
         $dailyActivities = get_field('daily_activities');
         $count = 1;
-        if($dailyActivities){
+        if ($dailyActivities) {
             $count = count($dailyActivities);
         }
         update_field('length_in_days', $count);
@@ -125,5 +128,3 @@ function acf_read_only_length_in_days($field)
     $field['readonly'] = 1;
     return $field;
 }
-
-?>

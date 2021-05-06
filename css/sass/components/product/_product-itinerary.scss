@@ -194,6 +194,30 @@
                     border: 2px solid currentColor;
                     padding: .1rem .8rem;
                     font-size: 1.2rem;
+                    position: relative;
+                    cursor: pointer;
+                    &:hover .tooltiptext {
+                        visibility: visible;
+                    }
+                
+                    & .tooltiptext {
+                        //box-sizing: border-box;
+                        visibility: hidden;
+                        width: 15rem;
+                        //max-width: 15rem;
+                        background-color: $color-grey-light-1;
+                        border: 1px solid $color-grey-light-2;
+                        color: $color-primary;
+                        text-align: center;
+                        border-radius: 6px;
+                        padding: .5rem 1rem;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        /* Position the tooltip */
+                        position: absolute;
+                        bottom: -3.5rem;
+                        z-index: 1;
+                    }
 
                     @media only screen and (max-width: $bp-small) {
                         margin-left: 0;

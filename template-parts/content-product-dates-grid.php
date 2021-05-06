@@ -96,7 +96,10 @@ foreach ($departures as $departure) {
                 ?>
             </div>
             <?php if ($result['HasPromo'] == true) : ?>
-                <div class="promo-div">Promo</div>
+                <div class="promo-div">Promo
+                <span class="tooltiptext"><?php echo $result['PromoName']; ?></span>
+                </div>
+                
             <?php endif; ?>
 
         </div>

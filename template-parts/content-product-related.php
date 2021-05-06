@@ -12,7 +12,6 @@ $queryArgsDestination = array();
 $queryArgsDestination['relation'] = 'OR';
 
 $destinations = get_field('destinations');
-console_log($destinations);
 if ($destinations) {
     foreach ($destinations as $d) {
         if (get_field('is_country', $d) == true) {

@@ -11,8 +11,6 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 $menu_group = [];
 
 
-console_log($menuitems);
-
 
 ?>
 
