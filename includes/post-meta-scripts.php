@@ -4,23 +4,23 @@
 
 //SCHEDULING --------------
 //add schedule interval
-add_filter('cron_schedules', 'rfc_add_cron_interval');
-function rfc_add_cron_interval($schedules)
-{
-    $schedules['every_day'] = array(
-        'interval'  => 'daily',
-        'display'   => __('Every Day')
-    );
-    return $schedules;
-}
+// add_filter('cron_schedules', 'rfc_add_cron_interval');
+// function rfc_add_cron_interval($schedules)
+// {
+//     $schedules['every_day'] = array(
+//         'interval'  => 'daily',
+//         'display'   => __('Every Day')
+//     );
+//     return $schedules;
+// }
 //
 
 
-// Schedule an action if it's not already scheduled
-if (!wp_next_scheduled('rfc_add_cron_interval')) {
-    $timeToRun = strtotime('19:55:00');
-    wp_schedule_event($timeToRun, 'every_day', 'rfc_add_cron_interval');
-}
+// // Schedule an action if it's not already scheduled
+// if (!wp_next_scheduled('rfc_add_cron_interval')) {
+//     $timeToRun = strtotime('19:55:00');
+//     wp_schedule_event($timeToRun, 'daily', 'rfc_add_cron_interval');
+// }
 
 // IMPORTANT - Hook into that action that'll fire every minute
 add_action( 'rfc_add_cron_interval', 'refresh_cruise_info_all' );
@@ -83,10 +83,10 @@ function my_acf_save_post($post_id)
 function refresh_cruise_info($propertyId, $post_id)
 {
     //LOCAL TEST
-    //$url = 'http://localhost:63665/api/wpproperties/';
+    $url = 'http://localhost:63665/api/wpproperties/';
 
     //DF WEB
-    $url = 'https://departurefinder.azurewebsites.net/api/wpproperties/';
+    //$url = 'https://departurefinder.azurewebsites.net/api/wpproperties/';
     $url .= $propertyId;
 
     $request = wp_remote_get($url);
