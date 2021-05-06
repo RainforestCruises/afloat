@@ -23,7 +23,7 @@
 // }
 
 // IMPORTANT - Hook into that action that'll fire every minute
-add_action( 'rfc_add_cron_interval', 'refresh_cruise_info_all' );
+add_action( 'rfc_cron_refresh_df', 'refresh_cruise_info_all' );
 
 //create function refresh_cruise_info_all - loop through all cruises
 function refresh_cruise_info_all()
@@ -45,7 +45,7 @@ function refresh_cruise_info_all()
             if ($pid) {
                 // Do something...
                 refresh_cruise_info($pid, get_the_ID());
-                usleep(5000000);
+                usleep(1000000);
             }
 
         endwhile;
