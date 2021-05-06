@@ -64,7 +64,7 @@
                     "label": "Anchor",
                     "name": "anchor",
                     "type": "text",
-                    "instructions": "Anchor link",
+                    "instructions": "Anchor link, include hashtag: #example",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -85,7 +85,7 @@
             "label": "TOC Content",
             "name": "toc_content",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "Insert anchor links as the correspond with TOC links (use text view instead of visual in this text editor) Example: <a id=\"anchor-name\"><\/a>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -117,5 +117,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1620149570
+    "modified": 1620324360
 }

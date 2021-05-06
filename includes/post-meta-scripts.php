@@ -3,32 +3,12 @@
 
 
 //SCHEDULING --------------
-//add schedule interval
-// add_filter('cron_schedules', 'rfc_add_cron_interval');
-// function rfc_add_cron_interval($schedules)
-// {
-//     $schedules['every_day'] = array(
-//         'interval'  => 'daily',
-//         'display'   => __('Every Day')
-//     );
-//     return $schedules;
-// }
-//
-
-
-// // Schedule an action if it's not already scheduled
-// if (!wp_next_scheduled('rfc_add_cron_interval')) {
-//     $timeToRun = strtotime('19:55:00');
-//     wp_schedule_event($timeToRun, 'daily', 'rfc_add_cron_interval');
-// }
-
-// IMPORTANT - Hook into that action that'll fire every minute
+// IMPORTANT - Hook for the action
 add_action( 'rfc_cron_refresh_df', 'refresh_cruise_info_all' );
 
 //create function refresh_cruise_info_all - loop through all cruises
 function refresh_cruise_info_all()
 { 
-
 
      //get property_id of each rfc_cruises post types
     $args = array(
@@ -41,11 +21,11 @@ function refresh_cruise_info_all()
         while ($the_query->have_posts()) :
             $the_query->the_post();
             // content goes here
-            $pid = get_field('property_id', get_the_ID()); //make sure only cruise
+            $pid = get_field('property_id', get_the_ID()); 
             if ($pid) {
-                // Do something...
+                
                 refresh_cruise_info($pid, get_the_ID());
-                usleep(1000000);
+                usleep(1000000); //1 second pause
             }
 
         endwhile;
