@@ -57,6 +57,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_6095c345bfda8",
+            "label": "Phone Number Numeric",
+            "name": "phone_number_numeric",
+            "type": "text",
+            "instructions": "No dashes, etc. This is for click-to-call",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_6036ba036b525",
             "label": "Email",
             "name": "email",
@@ -478,5 +497,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1620245331
+    "modified": 1620427621
 }

@@ -6,6 +6,7 @@
     user-select: none;
 
     &__main {
+        z-index: 1;
         position: relative;
         display: flex;
         width: 100%;
@@ -13,10 +14,6 @@
         align-items: center;
 
         height: 9rem;
-
-        @media only screen and (max-width: $bp-large) {
-            height: 7rem;
-        }
 
         font-size: 1.3rem;
         text-transform: uppercase;
@@ -26,9 +23,14 @@
 
         @media only screen and (max-width: $bp-large) {
             justify-content: space-between;
+            height: 7rem;
         }
 
         border-bottom: 1px solid rgba($color-grey-light-2, 0.1);
+
+        @media only screen and (max-width: $bp-small) {
+            border-bottom: 1px solid rgba($color-grey-light-2, 0.9);
+        }
 
         background-color: rgba($color-white, 0.1);
         -webkit-backdrop-filter: blur(8px);
@@ -122,7 +124,7 @@
             max-width: 102.5rem;
             justify-content: flex-start;
 
-            z-index: 18;
+            z-index: 1800;
             height: 100%;
 
             transition: all 0.3s;
@@ -158,18 +160,24 @@
         }
 
         &__right {
-            transition: all 0.4s;
+            transition: all 0.3s;
 
             display: flex;
             height: 100%;
             align-items: center;
 
-            &__item {
+            &__contact-link {
                 display: flex;
                 align-items: center;
                 margin-right: 4rem;
                 color: currentColor;
                 text-decoration: none;
+                cursor: pointer;
+
+                @media only screen and (max-width: $bp-large) {
+                    display: none;
+                }
+
                 & svg {
                     transform: translateY(-1px);
                     stroke-width: 4;
@@ -181,22 +189,104 @@
                 & span {
                     margin-left: 1rem;
                 }
+            }
 
-                &--contact {
-                    cursor: pointer;
+            &__phone-desktop {
+                display: flex;
+                align-items: center;
+                margin-right: 4rem;
+                color: currentColor;
+                text-decoration: none;
 
-                    @media only screen and (max-width: $bp-large) {
-                        display: none;
-                    }
-
-                    &:hover {
-                        color: $color-supporting-light;
-                    }
+                @media only screen and (max-width: $bp-small) {
+                    display: none;
+                }
+                & svg {
+                    transform: translateY(-1px);
+                    stroke-width: 4;
+                    height: 1.6rem;
+                    width: 1.6rem;
+                    color: currentColor;
                 }
 
-                &--phone {
-                    @media only screen and (max-width: $bp-small) {
-                        display: none;
+                & span {
+                    margin-left: 1rem;
+                }
+            }
+
+            &__phone-mobile {
+                display: none;
+
+                color: currentColor;
+                border-left: 1px solid $color-grey-light-2;
+                cursor: pointer;
+                position: relative;
+                z-index: 900;
+                @media only screen and (max-width: $bp-small) {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    width: 9rem;
+                }
+                & svg {
+                    stroke-width: 3;
+                    height: 2.5rem;
+                    width: 2.5rem;
+                    color: currentColor;
+                }
+
+                &__expand {
+                    display: none;
+                    position: absolute;
+                    z-index: 800 !important;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateY(100%) translateX(-50%);
+                    height: min-content;
+                    width: 25rem;
+                    background-color: $color-white;
+                    border: 1px solid $color-grey-light-2;
+                    padding: 3rem;
+                    text-align: center;
+                    font-size: 2rem;
+                    color: $color-primary;
+                    opacity: 0;
+
+                    &.active {
+                        display: flex;
+                        flex-direction: column;
+                        animation: fadein 0.3s both;
+                        animation-timing-function: ease-out;
+                        opacity: 1;
+                    }
+
+                    &__title {
+                        font-size: 1.6rem;
+                        margin-bottom: 1.5rem;
+                    }
+                    &__cta {
+                        background-color: $color-primary;
+
+                        &:link,
+                        &:visited {
+                            color: $color-white;
+                            border: none;
+                            border-radius: 4rem;
+                            font-size: 1.6rem;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                            letter-spacing: 0.3rem;
+                            padding: 1.5rem 3rem;
+                            cursor: pointer;
+                            transition: all 0.2s;
+                            outline: none;
+                            white-space: nowrap;
+                        }
+                       
+                        &:hover {
+                            background-color: $color-supporting;
+                        }
                     }
                 }
             }
@@ -469,7 +559,7 @@
     display: none;
     justify-content: center;
     opacity: 0;
-
+    z-index: 0;
     &.active {
         display: flex;
 
@@ -515,7 +605,8 @@
                 }
             }
 
-            &__title { //desktop link (hidden on mobile)
+            &__title {
+                //desktop link (hidden on mobile)
                 text-decoration: none;
                 height: 100%;
                 display: flex;
@@ -551,10 +642,10 @@
                 background-color: $color-grey-light-1a;
             }
 
-            &__button { //mobile button (hidden on desktop)
+            &__button {
+                //mobile button (hidden on desktop)
                 border: none;
                 background-color: transparent;
-                
 
                 font-size: 1.4rem;
                 line-height: 1.7rem;
@@ -600,7 +691,6 @@
                         fill: $color-primary;
                         transition: all 0.2s;
                         opacity: 1;
-                        
                     }
                     border-right: 1px solid $color-grey-light-2;
                 }
@@ -614,8 +704,6 @@
                     text-align: start;
                     padding-left: 2rem;
                 }
-
-                
 
                 &.active {
                     svg {
@@ -714,7 +802,7 @@
                 animation-delay: -0.15s;
             }
             & li:nth-child(3) {
-                animation-delay: -0.10s;
+                animation-delay: -0.1s;
             }
             & li:nth-child(4) {
                 animation-delay: -0.05s;
@@ -755,8 +843,6 @@
                     font-weight: 600;
                     text-transform: uppercase;
                     letter-spacing: 0.2rem;
-
-                    
                 }
 
                 &:hover {
@@ -787,7 +873,13 @@
         display: flex;
     }
 
+    @media only screen and (max-width: $bp-small) {
+        display: flex;
+        border-left: 1px solid $color-grey-light-2;
+    }
+
     &:hover {
+        transition: color 0.3s;
         & .burger-menu__bar {
             // &::before {
             //     transform: translateY(-1.3rem);
@@ -800,7 +892,7 @@
 
     &__bar {
         width: 3rem;
-        height: 1px;
+        height: 2px;
         background-color: $color-white;
         display: block;
 
@@ -809,7 +901,7 @@
             position: absolute;
             transform: translateY(-0.8rem);
             width: 3rem;
-            height: 1px;
+            height: 2px;
             background-color: inherit;
             display: block;
 
@@ -822,7 +914,7 @@
             transform: translateY(0.8rem);
 
             width: 3rem;
-            height: 1px;
+            height: 2px;
             background-color: inherit;
             display: block;
 

@@ -131,7 +131,7 @@ foreach ($menuitems as $m) {
                 </div>
             </nav>
             <div class="header__main__right">
-                <a href="<?php echo get_home_url(); ?>/contact" class="header__main__right__item header__main__right__item--contact">
+                <a href="<?php echo get_home_url(); ?>/contact" class="header__main__right__contact-link">
                     <svg>
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_mail_outline_24px"></use>
                     </svg>
@@ -139,16 +139,25 @@ foreach ($menuitems as $m) {
                         Contact
                     </span>
                 </a>
-                <div class="header__main__right__item header__main__right__item--phone">
+                <div class="header__main__right__phone-desktop">
                     <svg>
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-phone-call"></use>
                     </svg>
                     <span>
                         <?php echo get_field('phone_number', 'options'); ?>
                     </span>
-
                 </div>
-
+                <div class="header__main__right__phone-mobile" id="phone-mobile">
+                    <svg>
+                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-phone-call"></use>
+                    </svg>
+                    <div class="header__main__right__phone-mobile__expand" id="phone-mobile-expand">
+                        <div class="header__main__right__phone-mobile__expand__title">
+                            Get in Touch
+                        </div>
+                        <a class="header__main__right__phone-mobile__expand__cta" href="tel:<?php echo get_field('phone_number_numeric', 'options') ?>">Call Now</a>
+                    </div>
+                </div>
                 <!-- Burger Menu -->
                 <div class="burger-menu">
                     <span class="burger-menu__bar "></span>
@@ -377,7 +386,7 @@ foreach ($menuitems as $m) {
             <nav class="nav-secondary" id="nav-secondary">
                 <div class="nav-secondary__main">
                     <div class="nav-secondary__main__title-area">
-                    <a class="nav-secondary__main__title-area__title" id="nav-secondary-title" href="#top">
+                        <a class="nav-secondary__main__title-area__title" id="nav-secondary-title" href="#top">
                             <?php echo $navTitle ?>
                         </a>
                         <button class="nav-secondary__main__title-area__button" id="nav-secondary-button">
