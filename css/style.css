@@ -2188,9 +2188,9 @@ h5 {
           line-height: 6.5rem; }
           @media only screen and (max-width: 37.5em) {
             .product-hero__top__content__title-group__title {
-              font-size: 4rem;
-              line-height: 4.5rem;
-              margin-bottom: 2rem; } }
+              font-size: 3.5rem;
+              line-height: 4rem;
+              margin-bottom: 1rem; } }
           .product-hero__top__content__title-group__title.active {
             grid-column: 1 / span 1;
             grid-row: 2 / span 1;
@@ -2324,7 +2324,7 @@ h5 {
         height: 30rem; } }
     @media only screen and (max-width: 37.5em) {
       .product-hero__bottom {
-        height: 40rem; } }
+        height: 38rem; } }
     .product-hero__bottom__content {
       width: 100%;
       display: flex;
