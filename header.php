@@ -298,10 +298,15 @@ foreach ($menuitems as $m) {
                             <?php echo $productTitle ?>
                         </a>
                         <button class="nav-secondary__main__title-area__button" id="nav-secondary-button">
-                            <?php echo $productTitle ?>
-                            <svg>
-                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                            </svg>
+                            <div class="nav-secondary__main__title-area__button__icon-area">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
+                                </svg>
+                            </div>
+                            <div class="nav-secondary__main__title-area__button__text-area">
+                                <?php echo $productTitle ?>
+                            </div>
+
                         </button>
 
                     </div>
@@ -372,14 +377,19 @@ foreach ($menuitems as $m) {
             <nav class="nav-secondary" id="nav-secondary">
                 <div class="nav-secondary__main">
                     <div class="nav-secondary__main__title-area">
-                        <a class="nav-secondary__main__title-area__title" id="nav-secondary-title" href="#top">
+                    <a class="nav-secondary__main__title-area__title" id="nav-secondary-title" href="#top">
                             <?php echo $navTitle ?>
                         </a>
                         <button class="nav-secondary__main__title-area__button" id="nav-secondary-button">
-                            <?php echo $navTitle ?>
-                            <svg>
-                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                            </svg>
+                            <div class="nav-secondary__main__title-area__button__icon-area">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
+                                </svg>
+                            </div>
+                            <div class="nav-secondary__main__title-area__button__text-area">
+                                <?php echo $navTitle ?>
+                            </div>
+
                         </button>
 
                     </div>

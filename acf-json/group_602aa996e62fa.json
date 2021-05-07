@@ -26,7 +26,7 @@
             "label": "Featured Image",
             "name": "featured_image",
             "type": "image",
-            "instructions": "750 x 500",
+            "instructions": "600 x 600 minimum",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -37,8 +37,8 @@
             "return_format": "array",
             "preview_size": "medium",
             "library": "all",
-            "min_width": "",
-            "min_height": "",
+            "min_width": 600,
+            "min_height": 600,
             "min_size": "",
             "max_width": "",
             "max_height": "",
@@ -135,5 +135,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Hotels - CPT",
-    "modified": 1613412296
+    "modified": 1620407576
 }

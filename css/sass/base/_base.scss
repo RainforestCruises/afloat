@@ -47,20 +47,7 @@ p a {
         color: $color-supporting-light;
     }
 }
-//list links
-ul a {
-    &:link,
-    &:visited {
-        color: $color-supporting;
-        transition: all .2s;
-        text-decoration: none;
-        font-weight: 500;
-    }
 
-    &:hover {
-        color: $color-supporting-light;
-    }
-}
 
 //telephone number styling removed
 a[href^="tel"]{
