@@ -8424,12 +8424,15 @@ h5 {
         @media only screen and (max-width: 37.5em) {
           .header__main__logo-area__logo {
             margin: 0 2rem;
-            margin-left: 3rem; } }
+            margin-left: 2rem; } }
         .header__main__logo-area__logo img {
           transition: all 0.4s;
           filter: brightness(0) invert(1);
           height: 4.5rem;
-          width: 16.5rem; }
+          width: auto; }
+          @media only screen and (max-width: 37.5em) {
+            .header__main__logo-area__logo img {
+              height: 3.5rem; } }
     .header__main__nav {
       display: flex;
       width: 100%;
