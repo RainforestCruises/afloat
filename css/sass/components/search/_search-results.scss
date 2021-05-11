@@ -1,11 +1,7 @@
 .search-results {
-    grid-column: col-start 3 / center-end;
-    margin-left: 6rem;
+    margin-left: 3rem;
 
-    @media only screen and (max-width: $bp-medium) {
-        grid-column: center-start / center-end;
-        margin-left: 0rem;
-    }
+    width: 75%;
 
     &__top-section {
         display: flex;

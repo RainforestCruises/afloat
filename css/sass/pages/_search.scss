@@ -1,41 +1,38 @@
 .search-page {
-  display: grid; //fits into global grid
-  grid-row: nav-end / content-end;
-  grid-column: 1 / -1;
-  grid-template-columns: $page-container;
-  @media only screen and (max-width: $bp-small) {
-    grid-template-columns:$page-container-small;
-  }
-
-  position: relative;
-  z-index: 0;
 
   padding-top: 10rem;
 
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 
-  &__content {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-template-columns: $page-container;
-    
+  &__intro {
+    display: flex;
+    flex-direction: column;
 
-    @media only screen and (max-width: $bp-small) {
-      grid-template-columns:$page-container-small;
-    }
-
-    height: 100%;
-    z-index: 3;
-    margin-top: 3rem;
+    width: 100%;
+    max-width: $page-width;
+    @include flexPadding;
   }
 
- 
- 
+  &__content {
+    display: flex;
+
+    width: 100%;
+    max-width: $page-width;
+    @include flexPadding;
+
+  }
+
   &__bottom {
-    grid-column: center-start / center-end;
+    display: flex;
+    flex-direction: column;
+
+    max-width: $page-width;
+    @include flexPadding;
+
     height: 10rem;
     background-color: $color-grey-light-1a;
   }
-
 }
-
-
