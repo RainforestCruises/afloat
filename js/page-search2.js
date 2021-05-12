@@ -1,5 +1,6 @@
 jQuery(document).ready(function ($) {
   console.log(resultsArray);
+  
   // Show More -- Departure List
   $("#departure-show-more").click(function (e) {
     $("#departure-filter-list").toggleClass("expanded");
@@ -40,17 +41,22 @@ jQuery(document).ready(function ($) {
 
   //Departure Date selections
   let departureString = "";
+  let departureSelectionArray = [];
   const departureDatesArray = [...document.querySelectorAll('.departure-checkbox')];
   departureDatesArray.forEach(item => {
     item.addEventListener('click', () => {
-
+      departureSelectionArray = [];
       departureString = "";
       let count = 0;
       departureDatesArray.forEach(checkbox => {
         const itemMonth = checkbox.getAttribute("month");
         const itemYear = checkbox.getAttribute("year");
 
+
         if (checkbox.checked) {
+
+          var itemValue = itemYear + "-" + itemMonth + "-01";
+          departureSelectionArray.push(itemValue);
           if (count > 0) {
             departureString += ":";
           }
@@ -59,8 +65,10 @@ jQuery(document).ready(function ($) {
         }
 
       })
-      console.log(departureString);
+
       formDates.value = departureString;
+
+      filterResults();
     });
   })
 
@@ -98,16 +106,18 @@ jQuery(document).ready(function ($) {
 
   //Destination selections
   let destinationsString = "";
+  let destinationsSelectionArray = [];
   const destinationsArray = [...document.querySelectorAll('.destination-checkbox')];
   destinationsArray.forEach(item => {
     item.addEventListener('click', () => {
-
+      destinationsSelectionArray = [];
       destinationsString = "";
       let count = 0;
       destinationsArray.forEach(checkbox => {
-        const itemValue = checkbox.value;
+        const itemValue = parseInt(checkbox.value);
 
         if (checkbox.checked) {
+          destinationsSelectionArray.push(itemValue);
           if (count > 0) {
             destinationsString += ":";
           }
@@ -116,8 +126,9 @@ jQuery(document).ready(function ($) {
         }
 
       })
-      console.log(destinationsString);
+
       formDestinations.value = destinationsString;
+      filterResults();
     });
   })
 
@@ -131,7 +142,7 @@ jQuery(document).ready(function ($) {
       experiencesString = "";
       let count = 0;
       experiencesArray.forEach(checkbox => {
-        const itemValue = parseInt(checkbox.value) ;
+        const itemValue = parseInt(checkbox.value);
 
         if (checkbox.checked) {
 
@@ -158,16 +169,16 @@ jQuery(document).ready(function ($) {
   const filterResults = () => {
 
     let filteredList = resultsArray;
-    
+
 
     //travel styles
     if (travelStylesSelectionArray.length > 0) {
       let list = [];
       resultsArray.forEach(o => {
-        if(travelStylesSelectionArray.includes(o.postType)){
+        if (travelStylesSelectionArray.includes(o.postType)) {
           list.push(o);
         };
-        
+
       })
       filteredList = list;
 
@@ -180,11 +191,65 @@ jQuery(document).ready(function ($) {
 
         arr1 = o.experiences.map(x => x.postId);
         arr2 = experiencesSelectionArray;
-        const found = arr1.some(r=> arr2.indexOf(r) >= 0);
-        if(found == true){
+        const found = arr1.some(r => arr2.indexOf(r) >= 0);
+        if (found == true) {
           list.push(o);
         }
-  
+
+      })
+      filteredList = list;
+    }
+
+    //destinations / locations
+    if (destinationsSelectionArray.length > 0) {
+      let list = [];
+      filteredList.forEach(o => {
+
+        arr1 = o.locations.map(x => x.postId); //check if locations or destination based on searchType
+        arr2 = destinationsSelectionArray;
+        const found = arr1.some(r => arr2.indexOf(r) >= 0);
+        if (found == true) {
+          list.push(o);
+        }
+
+      })
+      filteredList = list;
+    }
+
+    //departure
+
+    if (departureSelectionArray.length > 0) {
+      let list = [];
+      filteredList.forEach(o => {
+        if (o.postType != 'rfc_cruises') {
+          list.push(o);
+        }
+        else { //cruises
+
+          var found = false;
+          for (var z = 0; z < o.itineraries.length; z++) { //for each itinerary
+
+            if (found == true) {
+              break;
+            }
+
+            var currentItinerary = o.itineraries[z];
+            for (var i = 0; i < currentItinerary.departures.length; i++) { //for each departure
+
+              departureSelectionArray.forEach(dateSelection => { //for each selection of month/year -- check per departure        
+                var match = moment(currentItinerary.departures[i].departureDate).isSame(dateSelection, 'month');
+                if (match == true) {
+                  found = true;
+                }
+              })
+
+              if (found == true) {
+                list.push(o);
+                break;
+              }
+            }
+          }
+        }
       })
       filteredList = list;
     }
@@ -250,43 +315,13 @@ jQuery(document).ready(function ($) {
       responseDiv.appendChild(resultCard);
     })
   }
-  
+
+
+  //onLoad
+  renderResponse(resultsArray);
 
 
 
-
-
-  // <a class="search-result" href="https://rfcweb.azurewebsites.net/tours/15d-multi-classic-pe-bo/">
-  //       <div class="search-result__image">
-  //           <img src="https://res.cloudinary.com/rainforest-cruises/images/v1618598903/15D-South-America-PE-B0-Featured/15D-South-America-PE-B0-Featured.jpg" alt="">
-  //       </div>
-  //       <div class="search-result__content">
-  //           <div class="search-result__content__tag">
-
-  //                                           </div>
-  //           <div class="search-result__content__length">
-  //                                   1-Day Tour
-  //                           </div>
-  //           <div class="search-result__content__title">
-  //                                   Inca Trail &amp; Salar Uyuni                
-  //           </div>
-  //           <div class="search-result__content__description">
-  //                           </div>
-  //           <div class="search-result__content__info">
-  //               <div class="search-result__content__info__price">
-  //                   <div class="search-result__content__info__price__starting">
-  //                       Starting from                     </div>
-  //                   <div class="search-result__content__info__price__amount">
-  //                       $7,225                    </div>
-  //                   <div class="search-result__content__info__price__currency">
-  //                       USD
-  //                   </div>
-  //               </div>
-  //               <div class="search-result__content__info__icons">
-  //               </div>
-  //           </div>
-  //       </div>
-  //   </a>
 });
 
 
