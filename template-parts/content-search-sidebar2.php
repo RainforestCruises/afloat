@@ -128,19 +128,19 @@ if (get_field('itinerary_length_max') != null) {
             <ul class="filter__content__list">
                 <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-1" value="tours">
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-1" value="rfc_tours">
                         <label for="travel-style-checkbox-1" tabindex="1">Tours</label>
                     </div>
                 </li>
                 <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-2" value="cruises">
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-2" value="rfc_cruises">
                         <label for="travel-style-checkbox-2" tabindex="2">Cruises</label>
                     </div>
                 </li>
                 <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-3" value="lodges">
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-3" value="rfc_lodges">
                         <label for="travel-style-checkbox-3" tabindex="3">Lodges</label>
                     </div>
                 </li>
@@ -212,20 +212,7 @@ if (get_field('itinerary_length_max') != null) {
 
 </aside>
 
-<form class="search-form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">
 
-    <!-- Direct to function within functions.php -->
-    <input type="hidden" name="action" value="mainSearch">
-    <input type="hidden" name="startDate" id="startDate" value="">
-    <input type="hidden" name="endDate" id="endDate" value="">
-    <input type="hidden" name="minLength" id="minLength" value="">
-    <input type="hidden" name="maxLength" id="maxLength" value="">
-    <input type="hidden" name="region" id="region" value="<?php echo $region->ID ?>">
-    <input type="hidden" name="destination" id="destination" value="<?php echo $destination->ID ?>">
-    <input type="hidden" name="searchType" id="searchType" value="<?php echo $searchType ?>">
-    <input type="hidden" name="initialPage" id="initialPage" value="">
-
-</form>
 
 <script>
     //tour lengths (always a number)
