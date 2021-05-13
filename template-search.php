@@ -117,3 +117,7 @@ $resultsArray = buildSearchResultsArray($posts);
 <script>
     var resultsArray = JSON.parse('<?php echo json_encode($resultsArray) ?>');
 </script>
+
+<script>
+    var templateUrl = "<?php echo bloginfo('template_url') ?>";
+</script>

@@ -4750,6 +4750,9 @@ h5 {
           margin: 0;
           margin-right: 0.5rem;
           transform: scale(0.9); }
+          .search-result__content__bottom__experiences__item .experience-icon svg {
+            stroke: none !important;
+            stroke-width: 0 !important; }
   .search-result__detail {
     display: flex;
     flex-direction: column;

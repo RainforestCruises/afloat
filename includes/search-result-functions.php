@@ -24,6 +24,8 @@ function buildSearchResultsArray($posts)
 
         $charterAvailable = false;
         $charterOnly = false;
+        $vesselCapacity = 0;
+        $numberOfCabins = 0;
 
         if ($postType  == 'rfc_tours') {
             $productTitle = get_field('tour_name', $p);
@@ -52,7 +54,8 @@ function buildSearchResultsArray($posts)
         if ($postType  == 'rfc_lodges' || $postType  == 'rfc_cruises') {
             $productTitle = get_the_title($p);
             $cruiseData = get_field('cruise_data', $p);
-
+            $vesselCapacity = get_field('vessel_capacity', $p);
+            $numberOfCabins = get_field('number_of_cabins', $p);
 
             if ($postType  == 'rfc_cruises') {
                 $charterAvailable = get_field('charter_available', $p);
@@ -130,6 +133,7 @@ function buildSearchResultsArray($posts)
                 $experiences[] = (object) array(
                     'postId' => $e->ID,
                     'name' => get_the_title($e),
+                    'icon' => get_field('icon', $e),
                 );
             }
         }
@@ -170,7 +174,9 @@ function buildSearchResultsArray($posts)
             'experiences' => $experiences,
             'postLink' => $resultLink,
             'charterAvailable' => $charterAvailable,
-            'charterOnly' => $charterOnly
+            'charterOnly' => $charterOnly,
+            'vesselCapacity' => $vesselCapacity,
+            'numberOfCabins' => $numberOfCabins
 
         );
     }

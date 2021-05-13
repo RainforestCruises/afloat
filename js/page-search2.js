@@ -1,4 +1,5 @@
 jQuery(document).ready(function ($) {
+  console.log('original array');
   console.log(resultsArray);
 
   var preselectMinLength = 1;
@@ -324,8 +325,7 @@ jQuery(document).ready(function ($) {
 
   const prepareRender = (arr) => {
     let preparedList = []
-    console.log('prepared render');
-    console.log(arr);
+   
     arr.forEach(o => {
 
       //Product Type Display
@@ -341,8 +341,28 @@ jQuery(document).ready(function ($) {
       //Regions Display
       let regionsDisplay = ""
       if (o.destinations.length > 0) {
+        let count = 0;
         o.destinations.forEach(d => {
-          regionsDisplay += d.name + ", ";
+          if (count != 0) {
+            regionsDisplay += ", " + d.name;
+          } else {
+            regionsDisplay += d.name;
+          }
+          count++;
+        })
+      }
+
+      //Destinations Display
+      let destinationsDisplay = ""
+      if (o.locations.length > 0) {
+        let count = 0;
+        o.locations.forEach(l => {
+          if (count != 0) {
+            destinationsDisplay += ", " + l.name;
+          } else {
+            destinationsDisplay += l.name;
+          }
+          count++;
         })
       }
 
@@ -372,15 +392,41 @@ jQuery(document).ready(function ($) {
       }
 
 
+      //Experiences -- could be in render
+      let experienceHTML = "";
+      if (o.experiences.length > 0) {
+
+        o.experiences.forEach(e => {
+          let iconHTML = "";
+          let svgLink = '<svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#' + e.icon + '"></use></svg>';
+          iconHTML = `
+          <div class="search-result__content__bottom__experiences__item">
+          <div class="experience-icon">
+          ${svgLink}
+              <span class="tooltiptext">${e.name}</span>
+          </div>
+          </div>
+          `
+          experienceHTML += iconHTML;
+
+        })
+
+      }
+
+
       var product = {
         productTitle: o.productTitle,
         productTypeDisplay: productTypeDisplay,
         productImage: o.productImage,
         snippet: o.snippet,
         regionsDisplay: regionsDisplay,
+        destinationsDisplay: destinationsDisplay,
         itineraryRangeDisplay: itineraryRangeDisplay,
-        itineraryCountDisplay: itineraryCountDisplay
-
+        itineraryCountDisplay: itineraryCountDisplay,
+        experienceHTML: experienceHTML,
+        postType: o.postType,
+        numberOfCabins: o.numberOfCabins,
+        vesselCapacity: o.vesselCapacity,
       };
 
       preparedList.push(product);
@@ -397,7 +443,13 @@ jQuery(document).ready(function ($) {
   const renderResponse = (arr) => {
     responseDiv.innerHTML = "";
 
+    console.log('filtered array');
+    console.log(arr);
+
     let results = prepareRender(arr);
+    console.log('prepared render');
+    console.log(results);
+
     results.forEach(item => {
 
       var resultCard = document.createElement("a");
@@ -437,20 +489,13 @@ jQuery(document).ready(function ($) {
                           Destinations:
                       </span>
                       <span class="search-result__content__bottom__details__group__text">
-                        Dest
+                      ${item.destinationsDisplay}
                       </span>
                   </div>
               </div>
               <div class="search-result__content__bottom__experiences">
                   <!-- Experience Item -->
-                  <div class="search-result__content__bottom__experiences__item">
-                      <div class="experience-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-                             XXX
-                          </svg> 
-                          <span class="tooltiptext">Luxury</span>
-                      </div>
-                  </div>
+                  ${item.experienceHTML}
                   
               </div>
           </div>
@@ -488,25 +533,28 @@ jQuery(document).ready(function ($) {
 
                       </div>
                   </div>
-
-                <!-- Capacity -->
-                <div class="search-result__detail__info__attributes__item">
-                      <div class="search-result__detail__info__attributes__item__data">
-                          <div class="search-result__detail__info__attributes__item__data__icon">
-                              <svg>
-                                  <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-boat-front"></use>
-                              </svg>
-                          </div>
-                          <div class="search-result__detail__info__attributes__item__data__text">
-                              Guests
-                              <div class="sub-attribute">
-                                Cabins
-                              </div>
-                          </div>
-
-                      </div>
+                  
+                
+                ${item.postType != "rfc_tours" ?
+          `
+                  <div class="search-result__detail__info__attributes__item">
+                  <div class="search-result__detail__info__attributes__item__data">
+                    <div class="search-result__detail__info__attributes__item__data__icon">
+                      <svg>
+                          <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-boat-front"></use>
+                      </svg>
+                    </div>
+                    <div class="search-result__detail__info__attributes__item__data__text">
+                    ${item.vesselCapacity} Guests
+                        <div class="sub-attribute">
+                        ${item.numberOfCabins} Cabins
+                        </div>
+                    </div>
                   </div>
-
+                </div>
+                  `
+          : ''}
+                
               </div>
 
           </div>
