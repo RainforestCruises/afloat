@@ -1,6 +1,34 @@
 jQuery(document).ready(function ($) {
   console.log(resultsArray);
-  
+
+  var preselectMinLength = 1;
+  var preselectMaxLength = 15;
+  //Length Slider
+
+  let rangeFrom = 1;
+  let rangeTo = 15;
+
+  $("#range-slider").ionRangeSlider({
+    skin: "round",
+    type: "double",
+    min: 1,
+    max: 15,
+    from: preselectMinLength,
+    to: preselectMaxLength,
+    postfix: " Day",
+    max_postfix: "+",
+    onFinish: function () {
+      var low = $("#range-slider").data("from");
+      var high = $("#range-slider").data("to");
+
+      rangeFrom = low;
+      rangeTo = high;
+
+      filterResults();
+
+    },
+  });
+
   // Show More -- Departure List
   $("#departure-show-more").click(function (e) {
     $("#departure-filter-list").toggleClass("expanded");
@@ -216,8 +244,41 @@ jQuery(document).ready(function ($) {
       filteredList = list;
     }
 
-    //departure
 
+    //range
+    if (rangeFrom != null || rangeTo != null) {
+
+      let list = [];
+      filteredList.forEach(o => {
+        if (o.postType == 'rfc_tours') {
+
+          var itineraryLength = o.itineraries[0].lengthInDays;
+
+          if (itineraryLength >= rangeFrom && itineraryLength <= rangeTo) {
+            list.push(o);
+          }
+
+        } else { //cruises/lodges
+
+          var found = false;
+          for (var z = 0; z < o.itineraries.length; z++) {  //loop itineraries
+            if (o.itineraries[z].lengthInDays >= rangeFrom && o.itineraries[z].lengthInDays <= rangeTo) {
+              found = true;
+              break;
+            }
+          }
+          if (found == true) {
+            list.push(o);
+
+          }
+
+        }
+
+      });
+      filteredList = list;
+    }
+
+    //departure
     if (departureSelectionArray.length > 0) {
       let list = [];
       filteredList.forEach(o => {
@@ -227,27 +288,31 @@ jQuery(document).ready(function ($) {
         else { //cruises
 
           var found = false;
-          for (var z = 0; z < o.itineraries.length; z++) { //for each itinerary
+          for (var z = 0; z < o.itineraries.length; z++) { //for each itinerary (here check for length -- use continue if condition not met)
 
             if (found == true) {
               break;
             }
 
             var currentItinerary = o.itineraries[z];
-            for (var i = 0; i < currentItinerary.departures.length; i++) { //for each departure
+            if (currentItinerary.lengthInDays >= rangeFrom && currentItinerary.lengthInDays <= rangeTo) { //Only check availability if within length range
+              for (var i = 0; i < currentItinerary.departures.length; i++) { //for each departure
 
-              departureSelectionArray.forEach(dateSelection => { //for each selection of month/year -- check per departure        
-                var match = moment(currentItinerary.departures[i].departureDate).isSame(dateSelection, 'month');
-                if (match == true) {
-                  found = true;
+                departureSelectionArray.forEach(dateSelection => { //for each selection of month/year -- check per departure        
+                  var match = moment(currentItinerary.departures[i].departureDate).isSame(dateSelection, 'month');
+                  if (match == true) {
+                    found = true;
+                  }
+                })
+
+                if (found == true) {
+                  list.push(o);
+                  break;
                 }
-              })
-
-              if (found == true) {
-                list.push(o);
-                break;
               }
             }
+
+
           }
         }
       })

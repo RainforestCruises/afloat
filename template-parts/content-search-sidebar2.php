@@ -210,6 +210,22 @@ if (get_field('itinerary_length_max') != null) {
         </div>
     </div>
 
+    <!-- Length Filter -->
+    <div class="filter">
+        <div class="filter__heading">
+            <div class="filter__heading__text">
+                Itinerary Length
+            </div>
+            <svg>
+                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
+            </svg>
+        </div>
+        <div class="filter__content">
+            <!-- List -->
+            <input class="filter__content__range-slider" type="text" name="range-slider" id="range-slider">
+        </div>
+    </div>
+
 </aside>
 
 
