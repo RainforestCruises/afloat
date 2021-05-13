@@ -366,7 +366,7 @@ jQuery(document).ready(function ($) {
             <div class="search-result__content__info__icons">
             </div>
         </div>
-  </div>`
+      </div>`
 
 
 

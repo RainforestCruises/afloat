@@ -4690,81 +4690,132 @@ h5 {
 .search-result {
   border: 1px solid #e6e6e6;
   border-radius: 0.4rem;
-  padding: 1.5rem;
+  padding: 2rem;
   display: grid;
-  grid-template-columns: 40% 1fr;
+  grid-template-columns: 28rem 1fr 18rem;
   column-gap: 4rem;
   cursor: pointer;
-  transition: all 0.3s; }
-  @media only screen and (max-width: 37.5em) {
-    .search-result {
-      grid-template-columns: 1fr;
-      row-gap: 2rem; } }
+  transition: all 0.3s;
+  height: min-content !important;
+  width: 100%;
+  margin-left: 3rem; }
   .search-result:link, .search-result:visited {
-    text-decoration: none; }
-  .search-result:hover {
-    box-shadow: 0 0rem 3rem rgba(0, 0, 0, 0.2);
-    border: 1px solid transparent; }
-  .search-result__image {
-    width: 100%;
-    height: 100%;
-    min-height: 20rem; }
-    .search-result__image img {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-      border-top-left-radius: 0.3rem;
-      border-bottom-left-radius: 0.3rem; }
-      @media only screen and (max-width: 50em) {
-        .search-result__image img {
-          border-top-right-radius: 0.3rem;
-          border-bottom-right-radius: 0.3rem; } }
-  .search-result__content {
-    display: grid;
-    position: relative;
+    text-decoration: none;
     color: #9ea0a4; }
-    .search-result__content__tag {
-      position: absolute;
-      top: 0;
-      right: 0; }
-    .search-result__content__length {
-      font-size: 1.3rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      align-self: end;
-      letter-spacing: 0.2rem; }
-    .search-result__content__title {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #142838; }
-    .search-result__content__description {
-      font-size: 1.4rem; }
-    .search-result__content__info {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      font-size: 1.4rem; }
-      .search-result__content__info__price {
-        display: grid;
-        grid-template-columns: repeat(3, max-content);
-        align-items: end;
-        column-gap: 0.5rem; }
-        .search-result__content__info__price__starting {
-          font-size: 1.4rem;
-          font-weight: 500;
-          padding-bottom: 0.8rem; }
-        .search-result__content__info__price__amount {
-          font-size: 3rem;
+  .search-result__image-area {
+    width: 100%;
+    height: min-content;
+    display: flex; }
+    .search-result__image-area img {
+      width: 100%;
+      height: auto;
+      object-fit: contain; }
+  .search-result__content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0; }
+    .search-result__content__top {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e6e6e6; }
+      .search-result__content__top__title-group {
+        padding-bottom: 1rem; }
+        .search-result__content__top__title-group__title {
+          font-size: 2.5rem;
           font-weight: 600;
           color: #142838; }
-        .search-result__content__info__price__currency {
+        .search-result__content__top__title-group__subtitle {
+          font-size: 1.2rem;
+          font-weight: 600;
           text-transform: uppercase;
-          color: #142838;
-          padding-bottom: 0.8rem;
+          align-self: end;
+          letter-spacing: 0.2rem;
+          line-height: 1.3rem; }
+      .search-result__content__top__snippet {
+        font-size: 1.5rem; }
+    .search-result__content__bottom {
+      padding-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      font-size: 1.5rem; }
+      .search-result__content__bottom__details {
+        padding: 1rem 0; }
+        .search-result__content__bottom__details__group__title {
+          color: #305a7c;
           font-weight: 600; }
-      .search-result__content__info__icons {
-        justify-self: end;
-        align-self: end;
-        padding-bottom: 0.8rem; }
+      .search-result__content__bottom__experiences {
+        display: flex;
+        padding-top: 1rem; }
+        .search-result__content__bottom__experiences__item .experience-icon {
+          margin: 0;
+          margin-right: 0.5rem;
+          transform: scale(0.9); }
+  .search-result__detail {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem; }
+    .search-result__detail__info {
+      height: 100%; }
+      .search-result__detail__info__price-from {
+        padding-bottom: 1rem; }
+        .search-result__detail__info__price-from__text {
+          font-size: 1.4rem; }
+        .search-result__detail__info__price-from__price {
+          font-size: 3.2rem;
+          font-weight: 600;
+          color: #142838; }
+          .search-result__detail__info__price-from__price span {
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            color: #142838;
+            font-weight: 600; }
+      .search-result__detail__info__attributes {
+        height: 100%; }
+        .search-result__detail__info__attributes__item {
+          position: relative;
+          display: flex;
+          text-align: center;
+          flex-direction: column;
+          margin-bottom: 1.5rem; }
+          .search-result__detail__info__attributes__item__data {
+            color: #142838;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            text-align: start; }
+            .search-result__detail__info__attributes__item__data__icon {
+              margin-right: 1rem;
+              display: flex;
+              align-items: center; }
+              .search-result__detail__info__attributes__item__data__icon svg {
+                stroke: #142838;
+                stroke-width: 4;
+                height: 3rem;
+                width: 3rem;
+                color: #142838;
+                fill: #142838; }
+            .search-result__detail__info__attributes__item__data__text {
+              font-size: 1.6rem;
+              line-height: 2.5rem;
+              font-weight: 700;
+              text-transform: uppercase;
+              width: max-content; }
+              .search-result__detail__info__attributes__item__data__text .sub-attribute {
+                font-size: 1.1rem;
+                line-height: 1.6rem;
+                font-weight: 600; }
+            .search-result__detail__info__attributes__item__data ul {
+              list-style: none;
+              display: flex;
+              font-size: 1.2rem; }
+    .search-result__detail__cta {
+      display: flex;
+      justify-content: center;
+      padding-top: 2rem;
+      padding-bottom: 1rem; }
+      .search-result__detail__cta button {
+        transform: scale(0.8); }
 
 .checkbox {
   position: absolute;

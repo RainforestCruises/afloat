@@ -11,7 +11,7 @@ function buildSearchResultsArray($posts)
         $propertyTitle = "";
         $itineraries = [];
         $snippet = get_field('top_snippet', $p);
-        $featuredImage = get_field('featured_image', $p);
+        $featuredImage = get_field('featured_image', $p); //need specific image size
 
         $locationPosts = get_field('locations', $p);
         $destinationPosts = get_field('destinations', $p);
@@ -160,7 +160,7 @@ function buildSearchResultsArray($posts)
         $results[] = (object) array(
             'postType' => $postType,
             'propertyTitle' => $propertyTitle,
-            'featuredImage' => $featuredImage,
+            'featuredImage' => $featuredImage, //need image ID and then get custom size -- return URL here
             'snippet' => $snippet,
             'itineraries' => $itineraries, //tours always have one
             'destinations' => $destinations,
