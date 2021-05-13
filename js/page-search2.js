@@ -322,58 +322,203 @@ jQuery(document).ready(function ($) {
     renderResponse(filteredList);
   };
 
+  const prepareRender = (arr) => {
+    let preparedList = []
+    console.log('prepared render');
+    console.log(arr);
+    arr.forEach(o => {
+
+      //Product Type Display
+      let productTypeDisplay = "";
+      if (o.postType == "rfc_cruises") {
+        productTypeDisplay = 'River Cruise';
+      } else if (o.postType == "rfc_tours") {
+        productTypeDisplay = 'Land Tour';
+      } else {
+        productTypeDisplay = 'Lodge Stay';
+      }
+
+      //Regions Display
+      let regionsDisplay = ""
+      if (o.destinations.length > 0) {
+        o.destinations.forEach(d => {
+          regionsDisplay += d.name + ", ";
+        })
+      }
+
+      //Itinerary Length
+      let itineraryRangeDisplay = ""
+      let itineraryCountDisplay = ""
+
+      if (o.postType != "rfc_tours") { //cruises & lodges
+        if (o.itineraries.length > 0) {
+
+          const itineraryValues = o.itineraries.map(i => parseInt(i.lengthInDays));
+          const rangeFrom = Math.min(...itineraryValues);
+          const rangeTo = Math.max(...itineraryValues);
+
+          //range
+          if (rangeFrom != rangeTo) {
+            itineraryRangeDisplay = rangeFrom + " - " + rangeTo + " Days";
+          } else {
+            itineraryRangeDisplay = rangeFrom + " Days";
+          }
+          //count
+          itineraryCountDisplay = o.itineraries.length + (o.itineraries.length > 1 ? " Itineraries" : " Itinerary");
+        }
+      } else { //tours
+        itineraryRangeDisplay = o.itineraries[0].lengthInDays + " Days";
+        itineraryCountDisplay = "";
+      }
+
+
+      var product = {
+        productTitle: o.productTitle,
+        productTypeDisplay: productTypeDisplay,
+        productImage: o.productImage,
+        snippet: o.snippet,
+        regionsDisplay: regionsDisplay,
+        itineraryRangeDisplay: itineraryRangeDisplay,
+        itineraryCountDisplay: itineraryCountDisplay
+
+      };
+
+      preparedList.push(product);
+
+    })
+
+    return preparedList;
+
+  };
 
 
   //Render function
   const responseDiv = document.querySelector('#response');
   const renderResponse = (arr) => {
     responseDiv.innerHTML = "";
-    arr.forEach(item => {
+
+    let results = prepareRender(arr);
+    results.forEach(item => {
 
       var resultCard = document.createElement("a");
       resultCard.classList.add("search-result");
-      resultCard.href = item.postLink;
+      //resultCard.href = item.postLink;
 
       var resultHTML = `
-      <div class="search-result__image">
-        <img src="${item.featuredImage.url}" alt="">
+      <div class="search-result__image-area">
+        <img src="${item.productImage}" alt="">
       </div>
       <div class="search-result__content">
-        <div class="search-result__content__tag">
-          Amazing
-        </div>
-        <div class="search-result__content__length">
-          1-Day Tour
-        </div>
-        <div class="search-result__content__title">
-        ${item.propertyTitle}              
-        </div>
-        <div class="search-result__content__description">
-        ${item.snippet} 
-        </div>
-        <div class="search-result__content__info">
-            <div class="search-result__content__info__price">
-                <div class="search-result__content__info__price__starting">
-                    Starting from                     
-                </div>
-                <div class="search-result__content__info__price__amount">
-                    $7,225                    
-                </div>
-                <div class="search-result__content__info__price__currency">
-                    USD
-                </div>
-            </div>
-            <div class="search-result__content__info__icons">
-            </div>
-        </div>
-      </div>`
+          <div class="search-result__content__top">
+              <div class="search-result__content__top__title-group">
+                  <div class="search-result__content__top__title-group__subtitle">
+                    ${item.productTypeDisplay}
+                  </div>
+                  <div class="search-result__content__top__title-group__title">
+                    ${item.productTitle}
+                  </div>
+              </div>
+              <div class="search-result__content__top__snippet">
+                ${item.snippet}
+              </div>
+          </div>
+          <div class="search-result__content__bottom">
+              <div class="search-result__content__bottom__details">
+                  <div class="search-result__content__bottom__details__group">
+                      <span class="search-result__content__bottom__details__group__title">
+                          Regions:
+                      </span>
+                      <span class="search-result__content__bottom__details__group__text">
+                        ${item.regionsDisplay}
+                      </span>
+                  </div>
+                  <div class="search-result__content__bottom__details__group">
+                      <span class="search-result__content__bottom__details__group__title">
+                          Destinations:
+                      </span>
+                      <span class="search-result__content__bottom__details__group__text">
+                        Dest
+                      </span>
+                  </div>
+              </div>
+              <div class="search-result__content__bottom__experiences">
+                  <!-- Experience Item -->
+                  <div class="search-result__content__bottom__experiences__item">
+                      <div class="experience-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+                             XXX
+                          </svg> 
+                          <span class="tooltiptext">Luxury</span>
+                      </div>
+                  </div>
+                  
+              </div>
+          </div>
 
+      </div>
+      <div class="search-result__detail">
+          <div class="search-result__detail__info">
+              <div class="search-result__detail__info__price-from">
+                  <div class="search-result__detail__info__price-from__text">
+                      Starting From
+                  </div>
+                  <div class="search-result__detail__info__price-from__price">
+                     $5,000
+                      <span>
+                          USD
+                      </span>
+                  </div>
+              </div>
+              <div class="search-result__detail__info__attributes">
 
+                  <!-- Itineraries -->
+                  <div class="search-result__detail__info__attributes__item">
+                      <div class="search-result__detail__info__attributes__item__data">
+                          <div class="search-result__detail__info__attributes__item__data__icon">
+                              <svg>
+                                  <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-m-time"></use>
+                              </svg>
+                          </div>
+                          <div class="search-result__detail__info__attributes__item__data__text">
+                              ${item.itineraryRangeDisplay}
+                              <div class="sub-attribute">
+                              ${item.itineraryCountDisplay}
+                              </div>
+                          </div>
 
+                      </div>
+                  </div>
 
+                <!-- Capacity -->
+                <div class="search-result__detail__info__attributes__item">
+                      <div class="search-result__detail__info__attributes__item__data">
+                          <div class="search-result__detail__info__attributes__item__data__icon">
+                              <svg>
+                                  <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-boat-front"></use>
+                              </svg>
+                          </div>
+                          <div class="search-result__detail__info__attributes__item__data__text">
+                              Guests
+                              <div class="sub-attribute">
+                                Cabins
+                              </div>
+                          </div>
 
+                      </div>
+                  </div>
 
+              </div>
 
+          </div>
+          <div class="search-result__detail__cta">
+              <button class="btn-cta-round">
+                  View Cruise
+              </button>
+          </div>
+
+      </div>
+      
+      `
 
 
       resultCard.innerHTML = resultHTML;

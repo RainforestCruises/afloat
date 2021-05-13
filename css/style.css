@@ -4697,8 +4697,7 @@ h5 {
   cursor: pointer;
   transition: all 0.3s;
   height: min-content !important;
-  width: 100%;
-  margin-left: 3rem; }
+  width: 100%; }
   .search-result:link, .search-result:visited {
     text-decoration: none;
     color: #9ea0a4; }

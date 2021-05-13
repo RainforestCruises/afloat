@@ -8,10 +8,12 @@ function buildSearchResultsArray($posts)
     foreach ($posts as $p) {
 
 
-        $propertyTitle = "";
+        $productTitle = "";
         $itineraries = [];
         $snippet = get_field('top_snippet', $p);
-        $featuredImage = get_field('featured_image', $p); //need specific image size
+
+        $featuredImage = get_field('featured_image', $p); //need specific image size  
+        $productImage = wp_get_attachment_image_url( $featuredImage['id'], 'featured-square');
 
         $locationPosts = get_field('locations', $p);
         $destinationPosts = get_field('destinations', $p);
@@ -24,7 +26,7 @@ function buildSearchResultsArray($posts)
         $charterOnly = false;
 
         if ($postType  == 'rfc_tours') {
-            $propertyTitle = get_field('tour_name', $p);
+            $productTitle = get_field('tour_name', $p);
 
 
             $pricePackages = get_field('price_packages', $p);
@@ -48,7 +50,7 @@ function buildSearchResultsArray($posts)
         };
 
         if ($postType  == 'rfc_lodges' || $postType  == 'rfc_cruises') {
-            $propertyTitle = get_the_title($p);
+            $productTitle = get_the_title($p);
             $cruiseData = get_field('cruise_data', $p);
 
 
@@ -159,8 +161,8 @@ function buildSearchResultsArray($posts)
 
         $results[] = (object) array(
             'postType' => $postType,
-            'propertyTitle' => $propertyTitle,
-            'featuredImage' => $featuredImage, //need image ID and then get custom size -- return URL here
+            'productTitle' => $productTitle,
+            'productImage' => $productImage, //need image ID and then get custom size -- return URL here
             'snippet' => $snippet,
             'itineraries' => $itineraries, //tours always have one
             'destinations' => $destinations,
