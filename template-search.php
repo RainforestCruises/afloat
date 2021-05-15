@@ -76,12 +76,14 @@ get_header();
 <form class="search-form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">
 
     <!-- Direct to function within functions.php -->
-    <input type="hidden" name="action" value="mainSearch">
+    <input type="hidden" name="action" value="primarySearch">
 
     <input type="hidden" name="formDates" id="formDates" value="">
     <input type="hidden" name="formTravelStyles" id="formTravelStyles" value="">
     <input type="hidden" name="formDestinations" id="formDestinations" value="">
     <input type="hidden" name="formExperiences" id="formExperiences" value="">
+    <input type="hidden" name="formMinLength" id="formMinLength" value="">
+    <input type="hidden" name="formMaxLength" id="formMaxLength" value="">
 
 
 
@@ -96,27 +98,7 @@ get_header();
 <?php get_footer(); ?>
 
 
-<?php
 
-$travelType = array('rfc_cruises', 'rfc_tours', 'rfc_lodges'); //Any
-
-$args = array(
-    'posts_per_page' => -1,
-    'post_type' => $travelType,
-);
-
-$posts = get_posts($args);
-//get upper bound of search results -- destination boundary, not preselections
-
-$resultsArray = buildSearchResultsArray($posts);
-
-
-
-
-?>
-<script>
-    var resultsArray = JSON.parse('<?php echo json_encode($resultsArray) ?>');
-</script>
 
 <script>
     var templateUrl = "<?php echo bloginfo('template_url') ?>";

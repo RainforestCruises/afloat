@@ -45,9 +45,15 @@ function load_scripts()
 
     wp_enqueue_script('cloudinary', 'https://cdnjs.cloudflare.com/ajax/libs/cloudinary-jquery/2.11.3/cloudinary-jquery.min.js', array('jquery'), false, true);
 
+    wp_enqueue_script('dayjs', 'https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js', array('jquery'), false, true);
+
 
     wp_enqueue_script('utility', get_template_directory_uri() . '/js/utilities.js', array('jquery'), false, true);
     wp_enqueue_script('header', get_template_directory_uri() . '/js/header.js', array('jquery'), false, true);
+//
+
+
+
 
 
 

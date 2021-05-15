@@ -1,6 +1,15 @@
+
 jQuery(document).ready(function ($) {
-  console.log('original array');
-  console.log(resultsArray);
+
+
+    //FORM ----------------
+  //form variables
+  const formDates = document.querySelector('#formDates');
+  const formTravelStyles = document.querySelector('#formTravelStyles');
+  const formDestinations = document.querySelector('#formDestinations');
+  const formExperiences = document.querySelector('#formExperiences');
+  const formMaxLength = document.querySelector('#formMaxLength');
+  const formMinLength = document.querySelector('#formMinLength');
 
   var preselectMinLength = 1;
   var preselectMaxLength = 15;
@@ -21,12 +30,10 @@ jQuery(document).ready(function ($) {
     onFinish: function () {
       var low = $("#range-slider").data("from");
       var high = $("#range-slider").data("to");
+      formMinLength.value = low;
+      formMaxLength.value = high;
 
-      rangeFrom = low;
-      rangeTo = high;
-
-      filterResults();
-
+      reloadResults();
     },
   });
 
@@ -59,12 +66,7 @@ jQuery(document).ready(function ($) {
 
 
 
-  //FORM ----------------
-  //form variables
-  const formDates = document.querySelector('#formDates');
-  const formTravelStyles = document.querySelector('#formTravelStyles');
-  const formDestinations = document.querySelector('#formDestinations');
-  const formExperiences = document.querySelector('#formExperiences');
+
 
 
 
@@ -89,7 +91,7 @@ jQuery(document).ready(function ($) {
           if (count > 0) {
             departureString += ":";
           }
-          departureString += itemMonth + "-" + itemYear;
+          departureString += itemYear + "-" + itemMonth;
           count++;
         }
 
@@ -97,7 +99,7 @@ jQuery(document).ready(function ($) {
 
       formDates.value = departureString;
 
-      filterResults();
+      reloadResults();
     });
   })
 
@@ -129,7 +131,7 @@ jQuery(document).ready(function ($) {
 
       formTravelStyles.value = travelStylesString;
 
-      filterResults();
+      reloadResults();
     });
   })
 
@@ -157,7 +159,7 @@ jQuery(document).ready(function ($) {
       })
 
       formDestinations.value = destinationsString;
-      filterResults();
+      reloadResults();
     });
   })
 
@@ -186,397 +188,48 @@ jQuery(document).ready(function ($) {
 
       })
       formExperiences.value = experiencesString;
-      filterResults();
+      reloadResults();
     });
   })
 
 
 
 
-  //Need function to filter list and prepare prices/length values based on filter inputs
-  //Then pass to render function
-  const filterResults = () => {
 
-    let filteredList = resultsArray;
+  $('#search-form').submit(function () {
 
+    reloadResults();
+    return false;
+  });
 
-    //travel styles
-    if (travelStylesSelectionArray.length > 0) {
-      let list = [];
-      resultsArray.forEach(o => {
-        if (travelStylesSelectionArray.includes(o.postType)) {
-          list.push(o);
-        };
+  //SEARCH FUNCTION
+  function reloadResults() {
+    console.log('reload');
 
-      })
-      filteredList = list;
-
-    }
-
-    //experiences
-    if (experiencesSelectionArray.length > 0) {
-      let list = [];
-      filteredList.forEach(o => {
-
-        arr1 = o.experiences.map(x => x.postId);
-        arr2 = experiencesSelectionArray;
-        const found = arr1.some(r => arr2.indexOf(r) >= 0);
-        if (found == true) {
-          list.push(o);
-        }
-
-      })
-      filteredList = list;
-    }
-
-    //destinations / locations
-    if (destinationsSelectionArray.length > 0) {
-      let list = [];
-      filteredList.forEach(o => {
-
-        arr1 = o.locations.map(x => x.postId); //check if locations or destination based on searchType
-        arr2 = destinationsSelectionArray;
-        const found = arr1.some(r => arr2.indexOf(r) >= 0);
-        if (found == true) {
-          list.push(o);
-        }
-
-      })
-      filteredList = list;
-    }
+    
+    var searchForm = $('#search-form'); //get form
+    $.ajax({
+      url: searchForm.attr('action'),
+      data: searchForm.serialize(), // form data
+      type: searchForm.attr('method'), // POST
+      beforeSend: function () {
+        $('#response').html('<div class="search-results__grid__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
+        $('#response-count').html('Searching...');
+      },
+      success: function (data) {
 
 
-    //range
-    if (rangeFrom != null || rangeTo != null) {
 
-      let list = [];
-      filteredList.forEach(o => {
-        if (o.postType == 'rfc_tours') {
+        $('#response').html(data); // insert data
 
-          var itineraryLength = o.itineraries[0].lengthInDays;
-
-          if (itineraryLength >= rangeFrom && itineraryLength <= rangeTo) {
-            list.push(o);
-          }
-
-        } else { //cruises/lodges
-
-          var found = false;
-          for (var z = 0; z < o.itineraries.length; z++) {  //loop itineraries
-            if (o.itineraries[z].lengthInDays >= rangeFrom && o.itineraries[z].lengthInDays <= rangeTo) {
-              found = true;
-              break;
-            }
-          }
-          if (found == true) {
-            list.push(o);
-
-          }
-
-        }
-
-      });
-      filteredList = list;
-    }
-
-    //departure
-    if (departureSelectionArray.length > 0) {
-      let list = [];
-      filteredList.forEach(o => {
-        if (o.postType != 'rfc_cruises') {
-          list.push(o);
-        }
-        else { //cruises
-
-          var found = false;
-          for (var z = 0; z < o.itineraries.length; z++) { //for each itinerary (here check for length -- use continue if condition not met)
-
-            if (found == true) {
-              break;
-            }
-
-            var currentItinerary = o.itineraries[z];
-            if (currentItinerary.lengthInDays >= rangeFrom && currentItinerary.lengthInDays <= rangeTo) { //Only check availability if within length range
-              for (var i = 0; i < currentItinerary.departures.length; i++) { //for each departure
-
-                departureSelectionArray.forEach(dateSelection => { //for each selection of month/year -- check per departure        
-                  var match = moment(currentItinerary.departures[i].departureDate).isSame(dateSelection, 'month');
-                  if (match == true) {
-                    found = true;
-                  }
-                })
-
-                if (found == true) {
-                  list.push(o);
-                  break;
-                }
-              }
-            }
+       
 
 
-          }
-        }
-      })
-      filteredList = list;
-    }
-
-    renderResponse(filteredList);
-  };
-
-  const prepareRender = (arr) => {
-    let preparedList = []
-   
-    arr.forEach(o => {
-
-      //Product Type Display
-      let productTypeDisplay = "";
-      if (o.postType == "rfc_cruises") {
-        productTypeDisplay = 'River Cruise';
-      } else if (o.postType == "rfc_tours") {
-        productTypeDisplay = 'Land Tour';
-      } else {
-        productTypeDisplay = 'Lodge Stay';
-      }
-
-      //Regions Display
-      let regionsDisplay = ""
-      if (o.destinations.length > 0) {
-        let count = 0;
-        o.destinations.forEach(d => {
-          if (count != 0) {
-            regionsDisplay += ", " + d.name;
-          } else {
-            regionsDisplay += d.name;
-          }
-          count++;
-        })
-      }
-
-      //Destinations Display
-      let destinationsDisplay = ""
-      if (o.locations.length > 0) {
-        let count = 0;
-        o.locations.forEach(l => {
-          if (count != 0) {
-            destinationsDisplay += ", " + l.name;
-          } else {
-            destinationsDisplay += l.name;
-          }
-          count++;
-        })
-      }
-
-      //Itinerary Length
-      let itineraryRangeDisplay = ""
-      let itineraryCountDisplay = ""
-
-      if (o.postType != "rfc_tours") { //cruises & lodges
-        if (o.itineraries.length > 0) {
-
-          const itineraryValues = o.itineraries.map(i => parseInt(i.lengthInDays));
-          const rangeFrom = Math.min(...itineraryValues);
-          const rangeTo = Math.max(...itineraryValues);
-
-          //range
-          if (rangeFrom != rangeTo) {
-            itineraryRangeDisplay = rangeFrom + " - " + rangeTo + " Days";
-          } else {
-            itineraryRangeDisplay = rangeFrom + " Days";
-          }
-          //count
-          itineraryCountDisplay = o.itineraries.length + (o.itineraries.length > 1 ? " Itineraries" : " Itinerary");
-        }
-      } else { //tours
-        itineraryRangeDisplay = o.itineraries[0].lengthInDays + " Days";
-        itineraryCountDisplay = "";
-      }
-
-
-      //Experiences -- could be in render
-      let experienceHTML = "";
-      if (o.experiences.length > 0) {
-
-        o.experiences.forEach(e => {
-          let iconHTML = "";
-          let svgLink = '<svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#' + e.icon + '"></use></svg>';
-          iconHTML = `
-          <div class="search-result__content__bottom__experiences__item">
-          <div class="experience-icon">
-          ${svgLink}
-              <span class="tooltiptext">${e.name}</span>
-          </div>
-          </div>
-          `
-          experienceHTML += iconHTML;
-
-        })
+        
 
       }
-
-
-      var product = {
-        productTitle: o.productTitle,
-        productTypeDisplay: productTypeDisplay,
-        productImage: o.productImage,
-        snippet: o.snippet,
-        regionsDisplay: regionsDisplay,
-        destinationsDisplay: destinationsDisplay,
-        itineraryRangeDisplay: itineraryRangeDisplay,
-        itineraryCountDisplay: itineraryCountDisplay,
-        experienceHTML: experienceHTML,
-        postType: o.postType,
-        numberOfCabins: o.numberOfCabins,
-        vesselCapacity: o.vesselCapacity,
-      };
-
-      preparedList.push(product);
-
-    })
-
-    return preparedList;
-
-  };
-
-
-  //Render function
-  const responseDiv = document.querySelector('#response');
-  const renderResponse = (arr) => {
-    responseDiv.innerHTML = "";
-
-    console.log('filtered array');
-    console.log(arr);
-
-    let results = prepareRender(arr);
-    console.log('prepared render');
-    console.log(results);
-
-    results.forEach(item => {
-
-      var resultCard = document.createElement("a");
-      resultCard.classList.add("search-result");
-      //resultCard.href = item.postLink;
-
-      var resultHTML = `
-      <div class="search-result__image-area">
-        <img src="${item.productImage}" alt="">
-      </div>
-      <div class="search-result__content">
-          <div class="search-result__content__top">
-              <div class="search-result__content__top__title-group">
-                  <div class="search-result__content__top__title-group__subtitle">
-                    ${item.productTypeDisplay}
-                  </div>
-                  <div class="search-result__content__top__title-group__title">
-                    ${item.productTitle}
-                  </div>
-              </div>
-              <div class="search-result__content__top__snippet">
-                ${item.snippet}
-              </div>
-          </div>
-          <div class="search-result__content__bottom">
-              <div class="search-result__content__bottom__details">
-                  <div class="search-result__content__bottom__details__group">
-                      <span class="search-result__content__bottom__details__group__title">
-                          Regions:
-                      </span>
-                      <span class="search-result__content__bottom__details__group__text">
-                        ${item.regionsDisplay}
-                      </span>
-                  </div>
-                  <div class="search-result__content__bottom__details__group">
-                      <span class="search-result__content__bottom__details__group__title">
-                          Destinations:
-                      </span>
-                      <span class="search-result__content__bottom__details__group__text">
-                      ${item.destinationsDisplay}
-                      </span>
-                  </div>
-              </div>
-              <div class="search-result__content__bottom__experiences">
-                  <!-- Experience Item -->
-                  ${item.experienceHTML}
-                  
-              </div>
-          </div>
-
-      </div>
-      <div class="search-result__detail">
-          <div class="search-result__detail__info">
-              <div class="search-result__detail__info__price-from">
-                  <div class="search-result__detail__info__price-from__text">
-                      Starting From
-                  </div>
-                  <div class="search-result__detail__info__price-from__price">
-                     $5,000
-                      <span>
-                          USD
-                      </span>
-                  </div>
-              </div>
-              <div class="search-result__detail__info__attributes">
-
-                  <!-- Itineraries -->
-                  <div class="search-result__detail__info__attributes__item">
-                      <div class="search-result__detail__info__attributes__item__data">
-                          <div class="search-result__detail__info__attributes__item__data__icon">
-                              <svg>
-                                  <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-m-time"></use>
-                              </svg>
-                          </div>
-                          <div class="search-result__detail__info__attributes__item__data__text">
-                              ${item.itineraryRangeDisplay}
-                              <div class="sub-attribute">
-                              ${item.itineraryCountDisplay}
-                              </div>
-                          </div>
-
-                      </div>
-                  </div>
-                  
-                
-                ${item.postType != "rfc_tours" ?
-          `
-                  <div class="search-result__detail__info__attributes__item">
-                  <div class="search-result__detail__info__attributes__item__data">
-                    <div class="search-result__detail__info__attributes__item__data__icon">
-                      <svg>
-                          <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-boat-front"></use>
-                      </svg>
-                    </div>
-                    <div class="search-result__detail__info__attributes__item__data__text">
-                    ${item.vesselCapacity} Guests
-                        <div class="sub-attribute">
-                        ${item.numberOfCabins} Cabins
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                  `
-          : ''}
-                
-              </div>
-
-          </div>
-          <div class="search-result__detail__cta">
-              <button class="btn-cta-round">
-                  View Cruise
-              </button>
-          </div>
-
-      </div>
-      
-      `
-
-
-      resultCard.innerHTML = resultHTML;
-      responseDiv.appendChild(resultCard);
-    })
+    });
   }
-
-
-  //onLoad
-  renderResponse(resultsArray);
 
 
 

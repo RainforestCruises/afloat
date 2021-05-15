@@ -255,3 +255,104 @@ function search_filter_home_search()
 
     die();
 }
+
+
+
+//New Main (primary) Search
+add_action('wp_ajax_primarySearch', 'search_filter_primary_search'); // wp_ajax_{ACTION HERE} 
+add_action('wp_ajax_nopriv_primarySearch', 'search_filter_primary_search');
+
+function search_filter_primary_search()
+{
+
+    //travel style
+    $formTravelStyles = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
+    if (isset($_POST['formTravelStyles']) && $_POST['formTravelStyles']) {
+        $stringValue = $_POST['formTravelStyles'];
+        $formTravelStyles = explode (":", $stringValue); 
+    }
+
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type' => $formTravelStyles,
+    );
+
+
+    //experiences
+    if (isset($_POST['formExperiences']) && $_POST['formExperiences']) {
+        $stringValue = $_POST['formExperiences'];
+        $formExperiences = explode (":", $stringValue); 
+
+        //build meta query criteria
+        $queryargs = array();
+        $queryargs['relation'] = 'OR';
+        foreach ($formExperiences as $e) {
+            $queryargs[] = array(
+                'key'     => 'experiences',
+                'value'   => '"' . $e . '"', //value must be in parenthesis to get ACF exact match, and use LIKE
+                'compare' => 'LIKE'
+            );
+        }
+
+        $args['meta_query'][] = $queryargs;
+    }
+   
+    //destinations
+    $formDestinations = $_POST['formDestinations'];
+    
+    $posts = get_posts($args); //Stage I posts
+
+
+    //Stage II Filters ----
+    //length
+    $formMinLength = null;
+    $formMaxLength = null;
+    if (isset($_POST['formMinLength']) && $_POST['formMinLength']) {
+        $formMinLength= $_POST['formMinLength']; //they will both have value as long as at least one is set
+        $formMaxLength= $_POST['formMaxLength'];
+    }
+
+
+    //dates
+    $formDates = null;
+    if (isset($_POST['formDates']) && $_POST['formDates']) {
+        $stringValue = $_POST['formDates'];
+        $formDates = explode (":", $stringValue); 
+    }
+
+    
+    console_log($formMinLength);
+    console_log($formMaxLength);
+    console_log($formDates);
+
+    //"2021-08-21T00:00:00"
+    // $testdate = strtotime($d['DepartureDate']); // this will be converted to 2018-07-01
+    // $selectedDate = strtotime($dateSelection); // this will be converted to 2018-07-01
+
+    // if (date('Ym', $selectedDate)==date('Ym', $testdate)) {
+    //     $match = true;
+    // } 
+    
+
+    $formattedResults = formatFilterSearch($posts, $formMinLength, $formMaxLength, $formDates);
+    console_log('formattedResults');
+    console_log($formattedResults);
+
+    //$postsAndCriteria = new stdClass();
+    // $postsAndCriteria->products = $posts;
+    // $postsAndCriteria->sortOrder = $sortOrder;
+    // $postsAndCriteria->startDate = $startDate;
+    // $postsAndCriteria->endDate = $endDate;
+    // $postsAndCriteria->minLength = $minLength;
+    // $postsAndCriteria->maxLength = $maxLength;
+    // $postsAndCriteria->charterFilter = $charterFilter;
+
+    // $postsAndCriteria->pageNumber = $pageNumber;
+
+
+    get_template_part('template-parts/content', 'primary-search-results', $formattedResults);
+
+
+
+    die();
+}
