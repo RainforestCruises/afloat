@@ -100,9 +100,9 @@ endforeach;
                         <!-- Map Area -->
                         <div class="product-itinerary-slide__top__map-area">
                             <div class="product-itinerary-slide__top__map-area__title">
-                                <div class="product-itinerary-slide__top__map-area__title__text">
+                                <h3 class="product-itinerary-slide__top__map-area__title__text">
                                     <?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>
-                                </div>
+                                </h3>
 
                             </div>
 
@@ -506,9 +506,9 @@ endforeach;
 
                                         <!-- Content -->
                                         <div class="product-itinerary-slide__bottom__days__item__content">
-                                            <div class="product-itinerary-slide__bottom__days__item__content__title">
+                                            <h4 class="product-itinerary-slide__bottom__days__item__content__title">
                                                 <?php echo $day['Title']; ?>
-                                            </div>
+                                            </h4>
                                             <div class="product-itinerary-slide__bottom__days__item__content__text">
                                                 <?php echo $day['Excerpt'] ?>
                                             </div>

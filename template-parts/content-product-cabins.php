@@ -6,9 +6,9 @@ $cruise_data = $args['cruiseData'];
 <!-- Cabins -->
 <div class="product-cabins">
 
-    <div class="xsub-divider xsub-divider--dark u-margin-bottom-small">
+    <h2 class="xsub-divider xsub-divider--dark u-margin-bottom-small">
         Suites & Cabins
-    </div>
+    </h2>
     <!-- Cabins -->
     <?php
     $cabins = $cruise_data['CabinDTOs'];

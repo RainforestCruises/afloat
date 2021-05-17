@@ -10,14 +10,14 @@ $equipment = get_field('equipment');
 ?>
 
 <div class="product-technical">
-    <div class="xsub-divider">
+    <h2 class="xsub-divider">
         Technical Information
-    </div>
+    </h2>
     <div class="product-technical__content">
         <div class="product-technical__content__image-area <?php echo ($show_equipment) ? "" : "half-width" ?>">
-            <div class="product-technical__content__image-area__title">
+            <h3 class="product-technical__content__image-area__title">
                 Deck Plan
-            </div>
+            </h3>
             <a class="product-technical__content__image-area" id="deckplan-image" href="<?php echo esc_url($deck_plan['url']); ?>" title="Deckplan">
 
                 <img src="<?php echo esc_url($deck_plan['url']); ?>" alt="">
@@ -32,9 +32,9 @@ $equipment = get_field('equipment');
             <div class="product-technical__content__columns__info">
 
                 <!-- Features -->
-                <div class="product-technical__content__columns__info__title">
+                <h3 class="product-technical__content__columns__info__title">
                     Features
-                </div>
+                </h3>
                 <ul class="product-technical__content__columns__info__list">
 
 
@@ -147,9 +147,9 @@ $equipment = get_field('equipment');
             <?php if ($show_equipment) : ?>
                 <div class="product-technical__content__columns__info">
 
-                    <div class="product-technical__content__columns__info__title">
+                    <h3 class="product-technical__content__columns__info__title">
                         Equipment
-                    </div>
+                    </h3>
 
                     <ul class="product-technical__content__columns__info__list">
                         <!-- Diving gear -->

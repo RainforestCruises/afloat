@@ -74,7 +74,7 @@ $hotels = get_field('hotels');
 
 <!-- Hotels -->
 <?php if ($hotels) : ?>
-    <div class="product-hotels u-margin-top-medium">
+    <div class="product-hotels">
 
         <div class="xsub-divider xsub-divider--dark u-margin-bottom-small">
             Hotel Options

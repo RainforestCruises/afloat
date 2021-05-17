@@ -21,7 +21,7 @@ add_action('after_setup_theme', 'afloat_config', 0); //last parameter is priorit
 
 
 add_action('after_setup_theme', 'afloat_images_sizes');
-
+//Responsive Images
 function afloat_images_sizes()
 {
 

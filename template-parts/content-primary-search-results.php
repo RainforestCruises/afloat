@@ -1,10 +1,10 @@
 <?php
 $results = $args;
-
-foreach ($results as $result) : ?>
-    <a href="#" class="search-result">
+foreach ($results as $result) :
+?>
+    <div class="search-result">
         <div class="search-result__image-area">
-            <img src="xxx" alt="">
+            <img src="<?php echo esc_html($result->productImageUrl); ?>" alt="">
         </div>
         <div class="search-result__content">
             <div class="search-result__content__top">
@@ -27,19 +27,10 @@ foreach ($results as $result) : ?>
                             Regions:
                         </span>
                         <span class="search-result__content__bottom__details__group__text">
-                        
-                            <?php if ($result->destinations) :
-                                $count = 0;
-                                $display = "";
-                                foreach ($result->destinations as $d) : 
-                                    if ($count != 0) {
-                                        $display += ", " + get_field('navigation_title', $d->postId);
-                                      } else {
-                                        $display += get_field('navigation_title', $d->postId);
-                                      }                                 
-                                      $count++;
-                                endforeach;
-                                echo $display;
+                            <?php
+                            $destinations = $result->destinations;
+                            if ($destinations) :
+                                echo comma_separate_list($destinations);
                             endif; ?>
                         </span>
                     </div>
@@ -48,13 +39,30 @@ foreach ($results as $result) : ?>
                             Destinations:
                         </span>
                         <span class="search-result__content__bottom__details__group__text">
-                            destinationsDisplay
+                            <?php
+                            $locations = $result->locations;
+                            if ($locations) :
+                                echo comma_separate_list($locations);
+                            endif; ?>
                         </span>
                     </div>
                 </div>
                 <div class="search-result__content__bottom__experiences">
                     <!-- Experience Item -->
-                    experienceHTML
+
+                    <?php $experiences = $result->experiences;
+                    if ($experiences) :
+                        foreach ($experiences as $e) :
+                            $experienceSvg = get_field('icon', $e); ?>
+                            <div class="search-result__content__bottom__experiences__item">
+                                <div class="experience-icon">
+                                    <?php echo $experienceSvg; ?>
+                                    <span class="tooltiptext"><?php echo get_the_title($e); ?></span>
+                                </div>
+                            </div>
+
+                    <?php endforeach;
+                    endif; ?>
 
                 </div>
             </div>
@@ -67,7 +75,7 @@ foreach ($results as $result) : ?>
                         Starting From
                     </div>
                     <div class="search-result__detail__info__price-from__price">
-                        $5,000
+                        $55,000
                         <span>
                             USD
                         </span>
@@ -75,7 +83,7 @@ foreach ($results as $result) : ?>
                 </div>
                 <div class="search-result__detail__info__attributes">
 
-                    <!-- Itineraries -->
+                    <!-- Length -->
                     <div class="search-result__detail__info__attributes__item">
                         <div class="search-result__detail__info__attributes__item__data">
                             <div class="search-result__detail__info__attributes__item__data__icon">
@@ -84,9 +92,9 @@ foreach ($results as $result) : ?>
                                 </svg>
                             </div>
                             <div class="search-result__detail__info__attributes__item__data__text">
-                                itineraryRangeDisplay
+                                <?php echo $result->itineraryLengthDisplay; ?>
                                 <div class="sub-attribute">
-                                    item.itineraryCountDisplay
+                                    <?php echo $result->itineraryCountDisplay; ?>
                                 </div>
                             </div>
 
@@ -95,35 +103,40 @@ foreach ($results as $result) : ?>
 
 
 
-
-                    <div class="search-result__detail__info__attributes__item">
-                        <div class="search-result__detail__info__attributes__item__data">
-                            <div class="search-result__detail__info__attributes__item__data__icon">
-                                <svg>
-                                    <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-boat-front"></use>
-                                </svg>
-                            </div>
-                            <div class="search-result__detail__info__attributes__item__data__text">
-                                vesselCapacity Guests
-                                <div class="sub-attribute">
-                                    numberOfCabins Cabins
+                    <!-- Capacity -->
+                    <?php if ($result->postType != 'rfc_tours') : ?>
+                        <div class="search-result__detail__info__attributes__item">
+                            <div class="search-result__detail__info__attributes__item__data">
+                                <div class="search-result__detail__info__attributes__item__data__icon">
+                                    <svg>
+                                        <?php if ($result->postType == 'rfc_cruises') : ?>
+                                            <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-boat-front"></use>
+                                        <?php elseif ($result->postType == 'rfc_lodges') : ?>
+                                            <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-bed-23"></use>
+                                        <?php endif; ?>
+                                    </svg>
+                                </div>
+                                <div class="search-result__detail__info__attributes__item__data__text">
+                                    <?php echo $result->vesselCapacityDisplay; ?>
+                                    <div class="sub-attribute">
+                                        <?php echo $result->numberOfCabinsDisplay; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
+                    <?php endif; ?>
                 </div>
 
             </div>
             <div class="search-result__detail__cta">
-                <button class="btn-cta-round">
-                    View Cruise
-                </button>
+                <a href="<?php echo get_permalink($result->post);  ?>" class="btn-cta-round btn-cta-round--small">
+                    View <?php echo $result->productTypeCta; ?>
+                </a>
             </div>
 
         </div>
 
-    </a>
+    </div>
 
 
 

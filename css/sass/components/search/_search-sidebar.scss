@@ -1,17 +1,11 @@
 .search-sidebar {
-    //background-color: cadetblue;
     width: 25%;
-    //height: 60rem;
     height: min-content;
     border: 1px solid $color-grey-light-1a;
     border-radius: .5rem;
-    //padding: 0 2rem;
 }
 
 .filter {
-
-    // margin-bottom: 2rem;
-    // padding-bottom: 2rem;
 
     &:not(:last-child){
         border-bottom: 1px solid $color-grey-light-1a;

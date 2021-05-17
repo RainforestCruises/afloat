@@ -297,8 +297,23 @@ function search_filter_primary_search()
         $args['meta_query'][] = $queryargs;
     }
    
-    //destinations
-    $formDestinations = $_POST['formDestinations'];
+    //destinations / locations
+    if (isset($_POST['formDestinations']) && $_POST['formDestinations']) {
+        $stringValue = $_POST['formDestinations'];
+        $formDestinations = explode (":", $stringValue); 
+        //build meta query criteria
+        $queryargs = array();
+        $queryargs['relation'] = 'OR';
+        foreach ($formDestinations as $d) {
+            $queryargs[] = array(
+                'key'     => 'locations', //change to destinations for region pages
+                'value'   => '"' . $d . '"', 
+                'compare' => 'LIKE'
+            );
+        }
+
+        $args['meta_query'][] = $queryargs;
+    }
     
     $posts = get_posts($args); //Stage I posts
 
@@ -320,19 +335,7 @@ function search_filter_primary_search()
         $formDates = explode (":", $stringValue); 
     }
 
-    
-    console_log($formMinLength);
-    console_log($formMaxLength);
-    console_log($formDates);
 
-    //"2021-08-21T00:00:00"
-    // $testdate = strtotime($d['DepartureDate']); // this will be converted to 2018-07-01
-    // $selectedDate = strtotime($dateSelection); // this will be converted to 2018-07-01
-
-    // if (date('Ym', $selectedDate)==date('Ym', $testdate)) {
-    //     $match = true;
-    // } 
-    
 
     $formattedResults = formatFilterSearch($posts, $formMinLength, $formMaxLength, $formDates);
     console_log('formattedResults');

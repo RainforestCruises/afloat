@@ -1,7 +1,7 @@
 <div class="product-reviews">
-    <div class="xsub-divider u-margin-top-medium">
+    <h2 class="xsub-divider u-margin-top-medium">
         Guest Reviews
-    </div>
+    </h2>
     <?php $reviews_background = get_field('reviews_background'); ?>
 
     <div class="product-reviews__bg" style="background-image:url(<?php echo $reviews_background['url'] ?>)">

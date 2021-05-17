@@ -2,12 +2,12 @@
 .search-result {
     border: 1px solid $color-grey-light-1a;
     border-radius: 0.4rem;
-    padding: 2rem;
+    padding: 1.5rem;
 
     display: grid;
-    grid-template-columns: 28rem 1fr 18rem;
-    column-gap: 4rem;
-    cursor: pointer;
+    grid-template-columns: 30rem 1fr 14rem;
+    column-gap: 2.5rem;
+    //cursor: pointer;
     transition: all 0.3s;
     height: min-content !important;
     width: 100%;
@@ -17,6 +17,11 @@
     &:visited {
         text-decoration: none;
         color: $color-grey-1;
+    }
+
+    &:hover {
+        box-shadow: $shadow-medium-around;
+        border: 1px solid transparent;
     }
 
     &__image-area {
@@ -33,7 +38,7 @@
     &__content {
         display: flex;
         flex-direction: column;
-        
+
         padding: 1rem 0;
 
         &__top {
@@ -42,8 +47,9 @@
             &__title-group {
                 padding-bottom: 1rem;
                 &__title {
-                    font-size: 2.5rem;
-                    font-weight: 600;
+                    font-size: 2.2rem;
+                    line-height: 2.6rem;
+                    font-weight: 700;
                     color: $color-primary;
                 }
 
@@ -53,21 +59,21 @@
                     text-transform: uppercase;
                     align-self: end;
                     letter-spacing: 0.2rem;
-                    line-height: 1.3rem;
+                    margin-bottom: .3rem;
                 }
             }
             &__snippet {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
-            padding-bottom: 2rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid $color-grey-light-1a;
         }
 
         &__bottom {
-            padding-top: 1rem;
+            padding-top: .5rem;
             display: flex;
             flex-direction: column;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             &__details {
                 padding: 1rem 0;
                 &__group {
@@ -83,7 +89,7 @@
 
             &__experiences {
                 display: flex;
-                padding-top: 1rem;
+                //padding-top: 1rem;
                 &__item {
                     & .experience-icon {
                         margin: 0;
@@ -93,7 +99,6 @@
                         & svg {
                             stroke: none !important;
                             stroke-width: 0 !important;
-                            
                         }
                     }
                 }
@@ -104,28 +109,29 @@
     &__detail {
         display: flex;
         flex-direction: column;
-        //justify-content: space-between;
 
-        padding-top: 2rem;
+        padding-top: 1.5rem;
 
         &__info {
             height: 100%;
-            
+
             &__price-from {
-                padding-bottom: 1rem;
+                padding-bottom: 1.5rem;
                 &__text {
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
+                    padding-bottom: .3rem;
                 }
 
                 &__price {
-                    font-size: 3.2rem;
-                    font-weight: 600;
+                    font-size: 2.2rem;
+                    line-height: 2.6rem;
+                    font-weight: 700;
                     color: $color-primary;
 
                     & span {
-                        font-size: 1.6rem;
+                        font-size: 1.3rem;
                         text-transform: uppercase;
-                        color: $color-primary;             
+                        color: $color-primary;
                         font-weight: 600;
                     }
                 }
@@ -136,169 +142,72 @@
 
                 &__item {
                     position: relative;
-                    
+
                     display: flex;
                     text-align: center;
                     //align-items: center;
                     flex-direction: column;
                     margin-bottom: 1.5rem;
-        
-              
-        
+
                     &__data {
-                      color: $color-primary;
-                      display: flex;
-                      align-items: center;
-                      height: 100%;
-                      text-align: start;
-        
-                      &__icon {
-                        margin-right: 1rem;
+                        color: $color-primary;
                         display: flex;
                         align-items: center;
-                        & svg {
-                          stroke: $color-primary;
-                          stroke-width: 4;
-                          height: 3rem;
-                          width: 3rem;
-                          color: $color-primary;
-                          fill: $color-primary;
-                        }
-                      }
-        
-                      &__text {
-                        font-size: 1.6rem;
-                        line-height: 2.5rem;
-                        font-weight: 700;
-                        text-transform: uppercase;
-                        width: max-content;
-        
-                        & .sub-attribute {
-                          font-size: 1.1rem;
-                          line-height: 1.6rem;
-                          font-weight: 600;
-                        }
-                      }
-        
-                      & ul {
-                        list-style: none;
-                        display: flex;
-                        font-size: 1.2rem;
-                      }
-                    }
-                  }
+                        height: 100%;
+                        text-align: start;
 
+                        &__icon {
+                            margin-right: 1rem;
+                            display: flex;
+                            align-items: center;
+                            & svg {
+                                stroke: $color-primary;
+                                stroke-width: 4;
+                                height: 3rem;
+                                width: 3rem;
+                                color: $color-primary;
+                                fill: $color-primary;
+                            }
+                        }
+
+                        &__text {
+                            font-size: 1.6rem;
+                            line-height: 2.5rem;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                            width: max-content;
+
+                            & .sub-attribute {
+                                font-size: 1.1rem;
+                                line-height: 1.6rem;
+                                font-weight: 600;
+                            }
+                        }
+
+                        & ul {
+                            list-style: none;
+                            display: flex;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
             }
         }
 
         &__cta {
+            width: 100%;
             display: flex;
             justify-content: center;
-            padding-top: 2rem;
+            padding-top: 1rem;
             padding-bottom: 1rem;
 
-            & button {
-                transform: scale(.8);
+            & a {
+                width: 100%;
+                text-align: center;
+                text-decoration: none;
             }
         }
     }
 
-    // @media only screen and (max-width: $bp-small) {
-    //     grid-template-columns: 1fr;
-    //     row-gap: 2rem;
-    // }
-
-    // &:link,
-    // &:visited {
-    //     text-decoration: none;
-    // }
-
-    // &:hover {
-    //     box-shadow: $shadow-medium-around;
-    //     border: 1px solid transparent;
-    // }
-
-    // &__image {
-    //     width: 100%;
-    //     height: 100%;
-    //     min-height: 20rem;
-    //     & img {
-    //         object-fit: cover;
-    //         width: 100%;
-    //         height: 100%;
-    //         border-top-left-radius: 0.3rem;
-    //         border-bottom-left-radius: 0.3rem;
-
-    //         @media only screen and (max-width: $bp-medium) {
-    //             border-top-right-radius: 0.3rem;
-    //             border-bottom-right-radius: 0.3rem;
-    //         }
-    //     }
-    // }
-    // &__content {
-    //     display: grid;
-    //     position: relative;
-    //     color: $color-grey-1;
-    //     &__tag {
-    //         position: absolute;
-    //         top: 0;
-    //         right: 0;
-    //     }
-
-    //     &__length {
-    //         font-size: 1.3rem;
-    //         font-weight: 600;
-    //         text-transform: uppercase;
-    //         align-self: end;
-    //         letter-spacing: 0.2rem;
-    //     }
-
-    //     &__title {
-    //         font-size: 2.5rem;
-    //         font-weight: 600;
-    //         color: $color-primary;
-    //     }
-
-    //     &__description {
-    //         font-size: 1.4rem;
-    //     }
-
-    //     &__info {
-    //         display: grid;
-    //         grid-template-columns: 1fr 1fr;
-
-    //         font-size: 1.4rem;
-
-    //         &__price {
-    //             display: grid;
-    //             grid-template-columns: repeat(3, max-content);
-    //             align-items: end;
-    //             column-gap: 0.5rem;
-    //             &__starting {
-    //                 font-size: 1.4rem;
-    //                 font-weight: 500;
-    //                 padding-bottom: 0.8rem;
-    //             }
-
-    //             &__amount {
-    //                 font-size: 3rem;
-    //                 font-weight: 600;
-    //                 color: $color-primary;
-    //             }
-
-    //             &__currency {
-    //                 text-transform: uppercase;
-    //                 color: $color-primary;
-    //                 padding-bottom: 0.8rem;
-    //                 font-weight: 600;
-    //             }
-    //         }
-
-    //         &__icons {
-    //             justify-self: end;
-    //             align-self: end;
-    //             padding-bottom: 0.8rem;
-    //         }
-    //     }
-    // }
+   
 }

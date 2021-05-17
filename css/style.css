@@ -669,7 +669,8 @@ h5 {
     background-color: #305a7c; }
   .btn-cta-round--small {
     font-size: 1.2rem;
-    padding: 0.75rem 1.5rem; }
+    padding: 0.75rem 1.5rem;
+    letter-spacing: 0.2rem; }
 
 .btn-rect {
   background-color: #305a7c;
@@ -2977,7 +2978,8 @@ h5 {
           color: #142838;
           font-size: 2.2rem;
           line-height: 2.7rem;
-          font-weight: 600; }
+          font-weight: 600;
+          letter-spacing: 0; }
       .product-itinerary-slide__top__map-area img {
         object-fit: contain;
         width: 100%;
@@ -3183,7 +3185,8 @@ h5 {
             font-size: 2.2rem;
             font-weight: 600;
             color: #142838;
-            margin: 1rem 0; }
+            margin: 1rem 0;
+            letter-spacing: 0; }
           .product-itinerary-slide__bottom__days__item__content__text {
             font-size: 1.4rem;
             padding-right: 4rem; }
@@ -3438,7 +3441,8 @@ h5 {
         letter-spacing: 0.1rem; }
         @media only screen and (max-width: 50em) {
           .product-cabins__cabin__content__attributes {
-            justify-content: center; } }
+            justify-content: center;
+            margin-bottom: 1rem; } }
         .product-cabins__cabin__content__attributes__item {
           position: relative;
           display: flex;
@@ -3579,7 +3583,8 @@ h5 {
         text-transform: uppercase;
         letter-spacing: 0.2rem;
         color: #e6e6e6;
-        margin-bottom: 1.5rem; }
+        margin-bottom: 1.5rem;
+        font-weight: 400; }
         @media only screen and (max-width: 50em) {
           .product-technical__content__image-area__title {
             text-align: center; } }
@@ -3632,7 +3637,8 @@ h5 {
           text-transform: uppercase;
           letter-spacing: 0.2rem;
           color: #e6e6e6;
-          margin-bottom: 1.2rem; }
+          margin-bottom: 1.2rem;
+          font-weight: 400; }
           @media only screen and (max-width: 37.5em) {
             .product-technical__content__columns__info__title {
               text-align: center; } }
@@ -4690,17 +4696,19 @@ h5 {
 .search-result {
   border: 1px solid #e6e6e6;
   border-radius: 0.4rem;
-  padding: 2rem;
+  padding: 1.5rem;
   display: grid;
-  grid-template-columns: 28rem 1fr 18rem;
-  column-gap: 4rem;
-  cursor: pointer;
+  grid-template-columns: 30rem 1fr 14rem;
+  column-gap: 2.5rem;
   transition: all 0.3s;
   height: min-content !important;
   width: 100%; }
   .search-result:link, .search-result:visited {
     text-decoration: none;
     color: #9ea0a4; }
+  .search-result:hover {
+    box-shadow: 0 0rem 3rem rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent; }
   .search-result__image-area {
     width: 100%;
     height: min-content;
@@ -4716,13 +4724,14 @@ h5 {
     .search-result__content__top {
       display: flex;
       flex-direction: column;
-      padding-bottom: 2rem;
+      padding-bottom: 1.5rem;
       border-bottom: 1px solid #e6e6e6; }
       .search-result__content__top__title-group {
         padding-bottom: 1rem; }
         .search-result__content__top__title-group__title {
-          font-size: 2.5rem;
-          font-weight: 600;
+          font-size: 2.2rem;
+          line-height: 2.6rem;
+          font-weight: 700;
           color: #142838; }
         .search-result__content__top__title-group__subtitle {
           font-size: 1.2rem;
@@ -4730,22 +4739,21 @@ h5 {
           text-transform: uppercase;
           align-self: end;
           letter-spacing: 0.2rem;
-          line-height: 1.3rem; }
+          margin-bottom: .3rem; }
       .search-result__content__top__snippet {
-        font-size: 1.5rem; }
+        font-size: 1.3rem; }
     .search-result__content__bottom {
-      padding-top: 1rem;
+      padding-top: .5rem;
       display: flex;
       flex-direction: column;
-      font-size: 1.5rem; }
+      font-size: 1.3rem; }
       .search-result__content__bottom__details {
         padding: 1rem 0; }
         .search-result__content__bottom__details__group__title {
           color: #305a7c;
           font-weight: 600; }
       .search-result__content__bottom__experiences {
-        display: flex;
-        padding-top: 1rem; }
+        display: flex; }
         .search-result__content__bottom__experiences__item .experience-icon {
           margin: 0;
           margin-right: 0.5rem;
@@ -4756,19 +4764,21 @@ h5 {
   .search-result__detail {
     display: flex;
     flex-direction: column;
-    padding-top: 2rem; }
+    padding-top: 1.5rem; }
     .search-result__detail__info {
       height: 100%; }
       .search-result__detail__info__price-from {
-        padding-bottom: 1rem; }
+        padding-bottom: 1.5rem; }
         .search-result__detail__info__price-from__text {
-          font-size: 1.4rem; }
+          font-size: 1.2rem;
+          padding-bottom: .3rem; }
         .search-result__detail__info__price-from__price {
-          font-size: 3.2rem;
-          font-weight: 600;
+          font-size: 2.2rem;
+          line-height: 2.6rem;
+          font-weight: 700;
           color: #142838; }
           .search-result__detail__info__price-from__price span {
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
             color: #142838;
             font-weight: 600; }
@@ -4812,12 +4822,15 @@ h5 {
               display: flex;
               font-size: 1.2rem; }
     .search-result__detail__cta {
+      width: 100%;
       display: flex;
       justify-content: center;
-      padding-top: 2rem;
+      padding-top: 1rem;
       padding-bottom: 1rem; }
-      .search-result__detail__cta button {
-        transform: scale(0.8); }
+      .search-result__detail__cta a {
+        width: 100%;
+        text-align: center;
+        text-decoration: none; }
 
 .checkbox {
   position: absolute;
