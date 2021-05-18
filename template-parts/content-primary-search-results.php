@@ -88,7 +88,7 @@ foreach ($results as $result) :
                         <div class="search-result__detail__info__attributes__item__data">
                             <div class="search-result__detail__info__attributes__item__data__icon">
                                 <svg>
-                                    <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-m-time"></use>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
                                 </svg>
                             </div>
                             <div class="search-result__detail__info__attributes__item__data__text">
@@ -110,9 +110,9 @@ foreach ($results as $result) :
                                 <div class="search-result__detail__info__attributes__item__data__icon">
                                     <svg>
                                         <?php if ($result->postType == 'rfc_cruises') : ?>
-                                            <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-boat-front"></use>
+                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-boat-front"></use>
                                         <?php elseif ($result->postType == 'rfc_lodges') : ?>
-                                            <use xlink:href="http://localhost/rfcwp/wp-content/themes/afloat/css/img/sprite.svg#icon-bed-23"></use>
+                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-bed-23"></use>
                                         <?php endif; ?>
                                     </svg>
                                 </div>

@@ -173,13 +173,14 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
                         continue; //no departures in this itinerary after date filtering
                     }
 
-
+                    $departureCount = count($departures);
                     //lowest price for itinerary
                     $itineraryLowestPrice = min($priceValues);
 
                     $itineraries[] = (object) array(
                         'lengthInDays' => $lengthInDays,
-                        'departures' => $departures,
+                        //'departures' => $departures,
+                        'departureCount' => $departureCount,
                         'lowestItineraryPrice' => $itineraryLowestPrice
                     );
                 }
