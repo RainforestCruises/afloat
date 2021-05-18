@@ -933,6 +933,25 @@
                     "ui_off_text": ""
                 },
                 {
+                    "key": "field_60a3fd3de37ca",
+                    "label": "Deck Shower",
+                    "name": "deck_shower",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_608042b86b4b5",
                     "label": "Pool \/ Jacuzzi",
                     "name": "pool_jacuzzi",
@@ -1009,6 +1028,25 @@
                     "ui_off_text": ""
                 },
                 {
+                    "key": "field_60a3fd59e37cb",
+                    "label": "Cinema",
+                    "name": "cinema",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_608047ec43683",
                     "label": "Wheelchair Access",
                     "name": "wheelchair_access",
@@ -1031,6 +1069,82 @@
                     "key": "field_608047fc43684",
                     "label": "Camera Room",
                     "name": "camera_room",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_60a3fd69e37cc",
+                    "label": "WIFI Available",
+                    "name": "wifi_available",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_60a3fd78e37cd",
+                    "label": "Kosher Meals",
+                    "name": "kosher_meals",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_60a3fd83e37ce",
+                    "label": "Children's Playroom",
+                    "name": "childrens_playroom",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_60a3fd91e37cf",
+                    "label": "Medical Staff",
+                    "name": "medical_staff",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -1110,6 +1224,44 @@
                     "ui_off_text": ""
                 },
                 {
+                    "key": "field_60a3fe5d676b1",
+                    "label": "Satellite Phone",
+                    "name": "satellite_phone",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_60a3fe6e676b2",
+                    "label": "Diving Platform",
+                    "name": "diving_platform",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_608043036b4b9",
                     "label": "Nitrox",
                     "name": "nitrox",
@@ -1132,6 +1284,25 @@
                     "key": "field_6080480f43685",
                     "label": "Snorkeling Gear",
                     "name": "snorkeling_gear",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_60a3fe83676b3",
+                    "label": "Wetsuits",
+                    "name": "wetsuits",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -1224,6 +1395,25 @@
                     "ui_off_text": ""
                 },
                 {
+                    "key": "field_60a3fe9d676b4",
+                    "label": "Bicycles",
+                    "name": "bicycles",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_6080486d4368a",
                     "label": "Jet Skis",
                     "name": "jet_skis",
@@ -1246,6 +1436,25 @@
                     "key": "field_6080487b4368b",
                     "label": "Fishing Equipment",
                     "name": "fishing_equipment",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_60a3feb1676b5",
+                    "label": "Yoga Mat",
+                    "name": "yoga_mat",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -1692,5 +1901,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Cruise - CPT",
-    "modified": 1619033277
+    "modified": 1621360447
 }

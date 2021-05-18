@@ -402,7 +402,7 @@ endforeach;
                                                 </div>
                                                 <div class="charter-pricing__overall__info-group">
                                                     <div class="charter-pricing__overall__info-group__title">
-                                                        Price Per Night
+                                                        Price Per Day
                                                     </div>
                                                     <div class="charter-pricing__overall__info-group__data">
                                                         <?php echo "$ " . number_format($charter_daily_price, 0);  ?>
