@@ -277,5 +277,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
         );
     }
 
-    return $results;
+    $output = array_slice($results, 0, 10);
+
+    return $output;
 }
