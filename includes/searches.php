@@ -338,8 +338,8 @@ function search_filter_primary_search()
 
 
     $formattedResults = formatFilterSearch($posts, $formMinLength, $formMaxLength, $formDates);
-    console_log('formattedResults');
-    console_log($formattedResults);
+    // console_log('formattedResults');
+    // console_log($formattedResults);
 
     //$postsAndCriteria = new stdClass();
     // $postsAndCriteria->products = $posts;
