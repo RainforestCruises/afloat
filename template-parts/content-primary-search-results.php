@@ -75,7 +75,7 @@ foreach ($results as $result) :
                         Starting From
                     </div>
                     <div class="search-result__detail__info__price-from__price">
-                        $55,000
+                        <?php echo "$" . number_format($result->lowestPrice, 0);  ?>
                         <span>
                             USD
                         </span>

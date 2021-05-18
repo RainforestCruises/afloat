@@ -339,12 +339,10 @@
                 "class": "",
                 "id": ""
             },
-            "admin_column_enabled": 0,
-            "admin_column_post_types": "",
-            "admin_column_taxonomies": "",
             "choices": {
                 "river": "River",
-                "costal": "Costal"
+                "costal": "Costal",
+                "island": "Island"
             },
             "allow_null": 0,
             "other_choice": 0,
@@ -1901,5 +1899,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Cruise - CPT",
-    "modified": 1621360447
+    "modified": 1621368847
 }
