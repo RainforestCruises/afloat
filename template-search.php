@@ -13,24 +13,25 @@ get_header();
 
 <?php
 
-// $searchType = get_field('search_type');
+$searchType = get_field('search_type');
 
 
 
-// $destination = null;
-// $region = null;
+$destination = null;
+$region = null;
 
 
-// if ($searchType == 'region') {
-//     $region = get_field('region');
-// } else {
-//     $region = get_field('region', $destination);
-//     $destination = get_field('destination');
-// }
+if ($searchType == 'region') {
+    $region = get_field('region');
+} else {
+    
+    $destination = get_field('destination');
+    $region = get_field('region', $destination);
+}
 
 
-// $destinationTitle = get_field('navigation_title', $destination);
-// $regionTitle = get_field('navigation_title', $region);
+$destinationTitle = get_field('navigation_title', $destination);
+$regionTitle = get_field('navigation_title', $region);
 
 
 

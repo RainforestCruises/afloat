@@ -278,6 +278,15 @@ function search_filter_primary_search()
     );
 
 
+    //Destination
+    $destinationId = $_POST['destination'];
+    $args['meta_query'][] = array(
+        'key' => 'destinations',
+        'value' => '"' . $destinationId . '"',
+        'compare' => 'LIKE'
+    );
+
+
     //experiences
     if (isset($_POST['formExperiences']) && $_POST['formExperiences']) {
         $stringValue = $_POST['formExperiences'];
@@ -297,7 +306,7 @@ function search_filter_primary_search()
         $args['meta_query'][] = $queryargs;
     }
    
-    //destinations / locations
+    //locations
     if (isset($_POST['formDestinations']) && $_POST['formDestinations']) {
         $stringValue = $_POST['formDestinations'];
         $formDestinations = explode (":", $stringValue); 
