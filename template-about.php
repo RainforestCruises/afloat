@@ -37,12 +37,19 @@ get_header();
         ?>
     </section>
 
+
     <!-- Corporate -->
     <section class="about-page__section-corporate" id="corporate">
         <?php
-        get_template_part('template-parts/content', 'about-corporate');
-        ?>
+        $isResponsibleTravel = get_field('is_responsible_travel');
+        if (!$isResponsibleTravel) :
+            get_template_part('template-parts/content', 'about-corporate');
+        else :
+            get_template_part('template-parts/content', 'about-responsible-travel');
+        endif; ?>
+  
     </section>
+
 
 </section>
 

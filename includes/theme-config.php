@@ -62,22 +62,23 @@ function afloat_images_sizes()
     add_image_size('featured-square', 600, 500, true);
 }
 
-add_filter( 'image_size_names_choose', 'afloat_images_sizes_add' );
-function afloat_images_sizes_add( $sizes ) {
+add_filter('image_size_names_choose', 'afloat_images_sizes_add');
+function afloat_images_sizes_add($sizes)
+{
 
     $addsizes = array(
         "featured-largest" => 'Featured Largest',
     );
 
-    $newsizes = array_merge( $sizes, $addsizes );
+    $newsizes = array_merge($sizes, $addsizes);
 
     return $newsizes;
-
 }
 
 
 //Removes P tags on blog posts
-function filter_ptags_on_images($content){
+function filter_ptags_on_images($content)
+{
     return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
 add_filter('the_content', 'filter_ptags_on_images');

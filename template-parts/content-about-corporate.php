@@ -7,7 +7,7 @@ $badges = get_field('badges');
 <div class="about-partners">
     <div class="about-partners__content">
         <div class="about-partners__content__title">
-            Our Partners
+            Our Partners 
         </div>
         <div class="about-partners__content__snippet">
             <?php echo get_field('partners_snippet'); ?>

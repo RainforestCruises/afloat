@@ -178,6 +178,25 @@
             "endpoint": 0
         },
         {
+            "key": "field_60a3ef6faedd7",
+            "label": "Difference Header",
+            "name": "difference_header",
+            "type": "text",
+            "instructions": "Slider area header",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_608c55b33ae76",
             "label": "Difference",
             "name": "difference",
@@ -277,6 +296,25 @@
             "endpoint": 0
         },
         {
+            "key": "field_60a3ef8aaedd8",
+            "label": "Team Header",
+            "name": "team_header",
+            "type": "text",
+            "instructions": "Employee \/ Badges area header",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_608b47de176cf",
             "label": "Team",
             "name": "team",
@@ -361,7 +399,7 @@
         },
         {
             "key": "field_608afaa74df79",
-            "label": "Corporate",
+            "label": "Corporate \/ Partners",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -374,6 +412,25 @@
             },
             "placement": "top",
             "endpoint": 0
+        },
+        {
+            "key": "field_60a3edf05f281",
+            "label": "Is Responsible Travel",
+            "name": "is_responsible_travel",
+            "type": "true_false",
+            "instructions": "Select for Responsible Travel design change",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_608b5d1520e5b",
@@ -395,13 +452,120 @@
             "delay": 0
         },
         {
+            "key": "field_60a3ee545f282",
+            "label": "Partners Image",
+            "name": "partners_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60a3edf05f281",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_60a3ee7e5f283",
+            "label": "Continents",
+            "name": "continents",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60a3edf05f281",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_60a3ee9f5f284",
+                    "label": "Header",
+                    "name": "header",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_60a3eeac5f285",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
+                }
+            ]
+        },
+        {
             "key": "field_608c3ebfdb304",
             "label": "Corporate Snippet",
             "name": "corporate_snippet",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60a3edf05f281",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -420,7 +584,15 @@
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60a3edf05f281",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -439,7 +611,15 @@
             "type": "gallery",
             "instructions": "Upload the circle badges in PNG format with transparency",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60a3edf05f281",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -466,7 +646,15 @@
             "type": "image",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60a3edf05f281",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -501,5 +689,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "About Page",
-    "modified": 1619809840
+    "modified": 1621356488
 }

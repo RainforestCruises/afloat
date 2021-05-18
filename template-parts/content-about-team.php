@@ -1,11 +1,13 @@
 <?php
 
 $team = get_field('team');
+$headerText = get_field('team_header');
+
 ?>
 
 <div class="about-team">
     <div class="about-team__title">
-        Meet Our Team
+        <?php echo $headerText ?>
     </div>
     <div class="about-team__grid">
 
