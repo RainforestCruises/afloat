@@ -216,12 +216,18 @@ jQuery(document).ready(function ($) {
         //$('#response').html('<div class="search-results__grid__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
 
         //search-results__grid
+        
         $('#response').addClass('loading');
+
+
+        $( "#response" ).append('<div class="lds-dual-ring"></div>');
+
         $('#response-count').html('Searching...');
       },
       success: function (data) {
 
         $('#response').removeClass('loading');
+        $( ".lds-dual-ring" ).remove();
 
         $('#response').html(data); // insert data
 
