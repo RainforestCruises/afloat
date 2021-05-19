@@ -15,7 +15,8 @@
 
 
     @media only screen and (max-width: $bp-medium) {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         
     }
     
@@ -34,7 +35,7 @@
     &__image-area {
         width: 100%;
         height: min-content;
-        display: flex;
+        //display: flex;
         & img {
             width: 100%;
             height: auto;

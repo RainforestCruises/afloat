@@ -4741,7 +4741,8 @@ h5 {
   width: 100%; }
   @media only screen and (max-width: 50em) {
     .search-result {
-      grid-template-columns: 1fr; } }
+      display: flex;
+      flex-direction: column; } }
   .search-result:link, .search-result:visited {
     text-decoration: none;
     color: #9ea0a4; }
@@ -4750,8 +4751,7 @@ h5 {
     border: 1px solid transparent; }
   .search-result__image-area {
     width: 100%;
-    height: min-content;
-    display: flex; }
+    height: min-content; }
     .search-result__image-area img {
       width: 100%;
       height: auto;
