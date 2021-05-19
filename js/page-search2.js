@@ -213,12 +213,15 @@ jQuery(document).ready(function ($) {
       data: searchForm.serialize(), // form data
       type: searchForm.attr('method'), // POST
       beforeSend: function () {
-        $('#response').html('<div class="search-results__grid__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
+        //$('#response').html('<div class="search-results__grid__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
+
+        //search-results__grid
+        $('#response').addClass('loading');
         $('#response-count').html('Searching...');
       },
       success: function (data) {
 
-
+        $('#response').removeClass('loading');
 
         $('#response').html(data); // insert data
 

@@ -26,180 +26,13 @@ function search_filter_product_search()
         'productId' => $productId,
     );
 
-    console_log($args);
+
     get_template_part('template-parts/content', 'product-dates-grid', $args);
 
 
 
     die();
 }
-
-
-//Main Search
-add_action('wp_ajax_mainSearch', 'search_filter_main_search'); // wp_ajax_{ACTION HERE} 
-add_action('wp_ajax_nopriv_mainSearch', 'search_filter_main_search');
-
-function search_filter_main_search()
-{
-
-    //--------------WP Categories
-
-
-    //Travel Type
-    $travelType = array('rfc_cruises', 'rfc_tours', 'rfc_lodges'); //Any
-    if (isset($_POST['travel-select']) && $_POST['travel-select'])
-        $travelType = $_POST['travel-select']; //One Type Selected
-
-    $args = null;
-    $charterFilter = false;
-    if ($travelType != 'charter_cruises') {
-        $args = array(
-            'posts_per_page' => -1,
-            'post_type' => $travelType,
-        );
-    } else { //charter selected
-        $args = array(
-            'posts_per_page' => -1,
-            'post_type' => 'rfc_cruises',
-        );
-
-        $args['meta_query'][] = array(
-            'key' => 'charter_available',
-            'value' => true,
-            'compare' => 'LIKE'
-        );
-
-        $charterFilter = true;
-
-    }
-   
-
-    //Get destinations by destination
-    if ($_POST['searchType'] == 'destination') { //DESTINATION
-        if (isset($_POST['location-select']) && $_POST['location-select']) {
-            //- Get specific location if location selected
-            $locationId = $_POST['location-select'];
-
-            $args['meta_query'][] = array(
-                'key' => 'locations',
-                'value' => '"' . $locationId . '"',
-                'compare' => 'LIKE'
-            );
-        } else {
-            //- Get all from peru
-            $destinationId = $_POST['destination'];
-
-            $args['meta_query'][] = array(
-                'key' => 'destinations',
-                'value' => '"' . $destinationId . '"',
-                'compare' => 'LIKE'
-            );
-        }
-    } else { //REGION 
-        if (isset($_POST['destination-select']) && $_POST['destination-select']) {
-            //- Get specific destination if destination selected
-            $args['meta_query'][] = array(
-                'key' => 'destinations',
-                'value' => '"' . $_POST['destination-select'] . '"',
-                'compare' => 'LIKE'
-            );
-        } else {
-            //- Get destinations by region if nothing selected, then get all products in those destinations
-            $regionId = $_POST['region'];
-            $destinationCriteria = array(
-                'posts_per_page' => -1,
-                'post_type' => 'rfc_destinations',
-                "meta_key" => "region",
-                "meta_value" => $regionId
-            );
-            $destinations = get_posts($destinationCriteria);
-
-            //build meta query criteria
-            $queryargs = array();
-            $queryargs['relation'] = 'OR';
-            foreach ($destinations as $d) {
-                $queryargs[] = array(
-                    'key'     => 'destinations',
-                    'value'   => serialize(strval($d->ID)),
-                    'compare' => 'LIKE'
-                );
-            }
-
-            $args['meta_query'][] = $queryargs;
-        }
-    }
-
-
-    if (isset($_POST['experience-select']) && $_POST['experience-select']) {
-        //- Get specific experience if experience selected
-        $args['meta_query'][] = array(
-            'key' => 'experiences',
-            'value' => '"' . $_POST['experience-select'] . '"',
-            'compare' => 'LIKE'
-        );
-    }
-    $posts = get_posts($args);
-
-
-
-    //Capture non-WP Meta Input
-    //-------------Meta Parameters
-    //Length
-    //Sorting
-    //Dates
-    //Budget
-
-    $sortOrder = '';
-    if (isset($_POST['result-sort']) && $_POST['result-sort'])
-        $sortOrder = $_POST['result-sort'];
-
-    $startDate = '';
-    if (isset($_POST['startDate']) && $_POST['startDate']) {
-        $startDate = $_POST['startDate'];
-    }
-    $endDate = '';
-    if (isset($_POST['endDate']) && $_POST['endDate']) {
-        $endDate = $_POST['endDate'];
-    }
-    $minLength = 0;
-    if (isset($_POST['minLength']) && $_POST['minLength']) {
-        $minLength = $_POST['minLength'];
-    }
-    $maxLength = 99;
-    if (isset($_POST['maxLength']) && $_POST['maxLength']) {
-        $maxLength = $_POST['maxLength'];
-        if($maxLength == 15){ //make 15 days +
-            $maxLength = 99;
-        }
-    }
-
-    $pageNumber = 1;
-    if (isset($_POST['initialPage']) && $_POST['initialPage']) {
-        $pageNumber = $_POST['initialPage'];
-        console_log('set') . $pageNumber;
-
-    }
-
-    
-    $postsAndCriteria = new stdClass();
-    $postsAndCriteria->products = $posts;
-    $postsAndCriteria->sortOrder = $sortOrder;
-    $postsAndCriteria->startDate = $startDate;
-    $postsAndCriteria->endDate = $endDate;
-    $postsAndCriteria->minLength = $minLength;
-    $postsAndCriteria->maxLength = $maxLength;
-    $postsAndCriteria->charterFilter = $charterFilter;
-
-    $postsAndCriteria->pageNumber = $pageNumber;
-
-
-    get_template_part('template-parts/content', 'main-search-results', $postsAndCriteria);
-
-
-
-    die();
-}
-
 
 
 
@@ -233,7 +66,7 @@ function search_filter_home_search()
     $d = mktime(null, null, null, $travelMonth, 1, $travelYear);
     $startDate = date("Y-m-d", $d);
 
-    
+
     if ($travelMonth != date("m")) {   //selection not current month or unselected
         $endDate = date('Y-m-d', strtotime('+30 days', strtotime($startDate)));
     } else {
@@ -265,66 +98,38 @@ add_action('wp_ajax_nopriv_primarySearch', 'search_filter_primary_search');
 function search_filter_primary_search()
 {
 
+
+    $searchType = $_POST['searchType'];
+    $destinationId = $_POST['destination'];
+    $regionId = $_POST['region'];
+
     //travel style
     $formTravelStyles = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
     if (isset($_POST['formTravelStyles']) && $_POST['formTravelStyles']) {
         $stringValue = $_POST['formTravelStyles'];
-        $formTravelStyles = explode (":", $stringValue); 
+        $formTravelStyles = explode(":", $stringValue);
     }
 
-    $args = array(
-        'posts_per_page' => -1,
-        'post_type' => $formTravelStyles,
-    );
 
+    //destinations
+    $formDestinations = [];
+    if (isset($_POST['formDestinations']) && $_POST['formDestinations']) {
+        $stringValue = $_POST['formDestinations'];
+        $formDestinations = explode(":", $stringValue);
+    }
 
-    //Destination
-    $destinationId = $_POST['destination'];
-    $args['meta_query'][] = array(
-        'key' => 'destinations',
-        'value' => '"' . $destinationId . '"',
-        'compare' => 'LIKE'
-    );
 
 
     //experiences
+    $formExperiences = [];
     if (isset($_POST['formExperiences']) && $_POST['formExperiences']) {
         $stringValue = $_POST['formExperiences'];
-        $formExperiences = explode (":", $stringValue); 
-
-        //build meta query criteria
-        $queryargs = array();
-        $queryargs['relation'] = 'OR';
-        foreach ($formExperiences as $e) {
-            $queryargs[] = array(
-                'key'     => 'experiences',
-                'value'   => '"' . $e . '"', //value must be in parenthesis to get ACF exact match, and use LIKE
-                'compare' => 'LIKE'
-            );
-        }
-
-        $args['meta_query'][] = $queryargs;
+        $formExperiences = explode(":", $stringValue);    
     }
+
+    $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId);
+
    
-    //locations
-    if (isset($_POST['formDestinations']) && $_POST['formDestinations']) {
-        $stringValue = $_POST['formDestinations'];
-        $formDestinations = explode (":", $stringValue); 
-        //build meta query criteria
-        $queryargs = array();
-        $queryargs['relation'] = 'OR';
-        foreach ($formDestinations as $d) {
-            $queryargs[] = array(
-                'key'     => 'locations', //change to destinations for region pages
-                'value'   => '"' . $d . '"', 
-                'compare' => 'LIKE'
-            );
-        }
-
-        $args['meta_query'][] = $queryargs;
-    }
-    
-    $posts = get_posts($args); //Stage I posts
 
 
     //Stage II Filters ----
@@ -332,8 +137,8 @@ function search_filter_primary_search()
     $formMinLength = null;
     $formMaxLength = null;
     if (isset($_POST['formMinLength']) && $_POST['formMinLength']) {
-        $formMinLength= $_POST['formMinLength']; //they will both have value as long as at least one is set
-        $formMaxLength= $_POST['formMaxLength'];
+        $formMinLength = $_POST['formMinLength']; //they will both have value as long as at least one is set
+        $formMaxLength = $_POST['formMaxLength'];
     }
 
 
@@ -341,25 +146,11 @@ function search_filter_primary_search()
     $formDates = null;
     if (isset($_POST['formDates']) && $_POST['formDates']) {
         $stringValue = $_POST['formDates'];
-        $formDates = explode (":", $stringValue); 
+        $formDates = explode(":", $stringValue);
     }
 
 
-
     $formattedResults = formatFilterSearch($posts, $formMinLength, $formMaxLength, $formDates);
-    // console_log('formattedResults');
-    // console_log($formattedResults);
-
-    //$postsAndCriteria = new stdClass();
-    // $postsAndCriteria->products = $posts;
-    // $postsAndCriteria->sortOrder = $sortOrder;
-    // $postsAndCriteria->startDate = $startDate;
-    // $postsAndCriteria->endDate = $endDate;
-    // $postsAndCriteria->minLength = $minLength;
-    // $postsAndCriteria->maxLength = $maxLength;
-    // $postsAndCriteria->charterFilter = $charterFilter;
-
-    // $postsAndCriteria->pageNumber = $pageNumber;
 
 
     get_template_part('template-parts/content', 'primary-search-results', $formattedResults);

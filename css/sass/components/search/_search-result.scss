@@ -11,7 +11,14 @@
     transition: all 0.3s;
     height: min-content !important;
     width: 100%;
-    //margin-left: 3rem; //take out later
+
+
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: 1fr;
+        
+    }
+    
 
     &:link,
     &:visited {
@@ -40,12 +47,16 @@
         flex-direction: column;
 
         padding: 1rem 0;
-
+        // @media only screen and (max-width: $bp-medium) {
+        //     text-align: center;
+        // }
         &__top {
             display: flex;
             flex-direction: column;
             &__title-group {
                 padding-bottom: 1rem;
+
+                
                 &__title {
                     font-size: 2.2rem;
                     line-height: 2.6rem;
@@ -58,12 +69,13 @@
                     font-weight: 600;
                     text-transform: uppercase;
                     align-self: end;
-                    letter-spacing: 0.2rem;
+                    letter-spacing: 0.2rem; 
                     margin-bottom: .3rem;
                 }
             }
             &__snippet {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
+                line-height: 1.6rem;
             }
             padding-bottom: 1.5rem;
             border-bottom: 1px solid $color-grey-light-1a;
@@ -73,7 +85,7 @@
             padding-top: .5rem;
             display: flex;
             flex-direction: column;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             &__details {
                 padding: 1rem 0;
                 &__group {
@@ -93,8 +105,8 @@
                 &__item {
                     & .experience-icon {
                         margin: 0;
-                        margin-right: 0.5rem;
-                        transform: scale(0.9);
+                        margin-right: 0.2rem;
+                        transform: scale(0.8) translateX(-.8rem);
 
                         & svg {
                             stroke: none !important;

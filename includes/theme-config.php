@@ -51,15 +51,14 @@ function afloat_images_sizes()
     add_image_size('featured-large', 650, 425, true);
     add_image_size('featured-medium', 500, 350, true);
     add_image_size('featured-small', 400, 260, true);
-
+    add_image_size('featured-square', 600, 500, true);
 
     //square
-    add_image_size('square-medium', 600, 600, true);
+    add_image_size('square-medium', 500, 500, true);
     add_image_size('square-small', 325, 325, true);
 
 
-    //featured
-    add_image_size('featured-square', 600, 500, true);
+    
 }
 
 add_filter('image_size_names_choose', 'afloat_images_sizes_add');

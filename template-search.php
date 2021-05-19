@@ -14,9 +14,6 @@ get_header();
 <?php
 
 $searchType = get_field('search_type');
-
-
-
 $destination = null;
 $region = null;
 
@@ -30,17 +27,14 @@ if ($searchType == 'region') {
 }
 
 
-$destinationTitle = get_field('navigation_title', $destination);
-$regionTitle = get_field('navigation_title', $region);
+//GET PRESELECTIONS
 
 
-
-
-// $args = array(
-//     'destination' => $destination,
-//     'region' => $region,
-//     'searchType' => $searchType,
-// );
+$args = array(
+    'destination' => $destination,
+    'region' => $region,
+    'searchType' => $searchType,
+);
 
 ?>
 
@@ -56,9 +50,9 @@ $regionTitle = get_field('navigation_title', $region);
     <section class="search-page__content">
         <?php
 
-        get_template_part('template-parts/content', 'search-sidebar2');
+        get_template_part('template-parts/content', 'search-sidebar2', $args);
 
-        get_template_part('template-parts/content', 'search-results');
+        get_template_part('template-parts/content', 'search-results', $args);
 
         ?>
 
@@ -89,7 +83,7 @@ $regionTitle = get_field('navigation_title', $region);
 
 
     <input type="hidden" name="region" id="region" value="<?php echo $region->ID ?>">
-    <input type="hidden" name="destination" id="destination" value="<?php echo $destination->ID ?>">
+    <input type="hidden" name="destination" id="destination" value="<?php echo ($searchType == 'region') ? '' : $destination->ID ?>">
     <input type="hidden" name="searchType" id="searchType" value="<?php echo $searchType ?>">
     <input type="hidden" name="initialPage" id="initialPage" value="">
 

@@ -1,5 +1,108 @@
 <?php
 //Upper bounded list of products for search results
+function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId)
+{
+
+
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type' => $travelStyles,
+    );
+
+
+
+    //Get destinations by destination
+    
+    if ($searchType == 'destination') { //DESTINATION
+        if ($destinations != null) { //selection - (Get Lima, Cusco, Amazon)
+
+            $queryargs = array();
+            $queryargs['relation'] = 'OR';
+            foreach ($destinations as $l) {
+                $queryargs[] = array(
+                    'key'     => 'locations',
+                    'value'   => '"' . $l . '"',
+                    'compare' => 'LIKE'
+                );
+            }
+
+            $args['meta_query'][] = $queryargs;
+        } else { //no selection -- (Get all from Peru)
+        
+            $args['meta_query'][] = array(
+                'key' => 'destinations',
+                'value' => '"' . $destinationId . '"',
+                'compare' => 'LIKE'
+            );
+        }
+    }
+
+    if ($searchType == 'region') { //REGION 
+        if ($destinations != null) { //if selection
+
+            $queryargs = array();
+            $queryargs['relation'] = 'OR';
+            foreach ($destinations as $d) {
+                $queryargs[] = array(
+                    'key'     => 'destinations',
+                    'value'   => '"' . $d . '"', //value must be in parenthesis to get ACF exact match, and use LIKE
+                    'compare' => 'LIKE'
+                );
+            }
+
+            $args['meta_query'][] = $queryargs;
+        } else { //if no selection
+            //- Get destinations by region if nothing selected, then get all products in those destinations
+
+            $destinationCriteria = array(
+                'posts_per_page' => -1,
+                'post_type' => 'rfc_destinations',
+                "meta_key" => "region",
+                "meta_value" => $regionId
+            );
+            $destinations = get_posts($destinationCriteria);
+
+            //build meta query criteria
+            $queryargs = array();
+            $queryargs['relation'] = 'OR';
+            foreach ($destinations as $d) {
+                $queryargs[] = array(
+                    'key'     => 'destinations',
+                    'value'   => serialize(strval($d->ID)),
+                    'compare' => 'LIKE'
+                );
+            }
+
+            $args['meta_query'][] = $queryargs;
+        }
+    }
+
+
+
+    //experiences
+    if ($experiences != null) {
+
+
+        $queryargs = array();
+        $queryargs['relation'] = 'OR';
+        foreach ($experiences as $e) {
+            $queryargs[] = array(
+                'key'     => 'experiences',
+                'value'   => '"' . $e . '"', //value must be in parenthesis to get ACF exact match, and use LIKE
+                'compare' => 'LIKE'
+            );
+        }
+
+        $args['meta_query'][] = $queryargs;
+    }
+
+
+
+    $posts = get_posts($args); //Stage I posts
+
+    return $posts;
+
+}
 
 
 function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
@@ -11,13 +114,12 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
         //find start year
 
         $yearsInSelection = [];
-        foreach($datesArray as $a) {
+        foreach ($datesArray as $a) {
             $date = DateTime::createFromFormat("Y-m", $a);
             $yearValue = $date->format("Y");
             $yearsInSelection[] = $yearValue;
         }
         $startYear = min($yearsInSelection);
-        
     }
 
     //loop through posts (travel type, experience, destinations --> already filtered)
@@ -28,8 +130,12 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
         $productTypeDisplay = "";
         $productTypeCta = "";
         $snippet = get_field('top_snippet', $p);
-        $featuredImage = get_field('featured_image', $p); //need specific image size  
-        $productImageUrl = wp_get_attachment_image_url($featuredImage['id'], 'square-medium');
+        $featuredImage = get_field('featured_image', $p); //need specific image size  - 600x500
+        $productImageUrl = "";
+        if ($featuredImage) {
+            $productImageUrl = wp_get_attachment_image_url($featuredImage['id'], 'featured-square');
+        }
+
 
         $vesselCapacity = 0;
         $numberOfCabins = 0;
@@ -73,27 +179,30 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
 
             for ($x = 0; $x <= 1; $x++) { //loop twice
                 $year = $startYear + $x;
-                
+
                 $lowestPrice = lowest_tour_price($pricePackages, $year);
                 $prices[] = (object) array(
                     'year' => $year,
                     'lowestPrice' => $lowestPrice, //lowest per price package
                 );
 
-                if($lowestPrice != 0){
+                if ($lowestPrice != 0) {
                     $priceValues[] = $lowestPrice;
                 }
             }
 
             //lowest price for itinerary
-            $itineraryLowestPrice = min($priceValues);
-            
+            if ($priceValues) {
+                $itineraryLowestPrice = min($priceValues);
+            }
+
+
 
             $itineraries[] = (object) array(
                 'lengthInDays' => $lengthInDays,
                 'prices' => $prices, //lowest per price package -- Break down yearly (year array in tour is similar to departure dates array for cruises)
                 'lowestItineraryPrice' => $itineraryLowestPrice
-            );  
+            );
         };
 
 
@@ -151,8 +260,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
                                 }
                             }
 
-                            
-                            if($d['LowestPrice'] != 0){
+
+                            if ($d['LowestPrice'] != 0) {
                                 $priceValues[] = $d['LowestPrice'];
                             }
 
@@ -173,9 +282,17 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
                         continue; //no departures in this itinerary after date filtering
                     }
 
-                    $departureCount = count($departures);
+                    $departureCount = 0;
+                    if ($departures) {
+                        $departureCount = count($departures);
+                    }
+
                     //lowest price for itinerary
-                    $itineraryLowestPrice = min($priceValues);
+                    $itineraryLowestPrice = 0;
+                    if ($priceValues) {
+                        $itineraryLowestPrice = min($priceValues);
+                    }
+
 
                     $itineraries[] = (object) array(
                         'lengthInDays' => $lengthInDays,
@@ -245,7 +362,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
 
         $productLowestPrice = 0;
         $productLowestPriceValues = [];
-        foreach($itineraries as $itinerary){
+        foreach ($itineraries as $itinerary) {
             $productLowestPriceValues[] = $itinerary->lowestItineraryPrice;
         }
         $productLowestPrice = min($productLowestPriceValues);
@@ -278,7 +395,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
         );
     }
 
-    $output = array_slice($results, 0, 10);
+    //$output = array_slice($results, 0, 10);
 
-    return $output;
+    return $results;
 }

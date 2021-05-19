@@ -3,6 +3,10 @@
     height: min-content;
     border: 1px solid $color-grey-light-1a;
     border-radius: .5rem;
+
+    @media only screen and (max-width: $bp-large) {
+        display: none;
+    }
 }
 
 .filter {
@@ -50,14 +54,19 @@
         &__list {
             list-style: none;
 
-            max-height: 20rem;
+            
             overflow: hidden;
             //transition: al0 0.5s ease-in-out;
-            &.expanded {
-                //max-height: min-content;
-                max-height: 1000px !important;
-                transition: max-height .2s ease-in-out;
+
+            &--fixedHeight {
+                max-height: 20rem;
+                &.expanded {
+                    //max-height: min-content;
+                    max-height: 1000px !important;
+                    transition: max-height .2s ease-in-out;
+                }
             }
+            
 
             &__item {
                 margin-bottom: 1rem;

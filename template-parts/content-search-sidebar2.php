@@ -14,9 +14,9 @@ for ($x = $currentMonth; $x < $currentMonth + $monthLimit; $x++) {
 }
 
 //page variables
-$searchType = get_field('search_type');
-$destination = null;
-$region = null;
+$searchType = $args['searchType'];
+$destination = $args['destination'];
+$region = $args['region'];
 
 
 //set up search type
@@ -44,7 +44,7 @@ $isBucketList = false;
 
 if ($searchType == 'destination') {
     $destinations = get_field('locations', $destination);
-    $isBucketList = get_field('is_bucket_list', $destination);
+    $isBucketList = get_field('is_bucket_list', $destination); //to hide location filters
 }
 
 if ($searchType == 'region') {
@@ -58,6 +58,7 @@ if ($searchType == 'region') {
         "meta_value" => $region->ID,
     );
     $destinations = get_posts($destinationsArgs);
+    
 }
 
 
@@ -91,7 +92,7 @@ if (get_field('itinerary_length_max') != null) {
         </div>
         <div class="filter__content">
             <!-- List -->
-            <ul class="filter__content__list" id="departure-filter-list">
+            <ul class="filter__content__list  filter__content__list--fixedHeight" id="departure-filter-list">
 
                 <?php
                 $count = 1;
