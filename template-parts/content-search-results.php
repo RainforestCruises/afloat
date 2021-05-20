@@ -45,6 +45,7 @@
         $formMaxLength = null;
         $formattedResults = formatFilterSearch($posts, $formMinLength, $formMaxLength, $formDates); //Stage II
 
+       
         get_template_part('template-parts/content', 'primary-search-results', $formattedResults);
 
         ?>

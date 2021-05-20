@@ -132,6 +132,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
         $snippet = get_field('top_snippet', $p);
         $featuredImage = get_field('featured_image', $p); //need specific image size  - 600x500
         $productImageUrl = "";
+        $charterOnly = get_field('charter_only', $p);
+
         if ($featuredImage) {
             $productImageUrl = wp_get_attachment_image_url($featuredImage['id'], 'featured-square');
         }
@@ -146,6 +148,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
         $itineraryLengthDisplay = "";
         $vesselCapacityDisplay = "";
         $numberOfCabinsDisplay = "";
+
+        $promoAvailable = false;
 
         // $resultLink = get_permalink($p);
         // $charterAvailable = false;
@@ -265,6 +269,11 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
                                 $priceValues[] = $d['LowestPrice'];
                             }
 
+                            if($d['HasPromo'] == true){
+                                $promoAvailable = true;
+                            }
+
+
                             $departures[] = (object) array(
                                 'departureDate' => $d['DepartureDate'],
                                 'lowestPrice' => $d['LowestPrice'], //lowest per cabin
@@ -361,11 +370,20 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
         }
 
         $productLowestPrice = 0;
-        $productLowestPriceValues = [];
-        foreach ($itineraries as $itinerary) {
-            $productLowestPriceValues[] = $itinerary->lowestItineraryPrice;
+
+        if($charterOnly == true){
+            $productLowestPrice = get_field('charter_daily_price', $p);
+        } else {
+            $productLowestPriceValues = [];
+            foreach ($itineraries as $itinerary) {
+                $productLowestPriceValues[] = $itinerary->lowestItineraryPrice;
+            }
+            $productLowestPrice = min($productLowestPriceValues);
         }
-        $productLowestPrice = min($productLowestPriceValues);
+
+
+
+        
 
         $results[] = (object) array(
             'post' => $p,
@@ -382,10 +400,11 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
             'lowestPrice' => $productLowestPrice,
             'itineraryLengthDisplay' => $itineraryLengthDisplay,
             'itineraryCountDisplay' => $itineraryCountDisplay,
+            'promoAvailable' => $promoAvailable,
 
             //'postLink' => $resultLink,
             //'charterAvailable' => $charterAvailable,
-            //'charterOnly' => $charterOnly,
+            'charterOnly' => $charterOnly,
             'vesselCapacity' => $vesselCapacity,
             'vesselCapacityDisplay' => $vesselCapacityDisplay,
 

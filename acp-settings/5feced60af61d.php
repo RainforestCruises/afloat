@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.4.2',
+  'version' => '5.5.1',
   'title' => 'Travel Guides',
   'type' => 'rfc_travel_guides',
   'id' => '5feced60af61d',
-  'updated' => 1617993939,
+  'updated' => 1621529124,
   'columns' => 
   array (
     'title' => 
@@ -197,6 +197,17 @@ return array (
       'filter_label' => '',
       'filter_format' => '',
       'name' => 'date',
+    ),
+    '60a6921cb1a9fc' => 
+    array (
+      'type' => 'column-permalink',
+      'label' => 'Permalink',
+      'width' => '',
+      'width_unit' => '%',
+      'export' => 'on',
+      'sort' => 'on',
+      'edit' => 'off',
+      'name' => '60a6921cb1a9fc',
     ),
   ),
   'settings' => 

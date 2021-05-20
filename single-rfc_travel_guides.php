@@ -28,7 +28,7 @@ while (have_posts()) :
       );
     }
   };
-  
+
   $queryArgs['meta_query'][] = $queryArgsDestination;
   $travelGuidePosts = new WP_Query($queryArgs);
 ?>
@@ -44,12 +44,15 @@ while (have_posts()) :
       <div class="travel-guide__category">
         Travel Inspiration
       </div>
-      <div class="travel-guide__title">
+      <h1 class="travel-guide__title">
         <?php echo get_field('navigation_title'); ?>
 
-      </div>
+
+      </h1>
       <div class="travel-guide__image">
-        <img <?php afloat_responsive_image($image['ID'], 'featured-largest', array('featured-small', 'featured-medium', 'featured-large', 'featured-largest')); ?> alt="">
+        <?php if ($image) : ?>
+          <img <?php afloat_responsive_image($image['ID'], 'featured-largest', array('featured-small', 'featured-medium', 'featured-large', 'featured-largest')); ?> alt="">
+        <?php endif; ?>
       </div>
       <div class="travel-guide__disclaimer">
         <div class="disclaimer-box">

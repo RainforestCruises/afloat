@@ -151,7 +151,7 @@ function search_filter_primary_search()
 
 
     $formattedResults = formatFilterSearch($posts, $formMinLength, $formMaxLength, $formDates);
-
+    console_log($formattedResults);
 
     get_template_part('template-parts/content', 'primary-search-results', $formattedResults);
 
