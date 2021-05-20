@@ -3,7 +3,9 @@
 function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId)
 {
 
-
+    if($travelStyles == null) {
+        $travelStyles = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
+    }
     $args = array(
         'posts_per_page' => -1,
         'post_type' => $travelStyles,

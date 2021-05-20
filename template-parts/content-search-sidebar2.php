@@ -15,60 +15,45 @@ for ($x = $currentMonth; $x < $currentMonth + $monthLimit; $x++) {
 
 //page variables
 $searchType = $args['searchType'];
-$destination = $args['destination'];
-$region = $args['region'];
+$destinationId = $args['destinationId'];
+$regionId = $args['regionId'];
+$selectedTravelTypes = $args['travelTypes'];
+$selectedExperiences = $args['experiences'];
+$selectedDestinations = $args['destinations'];
 
 
-//set up search type
-$pageLandingTitle = "";
-if ($searchType == 'region') {
-    $region = get_field('region');
-    $pageLandingTitle = get_field('navigation_title', $region);
-} else {
-    $region = get_field('region', $destination);
-    $destination = get_field('destination');
-    $pageLandingTitle = get_field('navigation_title', $destination);
-}
-
-
+//For Filter Lists
 $experiencesArgs = array(
     'post_type' => 'rfc_experiences',
     'posts_per_page' => -1
 );
 
-
-//for filter lists
 $experiences = get_posts($experiencesArgs);
 $destinations = null; //can be location or destination depending on search type
 $isBucketList = false;
 
 if ($searchType == 'destination') {
-    $destinations = get_field('locations', $destination);
-    $isBucketList = get_field('is_bucket_list', $destination); //to hide location filters
+    $destinations = get_field('locations', $destinationId); //locations
+    $isBucketList = get_field('is_bucket_list', $destinationId); //to hide location filters
 }
 
 if ($searchType == 'region') {
-
     $destinationsArgs = array(
-        'post_type' => 'rfc_destinations',
+        'post_type' => 'rfc_destinations', //destinations
         'posts_per_page' => -1,
         'orderby' => 'title',
         'order' => 'ASC',
         "meta_key" => "region",
-        "meta_value" => $region->ID,
+        "meta_value" => $regionId,
     );
-    $destinations = get_posts($destinationsArgs);
-    
+    $destinations = get_posts($destinationsArgs);  
 }
 
 
-//pre-selections
-$selectedTravelType = get_field('travel_type');
-$selectedExperience = get_field('experience');
-$selectedLocation = get_field('location_filter');
 
+//do next
 $itinerary_length_min = 1;
-$itinerary_length_max = 15;
+$itinerary_length_max = 21;
 if (get_field('itinerary_length_min') != null) {
     $itinerary_length_min = get_field('itinerary_length_min');
 };
@@ -129,22 +114,28 @@ if (get_field('itinerary_length_max') != null) {
             <ul class="filter__content__list">
                 <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-1" value="rfc_tours">
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-1" value="rfc_tours" <?php echo (in_array('rfc_tours', $selectedTravelTypes) ? 'checked' : '')?> >
                         <label for="travel-style-checkbox-1" tabindex="1">Tours</label>
                     </div>
                 </li>
                 <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-2" value="rfc_cruises">
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-2" value="rfc_cruises" <?php echo (in_array('rfc_cruises', $selectedTravelTypes) ? 'checked' : '')?> >
                         <label for="travel-style-checkbox-2" tabindex="2">Cruises</label>
                     </div>
                 </li>
                 <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-3" value="rfc_lodges">
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-3" value="rfc_lodges" <?php echo (in_array('rfc_lodges', $selectedTravelTypes) ? 'checked' : '')?> >
                         <label for="travel-style-checkbox-3" tabindex="3">Lodges</label>
                     </div>
                 </li>
+                <!-- <li class="filter__content__list__item filter__content__list__item--divider">
+                    <div class="form-checkbox">
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-4" value="charter_cruises">
+                        <label for="travel-style-checkbox-4" tabindex="4">Charter Cruises</label>
+                    </div>
+                </li> -->
             </ul>
             <!-- Extras here, button etc-->
         </div>
@@ -169,7 +160,7 @@ if (get_field('itinerary_length_max') != null) {
                 foreach ($destinations as $d) : ?>
                     <li class="filter__content__list__item">
                         <div class="form-checkbox">
-                            <input class="checkbox destination-checkbox" type="checkbox" id="destination-checkbox-<?php echo $count; ?>" value="<?php echo $d->ID ?>">
+                            <input class="checkbox destination-checkbox" type="checkbox" id="destination-checkbox-<?php echo $count; ?>" value="<?php echo $d->ID ?>" <?php echo ($selectedDestinations != null ? (in_array($d->ID, $selectedDestinations) ? 'checked' : '') : '')?>>
                             <label for="destination-checkbox-<?php echo $count; ?>"><?php echo get_field('navigation_title', $d) ?></label>
                         </div>
                     </li>
@@ -200,7 +191,7 @@ if (get_field('itinerary_length_max') != null) {
                 ?>
                     <li class="filter__content__list__item">
                         <div class="form-checkbox">
-                            <input class="checkbox experience-checkbox" type="checkbox" id="experience-checkbox-<?php echo $count; ?>" value="<?php echo $e->ID ?>">
+                            <input class="checkbox experience-checkbox" type="checkbox" id="experience-checkbox-<?php echo $count; ?>" value="<?php echo $e->ID ?>" <?php echo ($selectedExperiences != null ? (in_array($e->ID, $selectedExperiences) ? 'checked' : '') : '')?> >
                             <label for="experience-checkbox-<?php echo $count; ?>" tabindex="1"><?php echo get_the_title($e) ?></label>
                         </div>
                     </li>
@@ -230,27 +221,3 @@ if (get_field('itinerary_length_max') != null) {
 </aside>
 
 
-
-<script>
-    //tour lengths (always a number)
-    var preselectMinLength = "<?php echo $itinerary_length_min ?>";
-    var preselectMaxLength = "<?php echo $itinerary_length_max ?>";
-
-    //experience
-    var preselectExperience = null;
-    <?php if ($selectedExperience) : ?>
-        preselectExperience = <?php echo $selectedExperience->ID; ?>;
-    <?php endif; ?>
-
-    //travel type
-    var preselectTravelType = null;
-    <?php if ($selectedTravelType) : ?>
-        preselectTravelType = "<?php echo $selectedTravelType; ?>";
-    <?php endif; ?>
-
-    //location
-    var preselectLocation = null;
-    <?php if ($selectedLocation) : ?>
-        preselectLocation = "<?php echo $selectedLocation->ID; ?>";
-    <?php endif; ?>
-</script>

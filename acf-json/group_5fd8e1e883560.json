@@ -236,12 +236,11 @@
             "choices": {
                 "rfc_tours": "Tours",
                 "rfc_cruises": "Cruises",
-                "rfc_lodges": "Lodges",
-                "charter_cruises": "Charter Cruises"
+                "rfc_lodges": "Lodges"
             },
-            "default_value": false,
+            "default_value": [],
             "allow_null": 1,
-            "multiple": 0,
+            "multiple": 1,
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
@@ -265,8 +264,8 @@
             ],
             "taxonomy": "",
             "allow_null": 1,
-            "multiple": 0,
-            "return_format": "object",
+            "multiple": 1,
+            "return_format": "id",
             "ui": 1
         },
         {
@@ -295,8 +294,38 @@
             ],
             "taxonomy": "",
             "allow_null": 1,
-            "multiple": 0,
-            "return_format": "object",
+            "multiple": 1,
+            "return_format": "id",
+            "ui": 1
+        },
+        {
+            "key": "field_60a6ca0373c36",
+            "label": "Destination Filter",
+            "name": "destination_filter",
+            "type": "post_object",
+            "instructions": "Preselected Destination (for region) -- NOTE: you must select a destination that is within the selected region",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60394c9466c2d",
+                        "operator": "==",
+                        "value": "region"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_destinations"
+            ],
+            "taxonomy": "",
+            "allow_null": 1,
+            "multiple": 1,
+            "return_format": "id",
             "ui": 1
         },
         {
@@ -317,7 +346,7 @@
             "prepend": "",
             "append": "",
             "min": 1,
-            "max": 15,
+            "max": 21,
             "step": ""
         },
         {
@@ -325,7 +354,7 @@
             "label": "Itinerary Length Max",
             "name": "itinerary_length_max",
             "type": "number",
-            "instructions": "For preselected itinerary lengths - enter 15 for no limit. For example, 9+ Days, enter as 9 min 15 max",
+            "instructions": "For preselected itinerary lengths - enter 21 for no limit. For example, 9+ Days, enter as 9 min 21 max",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -338,7 +367,7 @@
             "prepend": "",
             "append": "",
             "min": 1,
-            "max": 15,
+            "max": 21,
             "step": ""
         }
     ],
@@ -362,5 +391,5 @@
     ],
     "active": true,
     "description": "Search - Page",
-    "modified": 1615220088
+    "modified": 1621545733
 }

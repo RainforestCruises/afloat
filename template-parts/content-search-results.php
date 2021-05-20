@@ -1,7 +1,7 @@
 <div class="search-results">
     <div class="search-results__top-section">
         <div class="search-results__top-section__result-count" id="response-count">
-            
+
         </div>
         <div class="search-results__top-section__controls">
             <label class="sort-control" for="result-sort">
@@ -19,33 +19,56 @@
 
 
         <?php
-        //preselections
-        $formTravelStyles = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
 
         //page variables
-        $searchType = $args['searchType'];
-        $destination = $args['destination'];
-        $region = $args['region'];
+        // $searchType = $args['searchType'];
+        // $destination = $args['destination'];
+        // $region = $args['region'];
 
-        $destinations = [];
-        $experiences = [];
-
-        $regionId = $region->ID;
-        $destinationId = null;
-        if($searchType == 'destination'){
-            $destinationId = $destination->ID;
-        }
+        // $regionId = $region->ID;
+        // $destinationId = null;
+        // if ($searchType == 'destination') {
+        //     $destinationId = $destination->ID;
+        // }
 
 
+        // //preselections
+        // //travel style
+        // $formTravelStyles = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
+        // $selectedTravelTypes = get_field('travel_type');
+        // if ($selectedTravelTypes != null) {
+        //     $formTravelStyles = $selectedTravelTypes;
+        // }
+
+        // //destinations
+        // if ($searchType == 'destination') {
+        //     $selectedDestinations = get_field('location_filter');
+        // } 
+        // if ($searchType == 'region') {
+        //     $selectedDestinations = get_field('destination_filter');
+        // }
+
+        // $destinations = [];
+        // if ($selectedDestinations != null) {
+        //     $destinations = $selectedDestinations;
+        // }
         
-        $posts = getSearchPosts($formTravelStyles,  $destinations, $experiences, $searchType, $destinationId, $regionId); //Stage I
+        // $experiences = [];
+        // $selectedExperiences = get_field('experience');
+        // if ($selectedExperiences != null) {
+        //     $experiences = $selectedExperiences;
+        // }
+
+    
+
+        $posts = getSearchPosts($args['travelTypes'],  $args['destinations'], $args['experiences'], $args['searchType'], $args['destinationId'], $args['regionId']); //Stage I
 
         $formDates = null;
         $formMinLength = null;
         $formMaxLength = null;
         $formattedResults = formatFilterSearch($posts, $formMinLength, $formMaxLength, $formDates); //Stage II
 
-       
+
         get_template_part('template-parts/content', 'primary-search-results', $formattedResults);
 
         ?>

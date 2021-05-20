@@ -13,10 +13,13 @@ get_header();
 
 <?php
 
-$searchType = get_field('search_type');
-$destination = null;
-$region = null;
 
+//Region / Destination Setup --------------
+$searchType = get_field('search_type');
+
+$region = null;
+$destination = null;
+$destinationId = null;
 
 if ($searchType == 'region') {
     $region = get_field('region');
@@ -24,16 +27,48 @@ if ($searchType == 'region') {
     
     $destination = get_field('destination');
     $region = get_field('region', $destination);
+    $destinationId = $destination->ID;
 }
 
+$regionId = $region->ID;
 
-//GET PRESELECTIONS
 
+//Preselections (strings for form values) ------------
+//--Travel style
+$travelTypes = [];
+$travelTypesString = "";
+$selectedTravelTypes = get_field('travel_type');
+if ($selectedTravelTypes != null) {
+    $travelTypes = $selectedTravelTypes;
+    $travelTypesString = implode(":", $travelTypes);
+}
 
+//--Destinations
+$destinations = [];
+$destinationsString = "";
+$selectedDestinations = ($searchType == 'destination') ? get_field('location_filter') : get_field('destination_filter');
+if ($selectedDestinations != null) {
+    $destinations = $selectedDestinations;
+    $destinationsString = implode(":", $destinations);
+}
+
+//--Experiences
+$experiences = [];
+$experiencesString = "";
+$selectedExperiences = get_field('experience');
+if ($selectedExperiences != null) {
+    $experiences = $selectedExperiences;
+    $experiencesString = implode(":", $experiences);
+}
+
+//Page arguments ------------
 $args = array(
-    'destination' => $destination,
-    'region' => $region,
     'searchType' => $searchType,
+    'destinationId' => $destinationId,
+    'regionId' => $regionId,
+    'travelTypes' => $travelTypes, //preselection
+    'experiences' => $experiences, //preselection
+    'destinations' => $destinations, //preselection
 );
 
 ?>
@@ -48,16 +83,12 @@ $args = array(
 
     <!-- Content -->
     <section class="search-page__content">
+
         <?php
-
-        get_template_part('template-parts/content', 'search-sidebar2', $args);
-
-        get_template_part('template-parts/content', 'search-results', $args);
-
+        get_template_part('template-parts/content', 'search-sidebar2', $args); //page args --> initial preselection
+        get_template_part('template-parts/content', 'search-results', $args); //page args --> initial render
         ?>
 
-
-     
     </section>
 
 
@@ -72,18 +103,15 @@ $args = array(
 
     <!-- Direct to function within functions.php -->
     <input type="hidden" name="action" value="primarySearch">
-
     <input type="hidden" name="formDates" id="formDates" value="">
-    <input type="hidden" name="formTravelStyles" id="formTravelStyles" value="">
-    <input type="hidden" name="formDestinations" id="formDestinations" value="">
-    <input type="hidden" name="formExperiences" id="formExperiences" value="">
+    <input type="hidden" name="formTravelStyles" id="formTravelStyles" value="<?php echo $travelTypesString ?>"> 
+    <input type="hidden" name="formDestinations" id="formDestinations" value="<?php echo $destinationsString ?>">
+    <input type="hidden" name="formExperiences" id="formExperiences" value="<?php echo $experiencesString ?>">
     <input type="hidden" name="formMinLength" id="formMinLength" value="">
     <input type="hidden" name="formMaxLength" id="formMaxLength" value="">
 
-
-
-    <input type="hidden" name="region" id="region" value="<?php echo $region->ID ?>">
-    <input type="hidden" name="destination" id="destination" value="<?php echo ($searchType == 'region') ? '' : $destination->ID ?>">
+    <input type="hidden" name="region" id="region" value="<?php echo $regionId ?>">
+    <input type="hidden" name="destination" id="destination" value="<?php echo $destinationId ?>">
     <input type="hidden" name="searchType" id="searchType" value="<?php echo $searchType ?>">
     <input type="hidden" name="initialPage" id="initialPage" value="">
 
