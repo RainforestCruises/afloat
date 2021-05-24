@@ -46,6 +46,54 @@
             "mime_types": ""
         },
         {
+            "key": "field_60abf5ae5dfe3",
+            "label": "Breadcrumb Destination Page",
+            "name": "breadcrumb_destination_page",
+            "type": "post_object",
+            "instructions": "Select Destination Page for guide",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:destinations"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_60abf5ea5dfe4",
+            "label": "Breadcrumb Travel Guide Page",
+            "name": "breadcrumb_travel_guide_page",
+            "type": "post_object",
+            "instructions": "Select landing page Travel guide of this destination",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:travel-guide"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
             "key": "field_6001f3e694707",
             "label": "Region",
             "name": "region",
@@ -200,5 +248,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide - CPT",
-    "modified": 1617993913
+    "modified": 1621884494
 }

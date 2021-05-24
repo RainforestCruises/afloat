@@ -5,7 +5,7 @@ return array (
   'title' => 'Travel Guides',
   'type' => 'rfc_travel_guides',
   'id' => '5feced60af61d',
-  'updated' => 1621529124,
+  'updated' => 1621891238,
   'columns' => 
   array (
     'title' => 
@@ -37,6 +37,42 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '6070a0c9e8b438',
+    ),
+    '60ac184beb4394' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Destination Page Link',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_60abf5ae5dfe3',
+      'post_property_display' => 'title',
+      'post_link_to' => 'edit_post',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '60ac184beb4394',
+    ),
+    '60ac18701d2f1c' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Travel Guide Page Link',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_60abf5ea5dfe4',
+      'post_property_display' => 'title',
+      'post_link_to' => 'edit_post',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '60ac18701d2f1c',
     ),
     '60708e6d558108' => 
     array (
@@ -74,25 +110,6 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '5feced9f16588',
-    ),
-    '60708e900c49bc' => 
-    array (
-      'type' => 'column-acf_field',
-      'label' => 'Locations',
-      'width' => '',
-      'width_unit' => '%',
-      'field' => 'field_6070813a18fb3',
-      'post_property_display' => 'title',
-      'post_link_to' => 'edit_post',
-      'number_of_items' => '10',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'on',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-      'name' => '60708e900c49bc',
     ),
     '5ff8c3a786683' => 
     array (
@@ -197,17 +214,6 @@ return array (
       'filter_label' => '',
       'filter_format' => '',
       'name' => 'date',
-    ),
-    '60a6921cb1a9fc' => 
-    array (
-      'type' => 'column-permalink',
-      'label' => 'Permalink',
-      'width' => '',
-      'width_unit' => '%',
-      'export' => 'on',
-      'sort' => 'on',
-      'edit' => 'off',
-      'name' => '60a6921cb1a9fc',
     ),
   ),
   'settings' => 

@@ -500,7 +500,7 @@ p {
 }
 
 .drop-cap-1a {
-    p:nth-child(2):first-letter {
+    p:not(.wp-caption-text):nth-child(2):first-letter {
         font-size: 400%;
         border: 1px solid #d4d5d7;
         padding: 0 2rem;

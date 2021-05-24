@@ -1,24 +1,69 @@
 <?php
 get_header();
 wp_enqueue_script('page-travel-guide', get_template_directory_uri() . '/js/page-travel-guide.js', array('jquery'), false, true);
-
 ?>
+
 <?php
 while (have_posts()) :
   the_post();
-  $featured_image = get_field('featured_image');
+  $image  = get_field('featured_image');
+  $categories  = get_field('categories');
+  $displayCategory = "";
+
+  if ($categories) {
+    $firstCategoryPost = $categories[0];
+    $displayCategory = get_the_title($firstCategoryPost);
+  }
+
+
+  //breadcrumbs
+  //destination / region
+  $breadcrumbDestinationPage  = get_field('breadcrumb_destination_page');
+  $breadcrumbDestinationURL = get_permalink($breadcrumbDestinationPage);
+
+  $templateType = get_page_template_slug($breadcrumbDestinationPage->ID);
+  $breadcrumbDestinationText = "";
+  if ($templateType == 'template-destinations-destination.php' || $templateType == 'template-destinations-cruise.php') {
+    $destinationPost = get_field('destination_post', $breadcrumbDestinationPage);
+    $breadcrumbDestinationText  = get_field('navigation_title', $destinationPost);
+  }
+  if ($templateType == 'template-destinations-region.php') {
+    $regionPost = get_field('region_post', $breadcrumbDestinationPage);
+    $breadcrumbDestinationText  = get_field('navigation_title', $regionPost);
+  }
+
+  //breadcrumbs
+  //travel guide
+  $breadcrumbTravelGuidePage  = get_field('breadcrumb_travel_guide_page');
+  $breadcrumbTravelGuideURL = get_permalink($breadcrumbTravelGuidePage);
+
+  $guideType = get_field('destination_type', $breadcrumbTravelGuidePage);
+  console_log($guideType);
+  $breadcrumbTravelGuideText  = "";
+
+  if ($guideType == 'rfc_destinations') {
+    $destinationPost = get_field('destination', $breadcrumbTravelGuidePage);
+    $breadcrumbTravelGuideText  = get_field('navigation_title', $destinationPost);
+  }
+  if ($guideType == 'rfc_regions') {
+    $regionPost = get_field('region', $breadcrumbTravelGuidePage);
+    $breadcrumbTravelGuideText  = get_field('navigation_title', $regionPost);
+  }
+  if ($guideType == 'rfc_locations') {
+    $locationPost = get_field('location', $breadcrumbTravelGuidePage);
+    $breadcrumbTravelGuideText  = get_field('navigation_title', $destinationPost);
+  }
+
+  //related posts
   $queryArgs = array(
     'post_type' => 'rfc_travel_guides',
     'posts_per_page' => -1,
     'post__not_in' => array($post->ID)
   );
 
-  //build meta query criteria
   $queryArgsDestination = array();
   $queryArgsDestination['relation'] = 'OR';
-
   $destinations = get_field('destinations');
-
   if ($destinations) {
     foreach ($destinations as $d) {
       $queryArgsDestination[] = array(
@@ -31,18 +76,15 @@ while (have_posts()) :
 
   $queryArgs['meta_query'][] = $queryArgsDestination;
   $travelGuidePosts = new WP_Query($queryArgs);
+
 ?>
 
-  <?php
-  $image  = get_field('featured_image');
-
-  ?>
 
   <!-- Product Page Container -->
   <div class="travel-guide-page">
     <div class="travel-guide">
       <div class="travel-guide__category">
-        Travel Inspiration
+        <?php echo $displayCategory ?>
       </div>
       <h1 class="travel-guide__title">
         <?php echo get_field('navigation_title'); ?>
@@ -54,25 +96,22 @@ while (have_posts()) :
           <img <?php afloat_responsive_image($image['ID'], 'featured-largest', array('featured-small', 'featured-medium', 'featured-large', 'featured-largest')); ?> alt="">
         <?php endif; ?>
       </div>
-      <div class="travel-guide__disclaimer">
-        <div class="disclaimer-box">
-          <svg>
-            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-c-warning"></use>
-          </svg>
-          <div class="disclaimer-box__warning">
-            <span>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quis perferendis
-            </span>
 
-            <button>
-              Please read our disclaimer
-              <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
+      <!-- Breadcrumb -->
+      <ol class="travel-guide__breadcrumb">
+
+        <li>
+          <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
+        </li>
+        <li>
+          <a href=" <?php echo $breadcrumbTravelGuideURL; ?>"><?php echo $breadcrumbTravelGuideText; ?> Travel Guides</a>
+        </li>
+        <li>
+          <?php echo get_field('navigation_title'); ?>
+        </li>
+      </ol>
+
+
       <div class="travel-guide__content drop-cap-1a">
         <?php echo the_content(); ?>
       </div>
@@ -82,43 +121,54 @@ while (have_posts()) :
         </div>
 
         <span class="travel-guide__question__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum nesciunt architecto, iste sit similique hic.</span>
-        <button class="travel-guide__question__button">
+        <a href="<?php echo get_home_url() . '/contact'; ?>" class="travel-guide__question__button">
           Ask us a question
           <svg>
             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
           </svg>
-        </button>
+        </a>
+      </div>
+
+      <div class="travel-guide__disclaimer">
+        <div class="travel-guide__disclaimer__header">
+          Disclaimer
+        </div>
+        <?php echo get_field('disclaimer', 'options'); ?>
       </div>
       <div class="travel-guide__entry">
         This entry was posted <?php echo get_the_date(); ?>
       </div>
       <div class="travel-guide__social">
-        <a href="#" class="travel-guide__social__link">
+        <a href="<?php echo get_field('facebook_link', 'options'); ?>" class="travel-guide__social__link">
           <svg>
             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-facebook"></use>
           </svg>
         </a>
-        <a href="#" class="travel-guide__social__link">
+        <a href="<?php echo get_field('instagram_link', 'options'); ?>" class="travel-guide__social__link">
           <svg>
             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-instagram"></use>
           </svg>
         </a>
-        <a href="#" class="travel-guide__social__link">
+        <a href="<?php echo get_field('twitter_link', 'options'); ?>" class="travel-guide__social__link">
           <svg>
             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-twitter"></use>
           </svg>
         </a>
-        <a href="#" class="travel-guide__social__link">
+        <a href="<?php echo get_field('pinterest_link', 'options'); ?>" class="travel-guide__social__link">
           <svg>
             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-pinterest"></use>
           </svg>
         </a>
-        <a href="#" class="travel-guide__social__link">
+        <a href="<?php echo get_field('youtube_link', 'options'); ?>" class="travel-guide__social__link">
           <svg>
             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-youtube"></use>
           </svg>
         </a>
-
+        <a href="<?php echo get_field('linked_in_link', 'options'); ?>" class="travel-guide__social__link">
+          <svg>
+            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-linkedin"></use>
+          </svg>
+        </a>
       </div>
     </div>
     <div class="travel-guide-related">

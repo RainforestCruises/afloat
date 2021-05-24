@@ -386,7 +386,7 @@
             display: flex;
             align-items: flex-start;
             width: 90%;
-
+            position: relative;
             @media only screen and (max-width: $bp-small) {
                 flex-direction: column;
             }
@@ -459,8 +459,18 @@
                     }
                 }
             }
+
+            &__fineprint {
+                position: absolute;
+                bottom: -4rem;
+                left: 0;
+                color: rgba($color-white, .8);
+                font-size: 1.3rem;
+            }
         }
     }
+
+    
 }
 
 .product-hotels {

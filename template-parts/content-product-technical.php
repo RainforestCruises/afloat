@@ -378,7 +378,12 @@ $equipment = get_field('equipment');
                 </div>
             <?php endif; ?>
             <!-- End Equipment -->
+
+            <div class="product-technical__content__columns__fineprint">
+                ** Use of certain equipment at additional cost, ask for details
+            </div>
         </div>
+
 
     </div>
 

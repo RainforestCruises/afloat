@@ -25,6 +25,8 @@
     
         &__slider {
             width: 100%;
+            user-select: text;
+
             & .slick-list {
                 padding: 0 25% !important;
 
@@ -58,7 +60,7 @@
     justify-content: flex-end;
     height: 60rem;
 
- 
+    user-select: text;
 
     &__bg {
         position: absolute;
@@ -91,7 +93,7 @@
     &__content {
         opacity: 0;
         transition: .3s all;
-        z-index: 3;
+        z-index: 5;
         color: $color-white;
         display: flex;
         flex-direction: column;

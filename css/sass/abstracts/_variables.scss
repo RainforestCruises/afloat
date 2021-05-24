@@ -105,7 +105,7 @@ $bp-xxsmall: 22em; // 352px -- iphone 5/SE
 //FLEX
 $page-width: calc(112rem + 12rem);
 
-$page-top-padding: 15rem;
+$page-top-padding: 12rem;
 
 
 $page-width-narrow: calc(80rem + 12rem);
@@ -119,5 +119,5 @@ $page-width-narrow: calc(80rem + 12rem);
 $page-container: [full-start] minmax(6rem, 1fr) [center-start]
   repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
 
-$page-container-small: [full-start] minmax(2rem, 1fr) [center-start]
-  repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(2rem, 1fr) [full-end];
+$page-container-small: [full-start] minmax(3rem, 1fr) [center-start]
+  repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end];

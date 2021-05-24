@@ -51,7 +51,6 @@ function my_acf_save_post($post_id)
     }
 
     if ('rfc_tours' == get_post_type()) {
-
         $dailyActivities = get_field('daily_activities');
         $count = 1;
         if ($dailyActivities) {
@@ -59,6 +58,10 @@ function my_acf_save_post($post_id)
         }
         update_field('length_in_days', $count);
     }
+
+    //$yearTitle = date("Y") . "-" . date('Y', strtotime('+1 year'));
+    
+  
 }
 function refresh_cruise_info($propertyId, $post_id)
 {
