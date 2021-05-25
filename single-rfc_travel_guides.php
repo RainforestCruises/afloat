@@ -83,20 +83,6 @@ while (have_posts()) :
   <!-- Product Page Container -->
   <div class="travel-guide-page">
     <div class="travel-guide">
-      <div class="travel-guide__category">
-        <?php echo $displayCategory ?>
-      </div>
-      <h1 class="travel-guide__title">
-        <?php echo get_field('navigation_title'); ?>
-
-
-      </h1>
-      <div class="travel-guide__image">
-        <?php if ($image) : ?>
-          <img <?php afloat_responsive_image($image['ID'], 'featured-largest', array('featured-small', 'featured-medium', 'featured-large', 'featured-largest')); ?> alt="">
-        <?php endif; ?>
-      </div>
-
       <!-- Breadcrumb -->
       <ol class="travel-guide__breadcrumb">
 
@@ -104,31 +90,32 @@ while (have_posts()) :
           <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
         </li>
         <li>
-          <a href=" <?php echo $breadcrumbTravelGuideURL; ?>"><?php echo $breadcrumbTravelGuideText; ?> Travel Guides</a>
+          <a href=" <?php echo $breadcrumbTravelGuideURL; ?>"><?php echo $breadcrumbTravelGuideText; ?> Travel Guide</a>
         </li>
         <li>
           <?php echo get_field('navigation_title'); ?>
         </li>
       </ol>
+   
+      <h1 class="travel-guide__title">
+        <?php echo get_field('navigation_title'); ?>
+      </h1>
+      <div class="travel-guide__category">
+        <?php echo $displayCategory ?>
+      </div>
+      <div class="travel-guide__image">
+        <?php if ($image) : ?>
+          <img <?php afloat_responsive_image($image['ID'], 'featured-largest', array('featured-small', 'featured-medium', 'featured-large', 'featured-largest')); ?> alt="">
+        <?php endif; ?>
+      </div>
+
+    
 
 
       <div class="travel-guide__content drop-cap-1a">
         <?php echo the_content(); ?>
       </div>
-      <div class="travel-guide__question">
-        <div class="travel-guide__question__title">
-          Any Questions? Ask Us!
-        </div>
-
-        <span class="travel-guide__question__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum nesciunt architecto, iste sit similique hic.</span>
-        <a href="<?php echo get_home_url() . '/contact'; ?>" class="travel-guide__question__button">
-          Ask us a question
-          <svg>
-            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
-          </svg>
-        </a>
-      </div>
-
+      
       <div class="travel-guide__disclaimer">
         <div class="travel-guide__disclaimer__header">
           Disclaimer
@@ -138,38 +125,7 @@ while (have_posts()) :
       <div class="travel-guide__entry">
         This entry was posted <?php echo get_the_date(); ?>
       </div>
-      <div class="travel-guide__social">
-        <a href="<?php echo get_field('facebook_link', 'options'); ?>" class="travel-guide__social__link">
-          <svg>
-            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-facebook"></use>
-          </svg>
-        </a>
-        <a href="<?php echo get_field('instagram_link', 'options'); ?>" class="travel-guide__social__link">
-          <svg>
-            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-instagram"></use>
-          </svg>
-        </a>
-        <a href="<?php echo get_field('twitter_link', 'options'); ?>" class="travel-guide__social__link">
-          <svg>
-            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-twitter"></use>
-          </svg>
-        </a>
-        <a href="<?php echo get_field('pinterest_link', 'options'); ?>" class="travel-guide__social__link">
-          <svg>
-            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-pinterest"></use>
-          </svg>
-        </a>
-        <a href="<?php echo get_field('youtube_link', 'options'); ?>" class="travel-guide__social__link">
-          <svg>
-            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-youtube"></use>
-          </svg>
-        </a>
-        <a href="<?php echo get_field('linked_in_link', 'options'); ?>" class="travel-guide__social__link">
-          <svg>
-            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-linkedin"></use>
-          </svg>
-        </a>
-      </div>
+      
     </div>
     <div class="travel-guide-related">
       <div class="travel-guide-related__title">

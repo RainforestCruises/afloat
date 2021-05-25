@@ -32,7 +32,7 @@
         color: $color-supporting;
         text-align: center;
         font-weight: 500;
-        margin-bottom: 1rem;
+        margin-bottom: 3rem;
     }
 
     &__title {
@@ -41,12 +41,12 @@
         color: $color-primary;
         font-weight: 600;
         text-align: center;
-        margin-bottom: 4rem;
+        margin-bottom: 1rem;
 
         @media only screen and (max-width: $bp-small) {
             font-size: 3.5rem;
             line-height: 4rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
     }
 
@@ -61,7 +61,7 @@
     }
 
     &__breadcrumb {
-        margin-top: 3rem;
+        margin-bottom: 2rem;
         font-size: 1.2rem;
         letter-spacing: 0.1rem;
         justify-self: flex-start;
@@ -78,7 +78,7 @@
 
         flex-wrap: wrap;
 
-        color: $color-primary;
+        color: $color-supporting;
 
         & li {
           display: inline-block;
@@ -138,14 +138,15 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
-            padding: 5rem 0;
-            padding-bottom: 6rem;
-            margin-bottom: 6rem;
+            //padding: 5rem 0;
+            padding: 4rem 0;
+            padding-top: 2rem;
+            margin-bottom: 4rem;
             
 
 
             @media only screen and (max-width: $bp-small) {
-                padding: 4rem 0;
+                padding-top: 1rem;
                 padding-bottom: 4rem;
                 margin-bottom: 4rem;
                 font-size: 2rem;
@@ -157,6 +158,15 @@
             max-width: 80rem;
             align-self: center;
             font-size: 1.6rem;
+        }
+
+        & ul {
+            max-width: 80rem;
+            align-self: center;
+            font-size: 2rem;
+            width: 100%;
+            padding-left: 3rem;
+            padding-bottom: 2rem;
         }
  
         & img {
@@ -323,6 +333,17 @@
         & p {
             font-size: 1.3rem ;
             line-height: 2rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background-color: $color-grey-light-1a;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         &::after {
@@ -557,9 +578,9 @@
     max-width: $page-width;
 }
 .wp-caption-text {
-    max-width: 80rem;
+    max-width: $page-width !important;
     align-self: center;
-    font-size: 1.3rem !important;
+    font-size: 1.5rem !important;
     margin-bottom: 2rem;
     letter-spacing: .1rem;
     color: $color-primary;
