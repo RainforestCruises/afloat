@@ -145,7 +145,7 @@
             "key": "field_5ff8cf492b797",
             "label": "Intro Snippet",
             "name": "intro_snippet",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "Short text under title area",
             "required": 0,
             "conditional_logic": 0,
@@ -155,10 +155,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         }
     ],
     "location": [
@@ -178,5 +178,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide Landing - Page",
-    "modified": 1617993363
+    "modified": 1621980600
 }

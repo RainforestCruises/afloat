@@ -2,7 +2,7 @@
     grid-row: footer-start / footer-end;
     grid-column: full-start / full-end;
 
-    background-color: $color-primary;
+    background-color: $color-footer;
 
     display: grid;
     grid-template-columns: $page-container;
@@ -10,6 +10,8 @@
     color: $color-white;
     font-size: 1.6rem;
     position: relative;
+
+
 
     @media only screen and (max-width: $bp-medium) {
         grid-template-rows: 15rem repeat(5, min-content);
@@ -42,7 +44,7 @@
         position: relative;
 
         &__compass {
-            background-color: $color-primary;
+            background-color: $color-footer;
             padding: 0 2rem;
             & svg {
                 transform: translateY(0.5rem);
@@ -55,7 +57,7 @@
 
         &__social {
             display: flex;
-            background-color: $color-primary;
+            background-color: $color-footer;
             padding: 0 1rem;
 
             &__link {

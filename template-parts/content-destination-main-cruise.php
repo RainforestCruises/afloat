@@ -91,29 +91,39 @@ $cruise_experiences = get_field('cruise_experiences');
 
 
                     <a class="product-card" href="<?php echo get_permalink($c); ?>">
-                        <?php if ($featured_image) { ?>
-                            <div class="product-card__image-area">
-                                <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
+                    <div class="product-card__image-area">
+                        <?php if ($featured_image) : ?>
+                            <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
+                        <?php endif; ?>
+                    </div>
+                    <div class="product-card__bottom">
+                        <div class="product-card__bottom__title-group">
+                            <div class="product-card__bottom__title-group__product-name">
+                                <?php echo get_the_title($c) ?>
                             </div>
-                        <?php } ?>
-                        <div class="product-card__bottom">
-                            <div class="product-card__bottom__title-group">
-                                <div class="product-card__bottom__title-group__product-name">
-                                    <?php echo get_the_title($c) ?>
+
+                        </div>
+                        <div class="product-card__bottom__text">
+                            <?php echo get_field('top_snippet', $c) ?>
+                        </div>
+                        <div class="product-card__bottom__info">
+
+
+                            <div class="product-card__bottom__info__length-group">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
+                                </svg>
+                                <div class="product-card__bottom__info__length-group__length">
+                                    <?php echo itineraryRange($cruise_data, " - ") ?> Days
                                 </div>
-                                <div class="product-card__bottom__title-group__price-group">
-                                    <div class="product-card__bottom__title-group__price-group__from">From</div>
-                                    <div class="product-card__bottom__title-group__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
-                                </div>
                             </div>
-                            <div class="product-card__bottom__text">
-                                <?php echo get_field('top_snippet', $c) ?>
-                            </div>
-                            <div class="product-card__bottom__info">
-                                <?php echo itineraryRange($cruise_data, " - ") ?> Day Cruises
+                            <div class="product-card__bottom__info__price-group">
+                                <div class="product-card__bottom__info__price-group__from">From</div>
+                                <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
                             </div>
                         </div>
-                    </a>
+                    </div>
+                </a>
 
 
                 <?php endforeach; ?>

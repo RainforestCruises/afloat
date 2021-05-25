@@ -3661,7 +3661,7 @@ h5 {
   padding: 4rem 0;
   padding-top: 8rem;
   justify-content: center;
-  background-color: #142838;
+  background-color: #1d2225;
   align-items: center;
   flex-direction: column; }
   .product-technical::before {
@@ -7071,7 +7071,7 @@ h5 {
           margin-bottom: 0; } }
 
 .home-testimonials {
-  background-color: #142838;
+  background-color: #1d2225;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -9477,7 +9477,7 @@ h5 {
 .footer {
   grid-row: footer-start / footer-end;
   grid-column: full-start / full-end;
-  background-color: #142838;
+  background-color: #1d2225;
   display: grid;
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
   grid-template-rows: 15rem repeat(2, min-content) 15rem;
@@ -9508,7 +9508,7 @@ h5 {
     align-items: center;
     position: relative; }
     .footer__first__compass {
-      background-color: #142838;
+      background-color: #1d2225;
       padding: 0 2rem; }
       .footer__first__compass svg {
         transform: translateY(0.5rem);
@@ -9518,7 +9518,7 @@ h5 {
         stroke-width: 1.5; }
     .footer__first__social {
       display: flex;
-      background-color: #142838;
+      background-color: #1d2225;
       padding: 0 1rem; }
       .footer__first__social__link:link, .footer__first__social__link:visited {
         color: #fff;
