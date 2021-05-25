@@ -451,9 +451,11 @@ foreach ($menuitems as $m) {
                         <li>
                             <a href="#travel-guide">Travel Guide</a>
                         </li>
+                        <?php if (get_field('show_testimonials') == true) { ?>
                         <li>
                             <a href="#testimonials">Testimonials</a>
                         </li>
+                        <?php } ?>
                         <li href="#faq">
                             <a href="#faq">FAQ</a>
                         </li>
@@ -515,9 +517,12 @@ foreach ($menuitems as $m) {
                     <li class="nav-secondary-mobile__list__item">
                         <a href="#travel-guide" class="nav-secondary-mobile__list__item__link">Travel Guide</a>
                     </li>
+                    
+                    <?php if (get_field('show_testimonials') == true) { ?>
                     <li class="nav-secondary-mobile__list__item">
                         <a href="#testimonials" class="nav-secondary-mobile__list__item__link">Testimonials</a>
                     </li>
+                    <?php } ?>
                     <li class="nav-secondary-mobile__list__item" href="#faq">
                         <a href="#faq" class="nav-secondary-mobile__list__item__link">FAQ</a>
                     </li>

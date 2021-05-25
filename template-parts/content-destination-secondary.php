@@ -38,16 +38,26 @@ $currentYear = date("Y");
                             <div class="product-card__bottom__title-group__product-name">
                                 <?php echo get_the_title($c) ?>
                             </div>
-                            <div class="product-card__bottom__title-group__price-group">
-                                <div class="product-card__bottom__title-group__price-group__from">From</div>
-                                <div class="product-card__bottom__title-group__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
-                            </div>
+
                         </div>
                         <div class="product-card__bottom__text">
                             <?php echo get_field('top_snippet', $c) ?>
                         </div>
                         <div class="product-card__bottom__info">
-                            <?php echo itineraryRange($cruise_data, " - ") ?> Day Cruises
+
+
+                            <div class="product-card__bottom__info__length-group">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
+                                </svg>
+                                <div class="product-card__bottom__info__length-group__length">
+                                    <?php echo itineraryRange($cruise_data, " - ") ?> Days
+                                </div>
+                            </div>
+                            <div class="product-card__bottom__info__price-group">
+                                <div class="product-card__bottom__info__price-group__from">From</div>
+                                <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
+                            </div>
                         </div>
                     </div>
                 </a>

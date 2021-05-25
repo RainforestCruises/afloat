@@ -108,9 +108,11 @@
                       <li class="destination-hero__content__page-nav__list__item">
                           <a href="#travel-guide" class="destination-hero__content__page-nav__list__item__link page-nav-template">Travel Guide</a>
                       </li>
+                      <?php if (get_field('show_testimonials') == true) { ?>
                       <li class="destination-hero__content__page-nav__list__item">
                           <a href="#testimonials" class="destination-hero__content__page-nav__list__item__link page-nav-template">Testimonials</a>
                       </li>
+                      <?php } ?>
                       <li class="destination-hero__content__page-nav__list__item">
                           <a href="#faq" class="destination-hero__content__page-nav__list__item__link page-nav-template">FAQ</a>
                       </li>

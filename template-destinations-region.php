@@ -128,11 +128,13 @@ $args = array(
     </section>
 
     <!-- Testimonials -->
+    <?php if (get_field('show_testimonials') == true) { ?>
     <section class="destination-page__section-testimonials" id="testimonials">
         <?php
         get_template_part('template-parts/content', 'destination-testimonials', $args);
         ?>
     </section>
+    <?php } ?>
 
     <!-- FAQ -->
     <section class="destination-page__section-faq" id="faq">

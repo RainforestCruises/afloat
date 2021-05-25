@@ -27,11 +27,7 @@
             object-fit: contain;
             height: 100%;
             width: 100%;
-  
         }
-      
-
-     
     }
     &__title-group {
         grid-column: 1 / -1;
@@ -171,7 +167,6 @@
 }
 
 .product-card {
-
     border: 1px solid $color-grey-light-1a;
     border-radius: 4px;
     outline: none;
@@ -187,7 +182,6 @@
     &__image-area {
         height: min-content;
 
-
         & img {
             object-fit: contain;
             height: 100%;
@@ -201,11 +195,13 @@
         background-color: $color-white;
         //min-height: 18rem;
         padding: 1rem 1.5rem;
-     
+
         display: flex;
         flex-direction: column;
+        
 
         &__title-group {
+            margin-top: .5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -214,64 +210,102 @@
                 line-height: 2.2rem;
                 font-weight: 600;
                 color: $color-primary;
-                margin-bottom: .5rem;
-            }
-    
-            &__price-group {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-     
-                &__from {
-                    font-size: 1.2rem;
-                    line-height: 1.6rem;
-                    color: $color-grey-1;
-                    margin-right: .4rem;
-    
-                }
-    
-                &__data {
-                    display: flex;
-                    flex-wrap: nowrap;
-                    align-items: flex-end;
-                    font-size: 1.5rem;
-                    line-height: 2.2rem;
-                    color: $color-primary;
-                    font-weight: 600;
-
-    
-                    & span { //usd
-                        margin-left: .3rem;
-                        font-size: 1.1rem;
-                        text-transform: uppercase;
-                    }
-                 
-                }
+                margin-bottom: 0.5rem;
             }
         }
 
-     
-
         &__text {
             font-size: 1.3rem;
-            margin-top: .5rem;
-            margin-bottom: .5rem;
-            padding-bottom: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 1.5rem;
             position: relative;
 
             border-bottom: 1px solid $color-grey-light-1a;
+            hyphens: auto;
 
+            //min-height: 7.2rem;
         }
 
         &__info {
             position: relative;
-            padding-top: .5rem;
-            font-weight: 500;
-            font-size: 1.4rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2rem;
-            text-align: center;
-           
+            padding-top: 1rem;
+            padding-bottom: .5rem;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            &__length-group {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                position: relative;
+                margin-right: .5rem;
+                & svg {
+                    height: 20px;
+                    width: 20px;
+                    fill: $color-primary;
+                    stroke-width: 4;
+                    margin-right: 1.2rem;
+
+                    stroke: $color-primary;
+
+                    color: $color-primary;
+                }
+
+                &__length {
+                    display: flex;
+                    align-items: center;
+                    color: $color-primary;
+                    font-weight: 500;
+                    font-size: 1.4rem;
+                    line-height: 1.8rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1rem;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translateY(-50%);
+                    width: 1px;
+                    height: 75%;
+                    background-color: $color-grey-light-1a;
+                }
+            }
+
+            &__price-group {
+                display: flex;
+                
+                align-items: center;
+                justify-content: flex-end;
+                margin-left: 1rem;
+                &__from {
+                    font-size: 1.2rem;
+                    line-height: 1.6rem;
+                    color: $color-grey-1;
+                    margin-right: .6rem;
+                }
+
+                &__data {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    align-items: flex-end;
+                    font-size: 1.8rem;
+                    line-height: 2.2rem;
+                    color: $color-primary;
+                    font-weight: 600;
+
+                    & span {
+                        //usd
+                        margin-left: 0.4rem;
+                        font-size: 1.2rem;
+                        text-transform: uppercase;
+                    }
+                }
+            }
         }
     }
 }
@@ -397,11 +431,11 @@
 
                 @media only screen and (max-width: $bp-medium) {
                     justify-content: center;
-                    margin-top: 1rem;              
+                    margin-top: 1rem;
                 }
 
                 @media only screen and (max-width: $bp-small) {
-                    flex-direction: column;             
+                    flex-direction: column;
                 }
 
                 &__price {
@@ -444,7 +478,6 @@
 
         @media only screen and (max-width: $bp-small) {
             background-image: linear-gradient(to bottom, transparent 30%, rgba($color-black, 0.6));
-
         }
     }
 }
@@ -593,20 +626,17 @@
     }
 }
 
-
-
 .home-destination-card {
     background-color: grey;
-    
+
     height: 100%;
-    
+
     text-decoration: none;
     position: relative;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
     margin-bottom: 3rem;
 
     & img {
-
         object-fit: cover;
         height: 100%;
         width: 100%;
@@ -618,13 +648,12 @@
         top: 0;
         left: 0;
         height: 100%;
-        
+
         width: 100%;
         z-index: 2;
-        border-radius: .4rem;
-        background-image: linear-gradient(to top, rgba($color-black, .6), rgba($color-black, 0));
+        border-radius: 0.4rem;
+        background-image: linear-gradient(to top, rgba($color-black, 0.6), rgba($color-black, 0));
     }
-
 
     &__title-area {
         position: absolute;
@@ -654,7 +683,6 @@
             font-size: 1.4rem;
             letter-spacing: 0.3rem;
             font-weight: 300;
-            
         }
     }
 }

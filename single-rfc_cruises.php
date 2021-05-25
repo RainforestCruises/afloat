@@ -111,11 +111,13 @@ while (have_posts()) :
 
 
     <!-- Reviews -->
+    <?php if (get_field('show_testimonials') == true) { ?>
     <section class="product-page__section-reviews">
       <?php
       get_template_part('template-parts/content', 'product-reviews', $args);
       ?>
     </section>
+    <?php } ?>
 
     <!-- Related Travel -->
     <section class="product-page__section-related">

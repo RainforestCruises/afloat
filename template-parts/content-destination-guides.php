@@ -28,7 +28,8 @@ $travel_guide_posts = get_field('travel_guide_posts');
                         $displayCategory = get_the_title($first);
                     }
             ?>
-                    <div class="destination-guides__grid-container__grid__item">
+            <!-- Make link here -->
+                    <a href="<?php echo get_permalink($travel_guide); ?>" class="destination-guides__grid-container__grid__item">
                         <img src="<?php echo esc_url($img['url']); ?>" alt="">
                         <div class="destination-guides__grid-container__grid__item__content">
                             <div class="destination-guides__grid-container__grid__item__content__category">
@@ -38,16 +39,16 @@ $travel_guide_posts = get_field('travel_guide_posts');
                                 <?php echo $displayTitle ?>
                             </div>
                             <div class="destination-guides__grid-container__grid__item__content__link">
-                                <a class="goto-button" href="<?php echo get_permalink($travel_guide); ?>">
+                                <button class="goto-button" >
                                     Read Guide
                                     <svg>
                                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
                                     </svg>
-                                </a>
+                                </button>
 
                             </div>
                         </div>
-                    </div>
+                    </a>
             <?php endforeach;
             endif; ?>
         </div>

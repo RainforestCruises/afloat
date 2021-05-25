@@ -909,13 +909,40 @@
             "endpoint": 0
         },
         {
+            "key": "field_60ad2562029d0",
+            "label": "Show Testimonials",
+            "name": "show_testimonials",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5fdb9a4879778",
             "label": "Testimonials",
             "name": "testimonials",
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60ad2562029d0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1128,5 +1155,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1618333530
+    "modified": 1621960059
 }

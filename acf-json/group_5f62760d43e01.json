@@ -341,8 +341,7 @@
             },
             "choices": {
                 "river": "River",
-                "costal": "Costal",
-                "island": "Island"
+                "costal": "Costal"
             },
             "allow_null": 0,
             "other_choice": 0,
@@ -535,13 +534,40 @@
             "endpoint": 0
         },
         {
+            "key": "field_60ad258ada508",
+            "label": "Show Testimonials",
+            "name": "show_testimonials",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_606630a92a676",
             "label": "Reviews Background",
             "name": "reviews_background",
             "type": "image",
             "instructions": "1920 x 730 min (Parallax background image behind testimonials)",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60ad258ada508",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -565,7 +591,15 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60ad258ada508",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1899,5 +1933,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Cruise - CPT",
-    "modified": 1621368847
+    "modified": 1621961266
 }

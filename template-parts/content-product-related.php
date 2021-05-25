@@ -85,10 +85,7 @@ $posts = get_posts($queryArgs);
                             <div class="product-card__bottom__title-group__product-name">
                                 <?php echo (get_post_type($p) == 'rfc_tours') ? get_field('tour_name', $p) : get_the_title($p) ?>
                             </div>
-                            <div class="product-card__bottom__title-group__price-group">
-                                <div class="product-card__bottom__title-group__price-group__from">From</div>
-                                <div class="product-card__bottom__title-group__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
-                            </div>
+                           
                         </div>
 
 
@@ -97,7 +94,22 @@ $posts = get_posts($queryArgs);
                         </div>
 
                         <div class="product-card__bottom__info">
-                            <?php echo (get_post_type($p) == 'rfc_tours') ? $tour_length  . " Day Tour" : itineraryRange($cruise_data, " - ") . " Day Cruises"; ?>
+                            
+                       
+                            <div class="product-card__bottom__info__length-group">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
+                                </svg>
+                                <div class="product-card__bottom__info__length-group__length">
+                                    <?php echo (get_post_type($p) == 'rfc_tours') ? $tour_length  . " Days" : itineraryRange($cruise_data, " - ") . " Days"; ?>
+                                </div>
+                            </div>
+                            <div class="product-card__bottom__info__price-group">
+                                <div class="product-card__bottom__info__price-group__from">From</div>
+                                <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
+                            </div>
+                        
+                        
                         </div>
                     </div>
                 </a>
@@ -109,6 +121,4 @@ $posts = get_posts($queryArgs);
     </div>
     <?php endif; ?>
 </div>
-
-
 
