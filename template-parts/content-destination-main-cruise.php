@@ -89,7 +89,7 @@ $cruise_experiences = get_field('cruise_experiences');
                     <!-- Tour Card -->
 
 
-
+ 
                     <a class="product-card" href="<?php echo get_permalink($c); ?>">
                     <div class="product-card__image-area">
                         <?php if ($featured_image) : ?>
