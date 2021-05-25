@@ -12,6 +12,7 @@ $cruise_data = $args['cruiseData'];
     <!-- Cabins -->
     <?php
     $cabins = $cruise_data['CabinDTOs'];
+    console_log($cabins);
     $cabinCount = 0;
     if ($cabins) : ?>
 
@@ -27,7 +28,15 @@ $cruise_data = $args['cruiseData'];
             <div class="product-cabins__cabin ">
                 <div class="product-cabins__cabin__image-area">
                     <!-- Image from DF -->
-                    <img src="<?php echo esc_html($cabins[$cabinCount]['ImageDTOs'][0]['ImageUrl']); ?>" alt="">
+                    <?php $cabinImages = $cabins[$cabinCount]['ImageDTOs'];      
+                    foreach($cabinImages as $cabinImage) {
+                        $mainImage;
+                        if($cabinImage['Main'] == true){
+                            $mainImage = $cabinImage;
+                        }
+                    }         
+                    ?>
+                    <img src="<?php echo esc_html($mainImage['ImageUrl']); ?>" alt="">
                 </div>
                 <div class="product-cabins__cabin__content">
                     <div class="product-cabins__cabin__content__title">
