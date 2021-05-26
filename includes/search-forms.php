@@ -144,10 +144,7 @@ function search_filter_primary_search()
     $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId, $formMinLength, $formMaxLength, $formDates);
 
 
-    //$formattedResults = formatFilterSearch($posts, );
-
-
-    console_log($posts);
+   
 
     //Return result cards -- content-primary-search-results
     get_template_part('template-parts/content', 'primary-search-results', $posts);

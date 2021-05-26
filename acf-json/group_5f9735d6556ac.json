@@ -201,6 +201,27 @@
             "endpoint": 0
         },
         {
+            "key": "field_60aeb24208df7",
+            "label": "Search Rank",
+            "name": "search_rank",
+            "type": "number",
+            "instructions": "Weight given to search priority, from 1-1000. A higher number will appear first in search results. A product with a weight of 1 will appear last. Score average products: ~500 range, products to appear first: 700+ range, products to rank last: sub 300 range.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 1000,
+            "step": ""
+        },
+        {
             "key": "field_5f975c6168c7d",
             "label": "Tour Name",
             "name": "tour_name",
@@ -1510,5 +1531,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Tour - CPT",
-    "modified": 1621960240
+    "modified": 1622063138
 }

@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.4.2',
+  'version' => '5.5.1',
   'title' => 'Tours',
   'type' => 'rfc_tours',
   'id' => '5fdce4309e743',
-  'updated' => 1618592356,
+  'updated' => 1622062652,
   'columns' => 
   array (
     'title' => 
@@ -130,6 +130,23 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '5fdce46352684',
+    ),
+    '60aeb61553f7d0' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Search Rank',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_60aeb24208df7',
+      'number_format' => '',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '60aeb61553f7d0',
     ),
     '5fdce577c6105' => 
     array (

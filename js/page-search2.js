@@ -204,7 +204,6 @@ jQuery(document).ready(function ($) {
 
   //SEARCH FUNCTION
   function reloadResults() {
-    console.log('reload');
 
     var searchForm = $('#search-form'); //get form
     $.ajax({

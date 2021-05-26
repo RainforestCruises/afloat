@@ -122,6 +122,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
     $posts = get_posts($args); //Stage I posts
     $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter); //Stage II metadata
 
+    console_log($formattedPosts);
     return $formattedPosts;
 }
 
@@ -151,6 +152,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         $productTitle = "";
         $productTypeDisplay = "";
         $productTypeCta = "";
+        $searchRank = intval(get_field('search_rank', $p) ?? 1);
         $snippet = get_field('top_snippet', $p);
         $featuredImage = get_field('featured_image', $p); //need specific image size  - 600x500
         $productImageUrl = "";
@@ -448,12 +450,21 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             'vesselCapacity' => $vesselCapacity,
             'vesselCapacityDisplay' => $vesselCapacityDisplay,
             'numberOfCabins' => $numberOfCabins,
-            'numberOfCabinsDisplay' => $numberOfCabinsDisplay
+            'numberOfCabinsDisplay' => $numberOfCabinsDisplay,
+            'searchRank' => $searchRank
 
         );
     }
 
-    //$output = array_slice($results, 0, 10);
+    usort($results, "sortRank"); //sort by search rank score
 
     return $results;
+}
+
+
+function sortRank($a, $b)
+{
+    if (is_object($a) && is_object($b)) {
+        return $b->searchRank - $a->searchRank;
+    }
 }
