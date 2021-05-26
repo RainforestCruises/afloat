@@ -9,18 +9,10 @@ foreach ($results as $result) :
         <div class="search-result__content">
             <div class="search-result__content__top">
                 <div class="search-result__content__top__badge-area">
-
-
-                    <?php if ($result->charterOnly == true) : ?>
-                        <div class="badge-solid badge-solid--green badge-solid--small">
-                            Charter Vessel
+                    <?php if ($result->promoAvailable == true) : ?>
+                        <div class="badge-solid badge-solid--small badge-solid--green">
+                            PROMO
                         </div>
-                    <?php else : ?>
-                        <?php if ($result->promoAvailable == true) : ?>
-                            <div class="badge-solid badge-solid--small badge-solid--red">
-                                PROMO
-                            </div>
-                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
                 <div class="search-result__content__top__title-group">
@@ -87,7 +79,7 @@ foreach ($results as $result) :
             <div class="search-result__detail__info">
                 <div class="search-result__detail__info__price-from">
                     <div class="search-result__detail__info__price-from__text">
-                        <?php echo (!$result->charterOnly) ? 'Starting from ' : 'Charter Per Night '; ?>
+                        <?php echo $result->priceText; ?>
                     </div>
                     <div class="search-result__detail__info__price-from__price">
                         <?php echo "$" . number_format($result->lowestPrice, 0);  ?>

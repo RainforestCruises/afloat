@@ -3,8 +3,6 @@
 function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray)
 {
 
-
-
     $charterFilter = false;
     if ($travelStyles == null) {
         $travelStyles = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
@@ -197,7 +195,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
 
             $productTitle = get_field('tour_name', $p);
-            $productTypeDisplay = 'Land Tour';
+            $productTypeDisplay = 'Private Tour';
             $productTypeCta = 'Tour';
 
             $pricePackages = get_field('price_packages', $p);
@@ -241,26 +239,31 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             $numberOfCabins = get_field('number_of_cabins', $p);
 
             if ($postType  == 'rfc_cruises') { //CRUISES 
-
+                $productTypeCta = 'Cruise';
                 $charterAvailable = get_field('charter_available', $p);
+
                 if ($charterAvailable) {
                     $charterOnly = get_field('charter_only', $p);
                 }
 
-                //filter out charter only if not searching charter
-                if($charterFilter == false){
+                
+                if($charterFilter == false){ //FIT - filter out charter only if not searching charter
                     if($charterOnly == true){
                         continue;
                     }
-                } else { //filter out boats not available  for charter if searching charter
+
+                    $cruiseType = get_field('cruise_type', $p);
+                    $productTypeDisplay = $cruiseType . ' Cruise';
+
+                } else { //Charter -- filter out boats not available for charter if searching charter
+                    $productTypeDisplay = 'Private Charter';
                     if($charterAvailable != true){
                         continue;
                     }
                 }
 
-                $cruiseType = get_field('cruise_type', $p);
-                $productTypeDisplay = $cruiseType . ' Cruise';
-                $productTypeCta = 'Cruise';
+                
+                
 
                 //Cruise Itineraries
                 foreach ($cruiseData['Itineraries'] as $itinerary) {
@@ -405,9 +408,13 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         }
 
         $productLowestPrice = 0;
-
-        if ($charterOnly == true) {
+        $priceText = "Starting from";
+        if ($charterFilter == true) {
             $productLowestPrice = get_field('charter_daily_price', $p);
+            $priceText = "Price per night";
+            $promoAvailable = false;
+            $itineraryLengthDisplay = get_field('charter_min_days', $p) . " Days +";
+            $itineraryCountDisplay = "";
         } else {
             $productLowestPriceValues = [];
             foreach ($itineraries as $itinerary) {
@@ -432,17 +439,14 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             'destinations' => get_field('destinations', $p),
             'locations' => get_field('locations', $p),
             'experiences' => get_field('experiences', $p),
+            'priceText' => $priceText,
             'lowestPrice' => $productLowestPrice,
             'itineraryLengthDisplay' => $itineraryLengthDisplay,
             'itineraryCountDisplay' => $itineraryCountDisplay,
             'promoAvailable' => $promoAvailable,
-
-            //'postLink' => $resultLink,
-            //'charterAvailable' => $charterAvailable,
             'charterOnly' => $charterOnly,
             'vesselCapacity' => $vesselCapacity,
             'vesselCapacityDisplay' => $vesselCapacityDisplay,
-
             'numberOfCabins' => $numberOfCabins,
             'numberOfCabinsDisplay' => $numberOfCabinsDisplay
 
