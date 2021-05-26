@@ -2,7 +2,7 @@
 jQuery(document).ready(function ($) {
 
 
-    //FORM ----------------
+  //FORM ----------------
   //form variables
   const formDates = document.querySelector('#formDates');
   const formTravelStyles = document.querySelector('#formTravelStyles');
@@ -12,17 +12,17 @@ jQuery(document).ready(function ($) {
   const formMinLength = document.querySelector('#formMinLength');
 
   var preselectMinLength = 1;
-  var preselectMaxLength = 15;
+  var preselectMaxLength = 21;
   //Length Slider
 
   let rangeFrom = 1;
-  let rangeTo = 15;
+  let rangeTo = 21;
 
   $("#range-slider").ionRangeSlider({
     skin: "round",
     type: "double",
     min: 1,
-    max: 15,
+    max: 21,
     from: preselectMinLength,
     to: preselectMaxLength,
     postfix: " Day",
@@ -65,11 +65,6 @@ jQuery(document).ready(function ($) {
   });
 
 
-
-
-
-
-
   //Departure Date selections
   let departureString = "";
   let departureSelectionArray = [];
@@ -83,9 +78,7 @@ jQuery(document).ready(function ($) {
         const itemMonth = checkbox.getAttribute("month");
         const itemYear = checkbox.getAttribute("year");
 
-
         if (checkbox.checked) {
-
           var itemValue = itemYear + "-" + itemMonth + "-01";
           departureSelectionArray.push(itemValue);
           if (count > 0) {
@@ -94,12 +87,11 @@ jQuery(document).ready(function ($) {
           departureString += itemYear + "-" + itemMonth;
           count++;
         }
-
       })
 
       formDates.value = departureString;
-
       reloadResults();
+
     });
   })
 
@@ -110,23 +102,34 @@ jQuery(document).ready(function ($) {
   const travelStylesArray = [...document.querySelectorAll('.travel-style-checkbox')];
   travelStylesArray.forEach(item => {
     item.addEventListener('click', () => {
+
+      //if charterCruises = selected --> make unselected
+      if (item.value != 'charter_cruises') {
+        const charterCheckbox = document.getElementById('charterCheckbox');
+        charterCheckbox.checked = false;
+      } else {
+        //if this is charterCruises (and not selected) --> unselect all the other checkboxes
+        if (item.checked == true) {
+          travelStylesArray.forEach(checkboxItem => {
+            checkboxItem.checked = false;
+          });
+          charterCheckbox.checked = true;
+        } 
+      }
+
       travelStylesSelectionArray = [];
       travelStylesString = "";
       let count = 0;
       travelStylesArray.forEach(checkbox => {
         const itemValue = checkbox.value;
-
         if (checkbox.checked) {
-
           travelStylesSelectionArray.push(itemValue);
-
           if (count > 0) {
             travelStylesString += ":";
           }
           travelStylesString += itemValue;
           count++;
         }
-
       })
 
       formTravelStyles.value = travelStylesString;
@@ -155,7 +158,6 @@ jQuery(document).ready(function ($) {
           destinationsString += itemValue;
           count++;
         }
-
       })
 
       formDestinations.value = destinationsString;
@@ -194,53 +196,37 @@ jQuery(document).ready(function ($) {
 
 
 
+  // $('#search-form').submit(function () {
+  //   reloadResults();
+  //   return false;
+  // });
 
-
-  $('#search-form').submit(function () {
-
-    reloadResults();
-    return false;
-  });
 
   //SEARCH FUNCTION
   function reloadResults() {
     console.log('reload');
 
-    
     var searchForm = $('#search-form'); //get form
     $.ajax({
       url: searchForm.attr('action'),
       data: searchForm.serialize(), // form data
       type: searchForm.attr('method'), // POST
       beforeSend: function () {
-        //$('#response').html('<div class="search-results__grid__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
-
-        //search-results__grid
-        
+        //indicate loading
         $('#response').addClass('loading');
-
-
-        $( "#response" ).append('<div class="lds-dual-ring"></div>');
-
+        $("#response").append('<div class="lds-dual-ring"></div>');
         $('#response-count').html('Searching...');
       },
       success: function (data) {
 
         $('#response').removeClass('loading');
-        $( ".lds-dual-ring" ).remove();
+        $(".lds-dual-ring").remove();
 
-        $('#response').html(data); // insert data
-
-       
-
-
-        
+        $('#response').html(data); //return the markup -- content-primary-search-results.php
 
       }
     });
   }
-
-
 
 });
 

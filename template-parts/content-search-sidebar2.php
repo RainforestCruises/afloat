@@ -130,12 +130,12 @@ if (get_field('itinerary_length_max') != null) {
                         <label for="travel-style-checkbox-3" tabindex="3">Lodges</label>
                     </div>
                 </li>
-                <!-- <li class="filter__content__list__item filter__content__list__item--divider">
+                <li class="filter__content__list__item filter__content__list__item--divider">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-4" value="charter_cruises">
-                        <label for="travel-style-checkbox-4" tabindex="4">Charter Cruises</label>
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="charterCheckbox" value="charter_cruises">
+                        <label for="charterCheckbox" tabindex="4">Charter Cruises</label>
                     </div>
-                </li> -->
+                </li>
             </ul>
             <!-- Extras here, button etc-->
         </div>

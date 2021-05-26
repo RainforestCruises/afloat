@@ -1,11 +1,22 @@
 <?php
 //Upper bounded list of products for search results
-function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId)
+function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray)
 {
 
-    if($travelStyles == null) {
+
+
+    $charterFilter = false;
+    if ($travelStyles == null) {
         $travelStyles = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
+    } else {
+
+        if ($travelStyles[0] == 'charter_cruises') {
+            $travelStyles = array('rfc_cruises');
+            $charterFilter = true;
+        }
     }
+
+
     $args = array(
         'posts_per_page' => -1,
         'post_type' => $travelStyles,
@@ -13,8 +24,18 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
 
+    if ($charterFilter == true) {
+        $args['meta_query'][] = array(
+            'key' => 'charter_available',
+            'value' => true,
+            'compare' => 'LIKE'
+        );
+    }
+
+
+
     //Get destinations by destination
-    
+
     if ($searchType == 'destination') { //DESTINATION
         if ($destinations != null) { //selection - (Get Lima, Cusco, Amazon)
 
@@ -30,7 +51,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
             $args['meta_query'][] = $queryargs;
         } else { //no selection -- (Get all from Peru)
-        
+
             $args['meta_query'][] = array(
                 'key' => 'destinations',
                 'value' => '"' . $destinationId . '"',
@@ -101,13 +122,14 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
     $posts = get_posts($args); //Stage I posts
+    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter); //Stage II metadata
 
-    return $posts;
-
+    return $formattedPosts;
 }
 
 
-function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
+//Stage II - metadata
+function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter)
 {
 
     $results = [];
@@ -153,9 +175,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
 
         $promoAvailable = false;
 
-        // $resultLink = get_permalink($p);
-        // $charterAvailable = false;
-        // $charterOnly = false;
+        $charterAvailable = false;
+        $charterOnly = false;
 
 
 
@@ -221,14 +242,26 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
 
             if ($postType  == 'rfc_cruises') { //CRUISES 
 
-                // $charterAvailable = get_field('charter_available', $p);
-                // if ($charterAvailable) {
-                //     $charterOnly = get_field('charter_only', $p);
-                // }
+                $charterAvailable = get_field('charter_available', $p);
+                if ($charterAvailable) {
+                    $charterOnly = get_field('charter_only', $p);
+                }
+
+                //filter out charter only if not searching charter
+                if($charterFilter == false){
+                    if($charterOnly == true){
+                        continue;
+                    }
+                } else { //filter out boats not available  for charter if searching charter
+                    if($charterAvailable != true){
+                        continue;
+                    }
+                }
 
                 $cruiseType = get_field('cruise_type', $p);
                 $productTypeDisplay = $cruiseType . ' Cruise';
                 $productTypeCta = 'Cruise';
+
                 //Cruise Itineraries
                 foreach ($cruiseData['Itineraries'] as $itinerary) {
 
@@ -271,7 +304,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
                                 $priceValues[] = $d['LowestPrice'];
                             }
 
-                            if($d['HasPromo'] == true){
+                            if ($d['HasPromo'] == true) {
                                 $promoAvailable = true;
                             }
 
@@ -373,7 +406,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
 
         $productLowestPrice = 0;
 
-        if($charterOnly == true){
+        if ($charterOnly == true) {
             $productLowestPrice = get_field('charter_daily_price', $p);
         } else {
             $productLowestPriceValues = [];
@@ -385,7 +418,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray)
 
 
 
-        
+
 
         $results[] = (object) array(
             'post' => $p,

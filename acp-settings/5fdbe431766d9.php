@@ -5,7 +5,7 @@ return array (
   'title' => 'Cruises',
   'type' => 'rfc_cruises',
   'id' => '5fdbe431766d9',
-  'updated' => 1620248054,
+  'updated' => 1622046958,
   'columns' => 
   array (
     'title' => 
@@ -184,6 +184,22 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '609305e9428f5c',
+    ),
+    '60ae78e6b74bc8' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Charter Available',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_602bf565511a0',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '60ae78e6b74bc8',
     ),
   ),
   'settings' => 

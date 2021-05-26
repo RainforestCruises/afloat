@@ -20,56 +20,19 @@
 
         <?php
 
-        //page variables
-        // $searchType = $args['searchType'];
-        // $destination = $args['destination'];
-        // $region = $args['region'];
-
-        // $regionId = $region->ID;
-        // $destinationId = null;
-        // if ($searchType == 'destination') {
-        //     $destinationId = $destination->ID;
-        // }
-
-
-        // //preselections
-        // //travel style
-        // $formTravelStyles = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
-        // $selectedTravelTypes = get_field('travel_type');
-        // if ($selectedTravelTypes != null) {
-        //     $formTravelStyles = $selectedTravelTypes;
-        // }
-
-        // //destinations
-        // if ($searchType == 'destination') {
-        //     $selectedDestinations = get_field('location_filter');
-        // } 
-        // if ($searchType == 'region') {
-        //     $selectedDestinations = get_field('destination_filter');
-        // }
-
-        // $destinations = [];
-        // if ($selectedDestinations != null) {
-        //     $destinations = $selectedDestinations;
-        // }
-        
-        // $experiences = [];
-        // $selectedExperiences = get_field('experience');
-        // if ($selectedExperiences != null) {
-        //     $experiences = $selectedExperiences;
-        // }
-
-    
-
-        $posts = getSearchPosts($args['travelTypes'],  $args['destinations'], $args['experiences'], $args['searchType'], $args['destinationId'], $args['regionId']); //Stage I
+   
 
         $formDates = null;
         $formMinLength = null;
         $formMaxLength = null;
-        $formattedResults = formatFilterSearch($posts, $formMinLength, $formMaxLength, $formDates); //Stage II
+
+        $posts = getSearchPosts($args['travelTypes'],  $args['destinations'], $args['experiences'], $args['searchType'], $args['destinationId'], $args['regionId'], $formMinLength, $formMaxLength, $formDates); //Stage I
 
 
-        get_template_part('template-parts/content', 'primary-search-results', $formattedResults);
+        //$formattedResults = formatFilterSearch($posts, $formMinLength, $formMaxLength, $formDates); //Stage II
+
+
+        get_template_part('template-parts/content', 'primary-search-results', $posts);
 
         ?>
     </div>

@@ -17,8 +17,6 @@ function search_filter_product_search()
     $selectedYear = $_POST['form-year'];
 
 
-
-
     $args = array(
         'selectedItinerary' => $selectedItinerary,
         'selectedMonth' => $selectedMonth,
@@ -26,10 +24,7 @@ function search_filter_product_search()
         'productId' => $productId,
     );
 
-
     get_template_part('template-parts/content', 'product-dates-grid', $args);
-
-
 
     die();
 }
@@ -91,7 +86,7 @@ function search_filter_home_search()
 
 
 
-//New Main (primary) Search
+//Primary Search
 add_action('wp_ajax_primarySearch', 'search_filter_primary_search'); // wp_ajax_{ACTION HERE} 
 add_action('wp_ajax_nopriv_primarySearch', 'search_filter_primary_search');
 
@@ -103,37 +98,33 @@ function search_filter_primary_search()
     $destinationId = $_POST['destination'];
     $regionId = $_POST['region'];
 
-    //travel style
+
+    //Stage I -- Post Filters
+    //--travel style
     $formTravelStyles = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
     if (isset($_POST['formTravelStyles']) && $_POST['formTravelStyles']) {
         $stringValue = $_POST['formTravelStyles'];
         $formTravelStyles = explode(":", $stringValue);
     }
 
-
-    //destinations
+    //--destinations
     $formDestinations = [];
     if (isset($_POST['formDestinations']) && $_POST['formDestinations']) {
         $stringValue = $_POST['formDestinations'];
         $formDestinations = explode(":", $stringValue);
     }
 
-
-
-    //experiences
+    //--experiences
     $formExperiences = [];
     if (isset($_POST['formExperiences']) && $_POST['formExperiences']) {
         $stringValue = $_POST['formExperiences'];
         $formExperiences = explode(":", $stringValue);    
     }
 
-    $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId);
 
    
-
-
-    //Stage II Filters ----
-    //length
+    //Stage II -- Metadata Filters
+    //--length
     $formMinLength = null;
     $formMaxLength = null;
     if (isset($_POST['formMinLength']) && $_POST['formMinLength']) {
@@ -142,7 +133,7 @@ function search_filter_primary_search()
     }
 
 
-    //dates
+    //--dates
     $formDates = null;
     if (isset($_POST['formDates']) && $_POST['formDates']) {
         $stringValue = $_POST['formDates'];
@@ -150,11 +141,16 @@ function search_filter_primary_search()
     }
 
 
-    $formattedResults = formatFilterSearch($posts, $formMinLength, $formMaxLength, $formDates);
-    console_log($formattedResults);
+    $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId, $formMinLength, $formMaxLength, $formDates);
 
-    get_template_part('template-parts/content', 'primary-search-results', $formattedResults);
 
+    //$formattedResults = formatFilterSearch($posts, );
+
+
+    console_log($posts);
+
+    //Return result cards -- content-primary-search-results
+    get_template_part('template-parts/content', 'primary-search-results', $posts);
 
 
     die();

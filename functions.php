@@ -6,10 +6,10 @@ require_once(__DIR__ . '/includes/menu-config.php');
 require_once(__DIR__ . '/includes/post-meta-scripts.php');
 require_once(__DIR__ . '/includes/utilities.php');
 require_once(__DIR__ . '/includes/custom-post-types.php');
-require_once(__DIR__ . '/includes/searches.php');
 require_once(__DIR__ . '/includes/tour-functions.php');
 require_once(__DIR__ . '/includes/property-functions.php');
-require_once(__DIR__ . '/includes/search-result-functions.php');
+require_once(__DIR__ . '/includes/search-forms.php');
+require_once(__DIR__ . '/includes/search-functions.php');
 
 
 
