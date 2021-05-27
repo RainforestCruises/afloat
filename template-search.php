@@ -13,6 +13,7 @@ get_header();
 
 <?php
 
+//Initial Search from Page Load
 
 //Region / Destination Setup --------------
 $searchType = get_field('search_type');
@@ -40,8 +41,17 @@ $travelTypesString = "";
 $selectedTravelTypes = get_field('travel_type');
 if ($selectedTravelTypes != null) {
     $travelTypes = $selectedTravelTypes;
-    $travelTypesString = implode(":", $travelTypes);
+    $travelTypesString = implode(";", $travelTypes);
 }
+
+//URL param
+if (isset($_GET["travel_style"]) && $_GET["travel_style"]) {
+    $travelTypesParameters = htmlspecialchars($_GET["travel_style"]);
+    $travelTypesString = $travelTypesParameters;
+    $travelTypes = explode(";", $travelTypesString);
+}
+
+
 
 //--Destinations
 $destinations = [];
@@ -52,6 +62,14 @@ if ($selectedDestinations != null) {
     $destinationsString = implode(":", $destinations);
 }
 
+//URL param
+if (isset($_GET["destinations"]) && $_GET["destinations"]) {
+    $destinationsParameters = htmlspecialchars($_GET["destinations"]);
+    $destinationsString = $destinationsParameters;
+    $destinations = explode(";", $destinationsString);
+}
+
+
 //--Experiences
 $experiences = [];
 $experiencesString = "";
@@ -60,6 +78,17 @@ if ($selectedExperiences != null) {
     $experiences = $selectedExperiences;
     $experiencesString = implode(":", $experiences);
 }
+
+//URL param
+if (isset($_GET["experiences"]) && $_GET["experiences"]) {
+    $experiencesParameters = htmlspecialchars($_GET["experiences"]);
+    $experiencesString = $experiencesParameters;
+    $experiences = explode(";", $experiencesString);
+}
+
+
+
+
 
 //Page arguments ------------
 $args = array(

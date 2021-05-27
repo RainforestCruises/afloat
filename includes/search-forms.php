@@ -92,7 +92,7 @@ add_action('wp_ajax_nopriv_primarySearch', 'search_filter_primary_search');
 
 function search_filter_primary_search()
 {
-
+    //Sidebar Form Searches
 
     $searchType = $_POST['searchType'];
     $destinationId = $_POST['destination'];
@@ -104,26 +104,24 @@ function search_filter_primary_search()
     $formTravelStyles = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
     if (isset($_POST['formTravelStyles']) && $_POST['formTravelStyles']) {
         $stringValue = $_POST['formTravelStyles'];
-        $formTravelStyles = explode(":", $stringValue);
+        $formTravelStyles = explode(";", $stringValue);
     }
 
     //--destinations
     $formDestinations = [];
     if (isset($_POST['formDestinations']) && $_POST['formDestinations']) {
         $stringValue = $_POST['formDestinations'];
-        $formDestinations = explode(":", $stringValue);
+        $formDestinations = explode(";", $stringValue);
     }
 
     //--experiences
     $formExperiences = [];
     if (isset($_POST['formExperiences']) && $_POST['formExperiences']) {
         $stringValue = $_POST['formExperiences'];
-        $formExperiences = explode(":", $stringValue);    
+        $formExperiences = explode(";", $stringValue);    
     }
 
 
-   
-    //Stage II -- Metadata Filters
     //--length
     $formMinLength = null;
     $formMaxLength = null;
@@ -131,7 +129,6 @@ function search_filter_primary_search()
         $formMinLength = $_POST['formMinLength']; //they will both have value as long as at least one is set
         $formMaxLength = $_POST['formMaxLength'];
     }
-
 
     //--dates
     $formDates = null;

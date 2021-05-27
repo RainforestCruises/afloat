@@ -15,8 +15,6 @@ jQuery(document).ready(function ($) {
   var preselectMaxLength = 21;
   //Length Slider
 
-  let rangeFrom = 1;
-  let rangeTo = 21;
 
   $("#range-slider").ionRangeSlider({
     skin: "round",
@@ -37,7 +35,9 @@ jQuery(document).ready(function ($) {
     },
   });
 
-  // Show More -- Departure List
+
+  //Expand Lists 
+  // Departure List -- Show More Dates
   $("#departure-show-more").click(function (e) {
     $("#departure-filter-list").toggleClass("expanded");
     var isExpanded = $("#departure-filter-list").hasClass("expanded");
@@ -48,7 +48,7 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  //intro expand/hide
+  //Intro Snippet
   $(".search-intro__title").on("click", function (e) {
     e.preventDefault();
     let $this = $(this);
@@ -56,7 +56,7 @@ jQuery(document).ready(function ($) {
     $this.toggleClass('search-intro__title--collapsed');
   });
 
-  //filters expand/hide
+  //Search Filters expand/hide
   $(".filter__heading").on("click", function (e) {
     e.preventDefault();
     let $this = $(this);
@@ -67,11 +67,9 @@ jQuery(document).ready(function ($) {
 
   //Departure Date selections
   let departureString = "";
-  let departureSelectionArray = [];
   const departureDatesArray = [...document.querySelectorAll('.departure-checkbox')];
   departureDatesArray.forEach(item => {
     item.addEventListener('click', () => {
-      departureSelectionArray = [];
       departureString = "";
       let count = 0;
       departureDatesArray.forEach(checkbox => {
@@ -79,8 +77,7 @@ jQuery(document).ready(function ($) {
         const itemYear = checkbox.getAttribute("year");
 
         if (checkbox.checked) {
-          var itemValue = itemYear + "-" + itemMonth + "-01";
-          departureSelectionArray.push(itemValue);
+          
           if (count > 0) {
             departureString += ":";
           }
@@ -97,8 +94,7 @@ jQuery(document).ready(function ($) {
 
 
   //Travel Style selections
-  let travelStylesString = "";
-  let travelStylesSelectionArray = [];
+  let travelStylesString = formTravelStyles.value;
   const travelStylesArray = [...document.querySelectorAll('.travel-style-checkbox')];
   travelStylesArray.forEach(item => {
     item.addEventListener('click', () => {
@@ -117,15 +113,13 @@ jQuery(document).ready(function ($) {
         } 
       }
 
-      travelStylesSelectionArray = [];
       travelStylesString = "";
       let count = 0;
       travelStylesArray.forEach(checkbox => {
         const itemValue = checkbox.value;
         if (checkbox.checked) {
-          travelStylesSelectionArray.push(itemValue);
           if (count > 0) {
-            travelStylesString += ":";
+            travelStylesString += ";";
           }
           travelStylesString += itemValue;
           count++;
@@ -139,21 +133,18 @@ jQuery(document).ready(function ($) {
   })
 
   //Destination selections
-  let destinationsString = "";
-  let destinationsSelectionArray = [];
+  let destinationsString = formDestinations.value;
   const destinationsArray = [...document.querySelectorAll('.destination-checkbox')];
   destinationsArray.forEach(item => {
     item.addEventListener('click', () => {
-      destinationsSelectionArray = [];
       destinationsString = "";
       let count = 0;
       destinationsArray.forEach(checkbox => {
         const itemValue = parseInt(checkbox.value);
 
         if (checkbox.checked) {
-          destinationsSelectionArray.push(itemValue);
           if (count > 0) {
-            destinationsString += ":";
+            destinationsString += ";";
           }
           destinationsString += itemValue;
           count++;
@@ -166,12 +157,10 @@ jQuery(document).ready(function ($) {
   })
 
   //Experiences selections
-  let experiencesString = "";
-  let experiencesSelectionArray = [];
+  let experiencesString = formExperiences.value;
   const experiencesArray = [...document.querySelectorAll('.experience-checkbox')];
   experiencesArray.forEach(item => {
     item.addEventListener('click', () => {
-      experiencesSelectionArray = [];
       experiencesString = "";
       let count = 0;
       experiencesArray.forEach(checkbox => {
@@ -179,10 +168,8 @@ jQuery(document).ready(function ($) {
 
         if (checkbox.checked) {
 
-          experiencesSelectionArray.push(itemValue);
-
           if (count > 0) {
-            experiencesString += ":";
+            experiencesString += ";";
           }
           experiencesString += itemValue;
           count++;
@@ -196,14 +183,26 @@ jQuery(document).ready(function ($) {
 
 
 
-  // $('#search-form').submit(function () {
-  //   reloadResults();
-  //   return false;
-  // });
-
-
   //SEARCH FUNCTION
   function reloadResults() {
+
+
+    const params = new URLSearchParams(location.search);
+    if (travelStylesString != null) {
+      params.set('travel_style', travelStylesString);
+    }
+
+    if (destinationsString != null) {
+      params.set('destinations', destinationsString);
+    }
+
+    if (experiencesString != null) {
+      params.set('experiences', experiencesString);
+    }
+
+
+
+    window.history.replaceState({}, '', `${location.pathname}?${params}`);
 
     var searchForm = $('#search-form'); //get form
     $.ajax({
