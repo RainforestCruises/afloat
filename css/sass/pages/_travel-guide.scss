@@ -160,7 +160,7 @@
             font-size: 1.6rem;
         }
 
-        & ul {
+        & ul, ol {
             max-width: 80rem;
             align-self: center;
             font-size: 2rem;
@@ -583,5 +583,6 @@
     font-size: 1.5rem !important;
     margin-bottom: 2rem;
     letter-spacing: .1rem;
-    color: $color-primary;
+    color: $color-primary; 
+    transform: translateY(-1.5rem);
 }

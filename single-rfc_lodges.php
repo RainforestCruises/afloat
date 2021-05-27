@@ -67,6 +67,9 @@ while (have_posts()) :
       <?php
       get_template_part('template-parts/content', 'product-cabins', $args);
       ?>
+      <?php
+      get_template_part('template-parts/content', 'product-technical', $args);
+      ?>
     </section>
 
     <!-- Prices Content -->
@@ -79,16 +82,16 @@ while (have_posts()) :
 
     <!-- Reviews -->
     <?php if (get_field('show_testimonials') == true) { ?>
-    <section class="product-page__section-reviews">
-      <?php
-      get_template_part('template-parts/content', 'product-reviews', $args);
-      ?>
-    </section>
+      <section class="product-page__section-reviews">
+        <?php
+        get_template_part('template-parts/content', 'product-reviews', $args);
+        ?>
+      </section>
     <?php } ?>
 
     <!-- Related Travel -->
 
-    <section class="product-page__section-related" >
+    <section class="product-page__section-related">
       <?php
       get_template_part('template-parts/content', 'product-related', $args);
       ?>
@@ -109,9 +112,9 @@ while (have_posts()) :
 endwhile;
 ?>
 
- <!-- Contact Modal -->
- <?php
-  get_template_part('template-parts/content', 'shared-contact-modal', $args);
-  ?>
+<!-- Contact Modal -->
+<?php
+get_template_part('template-parts/content', 'shared-contact-modal', $args);
+?>
 <!-- #site-wrapper end-->
 <?php get_footer() ?>

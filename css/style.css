@@ -1513,7 +1513,7 @@ h5 {
       max-width: 80rem;
       align-self: center;
       font-size: 1.6rem; }
-    .travel-guide__content ul {
+    .travel-guide__content ul, .travel-guide__content ol {
       max-width: 80rem;
       align-self: center;
       font-size: 2rem;
@@ -1829,7 +1829,8 @@ h5 {
   font-size: 1.5rem !important;
   margin-bottom: 2rem;
   letter-spacing: .1rem;
-  color: #142838; }
+  color: #142838;
+  transform: translateY(-1.5rem); }
 
 .travel-guide-landing-page {
   display: flex;

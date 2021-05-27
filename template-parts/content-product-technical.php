@@ -204,6 +204,116 @@ $equipment = get_field('equipment');
                             </span>
                         </li>
                     <?php endif; ?>
+                    <!-- Solar Energy -->
+                    <?php if ($features['solar_energy']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Solar Energy
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- spa -->
+                    <?php if ($features['spa']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Spa
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Onsite Tour Desk -->
+                    <?php if ($features['onsite_tour_desk']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Onsite tour desk
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Souvenir shop -->
+                    <?php if ($features['souvenir_shop']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Souvenir shop
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Mosquito netting -->
+                    <?php if ($features['mosquito_netting']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Mosquito netting
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Hot Showers -->
+                    <?php if ($features['hot_showers']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Hot showers
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- All Inclusive -->
+                    <?php if ($features['all_inclusive']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                All inclusive
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Heating -->
+                    <?php if ($features['heating']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Heating
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Family Room Triple or Quadruple -->
+                    <?php if ($features['family_room']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Family Room (Triple or Quadruple)
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                    <!-- Charging areas for electronic equipment -->
+                    <?php if ($features['charging_areas']) : ?>
+                        <li class="product-technical__content__columns__info__list__item">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                            </svg>
+                            <span>
+                                Charging areas for electronic equipment
+                            </span>
+                        </li>
+                    <?php endif; ?>
                 </ul>
                 <!-- End Features -->
 
@@ -370,6 +480,83 @@ $equipment = get_field('equipment');
                                 </svg>
                                 <span>
                                     Yoga mats
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <!-- Flash lights -->
+                        <?php if ($equipment['flash_lights']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Flash lights
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <!-- Rubber boots -->
+                        <?php if ($equipment['rubber_boots']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Rubber boots
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <!-- Water Canteen/Bottle -->
+                        <?php if ($equipment['water_canteen']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Water canteen/bottle
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <!-- Binoculars -->
+                        <?php if ($equipment['binoculars']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Binoculars
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                        <!-- Insect repellent -->
+                        <?php if ($equipment['insect_repellent']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Insect repellent
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                          <!-- Poncho -->
+                          <?php if ($equipment['poncho']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Poncho
+                                </span>
+                            </li>
+                        <?php endif; ?>
+                         <!-- Dry Bags/Plastic bags to protect cameras -->
+                         <?php if ($equipment['dry_bags']) : ?>
+                            <li class="product-technical__content__columns__info__list__item">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-check-circle"></use>
+                                </svg>
+                                <span>
+                                    Dry Bags/Plastic bags to protect cameras
                                 </span>
                             </li>
                         <?php endif; ?>
