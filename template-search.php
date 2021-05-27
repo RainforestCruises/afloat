@@ -35,6 +35,24 @@ $regionId = $region->ID;
 
 
 //Preselections (strings for form values) ------------
+
+//Departure Dates
+$departures = [];
+$departuresString = "";
+$selectedDepartures = get_field('departures');
+if ($selectedDepartures != null) {
+    $departures = $selectedDepartures;
+    $departuresString = implode(";", $departures);
+}
+
+//URL param
+if (isset($_GET["departures"]) && $_GET["departures"]) {
+    $departuresParameters = htmlspecialchars($_GET["departures"]);
+    $departuresString = $departuresParameters;
+    $departures = explode(";", $departuresString);
+}
+
+
 //--Travel style
 $travelTypes = [];
 $travelTypesString = "";
@@ -89,6 +107,8 @@ if (isset($_GET["experiences"]) && $_GET["experiences"]) {
 
 
 
+$lengthMin = null;
+$lengthMax = null;
 
 //Page arguments ------------
 $args = array(
@@ -98,6 +118,10 @@ $args = array(
     'travelTypes' => $travelTypes, //preselection
     'experiences' => $experiences, //preselection
     'destinations' => $destinations, //preselection
+    'departures' => $departures, //preselection
+    'lengthMin' => $lengthMin, //preselection
+    'lengthMax' => $lengthMax, //preselection
+
 );
 
 ?>
@@ -132,7 +156,7 @@ $args = array(
 
     <!-- Direct to function within functions.php -->
     <input type="hidden" name="action" value="primarySearch">
-    <input type="hidden" name="formDates" id="formDates" value="">
+    <input type="hidden" name="formDates" id="formDates" value="<?php echo $departuresString ?>">
     <input type="hidden" name="formTravelStyles" id="formTravelStyles" value="<?php echo $travelTypesString ?>"> 
     <input type="hidden" name="formDestinations" id="formDestinations" value="<?php echo $destinationsString ?>">
     <input type="hidden" name="formExperiences" id="formExperiences" value="<?php echo $experiencesString ?>">

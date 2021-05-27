@@ -22,11 +22,7 @@
 
    
 
-        $formDates = null;
-        $formMinLength = null;
-        $formMaxLength = null;
-
-        $posts = getSearchPosts($args['travelTypes'],  $args['destinations'], $args['experiences'], $args['searchType'], $args['destinationId'], $args['regionId'], $formMinLength, $formMaxLength, $formDates); //Stage I
+        $posts = getSearchPosts($args['travelTypes'],  $args['destinations'], $args['experiences'], $args['searchType'], $args['destinationId'], $args['regionId'], $args['lengthMin'], $args['lengthMax'], $args['departures']); //Stage I
 
 
         get_template_part('template-parts/content', 'primary-search-results', $posts);

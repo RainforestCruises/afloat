@@ -17,12 +17,15 @@ for ($x = $currentMonth; $x < $currentMonth + $monthLimit; $x++) {
 $searchType = $args['searchType'];
 $destinationId = $args['destinationId'];
 $regionId = $args['regionId'];
+
+//preselections
 $selectedTravelTypes = $args['travelTypes'];
 $selectedExperiences = $args['experiences'];
 $selectedDestinations = $args['destinations'];
+$selectedDepartures = $args['departures'];
 
 
-//For Filter Lists
+//Build Filter Lists
 $experiencesArgs = array(
     'post_type' => 'rfc_experiences',
     'posts_per_page' => -1
@@ -81,10 +84,12 @@ if (get_field('itinerary_length_max') != null) {
 
                 <?php
                 $count = 1;
-                foreach ($months as $m) : ?>
+                foreach ($months as $m) : 
+                    $currentItemValue = $m->year . '-' . $m->monthNumber;
+                ?>
                     <li class="filter__content__list__item">
                         <div class="form-checkbox">
-                            <input class="checkbox departure-checkbox" type="checkbox" id="departure-checkbox-<?php echo $count; ?>" month="<?php echo $m->monthNumber ?>" year="<?php echo $m->year ?>">
+                            <input class="checkbox departure-checkbox" type="checkbox" id="departure-checkbox-<?php echo $count; ?>" value="<?php echo $currentItemValue; ?>"     <?php echo ($selectedDepartures != null ? (in_array($currentItemValue, $selectedDepartures) ? 'checked' : '') : '')?>   >
                             <label for="departure-checkbox-<?php echo $count; ?>"><?php echo $m->monthName . " " . $m->year; ?></label>
                         </div>
                     </li>

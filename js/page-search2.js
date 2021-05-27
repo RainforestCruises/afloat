@@ -66,27 +66,26 @@ jQuery(document).ready(function ($) {
 
 
   //Departure Date selections
-  let departureString = "";
+  let departuresString = formDates.value;
   const departureDatesArray = [...document.querySelectorAll('.departure-checkbox')];
   departureDatesArray.forEach(item => {
     item.addEventListener('click', () => {
-      departureString = "";
+      departuresString = "";
       let count = 0;
       departureDatesArray.forEach(checkbox => {
-        const itemMonth = checkbox.getAttribute("month");
-        const itemYear = checkbox.getAttribute("year");
+        const itemValue = checkbox.value;
 
         if (checkbox.checked) {
           
           if (count > 0) {
-            departureString += ":";
+            departuresString += ";";
           }
-          departureString += itemYear + "-" + itemMonth;
+          departuresString += itemValue;
           count++;
         }
       })
 
-      formDates.value = departureString;
+      formDates.value = departuresString;
       reloadResults();
 
     });
@@ -200,7 +199,12 @@ jQuery(document).ready(function ($) {
       params.set('experiences', experiencesString);
     }
 
-
+    if (experiencesString != null) {
+      params.set('experiences', experiencesString);
+    }
+    if (departuresString != null) {
+      params.set('departures', departuresString);
+    }
 
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
 

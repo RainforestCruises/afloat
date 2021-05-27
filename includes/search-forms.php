@@ -118,8 +118,16 @@ function search_filter_primary_search()
     $formExperiences = [];
     if (isset($_POST['formExperiences']) && $_POST['formExperiences']) {
         $stringValue = $_POST['formExperiences'];
-        $formExperiences = explode(";", $stringValue);    
+        $formExperiences = explode(";", $stringValue);
     }
+
+    //--dates
+    $formDates = null;
+    if (isset($_POST['formDates']) && $_POST['formDates']) {
+        $stringValue = $_POST['formDates'];
+        $formDates = explode(";", $stringValue);
+    }
+
 
 
     //--length
@@ -130,18 +138,13 @@ function search_filter_primary_search()
         $formMaxLength = $_POST['formMaxLength'];
     }
 
-    //--dates
-    $formDates = null;
-    if (isset($_POST['formDates']) && $_POST['formDates']) {
-        $stringValue = $_POST['formDates'];
-        $formDates = explode(":", $stringValue);
-    }
+
 
 
     $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId, $formMinLength, $formMaxLength, $formDates);
 
 
-   
+
 
     //Return result cards -- content-primary-search-results
     get_template_part('template-parts/content', 'primary-search-results', $posts);
