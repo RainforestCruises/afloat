@@ -25,7 +25,7 @@ $destinationId = null;
 if ($searchType == 'region') {
     $region = get_field('region');
 } else {
-    
+
     $destination = get_field('destination');
     $region = get_field('region', $destination);
     $destinationId = $destination->ID;
@@ -46,10 +46,15 @@ if ($selectedDepartures != null) {
 }
 
 //URL param
-if (isset($_GET["departures"]) && $_GET["departures"]) {
-    $departuresParameters = htmlspecialchars($_GET["departures"]);
-    $departuresString = $departuresParameters;
-    $departures = explode(";", $departuresString);
+if (isset($_GET["departures"])) {
+    if (isset($_GET["departures"]) && $_GET["departures"]) {
+        $departuresParameters = htmlspecialchars($_GET["departures"]);
+        $departuresString = $departuresParameters;
+        $departures = explode(";", $departuresString);
+    } else {
+        $departures = [];
+        $departuresString = "";
+    }
 }
 
 
@@ -63,11 +68,15 @@ if ($selectedTravelTypes != null) {
 }
 
 //URL param
-if (isset($_GET["travel_style"]) && $_GET["travel_style"]) {
-    $travelTypesParameters = htmlspecialchars($_GET["travel_style"]);
-    $travelTypesString = $travelTypesParameters;
-    $travelTypes = explode(";", $travelTypesString);
-
+if (isset($_GET["travel_style"])) {
+    if (isset($_GET["travel_style"]) && $_GET["travel_style"]) {
+        $travelTypesParameters = htmlspecialchars($_GET["travel_style"]);
+        $travelTypesString = $travelTypesParameters;
+        $travelTypes = explode(";", $travelTypesString);
+    } else {
+        $travelTypes = [];
+        $travelTypesString = "";
+    }
 }
 
 //** possible issue is present when for example: **
@@ -83,14 +92,19 @@ $destinationsString = "";
 $selectedDestinations = ($searchType == 'destination') ? get_field('location_filter') : get_field('destination_filter');
 if ($selectedDestinations != null) {
     $destinations = $selectedDestinations;
-    $destinationsString = implode(":", $destinations);
+    $destinationsString = implode(";", $destinations);
 }
 
 //URL param
-if (isset($_GET["destinations"]) && $_GET["destinations"]) {
-    $destinationsParameters = htmlspecialchars($_GET["destinations"]);
-    $destinationsString = $destinationsParameters;
-    $destinations = explode(";", $destinationsString);
+if (isset($_GET["destinations"])) {
+    if (isset($_GET["destinations"]) && $_GET["destinations"]) {
+        $destinationsParameters = htmlspecialchars($_GET["destinations"]);
+        $destinationsString = $destinationsParameters;
+        $destinations = explode(";", $destinationsString);
+    } else {
+        $destinations = [];
+        $destinationsString = "";
+    }
 }
 
 
@@ -100,21 +114,57 @@ $experiencesString = "";
 $selectedExperiences = get_field('experience');
 if ($selectedExperiences != null) {
     $experiences = $selectedExperiences;
-    $experiencesString = implode(":", $experiences);
+    $experiencesString = implode(";", $experiences);
+}
+
+
+
+//URL param
+if (isset($_GET["experiences"])) {
+    if (isset($_GET["experiences"]) && $_GET["experiences"]) {
+        $experiencesParameters = htmlspecialchars($_GET["experiences"]);
+        $experiencesString = $experiencesParameters;
+        $experiences = explode(";", $experiencesString);
+    } else {
+        $experiences = [];
+        $experiencesString = "";
+    }
+}
+
+//--Length Min
+$lengthMin = 1;
+$selectedLengthMin = get_field('itinerary_length_min');
+if ($selectedLengthMin != null) {
+    $lengthMin = $selectedLengthMin;
 }
 
 //URL param
-if (isset($_GET["experiences"]) && $_GET["experiences"]) {
-    $experiencesParameters = htmlspecialchars($_GET["experiences"]);
-    $experiencesString = $experiencesParameters;
-    $experiences = explode(";", $experiencesString);
+if (isset($_GET["length_min"])) {
+    if (isset($_GET["length_min"]) && $_GET["length_min"]) {
+        $lengthMinParameters = htmlspecialchars($_GET["length_min"]);
+        $lengthMin = $lengthMinParameters;
+    } else {
+        $lengthMin = 1;
+    }
 }
 
+//--Length Max
+$lengthMax = 21;
+$selectedLengthMax = get_field('itinerary_length_max');
+if ($selectedLengthMax != null) {
+    $lengthMax = $selectedLengthMax;
+}
 
+//URL param
+if (isset($_GET["length_max"])) {
+    if (isset($_GET["length_max"]) && $_GET["length_max"]) {
+        $lengthMaxParameters = htmlspecialchars($_GET["length_max"]);
+        $lengthMax = $lengthMaxParameters;
+    } else {
+        $lengthMax = 21;
+    }
+}
 
-
-$lengthMin = null;
-$lengthMax = null;
 
 //Page arguments ------------
 $args = array(
@@ -163,11 +213,11 @@ $args = array(
     <!-- Direct to function within functions.php -->
     <input type="hidden" name="action" value="primarySearch">
     <input type="hidden" name="formDates" id="formDates" value="<?php echo $departuresString ?>">
-    <input type="hidden" name="formTravelStyles" id="formTravelStyles" value="<?php echo $travelTypesString ?>"> 
+    <input type="hidden" name="formTravelStyles" id="formTravelStyles" value="<?php echo $travelTypesString ?>">
     <input type="hidden" name="formDestinations" id="formDestinations" value="<?php echo $destinationsString ?>">
     <input type="hidden" name="formExperiences" id="formExperiences" value="<?php echo $experiencesString ?>">
-    <input type="hidden" name="formMinLength" id="formMinLength" value="">
-    <input type="hidden" name="formMaxLength" id="formMaxLength" value="">
+    <input type="hidden" name="formMinLength" id="formMinLength" value="<?php echo $lengthMin ?>">
+    <input type="hidden" name="formMaxLength" id="formMaxLength" value="<?php echo $lengthMax ?>">
 
     <input type="hidden" name="region" id="region" value="<?php echo $regionId ?>">
     <input type="hidden" name="destination" id="destination" value="<?php echo $destinationId ?>">

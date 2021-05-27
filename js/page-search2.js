@@ -11,27 +11,23 @@ jQuery(document).ready(function ($) {
 
 
   //Length Min Max
-  const formMaxLength = document.querySelector('#formMaxLength');
   const formMinLength = document.querySelector('#formMinLength');
+  const formMaxLength = document.querySelector('#formMaxLength');
 
-  var preselectMinLength = 1;
-  var preselectMaxLength = 21;
- 
 
   $("#range-slider").ionRangeSlider({
     skin: "round",
     type: "double",
     min: 1,
     max: 21,
-    from: preselectMinLength,
-    to: preselectMaxLength,
+    from: formMinLength.value,
+    to: formMaxLength.value,
     postfix: " Day",
     max_postfix: "+",
     onFinish: function () {
-      var low = $("#range-slider").data("from");
-      var high = $("#range-slider").data("to");
-      formMinLength.value = low;
-      formMaxLength.value = high;
+ 
+      formMinLength.value = $("#range-slider").data("from");
+      formMaxLength.value = $("#range-slider").data("to");
 
       reloadResults();
     },
@@ -205,6 +201,15 @@ jQuery(document).ready(function ($) {
     if (experiencesString != null) {
       params.set('experiences', experiencesString);
     }
+
+    if (formMinLength.value != null) {
+      params.set('length_min', formMinLength.value);
+    }
+
+    if (formMinLength.value != null) {
+      params.set('length_max', formMaxLength.value);
+    }
+
 
   
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
