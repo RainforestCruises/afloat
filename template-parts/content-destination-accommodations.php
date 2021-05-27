@@ -19,7 +19,7 @@ $title = $args['title'];
     </div>
     <div class="destination-accommodations__group">
         <!-- Card -->
-        <div class="accommodations-card">
+        <a class="accommodations-card" href="<?php echo get_field('lodge_accommodation_search_link'); ?>">
             <div class="accommodations-card__image">
                 <?php if ($lodges_image) : ?>
                     <img <?php afloat_responsive_image($lodges_image['id'], 'featured-medium', array('featured-medium', 'featured-small')); ?> alt="">
@@ -33,9 +33,9 @@ $title = $args['title'];
                     <?php echo $lodges_snippet; ?>
                 </div>
             </div>
-        </div>
+        </a>
         <!-- Card -->
-        <div class="accommodations-card">
+        <a href="<?php echo get_field('cruise_accommodation_search_link'); ?>" class="accommodations-card">
             <div class="accommodations-card__image">
                 <?php if ($cruises_image) : ?>
                     <img <?php afloat_responsive_image($cruises_image['id'], 'featured-medium', array('featured-medium', 'featured-small')); ?> alt="">
@@ -49,7 +49,7 @@ $title = $args['title'];
                     <?php echo $cruises_snippet; ?>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 
 

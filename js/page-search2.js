@@ -8,13 +8,15 @@ jQuery(document).ready(function ($) {
   const formTravelStyles = document.querySelector('#formTravelStyles');
   const formDestinations = document.querySelector('#formDestinations');
   const formExperiences = document.querySelector('#formExperiences');
+
+
+  //Length Min Max
   const formMaxLength = document.querySelector('#formMaxLength');
   const formMinLength = document.querySelector('#formMinLength');
 
   var preselectMinLength = 1;
   var preselectMaxLength = 21;
-  //Length Slider
-
+ 
 
   $("#range-slider").ionRangeSlider({
     skin: "round",
@@ -36,7 +38,7 @@ jQuery(document).ready(function ($) {
   });
 
 
-  //Expand Lists 
+  //Expand Lists --------------------------------------------
   // Departure List -- Show More Dates
   $("#departure-show-more").click(function (e) {
     $("#departure-filter-list").toggleClass("expanded");
@@ -65,6 +67,7 @@ jQuery(document).ready(function ($) {
   });
 
 
+  //Search Filter Selections ------------------------------------
   //Departure Date selections
   let departuresString = formDates.value;
   const departureDatesArray = [...document.querySelectorAll('.departure-checkbox')];
@@ -90,7 +93,6 @@ jQuery(document).ready(function ($) {
 
     });
   })
-
 
   //Travel Style selections
   let travelStylesString = formTravelStyles.value;
@@ -182,11 +184,16 @@ jQuery(document).ready(function ($) {
 
 
 
-  //SEARCH FUNCTION
+  //RELOAD RESULTS
   function reloadResults() {
 
-
+    //set url params
     const params = new URLSearchParams(location.search);
+
+    if (departuresString != null) {
+      params.set('departures', departuresString);
+    }
+
     if (travelStylesString != null) {
       params.set('travel_style', travelStylesString);
     }
@@ -199,28 +206,22 @@ jQuery(document).ready(function ($) {
       params.set('experiences', experiencesString);
     }
 
-    if (experiencesString != null) {
-      params.set('experiences', experiencesString);
-    }
-    if (departuresString != null) {
-      params.set('departures', departuresString);
-    }
-
+  
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
 
-    var searchForm = $('#search-form'); //get form
+
+    //ajax call / submit form
+    var searchForm = $('#search-form');    
     $.ajax({
       url: searchForm.attr('action'),
-      data: searchForm.serialize(), // form data
-      type: searchForm.attr('method'), // POST
-      beforeSend: function () {
-        //indicate loading
-        $('#response').addClass('loading');
+      data: searchForm.serialize(), 
+      type: searchForm.attr('method'),
+      beforeSend: function () {      
+        $('#response').addClass('loading'); //indicate loading
         $("#response").append('<div class="lds-dual-ring"></div>');
         $('#response-count').html('Searching...');
       },
       success: function (data) {
-
         $('#response').removeClass('loading');
         $(".lds-dual-ring").remove();
 

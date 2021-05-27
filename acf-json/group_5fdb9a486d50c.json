@@ -713,6 +713,29 @@
             "new_lines": ""
         },
         {
+            "key": "field_60afeff4bf4b3",
+            "label": "Cruise Accommodation Search Link",
+            "name": "cruise_accommodation_search_link",
+            "type": "page_link",
+            "instructions": "Select search page - Region + Cruise (Travel Type)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:search"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
+        },
+        {
             "key": "field_5fdb9a487a716",
             "label": "Lodges Image",
             "name": "lodges_image",
@@ -790,6 +813,29 @@
             "maxlength": "",
             "rows": 5,
             "new_lines": ""
+        },
+        {
+            "key": "field_60aff00ebf4b4",
+            "label": "Lodge Accommodation Search Link",
+            "name": "lodge_accommodation_search_link",
+            "type": "page_link",
+            "instructions": "Select search page - Region + Lodge (Travel Type)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:search"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
         },
         {
             "key": "field_5ffe1c809147e",
@@ -1155,5 +1201,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1621960059
+    "modified": 1622143074
 }

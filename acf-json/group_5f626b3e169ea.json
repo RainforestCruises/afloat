@@ -844,6 +844,56 @@
             "mime_types": ""
         },
         {
+            "key": "field_5fd0064fdc891",
+            "label": "Cruises Snippet",
+            "name": "cruises_snippet",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fe358c867f5d",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": ""
+        },
+        {
+            "key": "field_60afef784de13",
+            "label": "Cruise Accommodation Search Link",
+            "name": "cruise_accommodation_search_link",
+            "type": "page_link",
+            "instructions": "Link to search page - Destination + Cruises",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:search"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
+        },
+        {
             "key": "field_5fce8465a3ff8",
             "label": "Lodges Image",
             "name": "lodges_image",
@@ -876,33 +926,6 @@
             "mime_types": ""
         },
         {
-            "key": "field_5fd0064fdc891",
-            "label": "Cruises Snippet",
-            "name": "cruises_snippet",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5fe358c867f5d",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 5,
-            "new_lines": ""
-        },
-        {
             "key": "field_5fd006a6dc892",
             "label": "Lodges Snippet",
             "name": "lodges_snippet",
@@ -928,6 +951,29 @@
             "maxlength": "",
             "rows": 5,
             "new_lines": ""
+        },
+        {
+            "key": "field_60afefab4de14",
+            "label": "Lodge Accommodation Search Link",
+            "name": "lodge_accommodation_search_link",
+            "type": "page_link",
+            "instructions": "Link to search page - Destination + Lodges",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:search"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
         },
         {
             "key": "field_5ffe10a2decca",
@@ -1293,5 +1339,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1621959977
+    "modified": 1622142937
 }
