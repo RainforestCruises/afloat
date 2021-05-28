@@ -35,7 +35,7 @@ if ($destination_type == 'rfc_destinations') {
         'meta_query' => array(
             array(
                 'key' => 'destinations', // name of custom field
-                'value' => $destination->ID,
+                'value' => '"' . $destination->ID . '"',
                 'compare' => 'LIKE'
             )
         )
@@ -52,7 +52,7 @@ if ($destination_type == 'rfc_regions') {
         'meta_query' => array(
             array(
                 'key' => 'region', // name of custom field
-                'value' => $region->ID,
+                'value' => '"' . $region->ID . '"',
                 'compare' => 'LIKE'
             ),
             array(
@@ -75,13 +75,12 @@ if ($destination_type == 'rfc_locations') {
         'meta_query' => array(
             array(
                 'key' => 'locations', // name of custom field
-                'value' => $location->ID,
+                'value' => '"' . $location->ID . '"',
                 'compare' => 'LIKE'
             )
         )
     );
     $pageTitle = get_field('navigation_title', $location);
-
 };
 
 $travelGuidePosts = new WP_Query($args);

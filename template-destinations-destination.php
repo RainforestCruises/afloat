@@ -28,6 +28,7 @@ $title = $destination->post_title;
 $tourCriteria = array(
     'posts_per_page' => -1,
     'post_type' => 'rfc_tours',
+
     'meta_query' => array(
         array(
             'key' => 'destinations',
@@ -36,12 +37,20 @@ $tourCriteria = array(
         )
     )
 );
+
+
+
+
+
 $tours = get_posts($tourCriteria);
 
-//CRUISES
+//CRUISES -- sort doesnt unclude null
 $cruiseCriteria = array(
     'posts_per_page' => -1,
     'post_type' => 'rfc_cruises',
+    // 'meta_key' => 'search_rank',
+    // 'orderby' => 'meta_value',
+    // 'order' => 'DESC',
     'meta_query' => array(
         array(
             'key' => 'destinations', // name of custom field
@@ -51,7 +60,7 @@ $cruiseCriteria = array(
     )
 );
 $cruises = get_posts($cruiseCriteria);
-
+//console_log($cruises);
 
 $args = array(
     'destination' => $destination,
@@ -109,11 +118,11 @@ $args = array(
 
 <!-- Testimonials -->
 <?php if (get_field('show_testimonials') == true) { ?>
-<section class="destination-page__section-testimonials" id="testimonials">
-    <?php
-    get_template_part('template-parts/content', 'destination-testimonials', $args);
-    ?>
-</section>
+    <section class="destination-page__section-testimonials" id="testimonials">
+        <?php
+        get_template_part('template-parts/content', 'destination-testimonials', $args);
+        ?>
+    </section>
 <?php } ?>
 
 <!-- FAQ -->

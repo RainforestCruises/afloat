@@ -208,27 +208,6 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
-        },
-        {
-            "key": "field_6001e185ac7ea",
-            "label": "Importance",
-            "name": "importance",
-            "type": "number",
-            "instructions": "Lower numbers will have priority, ie: rank 1 will appear before a post with 4.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 1,
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": 1,
-            "max": 999,
-            "step": ""
         }
     ],
     "location": [
@@ -248,5 +227,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide - CPT",
-    "modified": 1621884494
+    "modified": 1622221524
 }

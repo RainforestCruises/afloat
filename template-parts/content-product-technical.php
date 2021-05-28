@@ -16,7 +16,7 @@ $equipment = get_field('equipment');
     <div class="product-technical__content">
         <div class="product-technical__content__image-area <?php echo ($show_equipment) ? "" : "half-width" ?>">
             <h3 class="product-technical__content__image-area__title">
-                Deck Plan
+               <?php echo (get_post_type() == 'rfc_lodges')  ? 'Property Layout' : 'Deck Plan' ?>
             </h3>
             <a class="product-technical__content__image-area" id="deckplan-image" href="<?php echo esc_url($deck_plan['url']); ?>" title="Deckplan">
 
