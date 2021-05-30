@@ -1,4 +1,4 @@
-//Dropdowns
+//Dropdowns - deprecated
 .search-control {
     margin: 1.5rem 0;
     width: 100%;
@@ -48,7 +48,7 @@
     }
 }
 
-//Date Range
+//Date Range - deprecated
 .daterangepicker {
     font-family: $font-primary;
 
@@ -124,66 +124,6 @@
     }
 }
 
-//Sort Control
-.sort-control {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    &__label-text {
-        font-size: 1.2rem;
-        color: $color-primary;
-        letter-spacing: 0.1rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        line-height: 2rem;
-    }
 
-    & .select2-selection--single {
-        border: none !important;
-    }
 
-    & .select2-selection__rendered {
-        font-size: 1.5rem !important;
-    }
 
-    & select {
-        visibility: hidden !important;
-    }
-}
-
-.irs {
-    font-family: $font-primary !important;
-
-    &--round {
-        & span {
-            font-size: 1.2rem !important;
-        }
-        & .irs-single {
-            background-color: $color-primary !important;
-            &::before {
-                border-top-color: $color-primary !important;
-            }
-        }
-        & .irs-handle {
-            border: 3px solid $color-primary;
-        }
-
-        & .irs-bar {
-            background-color: $color-primary;
-        }
-
-        & .irs-from {
-            background-color: $color-primary;
-            &::before {
-                border-top-color: $color-primary !important;
-            }
-        }
-
-        & .irs-to {
-            background-color: $color-primary;
-            &::before {
-                border-top-color: $color-primary !important;
-            }
-        }
-    }
-}

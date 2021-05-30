@@ -339,7 +339,7 @@ jQuery(document).ready(function ($) {
 
     //Month Click - event handler to each LI
     dateDropdownArray.forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('click', (e) => {
             if (!item.classList.contains('disabled')) {
                 selectedMonth = item.getAttribute("month");
                 dateInputField.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear;
@@ -372,8 +372,21 @@ jQuery(document).ready(function ($) {
     const searchButton = document.querySelector('#search-button');
     searchButton.addEventListener('click', (e) => {
         $("#travel-destination").val(selectedDestination);
-        $("#travel-month").val(selectedMonth);
-        $("#travel-year").val(selectedYear);
+
+        // var formMonth = document.getElementById('travel-month').value;
+        // var formYear = document.getElementById('travel-year').value;
+        // console.log(formMonth);
+        // console.log(formYear);
+
+        // if(formMonth != "") {
+        //     $("#travel-month").val(selectedMonth);
+        // }
+        // if(formYear != ""){
+        //     $("#travel-year").val(selectedYear);
+        // }
+        
+         $("#travel-month").val(selectedMonth);
+         $("#travel-year").val(selectedYear);
 
         if (selectedDestination == 0) {
             e.preventDefault();

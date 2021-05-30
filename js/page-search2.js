@@ -1,6 +1,18 @@
 
 jQuery(document).ready(function ($) {
 
+  //Sorting
+  $('#result-sort').select2({
+    width: 'auto',
+    dropdownAutoWidth: true,
+    minimumResultsForSearch: -1,
+   
+  });
+  $('#result-sort').on('change', function () {
+    
+  });
+  
+  $('#result-sort').val('popularity').change();
 
   //FORM ----------------
   //form variables
@@ -8,35 +20,18 @@ jQuery(document).ready(function ($) {
   const formTravelStyles = document.querySelector('#formTravelStyles');
   const formDestinations = document.querySelector('#formDestinations');
   const formExperiences = document.querySelector('#formExperiences');
-
-
-  //Length Min Max
   const formMinLength = document.querySelector('#formMinLength');
   const formMaxLength = document.querySelector('#formMaxLength');
 
 
-  $("#range-slider").ionRangeSlider({
-    skin: "round",
-    type: "double",
-    min: 1,
-    max: 21,
-    from: formMinLength.value,
-    to: formMaxLength.value,
-    postfix: " Day",
-    max_postfix: "+",
-    onFinish: function () {
- 
-      formMinLength.value = $("#range-slider").data("from");
-      formMaxLength.value = $("#range-slider").data("to");
-
-      reloadResults();
-    },
-  });
-
 
   //Expand Lists --------------------------------------------
   // Departure List -- Show More Dates
-  $("#departure-show-more").click(function (e) {
+  $("#departure-show-more").click(function () {
+    toggleDeparturesExpanded();
+  });
+
+  const toggleDeparturesExpanded = () => {
     $("#departure-filter-list").toggleClass("expanded");
     var isExpanded = $("#departure-filter-list").hasClass("expanded");
     if (isExpanded == true) {
@@ -44,7 +39,20 @@ jQuery(document).ready(function ($) {
     } else {
       $('#departure-show-more').html("Show More");
     }
-  });
+  }
+
+  //expand if hidden checkbox is selected upon page load
+  const departureDatesExpandedArray = [...document.querySelectorAll('.checkbox-expand-group')];
+  let hasExpanded = false;
+  departureDatesExpandedArray.forEach(item => {
+    if (item.checked == true) {
+      hasExpanded = true;
+    }
+  })
+  if (hasExpanded == true) {
+    toggleDeparturesExpanded();
+  }
+
 
   //Intro Snippet
   $(".search-intro__title").on("click", function (e) {
@@ -63,6 +71,7 @@ jQuery(document).ready(function ($) {
   });
 
 
+
   //Search Filter Selections ------------------------------------
   //Departure Date selections
   let departuresString = formDates.value;
@@ -75,7 +84,7 @@ jQuery(document).ready(function ($) {
         const itemValue = checkbox.value;
 
         if (checkbox.checked) {
-          
+
           if (count > 0) {
             departuresString += ";";
           }
@@ -107,7 +116,7 @@ jQuery(document).ready(function ($) {
             checkboxItem.checked = false;
           });
           charterCheckbox.checked = true;
-        } 
+        }
       }
 
       travelStylesString = "";
@@ -178,6 +187,25 @@ jQuery(document).ready(function ($) {
     });
   })
 
+  //Length Slider
+  $("#range-slider").ionRangeSlider({
+    skin: "round",
+    type: "double",
+    min: 1, //default
+    max: 21, //default
+    from: formMinLength.value,
+    to: formMaxLength.value,
+    postfix: " Day",
+    max_postfix: "+",
+    onFinish: function () {
+
+      formMinLength.value = $("#range-slider").data("from");
+      formMaxLength.value = $("#range-slider").data("to");
+
+      reloadResults();
+    },
+  });
+
 
 
   //RELOAD RESULTS
@@ -211,17 +239,17 @@ jQuery(document).ready(function ($) {
     }
 
 
-  
+
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
 
 
     //ajax call / submit form
-    var searchForm = $('#search-form');    
+    var searchForm = $('#search-form');
     $.ajax({
       url: searchForm.attr('action'),
-      data: searchForm.serialize(), 
+      data: searchForm.serialize(),
       type: searchForm.attr('method'),
-      beforeSend: function () {      
+      beforeSend: function () {
         $('#response').addClass('loading'); //indicate loading
         $("#response").append('<div class="lds-dual-ring"></div>');
         $('#response-count').html('Searching...');
@@ -229,8 +257,18 @@ jQuery(document).ready(function ($) {
       success: function (data) {
         $('#response').removeClass('loading');
         $(".lds-dual-ring").remove();
-
         $('#response').html(data); //return the markup -- content-primary-search-results.php
+
+
+        var resultCount = $('#totalResultsDisplay').attr('value');
+
+        var resultCountDisplay = ""
+        if(resultCount == 1){
+          resultCountDisplay = "Found " + resultCount + " result"
+        } else {
+          resultCountDisplay = "Found " + resultCount + " results"
+        }
+        $('#response-count').html(resultCountDisplay);
 
       }
     });

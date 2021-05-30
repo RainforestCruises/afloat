@@ -1,5 +1,7 @@
 <?php
 $results = $args;
+$resultsTotal = count($results);
+
 foreach ($results as $result) :
 ?>
     <div class="search-result">
@@ -151,7 +153,7 @@ foreach ($results as $result) :
 
 
 
-
+<div id="totalResultsDisplay" style="display: none;" value="<?php echo $resultsTotal ?>"> </div>
 
 <?php $pageCount =  1; ?>
 

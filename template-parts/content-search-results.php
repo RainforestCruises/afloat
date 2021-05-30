@@ -1,16 +1,21 @@
+<?php
+$posts = getSearchPosts($args['travelTypes'],  $args['destinations'], $args['experiences'], $args['searchType'], $args['destinationId'], $args['regionId'], $args['lengthMin'], $args['lengthMax'], $args['departures']);
+$resultCount = count($posts);
+?>
+
 <div class="search-results">
     <div class="search-results__top-section">
         <div class="search-results__top-section__result-count" id="response-count">
-
+          Found  <?php echo $resultCount; ?>  <?php echo ($resultCount == 1) ? 'Result' : 'Results' ; ?>
         </div>
+
         <div class="search-results__top-section__controls">
             <label class="sort-control" for="result-sort">
-                <!-- <span class="sort-control__label-text">Sort</span> -->
+                <span class="sort-control__label-text">Sort by</span>
                 <select class="sort-control__select" id="result-sort" name="result-sort" form="search-form">
-                    <option></option>
-                    <option value="REL">Relevance</option>
-                    <option value="DESC">Price: High to Low</option>
-                    <option value="ASC">Price: Low to High</option>
+                    <option value="popularity">Popularity</option>
+                    <option value="high">Price High to Low</option>
+                    <option value="low">Price Low to High</option>
                 </select>
             </label>
         </div>
@@ -20,9 +25,8 @@
 
         <?php
 
-   
 
-        $posts = getSearchPosts($args['travelTypes'],  $args['destinations'], $args['experiences'], $args['searchType'], $args['destinationId'], $args['regionId'], $args['lengthMin'], $args['lengthMax'], $args['departures']); //Stage I
+
 
 
         get_template_part('template-parts/content', 'primary-search-results', $posts);

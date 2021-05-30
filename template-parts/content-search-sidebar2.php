@@ -3,6 +3,7 @@
 $months = array();
 $currentMonth = (int)date('m');
 $monthLimit = 18;
+
 for ($x = $currentMonth; $x < $currentMonth + $monthLimit; $x++) {
 
     $object = new stdClass();
@@ -23,6 +24,7 @@ $selectedTravelTypes = $args['travelTypes'];
 $selectedExperiences = $args['experiences'];
 $selectedDestinations = $args['destinations'];
 $selectedDepartures = $args['departures'];
+
 
 
 //Build Filter Lists
@@ -49,9 +51,8 @@ if ($searchType == 'region') {
         "meta_key" => "region",
         "meta_value" => $regionId,
     );
-    $destinations = get_posts($destinationsArgs);  
+    $destinations = get_posts($destinationsArgs);
 }
-
 
 
 //do next
@@ -68,6 +69,7 @@ if (get_field('itinerary_length_max') != null) {
 
 <aside class="search-sidebar">
 
+  
     <!-- Departure Date Filter -->
     <div class="filter">
         <div class="filter__heading" id="departure-filter-heading">
@@ -79,17 +81,17 @@ if (get_field('itinerary_length_max') != null) {
             </svg>
         </div>
         <div class="filter__content">
-            <!-- List -->
+            <!-- List  add expanded if selection-->
             <ul class="filter__content__list  filter__content__list--fixedHeight" id="departure-filter-list">
 
                 <?php
                 $count = 1;
-                foreach ($months as $m) : 
+                foreach ($months as $m) :
                     $currentItemValue = $m->year . '-' . $m->monthNumber;
                 ?>
                     <li class="filter__content__list__item">
                         <div class="form-checkbox">
-                            <input class="checkbox departure-checkbox" type="checkbox" id="departure-checkbox-<?php echo $count; ?>" value="<?php echo $currentItemValue; ?>"     <?php echo ($selectedDepartures != null ? (in_array($currentItemValue, $selectedDepartures) ? 'checked' : '') : '')?>   >
+                            <input class="checkbox departure-checkbox <?php echo ($count > 6) ? 'checkbox-expand-group' : ''; ?>" type="checkbox" id="departure-checkbox-<?php echo $count; ?>" value="<?php echo $currentItemValue; ?>" <?php echo ($selectedDepartures != null ? (in_array($currentItemValue, $selectedDepartures) ? 'checked' : '') : '') ?>>
                             <label for="departure-checkbox-<?php echo $count; ?>"><?php echo $m->monthName . " " . $m->year; ?></label>
                         </div>
                     </li>
@@ -119,25 +121,25 @@ if (get_field('itinerary_length_max') != null) {
             <ul class="filter__content__list">
                 <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-1" value="rfc_tours" <?php echo (in_array('rfc_tours', $selectedTravelTypes) ? 'checked' : '')?> >
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-1" value="rfc_tours" <?php echo (in_array('rfc_tours', $selectedTravelTypes) ? 'checked' : '') ?>>
                         <label for="travel-style-checkbox-1" tabindex="1">Tours</label>
                     </div>
                 </li>
                 <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-2" value="rfc_cruises" <?php echo (in_array('rfc_cruises', $selectedTravelTypes) ? 'checked' : '')?> >
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-2" value="rfc_cruises" <?php echo (in_array('rfc_cruises', $selectedTravelTypes) ? 'checked' : '') ?>>
                         <label for="travel-style-checkbox-2" tabindex="2">Cruises</label>
                     </div>
                 </li>
                 <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-3" value="rfc_lodges" <?php echo (in_array('rfc_lodges', $selectedTravelTypes) ? 'checked' : '')?> >
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-3" value="rfc_lodges" <?php echo (in_array('rfc_lodges', $selectedTravelTypes) ? 'checked' : '') ?>>
                         <label for="travel-style-checkbox-3" tabindex="3">Lodges</label>
                     </div>
                 </li>
                 <li class="filter__content__list__item filter__content__list__item--divider">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="charterCheckbox" value="charter_cruises" <?php echo (in_array('charter_cruises', $selectedTravelTypes) ? 'checked' : '')?>>
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="charterCheckbox" value="charter_cruises" <?php echo (in_array('charter_cruises', $selectedTravelTypes) ? 'checked' : '') ?>>
                         <label for="charterCheckbox" tabindex="4">Charter Cruises</label>
                     </div>
                 </li>
@@ -165,7 +167,7 @@ if (get_field('itinerary_length_max') != null) {
                 foreach ($destinations as $d) : ?>
                     <li class="filter__content__list__item">
                         <div class="form-checkbox">
-                            <input class="checkbox destination-checkbox" type="checkbox" id="destination-checkbox-<?php echo $count; ?>" value="<?php echo $d->ID ?>" <?php echo ($selectedDestinations != null ? (in_array($d->ID, $selectedDestinations) ? 'checked' : '') : '')?>>
+                            <input class="checkbox destination-checkbox" type="checkbox" id="destination-checkbox-<?php echo $count; ?>" value="<?php echo $d->ID ?>" <?php echo ($selectedDestinations != null ? (in_array($d->ID, $selectedDestinations) ? 'checked' : '') : '') ?>>
                             <label for="destination-checkbox-<?php echo $count; ?>"><?php echo get_field('navigation_title', $d) ?></label>
                         </div>
                     </li>
@@ -196,7 +198,7 @@ if (get_field('itinerary_length_max') != null) {
                 ?>
                     <li class="filter__content__list__item">
                         <div class="form-checkbox">
-                            <input class="checkbox experience-checkbox" type="checkbox" id="experience-checkbox-<?php echo $count; ?>" value="<?php echo $e->ID ?>" <?php echo ($selectedExperiences != null ? (in_array($e->ID, $selectedExperiences) ? 'checked' : '') : '')?> >
+                            <input class="checkbox experience-checkbox" type="checkbox" id="experience-checkbox-<?php echo $count; ?>" value="<?php echo $e->ID ?>" <?php echo ($selectedExperiences != null ? (in_array($e->ID, $selectedExperiences) ? 'checked' : '') : '') ?>>
                             <label for="experience-checkbox-<?php echo $count; ?>" tabindex="1"><?php echo get_the_title($e) ?></label>
                         </div>
                     </li>
@@ -224,5 +226,3 @@ if (get_field('itinerary_length_max') != null) {
     </div>
 
 </aside>
-
-

@@ -122,7 +122,6 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
     $posts = get_posts($args); //Stage I posts
     $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter); //Stage II metadata
 
-    console_log($formattedPosts);
     return $formattedPosts;
 }
 

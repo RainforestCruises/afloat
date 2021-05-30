@@ -45,35 +45,28 @@ function search_filter_home_search()
     }
 
     //DATE
-    $startDate = date("Y-m-d");
-    $endDate = date('Y-m-d', strtotime('+1 year', strtotime($startDate)));
-
-
-    $travelMonth = 0;
+    $travelDate = null;
     if (isset($_POST['travel-month']) && $_POST['travel-month']) {
         $travelMonth = $_POST['travel-month'];
-    }
-    $travelYear = 0;
-    if (isset($_POST['travel-year']) && $_POST['travel-year']) {
         $travelYear = $_POST['travel-year'];
+
+        $travelDate = $travelYear . "-" . $travelMonth;
     }
 
-    $d = mktime(null, null, null, $travelMonth, 1, $travelYear);
-    $startDate = date("Y-m-d", $d);
 
-
-    if ($travelMonth != date("m")) {   //selection not current month or unselected
-        $endDate = date('Y-m-d', strtotime('+30 days', strtotime($startDate)));
-    } else {
-        $endDate = date('Y-m-d', strtotime('+1 year', strtotime($startDate)));
-    }
 
 
     $destinationPost = get_post($destinationId);
     $pageLink = get_field('default_search_link', $destinationPost);
 
     if ($pageLink != null) {
-        wp_redirect($pageLink . "?startDate=" . $startDate . "&endDate=" . $endDate);
+
+        if ($travelDate != null) {
+            wp_redirect($pageLink . "?departures=" . $travelDate);
+        } else {
+            wp_redirect($pageLink);
+        }
+        
     } else {
         wp_redirect(home_url());
     }
