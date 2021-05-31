@@ -577,15 +577,7 @@
             "type": "repeater",
             "instructions": "Enter tour itinerary length ranges for buttons, these link to search pages.",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5fe3588d67f5c",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1339,5 +1331,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1622142937
+    "modified": 1622485987
 }

@@ -298,9 +298,7 @@ jQuery(document).ready(function ($) {
             resultsPage = $("#initialPage").val();
 
             $('#search-form').submit();
-
           }
-
         });
 
       }

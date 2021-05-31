@@ -78,7 +78,115 @@
         }
 
 
-      
+        &__pagination {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem auto;
+            
+    
+            &__pages-group {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 1.5rem;
+                width: 100%;
+                flex-wrap: wrap;
+
+                &__button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    width: 4rem;
+                    height: 4rem;
+
+                    font-family: $font-primary;
+                    font-weight: 700;
+                    font-size: 1.6rem;
+                    border: 1px solid transparent;
+                    color: $color-primary;
+                    transition: all .3s;
+
+                    position: relative;
+                    
+                    &:hover {
+
+                        &:not(.disabled){
+
+                            color: $color-supporting-light;
+           
+                        }
+                       
+                    }
+
+                    & svg {
+                        color: currentColor;
+                        fill: currentColor;
+                        height: 2.5rem;
+                        width: 2.5rem;
+                    }
+
+                    &.disabled {
+                        color: $color-grey-1;              
+                    }
+
+                    &.current {
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            height: 2px;
+                            width: 100%;
+                            background-color: $color-primary;
+                        }
+                    }
+                }
+            }
+
+           
+    
+            &__show-all-group {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                & button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    width: auto;
+                    height: 4rem;
+
+                    font-family: $font-primary;
+                    font-weight: 700;
+                    font-size: 1.3rem;
+                    
+                    color: $color-primary;
+                  
+
+                    position: relative;
+
+                    &:hover {
+
+                        &:not(.disabled){
+
+                            color: $color-primary;
+           
+                        }
+                       
+                    }
+                }
+            }
+        }
 
         &__loading {
             margin: 10rem auto;
@@ -91,27 +199,10 @@
             }
         }
 
-        &__pagination {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 3rem auto;
-
-            &__pages-group {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 1.5rem;
-            }
-
-            &__show-all-group {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-        }
+        
     }
+
+ 
 
     &__bottom-section {
         display: flex;

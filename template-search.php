@@ -35,6 +35,13 @@ $regionId = $region->ID;
 
 
 //Preselections (strings for form values) ------------
+//Paging
+$pageNumber = 1;
+if (isset($_GET["pageNumber"]) && $_GET["pageNumber"]) {
+    $pageNumber = htmlspecialchars($_GET["pageNumber"]);
+}
+
+
 
 //Sorting
 $sorting = "popularity";
@@ -185,6 +192,7 @@ $args = array(
     'lengthMin' => $lengthMin, //preselection
     'lengthMax' => $lengthMax, //preselection
     'sorting' => $sorting, 
+    'pageNumber' => $pageNumber, 
 
 );
 
@@ -227,6 +235,7 @@ $args = array(
     <input type="hidden" name="formMinLength" id="formMinLength" value="<?php echo $lengthMin ?>">
     <input type="hidden" name="formMaxLength" id="formMaxLength" value="<?php echo $lengthMax ?>">
     <input type="hidden" name="formSort" id="formSort" value="<?php echo $sorting ?>">
+    <input type="hidden" name="formPageNumber" id="formPageNumber" value="<?php echo $pageNumber ?>">
 
     <input type="hidden" name="region" id="region" value="<?php echo $regionId ?>">
     <input type="hidden" name="destination" id="destination" value="<?php echo $destinationId ?>">

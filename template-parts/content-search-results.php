@@ -1,21 +1,16 @@
-
-
-
-
-
-
 <?php
 
 //first load
-$posts = getSearchPosts($args['travelTypes'],  $args['destinations'], $args['experiences'], $args['searchType'], $args['destinationId'], $args['regionId'], $args['lengthMin'], $args['lengthMax'], $args['departures'], $args['sorting']);
-$resultCount = count($posts);
+$resultsObject = getSearchPosts($args['travelTypes'],  $args['destinations'], $args['experiences'], $args['searchType'], $args['destinationId'], $args['regionId'], $args['lengthMin'], $args['lengthMax'], $args['departures'], $args['sorting'], $args['pageNumber']);
+$resultCount = $resultsObject['resultsCount'];
+
 ?>
 
 <div class="search-results">
     <div class="search-results__top-section">
         <div class="search-results__top-section__result-count" id="response-count">
 
-          Found  <?php echo $resultCount; ?>  <?php echo ($resultCount == 1) ? 'Result' : 'Results' ; ?>
+            Found <?php echo $resultCount; ?> <?php echo ($resultCount == 1) ? 'Result' : 'Results'; ?>
 
         </div>
 
@@ -34,8 +29,12 @@ $resultCount = count($posts);
 
 
         <?php
-        get_template_part('template-parts/content', 'primary-search-results', $posts);
+        get_template_part('template-parts/content', 'primary-search-results', $resultsObject);
         ?>
 
     </div>
+
+    
+
+
 </div>

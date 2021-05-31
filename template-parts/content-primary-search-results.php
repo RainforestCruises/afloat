@@ -1,6 +1,8 @@
 <?php
-$results = $args;
-$resultsTotal = count($results);
+$results = $args['results'];
+$resultsTotal = $args['resultsCount'];
+$pageCount = $args['pageCount'];
+$pageNumber = $args['pageNumber'];
 
 foreach ($results as $result) :
 ?>
@@ -152,29 +154,37 @@ foreach ($results as $result) :
 <?php endforeach; ?>
 
 
+<div class="search-results__grid__pagination">
+    <?php
+    if ($pageCount != 1 && $pageNumber != 'all') : ?>
+        <div class="search-results__grid__pagination__pages-group">
+            <button class="search-results__grid__pagination__pages-group__button search-results__grid__pagination__pages-group__button--back-button  <?php echo ($pageNumber == 1) ? 'disabled' : ''; ?>">
+                <svg>
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_left_36px"></use>
+                </svg>
+            </button>
+            <?php
+            for ($k = 1; $k <= $pageCount; $k++) :
+            ?>
+                <button class="search-results__grid__pagination__pages-group__button <?php echo ($pageNumber == $k) ? 'current' : ''; ?> " value="<?php echo $k ?>">
+                    <?php echo $k ?>
+                </button>
+            <?php endfor;
+            ?>
+            <button class="search-results__grid__pagination__pages-group__button search-results__grid__pagination__pages-group__button--next-button <?php echo ($pageNumber == $pageCount) ? 'disabled' : ''; ?>">
+                <svg>
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="search-results__grid__pagination__show-all-group">
+            <button class="search-results__grid__pagination__pages-group__button search-results__grid__pagination__pages-group__button--all-button btn-outline btn-outline--small btn-outline--dark">
+                Show All
+            </button>
+        </div>
+    <?php endif; ?>
+</div>
+
 
 <div id="totalResultsDisplay" style="display: none;" value="<?php echo $resultsTotal ?>"> </div>
-
-<?php $pageCount =  1; ?>
-
-<?php
-function sortPrice($a, $b)
-{
-    if (is_object($a) && is_object($b)) {
-        return $a->lowestPrice - $b->lowestPrice;
-    }
-}
-function sortPriceDescending($a, $b)
-{
-    if (is_object($a) && is_object($b)) {
-        return $b->lowestPrice - $a->lowestPrice;
-    }
-}
-
-function sortCharter($a, $b)
-{
-    if (is_object($a) && is_object($b)) {
-        return strcmp($b->charterOnly, $a->charterOnly);
-    }
-}
-?>
+<div id="pageNumberDisplay" style="display: none;" value="<?php echo $pageNumber ?>"> </div>

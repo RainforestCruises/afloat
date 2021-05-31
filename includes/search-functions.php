@@ -1,6 +1,6 @@
 <?php
 //Upper bounded list of products for search results
-function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray, $sorting)
+function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray, $sorting, $pageNumber)
 {
 
     $charterFilter = false;
@@ -122,7 +122,42 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
     $posts = get_posts($args); //Stage I posts
     $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting); //Stage II metadata
 
-    return $formattedPosts;
+
+   
+
+
+    $resultsPerPage = 3;
+    $resultsTotal = count($formattedPosts);
+
+    $pageCount = floor($resultsTotal / $resultsPerPage);
+    if ($resultsTotal % $resultsPerPage != 0) {
+        $pageCount++;
+    };
+
+   
+
+
+    if (is_numeric($pageNumber) && $pageNumber != 'all') {
+        $startIndex = (($pageNumber - 1) * $resultsPerPage);
+        $formattedPosts = array_slice($formattedPosts, $startIndex, $resultsPerPage);
+    } else if ($pageNumber == 'all')  {
+        $formattedPosts = array_slice($formattedPosts, 0, 50);
+    } else {
+        $startIndex = 0;
+        $formattedPosts = array_slice($formattedPosts, $startIndex, $resultsPerPage);
+    }
+
+    //return object with results, result count, and page count seperately
+    $searchResults = [
+        'results' => $formattedPosts,
+        'resultsCount' => $resultsTotal, 
+        'pageCount' => $pageCount,
+        'pageNumber' => $pageNumber,
+    ];
+
+
+
+    return $searchResults;
 }
 
 
@@ -247,24 +282,23 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                     $charterOnly = get_field('charter_only', $p);
                 }
 
-                
-                if($charterFilter == false){ //FIT - filter out charter only if not searching charter
-                    if($charterOnly == true){
+
+                if ($charterFilter == false) { //FIT - filter out charter only if not searching charter
+                    if ($charterOnly == true) {
                         continue;
                     }
 
                     $cruiseType = get_field('cruise_type', $p);
                     $productTypeDisplay = $cruiseType . ' Cruise';
-
                 } else { //Charter -- filter out boats not available for charter if searching charter
                     $productTypeDisplay = 'Private Charter';
-                    if($charterAvailable != true){
+                    if ($charterAvailable != true) {
                         continue;
                     }
                 }
 
-                
-                
+
+
 
                 //Cruise Itineraries
                 foreach ($cruiseData['Itineraries'] as $itinerary) {
@@ -455,19 +489,16 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         );
     }
 
-    if($sorting == 'popularity') {
+    if ($sorting == 'popularity') {
         usort($results, "sortRank"); //sort by search rank score
-        console_log('pop');
     }
 
-    if($sorting == 'high') {
+    if ($sorting == 'high') {
         usort($results, "sortPriceHigh"); //sort by search rank score
-        console_log('high');
     }
 
-    if($sorting == 'low') {
+    if ($sorting == 'low') {
         usort($results, "sortPriceLow"); //sort by search rank score
-        console_log('low');
     }
 
     return $results;
