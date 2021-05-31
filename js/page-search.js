@@ -228,7 +228,9 @@ jQuery(document).ready(function ($) {
     if (maxLength != null) {
       params.set('maxLength', maxLength);
     }
-
+    if (maxLength != null) {
+      params.set('maxLength', maxLength);
+    }
 
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
 
