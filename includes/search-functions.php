@@ -126,7 +126,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
    
 
 
-    $resultsPerPage = 3;
+    $resultsPerPage = 10;
     $resultsTotal = count($formattedPosts);
 
     $pageCount = floor($resultsTotal / $resultsPerPage);
