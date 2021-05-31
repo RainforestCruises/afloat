@@ -23,6 +23,7 @@
     max-width: $page-width;
     @include flexPadding;
 
+    margin-bottom: 6rem;
   }
 
   &__bottom {

@@ -1,12 +1,22 @@
+
+
+
+
+
+
 <?php
-$posts = getSearchPosts($args['travelTypes'],  $args['destinations'], $args['experiences'], $args['searchType'], $args['destinationId'], $args['regionId'], $args['lengthMin'], $args['lengthMax'], $args['departures']);
+
+//first load
+$posts = getSearchPosts($args['travelTypes'],  $args['destinations'], $args['experiences'], $args['searchType'], $args['destinationId'], $args['regionId'], $args['lengthMin'], $args['lengthMax'], $args['departures'], $args['sorting']);
 $resultCount = count($posts);
 ?>
 
 <div class="search-results">
     <div class="search-results__top-section">
         <div class="search-results__top-section__result-count" id="response-count">
+
           Found  <?php echo $resultCount; ?>  <?php echo ($resultCount == 1) ? 'Result' : 'Results' ; ?>
+
         </div>
 
         <div class="search-results__top-section__controls">
@@ -24,13 +34,8 @@ $resultCount = count($posts);
 
 
         <?php
-
-
-
-
-
         get_template_part('template-parts/content', 'primary-search-results', $posts);
-
         ?>
+
     </div>
 </div>

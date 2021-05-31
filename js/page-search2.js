@@ -1,18 +1,7 @@
 
 jQuery(document).ready(function ($) {
 
-  //Sorting
-  $('#result-sort').select2({
-    width: 'auto',
-    dropdownAutoWidth: true,
-    minimumResultsForSearch: -1,
-   
-  });
-  $('#result-sort').on('change', function () {
-    
-  });
-  
-  $('#result-sort').val('popularity').change();
+
 
   //FORM ----------------
   //form variables
@@ -22,6 +11,7 @@ jQuery(document).ready(function ($) {
   const formExperiences = document.querySelector('#formExperiences');
   const formMinLength = document.querySelector('#formMinLength');
   const formMaxLength = document.querySelector('#formMaxLength');
+  const formSort = document.querySelector('#formSort');
 
 
 
@@ -206,11 +196,30 @@ jQuery(document).ready(function ($) {
     },
   });
 
+  //Sorting
+  $('#result-sort').select2({
+    width: 'auto',
+    dropdownAutoWidth: true,
+    minimumResultsForSearch: -1,
+  });
+  
+  $('#result-sort').on('change', function () {
+    formSort.value = $(this).val();
+    reloadResults();
+  });
 
+  $('#result-sort').select2('destroy');
+  $('#result-sort').val(formSort.value).select2({
+    width: 'auto',
+    dropdownAutoWidth: true,
+    minimumResultsForSearch: -1,
+
+  });
 
   //RELOAD RESULTS
   function reloadResults() {
 
+    console.log('reload results');
     //set url params
     const params = new URLSearchParams(location.search);
 
@@ -238,7 +247,9 @@ jQuery(document).ready(function ($) {
       params.set('length_max', formMaxLength.value);
     }
 
-
+    if (formSort.value != null) {
+      params.set('sorting', formSort.value);
+    }
 
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
 
@@ -263,7 +274,7 @@ jQuery(document).ready(function ($) {
         var resultCount = $('#totalResultsDisplay').attr('value');
 
         var resultCountDisplay = ""
-        if(resultCount == 1){
+        if (resultCount == 1) {
           resultCountDisplay = "Found " + resultCount + " result"
         } else {
           resultCountDisplay = "Found " + resultCount + " results"

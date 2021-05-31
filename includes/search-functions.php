@@ -1,6 +1,6 @@
 <?php
 //Upper bounded list of products for search results
-function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray)
+function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray, $sorting)
 {
 
     $charterFilter = false;
@@ -120,14 +120,14 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
     $posts = get_posts($args); //Stage I posts
-    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter); //Stage II metadata
+    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting); //Stage II metadata
 
     return $formattedPosts;
 }
 
 
 //Stage II - metadata
-function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter)
+function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting)
 {
 
     $results = [];
@@ -455,7 +455,20 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         );
     }
 
-    usort($results, "sortRank"); //sort by search rank score
+    if($sorting == 'popularity') {
+        usort($results, "sortRank"); //sort by search rank score
+        console_log('pop');
+    }
+
+    if($sorting == 'high') {
+        usort($results, "sortPriceHigh"); //sort by search rank score
+        console_log('high');
+    }
+
+    if($sorting == 'low') {
+        usort($results, "sortPriceLow"); //sort by search rank score
+        console_log('low');
+    }
 
     return $results;
 }
@@ -465,5 +478,19 @@ function sortRank($a, $b)
 {
     if (is_object($a) && is_object($b)) {
         return $b->searchRank - $a->searchRank;
+    }
+}
+
+function sortPriceHigh($a, $b)
+{
+    if (is_object($a) && is_object($b)) {
+        return $b->lowestPrice - $a->lowestPrice;
+    }
+}
+
+function sortPriceLow($a, $b)
+{
+    if (is_object($a) && is_object($b)) {
+        return $a->lowestPrice - $b->lowestPrice;
     }
 }

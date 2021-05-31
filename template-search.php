@@ -36,6 +36,13 @@ $regionId = $region->ID;
 
 //Preselections (strings for form values) ------------
 
+//Sorting
+$sorting = "popularity";
+if (isset($_GET["sorting"]) && $_GET["sorting"]) {
+    $sorting = htmlspecialchars($_GET["sorting"]);
+}
+
+
 //Departure Dates
 $departures = [];
 $departuresString = "";
@@ -177,6 +184,7 @@ $args = array(
     'departures' => $departures, //preselection
     'lengthMin' => $lengthMin, //preselection
     'lengthMax' => $lengthMax, //preselection
+    'sorting' => $sorting, 
 
 );
 
@@ -218,6 +226,7 @@ $args = array(
     <input type="hidden" name="formExperiences" id="formExperiences" value="<?php echo $experiencesString ?>">
     <input type="hidden" name="formMinLength" id="formMinLength" value="<?php echo $lengthMin ?>">
     <input type="hidden" name="formMaxLength" id="formMaxLength" value="<?php echo $lengthMax ?>">
+    <input type="hidden" name="formSort" id="formSort" value="<?php echo $sorting ?>">
 
     <input type="hidden" name="region" id="region" value="<?php echo $regionId ?>">
     <input type="hidden" name="destination" id="destination" value="<?php echo $destinationId ?>">
