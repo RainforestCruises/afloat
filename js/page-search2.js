@@ -221,7 +221,7 @@ jQuery(document).ready(function ($) {
 
   //RELOAD RESULTS
   function reloadResults(preservePage) {
-
+    
     //set url params
     const params = new URLSearchParams(location.search);
 
@@ -254,6 +254,7 @@ jQuery(document).ready(function ($) {
     }
 
     if(preservePage == true){
+      $('body, html, .search-results').animate({ scrollTop: 0 }, "fast");
       if (formPageNumber.value != null) {
         params.set('pageNumber', formPageNumber.value);
       }
