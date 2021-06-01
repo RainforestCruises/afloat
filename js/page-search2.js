@@ -276,11 +276,13 @@ jQuery(document).ready(function ($) {
       type: searchForm.attr('method'),
       beforeSend: function () {
         $('#response').addClass('loading'); //indicate loading
+        $('.search-sidebar').addClass('loading'); //indicate loading
         $("#response").append('<div class="lds-dual-ring"></div>');
         $('#response-count').html('Searching...');
       },
       success: function (data) {
         $('#response').removeClass('loading');
+        $('.search-sidebar').removeClass('loading'); //indicate loading
         $(".lds-dual-ring").remove();
 
 

@@ -3,6 +3,7 @@
     width: 80px;
     height: 80px;
     color: $color-primary;
+    transform: translateX(-50%);
   }
   .lds-dual-ring:after {
     content: " ";

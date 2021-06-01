@@ -4826,26 +4826,22 @@ h5 {
           font-weight: 700;
           font-size: 1.6rem;
           border: 1px solid transparent;
-          color: #142838;
+          color: #9ea0a4;
           transition: all .3s;
           position: relative; }
           .search-results__grid__pagination__pages-group__button:hover:not(.disabled) {
-            color: #40739c; }
+            background-color: #f8f8f8; }
           .search-results__grid__pagination__pages-group__button svg {
             color: currentColor;
             fill: currentColor;
             height: 2.5rem;
             width: 2.5rem; }
           .search-results__grid__pagination__pages-group__button.disabled {
-            color: #9ea0a4; }
-          .search-results__grid__pagination__pages-group__button.current::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 2px;
-            width: 100%;
-            background-color: #142838; }
+            color: #9ea0a4;
+            cursor: default;
+            display: none; }
+          .search-results__grid__pagination__pages-group__button.current {
+            color: #142838; }
       .search-results__grid__pagination__show-all-group {
         display: flex;
         justify-content: center;
@@ -4901,7 +4897,8 @@ h5 {
   width: 25%;
   height: min-content;
   border: 1px solid #e6e6e6;
-  border-radius: .5rem; }
+  border-radius: .5rem;
+  position: relative; }
   @media only screen and (max-width: 62.5em) {
     .search-sidebar {
       display: none; } }
@@ -8671,7 +8668,8 @@ h5 {
   display: inline-block;
   width: 80px;
   height: 80px;
-  color: #142838; }
+  color: #142838;
+  transform: translateX(-50%); }
 
 .lds-dual-ring:after {
   content: " ";

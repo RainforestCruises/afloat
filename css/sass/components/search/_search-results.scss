@@ -108,7 +108,7 @@
                     font-weight: 700;
                     font-size: 1.6rem;
                     border: 1px solid transparent;
-                    color: $color-primary;
+                    color: $color-grey-1;
                     transition: all .3s;
 
                     position: relative;
@@ -117,8 +117,9 @@
 
                         &:not(.disabled){
 
-                            color: $color-supporting-light;
-           
+                            //color: $color-supporting-light;
+                            background-color: $color-grey-light-1;
+                            //color: $color-primary; 
                         }
                        
                     }
@@ -131,20 +132,23 @@
                     }
 
                     &.disabled {
-                        color: $color-grey-1;              
+                        color: $color-grey-1; 
+                        cursor: default;   
+                        display: none;        
                     }
 
                     &.current {
-
-                        &::after {
-                            content: "";
-                            position: absolute;
-                            bottom: 0;
-                            left: 0;
-                            height: 2px;
-                            width: 100%;
-                            background-color: $color-primary;
-                        }
+                        //background-color: $color-grey-light-1a;
+                        color: $color-primary;  
+                        // &::after {
+                        //     content: "";
+                        //     position: absolute;
+                        //     bottom: 0;
+                        //     left: 0;
+                        //     height: 2px;
+                        //     width: 100%;
+                        //     background-color: $color-primary;
+                        // }
                     }
                 }
             }
