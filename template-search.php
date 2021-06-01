@@ -2,8 +2,7 @@
 /*Template Name: Search*/
 
 //CHANGE HERE
-// wp_enqueue_script('page-search', get_template_directory_uri() . '/js/page-search.js', array('jquery'), false, true);
-wp_enqueue_script('page-search2', get_template_directory_uri() . '/js/page-search2.js', array('jquery'), false, true);
+wp_enqueue_script('page-search', get_template_directory_uri() . '/js/page-search.js', array('jquery'), false, true);
 
 ?>
 
@@ -210,8 +209,8 @@ $args = array(
     <section class="search-page__content">
 
         <?php
-        get_template_part('template-parts/content', 'search-sidebar2', $args); //page args --> initial preselection
-        get_template_part('template-parts/content', 'search-results', $args); //page args --> initial render
+        get_template_part('template-parts/content', 'search-sidebar', $args); //page args --> initial preselection
+        get_template_part('template-parts/content', 'search-results-area', $args); //page args --> initial render
         ?>
 
     </section>

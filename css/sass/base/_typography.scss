@@ -478,6 +478,22 @@ p {
         background-color: $color-green;
     }
 
+    &--green-outline {
+        background-color: $color-white;
+        color: $color-green;
+        border: 2px solid $color-green;
+    }
+
+    &--blue {
+        background-color: $color-supporting-light;
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-primary;
+        font-weight: 700;
+    }
+
     &--small {
         font-size: 1.1rem;
         padding: 0.6rem 1.2rem;

@@ -29,7 +29,7 @@ $resultCount = $resultsObject['resultsCount'];
 
 
         <?php
-        get_template_part('template-parts/content', 'primary-search-results', $resultsObject);
+        get_template_part('template-parts/content', 'search-results-content', $resultsObject);
         ?>
 
     </div>

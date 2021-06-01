@@ -143,8 +143,8 @@ function search_filter_primary_search()
 
 
 
-    //Return result cards -- content-primary-search-results
-    get_template_part('template-parts/content', 'primary-search-results', $posts);
+    //Return result cards -- content-search-results-content
+    get_template_part('template-parts/content', 'search-results-content', $posts);
 
 
     die();

@@ -1,326 +1,389 @@
+
 jQuery(document).ready(function ($) {
-  //On Change parameters update URL string
-  //On Load, read url parameters
-
-  
-  $("#startDate").val(moment().format('YYYY-MM-DD')) //first time page loads
-  $("#endDate").val(moment().add(1, 'Y').format('YYYY-MM-DD'))
 
 
-  var url_string = window.location.href; //window.location.href
-  var url = new URL(url_string);
+
+  //FORM ----------------
+  //form variables
+  const formDates = document.querySelector('#formDates');
+  const formTravelStyles = document.querySelector('#formTravelStyles');
+  const formDestinations = document.querySelector('#formDestinations');
+  const formExperiences = document.querySelector('#formExperiences');
+  const formMinLength = document.querySelector('#formMinLength');
+  const formMaxLength = document.querySelector('#formMaxLength');
+  const formSort = document.querySelector('#formSort');
+  const formPageNumber = document.querySelector('#formPageNumber');
 
 
-  //filter parameters
-  //--preselections from search template (sidebar)
-  var travelType = url.searchParams.get("travelType"); //travel type
-  if (travelType != null) {
-    preselectTravelType = travelType;
+
+  //Expand Lists --------------------------------------------
+  // Departure List -- Show More Dates
+  $("#departure-show-more").click(function () {
+    toggleDeparturesExpanded();
+  });
+
+  const toggleDeparturesExpanded = () => {
+    $("#departure-filter-list").toggleClass("expanded");
+    var isExpanded = $("#departure-filter-list").hasClass("expanded");
+    if (isExpanded == true) {
+      $('#departure-show-more').html("Show Less");
+    } else {
+      $('#departure-show-more').html("Show More");
+    }
   }
 
-  var experienceType = url.searchParams.get("experienceType"); //experience
-  if (experienceType != null) {
-    preselectExperience = experienceType;
+  //expand if hidden checkbox is selected upon page load
+  const departureDatesExpandedArray = [...document.querySelectorAll('.checkbox-expand-group')];
+  let hasExpanded = false;
+  departureDatesExpandedArray.forEach(item => {
+    if (item.checked == true) {
+      hasExpanded = true;
+    }
+  })
+  if (hasExpanded == true) {
+    toggleDeparturesExpanded();
   }
 
-  var preselectDestination = null; //no preselect available
-  var travelDestination = url.searchParams.get("travelDestination"); //destination
-  if (travelDestination != null) {
-    preselectDestination = travelDestination;
-  }
 
-  var travelLocation = url.searchParams.get("travelLocation"); //location
-  if (travelLocation != null) {
-    preselectLocation = travelLocation;
-  }
+  //Intro Snippet
+  $(".search-intro__title").on("click", function (e) {
+    e.preventDefault();
+    let $this = $(this);
+    $this.parent().find('.search-intro__text').slideToggle(350);
+    $this.toggleClass('search-intro__title--collapsed');
+  });
 
-  var minLength = url.searchParams.get("minLength");
-  if (minLength != null) {
-    preselectMinLength = minLength;
-  }
-  var maxLength = url.searchParams.get("maxLength");
-  if (maxLength != null) {
-    preselectMaxLength = maxLength;
-  }
-
-  
-
-  var startDate = url.searchParams.get("startDate");
-  var endDate = url.searchParams.get("endDate");
+  //Search Filters expand/hide
+  $(".filter__heading").on("click", function (e) {
+    e.preventDefault();
+    let $this = $(this);
+    $this.parent().find('.filter__content').slideToggle(350);
+    $this.parent().find('.filter__heading').toggleClass('closed');
+  });
 
 
 
-  //page number
-  var resultsPage = url.searchParams.get("resultsPage");
-  if (resultsPage) {
-    $('#initialPage').val(resultsPage); //hidden field in search criteria sidebar -- set on page load
-  }
+  //Search Filter Selections ------------------------------------
+  //Departure Date selections
+  let departuresString = formDates.value;
+  const departureDatesArray = [...document.querySelectorAll('.departure-checkbox')];
+  departureDatesArray.forEach(item => {
+    item.addEventListener('click', () => {
+      departuresString = "";
+      let count = 0;
+      departureDatesArray.forEach(checkbox => {
+        const itemValue = checkbox.value;
 
+        if (checkbox.checked) {
+
+          if (count > 0) {
+            departuresString += ";";
+          }
+          departuresString += itemValue;
+          count++;
+        }
+      })
+
+      formDates.value = departuresString;
+      reloadResults();
+
+    });
+  })
+
+  //Travel Style selections
+  let travelStylesString = formTravelStyles.value;
+  const travelStylesArray = [...document.querySelectorAll('.travel-style-checkbox')];
+  travelStylesArray.forEach(item => {
+    item.addEventListener('click', () => {
+
+      //if charterCruises = selected --> make unselected
+      if (item.value != 'charter_cruises') {
+        const charterCheckbox = document.getElementById('charterCheckbox');
+        charterCheckbox.checked = false;
+      } else {
+        //if this is charterCruises (and not selected) --> unselect all the other checkboxes
+        if (item.checked == true) {
+          travelStylesArray.forEach(checkboxItem => {
+            checkboxItem.checked = false;
+          });
+          charterCheckbox.checked = true;
+        }
+      }
+
+      travelStylesString = "";
+      let count = 0;
+      travelStylesArray.forEach(checkbox => {
+        const itemValue = checkbox.value;
+        if (checkbox.checked) {
+          if (count > 0) {
+            travelStylesString += ";";
+          }
+          travelStylesString += itemValue;
+          count++;
+        }
+      })
+
+      formTravelStyles.value = travelStylesString;
+
+      reloadResults();
+    });
+  })
+
+  //Destination selections
+  let destinationsString = formDestinations.value;
+  const destinationsArray = [...document.querySelectorAll('.destination-checkbox')];
+  destinationsArray.forEach(item => {
+    item.addEventListener('click', () => {
+      destinationsString = "";
+      let count = 0;
+      destinationsArray.forEach(checkbox => {
+        const itemValue = parseInt(checkbox.value);
+
+        if (checkbox.checked) {
+          if (count > 0) {
+            destinationsString += ";";
+          }
+          destinationsString += itemValue;
+          count++;
+        }
+      })
+
+      formDestinations.value = destinationsString;
+      reloadResults();
+    });
+  })
+
+  //Experiences selections
+  let experiencesString = formExperiences.value;
+  const experiencesArray = [...document.querySelectorAll('.experience-checkbox')];
+  experiencesArray.forEach(item => {
+    item.addEventListener('click', () => {
+      experiencesString = "";
+      let count = 0;
+      experiencesArray.forEach(checkbox => {
+        const itemValue = parseInt(checkbox.value);
+
+        if (checkbox.checked) {
+
+          if (count > 0) {
+            experiencesString += ";";
+          }
+          experiencesString += itemValue;
+          count++;
+        }
+
+      })
+      formExperiences.value = experiencesString;
+      reloadResults();
+    });
+  })
 
   //Length Slider
   $("#range-slider").ionRangeSlider({
     skin: "round",
     type: "double",
-    min: 1,
-    max: 15,
-    from: preselectMinLength,
-    to: preselectMaxLength,
+    min: 1, //default
+    max: 21, //default
+    from: formMinLength.value,
+    to: formMaxLength.value,
     postfix: " Day",
     max_postfix: "+",
     onFinish: function () {
-      var low = $("#range-slider").data("from");
-      var high = $("#range-slider").data("to");
-    
-      minLength = low;
-      maxLength = high;
 
-      resetPage();
+      formMinLength.value = $("#range-slider").data("from");
+      formMaxLength.value = $("#range-slider").data("to");
+
+      
       reloadResults();
     },
   });
-
 
   //Sorting
   $('#result-sort').select2({
     width: 'auto',
     dropdownAutoWidth: true,
     minimumResultsForSearch: -1,
-    placeholder: "Sort By",
   });
+
   $('#result-sort').on('change', function () {
-    $('#search-form').submit();
-  });
-
-  //Destination 
-  $('#destination-select').select2({
-    width: '100%',
-    minimumResultsForSearch: -1,
-    placeholder: "Any",
-  });
-  $('#destination-select').val(preselectDestination).change();
-  $('#destination-select').on('change', function () {
-    travelDestination = $(this).val();
-    resetPage();
-    $('#search-form').submit();
-  });
-
-
-  //Location 
-  $('#location-select').select2({
-    width: '100%',
-    minimumResultsForSearch: -1,
-    placeholder: "Any",
-  });
-  $('#location-select').val(preselectLocation).change();
-  $('#location-select').on('change', function () {
-    travelLocation = $(this).val();
-    resetPage();
-    $('#search-form').submit();
-  });
-
-  //Experience 
-  $('#experience-select').select2({
-    width: '100%',
-    minimumResultsForSearch: -1,
-    placeholder: "Any",
-  });
-  $('#experience-select').val(preselectExperience).change();
-  $('#experience-select').on('change', function () {
-    experienceType = $(this).val();
-    resetPage();
-    $('#search-form').submit();
-  });
-
-
-  //Travel Type 
-  $('#travel-select').select2({
-    width: '100%',
-    minimumResultsForSearch: -1,
-    placeholder: "Any",
-  });
-  $('#travel-select').val(preselectTravelType).change();
-  $('#travel-select').on('change', function () {
-    travelType = $(this).val();
-    resetPage();
-    $('#search-form').submit();
-  });
-
-  //Date Range Picker
-  $(function () {
-    resetPage();
-
-    if (startDate == null) {
-      startDate = moment().format('YYYY-MM-DD');
-    }
-    if (endDate == null) {
-      endDate = moment().add(1, 'Y').format('YYYY-MM-DD');
-    }
-
-    $('input[name="departure-dates"]').daterangepicker({
-      ignoreReadonly: true,
-      focusOnShow: false,
-      startDate: moment(startDate), //set from url
-      endDate: moment(endDate),
-      //endDate: moment().add(1, 'M'),
-      locale: {
-        format: 'MMM DD, YYYY'
-      }
-    }, function (start, end) {
-      $("#startDate").val(start.format('YYYY-MM-DD'))
-      $("#endDate").val(end.format('YYYY-MM-DD'))
-
-      startDate = start.format('YYYY-MM-DD');
-      endDate = end.format('YYYY-MM-DD')
-
-      reloadResults();
-    });
-  });
-
-  //Set back to page 1 results
-  function resetPage() {
-    resultsPage = 1; //reset page
-    $('#initialPage').val(1);
-  }
-
-
-  //RELOAD RESULTS ------------------------------------------
-  reloadResults(); //first time page loads
-  $('#search-form').submit(function () {
-
+    formSort.value = $(this).val();
+    formPageNumber.value = 1;
     reloadResults();
-    return false;
   });
 
-  //SEARCH FUNCTION
-  function reloadResults() {
-    console.log('reload');
+  $('#result-sort').select2('destroy');
+  $('#result-sort').val(formSort.value).select2({
+    width: 'auto',
+    dropdownAutoWidth: true,
+    minimumResultsForSearch: -1,
 
-    $('body, html, .search-results').animate({ scrollTop: 0 }, "fast");
+  });
+
+  //RELOAD RESULTS
+  function reloadResults(preservePage) {
+    
+    //set url params
     const params = new URLSearchParams(location.search);
-    if (startDate != null) {
-      params.set('startDate', startDate);
-      params.set('endDate', endDate);
+
+    if (departuresString != null) {
+      params.set('departures', departuresString);
     }
 
-    if (travelType != null) {
-      params.set('travelType', travelType);
+    if (travelStylesString != null) {
+      params.set('travel_style', travelStylesString);
     }
 
-    if (travelLocation != null) {
-      params.set('travelLocation', travelLocation);
+    if (destinationsString != null) {
+      params.set('destinations', destinationsString);
     }
 
-    if (experienceType != null) {
-      params.set('experienceType', experienceType);
+    if (experiencesString != null) {
+      params.set('experiences', experiencesString);
     }
 
-    if (travelDestination != null) {
-      params.set('travelDestination', travelDestination);
+    if (formMinLength.value != null) {
+      params.set('length_min', formMinLength.value);
     }
 
-    if (resultsPage != null) {
-      params.set('resultsPage', resultsPage);
+    if (formMinLength.value != null) {
+      params.set('length_max', formMaxLength.value);
     }
 
-    if (minLength != null) {
-      params.set('minLength', minLength);
+    if (formSort.value != null) {
+      params.set('sorting', formSort.value);
     }
-    if (maxLength != null) {
-      params.set('maxLength', maxLength);
+
+    if(preservePage == true){
+      $('body, html, .search-results').animate({ scrollTop: 0 }, "fast"); //paging scroll up
+      if (formPageNumber.value != null) {
+        params.set('pageNumber', formPageNumber.value);
+      }
+    } else {
+      formPageNumber.value = 1;
+      params.set('pageNumber', formPageNumber.value);
     }
-    if (maxLength != null) {
-      params.set('maxLength', maxLength);
-    }
+
+    
 
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
 
 
-    $("#minLength").val($("#range-slider").data("from"));
-    $("#maxLength").val($("#range-slider").data("to"));
-   
-
-    var searchForm = $('#search-form'); //get form
+    //ajax call / submit form
+    var searchForm = $('#search-form');
     $.ajax({
       url: searchForm.attr('action'),
-      data: searchForm.serialize(), // form data
-      type: searchForm.attr('method'), // POST
+      data: searchForm.serialize(),
+      type: searchForm.attr('method'),
       beforeSend: function () {
-        $('#response').html('<div class="search-results__grid__loading"><div class="lds-dual-ring"></div></div>'); //loading spinner
+        $('#response').addClass('loading'); //indicate loading
+        $('.search-sidebar').addClass('loading'); //indicate loading
+        $("#response").append('<div class="lds-dual-ring"></div>');
         $('#response-count').html('Searching...');
       },
       success: function (data) {
+        $('#response').removeClass('loading');
+        $('.search-sidebar').removeClass('loading'); //indicate loading
+        $(".lds-dual-ring").remove();
 
 
 
-        $('#response').html(data); // insert data
+        $('#response').html(data); //return the markup -- content-primary-search-results.php
 
+
+        var resultCount = $('#totalResultsDisplay').attr('value');
         var pageNumberDisplay = $('#pageNumberDisplay').attr('value');
-        var totalResultsDisplay = $('#totalResultsDisplay').attr('value');
-        var resultString = 'Found ' + totalResultsDisplay + ' results';
 
-        if (pageNumberDisplay != 1 && pageNumberDisplay != 'all') {
-          resultString += ' (Page ' + pageNumberDisplay + ')'
+        var resultCountDisplay = ""
+        if (resultCount == 1) {
+          resultCountDisplay = "Found " + resultCount + " result"
+        } else {
+          resultCountDisplay = "Found " + resultCount + " results"
         }
-
-        if (pageNumberDisplay == 'all') {
-          resultString += ' (Showing All)'
-        }
-
-        $('#response-count').html(resultString);
+        $('#response-count').html(resultCountDisplay);
 
 
-        //expand item detail
-        $(".search-results__grid__pagination__pages-group__button").on("click", function (e) {
-          e.preventDefault();
 
-          // !current page
-          if (!$(this).hasClass('btn-circle--current') && !$(this).hasClass('btn-circle--disabled')) {
+        let pageButtonArray = [...document.querySelectorAll('.search-results__grid__pagination__pages-group__button')];
 
-            // next button
-            if ($(this).hasClass('search-results__grid__pagination__pages-group__button--next-button')) {
-              var pageGoTo = (+pageNumberDisplay + 1);
-              $("#initialPage").val(pageGoTo);
 
-              // back button
-            } else if ($(this).hasClass('search-results__grid__pagination__pages-group__button--back-button')) {
-              var pageGoTo = (+pageNumberDisplay - 1);
-              $("#initialPage").val(pageGoTo);
+        //post-ajax loaded button js
+        pageButtonArray.forEach(item => {
+          item.addEventListener('click', (e) => {
+            var pageNumber = item.value;
 
-              //all button
-            } else if ($(this).hasClass('search-results__grid__pagination__pages-group__button--all-button')) {
-              $("#initialPage").val('all');
+            if (!item.classList.contains('current') && !item.classList.contains('disabled')) {
 
-              //page button
-            } else {
-              var pageNumber = $(this).val();
-              $("#initialPage").val(pageNumber);
+              // next button
+              if (item.classList.contains('search-results__grid__pagination__pages-group__button--next-button')) {
+                var pageGoTo = (+pageNumberDisplay + 1);
+                $("#formPageNumber").val(pageGoTo);
+
+                // back button
+              } else if (item.classList.contains('search-results__grid__pagination__pages-group__button--back-button')) {
+                var pageGoTo = (+pageNumberDisplay - 1);
+                $("#formPageNumber").val(pageGoTo);
+
+                //all button
+              } else if (item.classList.contains('search-results__grid__pagination__pages-group__button--all-button')) {
+                $("#formPageNumber").val('all');
+
+                //page button
+              } else {
+                var pageNumber = item.value;
+                $("#formPageNumber").val(pageNumber);
+              }
+              reloadResults(true);
             }
-            resultsPage = $("#initialPage").val();
 
-            $('#search-form').submit();
-          }
-        });
+          });
+        })
 
       }
     });
   }
 
 
+  //initial loaded button js
+  let pageButtonArray = [...document.querySelectorAll('.search-results__grid__pagination__pages-group__button')];
+  pageButtonArray.forEach(item => {
+    item.addEventListener('click', (e) => {
+      var pageNumberDisplay = formPageNumber.value;
+      var pageNumber = item.value;
 
-  //intro expand/hide
-  $(".search-intro__title").on("click", function (e) {
-    e.preventDefault();
-    let $this = $(this);
-    $this.parent().find('.search-intro__text').slideToggle(350);
-    $this.toggleClass('search-intro__title--collapsed');
+      if (!item.classList.contains('current') && !item.classList.contains('disabled')) {
 
-  });
+        // next button
+        if (item.classList.contains('search-results__grid__pagination__pages-group__button--next-button')) {
+          var pageGoTo = (+pageNumberDisplay + 1);
+          $("#formPageNumber").val(pageGoTo);
+
+          // back button
+        } else if (item.classList.contains('search-results__grid__pagination__pages-group__button--back-button')) {
+          var pageGoTo = (+pageNumberDisplay - 1);
+          $("#formPageNumber").val(pageGoTo);
+
+          //all button
+        } else if (item.classList.contains('search-results__grid__pagination__pages-group__button--all-button')) {
+          $("#formPageNumber").val('all');
+
+          //page button
+        } else {
+          var pageNumber = item.value;
+          $("#formPageNumber").val(pageNumber);
+        }
+        reloadResults(true);
+      }
+
+    });
+  })
 
 
 
 
 
-  //closing jquery tag
+
+
+
 });
 
 

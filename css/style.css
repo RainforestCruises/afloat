@@ -445,6 +445,16 @@ p {
     background-color: #de5c52; }
   .badge-solid--green {
     background-color: #00a84b; }
+  .badge-solid--green-outline {
+    background-color: #fff;
+    color: #00a84b;
+    border: 2px solid #00a84b; }
+  .badge-solid--blue {
+    background-color: #40739c; }
+  .badge-solid--white {
+    background-color: #fff;
+    color: #142838;
+    font-weight: 700; }
   .badge-solid--small {
     font-size: 1.1rem;
     padding: 0.6rem 1.2rem; }
@@ -4643,6 +4653,7 @@ h5 {
           color: #40739c; }
   .search-intro__title {
     font-size: 3rem;
+    line-height: 3.5rem;
     color: #142838;
     cursor: pointer;
     transition: .3s all;
@@ -5014,7 +5025,8 @@ h5 {
     border: 1px solid transparent; }
   .search-result__image-area {
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    position: relative; }
     @media only screen and (max-width: 50em) {
       .search-result__image-area {
         height: min-content; } }
@@ -5027,6 +5039,11 @@ h5 {
           width: 100%;
           height: auto;
           object-fit: contain; } }
+    .search-result__image-area .badge-solid {
+      position: absolute;
+      z-index: 10;
+      top: 1.2rem;
+      left: .5rem; }
   .search-result__content {
     display: flex;
     flex-direction: column;
