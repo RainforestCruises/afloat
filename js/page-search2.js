@@ -254,7 +254,7 @@ jQuery(document).ready(function ($) {
     }
 
     if(preservePage == true){
-      $('body, html, .search-results').animate({ scrollTop: 0 }, "fast");
+      $('body, html, .search-results').animate({ scrollTop: 0 }, "fast"); //paging scroll up
       if (formPageNumber.value != null) {
         params.set('pageNumber', formPageNumber.value);
       }

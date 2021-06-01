@@ -180,7 +180,8 @@
                         "page"
                     ],
                     "taxonomy": [
-                        "category:destinations"
+                        "category:destinations",
+                        "category:search"
                     ],
                     "allow_null": 0,
                     "allow_archives": 0,
@@ -362,7 +363,7 @@
             },
             "choices": {
                 "river": "River",
-                "costal": "Costal"
+                "coastal": "Coastal"
             },
             "allow_null": 0,
             "other_choice": 0,
@@ -2277,5 +2278,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Cruise - CPT",
-    "modified": 1622150445
+    "modified": 1622560179
 }

@@ -163,7 +163,7 @@
         & ul, ol {
             max-width: 80rem;
             align-self: center;
-            font-size: 2rem;
+            font-size: 1.6rem;
             width: 100%;
             padding-left: 3rem;
             padding-bottom: 2rem;
@@ -580,9 +580,9 @@
 .wp-caption-text {
     max-width: $page-width !important;
     align-self: center;
-    font-size: 1.5rem !important;
+    font-size: 1.6rem !important;
     margin-bottom: 2rem;
-    letter-spacing: .1rem;
-    color: $color-primary; 
-    transform: translateY(-1.5rem);
+     color: $color-grey-1;
+    
+    transform: translateY(-2rem);
 }

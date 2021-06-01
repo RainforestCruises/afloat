@@ -140,7 +140,7 @@ foreach ($results as $result) :
 
             </div>
             <div class="search-result__detail__cta">
-                <a href="<?php echo get_permalink($result->post);  ?>" class="btn-cta-round btn-cta-round--small">
+                <a href="<?php echo $result->postUrl;  ?>" class="btn-cta-round btn-cta-round--small">
                     View <?php echo $result->productTypeCta; ?>
                 </a>
             </div>
@@ -153,7 +153,7 @@ foreach ($results as $result) :
 
 <?php endforeach; ?>
 
-
+<!-- Pagination -->
 <div class="search-results__grid__pagination">
     <?php
     if ($pageCount != 1 && $pageNumber != 'all') : ?>

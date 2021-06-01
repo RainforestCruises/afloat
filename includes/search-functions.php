@@ -444,12 +444,15 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
         $productLowestPrice = 0;
         $priceText = "Starting from";
+        $postUrl = get_permalink($p);
+
         if ($charterFilter == true) {
             $productLowestPrice = get_field('charter_daily_price', $p);
             $priceText = "Price per night";
             $promoAvailable = false;
             $itineraryLengthDisplay = get_field('charter_min_days', $p) . " Days +";
             $itineraryCountDisplay = "";
+            $postUrl = $postUrl . '?charter=true';
         } else {
             $productLowestPriceValues = [];
             foreach ($itineraries as $itinerary) {
@@ -460,10 +463,11 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
 
 
-
+        
 
         $results[] = (object) array(
             'post' => $p,
+            'postUrl' => $postUrl,
             'postType' => $postType,
             'productTypeDisplay' => $productTypeDisplay,
             'productTypeCta' => $productTypeCta,

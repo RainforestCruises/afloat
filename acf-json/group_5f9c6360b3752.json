@@ -180,7 +180,8 @@
                         "page"
                     ],
                     "taxonomy": [
-                        "category:destinations"
+                        "category:destinations",
+                        "category:search"
                     ],
                     "allow_null": 0,
                     "allow_archives": 0,
@@ -2106,5 +2107,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Lodge - CPT",
-    "modified": 1622152919
+    "modified": 1622556835
 }

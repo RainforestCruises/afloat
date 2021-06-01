@@ -177,7 +177,8 @@
                         "page"
                     ],
                     "taxonomy": [
-                        "category:search"
+                        "category:search",
+                        "category:destinations"
                     ],
                     "allow_null": 0,
                     "allow_archives": 0,
@@ -391,5 +392,5 @@
     ],
     "active": true,
     "description": "Search - Page",
-    "modified": 1621876347
+    "modified": 1622558768
 }

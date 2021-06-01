@@ -412,16 +412,16 @@ endforeach;
                                         </div>
 
                                         <!-- SNIPPET -->
-                                        <div class="product-itinerary-slide__top__side-info__content__widget">
+                                        <div class="product-itinerary-slide__top__side-info__content__widget" style="margin-bottom: 0rem">
                                             <div class="charter-info-snippet">
                                                 <?php echo $charter_snippet ?>
-                                            </div>
-                                        </div>
-                                        <div class="product-itinerary-slide__top__side-info__content__widget">
-                                            <div class="charter-info-box">
+                                                <p>
                                                 <?php echo get_field('charter_note', 'options'); ?>
+                                                </p>
+                                                
                                             </div>
                                         </div>
+                                        
                                     <?php endif; ?>
                                 </div>
 
