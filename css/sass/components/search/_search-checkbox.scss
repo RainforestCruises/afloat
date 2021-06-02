@@ -43,7 +43,7 @@ $checkbox-selected: $color-supporting-light; // Primary colour
       content: "";
       width: 3px;
       height: 7px;
-      border-right: 1px solid transparent;
+      border-right: 1px solid transparent; 
       border-bottom: 1px solid transparent;
       transform: rotate(45deg);
       
@@ -53,8 +53,18 @@ $checkbox-selected: $color-supporting-light; // Primary colour
   
   // Hover
   & + label:hover{
-    color: #333;
+    //color: $color-supporting-light;
+
+    &:before{
+
+      
+      box-shadow: inset 0 0 0 1px $color-supporting-light;
+      
+    }
+    
   }
+
+
   
   // Focus
   & + label:focus{

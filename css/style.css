@@ -5226,8 +5226,8 @@ h5 {
       border-bottom: 1px solid transparent;
       transform: rotate(45deg);
       transition: 200ms ease-in-out all; }
-  .checkbox + label:hover {
-    color: #333; }
+  .checkbox + label:hover:before {
+    box-shadow: inset 0 0 0 1px #40739c; }
   .checkbox + label:focus {
     outline: none; }
   .checkbox:checked + label:before {

@@ -151,7 +151,7 @@
                     "taxonomy": [
                         "category:search"
                     ],
-                    "allow_null": 0,
+                    "allow_null": 1,
                     "allow_archives": 0,
                     "multiple": 0
                 }
@@ -1201,5 +1201,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1622143074
+    "modified": 1622646660
 }

@@ -74,6 +74,20 @@ function afloat_images_sizes_add($sizes)
     return $newsizes;
 }
 
+//Rank Math
+add_action( 'rank_math/vars/register_extra_replacements', function(){
+    rank_math_register_var_replacement(
+            'seo_years',
+            [
+                    'name'        => esc_html__( 'SEO Years', 'rank-math' ),
+                    'description' => esc_html__( 'This year / next year', 'rank-math' ),
+                    'variable'    => 'seo_years',
+                    'example'     => date("Y") . "/" . date('Y', strtotime('+1 year')),
+            ],
+            date("Y") . "/" . date('Y', strtotime('+1 year'))
+            );
+});
+
 
 //Removes P tags on blog posts
 function filter_ptags_on_images($content)

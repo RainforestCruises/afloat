@@ -194,7 +194,7 @@
                     "taxonomy": [
                         "category:search"
                     ],
-                    "allow_null": 0,
+                    "allow_null": 1,
                     "allow_archives": 0,
                     "multiple": 0
                 }
@@ -1193,5 +1193,5 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1621960025
+    "modified": 1622646639
 }
