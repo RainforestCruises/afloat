@@ -101,7 +101,7 @@ foreach ($menuitems as $m) {
 }
 ?>
 
-<body <?php body_class("global"); ?>>
+<body <?php body_class("global"); ?> id="body">
     <!-- Header -->
     <header class="header" id="header">
 

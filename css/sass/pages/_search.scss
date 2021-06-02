@@ -56,18 +56,21 @@
 
   align-items: center;
   justify-content: space-between;
+  position: relative;
 
   display: none;
 
   @include flexPadding;
 
   @media only screen and (max-width: $bp-large) {
+    
     display: flex;
+   
   }
 
   &.sticky {
     position:fixed;
-    top: 7rem;
+    //top: 7rem;
     z-index: 30;
     border-top: none;
 
@@ -109,4 +112,22 @@
     }
   }
 
+}
+
+
+.search-filter-mobile-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 20rem;
+  width: 100%;
+  background-color: darkorange;
+  opacity: .8;
+  z-index: 100;
+  display: none;
+
+
+  // @media only screen and (max-width: $bp-large) {
+  //   padding-top: dis;
+  // }
 }

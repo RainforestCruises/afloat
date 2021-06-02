@@ -7,19 +7,25 @@
 
     @media only screen and (max-width: $bp-large) {
         
-        position: fixed;
+        position: absolute;
         width: 100%;
         z-index: 40;
         
         top: 7rem;
         left: 0;
+      
         background-color: $color-white;
         padding: 2rem;
         
         display: none;
         border-top: none;
+        overflow-y: scroll;
+        height: calc(100vh - 27rem);
+        
         &.show {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            //padding-top: 7rem;
         }
     }
 

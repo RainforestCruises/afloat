@@ -206,7 +206,6 @@ $args = array(
         <button class="search-filter-bar__button" id="search-filter-bar-button">
             Filters
         </button>
-   
     </div>
 
     <!-- Content -->
@@ -219,7 +218,9 @@ $args = array(
 
     </section>
 
-
+    <div class="search-filter-mobile-cta" id="search-filter-mobile-cta">
+        Button
+    </div>
     <!-- Bottom -->
     <!-- <div class="search-page__bottom">
         bottom

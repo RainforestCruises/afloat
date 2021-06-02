@@ -2,44 +2,75 @@
 jQuery(document).ready(function ($) {
 
 
+
   //Mobile Filter Bar
+  const searchMobileCTA = document.getElementById('search-filter-mobile-cta');
+
   const searchFilterBar = document.getElementById('search-filter-bar');
-  const searchFilterControl = document.getElementById('sort-control');
+  const searchSortControl = document.getElementById('sort-control');
   const searchResultsTop = document.getElementById('search-results-top');
   const searchContent = document.getElementById("search-page-content");
   const searchIntro = document.getElementById('search-page-intro').offsetHeight;
   const searchFilterButton = document.getElementById('search-filter-bar-button');
   const searchSidebar = document.getElementById('search-sidebar');
   const searchMobileClose = document.getElementById('search-sidebar-mobile-close-button');
+  const headerDiv = document.getElementById('header');
+  const body = document.getElementById('header');
 
   searchFilterButton.addEventListener('click', () => {
+
     searchSidebar.classList.add('show');
+    document.body.classList.add('lock-scroll');
+    searchMobileCTA.style.display = 'block';
+    headerDiv.appendChild(searchSidebar);
+
   });
 
   searchMobileClose.addEventListener('click', () => {
     searchSidebar.classList.remove('show');
+    document.body.classList.remove('lock-scroll');
+    searchMobileCTA.style.display = 'none';
+    searchContent.insertBefore(searchSidebar, searchContent.firstChild);
   });
-  
+
   //move sort filter -- initial
   if ($(window).width() < 1000) {
-    searchFilterBar.appendChild(searchFilterControl)
+    searchFilterBar.appendChild(searchSortControl)
   }
   else {
-    searchResultsTop.appendChild(searchFilterControl)
+    searchResultsTop.appendChild(searchSortControl)
   }
 
   //move sort filter
   $(window).resize(function () {
-    
+
     if ($(window).width() < 1000) {
-      if (searchFilterBar.contains(searchFilterControl) == false) {
-        searchFilterBar.appendChild(searchFilterControl)
+      document.body.classList.remove('lock-scroll');
+
+      //sort control
+      if (searchFilterBar.contains(searchSortControl) == false) {
+        searchFilterBar.appendChild(searchSortControl)
       }
+
+      //sidebar
+      if (headerDiv.contains(searchSidebar) == false) {
+        headerDiv.appendChild(searchSidebar)
+        
+      }
+
     }
 
     else {
-      if (searchResultsTop.contains(searchFilterControl) == false) {
-        searchResultsTop.appendChild(searchFilterControl);
+      
+
+      //sort control
+      if (searchResultsTop.contains(searchSortControl) == false) {
+        searchResultsTop.appendChild(searchSortControl);
+      }
+
+      //sidebar
+      if (searchContent.contains(searchSidebar) == false) {
+        searchContent.insertBefore(searchSidebar, searchContent.firstChild);
       }
     }
   });
