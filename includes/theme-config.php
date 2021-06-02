@@ -82,9 +82,9 @@ add_action( 'rank_math/vars/register_extra_replacements', function(){
                     'name'        => esc_html__( 'SEO Years', 'rank-math' ),
                     'description' => esc_html__( 'This year / next year', 'rank-math' ),
                     'variable'    => 'seo_years',
-                    'example'     => date("Y") . "/" . date('Y', strtotime('+1 year')),
+                    'example'     => date("Y") . "/" . date('y', strtotime('+1 year')),
             ],
-            date("Y") . "/" . date('Y', strtotime('+1 year'))
+            date("Y") . "/" . date('y', strtotime('+1 year'))
             );
 });
 

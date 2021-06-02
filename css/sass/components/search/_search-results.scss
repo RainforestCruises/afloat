@@ -10,6 +10,7 @@
         width: 100%;
         margin-left: 0rem;
 
+        padding-top: 2rem;
        
     }
 
@@ -20,9 +21,16 @@
         position: relative;
        
         align-items: center;
-        height: 3rem;
+        //height: 3rem;
         width: 100%;
-        transform: translateY(-.5rem);
+        //transform: translateY(-.5rem);
+
+        @media only screen and (max-width: $bp-large) {
+           
+    
+            padding-bottom: 1.5rem;
+           
+        }
  
         &__result-count {
             font-size: 1.6rem;
@@ -226,6 +234,11 @@
         color: $color-primary;
         line-height: 2rem;
         font-weight: 700;
+
+        @media only screen and (max-width: $bp-small) {
+            display: none;
+           
+        }
     }
 
     & .select2-selection--single {

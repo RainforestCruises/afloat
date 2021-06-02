@@ -1,7 +1,5 @@
 <?php
 /*Template Name: Search*/
-
-//CHANGE HERE
 wp_enqueue_script('page-search', get_template_directory_uri() . '/js/page-search.js', array('jquery'), false, true);
 
 ?>
@@ -190,23 +188,29 @@ $args = array(
     'departures' => $departures, //preselection
     'lengthMin' => $lengthMin, //preselection
     'lengthMax' => $lengthMax, //preselection
-    'sorting' => $sorting, 
-    'pageNumber' => $pageNumber, 
+    'sorting' => $sorting,
+    'pageNumber' => $pageNumber,
 
 );
 
 ?>
 
 <main class="search-page">
-    <section class="search-page__intro">
+    <section class="search-page__intro" id="search-page-intro">
         <?php
         get_template_part('template-parts/content', 'search-intro');
         ?>
     </section>
 
+    <div class="search-filter-bar" id="search-filter-bar">
+        <button class="search-filter-bar__button" id="search-filter-bar-button">
+            Filters
+        </button>
+   
+    </div>
 
     <!-- Content -->
-    <section class="search-page__content">
+    <section class="search-page__content" id="search-page-content">
 
         <?php
         get_template_part('template-parts/content', 'search-sidebar', $args); //page args --> initial preselection

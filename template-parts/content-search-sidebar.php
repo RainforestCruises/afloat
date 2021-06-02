@@ -67,9 +67,13 @@ if (get_field('itinerary_length_max') != null) {
 
 ?>
 
-<aside class="search-sidebar">
+<aside class="search-sidebar" id="search-sidebar">
 
-  
+    <div class="search-sidebar__mobile-header" id="search-sidebar-mobile-header">
+        <button class="btn-outline" id="search-sidebar-mobile-close-button">
+            Close
+        </button>
+    </div>
     <!-- Departure Date Filter -->
     <div class="filter">
         <div class="filter__heading" id="departure-filter-heading">

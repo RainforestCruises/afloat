@@ -1417,11 +1417,14 @@ h5 {
   width: 100%; }
 
 .search-page {
-  padding-top: 10rem;
+  padding-top: 9rem;
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center; }
+  @media only screen and (max-width: 62.5em) {
+    .search-page {
+      padding-top: 7rem; } }
   .search-page__intro {
     display: flex;
     flex-direction: column;
@@ -1440,6 +1443,8 @@ h5 {
     @media only screen and (max-width: 37.5em) {
       .search-page__content {
         padding: 0 3rem; } }
+    .search-page__content.sticky {
+      margin-top: 7rem; }
   .search-page__bottom {
     display: flex;
     flex-direction: column;
@@ -1450,6 +1455,58 @@ h5 {
     @media only screen and (max-width: 37.5em) {
       .search-page__bottom {
         padding: 0 3rem; } }
+
+.search-filter-bar {
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid #c2c6c9;
+  border-bottom: 1px solid #c2c6c9;
+  height: 7rem;
+  align-items: center;
+  justify-content: space-between;
+  display: none;
+  padding: 0 6rem; }
+  @media only screen and (max-width: 37.5em) {
+    .search-filter-bar {
+      padding: 0 3rem; } }
+  @media only screen and (max-width: 62.5em) {
+    .search-filter-bar {
+      display: flex; } }
+  .search-filter-bar.sticky {
+    position: fixed;
+    top: 7rem;
+    z-index: 30;
+    border-top: none; }
+  .search-filter-bar__button {
+    color: #40739c;
+    background-color: transparent;
+    padding: 1.2rem 2.5rem;
+    border: none;
+    margin-right: 1rem;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+    outline: none;
+    font-size: 1.5rem;
+    font-family: "Metropolis", sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap; }
+    .search-filter-bar__button::after {
+      content: "";
+      transition: all 0.15s;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      height: 100%;
+      width: 100%;
+      border-radius: 2.5rem;
+      border: 1px solid #40739c; }
+    .search-filter-bar__button:hover::after {
+      height: 95%;
+      width: 95%; }
 
 .destination-page__section-hero {
   background-color: #1e1e1e; }
@@ -4767,15 +4824,17 @@ h5 {
   @media only screen and (max-width: 62.5em) {
     .search-results {
       width: 100%;
-      margin-left: 0rem; } }
+      margin-left: 0rem;
+      padding-top: 2rem; } }
   .search-results__top-section {
     display: flex;
     justify-content: space-between;
     position: relative;
     align-items: center;
-    height: 3rem;
-    width: 100%;
-    transform: translateY(-0.5rem); }
+    width: 100%; }
+    @media only screen and (max-width: 62.5em) {
+      .search-results__top-section {
+        padding-bottom: 1.5rem; } }
     .search-results__top-section__result-count {
       font-size: 1.6rem;
       line-height: 2rem;
@@ -4894,6 +4953,9 @@ h5 {
     color: #142838;
     line-height: 2rem;
     font-weight: 700; }
+    @media only screen and (max-width: 37.5em) {
+      .sort-control__label-text {
+        display: none; } }
   .sort-control .select2-selection--single {
     border: none !important; }
   .sort-control .select2-selection__rendered {
@@ -4912,7 +4974,23 @@ h5 {
   position: relative; }
   @media only screen and (max-width: 62.5em) {
     .search-sidebar {
-      display: none; } }
+      position: fixed;
+      width: 100%;
+      z-index: 40;
+      top: 7rem;
+      left: 0;
+      background-color: #fff;
+      padding: 2rem;
+      display: none;
+      border-top: none; }
+      .search-sidebar.show {
+        display: block; } }
+  .search-sidebar__mobile-header {
+    display: none; }
+    @media only screen and (max-width: 62.5em) {
+      .search-sidebar__mobile-header {
+        display: flex;
+        justify-content: center; } }
 
 .filter:not(:last-child) {
   border-bottom: 1px solid #e6e6e6; }
@@ -9748,7 +9826,8 @@ h5 {
         grid-template-columns: 1fr 1fr;
         justify-content: center;
         column-gap: 1rem;
-        row-gap: 5rem; } }
+        row-gap: 5rem;
+        text-align: center; } }
     .footer__navigation__group__title {
       color: #d9a402;
       text-transform: uppercase;
