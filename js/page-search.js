@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
 
     searchSidebar.classList.add('show');
     document.body.classList.add('lock-scroll');
-    searchMobileCTA.style.display = 'block';
+    searchMobileCTA.style.display = 'flex';
     headerDiv.appendChild(searchSidebar);
 
   });

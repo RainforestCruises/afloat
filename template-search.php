@@ -219,7 +219,9 @@ $args = array(
     </section>
 
     <div class="search-filter-mobile-cta" id="search-filter-mobile-cta">
-        Button
+        <button class="btn-outline">
+        See Results
+        </button>
     </div>
     <!-- Bottom -->
     <!-- <div class="search-page__bottom">
