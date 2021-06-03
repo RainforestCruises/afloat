@@ -178,7 +178,7 @@ if (isset($_GET["length_max"])) {
 
 //first load
 $resultsObject = getSearchPosts($travelTypes,  $destinations, $experiences, $searchType, $destinationId, $regionId, $lengthMin, $lengthMax, $departures, $sorting, $pageNumber);
-$resultCount = count($resultsObject['results']);
+$resultCount = $resultsObject['resultsCount'];
 
 //Page arguments ------------
 $args = array(
