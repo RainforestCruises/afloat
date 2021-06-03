@@ -1,8 +1,8 @@
 <?php
 
 //first load
-$resultsObject = getSearchPosts($args['travelTypes'],  $args['destinations'], $args['experiences'], $args['searchType'], $args['destinationId'], $args['regionId'], $args['lengthMin'], $args['lengthMax'], $args['departures'], $args['sorting'], $args['pageNumber']);
-$resultCount = $resultsObject['resultsCount'];
+$resultsObject = $args['resultsObject'];
+$resultCount = $args['resultCount'];
 
 ?>
 

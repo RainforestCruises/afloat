@@ -156,7 +156,7 @@ foreach ($results as $result) :
 <!-- Pagination -->
 <div class="search-results__grid__pagination">
     <?php
-    if ($pageCount != 1 && $pageNumber != 'all') : ?>
+    if ($pageCount > 1 && $pageNumber != 'all') : ?>
         <div class="search-results__grid__pagination__pages-group">
             <button class="search-results__grid__pagination__pages-group__button search-results__grid__pagination__pages-group__button--back-button  <?php echo ($pageNumber == 1) ? 'disabled' : ''; ?>">
                 <svg>

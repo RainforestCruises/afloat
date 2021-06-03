@@ -70,8 +70,22 @@ if (get_field('itinerary_length_max') != null) {
 <aside class="search-sidebar" id="search-sidebar">
 
     <div class="search-sidebar__mobile-header" id="search-sidebar-mobile-header">
-        <button class="btn-outline" id="search-sidebar-mobile-close-button">
-            Close
+
+        <button class="search-sidebar__mobile-header__close-button" id="search-sidebar-mobile-close-button">
+            <div class="search-sidebar__mobile-header__close-button__icon-area">
+                <svg>
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
+                </svg>
+            </div>
+            <div class="search-sidebar__mobile-header__close-button__text-area">
+                Close
+            </div>
+
+        </button>
+
+       
+        <button class="search-sidebar__mobile-header__clear-button search-button" id="search-sidebar-mobile-clear-button">
+            Clear
         </button>
     </div>
     <!-- Departure Date Filter -->

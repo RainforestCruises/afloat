@@ -149,6 +149,16 @@
     }
   }
 
+  &--blue {
+    color: $color-supporting-light;
+    &::after {
+      
+      border: 1px solid $color-supporting-light;
+    }
+  }
+
+
+
   &--disabled {
     cursor: default;
     color: $color-grey-2;

@@ -15,6 +15,7 @@ jQuery(document).ready(function ($) {
   const searchMobileClose = document.getElementById('search-sidebar-mobile-close-button');
   const headerDiv = document.getElementById('header');
 
+  const showResultsButton = document.getElementById('search-filter-mobile-cta-button');
 
   //filter button click -- show menu 
   searchFilterButton.addEventListener('click', () => {
@@ -25,6 +26,11 @@ jQuery(document).ready(function ($) {
   searchMobileClose.addEventListener('click', () => {
     hideMobileFilters();
   });
+  //hide menu
+  showResultsButton.addEventListener('click', () => {
+    hideMobileFilters();
+  });
+
 
   function showMobileFilters() {
     searchSidebar.classList.add('show');
@@ -58,7 +64,7 @@ jQuery(document).ready(function ($) {
       }
       //sidebar
       if (headerDiv.contains(searchSidebar) == false) {
-        headerDiv.appendChild(searchSidebar)       
+        headerDiv.appendChild(searchSidebar)
       }
     }
     else { //desktop view    
@@ -342,7 +348,10 @@ jQuery(document).ready(function ($) {
     }
 
     if (preservePage == true) {
-      $('body, html, .search-results').animate({ scrollTop: 0 }, "fast"); //paging scroll up
+      if (formPageNumber.value != 'all') {
+        $('body, html, .search-results').animate({ scrollTop: 0 }, "fast"); //paging scroll up
+      }
+      
       if (formPageNumber.value != null) {
         params.set('pageNumber', formPageNumber.value);
       }
@@ -367,6 +376,8 @@ jQuery(document).ready(function ($) {
         $('.search-sidebar').addClass('loading'); //indicate loading
         $("#response").append('<div class="lds-dual-ring"></div>');
         $('#response-count').html('Searching...');
+
+        showResultsButton.textContent = "Searching";
       },
       success: function (data) {
         $('#response').removeClass('loading');
@@ -384,11 +395,17 @@ jQuery(document).ready(function ($) {
         var resultCountDisplay = ""
         if (resultCount == 1) {
           resultCountDisplay = "Found " + resultCount + " result"
+          showResultsButton.textContent = "See " + resultCount + " result";
+        } else if (resultCount == 0) {
+          resultCountDisplay = "No results found"
+          showResultsButton.textContent = "No results found";
         } else {
           resultCountDisplay = "Found " + resultCount + " results"
+          showResultsButton.textContent = "See " + resultCount + " results";
         }
         $('#response-count').html(resultCountDisplay);
 
+        
 
 
         let pageButtonArray = [...document.querySelectorAll('.search-results__grid__pagination__pages-group__button')];
@@ -444,12 +461,12 @@ jQuery(document).ready(function ($) {
         if (item.classList.contains('search-results__grid__pagination__pages-group__button--next-button')) {
           var pageGoTo = (+pageNumberDisplay + 1);
           $("#formPageNumber").val(pageGoTo);
-
+          
           // back button
         } else if (item.classList.contains('search-results__grid__pagination__pages-group__button--back-button')) {
           var pageGoTo = (+pageNumberDisplay - 1);
           $("#formPageNumber").val(pageGoTo);
-
+          
           //all button
         } else if (item.classList.contains('search-results__grid__pagination__pages-group__button--all-button')) {
           $("#formPageNumber").val('all');
@@ -458,6 +475,7 @@ jQuery(document).ready(function ($) {
         } else {
           var pageNumber = item.value;
           $("#formPageNumber").val(pageNumber);
+          
         }
         reloadResults(true);
       }

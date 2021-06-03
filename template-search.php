@@ -176,6 +176,9 @@ if (isset($_GET["length_max"])) {
     }
 }
 
+//first load
+$resultsObject = getSearchPosts($travelTypes,  $destinations, $experiences, $searchType, $destinationId, $regionId, $lengthMin, $lengthMax, $departures, $sorting, $pageNumber);
+$resultCount = count($resultsObject);
 
 //Page arguments ------------
 $args = array(
@@ -190,8 +193,12 @@ $args = array(
     'lengthMax' => $lengthMax, //preselection
     'sorting' => $sorting,
     'pageNumber' => $pageNumber,
+    'resultsObject' => $resultsObject,
+    'resultCount' => $resultCount,
 
 );
+
+
 
 ?>
 
@@ -203,7 +210,7 @@ $args = array(
     </section>
 
     <div class="search-filter-bar" id="search-filter-bar">
-        <button class="search-filter-bar__button" id="search-filter-bar-button">
+        <button class="search-filter-bar__button search-button" id="search-filter-bar-button">
             Filters
         </button>
     </div>
@@ -219,8 +226,8 @@ $args = array(
     </section>
 
     <div class="search-filter-mobile-cta" id="search-filter-mobile-cta">
-        <button class="btn-outline">
-        See Results
+        <button id="search-filter-mobile-cta-button">
+        See <?php echo $resultCount; ?> Results
         </button>
     </div>
     <!-- Bottom -->
