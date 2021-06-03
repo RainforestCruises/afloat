@@ -21,7 +21,7 @@
         border-top: none;
         overflow-y: scroll;
         height: calc(100vh - 7rem);
-        padding-bottom: 18rem;
+        padding-bottom: 20rem;
 
 
         &::-webkit-scrollbar-track {
@@ -31,11 +31,11 @@
         &::-webkit-scrollbar {
             width: 4px;
             background-color: $color-grey-3;
-            border-radius: 10px;
+            
         }
         &::-webkit-scrollbar-thumb {
             background-color: $color-grey-3;
-            border-radius: 10px;
+            
         }
         
         &.show {

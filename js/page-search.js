@@ -3,9 +3,8 @@ jQuery(document).ready(function ($) {
 
 
 
-  //Mobile Filter Bar
+  //Element variables
   const searchMobileCTA = document.getElementById('search-filter-mobile-cta');
-
   const searchFilterBar = document.getElementById('search-filter-bar');
   const searchSortControl = document.getElementById('sort-control');
   const searchResultsTop = document.getElementById('search-results-top');
@@ -15,23 +14,32 @@ jQuery(document).ready(function ($) {
   const searchSidebar = document.getElementById('search-sidebar');
   const searchMobileClose = document.getElementById('search-sidebar-mobile-close-button');
   const headerDiv = document.getElementById('header');
-  const body = document.getElementById('header');
 
+
+  //filter button click -- show menu 
   searchFilterButton.addEventListener('click', () => {
+    showMobileFilters();
+  });
 
+  //hide menu
+  searchMobileClose.addEventListener('click', () => {
+    hideMobileFilters();
+  });
+
+  function showMobileFilters() {
     searchSidebar.classList.add('show');
     document.body.classList.add('lock-scroll');
     searchMobileCTA.style.display = 'flex';
     headerDiv.appendChild(searchSidebar);
+  }
 
-  });
-
-  searchMobileClose.addEventListener('click', () => {
+  function hideMobileFilters() {
     searchSidebar.classList.remove('show');
     document.body.classList.remove('lock-scroll');
     searchMobileCTA.style.display = 'none';
     searchContent.insertBefore(searchSidebar, searchContent.firstChild);
-  });
+  }
+
 
   //move sort filter -- initial
   if ($(window).width() < 1000) {
@@ -41,33 +49,24 @@ jQuery(document).ready(function ($) {
     searchResultsTop.appendChild(searchSortControl)
   }
 
-  //move sort filter
+  //move elements on resize
   $(window).resize(function () {
-
-    if ($(window).width() < 1000) {
-      document.body.classList.remove('lock-scroll');
-
+    if ($(window).width() < 1000) { //mobile view    
       //sort control
       if (searchFilterBar.contains(searchSortControl) == false) {
         searchFilterBar.appendChild(searchSortControl)
       }
-
       //sidebar
       if (headerDiv.contains(searchSidebar) == false) {
-        headerDiv.appendChild(searchSidebar)
-        
+        headerDiv.appendChild(searchSidebar)       
       }
-
     }
-
-    else {
-      
-
+    else { //desktop view    
+      hideMobileFilters();
       //sort control
       if (searchResultsTop.contains(searchSortControl) == false) {
         searchResultsTop.appendChild(searchSortControl);
       }
-
       //sidebar
       if (searchContent.contains(searchSidebar) == false) {
         searchContent.insertBefore(searchSidebar, searchContent.firstChild);
