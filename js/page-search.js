@@ -157,7 +157,11 @@ jQuery(document).ready(function ($) {
 
 
 
+
   //Search Filter Selections ------------------------------------
+
+
+
   //Departure Date selections
   let departuresString = formDates.value;
   const departureDatesArray = [...document.querySelectorAll('.departure-checkbox')];
@@ -177,6 +181,16 @@ jQuery(document).ready(function ($) {
           count++;
         }
       })
+
+      //filter count
+      let departuresFilterCount = document.getElementById('departuresFilterCount');
+      if (count > 0) {
+        departuresFilterCount.classList.add("show");
+        departuresFilterCount.innerHTML = count;
+      } else {
+        departuresFilterCount.classList.remove("show");
+        departuresFilterCount.innerHTML = count;
+      }
 
       formDates.value = departuresString;
       reloadResults();
@@ -217,6 +231,17 @@ jQuery(document).ready(function ($) {
         }
       })
 
+      //filter count
+      let travelStyleFilterCount = document.getElementById('travelStyleFilterCount');
+      if (count > 0) {
+        travelStyleFilterCount.classList.add("show");
+        travelStyleFilterCount.innerHTML = count;
+      } else {
+        travelStyleFilterCount.classList.remove("show");
+        travelStyleFilterCount.innerHTML = count;
+      }
+
+
       formTravelStyles.value = travelStylesString;
 
       reloadResults();
@@ -242,6 +267,16 @@ jQuery(document).ready(function ($) {
         }
       })
 
+      //filter count
+      let destinationsFilterCount = document.getElementById('destinationsFilterCount');
+      if (count > 0) {
+        destinationsFilterCount.classList.add("show");
+        destinationsFilterCount.innerHTML = count;
+      } else {
+        destinationsFilterCount.classList.remove("show");
+        destinationsFilterCount.innerHTML = count;
+      }
+
       formDestinations.value = destinationsString;
       reloadResults();
     });
@@ -266,18 +301,32 @@ jQuery(document).ready(function ($) {
           count++;
         }
 
-      })
+      });
+
+      //filter count
+      let experiencesFilterCount = document.getElementById('experiencesFilterCount');
+      if (count > 0) {
+        experiencesFilterCount.classList.add("show");
+        experiencesFilterCount.innerHTML = count;
+      } else {
+        experiencesFilterCount.classList.remove("show");
+        experiencesFilterCount.innerHTML = count;
+      }
+
       formExperiences.value = experiencesString;
       reloadResults();
     });
   })
 
+  var lengthSliderMin = 1;
+  var lengthSliderMax = 21
+
   //Length Slider
   $("#range-slider").ionRangeSlider({
     skin: "round",
     type: "double",
-    min: 1, //default
-    max: 21, //default
+    min: lengthSliderMin, //default
+    max: lengthSliderMax, //default
     from: formMinLength.value,
     to: formMaxLength.value,
     postfix: " Day",
@@ -291,6 +340,49 @@ jQuery(document).ready(function ($) {
       reloadResults();
     },
   });
+
+
+
+  //Clear 
+  const clearButtons = [...document.querySelectorAll('.clear-filters')];
+  const checkBoxes = [...document.querySelectorAll('.checkbox')];
+  const filterCounts = [...document.querySelectorAll('.filter__heading__text__count')];
+
+  clearButtons.forEach(item => {
+    item.addEventListener('click', () => {
+      departuresString = "";
+      travelStylesString = "";
+      destinationsString = "";
+      experiencesString = "";
+
+      formDates.value = null;
+      formTravelStyles.value = null;
+      formDestinations.value = null;
+      formExperiences.value = null;
+
+      formMinLength.value = lengthSliderMin;
+      formMaxLength.value = lengthSliderMax;
+
+      var lengthSlider = $("#range-slider").data("ionRangeSlider");
+      lengthSlider.update({
+        from: lengthSliderMin,
+        to: lengthSliderMax
+      });
+
+      filterCounts.forEach(item => {
+        item.classList.remove("show");
+      });
+
+      checkBoxes.forEach(item => {
+        item.checked = false;
+      });
+
+      reloadResults();
+    });
+  })
+
+
+
 
   //Sorting
   $('#result-sort').select2({
@@ -348,10 +440,6 @@ jQuery(document).ready(function ($) {
     }
 
     if (preservePage == true) {
-      if (formPageNumber.value != 'all') {
-        $('body, html, .search-results').animate({ scrollTop: 0 }, "fast"); //paging scroll up
-      }
-      
       if (formPageNumber.value != null) {
         params.set('pageNumber', formPageNumber.value);
       }
@@ -360,8 +448,15 @@ jQuery(document).ready(function ($) {
       params.set('pageNumber', formPageNumber.value);
     }
 
+    //if search-results-top not visible
+    var topVisible = Utils.isElementInView($('#search-results-top'), false);
+    if(topVisible == false) {
+      if (formPageNumber.value != 'all') {
+        $('body, html, .search-results').animate({ scrollTop: 0 }, "fast"); //paging scroll up
+      }
+    }
 
-
+    
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
 
 
@@ -376,6 +471,9 @@ jQuery(document).ready(function ($) {
         $('.search-sidebar').addClass('loading'); //indicate loading
         $("#response").append('<div class="lds-dual-ring"></div>');
         $('#response-count').html('Searching...');
+
+        let pageDisplay = document.querySelector('#page-number'); //page number
+        pageDisplay.innerHTML = "";
 
         showResultsButton.textContent = "Searching";
       },
@@ -392,6 +490,18 @@ jQuery(document).ready(function ($) {
         var resultCount = $('#totalResultsDisplay').attr('value');
         var pageNumberDisplay = $('#pageNumberDisplay').attr('value');
 
+        
+        let pageDisplay = document.querySelector('#page-number'); //show page number if not on page 1
+        if(pageNumberDisplay > 1) {
+          pageDisplay.innerHTML = "Page " + pageNumberDisplay;
+        } else {
+          pageDisplay.innerHTML = "";
+        }
+        
+        // if(pageNumberDisplay > 0){
+
+        // }
+
         var resultCountDisplay = ""
         if (resultCount == 1) {
           resultCountDisplay = "Found " + resultCount + " result"
@@ -405,7 +515,7 @@ jQuery(document).ready(function ($) {
         }
         $('#response-count').html(resultCountDisplay);
 
-        
+
 
 
         let pageButtonArray = [...document.querySelectorAll('.search-results__grid__pagination__pages-group__button')];
@@ -461,12 +571,12 @@ jQuery(document).ready(function ($) {
         if (item.classList.contains('search-results__grid__pagination__pages-group__button--next-button')) {
           var pageGoTo = (+pageNumberDisplay + 1);
           $("#formPageNumber").val(pageGoTo);
-          
+
           // back button
         } else if (item.classList.contains('search-results__grid__pagination__pages-group__button--back-button')) {
           var pageGoTo = (+pageNumberDisplay - 1);
           $("#formPageNumber").val(pageGoTo);
-          
+
           //all button
         } else if (item.classList.contains('search-results__grid__pagination__pages-group__button--all-button')) {
           $("#formPageNumber").val('all');
@@ -475,7 +585,7 @@ jQuery(document).ready(function ($) {
         } else {
           var pageNumber = item.value;
           $("#formPageNumber").val(pageNumber);
-          
+
         }
         reloadResults(true);
       }

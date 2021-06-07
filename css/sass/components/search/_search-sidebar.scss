@@ -132,6 +132,15 @@
     &:not(:last-child) {
         border-bottom: 1px solid $color-grey-light-1a;
     }
+
+    &--clear {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        transform: scale(.8);
+    }
+
     &__heading {
         display: flex;
         justify-content: space-between;
@@ -142,8 +151,33 @@
             font-size: 1.6rem;
             font-weight: 700;
             color: $color-primary;
+            position: relative;
+
+            &__count {
+                position: absolute;
+                right: -3rem;
+                top: 0;
+                height: 2rem;
+                width: 2rem;
+                
+                display: none;
+                justify-content: center;
+                align-items: center;
+                background-color: $color-supporting-light;
+                border-radius: 50%;
+    
+                color: $color-white;
+                font-size: 1.2rem;
+                font-weight: 600;
+
+                &.show {
+                    display: flex;
+                }
+            }
+    
         }
 
+        
         & svg {
             transform: rotate(0);
             height: 2rem;

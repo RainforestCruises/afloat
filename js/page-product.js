@@ -77,7 +77,14 @@ jQuery(document).ready(function ($) {
 
   });
 
-  $('#itineraries-slider-nav').slick({
+  $('#itineraries-slider-nav').on('init', function (event, slick) {
+    var counterDiv = $('#itineraries-slider-counter');
+    counterDiv.text('1 / ' + slick.slideCount); //set count div
+    if(slick.slideCount < 2){ //if one slide, remove padding for nav arrows
+      $('.product-itineraries__nav__slider').css("padding-right", 0);
+    }
+    
+  }).slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     asNavFor: '#itineraries-slider',
@@ -451,7 +458,7 @@ jQuery(document).ready(function ($) {
     prevArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--left product-related__slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
     nextArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--right product-related__slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
     responsive: [
-      
+
       {
         breakpoint: 1000,
         settings: {

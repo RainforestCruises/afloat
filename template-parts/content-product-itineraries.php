@@ -40,6 +40,13 @@ foreach ($cruise_data['Itineraries'] as $item) :
         $totalCount++;
         continue;
     endif;
+    
+    if ($args['propertyType'] == 'Lodge' && $item['IsSample'] == false) :
+        
+        $totalCount++;
+        continue; //skip non sample itineraries for charter only vessels
+    endif;
+    
     $totalCount++;
 endforeach;
 ?>
@@ -64,7 +71,13 @@ endforeach;
 
                 if ($charter_only == true && $item['IsSample'] == false) :
                     //skip non sample itineraries
-                    $count++;
+                    //$count++;
+                    continue;
+                endif;
+
+                if ($args['propertyType'] == 'Lodge' && $item['IsSample'] == false) :
+                    //skip non sample itineraries
+                    //$count++;
                     continue;
                 endif;
             ?>
@@ -86,9 +99,15 @@ endforeach;
             $count = 1; //loop itineraries
             foreach ($cruise_data['Itineraries'] as $itinerary) :
                 if ($charter_only == true && $itinerary['IsSample'] == false) :
-                    $count++;
+                    //$count++;
                     continue; //skip non sample itineraries for charter only vessels
                 endif;
+
+                if ($args['propertyType'] == 'Lodge' && $itinerary['IsSample'] == false) :
+                    //$count++;
+                    continue; //skip non sample itineraries for charter only vessels
+                endif;
+                
             ?>
 
                 <!-- Itineraries Slide Item-->

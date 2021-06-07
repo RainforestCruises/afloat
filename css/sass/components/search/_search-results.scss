@@ -24,7 +24,7 @@
         //height: 3rem;
         width: 100%;
         //transform: translateY(-.5rem);
-
+        padding-bottom: 1rem;
         @media only screen and (max-width: $bp-large) {
            
     
@@ -37,6 +37,13 @@
             line-height: 2rem;
             font-weight: 700;
             color: $color-primary;
+        }
+
+        &__page-count {
+            font-size: 1.6rem;
+            line-height: 2rem;
+            font-weight: 500;
+            color: $color-grey-3;
         }
 
         //different style for sort control

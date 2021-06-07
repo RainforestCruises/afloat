@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.4',
+  'version' => '5.5.1',
   'title' => 'Lodges',
   'type' => 'rfc_lodges',
   'id' => '5fe1233faaaa4',
-  'updated' => 1608591568,
+  'updated' => 1622821721,
   'columns' => 
   array (
     'title' => 
@@ -19,6 +19,24 @@ return array (
       'edit' => 'off',
       'bulk_edit' => 'on',
       'search' => 'on',
+      'name' => 'title',
+    ),
+    '60ba4b4a9851ec' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Search Rank',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_60aeb2a850883',
+      'number_format' => '',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '60ba4b4a9851ec',
     ),
     '5fe123c305c0b' => 
     array (
@@ -37,6 +55,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fe123c305c0b',
     ),
     '5fe123c305c11' => 
     array (
@@ -45,7 +64,9 @@ return array (
       'width' => '',
       'width_unit' => '%',
       'field' => 'field_5fdd0167fe054',
-      'character_limit' => '20',
+      'post_property_display' => 'title',
+      'post_link_to' => 'edit_post',
+      'number_of_items' => '10',
       'export' => 'off',
       'sort' => 'on',
       'edit' => 'on',
@@ -53,6 +74,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fe123c305c11',
     ),
     '5fe128d042ec1' => 
     array (
@@ -71,6 +93,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fe128d042ec1',
     ),
     '5fe123c305c12' => 
     array (
@@ -89,6 +112,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fe123c305c12',
     ),
     '5fe123c305c14' => 
     array (
@@ -107,6 +131,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fe123c305c14',
     ),
     '5fe123c305c13' => 
     array (
@@ -125,6 +150,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fe123c305c13',
     ),
     '5fe123c305c15' => 
     array (
@@ -141,6 +167,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fe123c305c15',
     ),
     'date' => 
     array (
@@ -156,6 +183,7 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'filter_format' => '',
+      'name' => 'date',
     ),
   ),
   'settings' => 

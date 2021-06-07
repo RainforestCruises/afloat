@@ -83,8 +83,8 @@ if (get_field('itinerary_length_max') != null) {
 
         </button>
 
-       
-        <button class="search-sidebar__mobile-header__clear-button search-button" id="search-sidebar-mobile-clear-button">
+
+        <button class="search-sidebar__mobile-header__clear-button search-button clear-filters" id="search-sidebar-mobile-clear-button">
             Clear
         </button>
     </div>
@@ -93,6 +93,10 @@ if (get_field('itinerary_length_max') != null) {
         <div class="filter__heading" id="departure-filter-heading">
             <div class="filter__heading__text">
                 Departure Date
+                <?php $filterCount = count($selectedDepartures); ?>
+                <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="departuresFilterCount">
+                    <?php echo $filterCount; ?>
+                </div>
             </div>
             <svg>
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
@@ -129,7 +133,13 @@ if (get_field('itinerary_length_max') != null) {
         <div class="filter__heading">
             <div class="filter__heading__text">
                 Travel Style
+
+                <?php $filterCount = count($selectedTravelTypes); ?>
+                <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="travelStyleFilterCount">
+                    <?php echo $filterCount; ?>
+                </div>
             </div>
+
             <svg>
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
             </svg>
@@ -171,6 +181,13 @@ if (get_field('itinerary_length_max') != null) {
         <div class="filter__heading">
             <div class="filter__heading__text">
                 Destinations
+                <?php
+                $filterCount = count($selectedDestinations);
+                ?>
+                <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="destinationsFilterCount">
+                    <?php echo $filterCount; ?>
+                </div>
+
             </div>
             <svg>
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
@@ -201,6 +218,10 @@ if (get_field('itinerary_length_max') != null) {
         <div class="filter__heading">
             <div class="filter__heading__text">
                 Experiences
+                <?php $filterCount = count($selectedExperiences); ?>
+                <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="experiencesFilterCount">
+                    <?php echo $filterCount; ?>
+                </div>
             </div>
             <svg>
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
@@ -243,4 +264,9 @@ if (get_field('itinerary_length_max') != null) {
         </div>
     </div>
 
+    <div class="filter filter--clear">
+        <button class="search-button clear-filters">
+            Clear Filters
+        </button>
+    </div>
 </aside>
