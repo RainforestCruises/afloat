@@ -4940,11 +4940,13 @@ h5 {
   border-bottom: 1px solid #e6e6e6; }
 
 .filter--clear {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   padding: 2rem;
   transform: scale(0.8); }
+  .filter--clear.show {
+    display: flex; }
 
 .filter__heading {
   display: flex;
@@ -5026,6 +5028,11 @@ h5 {
       .filter__content__show-more button:hover {
         background-color: #40739c;
         color: #fff; }
+
+.clear-filters {
+  display: none; }
+  .clear-filters.show {
+    display: flex; }
 
 .irs {
   font-family: "Metropolis", sans-serif !important; }

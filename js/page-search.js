@@ -14,6 +14,7 @@ jQuery(document).ready(function ($) {
   const searchSidebar = document.getElementById('search-sidebar');
   const searchMobileClose = document.getElementById('search-sidebar-mobile-close-button');
   const headerDiv = document.getElementById('header');
+  //const clearFiltersArea = document.getElementById('clear-filters-area');
 
   const showResultsButton = document.getElementById('search-filter-mobile-cta-button');
 
@@ -34,6 +35,7 @@ jQuery(document).ready(function ($) {
 
   function showMobileFilters() {
     searchSidebar.classList.add('show');
+    
     document.body.classList.add('lock-scroll');
     searchMobileCTA.style.display = 'flex';
     headerDiv.appendChild(searchSidebar);
@@ -404,7 +406,7 @@ jQuery(document).ready(function ($) {
     minimumResultsForSearch: -1,
 
   });
-
+  toggleClearButtons();
   //RELOAD RESULTS
   function reloadResults(preservePage) {
 
@@ -417,14 +419,17 @@ jQuery(document).ready(function ($) {
 
     if (travelStylesString != null) {
       params.set('travel_style', travelStylesString);
+
     }
 
     if (destinationsString != null) {
       params.set('destinations', destinationsString);
+
     }
 
     if (experiencesString != null) {
       params.set('experiences', experiencesString);
+
     }
 
     if (formMinLength.value != null) {
@@ -433,13 +438,15 @@ jQuery(document).ready(function ($) {
 
     if (formMinLength.value != null) {
       params.set('length_max', formMaxLength.value);
+
     }
 
     if (formSort.value != null) {
       params.set('sorting', formSort.value);
+
     }
 
-    if (preservePage == true) {
+    if (preservePage == true) { //for when page numbers are clicked, otherwise page will always be reset to 1
       if (formPageNumber.value != null) {
         params.set('pageNumber', formPageNumber.value);
       }
@@ -450,13 +457,14 @@ jQuery(document).ready(function ($) {
 
     //if search-results-top not visible
     var topVisible = Utils.isElementInView($('#search-results-top'), false);
-    if(topVisible == false) {
+    if (topVisible == false) {
       if (formPageNumber.value != 'all') {
         $('body, html, .search-results').animate({ scrollTop: 0 }, "fast"); //paging scroll up
       }
     }
 
     
+
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
 
 
@@ -482,22 +490,22 @@ jQuery(document).ready(function ($) {
         $('.search-sidebar').removeClass('loading'); //indicate loading
         $(".lds-dual-ring").remove();
 
-
-
+        
+        toggleClearButtons();
         $('#response').html(data); //return the markup -- content-primary-search-results.php
 
 
         var resultCount = $('#totalResultsDisplay').attr('value');
         var pageNumberDisplay = $('#pageNumberDisplay').attr('value');
 
-        
+
         let pageDisplay = document.querySelector('#page-number'); //show page number if not on page 1
-        if(pageNumberDisplay > 1) {
+        if (pageNumberDisplay > 1) {
           pageDisplay.innerHTML = "Page " + pageNumberDisplay;
         } else {
           pageDisplay.innerHTML = "";
         }
-        
+
         // if(pageNumberDisplay > 0){
 
         // }
@@ -595,7 +603,43 @@ jQuery(document).ready(function ($) {
 
 
 
+function toggleClearButtons() {
+  let filtersApplied = false;
+  if (formDates.value != "") {
+    filtersApplied = true;
+  }
+  if (formTravelStyles.value != "") {
+    filtersApplied = true;
+  }
+  if (formDestinations.value != "") {
+    filtersApplied = true;
+  }
+  if (formExperiences.value != "") {
+    filtersApplied = true;
+  }
+  if (formMinLength.value != lengthSliderMin) {
+    filtersApplied = true;
+  }
+  if (formMaxLength.value != lengthSliderMax) {
+    filtersApplied = true;
+  }
 
+
+  let clearArea = document.querySelector('.filter--clear');
+  const clearButtons = [...document.querySelectorAll('.clear-filters')];
+  if (filtersApplied == true) {
+    clearArea.classList.add('show');
+    clearButtons.forEach(item => {
+      item.classList.add('show');
+    })
+    
+  } else {
+    clearArea.classList.remove('show');
+    clearButtons.forEach(item => {
+      item.classList.remove('show');
+    })
+  }
+}
 
 
 

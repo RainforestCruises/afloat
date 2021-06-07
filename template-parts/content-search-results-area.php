@@ -30,7 +30,6 @@ $pageNumber = $args['pageNumber'];
     </div>
     <div class="search-results__grid" id="response">
 
-
         <?php
         get_template_part('template-parts/content', 'search-results-content', $resultsObject);
         ?>

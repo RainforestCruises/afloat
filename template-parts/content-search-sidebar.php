@@ -55,7 +55,7 @@ if ($searchType == 'region') {
 }
 
 
-//do next
+//itinerary length
 $itinerary_length_min = 1;
 $itinerary_length_max = 21;
 if (get_field('itinerary_length_min') != null) {
@@ -64,6 +64,29 @@ if (get_field('itinerary_length_min') != null) {
 if (get_field('itinerary_length_max') != null) {
     $itinerary_length_max = get_field('itinerary_length_max');
 };
+
+
+// //check if any filters applied on load
+// $hasFiltersApplied = false;
+// if(count($selectedTravelTypes) != 0){
+//     $hasFiltersApplied = true;
+// }
+// if(count($selectedExperiences) != 0){
+//     $hasFiltersApplied = true;
+// }
+// if(count($selectedDestinations) != 0){
+//     $hasFiltersApplied = true;
+// }
+// if(count($selectedDepartures) != 0){
+//     $hasFiltersApplied = true;
+// }
+// if($itinerary_length_min != 1){
+//     $hasFiltersApplied = true;
+// }
+// if($itinerary_length_max != 21){
+//     $hasFiltersApplied = true;
+// }
+
 
 ?>
 
@@ -264,7 +287,8 @@ if (get_field('itinerary_length_max') != null) {
         </div>
     </div>
 
-    <div class="filter filter--clear">
+    <!-- Clear Filters Button -->
+    <div class="filter--clear clear-filters-area" id="clear-filters-area" >
         <button class="search-button clear-filters">
             Clear Filters
         </button>
