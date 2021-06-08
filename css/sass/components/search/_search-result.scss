@@ -282,3 +282,28 @@
 
    
 }
+
+
+.search-no-results {
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    padding-top: 7rem;
+    &__maintext {
+        font-size: 2rem;
+        color: $color-primary;
+        font-weight: 600;
+        //margin-bottom: 1rem;
+    }
+    &__subtext {
+        font-size: 1.4rem;
+        margin-bottom: 3rem;
+    }
+
+    &__button-area {
+
+        & button {
+            transform: scale(.8);
+        }
+    }
+}

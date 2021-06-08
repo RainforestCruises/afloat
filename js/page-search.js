@@ -14,8 +14,6 @@ jQuery(document).ready(function ($) {
   const searchSidebar = document.getElementById('search-sidebar');
   const searchMobileClose = document.getElementById('search-sidebar-mobile-close-button');
   const headerDiv = document.getElementById('header');
-  //const clearFiltersArea = document.getElementById('clear-filters-area');
-
   const showResultsButton = document.getElementById('search-filter-mobile-cta-button');
 
   //filter button click -- show menu 
@@ -352,39 +350,49 @@ jQuery(document).ready(function ($) {
 
   clearButtons.forEach(item => {
     item.addEventListener('click', () => {
-      departuresString = "";
-      travelStylesString = "";
-      destinationsString = "";
-      experiencesString = "";
-
-      formDates.value = null;
-      formTravelStyles.value = null;
-      formDestinations.value = null;
-      formExperiences.value = null;
-
-      formMinLength.value = lengthSliderMin;
-      formMaxLength.value = lengthSliderMax;
-
-      var lengthSlider = $("#range-slider").data("ionRangeSlider");
-      lengthSlider.update({
-        from: lengthSliderMin,
-        to: lengthSliderMax
-      });
-
-      filterCounts.forEach(item => {
-        item.classList.remove("show");
-      });
-
-      checkBoxes.forEach(item => {
-        item.checked = false;
-      });
-
-      reloadResults();
+      clearFilters();
     });
   })
 
+  let noResultsClearButton = document.querySelector('#no-results-clear-button');
+  if (noResultsClearButton != null) {
+    noResultsClearButton.addEventListener('click', (e) => {
+      console.log('boom');
+      clearFilters();
+    })
+  }
 
 
+  function clearFilters() {
+    departuresString = "";
+    travelStylesString = "";
+    destinationsString = "";
+    experiencesString = "";
+
+    formDates.value = null;
+    formTravelStyles.value = null;
+    formDestinations.value = null;
+    formExperiences.value = null;
+
+    formMinLength.value = lengthSliderMin;
+    formMaxLength.value = lengthSliderMax;
+
+    var lengthSlider = $("#range-slider").data("ionRangeSlider");
+    lengthSlider.update({
+      from: lengthSliderMin,
+      to: lengthSliderMax
+    });
+
+    filterCounts.forEach(item => {
+      item.classList.remove("show");
+    });
+
+    checkBoxes.forEach(item => {
+      item.checked = false;
+    });
+
+    reloadResults();
+  }
 
   //Sorting
   $('#result-sort').select2({
@@ -485,7 +493,7 @@ jQuery(document).ready(function ($) {
 
         //showResultsButton.textContent = "Searching";
         showResultsButton.innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`
-        
+
         //Need to hide clear button immediately 
         hideClearButtons();
       },
@@ -520,6 +528,15 @@ jQuery(document).ready(function ($) {
           showResultsButton.textContent = "See " + resultCount + " results";
         }
         $('#response-count').html(resultCountDisplay);
+
+
+        let noResultsClearButton = document.querySelector('#no-results-clear-button');
+        if (noResultsClearButton != null) {
+          noResultsClearButton.addEventListener('click', (e) => {
+            console.log('boom');
+            clearFilters();
+          })
+        }
 
 
 
@@ -564,7 +581,7 @@ jQuery(document).ready(function ($) {
   }
 
 
-  
+
   //pagination js
   let pageButtonArray = [...document.querySelectorAll('.search-results__grid__pagination__pages-group__button')];
   pageButtonArray.forEach(item => {
@@ -606,7 +623,7 @@ jQuery(document).ready(function ($) {
 
     let clearArea = document.querySelector('.filter--clear');
     const clearButtons = [...document.querySelectorAll('.clear-filters')];
-    
+
     clearArea.classList.remove('show');
     clearButtons.forEach(item => {
       item.classList.remove('show');
@@ -639,12 +656,14 @@ jQuery(document).ready(function ($) {
     const clearButtons = [...document.querySelectorAll('.clear-filters')];
     if (filtersApplied == true) {
       clearArea.classList.add('show');
+      searchFilterButton.classList.add('search-button--inverse');
       clearButtons.forEach(item => {
         item.classList.add('show');
       })
 
     } else {
       clearArea.classList.remove('show');
+      searchFilterButton.classList.remove('search-button--inverse');
       clearButtons.forEach(item => {
         item.classList.remove('show');
       })

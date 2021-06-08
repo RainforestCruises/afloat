@@ -4662,12 +4662,12 @@ h5 {
         .search-intro__breadcrumb li a:hover {
           color: #40739c; }
   .search-intro__title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 3.5rem;
     color: #142838;
     cursor: pointer;
     transition: .3s all;
-    font-weight: 600;
+    font-weight: 700;
     display: flex;
     width: 100%;
     margin-bottom: .5rem;
@@ -4675,7 +4675,7 @@ h5 {
     .search-intro__title:hover {
       color: #305a7c; }
     .search-intro__title span {
-      margin-right: 1rem; }
+      margin-right: .5rem; }
     .search-intro__title svg {
       height: 3rem;
       width: 3rem;
@@ -4684,8 +4684,8 @@ h5 {
       transition: all .3s; }
     .search-intro__title--collapsed svg {
       transform: rotate(-90deg); }
-  .search-intro__text {
-    font-size: 1.5rem; }
+  .search-intro__text p {
+    font-size: 1.4rem; }
 
 .search-results {
   margin-left: 3rem;
@@ -4716,8 +4716,8 @@ h5 {
     .search-results__top-section__page-count {
       font-size: 1.6rem;
       line-height: 2rem;
-      font-weight: 500;
-      color: #9ea0a4; }
+      font-weight: 700;
+      color: #142838; }
     .search-results__top-section__sort-area {
       position: relative; }
   .search-results__grid {
@@ -4753,7 +4753,8 @@ h5 {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin: 3rem auto; }
+      margin: 3rem auto;
+      grid-column: 1 / -1; }
       .search-results__grid__pagination__pages-group {
         display: flex;
         justify-content: center;
@@ -5134,7 +5135,10 @@ h5 {
   white-space: nowrap; }
   .search-button--inverse {
     color: #fff;
-    background-color: #40739c; }
+    background-color: #40739c;
+    border-radius: 2.5rem; }
+    .search-button--inverse::after {
+      display: none; }
   .search-button::after {
     content: "";
     transition: all 0.15s;
@@ -5337,6 +5341,21 @@ h5 {
           .search-result__detail__cta a {
             padding: 1.5rem;
             margin-top: 1rem; } }
+
+.search-no-results {
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  padding-top: 7rem; }
+  .search-no-results__maintext {
+    font-size: 2rem;
+    color: #142838;
+    font-weight: 600; }
+  .search-no-results__subtext {
+    font-size: 1.4rem;
+    margin-bottom: 3rem; }
+  .search-no-results__button-area button {
+    transform: scale(0.8); }
 
 .checkbox {
   position: absolute;

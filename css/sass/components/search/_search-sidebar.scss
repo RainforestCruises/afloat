@@ -352,13 +352,13 @@
 
     &.sticky {
         position: fixed;
-        //top: 7rem;
         z-index: 30;
-        border-top: none;
-        //@include: 0;
+        border-top: none;    
     }
 
     &__button {
+
+       
     }
 }
 
@@ -423,6 +423,10 @@
     &--inverse {
         color: $color-white;
         background-color: $color-supporting-light;
+        border-radius: 2.5rem;
+        &::after{
+            display: none;
+        }
     }
 
     &::after {

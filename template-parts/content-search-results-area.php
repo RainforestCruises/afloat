@@ -10,7 +10,7 @@ $pageNumber = $args['pageNumber'];
 <div class="search-results">
     <div class="search-results__top-section" id="search-results-top">
         <div class="search-results__top-section__result-count" id="response-count">
-            Found <?php echo $resultCount; ?> <?php echo ($resultCount == 1) ? 'Result' : 'Results'; ?>
+            Found <?php echo $resultCount; ?> <?php echo ($resultCount == 1) ? 'result' : 'results'; ?>
         </div>
         
         <div class="search-results__top-section__page-count" id="page-number">
