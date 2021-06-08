@@ -36,15 +36,25 @@
         &.show {
             display: flex;
             flex-direction: column;
-            //padding-top: 7rem;
+
             padding: 0;
             padding-bottom: 20rem;
+
             & .filter__heading {
                 padding: 2rem 4rem;
             }
 
             & .filter__content {
                 padding: 2rem 4rem;
+            }
+
+            //apply only to first of filter class
+            & > .filter {
+                margin-top: 7.5rem;
+            }
+            
+            & > .filter ~ .filter {
+                margin-top: 0rem;
             }
         }
     }
@@ -57,6 +67,10 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid $color-grey-light-2;
+            position: fixed;
+            width: 100%;
+            background-color: $color-white;
+            z-index: 15000;
         }
 
         &__clear-button {
@@ -66,7 +80,7 @@
         &__close-button {
             //mobile button (hidden on desktop)
             border: none;
-            background-color: transparent;
+            background-color: $color-white;
 
             font-size: 1.5rem;
             letter-spacing: 0.2rem;
@@ -142,6 +156,11 @@
 
         &.show {
             display: flex;
+
+            
+            @media only screen and (max-width: $bp-large) {
+                display: none;
+            }
         }
     }
 

@@ -35,7 +35,7 @@ jQuery(document).ready(function ($) {
 
   function showMobileFilters() {
     searchSidebar.classList.add('show');
-    
+
     document.body.classList.add('lock-scroll');
     searchMobileCTA.style.display = 'flex';
     headerDiv.appendChild(searchSidebar);
@@ -463,7 +463,7 @@ jQuery(document).ready(function ($) {
       }
     }
 
-    
+
 
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
 
@@ -484,20 +484,20 @@ jQuery(document).ready(function ($) {
         pageDisplay.innerHTML = "";
 
         showResultsButton.textContent = "Searching";
+
+        //Need to hide clear button immediately 
+        hideClearButtons();
       },
       success: function (data) {
         $('#response').removeClass('loading');
         $('.search-sidebar').removeClass('loading'); //indicate loading
         $(".lds-dual-ring").remove();
 
-        
         toggleClearButtons();
         $('#response').html(data); //return the markup -- content-primary-search-results.php
 
-
         var resultCount = $('#totalResultsDisplay').attr('value');
         var pageNumberDisplay = $('#pageNumberDisplay').attr('value');
-
 
         let pageDisplay = document.querySelector('#page-number'); //show page number if not on page 1
         if (pageNumberDisplay > 1) {
@@ -506,9 +506,6 @@ jQuery(document).ready(function ($) {
           pageDisplay.innerHTML = "";
         }
 
-        // if(pageNumberDisplay > 0){
-
-        // }
 
         var resultCountDisplay = ""
         if (resultCount == 1) {
@@ -602,44 +599,54 @@ jQuery(document).ready(function ($) {
   })
 
 
+  function hideClearButtons() {
 
-function toggleClearButtons() {
-  let filtersApplied = false;
-  if (formDates.value != "") {
-    filtersApplied = true;
-  }
-  if (formTravelStyles.value != "") {
-    filtersApplied = true;
-  }
-  if (formDestinations.value != "") {
-    filtersApplied = true;
-  }
-  if (formExperiences.value != "") {
-    filtersApplied = true;
-  }
-  if (formMinLength.value != lengthSliderMin) {
-    filtersApplied = true;
-  }
-  if (formMaxLength.value != lengthSliderMax) {
-    filtersApplied = true;
-  }
-
-
-  let clearArea = document.querySelector('.filter--clear');
-  const clearButtons = [...document.querySelectorAll('.clear-filters')];
-  if (filtersApplied == true) {
-    clearArea.classList.add('show');
-    clearButtons.forEach(item => {
-      item.classList.add('show');
-    })
+    let clearArea = document.querySelector('.filter--clear');
+    const clearButtons = [...document.querySelectorAll('.clear-filters')];
     
-  } else {
     clearArea.classList.remove('show');
     clearButtons.forEach(item => {
       item.classList.remove('show');
     })
   }
-}
+
+  function toggleClearButtons() {
+    let filtersApplied = false;
+    if (formDates.value != "") {
+      filtersApplied = true;
+    }
+    if (formTravelStyles.value != "") {
+      filtersApplied = true;
+    }
+    if (formDestinations.value != "") {
+      filtersApplied = true;
+    }
+    if (formExperiences.value != "") {
+      filtersApplied = true;
+    }
+    if (formMinLength.value != lengthSliderMin) {
+      filtersApplied = true;
+    }
+    if (formMaxLength.value != lengthSliderMax) {
+      filtersApplied = true;
+    }
+
+
+    let clearArea = document.querySelector('.filter--clear');
+    const clearButtons = [...document.querySelectorAll('.clear-filters')];
+    if (filtersApplied == true) {
+      clearArea.classList.add('show');
+      clearButtons.forEach(item => {
+        item.classList.add('show');
+      })
+
+    } else {
+      clearArea.classList.remove('show');
+      clearButtons.forEach(item => {
+        item.classList.remove('show');
+      })
+    }
+  }
 
 
 
