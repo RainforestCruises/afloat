@@ -36,7 +36,8 @@
       transition: .3s all;
       font-weight: 600;
       display: flex;
-      width: fit-content;
+      width: 100%;
+      margin-bottom: .5rem;
       
       align-items: center;
 
@@ -49,16 +50,16 @@
       }
 
       & svg {  
-        height: 4.5rem;
-        width: 4.5rem;
+        height: 3rem;
+        width: 3rem;
         fill: $color-grey-1;
-        transform: rotate(-90deg);
+        transform: rotate(90deg);
         transition: all .3s;
       }
 
       &--collapsed {
         & svg {  
-          transform: rotate(90deg);
+          transform: rotate(-90deg);
         }
       }
     }

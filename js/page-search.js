@@ -483,8 +483,9 @@ jQuery(document).ready(function ($) {
         let pageDisplay = document.querySelector('#page-number'); //page number
         pageDisplay.innerHTML = "";
 
-        showResultsButton.textContent = "Searching";
-
+        //showResultsButton.textContent = "Searching";
+        showResultsButton.innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`
+        
         //Need to hide clear button immediately 
         hideClearButtons();
       },
@@ -563,7 +564,8 @@ jQuery(document).ready(function ($) {
   }
 
 
-  //initial loaded button js
+  
+  //pagination js
   let pageButtonArray = [...document.querySelectorAll('.search-results__grid__pagination__pages-group__button')];
   pageButtonArray.forEach(item => {
     item.addEventListener('click', (e) => {
@@ -599,6 +601,7 @@ jQuery(document).ready(function ($) {
   })
 
 
+  //clear filters button handling
   function hideClearButtons() {
 
     let clearArea = document.querySelector('.filter--clear');

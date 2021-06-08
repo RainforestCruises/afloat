@@ -4669,20 +4669,21 @@ h5 {
     transition: .3s all;
     font-weight: 600;
     display: flex;
-    width: fit-content;
+    width: 100%;
+    margin-bottom: .5rem;
     align-items: center; }
     .search-intro__title:hover {
       color: #305a7c; }
     .search-intro__title span {
       margin-right: 1rem; }
     .search-intro__title svg {
-      height: 4.5rem;
-      width: 4.5rem;
+      height: 3rem;
+      width: 3rem;
       fill: #9ea0a4;
-      transform: rotate(-90deg);
+      transform: rotate(90deg);
       transition: all .3s; }
     .search-intro__title--collapsed svg {
-      transform: rotate(90deg); }
+      transform: rotate(-90deg); }
   .search-intro__text {
     font-size: 1.5rem; }
 
@@ -4716,7 +4717,7 @@ h5 {
       font-size: 1.6rem;
       line-height: 2rem;
       font-weight: 500;
-      color: #747474; }
+      color: #9ea0a4; }
     .search-results__top-section__sort-area {
       position: relative; }
   .search-results__grid {
@@ -4862,14 +4863,6 @@ h5 {
       border-top: none;
       overflow-y: scroll;
       height: calc(100vh - 7rem); }
-      .search-sidebar::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        background-color: #e6e6e6; }
-      .search-sidebar::-webkit-scrollbar {
-        width: 4px;
-        background-color: #747474; }
-      .search-sidebar::-webkit-scrollbar-thumb {
-        background-color: #747474; }
       .search-sidebar.show {
         display: flex;
         flex-direction: column;
@@ -8861,22 +8854,22 @@ h5 {
     transform: rotate(360deg); } }
 
 .lds-ring {
-  display: none;
+  display: inline-block;
   position: relative;
-  width: 4rem;
-  height: 4rem; }
+  width: 20px;
+  height: 20px; }
 
 .lds-ring div {
   box-sizing: border-box;
   display: block;
   position: absolute;
-  width: 3rem;
-  height: 3rem;
-  margin: 4px;
-  border: 3px solid #1e1e1e;
+  width: 16px;
+  height: 16px;
+  margin: 2px;
+  border: 2px solid #fff;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #1e1e1e transparent transparent transparent; }
+  border-color: #fff transparent transparent transparent; }
 
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s; }
