@@ -40,13 +40,13 @@ foreach ($cruise_data['Itineraries'] as $item) :
         $totalCount++;
         continue;
     endif;
-    
+
     if ($args['propertyType'] == 'Lodge' && $item['IsSample'] == false) :
-        
+
         $totalCount++;
         continue; //skip non sample itineraries for charter only vessels
     endif;
-    
+
     $totalCount++;
 endforeach;
 ?>
@@ -99,15 +99,13 @@ endforeach;
             $count = 1; //loop itineraries
             foreach ($cruise_data['Itineraries'] as $itinerary) :
                 if ($charter_only == true && $itinerary['IsSample'] == false) :
-                    //$count++;
                     continue; //skip non sample itineraries for charter only vessels
                 endif;
 
                 if ($args['propertyType'] == 'Lodge' && $itinerary['IsSample'] == false) :
-                    //$count++;
-                    continue; //skip non sample itineraries for charter only vessels
+                    continue; //skip non sample itineraries for lodges
                 endif;
-                
+
             ?>
 
                 <!-- Itineraries Slide Item-->
@@ -186,7 +184,7 @@ endforeach;
                                                             <?php } else { ?>
                                                                 <li class="date-grid__item date-grid__item--available <?php echo ($departureMonth['HasPromos'] == true ? "promo-date" : ""); ?>" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
                                                                     <?php echo $departureMonth['MonthNameShort']; ?>
-                                                                    
+
                                                                 </li>
                                                             <?php } ?>
                                                         <?php } ?>
@@ -383,9 +381,17 @@ endforeach;
 
                                         </div>
                                         <?php if (get_post_type() == 'rfc_lodges') : ?>
-                                        <div class="product-itinerary-slide__top__side-info__content__fine-print">
-                                            Availability on request
-                                        </div>
+                                            <div class="product-itinerary-slide__top__side-info__content__widget">
+                                                <div class="charter-info-snippet">
+                                                    <?php echo get_field('itinerary_snippet'); ?>
+                                                    <p>
+                                                        <?php echo get_field('lodge_note', 'options'); ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="product-itinerary-slide__top__side-info__content__fine-print">
+                                                Availability on request
+                                            </div>
                                         <?php endif; ?>
                                     <?php else : ?>
                                         <?php //charter
@@ -435,12 +441,12 @@ endforeach;
                                             <div class="charter-info-snippet">
                                                 <?php echo $charter_snippet ?>
                                                 <p>
-                                                <?php echo get_field('charter_note', 'options'); ?>
+                                                    <?php echo get_field('charter_note', 'options'); ?>
                                                 </p>
-                                                
+
                                             </div>
                                         </div>
-                                        
+
                                     <?php endif; ?>
                                 </div>
 

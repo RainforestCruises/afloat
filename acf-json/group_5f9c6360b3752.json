@@ -759,7 +759,7 @@
         },
         {
             "key": "field_5f9c6360c4ce0",
-            "label": "Overview Tab",
+            "label": "Overview",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -800,7 +800,7 @@
             "label": "Highlights",
             "name": "highlights",
             "type": "repeater",
-            "instructions": "Enter ship highlights",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -849,6 +849,25 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_60bfe7eed4a27",
+            "label": "Itinerary Snippet",
+            "name": "itinerary_snippet",
+            "type": "wysiwyg",
+            "instructions": "Snippet describing the sample itinerary",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_60b00b3679a33",
@@ -2107,5 +2126,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Lodge - CPT",
-    "modified": 1622556835
+    "modified": 1623189597
 }

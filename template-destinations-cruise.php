@@ -25,6 +25,9 @@ $title = $destination->post_title;
 $tourCriteria = array(
     'posts_per_page' => -1,
     'post_type' => 'rfc_tours',
+    'meta_key' => 'search_rank',
+    'orderby' => 'meta_value',
+    'order' => 'DESC',
     'meta_query' => array(
         array(
             'key' => 'destinations',
@@ -39,6 +42,9 @@ $tours = get_posts($tourCriteria);
 $cruiseCriteria = array(
     'posts_per_page' => -1,
     'post_type' => 'rfc_cruises',
+    'meta_key' => 'search_rank',
+    'orderby' => 'meta_value',
+    'order' => 'DESC',
     'meta_query' => array(
         array(
             'key' => 'destinations', // name of custom field

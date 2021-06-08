@@ -350,6 +350,25 @@
             "new_lines": ""
         },
         {
+            "key": "field_60bfe77130b1d",
+            "label": "Lodge Note",
+            "name": "lodge_note",
+            "type": "textarea",
+            "instructions": "General lodge disclaimer text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_608836b384741",
             "label": "Social Media",
             "name": "",
@@ -516,5 +535,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1621890089
+    "modified": 1623189385
 }

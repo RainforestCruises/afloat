@@ -1291,6 +1291,8 @@ h5 {
   letter-spacing: 0rem;
   font-weight: 500;
   text-transform: none; }
+  .select2-container--default.select2-container *:focus {
+    outline: none; }
   .select2-container--default.select2-container--open.select2-container--above .select2-selection--single,
   .select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple {
     border-top-left-radius: 0;
@@ -4727,12 +4729,11 @@ h5 {
     width: 100%;
     position: relative;
     z-index: 0; }
-    .search-results__grid.loading .lds-dual-ring {
+    .search-results__grid.loading .lds-ring {
       position: absolute;
       top: 12rem;
       left: 50%;
-      z-index: 20;
-      color: #305a7c; }
+      z-index: 20; }
     .search-results__grid.loading::after {
       content: "";
       position: absolute;
@@ -4868,7 +4869,7 @@ h5 {
         display: flex;
         flex-direction: column;
         padding: 0;
-        padding-bottom: 20rem; }
+        padding-bottom: 22rem; }
         .search-sidebar.show .filter__heading {
           padding: 2rem 4rem; }
         .search-sidebar.show .filter__content {
@@ -5086,7 +5087,7 @@ h5 {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 12rem;
+  height: 10rem;
   width: 100%;
   border-top: 1px solid #c2c6c9;
   background-color: rgba(255, 255, 255, 0.8);
@@ -5098,9 +5099,9 @@ h5 {
   align-items: center;
   padding: 2rem; }
   .search-filter-mobile-cta button {
-    height: 5rem;
+    height: 4.5rem;
     width: 100%;
-    max-width: 30rem;
+    max-width: 28rem;
     background-color: #40739c;
     font-family: "Metropolis", sans-serif;
     color: #fff;
@@ -8854,17 +8855,16 @@ h5 {
   height: 80px;
   color: #142838;
   transform: translateX(-50%); }
-
-.lds-dual-ring:after {
-  content: " ";
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid #fff;
-  border-color: currentColor transparent  currentColor transparent;
-  animation: lds-dual-ring 1.2s linear infinite; }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: currentColor transparent  currentColor transparent;
+    animation: lds-dual-ring 1.2s linear infinite; }
 
 @keyframes lds-dual-ring {
   0% {
@@ -8877,27 +8877,33 @@ h5 {
   position: relative;
   width: 20px;
   height: 20px; }
-
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  margin: 2px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent; }
-
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s; }
-
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s; }
-
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s; }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent; }
+    .lds-ring div:nth-child(1) {
+      animation-delay: -0.45s; }
+    .lds-ring div:nth-child(2) {
+      animation-delay: -0.3s; }
+    .lds-ring div:nth-child(3) {
+      animation-delay: -0.15s; }
+  .lds-ring--large {
+    width: 80px;
+    height: 80px;
+    transform: translateX(-50%); }
+    .lds-ring--large div {
+      width: 64px;
+      height: 64px;
+      margin: 8px;
+      border: 8px solid #40739c;
+      border-color: #40739c transparent transparent transparent; }
 
 @keyframes lds-ring {
   0% {

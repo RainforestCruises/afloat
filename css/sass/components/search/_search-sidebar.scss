@@ -38,7 +38,7 @@
             flex-direction: column;
 
             padding: 0;
-            padding-bottom: 20rem;
+            padding-bottom: 22rem;
 
             & .filter__heading {
                 padding: 2rem 4rem;
@@ -354,10 +354,17 @@
         position: fixed;
         z-index: 30;
         border-top: none;    
+
+        // height: 5rem;
+        // transition: all .3s;
+
+        // & button {
+        //     transform: scale(.7);
+        // }
     }
 
     &__button {
-
+        
        
     }
 }
@@ -366,7 +373,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 12rem;
+    height: 10rem;
     width: 100%;
     border-top: 1px solid $color-grey-light-2;
 
@@ -381,9 +388,9 @@
     padding: 2rem;
 
     & button {
-        height: 5rem;
+        height: 4.5rem;
         width: 100%;
-        max-width: 30rem;
+        max-width: 28rem;
 
         background-color: $color-supporting-light;
         font-family: $font-primary;

@@ -485,7 +485,7 @@ jQuery(document).ready(function ($) {
       beforeSend: function () {
         $('#response').addClass('loading'); //indicate loading
         $('.search-sidebar').addClass('loading'); //indicate loading
-        $("#response").append('<div class="lds-dual-ring"></div>');
+        $("#response").append('<div class="lds-ring lds-ring--large"><div></div><div></div><div></div><div></div></div>');
         $('#response-count').html('Searching...');
 
         let pageDisplay = document.querySelector('#page-number'); //page number
@@ -500,7 +500,7 @@ jQuery(document).ready(function ($) {
       success: function (data) {
         $('#response').removeClass('loading');
         $('.search-sidebar').removeClass('loading'); //indicate loading
-        $(".lds-dual-ring").remove();
+        $(".lds-ring").remove();
 
         toggleClearButtons();
         $('#response').html(data); //return the markup -- content-primary-search-results.php

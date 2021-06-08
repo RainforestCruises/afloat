@@ -56,6 +56,9 @@ foreach ($destinationIds as $d) {
 $tourCriteria = array(
     'posts_per_page' => -1,
     'post_type' => 'rfc_tours',
+    'meta_key' => 'search_rank',
+    'orderby' => 'meta_value',
+    'order' => 'DESC',
     'meta_query' => $queryargs
 );
 $tours = get_posts($tourCriteria);
@@ -64,6 +67,9 @@ $tours = get_posts($tourCriteria);
 $cruiseCriteria = array(
     'posts_per_page' => -1,
     'post_type' => 'rfc_cruises',
+    'meta_key' => 'search_rank',
+    'orderby' => 'meta_value',
+    'order' => 'DESC',
     'meta_query' => $queryargs
 );
 $cruises = get_posts($cruiseCriteria);
