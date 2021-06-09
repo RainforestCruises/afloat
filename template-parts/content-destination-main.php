@@ -1,5 +1,4 @@
 <?php
-//$region = get_field('region_post');
 
 $destination = $args['destination'];
 $is_bucket_list = get_field('is_bucket_list', $destination);

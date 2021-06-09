@@ -6,6 +6,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
     $prices = [];
     $itineraries = $cruise_data['Itineraries'];
     if (count($itineraries) > 0) {
+        
         foreach ($itineraries as $i) {
             if ($i['LengthInDays'] >= $fromLength) {
                 $rateYears = $i['RateYears'];
@@ -14,7 +15,9 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
                         $rates = $r['Rates'];
                         $rateValues = [];
                         foreach ($rates as $rate) {
-                            $rateValues[] = $rate['WebAmount'];
+                            if($rate['WebAmount'] > 0){
+                                $rateValues[] = $rate['WebAmount'];
+                            }
                         }
                         if ($rateValues) {
                             $prices[] = min($rateValues);
@@ -146,6 +149,32 @@ function cruises_available_experience($destination, $experience)
             array(
                 'key' => 'experiences', // name of custom field
                 'value' => '"' . $experience->ID . '"',
+                'compare' => 'LIKE'
+            )
+        )
+    );
+    $cruisesPosts = get_posts($postCriteria);
+    $count = count($cruisesPosts);
+
+    return $count;
+}
+
+function cruises_available_charter($destination) 
+{
+    $count = 0;
+    $postCriteria = array(
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_cruises',
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key' => 'destinations', // name of custom field
+                'value' => '"' . $destination->ID . '"',
+                'compare' => 'LIKE'
+            ),
+            array(
+                'key' => 'charter_available', // name of custom field
+                'value' => true,
                 'compare' => 'LIKE'
             )
         )

@@ -3,6 +3,8 @@
 $cruises = $args['cruises'];
 $currentYear = date("Y");
 
+console_log($cruises);
+
 ?>
 
 
@@ -23,6 +25,9 @@ $currentYear = date("Y");
                 <?php
                 $featured_image = get_field('featured_image', $c);
                 $cruise_data = get_field('cruise_data', $c);
+                $charter_only = get_field('charter_only', $c);
+                $charter_min_days = get_field('charter_min_days', $c);
+
                 $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear);
                 ?>
                 <!-- Card -->
@@ -31,6 +36,13 @@ $currentYear = date("Y");
                     <div class="product-card__image-area">
                         <?php if ($featured_image) : ?>
                             <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
+                        <?php endif; ?>
+                        <?php if ($charter_only) : ?>
+                            <div class="product-card__image-area__badge-area">
+                                <div class="product-card__image-area__badge-area__badge">
+                                    Charter
+                                </div>
+                            </div>
                         <?php endif; ?>
                     </div>
                     <div class="product-card__bottom">
@@ -51,12 +63,21 @@ $currentYear = date("Y");
                                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
                                 </svg>
                                 <div class="product-card__bottom__info__length-group__length">
-                                    <?php echo itineraryRange($cruise_data, " - ") ?> Days
+
+                                    <?php if ($charter_only) :
+                                        echo $charter_min_days . ' Days +';
+                                    else :
+                                        echo itineraryRange($cruise_data, " - ") . ' Days';
+                                    endif; ?>
                                 </div>
                             </div>
                             <div class="product-card__bottom__info__price-group">
-                                <div class="product-card__bottom__info__price-group__from">From</div>
-                                <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
+                                <?php if ($charter_only) : ?>
+                                    <div class="product-card__bottom__info__price-group__from">Charter Pricing</div>
+                                <?php else : ?>
+                                    <div class="product-card__bottom__info__price-group__from">From</div>
+                                    <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

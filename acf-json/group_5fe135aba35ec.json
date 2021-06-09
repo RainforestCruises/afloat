@@ -573,6 +573,29 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_60c1456278f5d",
+                    "label": "Search Link",
+                    "name": "search_link",
+                    "type": "page_link",
+                    "instructions": "Link to SERP landing page with Cruise + Location pre-selected",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": [
+                        "category:search"
+                    ],
+                    "allow_null": 0,
+                    "allow_archives": 0,
+                    "multiple": 0
                 }
             ]
         },
@@ -615,13 +638,40 @@
             "button_label": "",
             "sub_fields": [
                 {
+                    "key": "field_60c14102fbf5b",
+                    "label": "Is Charter",
+                    "name": "is_charter",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_5fe3985ffefef",
                     "label": "Cruise Experience",
                     "name": "cruise_experience",
                     "type": "post_object",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_60c14102fbf5b",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -750,10 +800,10 @@
         },
         {
             "key": "field_603fd06f300f2",
-            "label": "Cruise Search Link",
+            "label": "All Cruise Search Link",
             "name": "cruise_search_link",
             "type": "page_link",
-            "instructions": "Search page - Destination + Cruise (travel type)",
+            "instructions": "View All Cruises button -> link to SERP page - Destination + Cruise (travel type)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1193,5 +1243,5 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1622646639
+    "modified": 1623279399
 }

@@ -62,7 +62,6 @@ $cruiseCriteria = array(
     )
 );
 $cruises = get_posts($cruiseCriteria);
-//console_log($cruises);
 
 $args = array(
     'destination' => $destination,

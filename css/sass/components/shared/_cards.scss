@@ -181,6 +181,7 @@
 
     &__image-area {
         height: min-content;
+        position: relative;
 
         & img {
             object-fit: contain;
@@ -188,6 +189,29 @@
             width: 100%;
             border-top-left-radius: 0.5rem;
             border-top-right-radius: 0.5rem;
+        }
+
+        &__badge-area {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            z-index: 10;
+
+            &__badge {
+                white-space: nowrap;
+                font-size: 1.3rem; 
+                text-transform: uppercase;
+                letter-spacing: 0.2rem;
+                display: inline-block;
+                color: $color-primary;
+                background-color: $color-white;
+                padding: 0.4rem 1.2rem;
+                padding-top: 0.7rem;
+                border-radius: 3rem;
+                font-weight: 700;
+                width: max-content;
+                height: max-content;
+            }
         }
     }
 

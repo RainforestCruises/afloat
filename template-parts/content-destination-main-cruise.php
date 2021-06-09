@@ -58,7 +58,7 @@ $cruise_experiences = get_field('cruise_experiences');
             <?php endif; ?>
 
         </div>
-        
+
     </div>
 
     <!-- Cruises -->
@@ -89,41 +89,41 @@ $cruise_experiences = get_field('cruise_experiences');
                     <!-- Tour Card -->
 
 
- 
+
                     <a class="product-card" href="<?php echo get_permalink($c); ?>">
-                    <div class="product-card__image-area">
-                        <?php if ($featured_image) : ?>
-                            <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
-                        <?php endif; ?>
-                    </div>
-                    <div class="product-card__bottom">
-                        <div class="product-card__bottom__title-group">
-                            <div class="product-card__bottom__title-group__product-name">
-                                <?php echo get_the_title($c) ?>
+                        <div class="product-card__image-area">
+                            <?php if ($featured_image) : ?>
+                                <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
+                            <?php endif; ?>
+                        </div>
+                        <div class="product-card__bottom">
+                            <div class="product-card__bottom__title-group">
+                                <div class="product-card__bottom__title-group__product-name">
+                                    <?php echo get_the_title($c) ?>
+                                </div>
+
                             </div>
-
-                        </div>
-                        <div class="product-card__bottom__text">
-                            <?php echo get_field('top_snippet', $c) ?>
-                        </div>
-                        <div class="product-card__bottom__info">
+                            <div class="product-card__bottom__text">
+                                <?php echo get_field('top_snippet', $c) ?>
+                            </div>
+                            <div class="product-card__bottom__info">
 
 
-                            <div class="product-card__bottom__info__length-group">
-                                <svg>
-                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
-                                </svg>
-                                <div class="product-card__bottom__info__length-group__length">
-                                    <?php echo itineraryRange($cruise_data, " - ") ?> Days
+                                <div class="product-card__bottom__info__length-group">
+                                    <svg>
+                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
+                                    </svg>
+                                    <div class="product-card__bottom__info__length-group__length">
+                                        <?php echo itineraryRange($cruise_data, " - ") ?> Days
+                                    </div>
+                                </div>
+                                <div class="product-card__bottom__info__price-group">
+                                    <div class="product-card__bottom__info__price-group__from">From</div>
+                                    <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
                                 </div>
                             </div>
-                            <div class="product-card__bottom__info__price-group">
-                                <div class="product-card__bottom__info__price-group__from">From</div>
-                                <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
-                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
 
 
                 <?php endforeach; ?>
@@ -135,10 +135,7 @@ $cruise_experiences = get_field('cruise_experiences');
 
     </div>
 
-    <?php
-    $cruise_lengths = get_field('cruise_lengths');
-    $cruise_search_link = get_field('cruise_search_link');
-    ?>
+    
 
     <!-- countries -->
     <?php $hideDesinations = get_field('hide_cruise_destinations') ?>
@@ -152,12 +149,12 @@ $cruise_experiences = get_field('cruise_experiences');
 
         <div class="destination-main__experiences">
             <?php
-            if ($cruise_locations) {
-                //need to fix link - parameter / prefilter 'location'
-                foreach ($cruise_locations as $c) {
+            if ($cruise_locations) :
+                
+                foreach ($cruise_locations as $c) :
                     $location = $c['country'];
                     $background_image = $c['background_image'];
-                    $link = $cruise_search_link . '?travelLocation=' . $location->ID;
+                    $link = $c['search_link'];
             ?>
                     <a class="category-card" href="<?php echo $link ?>">
                         <div class="category-card__image">
@@ -176,8 +173,8 @@ $cruise_experiences = get_field('cruise_experiences');
                         </div>
                     </a>
             <?php
-                }
-            }
+                endforeach;
+            endif;
             ?>
         </div>
     <?php endif; ?>
@@ -197,6 +194,7 @@ $cruise_experiences = get_field('cruise_experiences');
                 $experience = $e['cruise_experience'];
                 $background_image = $e['background_image'];
                 $search_link = $e['search_page_link'];
+                $is_charter = $e['is_charter'];
 
         ?>
                 <a class="category-card" href="<?php echo $search_link ?>">
@@ -208,11 +206,20 @@ $cruise_experiences = get_field('cruise_experiences');
 
                     <div class="category-card__content">
                         <div class="category-card__content__title">
-                            <?php echo get_the_title($experience); ?> Cruises
+                            <?php if ($is_charter) :
+                                echo 'Charter Cruises';
+                            else :
+                                echo get_the_title($experience) . ' Cruises';
+                            endif; ?>
+
                         </div>
                         <div class="category-card__content__availability">
-                            <?php echo cruises_available_experience($destination, $experience) . ' Cruises Available';
-                            ?>
+                            <?php if ($is_charter) :
+                                echo cruises_available_charter($destination) . ' Cruises Available';
+                            else :
+                                echo cruises_available_experience($destination, $experience) . ' Cruises Available';
+                            endif; ?>
+                            
                         </div>
                     </div>
                 </a>
@@ -222,7 +229,9 @@ $cruise_experiences = get_field('cruise_experiences');
         ?>
     </div>
 
-
+    <?php
+    $cruise_lengths = get_field('cruise_lengths');
+    ?>
 
     <div class="destination-main__lengths">
         <?php if ($cruise_lengths) : ?>
@@ -234,6 +243,6 @@ $cruise_experiences = get_field('cruise_experiences');
         <?php endforeach;
         endif;
         ?>
-        <a class="btn-outline " href="<?php echo $cruise_search_link; ?>">View All Cruises</a>
+        <a class="btn-outline btn-outline--dark" href="<?php echo get_field('cruise_search_link'); ?>">View All Cruises</a>
     </div>
 </div>
