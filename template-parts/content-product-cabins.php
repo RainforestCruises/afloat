@@ -12,7 +12,6 @@ $cruise_data = $args['cruiseData'];
     <!-- Cabins -->
     <?php
     $cabins = $cruise_data['CabinDTOs'];
-    console_log($cabins);
     $cabinCount = 0;
     if ($cabins) : ?>
 

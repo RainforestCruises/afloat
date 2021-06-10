@@ -2,7 +2,10 @@
 $queryArgs = array(
     'post_type' => get_post_type(),
     'posts_per_page' => -1,
-    'post__not_in' => array($post->ID)
+    'post__not_in' => array($post->ID),
+    'meta_key' => 'search_rank',
+    'orderby' => 'meta_value',
+    'order' => 'DESC',
 
 );
 
@@ -26,6 +29,8 @@ if ($destinations) {
 }
 
 
+
+
 $posts = get_posts($queryArgs);
 ?>
 
@@ -34,49 +39,63 @@ $posts = get_posts($queryArgs);
         Related <?php echo get_post_type() == 'rfc_cruises' ? "Cruises" : "Tours"; ?>
     </h2>
     <?php if ($posts) : ?>
-    <div class="product-related__slider" id="related-slider">
+        <div class="product-related__slider" id="related-slider">
 
-        <?php
+            <?php
             foreach ($posts as $p) :
+                $charterView = false;
+                $isCharterOnly = false;
+                $hasCharterAvailable = false;
+                $charter_min_days = 0;
+
+                if (get_post_type() == 'rfc_cruises') {
+                    $charterView = $args['charter_view'];
+                    $isCharterOnly = get_field('charter_only', $p);
+                    $hasCharterAvailable = get_field('charter_available', $p);
+                    $charter_min_days = get_field('charter_min_days', $p);
+                }
+
+                if (!$charterView) {
+                    if ($isCharterOnly) {
+                        continue;
+                    }
+                } else {
+                    if (!$hasCharterAvailable) {
+                        continue;
+                    }
+                }
 
 
                 $featured_image = get_field('featured_image', $p);
                 $cruise_data = get_field('cruise_data', $p);
                 $relatedItemDestinations = get_field('destinations', $p);
                 $top_snippet = get_field('top_snippet', $p);
-
-                if (get_post_type($p) != 'rfc_cruises') {
+                $currentYear = date('Y');
+                if (get_post_type($p) == 'rfc_tours') {
 
                     $tour_length = get_field('length', $p);
-
-                    $priceList = [];
                     $price_packages = get_field('price_packages', $p);
-
-                    if ($price_packages) {
-                        foreach ($price_packages as $price_package) {
-                            if ($price_package['year'] >= date("Y")) {
-                                $priceList[] = $price_package['price'];
-                            }
-                        }
-                    }
-
-                    $lowestPrice = 0;
-                    if ($priceList) {
-                        sort($priceList);
-                        $lowestPrice = $priceList[0];
-                    }
+                    
+                    $lowestPrice = lowest_tour_price($price_packages, $currentYear);
+                  
                 } else {
-                    $lowest = $cruise_data['LowestLengthInDays'];
-                    $highest = $cruise_data['HighestLengthInDays'];
-                    $lowestPrice = $cruise_data['LowestPrice'];
+                  
+                    $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear);
                 }
-        ?>
+            ?>
 
                 <!-- Card -->
                 <a class="product-card" href="<?php echo get_permalink($p); ?>">
                     <div class="product-card__image-area">
                         <?php if ($featured_image) : ?>
                             <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
+                        <?php endif; ?>
+                        <?php if ($charterView) : ?>
+                            <div class="product-card__image-area__badge-area">
+                                <div class="product-card__image-area__badge-area__badge">
+                                    Charter
+                                </div>
+                            </div>
                         <?php endif; ?>
                     </div>
                     <div class="product-card__bottom">
@@ -85,7 +104,7 @@ $posts = get_posts($queryArgs);
                             <div class="product-card__bottom__title-group__product-name">
                                 <?php echo (get_post_type($p) == 'rfc_tours') ? get_field('tour_name', $p) : get_the_title($p) ?>
                             </div>
-                           
+
                         </div>
 
 
@@ -94,31 +113,41 @@ $posts = get_posts($queryArgs);
                         </div>
 
                         <div class="product-card__bottom__info">
-                            
-                       
+
+
                             <div class="product-card__bottom__info__length-group">
                                 <svg>
                                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
                                 </svg>
                                 <div class="product-card__bottom__info__length-group__length">
-                                    <?php echo (get_post_type($p) == 'rfc_tours') ? $tour_length  . " Days" : itineraryRange($cruise_data, " - ") . " Days"; ?>
+                                    <?php if ($charterView) :
+                                        echo $charter_min_days . ' Days +';
+                                    else :
+                                        echo (get_post_type($p) == 'rfc_tours') ? $tour_length  . " Days" : itineraryRange($cruise_data, " - ") . " Days";
+                                    endif; ?>
+
                                 </div>
                             </div>
                             <div class="product-card__bottom__info__price-group">
-                                <div class="product-card__bottom__info__price-group__from">From</div>
-                                <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
+
+                                <?php if ($charterView) : ?>
+                                    <div class="product-card__bottom__info__price-group__from">Charter Pricing</div>
+                                <?php else : ?>
+                                    <div class="product-card__bottom__info__price-group__from">From</div>
+                                    <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
+                                <?php endif; ?>
+
                             </div>
-                        
-                        
+
+
                         </div>
                     </div>
                 </a>
 
-        <?php
+            <?php
             endforeach;
-      
-        ?>
-    </div>
+
+            ?>
+        </div>
     <?php endif; ?>
 </div>
-

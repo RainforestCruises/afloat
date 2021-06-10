@@ -129,12 +129,18 @@ function cruises_available_location($location)
 
     $cruisePosts = get_posts($postCriteria);
     $count = count($cruisePosts);
+
+    console_log($location);
+    console_log($cruisePosts);
+
+
     return $count;
 }
 
 
 function cruises_available_experience($destination, $experience)
 {
+    
     $count = 0;
     $postCriteria = array(
         'posts_per_page' => -1,
@@ -156,6 +162,9 @@ function cruises_available_experience($destination, $experience)
     $cruisesPosts = get_posts($postCriteria);
     $count = count($cruisesPosts);
 
+    console_log($experience);
+    console_log($cruisesPosts);
+
     return $count;
 }
 
@@ -176,6 +185,7 @@ function cruises_available_charter($destination)
                 'key' => 'charter_available', // name of custom field
                 'value' => true,
                 'compare' => 'LIKE'
+                
             )
         )
     );
@@ -186,7 +196,7 @@ function cruises_available_charter($destination)
 }
 
 
-function cruises_available_region($region, $experience)
+function cruises_available_region($region, $experience, $isCharter)
 {
 
     //DESTINATIONS
@@ -217,19 +227,38 @@ function cruises_available_region($region, $experience)
 
 
     $count = 0;
-    $postCriteria = array(
-        'posts_per_page' => -1,
-        'post_type' => 'rfc_cruises',
-        'meta_query' => array(
-            'relation' => 'AND',
-            $queryargs,
-            array(
-                'key' => 'experiences', // name of custom field
-                'value' => '"' . $experience->ID . '"',
-                'compare' => 'LIKE'
+
+    if($isCharter == false) {
+        $postCriteria = array(
+            'posts_per_page' => -1,
+            'post_type' => 'rfc_cruises',
+            'meta_query' => array(
+                'relation' => 'AND',
+                $queryargs,
+                array(
+                    'key' => 'experiences', // name of custom field
+                    'value' => '"' . $experience->ID . '"',
+                    'compare' => 'LIKE'
+                )
             )
-        )
-    );
+        );
+
+    } else {
+        $postCriteria = array(
+            'posts_per_page' => -1,
+            'post_type' => 'rfc_cruises',
+            'meta_query' => array(
+                'relation' => 'AND',
+                $queryargs,
+                array(
+                    'key' => 'charter_available', // name of custom field
+                    'value' => true,
+                    'compare' => 'LIKE'
+                )
+            )
+        );
+    }
+    
     $cruisesPosts = get_posts($postCriteria);
     $count = count($cruisesPosts);
     return $count;

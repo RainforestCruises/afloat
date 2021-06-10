@@ -1,6 +1,6 @@
 {
     "key": "group_60352ad21615d",
-    "title": "Experiences",
+    "title": "Experiences Page",
     "fields": [
         {
             "key": "field_604680a1b250c",
@@ -19,13 +19,40 @@
             "endpoint": 0
         },
         {
+            "key": "field_60c237eda85ec",
+            "label": "Is Charter",
+            "name": "is_charter",
+            "type": "true_false",
+            "instructions": "Switch to charter variant -- will not display tours",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_60352ad989408",
             "label": "Experience Post",
             "name": "experience_post",
             "type": "post_object",
             "instructions": "Select the post type for this page",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60c237eda85ec",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -333,7 +360,7 @@
                             "label": "Search Link",
                             "name": "search_link",
                             "type": "page_link",
-                            "instructions": "Link to search page - Destination + Experience",
+                            "instructions": "Link to SERP page - Destination + Experience\/Charter",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -579,5 +606,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Experiences - Page",
-    "modified": 1615924475
+    "modified": 1623341203
 }

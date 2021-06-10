@@ -2,6 +2,7 @@
 
 $regions = get_field('regions');
 $experience = get_field('experience_post');
+$is_charter = get_field('is_charter');
 
 $count = 0;
 
@@ -44,15 +45,24 @@ $count = 0;
                         <svg>
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
                         </svg>
-                        <a href="<?php echo $r['explore_link'] . '?travelType=rfc_cruises' ?>"><?php echo cruises_available_region($region_post, $experience) ?> Cruises Available</a>
-                    </div>
-                    <div class="experience-region__content__text__travel-types__group">
-                        <svg>
-                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
-                        </svg>
-                        <a href="<?php echo $r['explore_link'] . '?travelType=rfc_tours' ?>"><?php echo tours_available_region($region_post, $experience) ?> Tours Available</a>
-                    </div>
 
+                        <?php
+                        if (!$is_charter) : ?>
+                            <a href="<?php echo $r['explore_link'] . '?travel_style=rfc_cruises' ?>"><?php echo cruises_available_region($region_post, $experience, false) ?> Cruises Available</a>
+                        <?php else : ?>
+                            <a href="<?php echo $r['explore_link']  ?>"><?php echo cruises_available_region($region_post, null, true) ?> Cruises Available</a>
+                        <?php endif;
+                        ?>
+
+                    </div>
+                    <?php if (!$is_charter) : ?>
+                        <div class="experience-region__content__text__travel-types__group">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
+                            </svg>
+                            <a href="<?php echo $r['explore_link'] . '?travel_style=rfc_tours' ?>"><?php echo tours_available_region($region_post, $experience) ?> Tours Available</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <div class="experience-region__content__text__cta">
                     <a class="btn-cta-square" href="<?php echo $r['explore_link'] ?>"">
@@ -84,7 +94,7 @@ $count = 0;
                     <!-- Tour Card -->
                     <a class="wide-slider-card" href="<?php echo $d['search_link'] ?>">
                         <div class="wide-slider-card__image">
-                            <img  <?php afloat_responsive_image($cardImage['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?> alt="">
+                            <img <?php afloat_responsive_image($cardImage['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?> alt="">
                         </div>
 
 
@@ -102,8 +112,16 @@ $count = 0;
                                 </div>
                                 <div class="wide-slider-card__content__text-area__info">
                                     <div class="wide-slider-card__content__text-area__info__length">
-                                        <?php echo tours_available($destinationPost, $experience) ?> Tours /
-                                        <?php echo cruises_available_experience($destinationPost, $experience) ?> Cruises Available
+
+                                        <?php
+                                        if (!$is_charter) :
+                                            echo tours_available($destinationPost, $experience) . ' Tours / ' . cruises_available_experience($destinationPost, $experience) . ' Cruises Available';
+                                        else :
+                                            echo cruises_available_charter($destinationPost) . ' Cruises Available';
+                                        endif;
+                                        ?>
+
+
                                     </div>
                                 </div>
                             </div>
