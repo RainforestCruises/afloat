@@ -116,13 +116,22 @@ function cruises_available_location($location)
     $postCriteria = array(
         'posts_per_page' => -1,
         'post_type' => 'rfc_cruises',
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key' => 'locations', // name of custom field
+                'value' => '"' . $location->ID . '"',
+                'compare' => 'LIKE'
+            ),
+            array(
+                'key' => 'charter_only', // name of custom field
+                'value' => false,
+                'compare' => 'LIKE'      
+            )
+        )
     );
 
-    $postCriteria['meta_query'][] = array(
-        'key' => 'locations',
-        'value' => '"' . $location->ID . '"',
-        'compare' => 'LIKE'
-    );
+    
 
     $count = 0;
 
@@ -130,6 +139,7 @@ function cruises_available_location($location)
     $cruisePosts = get_posts($postCriteria);
     $count = count($cruisePosts);
 
+    console_log('location');
     console_log($location);
     console_log($cruisePosts);
 
@@ -156,12 +166,18 @@ function cruises_available_experience($destination, $experience)
                 'key' => 'experiences', // name of custom field
                 'value' => '"' . $experience->ID . '"',
                 'compare' => 'LIKE'
+            ),
+            array(
+                'key' => 'charter_only', // name of custom field
+                'value' => false,
+                'compare' => 'LIKE'      
             )
         )
     );
     $cruisesPosts = get_posts($postCriteria);
     $count = count($cruisesPosts);
 
+    console_log('experience');
     console_log($experience);
     console_log($cruisesPosts);
 
@@ -191,6 +207,10 @@ function cruises_available_charter($destination)
     );
     $cruisesPosts = get_posts($postCriteria);
     $count = count($cruisesPosts);
+
+    console_log('charter');
+    console_log($destination);
+    console_log($cruisesPosts);
 
     return $count;
 }
