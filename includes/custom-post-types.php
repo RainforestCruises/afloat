@@ -12,7 +12,7 @@ function create_post_type_rfc_travel_guides()
                 'singular_name' => __('Travel Guide'),
             ),
             'public' => true,
-            'rewrite' => array('slug' => 'travel-guide'),
+            'rewrite' => array('slug' => 'guides'),
             'supports' => array(
                 'title', 'editor'
             )
