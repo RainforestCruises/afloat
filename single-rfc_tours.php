@@ -20,6 +20,8 @@ while (have_posts()) :
   $price_packages = get_field('price_packages');
   $lowestPrice = lowest_tour_price($price_packages, $currentYear);
 
+  $lowestYear = initial_price_year($price_packages);
+ 
 
 
   $args = array(
@@ -90,8 +92,8 @@ while (have_posts()) :
 
 
   <script>
-    var currentYear = '<?php echo $currentYear = date("Y"); ?>';
     var templateUrl = '<?php echo bloginfo('template_url') ?>';
+    var initialPriceYear = '<?php echo $lowestYear; ?>'; //to set itinerary price grid
   </script>
 
 <?php

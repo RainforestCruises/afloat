@@ -330,6 +330,11 @@
         padding: 3rem 10rem;
         text-align: center;
         align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            padding: 3rem 0rem;
+        }
+
         & p {
             font-size: 1.3rem ;
             line-height: 2rem;
@@ -392,7 +397,7 @@
 }
 
 .travel-guide-related {
-    background-color: $color-primary;
+    background-color: $color-footer; 
     justify-content: center;
 
     width: 100%;

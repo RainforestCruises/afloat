@@ -287,12 +287,23 @@ endforeach;
                                                                 <div class="price-grid__grid__cabin-type">
                                                                     <?php echo  $rate['Cabin'] ?>
                                                                 </div>
-                                                                <div class="price-grid__grid__double-price">
-                                                                    <?php echo "$ " . number_format($rate['WebAmount'], 0);  ?>
-                                                                </div>
-                                                                <div class="price-grid__grid__single-price">
-                                                                    <?php echo "$ " . number_format($rate['SingleWebAmount'], 0);  ?>
-                                                                </div>
+                                                                <?php if ($rate['IsSingle'] == false) : ?>
+                                                                    <div class="price-grid__grid__double-price">
+                                                                        <?php echo priceFormat($rate['WebAmount']); ?>
+                                                                    </div>
+                                                                    <div class="price-grid__grid__single-price">
+                                                                        <?php echo priceFormat($rate['SingleWebAmount']); ?>
+                                                                    </div>
+                                                                <?php
+                                                                //if single cabin
+                                                                else : ?>
+                                                                    <div class="price-grid__grid__double-price">
+                                                                        N/A
+                                                                    </div>
+                                                                    <div class="price-grid__grid__single-price">
+                                                                        <?php echo priceFormat($rate['WebAmount']); ?>
+                                                                    </div>
+                                                                <?php endif; ?>
                                                             <?php endforeach; ?>
 
                                                         </div>
@@ -324,12 +335,23 @@ endforeach;
                                                                     <div class="price-grid__grid__cabin-type">
                                                                         <?php echo  $rate['Cabin'] ?>
                                                                     </div>
-                                                                    <div class="price-grid__grid__double-price">
-                                                                        <?php echo "$ " . number_format($rate['HighSeasonWeb'], 0);  ?>
-                                                                    </div>
-                                                                    <div class="price-grid__grid__single-price">
-                                                                        <?php echo "$ " . number_format($rate['SingleHighSeasonWeb'], 0);  ?>
-                                                                    </div>
+                                                                    <?php if ($rate['IsSingle'] == false) : ?>
+                                                                        <div class="price-grid__grid__double-price">
+                                                                            <?php echo priceFormat($rate['HighSeasonWeb']); ?>
+                                                                        </div>
+                                                                        <div class="price-grid__grid__single-price">
+                                                                            <?php echo priceFormat($rate['SingleHighSeasonWeb']); ?>
+                                                                        </div>
+                                                                    <?php
+                                                                    //if single cabin
+                                                                    else : ?>
+                                                                        <div class="price-grid__grid__double-price">
+                                                                            N/A
+                                                                        </div>
+                                                                        <div class="price-grid__grid__single-price">
+                                                                            <?php echo priceFormat($rate['HighSeasonWeb']); ?>
+                                                                        </div>
+                                                                    <?php endif; ?>
                                                                 <?php endforeach; ?>
 
                                                             </div>
@@ -363,12 +385,23 @@ endforeach;
                                                                     <div class="price-grid__grid__cabin-type">
                                                                         <?php echo  $rate['Cabin'] ?>
                                                                     </div>
-                                                                    <div class="price-grid__grid__double-price">
-                                                                        <?php echo "$ " . number_format($rate['LowSeasonWeb'], 0);  ?>
-                                                                    </div>
-                                                                    <div class="price-grid__grid__single-price">
-                                                                        <?php echo "$ " . number_format($rate['SingleLowSeasonWeb'], 0);  ?>
-                                                                    </div>
+                                                                    <?php if ($rate['IsSingle'] == false) : ?>
+                                                                        <div class="price-grid__grid__double-price">
+                                                                            <?php echo priceFormat($rate['LowSeasonWeb']); ?>
+                                                                        </div>
+                                                                        <div class="price-grid__grid__single-price">
+                                                                            <?php echo priceFormat($rate['SingleLowSeasonWeb']); ?>
+                                                                        </div>
+                                                                    <?php
+                                                                    //if single cabin
+                                                                    else : ?>
+                                                                        <div class="price-grid__grid__double-price">
+                                                                            N/A
+                                                                        </div>
+                                                                        <div class="price-grid__grid__single-price">
+                                                                            <?php echo priceFormat($rate['LowSeasonWeb']); ?>
+                                                                        </div>
+                                                                    <?php endif; ?>
                                                                 <?php endforeach; ?>
 
                                                             </div>

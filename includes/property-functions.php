@@ -125,8 +125,8 @@ function cruises_available_location($location)
             ),
             array(
                 'key' => 'charter_only', // name of custom field
-                'value' => false,
-                'compare' => 'LIKE'      
+                'value' => true,
+                'compare' => 'NOT LIKE'      
             )
         )
     );
@@ -169,8 +169,8 @@ function cruises_available_experience($destination, $experience)
             ),
             array(
                 'key' => 'charter_only', // name of custom field
-                'value' => false,
-                'compare' => 'LIKE'      
+                'value' => true,
+                'compare' => 'NOT LIKE'      
             )
         )
     );

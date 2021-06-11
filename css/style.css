@@ -1734,6 +1734,9 @@ h5 {
       color: #142838;
       font-weight: 700;
       margin-bottom: 1.5rem; }
+    @media only screen and (max-width: 50em) {
+      .travel-guide__disclaimer {
+        padding: 3rem 0rem; } }
     .travel-guide__disclaimer p {
       font-size: 1.3rem;
       line-height: 2rem; }
@@ -1775,7 +1778,7 @@ h5 {
       margin: 0rem 0.5rem; }
 
 .travel-guide-related {
-  background-color: #142838;
+  background-color: #1d2225;
   justify-content: center;
   width: 100%;
   display: flex;

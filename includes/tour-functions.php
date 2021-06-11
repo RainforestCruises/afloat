@@ -23,6 +23,30 @@ function lowest_tour_price($price_packages, $fromYear)
     return $lowestPrice;
 }
 
+//Get first year that prices exist
+function initial_price_year($price_packages)
+{
+    
+    $fromYear = date('Y');
+    $priceList = [];
+    
+    if ($price_packages) {
+        foreach ($price_packages as $price_package) {
+            if ($price_package['year'] >= $fromYear) {
+                $priceList[] = $price_package['year'];
+            }
+        }
+    }
+
+    
+    if ($priceList) {
+        sort($priceList);
+        $lowestYear = $priceList[0];
+    }
+    
+    return $lowestYear;
+}
+
 function tours_available($destination, $experience)
 {
 

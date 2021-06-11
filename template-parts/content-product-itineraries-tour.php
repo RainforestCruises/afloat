@@ -62,7 +62,6 @@ $img = get_field('map');
                     <div class="product-itinerary-slide__top__side-info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">
 
                         <!-- Prices -->
-
                         <div class="product-itinerary-slide__top__side-info__content__widget">
                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section u-margin-bottom-small">
                                 <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
@@ -81,11 +80,8 @@ $img = get_field('map');
                                         } ?>
                                     </select>
                                 </div>
-
-
-                         
-
                             </div>
+
                             <!-- Price-Grid  -->
                             <?php
                             $pricePackages = get_field('price_packages');
@@ -113,16 +109,16 @@ $img = get_field('map');
 
 
                                         <?php
-                                        if ($pricePackages) {
-                                            foreach ($pricePackages as $pricePackage) {
+                                        if ($pricePackages) :
+                                            foreach ($pricePackages as $pricePackage) :
                                                 $price_level = $pricePackage['price_level'];
-                                                if ($pricePackage['year'] == ($currentYear + $yearCount)) {
+                                                if ($pricePackage['year'] == ($currentYear + $yearCount)) :
                                                     $price = ($pricePackage['price'] != "") ? $pricePackage['price'] : 0;
                                                     $single_supplement = ($pricePackage['single_supplement'] != "") ? $pricePackage['single_supplement'] : 0;
                                                     $single_price = intval($price) + intval($single_supplement);
                                                     $price_level = $pricePackage['price_level'];
+                                                    console_log('pp');
                                         ?>
-
 
                                                     <div class="price-grid__grid__cabin-type">
                                                         <?php echo get_the_title($price_level); ?>
@@ -134,12 +130,19 @@ $img = get_field('map');
                                                         <?php echo "$ " . number_format($single_price, 0);  ?>
                                                     </div>
 
-
-
-                                        <?php
-                                                }
-                                            }
-                                        }
+                                                <?php else : ?>
+                                                    <div class="price-grid__grid__cabin-type">
+                                                    <?php echo get_the_title($price_level); ?>
+                                                    </div>
+                                                    <div class="price-grid__grid__double-price">
+                                                    N/A
+                                                    </div>
+                                                    <div class="price-grid__grid__single-price">
+                                                    N/A
+                                                    </div>
+                                        <?php endif;
+                                            endforeach;
+                                        endif;
                                         ?>
 
                                     </div>
@@ -168,9 +171,10 @@ $img = get_field('map');
 
 
                         <!-- Activities -->
-                        <div class="product-itinerary-slide__top__side-info__content__widget noborder">
-                            <?php $activities = get_field('activities');
-                            if ($activities) : ?>
+                        <?php $activities = get_field('activities');
+                        if ($activities) : ?>
+                            <div class="product-itinerary-slide__top__side-info__content__widget noborder">
+
                                 <div class="product-itinerary-slide__top__side-info__content__widget__small-title">
                                     Activities
                                 </div>
@@ -179,10 +183,11 @@ $img = get_field('map');
                                         <li><?php echo get_the_title($a) ?></li>
                                     <?php endforeach; ?>
                                 </ul>
-                            <?php endif; ?>
-                        </div>
+
+                            </div>
+                        <?php endif; ?>
                         <div class="product-itinerary-slide__top__side-info__content__fine-print">
-                                Availability on request
+                            Availability on request
                         </div>
                     </div>
 

@@ -1,4 +1,9 @@
 jQuery(document).ready(function ($) {
+
+
+  
+  var currentYear = new Date().getFullYear();
+
   //Contact
   var body = $('body');
   var modal = document.getElementById("contactModal");
@@ -288,8 +293,7 @@ jQuery(document).ready(function ($) {
   $('.itinerary-year-select').on('change', function () {
     var year = $(this).val();
     var tab_id = $(this).attr('data-tab');
-    console.log(year);
-    console.log(tab_id);
+
     $('.date-grid[data-tab="' + tab_id + '"]').hide();
     $('.date-grid__' + year + '[data-tab="' + tab_id + '"]').show();
 
@@ -303,15 +307,12 @@ jQuery(document).ready(function ($) {
     var season = $(this).val();
     var tab_id = $(this).attr('itinerary-tab');
     // console.log(year);
-    console.log(tab_id);
     $('.season-panel[itinerary-tab="' + tab_id + '"]').hide();
-
-
     $('.season-panel[data-tab="' + season + '"][itinerary-tab="' + tab_id + '"]').show();
-
-
-
   });
+
+
+  $('.itinerary-year-select').val(initialPriceYear).trigger("change");
 
   //Dates --------------------------------------
   //Controls

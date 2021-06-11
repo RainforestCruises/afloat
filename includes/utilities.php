@@ -54,3 +54,16 @@ function comma_separate_list($arr)
     endforeach;
     return $display;
 }
+
+function priceFormat($price) {
+
+    $display = "";
+    if($price > 0) {
+       $display = "$ " .  number_format($price, 0);
+    } else {
+        $display = "N/A";
+    }
+
+    return $display;
+    
+}

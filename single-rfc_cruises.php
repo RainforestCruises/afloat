@@ -155,8 +155,9 @@ while (have_posts()) :
 
 
   <script>
-    var currentYear = '<?php echo $currentYear = date("Y"); ?>';
     var templateUrl = '<?php echo bloginfo('template_url') ?>';
+    var initialPriceYear = '<?php echo date("Y"); ?>';
+
   </script>
 
 <?php
