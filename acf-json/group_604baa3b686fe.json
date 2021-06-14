@@ -242,13 +242,40 @@
                     "multiple": 0
                 },
                 {
+                    "key": "field_60c7962694a8c",
+                    "label": "Hide Tours",
+                    "name": "hide_tours",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_604f7633401d3",
                     "label": "Tours",
                     "name": "tours",
                     "type": "repeater",
                     "instructions": "Featured tours",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_60c7962694a8c",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -601,5 +628,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Expedition \/ Bucket List - Page",
-    "modified": 1615913120
+    "modified": 1623692890
 }

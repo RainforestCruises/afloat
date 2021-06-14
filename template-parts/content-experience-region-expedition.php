@@ -9,23 +9,8 @@ $count = 0;
 
 <?php foreach ($destinations as $d) :
     $destination_post = $d['destination_post'];
+    $hide_tours = $d['hide_tours'];
     $count++;
-
-
-
-    // //TOURS
-    // $tourCriteria = array(
-    //     'posts_per_page' => -1,
-    //     'post_type' => 'rfc_tours',
-    //     'meta_query' => array(
-    //         array(
-    //             'key' => 'destinations',
-    //             'value' => '"' . $destination_post->ID . '"',
-    //             'compare' => 'LIKE'
-    //         )
-    //     )
-    // );
-    // $tours = get_posts($tourCriteria);
 
     $tours = $d['tours'];
 ?>
@@ -66,9 +51,9 @@ $count = 0;
 
             </div>
         </div>
-
+        <?php if($hide_tours == false) : ?>
         <div class="experience-region__slider-area">
-
+            
             <div class="experience-region__slider-area__slider" id="region-slider-<?php echo $count; ?>">
                 <?php
                 if ($tours) :
@@ -112,6 +97,6 @@ $count = 0;
                 endif; ?>
             </div>
         </div>
-
+        <?php endif; ?>
     </div>
 <?php endforeach; ?>

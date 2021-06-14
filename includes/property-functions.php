@@ -6,7 +6,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
     $prices = [];
     $itineraries = $cruise_data['Itineraries'];
     if (count($itineraries) > 0) {
-        
+
         foreach ($itineraries as $i) {
             if ($i['LengthInDays'] >= $fromLength) {
                 $rateYears = $i['RateYears'];
@@ -15,7 +15,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
                         $rates = $r['Rates'];
                         $rateValues = [];
                         foreach ($rates as $rate) {
-                            if($rate['WebAmount'] > 0){
+                            if ($rate['WebAmount'] > 0) {
                                 $rateValues[] = $rate['WebAmount'];
                             }
                         }
@@ -110,6 +110,9 @@ function productType($property)
 }
 
 
+//Cruises available functions --> return number for the rectangular blocks on destination pages
+//NOTE: this WILL include cruises with no departure dates... SERPs will not include cruises with no departure dates, itineraries, etc. So the number may differ.
+//Location
 function cruises_available_location($location)
 {
 
@@ -117,41 +120,34 @@ function cruises_available_location($location)
         'posts_per_page' => -1,
         'post_type' => 'rfc_cruises',
         'meta_query' => array(
-            'relation' => 'AND',
+
             array(
                 'key' => 'locations', // name of custom field
                 'value' => '"' . $location->ID . '"',
                 'compare' => 'LIKE'
-            ),
-            array(
-                'key' => 'charter_only', // name of custom field
-                'value' => true,
-                'compare' => 'NOT LIKE'      
             )
         )
     );
 
-    
 
     $count = 0;
-
-
     $cruisePosts = get_posts($postCriteria);
-    $count = count($cruisePosts);
 
-    console_log('location');
-    console_log($location);
-    console_log($cruisePosts);
-
+    //filter out charter only
+    foreach ($cruisePosts as $c) {
+        $charterOnly = get_field('charter_only', $c);
+        if ($charterOnly == false) {
+            $count++;
+        }
+    }
 
     return $count;
 }
 
-
+//Experience
 function cruises_available_experience($destination, $experience)
 {
-    
-    $count = 0;
+
     $postCriteria = array(
         'posts_per_page' => -1,
         'post_type' => 'rfc_cruises',
@@ -166,25 +162,29 @@ function cruises_available_experience($destination, $experience)
                 'key' => 'experiences', // name of custom field
                 'value' => '"' . $experience->ID . '"',
                 'compare' => 'LIKE'
-            ),
-            array(
-                'key' => 'charter_only', // name of custom field
-                'value' => true,
-                'compare' => 'NOT LIKE'      
             )
         )
     );
-    $cruisesPosts = get_posts($postCriteria);
-    $count = count($cruisesPosts);
 
-    console_log('experience');
-    console_log($experience);
-    console_log($cruisesPosts);
+
+    $count = 0;
+    $cruisePosts = get_posts($postCriteria);
+
+    //filter out charter only
+    foreach ($cruisePosts as $c) {
+        $charterOnly = get_field('charter_only', $c);
+        if ($charterOnly == false) {
+
+            $count++;
+        }
+    }
+
 
     return $count;
 }
 
-function cruises_available_charter($destination) 
+//Charter
+function cruises_available_charter($destination)
 {
     $count = 0;
     $postCriteria = array(
@@ -201,21 +201,16 @@ function cruises_available_charter($destination)
                 'key' => 'charter_available', // name of custom field
                 'value' => true,
                 'compare' => 'LIKE'
-                
             )
         )
     );
     $cruisesPosts = get_posts($postCriteria);
     $count = count($cruisesPosts);
 
-    console_log('charter');
-    console_log($destination);
-    console_log($cruisesPosts);
-
     return $count;
 }
 
-
+//Cruises available region (experience templates)
 function cruises_available_region($region, $experience, $isCharter)
 {
 
@@ -227,7 +222,7 @@ function cruises_available_region($region, $experience, $isCharter)
         "meta_value" => $region->ID
     );
     $destinations = get_posts($destinationCriteria);
- 
+
     //get destination IDs
     $destinationIds = [];
     foreach ($destinations as $d) {
@@ -248,7 +243,7 @@ function cruises_available_region($region, $experience, $isCharter)
 
     $count = 0;
 
-    if($isCharter == false) {
+    if ($isCharter == false) {
         $postCriteria = array(
             'posts_per_page' => -1,
             'post_type' => 'rfc_cruises',
@@ -262,7 +257,6 @@ function cruises_available_region($region, $experience, $isCharter)
                 )
             )
         );
-
     } else {
         $postCriteria = array(
             'posts_per_page' => -1,
@@ -278,11 +272,10 @@ function cruises_available_region($region, $experience, $isCharter)
             )
         );
     }
-    
+
     $cruisesPosts = get_posts($postCriteria);
     $count = count($cruisesPosts);
     return $count;
-
 }
 
 
@@ -305,7 +298,7 @@ function check_if_promo($cruise_data, $startDate, $endDate, $lengthMin, $lengthM
             $filteredItineraries[] = $itinerary;
         }
     }
-   
+
     $hasPromo = false;
     foreach ($filteredItineraries as $itinerary) {
 
@@ -313,7 +306,7 @@ function check_if_promo($cruise_data, $startDate, $endDate, $lengthMin, $lengthM
         foreach ($departures as $departure) {
             $dateString = strtotime($departure['DepartureDate']);
             if ($dateString >= $startDate && $dateString <= $endDate) {
-                if($departure['HasPromo'] == true){
+                if ($departure['HasPromo'] == true) {
                     $hasPromo = true;
                 }
             }
