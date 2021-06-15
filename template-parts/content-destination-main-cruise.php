@@ -86,6 +86,7 @@ $cruise_experiences = get_field('cruise_experiences');
                     $cruise_data = get_field('cruise_data', $c);
                     $charter_only = get_field('charter_only', $c);
                     $charter_min_days = get_field('charter_min_days', $c);
+                    $charter_daily_price = get_field('charter_daily_price', $c);
 
                     $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear);
                     ?>
@@ -133,10 +134,12 @@ $cruise_experiences = get_field('cruise_experiences');
                                 </div>
                                 <div class="product-card__bottom__info__price-group">
                                     <?php if ($charter_only) : ?>
-                                        <div class="product-card__bottom__info__price-group__from">Charter Pricing</div>
+                                        <div class="product-card__bottom__info__price-group__from">Day</div>
+                                        <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($charter_daily_price);  ?> <span>USD</span></div>
+
                                     <?php else : ?>
                                         <div class="product-card__bottom__info__price-group__from">From</div>
-                                        <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
+                                        <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($lowestPrice);  ?> <span>USD</span></div>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -196,7 +199,7 @@ $cruise_experiences = get_field('cruise_experiences');
             ?>
         </div>
     <?php endif; ?>
-    
+
     <!-- experiences -->
     <div class="sub-divider destination-main__experiences-title">
         <?php echo $title ?> Experiences

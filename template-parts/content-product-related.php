@@ -47,12 +47,14 @@ $posts = get_posts($queryArgs);
                 $isCharterOnly = false;
                 $hasCharterAvailable = false;
                 $charter_min_days = 0;
-
+                $charter_daily_price = 0;
+                $link = get_permalink($p);
                 if (get_post_type() == 'rfc_cruises') {
                     $charterView = $args['charter_view'];
                     $isCharterOnly = get_field('charter_only', $p);
                     $hasCharterAvailable = get_field('charter_available', $p);
                     $charter_min_days = get_field('charter_min_days', $p);
+                    $charter_daily_price = get_field('charter_daily_price', $p);
                 }
 
                 if (!$charterView) {
@@ -63,6 +65,11 @@ $posts = get_posts($queryArgs);
                     if (!$hasCharterAvailable) {
                         continue;
                     }
+
+                    if (!$isCharterOnly) {
+                        $link = $link . "?charter=true";
+                    };
+                    
                 }
 
 
@@ -75,17 +82,16 @@ $posts = get_posts($queryArgs);
 
                     $tour_length = get_field('length', $p);
                     $price_packages = get_field('price_packages', $p);
-                    
+
                     $lowestPrice = lowest_tour_price($price_packages, $currentYear);
-                  
                 } else {
-                  
+
                     $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear);
                 }
             ?>
 
                 <!-- Card -->
-                <a class="product-card" href="<?php echo get_permalink($p); ?>">
+                <a class="product-card" href="<?php echo $link; ; ?>">
                     <div class="product-card__image-area">
                         <?php if ($featured_image) : ?>
                             <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
@@ -131,10 +137,12 @@ $posts = get_posts($queryArgs);
                             <div class="product-card__bottom__info__price-group">
 
                                 <?php if ($charterView) : ?>
-                                    <div class="product-card__bottom__info__price-group__from">Charter Pricing</div>
+                                    <div class="product-card__bottom__info__price-group__from">Day</div>
+                                    <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($charter_daily_price);  ?> <span>USD</span></div>
+
                                 <?php else : ?>
                                     <div class="product-card__bottom__info__price-group__from">From</div>
-                                    <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>
+                                    <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($lowestPrice); ?> <span>USD</span></div>
                                 <?php endif; ?>
 
                             </div>

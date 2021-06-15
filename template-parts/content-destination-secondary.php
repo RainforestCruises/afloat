@@ -27,6 +27,7 @@ console_log($cruises);
                 $cruise_data = get_field('cruise_data', $c);
                 $charter_only = get_field('charter_only', $c);
                 $charter_min_days = get_field('charter_min_days', $c);
+                $charter_daily_price = get_field('charter_daily_price', $c);
 
                 $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear);
                 ?>
@@ -73,7 +74,8 @@ console_log($cruises);
                             </div>
                             <div class="product-card__bottom__info__price-group">
                                 <?php if ($charter_only) : ?>
-                                    <div class="product-card__bottom__info__price-group__from">Charter Pricing</div>
+                                    <div class="product-card__bottom__info__price-group__from">Day</div>
+                                    <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($charter_daily_price, 0);  ?> <span>USD</span></div>
                                 <?php else : ?>
                                     <div class="product-card__bottom__info__price-group__from">From</div>
                                     <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($lowestPrice, 0);  ?> <span>USD</span></div>

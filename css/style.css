@@ -8556,7 +8556,8 @@ h5 {
           font-size: 1.4rem;
           line-height: 1.8rem;
           text-transform: uppercase;
-          letter-spacing: 0.1rem; }
+          letter-spacing: 0.1rem;
+          margin-right: .5rem; }
         .product-card__bottom__info__length-group::after {
           content: "";
           position: absolute;

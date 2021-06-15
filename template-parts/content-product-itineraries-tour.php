@@ -117,7 +117,7 @@ $img = get_field('map');
                                                     $single_supplement = ($pricePackage['single_supplement'] != "") ? $pricePackage['single_supplement'] : 0;
                                                     $single_price = intval($price) + intval($single_supplement);
                                                     $price_level = $pricePackage['price_level'];
-                                                    console_log('pp');
+                                                    
                                         ?>
 
                                                     <div class="price-grid__grid__cabin-type">
@@ -130,16 +130,7 @@ $img = get_field('map');
                                                         <?php echo "$ " . number_format($single_price, 0);  ?>
                                                     </div>
 
-                                                <?php else : ?>
-                                                    <div class="price-grid__grid__cabin-type">
-                                                    <?php echo get_the_title($price_level); ?>
-                                                    </div>
-                                                    <div class="price-grid__grid__double-price">
-                                                    N/A
-                                                    </div>
-                                                    <div class="price-grid__grid__single-price">
-                                                    N/A
-                                                    </div>
+                                                
                                         <?php endif;
                                             endforeach;
                                         endif;
