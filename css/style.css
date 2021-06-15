@@ -203,7 +203,7 @@ p {
   text-align: center;
   margin: 4rem;
   padding: 4rem 6rem;
-  font-family: "Old Standard TT", serif;
+  font-family: "Playfair Display", serif;
   border: 1px solid #e6e6e6;
   letter-spacing: 0.15rem;
   font-size: 1.4rem; }
@@ -230,7 +230,7 @@ p {
   display: flex;
   flex-direction: row;
   color: #142838;
-  font-family: "Old Standard TT", serif;
+  font-family: "Playfair Display", serif;
   font-size: 4rem;
   line-height: 4.5rem;
   letter-spacing: 0.3rem;
@@ -246,18 +246,22 @@ p {
     flex: 1 1;
     border-bottom: 1px solid currentColor;
     margin: auto;
-    margin-right: 2rem; }
+    margin-right: 2rem;
+    transform: translateY(4px); }
     @media only screen and (max-width: 50em) {
       .page-divider::before {
+        transform: translateY(2px);
         margin-right: 1.5rem; } }
   .page-divider::after {
     content: "";
     flex: 1 1;
     border-bottom: 1px solid currentColor;
     margin: auto;
-    margin-left: 2rem; }
+    margin-left: 2rem;
+    transform: translateY(4px); }
     @media only screen and (max-width: 50em) {
       .page-divider::after {
+        transform: translateY(2px);
         margin-left: 1.5rem; } }
   @media only screen and (max-width: 50em) {
     .page-divider {
@@ -3648,7 +3652,7 @@ h5 {
           position: absolute;
           right: 0rem;
           top: 0rem;
-          font-family: "Old Standard TT", serif;
+          font-family: "Playfair Display", serif;
           color: rgba(20, 40, 56, 0.1);
           font-size: 3.5rem;
           z-index: -1; }
@@ -4005,7 +4009,7 @@ h5 {
             grid-column: center-start / center-end; } }
       .product-prices__price-group__name__length {
         font-size: 3rem;
-        font-family: "Old Standard TT", serif;
+        font-family: "Playfair Display", serif;
         color: #c2c6c9;
         letter-spacing: 0.2rem;
         grid-row: 1 / span 1;
@@ -4057,7 +4061,7 @@ h5 {
         .product-prices__price-group__card-group__card__season {
           justify-self: center;
           font-size: 1.6rem;
-          font-family: "Old Standard TT", serif;
+          font-family: "Playfair Display", serif;
           letter-spacing: 0.2rem;
           padding-top: 0.5rem;
           padding-bottom: 2rem;
@@ -4143,7 +4147,7 @@ h5 {
           background-color: #e6e6e6; }
       .product-prices__tour-prices__tour-price-group__year {
         font-size: 5rem;
-        font-family: "Old Standard TT", serif;
+        font-family: "Playfair Display", serif;
         color: #c2c6c9;
         letter-spacing: 0.2rem;
         grid-row: 1 / span 1;
@@ -4175,7 +4179,7 @@ h5 {
             font-weight: 600; }
           .product-prices__tour-prices__tour-price-group__blocks__block__sub {
             font-size: 1.6rem;
-            font-family: "Old Standard TT", serif;
+            font-family: "Playfair Display", serif;
             letter-spacing: 0.2rem;
             padding: 0 3rem;
             padding-bottom: 2rem;
@@ -4448,7 +4452,7 @@ h5 {
         .product-dates__search-area__results__itinerary-group__itinerary {
           padding: 2rem; } }
       .product-dates__search-area__results__itinerary-group__itinerary__title-group {
-        font-family: "Old Standard TT", serif;
+        font-family: "Playfair Display", serif;
         display: flex; }
         .product-dates__search-area__results__itinerary-group__itinerary__title-group__icon {
           grid-column: 1 / span 1;
@@ -5543,7 +5547,7 @@ h5 {
         font-size: 5rem;
         line-height: 5.8rem;
         letter-spacing: 0.6rem;
-        font-family: "Old Standard TT", serif;
+        font-family: "Playfair Display", serif;
         grid-column: 1 / span 1;
         align-self: center;
         position: relative;
@@ -6305,7 +6309,7 @@ h5 {
                 margin-bottom: 1rem; } }
           .destination-guides__grid-container__grid__item__content__title {
             font-size: 3.5rem;
-            font-family: "Old Standard TT", serif;
+            font-family: "Playfair Display", serif;
             letter-spacing: .4rem;
             font-weight: 400;
             line-height: 4rem; }
@@ -6566,7 +6570,7 @@ h5 {
         font-size: 6rem;
         line-height: 7rem;
         text-align: center;
-        font-family: "Old Standard TT", serif;
+        font-family: "Playfair Display", serif;
         letter-spacing: 0.3rem;
         font-weight: 500;
         text-transform: uppercase; }
@@ -6620,7 +6624,7 @@ h5 {
         text-align: center;
         letter-spacing: 0.5rem;
         font-weight: 300;
-        font-family: "Old Standard TT", serif;
+        font-family: "Playfair Display", serif;
         text-transform: uppercase; }
         @media only screen and (max-width: 22em) {
           .home-hero__content__title-group__subtitle {
@@ -7026,7 +7030,7 @@ h5 {
         font-size: 4.5rem;
         line-height: 5.2rem;
         letter-spacing: 0.1rem;
-        font-family: "Old Standard TT", serif;
+        font-family: "Playfair Display", serif;
         font-weight: 500;
         color: #142838;
         margin-bottom: 3rem; }
@@ -7304,7 +7308,7 @@ h5 {
         margin: 3rem;
         margin-bottom: 2rem; } }
     .home-featured-item__content__title {
-      font-family: "Old Standard TT", serif;
+      font-family: "Playfair Display", serif;
       font-size: 3.5rem;
       line-height: 4.2rem;
       letter-spacing: 0.2rem;
@@ -7485,7 +7489,7 @@ h5 {
         width: 100%; } }
     .testimonial__content__snippet {
       font-size: 2.5rem;
-      font-family: "Old Standard TT", serif;
+      font-family: "Playfair Display", serif;
       letter-spacing: 0.1rem; }
       @media only screen and (max-width: 62.5em) {
         .testimonial__content__snippet {
@@ -7609,7 +7613,7 @@ h5 {
         font-size: 6rem;
         line-height: 7rem;
         text-align: center;
-        font-family: "Old Standard TT", serif;
+        font-family: "Playfair Display", serif;
         letter-spacing: 0.3rem;
         font-weight: 500;
         text-transform: uppercase; }
@@ -7710,7 +7714,7 @@ h5 {
       font-size: 18rem;
       white-space: nowrap;
       overflow-x: hidden;
-      font-family: "Old Standard TT", serif;
+      font-family: "Playfair Display", serif;
       color: #f8f8f8;
       text-transform: uppercase;
       letter-spacing: .5rem; }
@@ -7733,7 +7737,7 @@ h5 {
         line-height: 4.8rem;
         letter-spacing: 1rem;
         text-transform: uppercase;
-        font-family: "Old Standard TT", serif;
+        font-family: "Playfair Display", serif;
         font-weight: 500;
         margin-bottom: 1.5rem; }
         @media only screen and (max-width: 50em) {
@@ -7966,7 +7970,7 @@ h5 {
         font-size: 7rem;
         line-height: 7.5rem;
         letter-spacing: 0.2rem;
-        font-family: "Old Standard TT", serif;
+        font-family: "Playfair Display", serif;
         text-align: center;
         z-index: 5; }
         @media only screen and (max-width: 50em) {
@@ -8039,7 +8043,7 @@ h5 {
         font-size: 3rem;
         line-height: 3.5rem;
         text-align: center;
-        font-family: "Old Standard TT", serif; }
+        font-family: "Playfair Display", serif; }
       @media only screen and (max-width: 37.5em) {
         .about-mission__statement__snippet {
           padding: 9rem 3rem; } }
@@ -8116,7 +8120,7 @@ h5 {
       line-height: 4rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
-      font-family: "Old Standard TT", serif;
+      font-family: "Playfair Display", serif;
       letter-spacing: .2rem; }
       @media only screen and (max-width: 37.5em) {
         .difference-card__content__title {
@@ -8410,7 +8414,7 @@ h5 {
       font-size: 1.4rem;
       letter-spacing: 0.05rem;
       color: #919598;
-      font-family: "Old Standard TT", serif;
+      font-family: "Playfair Display", serif;
       grid-column: 1 / -1;
       grid-row: 1 / span 1;
       text-align: center;
@@ -8664,7 +8668,7 @@ h5 {
           .wide-slider-card__content__text-area__country li:not(:first-child)::before {
             content: " / "; }
       .wide-slider-card__content__text-area__title {
-        font-family: "Old Standard TT", serif;
+        font-family: "Playfair Display", serif;
         font-size: 3rem;
         letter-spacing: 0.3rem;
         text-transform: uppercase;
@@ -8864,7 +8868,7 @@ h5 {
     padding: 3rem 2rem;
     text-align: center; }
     .home-destination-card__title-area__title {
-      font-family: "Old Standard TT", serif;
+      font-family: "Playfair Display", serif;
       font-size: 2.5rem;
       line-height: 3.2rem;
       letter-spacing: 0.5rem; }
@@ -8959,7 +8963,7 @@ h5 {
     .newsletter__content__title {
       font-size: 5rem;
       line-height: 5.8rem;
-      font-family: "Old Standard TT", serif;
+      font-family: "Playfair Display", serif;
       color: #142838;
       margin-bottom: 4rem; }
       @media only screen and (max-width: 62.5em) {
@@ -9874,7 +9878,7 @@ h5 {
     line-height: 7rem;
     font-weight: 500;
     letter-spacing: 0.2rem;
-    font-family: "Old Standard TT", serif;
+    font-family: "Playfair Display", serif;
     margin-right: 5rem; }
     @media only screen and (max-width: 50em) {
       .footer__tagline {

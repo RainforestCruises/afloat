@@ -5,6 +5,7 @@ function load_scripts()
     wp_enqueue_style('primary-font', 'https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700,800', array(), false, 'all');
     wp_enqueue_style('secondary-font', 'https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,500,600,700,800', array(), false, 'all');
     wp_enqueue_style('tertiary-font', 'https://fonts.googleapis.com/css?family=Old+Standard+TT:300,400,400i,500,600,700,800', array(), false, 'all');
+    wp_enqueue_style('fourth-font', 'https://fonts.googleapis.com/css?family=Playfair+Display:300,400,400i,500,600,700,800', array(), false, 'all');
 
     wp_enqueue_style('slick-theme', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css', array(), false, 'all');
     wp_enqueue_style('slick-min', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', array(), false, 'all');

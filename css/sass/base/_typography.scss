@@ -172,8 +172,11 @@ p {
         margin: auto;
 
         margin-right: 2rem;
+        transform: translateY(4px);
 
         @media only screen and (max-width: $bp-medium) {
+            transform: translateY(2px);
+
             margin-right: 1.5rem;
         }
     }
@@ -184,8 +187,9 @@ p {
         margin: auto;
 
         margin-left: 2rem;
-
+        transform: translateY(4px);
         @media only screen and (max-width: $bp-medium) {
+            transform: translateY(2px);
             margin-left: 1.5rem;
         }
     }
