@@ -40,7 +40,7 @@ $hero_subtitle = get_field('hero_subtitle');
             <div class="home-search" id="search-container">
 
                 <!-- Destination -->
-                <div class="home-search__destination">
+                <div class="home-search__destination" id="destination-input-container">
                     <input class="home-search__destination__input" id="destination-input" type="text" value="" placeholder="Where would you like to go?" autocomplete="off">
 
                     <ul class="home-search__destination__list" id="destination-list">

@@ -64,18 +64,10 @@ $newsletter_snippet = get_field('newsletter_snippet');
 
 
 <!-- Full Search Mobile -->
-<div class="home-full-search">
+<div class="home-full-search" id="home-full-search">
 
-  <div class="home-full-search__input-group">
-    <div class="home-full-search__input-group__input">
-      Where would you like to go?
-    </div>
-    <div class="home-full-search__input-group__close-button" id="search-close" tabindex="0">
-      Cancel
-    </div>
-  </div>
-  <div class="home-full-search__results">
-    Results
+  <div class="home-full-search__close-button" id="mobile-search-close" tabindex="0">
+    Cancel
   </div>
 
 

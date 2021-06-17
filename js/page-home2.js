@@ -9,7 +9,7 @@ jQuery(document).ready(function ($) {
 
     })
 
-    $('#search-close').click(function (event) {
+    $('#mobile-search-close').click(function (event) {
 
         const body = document.querySelector('body');
         body.classList.remove('lock-scroll');
@@ -146,6 +146,7 @@ jQuery(document).ready(function ($) {
 
 
     //DESTINATION SELECT COMPONENT --------------------------------------------------------------------------------------------
+    const destinationInputContainer = document.querySelector('#destination-input-container');
     const destinationInput = document.querySelector('#destination-input');
     const destinationList = document.querySelector('#destination-list');
     const searchContainer = document.querySelector('#search-container');
@@ -399,34 +400,19 @@ jQuery(document).ready(function ($) {
 
 
 
-    // const searchButton = document.querySelector('#search-button');
-    // searchButton.addEventListener('click', (e) => {
-    //     $("#travel-destination").val(selectedDestination);
-
-    //     // var formMonth = document.getElementById('travel-month').value;
-    //     // var formYear = document.getElementById('travel-year').value;
-    //     // console.log(formMonth);
-    //     // console.log(formYear);
-
-    //     // if(formMonth != "") {
-    //     //     $("#travel-month").val(selectedMonth);
-    //     // }
-    //     // if(formYear != ""){
-    //     //     $("#travel-year").val(selectedYear);
-    //     // }
-
-    //      $("#travel-month").val(selectedMonth);
-    //      $("#travel-year").val(selectedYear);
-
-    //     if (selectedDestination == 0) {
-    //         e.preventDefault();
-    //         inputField.classList.add('error')
-    //     } else {
-    //         searchButton.classList.add('loading');
-    //     }
-    // });
+    //Mobile Rearrangement ---------------------
+    const homeFullSearch = document.querySelector('.home-full-search');
 
 
+    //move sort filter -- initial
+    if ($(window).width() < 1000) {
+        homeFullSearch.appendChild(destinationInputContainer);
+        //homeFullSearch.appendChild(destinationInputContainer);
+
+    }
+    // else {
+    //     searchResultsTop.appendChild(searchSortControl)
+    // }
 
 });
 
