@@ -182,8 +182,8 @@
 }
 
 .home-search {
-    //width: 38rem;
-    width: min-content;
+    width: 38rem;
+    //width: min-content;
     height: min-content;
 
     display: flex;
@@ -199,7 +199,7 @@
     align-items: center;
 
     &.expand {
-        transition: width 0.3s;
+        //transition: width 0.3s;
         width: 70rem;
 
         & .home-search__dates {

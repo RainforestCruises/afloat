@@ -6629,7 +6629,7 @@ h5 {
         padding: 0 3rem; } }
 
 .home-search {
-  width: min-content;
+  width: 38rem;
   height: min-content;
   display: flex;
   padding: 0.5rem 1rem;
@@ -6641,7 +6641,6 @@ h5 {
   justify-content: space-between;
   align-items: center; }
   .home-search.expand {
-    transition: width 0.3s;
     width: 70rem; }
     .home-search.expand .home-search__dates {
       animation: fadein 0.5s 0.2s;

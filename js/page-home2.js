@@ -164,7 +164,7 @@ jQuery(document).ready(function ($) {
         destinationStringArray.push(item.textContent);
     });
 
-    
+
 
     //occurs on typing text into destination field
     destinationInput.addEventListener('input', () => {
@@ -228,22 +228,23 @@ jQuery(document).ready(function ($) {
     //leave focus
     destinationInput.addEventListener('blur', (event) => {
 
-        
+
         destinationList.classList.remove('open');
         let destinationListOpen = destinationList.classList.contains('open');
         //console.log('blur event');
 
 
-        if(!destinationListOpen){
+        if (!destinationListOpen) {
             if (suggestionsArray.length == 0) {
                 //dont assign any if nothing selected
             } else {
                 destinationInput.value = suggestionsArray[0];
+                showDateSelect();
             }
         }
 
-        showDateSelect();
-    
+
+
     });
 
 
@@ -252,6 +253,8 @@ jQuery(document).ready(function ($) {
         //console.log('click away')
         const isDestinationInput = destinationInput.contains(evt.target);
         const isDatesInput = datesInput.contains(evt.target);
+        const isDatesList = datesList.contains(evt.target);
+
         const isSearchContainer = searchContainer.contains(evt.target);
 
 
@@ -259,13 +262,12 @@ jQuery(document).ready(function ($) {
             destinationList.classList.remove('open');
         }
 
-        if (!isDatesInput) {
+        if (!isDatesInput && !isDatesList) { //needs both because not all area is clickable space
             datesList.classList.remove('open');
         }
 
         if (!isDestinationInput && !isDatesInput && !isSearchContainer) {
             searchContainer.classList.remove('active'); //here
-            //console.log('remove active');
         }
 
     });
@@ -280,7 +282,14 @@ jQuery(document).ready(function ($) {
             document.querySelector('#date-select').click();
         }
     });
+
+    function showDateSelect() {
+        searchContainer.classList.add('expand');
+        datesInputContainer.classList.add('show');
+    }
+
     //END DESTINATION SELECT -----------------------------------------------------------------------------------
+
 
 
 
@@ -290,23 +299,13 @@ jQuery(document).ready(function ($) {
     const datesInput = document.querySelector('#dates-input');
     const datesList = document.querySelector('#dates-list');
     const datesListItems = [...document.querySelectorAll('#dates-list li')];
-    
+
     const dateYearArray = [...document.querySelectorAll('.home-search__dates__list__years__year')];
 
 
-    function showDateSelect() {
-        // if(selectedDestination != 0){
-        //     dateInputGroup.classList.add('show');
-        //     searchForm.classList.add('expand');
-        // } else {
-        //     dateInputGroup.classList.remove('show');
-        //     searchForm.classList.remove('expand');
-        // }
-        searchContainer.classList.add('expand');
-        datesInputContainer.classList.add('show');
-    }
 
-    let selectedYear = moment().format('YYYY');
+
+    let selectedYear = moment().format('YYYY');  //fix this
     let selectedMonth = moment().format('MM');
     let currentYear = moment().format('YYYY');
     let currentMonth = moment().format('MM');
@@ -322,74 +321,72 @@ jQuery(document).ready(function ($) {
         } else {
             item.classList.remove('disabled');
         }
-
-        if (item.getAttribute('month') == currentMonth) {
-            item.classList.add('selected');
-        }
     })
 
 
     //Input Field Click
     datesInput.addEventListener('click', () => {
-        datesInput.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear;
         datesList.classList.add('open');
         datesInput.classList.add('open');
-        //searchForm.classList.add('active');
-        console.log('date input field click');
         searchContainer.classList.add('active');
-        
+
+        console.log('date input field click');
+
     });
 
-    // //Year Click - event handler to each LI
-    // dateYearArray.forEach(item => {
-    //     item.addEventListener('click', () => {
+    //Year Click - event handler to each LI
+    dateYearArray.forEach(item => {
+        item.addEventListener('click', () => {
 
-    //         selectedYear = item.getAttribute("year");
-    //         //if current year, disable past months, if prox year, remove all disabled -- fires every time year is clicked
-    //         datesListItems.forEach(item => {
-    //             if (selectedYear == currentYear) {
+            selectedYear = item.getAttribute("year");
 
-    //                 if (item.getAttribute('month') < currentMonth) {
-    //                     item.classList.add('disabled');
-    //                     //if on prox year and selected prev month and went back to prev year, set month selected to current month
-    //                     if (item.classList.contains('selected')) {
-    //                         item.classList.remove('selected');
-    //                         //find item with current month and apply selected
-    //                         datesListItems.forEach(monthItem => {
-    //                             if (monthItem.getAttribute('month') == currentMonth) {
-    //                                 monthItem.classList.add('selected')
-    //                                 selectedMonth = monthItem.getAttribute("month");
-    //                             }
-    //                         })
-    //                     }
-    //                 }
-    //             } else {
-    //                 item.classList.remove('disabled');
-    //             }
-    //         })
+            //if current year, disable past months, if prox year, remove all disabled -- fires every time year is clicked
+            datesListItems.forEach(item => {
+                if (selectedYear == currentYear) {
 
-    //         datedestinationInput.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear;
+                    if (item.getAttribute('month') < currentMonth) {
+                        item.classList.add('disabled');
+                        //if on prox year and selected prev month and went back to prev year, set month selected to current month
+                        if (item.classList.contains('selected')) {
+                            item.classList.remove('selected');
+                            //find item with current month and apply selected
+                            datesListItems.forEach(monthItem => {
+                                if (monthItem.getAttribute('month') == currentMonth) {
+                                    monthItem.classList.add('selected')
+                                    selectedMonth = monthItem.getAttribute("month");
+                                }
+                            })
+                        }
+                    }
+                } else {
+                    item.classList.remove('disabled');
+                }
+            })
 
-    //         dateYearArray.forEach(year => {
-    //             year.classList.remove('selected');
-    //         });
+            //needs to track both year sets independently !!
+            //datesInput.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear; -- fix
 
-    //         item.classList.add('selected')
-    //     });
-    // })
+            dateYearArray.forEach(year => {
+                year.classList.remove('selected');
+            });
+
+            item.classList.add('selected')
+        });
+    })
 
     //Month Click - event handler to each LI
     datesListItems.forEach(item => {
         item.addEventListener('click', (e) => {
             if (!item.classList.contains('disabled')) {
                 selectedMonth = item.getAttribute("month");
-                datesInput.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear;
+
+                datesInput.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear; //can get from attribute string
 
                 datesListItems.forEach(month => {
                     month.classList.remove('selected');
                 });
                 item.classList.add('selected');
-               
+
 
                 datesList.classList.remove('open');
                 searchContainer.classList.remove('active');
@@ -398,13 +395,7 @@ jQuery(document).ready(function ($) {
         });
     })
 
-    // document.addEventListener('click', evt => {
-    //     const isInput = datesInput.contains(evt.target);
-    //     const isDropdown = dateDropdown.contains(evt.target);
-    //     if (!isInput && !isDropdown) {
-    //         closeDropdown();
-    //     }
-    // });
+
 
 
 
