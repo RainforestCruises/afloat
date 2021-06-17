@@ -1,34 +1,28 @@
 .home-page {
-
     &__section-hero {
-        background-color: $color-black;   
+        background-color: $color-black;
     }
 
     &__section-intro {
-
-
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         width: 100%;
     }
- 
+
     &__section-destinations {
     }
     &__section-featured {
     }
     &__section-testimonials {
-     
     }
 
     &__section-newsletter {
-  
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         width: 100%;
     }
-
 }

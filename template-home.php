@@ -56,11 +56,27 @@ $newsletter_snippet = get_field('newsletter_snippet');
 
   <!-- Testimonials -->
   <section class="home-page__section-newsletter">
-  <?php
-  get_template_part('template-parts/content', 'shared-newsletter');
-  ?>
+    <?php
+    get_template_part('template-parts/content', 'shared-newsletter');
+    ?>
   </section>
+</div>
 
+
+<!-- Full Search Mobile -->
+<div class="home-full-search">
+
+  <div class="home-full-search__input-group">
+    <div class="home-full-search__input-group__input">
+      Where would you like to go?
+    </div>
+    <div class="home-full-search__input-group__close-button" id="search-close" tabindex="0">
+      Cancel
+    </div>
+  </div>
+  <div class="home-full-search__results">
+    Results
+  </div>
 
 
 

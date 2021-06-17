@@ -533,25 +533,5 @@ foreach ($menuitems as $m) {
         <?php endif; ?>
 
 
-        <!-- Full search test -->
-        <?php if (is_page_template('template-home.php')) : ?>
-            <div class="home-full-search">
-
-                <div class="home-full-search__input-group">
-                    <div class="home-full-search__input-group__input">
-                        Where would you like to go?
-                    </div>
-                    <div class="home-full-search__input-group__close-button" id="search-close" tabindex="0">
-                        Cancel
-                    </div>
-                </div>
-                <div class="home-full-search__results">
-                    Results
-                </div>
-
-
-
-            </div>
-        <?php endif; ?>
 
     </header>

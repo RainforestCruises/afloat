@@ -33,10 +33,13 @@ $hero_subtitle = get_field('hero_subtitle');
             </h1>
         </div>
 
+        <!-- Search Area -->
         <div class="home-hero__content__search-area">
 
-            <!-- New -->
+            <!-- Search Container -->
             <div class="home-search" id="search-container">
+
+                <!-- Destination -->
                 <div class="home-search__destination">
                     <input class="home-search__destination__input" id="destination-input" type="text" value="" placeholder="Where would you like to go?" autocomplete="off">
 
@@ -47,6 +50,7 @@ $hero_subtitle = get_field('hero_subtitle');
                     </ul>
                 </div>
 
+                <!-- Dates -->
                 <div class="home-search__dates">
                     <div class="home-search__dates__input" id="dates-input">
                         When would you like to travel?
@@ -78,6 +82,7 @@ $hero_subtitle = get_field('hero_subtitle');
                     </div>
                 </div>
 
+                <!-- CTA Button -->
                 <div class="home-search__cta">
                     <button class="home-search__cta__button" id="search-button">
                         <svg>
@@ -87,22 +92,21 @@ $hero_subtitle = get_field('hero_subtitle');
                 </div>
 
             </div>
-            <!-- New -->
+
+            <!-- Search Container Mobile -->
+            <div class="home-search-mobile">
+                <button id="mobile-search-button">
+                    Where do you want to go?
+
+                    <svg>
+                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-magnifying-glass"></use>
+                    </svg>
+                </button>
+            </div>
 
         </div>
 
-        <div class="home-hero__content__mobile-search">
 
-            <div class="home-hero__content__mobile-search__input-group">
-                Where
-            </div>
-            <div class="home-hero__content__mobile-search__input-group">
-                When
-            </div>
-            <button class="home-hero__content__search-form__cta__button" id="mobile-search-button">
-                Search
-            </button>
-        </div>
 
 
     </div>
