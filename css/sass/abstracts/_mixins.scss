@@ -7,10 +7,12 @@
 
 
 @mixin flexPadding {
+
     padding: 0 6rem;
     @media only screen and (max-width: $bp-small) {
         padding: 0 3rem;
     }
+    
 }
 
 
