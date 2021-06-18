@@ -284,9 +284,23 @@ jQuery(document).ready(function ($) {
         }
     });
 
+
+    //mobile-search-back
+    const mobileSearchBackButton = document.querySelector('#mobile-search-back');
+    const mobileSearchDatesContainer = document.querySelector('.home-full-search__dates');
+
+
+    mobileSearchBackButton.addEventListener('click', () => {
+        mobileSearchDatesContainer.classList.remove('active');
+    });
+
     function showDateSelect() {
         searchContainer.classList.add('expand');
         datesInputContainer.classList.add('show');
+        mobileSearchDatesContainer.classList.add('active');
+
+        //check screen size
+        
     }
 
     //END DESTINATION SELECT -----------------------------------------------------------------------------------
@@ -401,13 +415,14 @@ jQuery(document).ready(function ($) {
 
 
     //Mobile Rearrangement ---------------------
-    const homeFullSearch = document.querySelector('.home-full-search');
+    const homeFullSearchDestinationTop = document.querySelector('.home-full-search__destination__top');
+    const homeFullSearchDestination = document.querySelector('.home-full-search__destination');
 
 
     //move sort filter -- initial
     if ($(window).width() < 1000) {
-        homeFullSearch.appendChild(destinationInputContainer);
-        //homeFullSearch.appendChild(destinationInputContainer);
+        homeFullSearchDestinationTop.appendChild(destinationInput);
+        homeFullSearchDestination.appendChild(destinationList);
 
     }
     // else {

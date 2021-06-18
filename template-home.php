@@ -60,19 +60,38 @@ $newsletter_snippet = get_field('newsletter_snippet');
     get_template_part('template-parts/content', 'shared-newsletter');
     ?>
   </section>
-</div>
+
+  <!-- Full Search Mobile -->
+  <div class="home-full-search" id="home-full-search">
 
 
-<!-- Full Search Mobile -->
-<div class="home-full-search" id="home-full-search">
+    <!-- Destination -->
+    <div class="home-full-search__destination">
+      <div class="home-full-search__destination__top">
 
-  <div class="home-full-search__close-button" id="mobile-search-close" tabindex="0">
-    Cancel
+        <div class="home-full-search__destination__top__cancel" id="mobile-search-close">
+          Cancel
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Dates -->
+    <div class="home-full-search__dates">
+      <div class="home-full-search__dates__top">
+        <div class="home-full-search__dates__top__back" id="mobile-search-back">
+          Back
+        </div>
+      </div>
+    </div>
+
+
+
   </div>
-
-
-
 </div>
+
+
+
 
 
 <?php get_footer(); ?>

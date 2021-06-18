@@ -1365,22 +1365,22 @@ h5 {
   border: none;
   box-shadow: 0px 0px 0px 1px #aaa; }
 
-.home-page__section-hero {
-  background-color: #1e1e1e; }
-
-.home-page__section-intro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%; }
-
-.home-page__section-newsletter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%; }
+.home-page {
+  position: relative; }
+  .home-page__section-hero {
+    background-color: #1e1e1e; }
+  .home-page__section-intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%; }
+  .home-page__section-newsletter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%; }
 
 .product-page__section-hero {
   background-color: #1e1e1e; }
@@ -6652,12 +6652,15 @@ h5 {
       @media only screen and (max-width: 62.5em) {
         .home-search__destination__input {
           color: #1e1e1e;
-          height: 8rem;
+          height: 5rem;
           width: 100%;
           font-size: 2rem;
-          border-bottom: 1px solid #747474;
-          padding-left: 3rem;
-          padding-right: 10rem; }
+          margin: 1.5rem 3rem;
+          margin-right: 1rem;
+          padding: 0rem 3rem;
+          border-radius: 7rem;
+          background-color: #f8f8f8;
+          border: 1px solid #c2c6c9; }
           .home-search__destination__input::-webkit-input-placeholder {
             color: #1e1e1e; }
           .home-search__destination__input:hover::-webkit-input-placeholder {
@@ -6666,6 +6669,9 @@ h5 {
             color: #747474; }
             .home-search__destination__input:focus::-webkit-input-placeholder, .home-search__destination__input.open::-webkit-input-placeholder {
               color: #747474; } }
+      @media only screen and (max-width: 37.5em) {
+        .home-search__destination__input {
+          font-size: 1.6rem; } }
     .home-search__destination__list {
       position: absolute;
       z-index: 15;
@@ -6739,7 +6745,7 @@ h5 {
           .home-search__destination__list li {
             background-color: transparent;
             color: #1e1e1e;
-            padding: 1rem 3rem;
+            padding: 2rem 3rem;
             font-size: 1.8rem; }
             .home-search__destination__list li:hover {
               background-color: #c2c6c9;
@@ -7584,22 +7590,64 @@ h5 {
   width: 100%;
   background-color: #fff;
   z-index: 10000;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: none; }
   .home-full-search.active {
     display: block; }
-  .home-full-search__close-button {
-    width: min-content;
-    background-color: #e6e6e6;
-    color: #9ea0a4;
-    cursor: pointer;
-    font-size: 3rem;
-    position: absolute;
+  .home-full-search__destination {
+    height: 100%;
+    width: 100%;
+    position: fixed; }
+    .home-full-search__destination__top {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #c2c6c9; }
+      .home-full-search__destination__top__cancel {
+        order: 2;
+        width: min-content;
+        color: #142838;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: 600;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        @media only screen and (max-width: 37.5em) {
+          .home-full-search__destination__top__cancel {
+            font-size: 1.6rem; } }
+  .home-full-search__dates {
+    height: 100%;
+    width: 100%;
+    background-color: darkgoldenrod;
+    position: fixed;
     top: 0;
     right: 0;
-    z-index: 10; }
+    opacity: .5;
+    transform: translateX(-100%); }
+    .home-full-search__dates.active {
+      transition: all .3s;
+      transform: translateX(0%); }
+    .home-full-search__dates__top {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #c2c6c9; }
+      .home-full-search__dates__top__back {
+        order: 0;
+        width: min-content;
+        color: #142838;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: 600;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        @media only screen and (max-width: 37.5em) {
+          .home-full-search__dates__top__back {
+            font-size: 1.6rem; } }
 
 .experience-hero {
   display: flex;

@@ -5,29 +5,85 @@
 
     background-color: $color-white;
     z-index: 10000;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     display: none;
-    //position: relative;
-
+    
     &.active {
         display: block;
     }
 
 
-    &__close-button {
-        width: min-content;
-        background-color: $color-grey-light-1a;
-        color: $color-grey-1;
-        cursor: pointer;
-        font-size: 3rem;
-        position: absolute;
+    &__destination {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        &__top {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid $color-grey-light-2;
+
+            &__cancel {
+                order: 2;
+                width: min-content;
+                //background-color: $color-grey-light-1;
+                color: $color-primary;
+                cursor: pointer;
+                font-size: 2rem;
+                font-weight: 600;
+                padding: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @media only screen and (max-width: $bp-small) {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+
+
+   
+    &__dates {
+        height: 100%;
+        width: 100%;
+        background-color: darkgoldenrod;
+        position: fixed;
         top: 0;
         right: 0;
-        z-index: 10;
+        
+        opacity: .5;
+        transform: translateX(-100%);
+
+        &.active {
+            transition: all .3s;
+            transform: translateX(0%);
+        }
+
+        &__top {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid $color-grey-light-2;
+
+            &__back {
+                order: 0;
+                width: min-content;
+                //background-color: $color-grey-light-1;
+                color: $color-primary;
+                cursor: pointer;
+                font-size: 2rem;
+                font-weight: 600;
+                padding: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @media only screen and (max-width: $bp-small) {
+                    font-size: 1.6rem;
+                }
+            }
+        }
     }
-    
     
     
 

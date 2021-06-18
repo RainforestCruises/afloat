@@ -96,7 +96,7 @@ $hero_subtitle = get_field('hero_subtitle');
             <!-- Search Container Mobile -->
             <div class="home-search-mobile">
                 <button id="mobile-search-button">
-                    Where do you want to go?
+                    Where would you like to go?
 
                     <svg>
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-magnifying-glass"></use>
