@@ -1,6 +1,6 @@
 .home-full-search {
 
-    height: 100vh;
+    height: 100%;
     width: 100%;
 
     background-color: $color-white;
@@ -18,7 +18,9 @@
     &__destination {
         height: 100%;
         width: 100%;
-        position: fixed;
+        position: absolute;
+        top: 0;
+        left: 0;
         &__top {
             display: flex;
             justify-content: space-between;
@@ -48,12 +50,12 @@
     &__dates {
         height: 100%;
         width: 100%;
-        background-color: darkgoldenrod;
-        position: fixed;
+        background-color: $color-white;
+        position: absolute;
         top: 0;
-        right: 0;
+        left: 0;
         
-        opacity: .5;
+    
         transform: translateX(-100%);
 
         &.active {
@@ -69,17 +71,18 @@
             &__back {
                 order: 0;
                 width: min-content;
-                //background-color: $color-grey-light-1;
                 color: $color-primary;
                 cursor: pointer;
-                font-size: 2rem;
-                font-weight: 600;
                 padding: 2rem;
+                padding-right: .5rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                @media only screen and (max-width: $bp-small) {
-                    font-size: 1.6rem;
+
+                & svg {
+                    height: 4rem;
+                    width: 4rem;
+                    color: $color-primary;
                 }
             }
         }

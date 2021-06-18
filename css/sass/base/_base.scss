@@ -26,22 +26,19 @@ body {
     height: 100%;
     //height: -webkit-fill-available;
 
-    &.admin-bar {
-        .search-sidebar {
+    &.logged-in {
+        
+        //wp admin bar fix
+        & .home-full-search {
 
-            // @media only screen and (max-width: $bp-large) { 
-            //     height: calc(100vh - 31rem);
-            // }
-            // @media only screen and (max-width: 782px) { 
-            //     height: calc(100vh - 32.5rem);
-            // }
+            margin-top: 32px;
+            @media only screen and (max-width: 800px) {
+                margin-top: 46px;
+            }
+
             
         }
     }
-
-    
-
-
 }
 
 body.no-scroll {
@@ -69,7 +66,6 @@ a[href^="tel"] {
     text-decoration: none;
 }
 
-
 //slider text selectable
 .slick-slide {
     -webkit-user-select: text !important;
@@ -87,9 +83,9 @@ a[href^="tel"] {
 }
 
 .slick-list.draggable {
-    -webkit-user-select: none !important;;
-    -khtml-user-select: none !important;;
-    -moz-user-select: none !important;;
-    -ms-user-select: none !important;;
-    user-select: none !important;;
-  }
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}

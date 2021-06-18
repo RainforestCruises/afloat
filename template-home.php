@@ -80,7 +80,9 @@ $newsletter_snippet = get_field('newsletter_snippet');
     <div class="home-full-search__dates">
       <div class="home-full-search__dates__top">
         <div class="home-full-search__dates__top__back" id="mobile-search-back">
-          Back
+          <svg>
+            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_left_36px"></use>
+          </svg>
         </div>
       </div>
     </div>

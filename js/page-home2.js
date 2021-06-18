@@ -285,23 +285,7 @@ jQuery(document).ready(function ($) {
     });
 
 
-    //mobile-search-back
-    const mobileSearchBackButton = document.querySelector('#mobile-search-back');
-    const mobileSearchDatesContainer = document.querySelector('.home-full-search__dates');
 
-
-    mobileSearchBackButton.addEventListener('click', () => {
-        mobileSearchDatesContainer.classList.remove('active');
-    });
-
-    function showDateSelect() {
-        searchContainer.classList.add('expand');
-        datesInputContainer.classList.add('show');
-        mobileSearchDatesContainer.classList.add('active');
-
-        //check screen size
-        
-    }
 
     //END DESTINATION SELECT -----------------------------------------------------------------------------------
 
@@ -402,9 +386,14 @@ jQuery(document).ready(function ($) {
                 });
                 item.classList.add('selected');
 
+                if ($(window).width() < 1000) {
 
-                datesList.classList.remove('open');
-                searchContainer.classList.remove('active');
+                } else {
+                    datesList.classList.remove('open');
+                    searchContainer.classList.remove('active');
+                }
+
+
             }
 
         });
@@ -413,21 +402,74 @@ jQuery(document).ready(function ($) {
 
 
 
+    //Mobile
+    const mobileSearchBackButton = document.querySelector('#mobile-search-back');
+    const mobileSearchDatesContainer = document.querySelector('.home-full-search__dates');
+
+
+    mobileSearchBackButton.addEventListener('click', () => {
+        mobileSearchDatesContainer.classList.remove('active');
+    });
+
+    function showDateSelect() {
+        searchContainer.classList.add('expand');
+        datesInputContainer.classList.add('show');
+        mobileSearchDatesContainer.classList.add('active');
+
+        //check screen size
+        if ($(window).width() < 1000) {
+            console.log('b');
+            destinationInput.blur();
+            datesInput.focus();
+
+            datesList.classList.add('open');
+            datesInput.classList.add('open');
+        }
+    }
+
+
 
     //Mobile Rearrangement ---------------------
     const homeFullSearchDestinationTop = document.querySelector('.home-full-search__destination__top');
     const homeFullSearchDestination = document.querySelector('.home-full-search__destination');
 
+    const mobileSearchDatesTop = document.querySelector('.home-full-search__dates__top');
 
     //move sort filter -- initial
     if ($(window).width() < 1000) {
         homeFullSearchDestinationTop.appendChild(destinationInput);
         homeFullSearchDestination.appendChild(destinationList);
-
+        mobileSearchDatesTop.appendChild(datesInput);
+        mobileSearchDatesContainer.appendChild(datesList);
     }
-    // else {
-    //     searchResultsTop.appendChild(searchSortControl)
-    // }
+
+
+    //move elements on resize
+    $(window).resize(function () {
+        if ($(window).width() < 1000) { //mobile view    
+
+
+            if (homeFullSearchDestinationTop.contains(destinationInput) == false) {
+                homeFullSearchDestinationTop.appendChild(destinationInput);
+                homeFullSearchDestination.appendChild(destinationList);
+                mobileSearchDatesTop.appendChild(datesInput);
+                mobileSearchDatesContainer.appendChild(datesList);
+            }
+
+        }
+        else { //desktop view    
+            //hideMobileFilters();
+
+
+            if (searchContainer.contains(destinationInput) == false) {
+                destinationInputContainer.appendChild(destinationInput);
+                destinationInputContainer.appendChild(destinationList);
+                datesInputContainer.appendChild(datesInput);
+                datesInputContainer.appendChild(datesList);
+            }
+
+        }
+    });
 
 });
 

@@ -81,6 +81,11 @@ body {
   font-weight: 400;
   line-height: 1.6;
   height: 100%; }
+  body.logged-in .home-full-search {
+    margin-top: 32px; }
+    @media only screen and (max-width: 800px) {
+      body.logged-in .home-full-search {
+        margin-top: 46px; } }
 
 body.no-scroll {
   overflow: hidden; }
@@ -6569,11 +6574,21 @@ h5 {
         letter-spacing: 0.2rem;
         font-weight: 300;
         margin-bottom: 2.5rem; }
+        @media only screen and (max-width: 37.5em) {
+          .home-hero__content__title-group__title {
+            font-size: 4rem;
+            line-height: 4.5rem;
+            letter-spacing: 0.1rem; } }
       .home-hero__content__title-group__subtitle {
         font-size: 2.5rem;
         font-weight: 400;
         font-family: "Playfair Display", serif;
         letter-spacing: 0.1rem; }
+        @media only screen and (max-width: 37.5em) {
+          .home-hero__content__title-group__subtitle {
+            font-size: 2rem;
+            line-height: 2.5rem;
+            letter-spacing: 0.1rem; } }
     .home-hero__content__search-area {
       width: 100%;
       height: min-content; }
@@ -6680,7 +6695,6 @@ h5 {
       bottom: 100%;
       border-radius: 0.8rem;
       list-style: none;
-      margin-top: 4rem;
       overflow: hidden;
       max-height: 0;
       transition: 0.3s ease-in-out;
@@ -6699,7 +6713,7 @@ h5 {
       @media only screen and (max-width: 62.5em) {
         .home-search__destination__list {
           top: 8rem;
-          margin-top: 1rem;
+          padding-top: 1rem;
           border-radius: 0rem; }
           .home-search__destination__list::-webkit-scrollbar-track {
             -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
@@ -6810,6 +6824,29 @@ h5 {
         color: #fff; }
         .home-search__dates__input.open::-webkit-input-placeholder {
           color: #fff; }
+      @media only screen and (max-width: 62.5em) {
+        .home-search__dates__input {
+          color: #1e1e1e;
+          height: 5rem;
+          width: 100%;
+          font-size: 2rem;
+          margin: 1.5rem 3rem;
+          margin-left: 1rem;
+          padding: 0rem 3rem;
+          border-radius: 7rem;
+          background-color: #f8f8f8;
+          border: 1px solid #c2c6c9; }
+          .home-search__dates__input::-webkit-input-placeholder {
+            color: #1e1e1e; }
+          .home-search__dates__input:hover::-webkit-input-placeholder {
+            color: #747474; }
+          .home-search__dates__input:focus, .home-search__dates__input.open {
+            color: #747474; }
+            .home-search__dates__input:focus::-webkit-input-placeholder, .home-search__dates__input.open::-webkit-input-placeholder {
+              color: #747474; } }
+      @media only screen and (max-width: 37.5em) {
+        .home-search__dates__input {
+          font-size: 1.6rem; } }
     .home-search__dates__list {
       position: absolute;
       z-index: 15;
@@ -6817,7 +6854,6 @@ h5 {
       width: 100%;
       bottom: 100%;
       list-style: none;
-      margin-top: 4rem;
       overflow: hidden;
       max-height: 0;
       transition: 0.3s ease-in-out;
@@ -6827,10 +6863,31 @@ h5 {
       flex-direction: column; }
       .home-search__dates__list.open {
         max-height: 24rem; }
+      @media only screen and (max-width: 62.5em) {
+        .home-search__dates__list {
+          top: 8.1rem;
+          border-radius: 0rem;
+          background-color: #fff; }
+          .home-search__dates__list::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+            background-color: #fff; }
+          .home-search__dates__list::-webkit-scrollbar {
+            width: 4px;
+            background-color: #000000; }
+          .home-search__dates__list::-webkit-scrollbar-thumb {
+            background-color: #747474; }
+          .home-search__dates__list.open {
+            max-height: 100%;
+            height: 100%;
+            overflow: scroll;
+            padding-bottom: 18rem; } }
       .home-search__dates__list__years {
         display: grid;
         grid-template-columns: 1fr 1fr;
         justify-items: center; }
+        @media only screen and (max-width: 62.5em) {
+          .home-search__dates__list__years {
+            border-bottom: 1px solid #c2c6c9; } }
         .home-search__dates__list__years__year {
           font-size: 1.8rem;
           color: #d9a402;
@@ -6862,6 +6919,44 @@ h5 {
               opacity: 1; }
             .home-search__dates__list__years__year.selected:hover {
               background-color: transparent; }
+          @media only screen and (max-width: 62.5em) {
+            .home-search__dates__list__years__year {
+              font-size: 2rem;
+              color: #919598;
+              letter-spacing: 0.2rem;
+              font-weight: 500;
+              width: 100%;
+              text-align: center;
+              padding-top: 1.5rem;
+              padding-bottom: 1.5rem;
+              cursor: pointer;
+              position: relative;
+              transition: all 0.2s; }
+              .home-search__dates__list__years__year::after {
+                content: "";
+                display: none; }
+              .home-search__dates__list__years__year:not(:last-child)::after {
+                display: inline-block;
+                height: 3rem;
+                width: 1px;
+                background-color: #c2c6c9;
+                position: absolute;
+                left: auto;
+                right: 0;
+                top: 0;
+                bottom: auto;
+                transform: translateY(50%) translateX(0%);
+                opacity: 1; }
+              .home-search__dates__list__years__year:hover {
+                background-color: #fff; }
+              .home-search__dates__list__years__year.selected {
+                font-weight: 700;
+                color: #142838;
+                position: relative; }
+                .home-search__dates__list__years__year.selected::after {
+                  opacity: 1; }
+                .home-search__dates__list__years__year.selected:hover {
+                  background-color: transparent; } }
       .home-search__dates__list__months {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -6870,6 +6965,12 @@ h5 {
         row-gap: 0.5rem;
         list-style: none;
         padding: 1rem; }
+        @media only screen and (max-width: 62.5em) {
+          .home-search__dates__list__months {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            column-gap: 3rem;
+            padding: 1rem 3rem; } }
         .home-search__dates__list__months li {
           font-size: 1.5rem;
           color: #fff;
@@ -6902,6 +7003,41 @@ h5 {
             .home-search__dates__list__months li.disabled:hover {
               background-color: transparent;
               color: #9ea0a4; }
+          @media only screen and (max-width: 62.5em) {
+            .home-search__dates__list__months li {
+              font-size: 1.8rem;
+              font-weight: 700;
+              color: #142838;
+              letter-spacing: 0.1rem;
+              width: 100%;
+              max-width: 15rem;
+              padding: 1.5rem 0rem;
+              margin: 1rem;
+              border: 2px solid #142838;
+              border-radius: 3rem;
+              box-sizing: border-box;
+              display: flex;
+              align-content: center;
+              justify-content: center;
+              background-color: transparent;
+              transition: all 0.2s;
+              cursor: pointer; }
+              .home-search__dates__list__months li:hover {
+                background-color: #d9a402;
+                color: #1e1e1e;
+                font-weight: 500; }
+              .home-search__dates__list__months li.selected {
+                background-color: #d9a402;
+                color: #1e1e1e;
+                font-weight: 500; }
+              .home-search__dates__list__months li.disabled {
+                color: #9ea0a4;
+                border: 2px solid #9ea0a4;
+                cursor: default;
+                font-weight: 500; }
+                .home-search__dates__list__months li.disabled:hover {
+                  background-color: transparent;
+                  color: #9ea0a4; } }
   .home-search__cta {
     width: min-content;
     height: min-content; }
@@ -6956,7 +7092,7 @@ h5 {
       width: 2rem;
       fill: currentColor; }
     .home-search-mobile button:hover {
-      transition: all .3s;
+      transition: all 0.3s;
       color: #1e1e1e;
       background-color: #d9a402;
       font-weight: 600; }
@@ -7586,7 +7722,7 @@ h5 {
       width: 100%; }
 
 .home-full-search {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: #fff;
   z-index: 10000;
@@ -7599,7 +7735,9 @@ h5 {
   .home-full-search__destination {
     height: 100%;
     width: 100%;
-    position: fixed; }
+    position: absolute;
+    top: 0;
+    left: 0; }
     .home-full-search__destination__top {
       display: flex;
       justify-content: space-between;
@@ -7621,11 +7759,10 @@ h5 {
   .home-full-search__dates {
     height: 100%;
     width: 100%;
-    background-color: darkgoldenrod;
-    position: fixed;
+    background-color: #fff;
+    position: absolute;
     top: 0;
-    right: 0;
-    opacity: .5;
+    left: 0;
     transform: translateX(-100%); }
     .home-full-search__dates.active {
       transition: all .3s;
@@ -7639,15 +7776,15 @@ h5 {
         width: min-content;
         color: #142838;
         cursor: pointer;
-        font-size: 2rem;
-        font-weight: 600;
         padding: 2rem;
+        padding-right: .5rem;
         display: flex;
         align-items: center;
         justify-content: center; }
-        @media only screen and (max-width: 37.5em) {
-          .home-full-search__dates__top__back {
-            font-size: 1.6rem; } }
+        .home-full-search__dates__top__back svg {
+          height: 4rem;
+          width: 4rem;
+          color: #142838; }
 
 .experience-hero {
   display: flex;
