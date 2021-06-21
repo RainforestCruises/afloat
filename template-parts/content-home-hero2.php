@@ -11,13 +11,34 @@ $destinations = get_posts($queryArgs);
 $hero_image = get_field('hero_image');
 $hero_title = get_field('hero_title');
 $hero_subtitle = get_field('hero_subtitle');
-
+$hero_slider = get_field('hero_slider');
 ?>
 
 <!--  Hero -->
 <div class="home-hero">
-    <div class="home-hero__bg">
-        <img src="<?php echo $hero_image['url'] ?>" alt="">
+    <div class="home-hero__bg" id="home-hero__bg">
+
+
+        <!-- Slider -->
+        <?php foreach ($hero_slider as $s) :
+            $sliderImage = $s['image'];
+            $sliderTitle = $s['title'];
+            $sliderDestination = $s['destination'];
+            $sliderDestinationPostId = get_the_id($sliderDestination);
+
+        ?>
+            <div class="home-hero__bg__slide" postId="<?php echo $sliderDestinationPostId ?>">
+                <?php if ($sliderImage) : ?>
+                    <img <?php afloat_responsive_image($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
+                <?php endif; ?>
+            </div>
+
+        <?php endforeach; ?>
+
+
+
+
+        <!-- <img src="<?php echo $hero_image['url'] ?>" alt=""> -->
         <!-- <video autoplay muted loop id="myVideo">
             <source src="https://player.vimeo.com/external/295214306.hd.mp4?s=7b0ecc1df3b24b3b79f365535c6c9137632121dc&profile_id=174" type="video/mp4">
         </video> -->
@@ -45,7 +66,7 @@ $hero_subtitle = get_field('hero_subtitle');
 
                     <ul class="home-search__destination__list" id="destination-list">
                         <?php foreach ($destinations as $d) : ?>
-                            <li postId="<?php echo $d->ID ?>"><?php echo get_field('navigation_title', $d) ?></li>
+                            <li postid="<?php echo $d->ID ?>"><?php echo get_field('navigation_title', $d) ?></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
@@ -115,6 +136,20 @@ $hero_subtitle = get_field('hero_subtitle');
         <div class="scroll-down">
             <div class="scroll-down-bar"></div>
             <div class="scroll-down-text">SCROLL DOWN</div>
+        </div>
+
+        <div class="home-hero__bottom__slide-nav" id="home-hero__bottom__slide-nav">
+            <!-- Slider -->
+            <?php foreach ($hero_slider as $s) :          
+                $sliderTitle = $s['title'];
+                $sliderDestination = $s['destination'];
+                $sliderDestinationPostId = get_the_id($sliderDestination);
+            ?>
+                <div class="home-hero__bottom__slide-nav__slide" postId="<?php echo $sliderDestinationPostId ?>">
+                    <?php echo $sliderTitle; ?>                   
+                </div>
+
+            <?php endforeach; ?>
         </div>
     </div>
 

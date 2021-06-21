@@ -91,7 +91,12 @@ $newsletter_snippet = get_field('newsletter_snippet');
 
   </div>
 </div>
-
+<!-- form -->
+<form class="home-search-form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="home-search-form">
+    <input type="hidden" name="action" value="homeSearch">
+    <input type="hidden" name="formDates" id="formDates" value="">
+    <input type="hidden" name="formDestination" id="formDestination" value="">
+</form>
 
 
 

@@ -1,4 +1,51 @@
 jQuery(document).ready(function ($) {
+
+
+    //SLIDERS
+    $('.home-hero__bg').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        centerMode: false,
+        draggable: false,
+        asNavFor: '#home-hero__bottom__slide-nav',
+        fade: true,
+        arrows: false,
+        speed: 1000,
+        //autoplay: true,
+        //autoplaySpeed: 8000,
+    });
+
+
+      //--
+    $('.home-hero__bottom__slide-nav').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        asNavFor: '#home-hero__bg',
+        centerMode: false,
+        arrows: true,
+        draggable: false,
+        fade: false,
+        speed: 1000,
+        prevArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--left home-hero__bottom__slide-nav__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+        nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right home-hero__bottom__slide-nav__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+        responsive: [
+            {
+                breakpoint: 1000,
+                // settings: {
+                //     prevArrow: '<button class="btn-circle btn-circle--noborder    btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+                //     nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+                //     speed: 800,
+                // }
+            },
+        ]
+    })
+
+
+
+
+
     // Down Arrow
     $('#mobile-search-button').click(function (event) {
 
@@ -146,6 +193,9 @@ jQuery(document).ready(function ($) {
 
 
     //DESTINATION SELECT COMPONENT --------------------------------------------------------------------------------------------
+    const formDestination = document.querySelector('#formDestination'); 
+    const formDates = document.querySelector('#formDates'); 
+
     const destinationInputContainer = document.querySelector('#destination-input-container');
     const destinationInput = document.querySelector('#destination-input');
     const destinationList = document.querySelector('#destination-list');
@@ -153,23 +203,24 @@ jQuery(document).ready(function ($) {
     const destinationListItems = [...document.querySelectorAll('#destination-list li')];
 
     let suggestionsArray = [];
-    let selectedDestination = 0;
-    let selectedDestinationName = "";
+
+
 
     for (let i = 0; i < destinationListItems.length; i++) {
         destinationListItems[i].classList.add('closed');
     }
 
+    //full lists
     let destinationStringArray = []; //array of destination strings
+    let destinationIdArray = []; //array of destination Ids
     destinationListItems.forEach(item => {
         destinationStringArray.push(item.textContent);
+        destinationIdArray.push(parseInt(item.getAttribute('postid')));
     });
-
-
+    
 
     //occurs on typing text into destination field
     destinationInput.addEventListener('input', () => {
-        //console.log('DI Input');
         destinationList.classList.add('open');
         let inputValue = destinationInput.value.toLowerCase();
 
@@ -181,7 +232,14 @@ jQuery(document).ready(function ($) {
                     destinationListItems[j].classList.add('closed');
                 } else {
                     destinationListItems[j].classList.remove('closed');
-                    inputSuggestions.push(destinationListItems[j].textContent);
+
+                    let destinationText = destinationListItems[j].textContent;
+                    let destinationPostId = destinationListItems[j].getAttribute('postid');
+                    
+
+                    const suggestion = { suggestionText: destinationText, suggestionPostId: destinationPostId};
+
+                    inputSuggestions.push(suggestion);
                 }
             }
         } else {
@@ -191,7 +249,6 @@ jQuery(document).ready(function ($) {
         }
 
         suggestionsArray = inputSuggestions;
-
     });
 
 
@@ -202,7 +259,6 @@ jQuery(document).ready(function ($) {
 
             e.preventDefault(); //prevent blur
 
-            //console.log('destination item click event');
             destinationInput.value = item.textContent;
             selectedDestination = item.getAttribute("postId");
 
@@ -211,11 +267,13 @@ jQuery(document).ready(function ($) {
             });
 
             showDateSelect();
+
+            formDestination.value = item.getAttribute('postid'); //assign selection
         });
     })
 
+    //on setting focus to destination field
     destinationInput.addEventListener('focus', () => {
-        destinationInput.placeholder = 'Where would you like to go?'; //can change here to new placeholder
         destinationList.classList.add('open');
         searchContainer.classList.add('active');
         datesList.classList.remove('open');
@@ -228,30 +286,31 @@ jQuery(document).ready(function ($) {
 
     //leave focus
     destinationInput.addEventListener('blur', (event) => {
-
-
-        destinationList.classList.remove('open');
+   
         let destinationListOpen = destinationList.classList.contains('open');
-        //console.log('blur event');
 
-
-        if (!destinationListOpen) {
-            if (suggestionsArray.length == 0) {
-                //dont assign any if nothing selected
+        if (destinationListOpen) {
+            if (suggestionsArray.length > 0) {
+                destinationInput.value = suggestionsArray[0].suggestionText;
+                formDestination.value = suggestionsArray[0].suggestionPostId; //assign selection
+                showDateSelect();            
             } else {
-                destinationInput.value = suggestionsArray[0];
-                showDateSelect();
+                //nothing selected         
+                let isValidSelection = destinationStringArray.includes(destinationInput.value); //check if entered text matches one in the array 
+                if(!isValidSelection){  
+                    formDestination.value = null; //assign null selection
+                }
             }
-        }
-
-
+            destinationList.classList.remove('open');
+        } 
+        
 
     });
 
 
     ////CLICK AWAY
     document.addEventListener('click', evt => {
-        //console.log('click away')
+        
         const isDestinationInput = destinationInput.contains(evt.target);
         const isDatesInput = datesInput.contains(evt.target);
         const isDatesList = datesList.contains(evt.target);
@@ -285,6 +344,7 @@ jQuery(document).ready(function ($) {
     });
 
 
+ 
 
 
     //END DESTINATION SELECT -----------------------------------------------------------------------------------
@@ -329,7 +389,6 @@ jQuery(document).ready(function ($) {
         datesInput.classList.add('open');
         searchContainer.classList.add('active');
 
-        console.log('date input field click');
 
     });
 
@@ -415,7 +474,7 @@ jQuery(document).ready(function ($) {
         searchContainer.classList.add('expand');
         datesInputContainer.classList.add('show');
         mobileSearchDatesContainer.classList.add('active');
-
+        
         //check screen size
         if ($(window).width() < 1000) {
             console.log('b');
