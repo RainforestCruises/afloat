@@ -269,6 +269,7 @@ jQuery(document).ready(function ($) {
             showDateSelect();
 
             formDestination.value = item.getAttribute('postid'); //assign selection
+            changeSlide(formDestination.value);
         });
     })
 
@@ -293,6 +294,7 @@ jQuery(document).ready(function ($) {
             if (suggestionsArray.length > 0) {
                 destinationInput.value = suggestionsArray[0].suggestionText;
                 formDestination.value = suggestionsArray[0].suggestionPostId; //assign selection
+                changeSlide(formDestination.value);
                 showDateSelect();            
             } else {
                 //nothing selected         
@@ -306,6 +308,14 @@ jQuery(document).ready(function ($) {
         
 
     });
+
+    function changeSlide(slidePostId){       
+        const slideDiv = document.querySelector('.home-hero__bg__slide[postid="' + slidePostId + '"]');
+        if(slideDiv) {
+            const slideNumber = slideDiv.getAttribute('slidenumber');
+            $('#home-hero__bg').slick('slickGoTo', slideNumber);
+        }
+    }
 
 
     ////CLICK AWAY

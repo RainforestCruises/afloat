@@ -20,20 +20,24 @@ $hero_slider = get_field('hero_slider');
 
 
         <!-- Slider -->
-        <?php foreach ($hero_slider as $s) :
+        <?php
+        $slideCount = 0;
+        foreach ($hero_slider as $s) :
             $sliderImage = $s['image'];
             $sliderTitle = $s['title'];
             $sliderDestination = $s['destination'];
-            $sliderDestinationPostId = get_the_id($sliderDestination);
 
+            $sliderDestinationPostId = $sliderDestination->ID;
         ?>
-            <div class="home-hero__bg__slide" postId="<?php echo $sliderDestinationPostId ?>">
+            <div class="home-hero__bg__slide" postid="<?php echo $sliderDestinationPostId ?>" slidenumber="<?php echo $slideCount; ?>">
                 <?php if ($sliderImage) : ?>
                     <img <?php afloat_responsive_image($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
                 <?php endif; ?>
             </div>
 
-        <?php endforeach; ?>
+        <?php
+            $slideCount++;
+        endforeach; ?>
 
 
 
@@ -140,13 +144,13 @@ $hero_slider = get_field('hero_slider');
 
         <div class="home-hero__bottom__slide-nav" id="home-hero__bottom__slide-nav">
             <!-- Slider -->
-            <?php foreach ($hero_slider as $s) :          
+            <?php foreach ($hero_slider as $s) :
                 $sliderTitle = $s['title'];
                 $sliderDestination = $s['destination'];
                 $sliderDestinationPostId = get_the_id($sliderDestination);
             ?>
                 <div class="home-hero__bottom__slide-nav__slide" postId="<?php echo $sliderDestinationPostId ?>">
-                    <?php echo $sliderTitle; ?>                   
+                    <?php echo $sliderTitle; ?>
                 </div>
 
             <?php endforeach; ?>
