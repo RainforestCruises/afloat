@@ -106,8 +106,8 @@
 
 <!-- form -->
 <form class="home-hero__content__search-form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">
-<input type="hidden" name="action" value="homeSearch">
-            <input type="hidden" name="travel-month" id="travel-month" value="">
-            <input type="hidden" name="travel-year" id="travel-year" value="">
+    <input type="hidden" name="action" value="homeSearch">
+    <input type="hidden" name="travel-month" id="travel-month" value="">
+    <input type="hidden" name="travel-year" id="travel-year" value="">
 
-            <input type="hidden" name="travel-destination" id="travel-destination" value="">
+    <input type="hidden" name="travel-destination" id="travel-destination" value="">
