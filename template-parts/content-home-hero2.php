@@ -12,6 +12,9 @@ $hero_image = get_field('hero_image');
 $hero_title = get_field('hero_title');
 $hero_subtitle = get_field('hero_subtitle');
 $hero_slider = get_field('hero_slider');
+$currentYear = date("Y");
+//$monthsArray = array(01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12);
+
 ?>
 
 <!--  Hero -->
@@ -82,26 +85,30 @@ $hero_slider = get_field('hero_slider');
                     </div>
                     <div class="home-search__dates__list" id="dates-list">
                         <div class="home-search__dates__list__years">
-                            <div class="home-search__dates__list__years__year selected" year="2021">
-                                2021
-                            </div>
-                            <div class="home-search__dates__list__years__year" year="2022">
-                                2022
-                            </div>
+                            <?php
+                            for ($y = 0; $y < 2; $y++) : 
+                            $loopYear = $currentYear + $y;
+                            ?>
+                                <div class="home-search__dates__list__years__year <?php echo ($y == 0) ? "selected" : ""; ?>" year="<?php echo $loopYear; ?>">
+                                <?php echo $loopYear; ?>
+                                </div>
+                            <?php endfor;
+                            ?>
+                            
                         </div>
                         <ul class="home-search__dates__list__months selected">
-                            <li month="01" name="January">Jan</li>
-                            <li month="02" name="February">Feb</li>
-                            <li month="03" name="March">Mar</li>
-                            <li month="04" name="April">Apr</li>
-                            <li month="05" name="May">May</li>
-                            <li month="06" name="June">Jun</li>
-                            <li month="07" name="July">Jul</li>
-                            <li month="08" name="August">Aug</li>
-                            <li month="09" name="September">Sep</li>
-                            <li month="10" name="October">Oct</li>
-                            <li month="11" name="November">Nov</li>
-                            <li month="12" name="December">Dec</li>
+                            <li value="01" name="January">Jan</li>
+                            <li value="02" name="February">Feb</li>
+                            <li value="03" name="March">Mar</li>
+                            <li value="04" name="April">Apr</li>
+                            <li value="05" name="May">May</li>
+                            <li value="06" name="June">Jun</li>
+                            <li value="07" name="July">Jul</li>
+                            <li value="08" name="August">Aug</li>
+                            <li value="09" name="September">Sep</li>
+                            <li value="10" name="October">Oct</li>
+                            <li value="11" name="November">Nov</li>
+                            <li value="12" name="December">Dec</li>
                         </ul>
 
                     </div>
@@ -109,7 +116,7 @@ $hero_slider = get_field('hero_slider');
 
                 <!-- CTA Button -->
                 <div class="home-search__cta">
-                    <button class="home-search__cta__button" id="search-button">
+                    <button class="home-search__cta__button" id="search-button" type="submit" form="home-search-form">
                         <svg>
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-magnifying-glass"></use>
                         </svg>

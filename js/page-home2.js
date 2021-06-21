@@ -1,69 +1,6 @@
 jQuery(document).ready(function ($) {
 
 
-    //SLIDERS
-    $('.home-hero__bg').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: false,
-        centerMode: false,
-        draggable: false,
-        asNavFor: '#home-hero__bottom__slide-nav',
-        fade: true,
-        arrows: false,
-        speed: 1000,
-        //autoplay: true,
-        //autoplaySpeed: 8000,
-    });
-
-
-      //--
-    $('.home-hero__bottom__slide-nav').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: false,
-        asNavFor: '#home-hero__bg',
-        centerMode: false,
-        arrows: true,
-        draggable: false,
-        fade: false,
-        speed: 1000,
-        prevArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--left home-hero__bottom__slide-nav__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-        nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right home-hero__bottom__slide-nav__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
-        responsive: [
-            {
-                breakpoint: 1000,
-                // settings: {
-                //     prevArrow: '<button class="btn-circle btn-circle--noborder    btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-                //     nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
-                //     speed: 800,
-                // }
-            },
-        ]
-    })
-
-
-
-
-
-    // Down Arrow
-    $('#mobile-search-button').click(function (event) {
-
-        const body = document.querySelector('body');
-        body.classList.add('lock-scroll');
-        const overlay = document.querySelector('.home-full-search');
-        overlay.classList.add('active');
-
-    })
-
-    $('#mobile-search-close').click(function (event) {
-
-        const body = document.querySelector('body');
-        body.classList.remove('lock-scroll');
-        const overlay = document.querySelector('.home-full-search');
-        overlay.classList.remove('active');
-
-    })
 
     // Down Arrow
     $('#down-arrow-button').click(function (event) {
@@ -82,6 +19,47 @@ jQuery(document).ready(function ($) {
 
 
     //SLIDERS
+    //hero bg
+    $('.home-hero__bg').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        centerMode: false,
+        draggable: false,
+        asNavFor: '#home-hero__bottom__slide-nav',
+        fade: true,
+        arrows: false,
+        speed: 1000,
+        //autoplay: true,
+        //autoplaySpeed: 8000,
+    });
+
+
+    //--hero bg nav/label
+    $('.home-hero__bottom__slide-nav').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        asNavFor: '#home-hero__bg',
+        centerMode: false,
+        arrows: false,
+        draggable: false,
+        fade: false,
+        speed: 1000,
+        prevArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--left home-hero__bottom__slide-nav__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+        nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right home-hero__bottom__slide-nav__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+        responsive: [
+            {
+                breakpoint: 1000,
+                // settings: {
+                //     prevArrow: '<button class="btn-circle btn-circle--noborder    btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+                //     nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+                //     speed: 800,
+                // }
+            },
+        ]
+    })
+
     $('#intro-testimonials').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -95,7 +73,7 @@ jQuery(document).ready(function ($) {
         $('#intro-testimonials').slick("slickNext");
     });
 
-
+    //SLIDER - Destinations slider
     $('#destinations-slider').slick({
         rows: 2,
         dots: false,
@@ -192,34 +170,46 @@ jQuery(document).ready(function ($) {
     });
 
 
-    //DESTINATION SELECT COMPONENT --------------------------------------------------------------------------------------------
-    const formDestination = document.querySelector('#formDestination'); 
-    const formDates = document.querySelector('#formDates'); 
+    //SEARCH UI --------------------------------------------------------------------------------------------
+    const formDestination = document.querySelector('#formDestination');
+    const formDates = document.querySelector('#formDates');
 
+    //DESTINATION SELECT COMPONENT 
     const destinationInputContainer = document.querySelector('#destination-input-container');
     const destinationInput = document.querySelector('#destination-input');
     const destinationList = document.querySelector('#destination-list');
     const searchContainer = document.querySelector('#search-container');
     const destinationListItems = [...document.querySelectorAll('#destination-list li')];
-
     let suggestionsArray = [];
 
-
-
+    //destination list initialize
     for (let i = 0; i < destinationListItems.length; i++) {
         destinationListItems[i].classList.add('closed');
     }
 
-    //full lists
+    //build destination full Arrays
     let destinationStringArray = []; //array of destination strings
     let destinationIdArray = []; //array of destination Ids
     destinationListItems.forEach(item => {
         destinationStringArray.push(item.textContent);
         destinationIdArray.push(parseInt(item.getAttribute('postid')));
     });
-    
 
-    //occurs on typing text into destination field
+
+    //Destination Focus - on setting focus to destination field 
+    destinationInput.addEventListener('focus', () => {
+        destinationList.classList.add('open');
+        searchContainer.classList.add('active');
+        datesList.classList.remove('open');
+
+        destinationListItems.forEach(dropdown => {
+            dropdown.classList.remove('closed');
+        });
+        suggestionsArray = [];
+    });
+
+
+    //Destination Input - occurs on typing text into destination field
     destinationInput.addEventListener('input', () => {
         destinationList.classList.add('open');
         let inputValue = destinationInput.value.toLowerCase();
@@ -235,9 +225,9 @@ jQuery(document).ready(function ($) {
 
                     let destinationText = destinationListItems[j].textContent;
                     let destinationPostId = destinationListItems[j].getAttribute('postid');
-                    
 
-                    const suggestion = { suggestionText: destinationText, suggestionPostId: destinationPostId};
+
+                    const suggestion = { suggestionText: destinationText, suggestionPostId: destinationPostId };
 
                     inputSuggestions.push(suggestion);
                 }
@@ -252,12 +242,14 @@ jQuery(document).ready(function ($) {
     });
 
 
-    //add click event handler to each LI
+    //Destination List Click (mousedown) - add click event handler to each LI
     destinationListItems.forEach(item => {
 
         item.addEventListener('mousedown', (e) => {
 
             e.preventDefault(); //prevent blur
+
+            //ISSUE -- need to remove focus once selected
 
             destinationInput.value = item.textContent;
             selectedDestination = item.getAttribute("postId");
@@ -269,97 +261,81 @@ jQuery(document).ready(function ($) {
             showDateSelect();
 
             formDestination.value = item.getAttribute('postid'); //assign selection
-            changeSlide(formDestination.value);
+            changeSlide(formDestination.value); //change background
         });
     })
 
-    //on setting focus to destination field
-    destinationInput.addEventListener('focus', () => {
-        destinationList.classList.add('open');
-        searchContainer.classList.add('active');
-        datesList.classList.remove('open');
 
-        destinationListItems.forEach(dropdown => {
-            dropdown.classList.remove('closed');
-        });
-        suggestionsArray = [];
-    });
 
-    //leave focus
+    //Destination Blur - leave focus
     destinationInput.addEventListener('blur', (event) => {
-   
+
         let destinationListOpen = destinationList.classList.contains('open');
 
         if (destinationListOpen) {
-            if (suggestionsArray.length > 0) {
+            if (suggestionsArray.length > 0) { //make best selection
                 destinationInput.value = suggestionsArray[0].suggestionText;
                 formDestination.value = suggestionsArray[0].suggestionPostId; //assign selection
-                changeSlide(formDestination.value);
-                showDateSelect();            
+                changeSlide(formDestination.value); //change background
+                showDateSelect();
             } else {
                 //nothing selected         
                 let isValidSelection = destinationStringArray.includes(destinationInput.value); //check if entered text matches one in the array 
-                if(!isValidSelection){  
-                    formDestination.value = null; //assign null selection
+                if (!isValidSelection) {
+                    formDestination.value = null; //assign null selection if invalid input
                 }
             }
-            destinationList.classList.remove('open');
-        } 
-        
+            destinationList.classList.remove('open'); //close list
+        }
+
 
     });
 
-    function changeSlide(slidePostId){       
+    //change background
+    function changeSlide(slidePostId) {
         const slideDiv = document.querySelector('.home-hero__bg__slide[postid="' + slidePostId + '"]');
-        if(slideDiv) {
+        if (slideDiv) {
             const slideNumber = slideDiv.getAttribute('slidenumber');
             $('#home-hero__bg').slick('slickGoTo', slideNumber);
         }
     }
 
 
-    ////CLICK AWAY
-    document.addEventListener('click', evt => {
-        
-        const isDestinationInput = destinationInput.contains(evt.target);
-        const isDatesInput = datesInput.contains(evt.target);
-        const isDatesList = datesList.contains(evt.target);
-
-        const isSearchContainer = searchContainer.contains(evt.target);
-
-
-        if (!isDestinationInput) {
-            destinationList.classList.remove('open');
-        }
-
-        if (!isDatesInput && !isDatesList) { //needs both because not all area is clickable space
-            datesList.classList.remove('open');
-        }
-
-        if (!isDestinationInput && !isDatesInput && !isSearchContainer) {
-            searchContainer.classList.remove('active'); //here
-        }
-
-    });
-
     //Tab press
     $('.home-destination-select').on('keydown', function (e) {
         var keyCode = e.keyCode || e.which;
 
         if (keyCode == 9) {
-            e.preventDefault();
-            document.activeElement.blur();
-            document.querySelector('#date-select').click();
+            //e.preventDefault();
+            //document.activeElement.blur();
+            //document.querySelector('#dates-input').click();
         }
     });
 
 
- 
+    //let initialDates = true;
+    //trigger dates
+    function showDateSelect() {
+        searchContainer.classList.add('expand');
+        datesInputContainer.classList.add('show');
+        mobileSearchDatesContainer.classList.add('active');
 
+
+        //ISSUE -- need to find a away to intially open the dates... click away is interfering
+        //datesInput.click();
+
+
+        //check screen size
+        if ($(window).width() < 1000) {
+            destinationInput.blur();
+            datesInput.focus();
+
+            datesList.classList.add('open');
+            datesInput.classList.add('open');
+        }
+    }
 
     //END DESTINATION SELECT -----------------------------------------------------------------------------------
-
-
 
 
 
@@ -373,72 +349,63 @@ jQuery(document).ready(function ($) {
 
 
 
-
-    let selectedYear = moment().format('YYYY');  //fix this
-    let selectedMonth = moment().format('MM');
     let currentYear = moment().format('YYYY');
     let currentMonth = moment().format('MM');
 
+    let selectedYear = currentYear;
+    let selectedMonth = null;
 
     //Dates LI initialize
     //if current year, disable past months, if prox year, remove all disabled -- on first load
     datesListItems.forEach(item => {
-        if (selectedYear == currentYear) {
-            if (item.getAttribute('month') < currentMonth) {
-                item.classList.add('disabled');
-            }
-        } else {
-            item.classList.remove('disabled');
+
+        if (item.value < currentMonth) {
+            item.classList.add('disabled');
         }
     })
 
 
-    //Input Field Click
+    //Date Input Field Click -- open 
     datesInput.addEventListener('click', () => {
         datesList.classList.add('open');
         datesInput.classList.add('open');
         searchContainer.classList.add('active');
-
-
     });
 
     //Year Click - event handler to each LI
-    dateYearArray.forEach(item => {
-        item.addEventListener('click', () => {
-
-            selectedYear = item.getAttribute("year");
+    dateYearArray.forEach(dateYear => {
+        dateYear.addEventListener('click', () => {
 
             //if current year, disable past months, if prox year, remove all disabled -- fires every time year is clicked
             datesListItems.forEach(item => {
-                if (selectedYear == currentYear) {
-
-                    if (item.getAttribute('month') < currentMonth) {
+                if (dateYear.getAttribute("year") == currentYear) {
+                    if (item.value < currentMonth) {
                         item.classList.add('disabled');
-                        //if on prox year and selected prev month and went back to prev year, set month selected to current month
-                        if (item.classList.contains('selected')) {
-                            item.classList.remove('selected');
-                            //find item with current month and apply selected
-                            datesListItems.forEach(monthItem => {
-                                if (monthItem.getAttribute('month') == currentMonth) {
-                                    monthItem.classList.add('selected')
-                                    selectedMonth = monthItem.getAttribute("month");
-                                }
-                            })
-                        }
                     }
                 } else {
                     item.classList.remove('disabled');
                 }
             })
 
-            //needs to track both year sets independently !!
-            //datesInput.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear; -- fix
+            if(dateYear.getAttribute("year") == selectedYear){
+                datesListItems.forEach(monthItem => { 
+                    if(monthItem.value == selectedMonth){
+                        monthItem.classList.add('selected');
+                    } else {
+                        monthItem.classList.remove('selected');
+                    }
+                });
+            } else {
+                datesListItems.forEach(monthItem => { 
+                    monthItem.classList.remove('selected');
+                });
+            }
 
             dateYearArray.forEach(year => {
                 year.classList.remove('selected');
             });
 
-            item.classList.add('selected')
+            dateYear.classList.add('selected')
         });
     })
 
@@ -446,8 +413,13 @@ jQuery(document).ready(function ($) {
     datesListItems.forEach(item => {
         item.addEventListener('click', (e) => {
             if (!item.classList.contains('disabled')) {
-                selectedMonth = item.getAttribute("month");
 
+                
+                var activeYearDiv = document.querySelector('.home-search__dates__list__years__year.selected');
+                selectedYear = activeYearDiv.getAttribute('year');
+                selectedMonth = item.value;
+
+                formDates.value = selectedYear + "-" + zeroPad(selectedMonth, 2);
                 datesInput.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear; //can get from attribute string
 
                 datesListItems.forEach(month => {
@@ -455,10 +427,11 @@ jQuery(document).ready(function ($) {
                 });
                 item.classList.add('selected');
 
-                if ($(window).width() < 1000) {
 
-                } else {
+                //desktop
+                if ($(window).width() > 1000) {
                     datesList.classList.remove('open');
+                    datesInput.classList.remove('open');
                     searchContainer.classList.remove('active');
                 }
 
@@ -468,10 +441,44 @@ jQuery(document).ready(function ($) {
         });
     })
 
+    function zeroPad(num, places) {
+        var zero = places - num.toString().length + 1;
+        return Array(+(zero > 0 && zero)).join("0") + num;
+    }
+
+
+    //CLICK AWAY
+    document.addEventListener('click', evt => {
+
+        const isDestinationInput = destinationInput.contains(evt.target);
+        const isDatesInput = datesInput.contains(evt.target);
+        const isDatesList = datesList.contains(evt.target);
+        const datesListIsOpen = datesList.classList.contains('open');
+
+
+        const isSearchContainer = searchContainer.contains(evt.target);
+
+
+        // if (!isDestinationInput) {
+        //     destinationList.classList.remove('open');
+        // }
+
+        if (!isDatesInput && !isDatesList) { //needs both because not all area is clickable space
+            datesList.classList.remove('open');
+        }
+
+        if (!isDestinationInput && !isDatesInput && !isSearchContainer) {
+            searchContainer.classList.remove('active'); //here
+        }
+
+    });
 
 
 
-    //Mobile
+
+    //END SEARCH UI ---------------------------------------------------------------------------------
+
+    //SEARCH UI MOBILE ---------------------------------------------------------------------------------
     const mobileSearchBackButton = document.querySelector('#mobile-search-back');
     const mobileSearchDatesContainer = document.querySelector('.home-full-search__dates');
 
@@ -480,21 +487,7 @@ jQuery(document).ready(function ($) {
         mobileSearchDatesContainer.classList.remove('active');
     });
 
-    function showDateSelect() {
-        searchContainer.classList.add('expand');
-        datesInputContainer.classList.add('show');
-        mobileSearchDatesContainer.classList.add('active');
-        
-        //check screen size
-        if ($(window).width() < 1000) {
-            console.log('b');
-            destinationInput.blur();
-            datesInput.focus();
 
-            datesList.classList.add('open');
-            datesInput.classList.add('open');
-        }
-    }
 
 
 
@@ -539,6 +532,27 @@ jQuery(document).ready(function ($) {
 
         }
     });
+
+
+    //Mobile search button
+    $('#mobile-search-button').click(function (event) {
+
+        const body = document.querySelector('body');
+        body.classList.add('lock-scroll');
+        const overlay = document.querySelector('.home-full-search');
+        overlay.classList.add('active');
+
+    })
+
+    //Mobile search close
+    $('#mobile-search-close').click(function (event) {
+
+        const body = document.querySelector('body');
+        body.classList.remove('lock-scroll');
+        const overlay = document.querySelector('.home-full-search');
+        overlay.classList.remove('active');
+
+    })
 
 });
 

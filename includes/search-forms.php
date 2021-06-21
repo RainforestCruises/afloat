@@ -38,19 +38,18 @@ add_action('wp_ajax_nopriv_homeSearch', 'search_filter_home_search');
 function search_filter_home_search()
 {
 
-    //DESTINATION
+    //DESTINATION / REGION - Post ID
     $destinationId = 0;
-    if (isset($_POST['travel-destination']) && $_POST['travel-destination']) {
-        $destinationId = $_POST['travel-destination'];
+    if (isset($_POST['formDestination']) && $_POST['formDestination']) {
+        $destinationId = $_POST['formDestination'];
     }
 
     //DATE
     $travelDate = null;
-    if (isset($_POST['travel-month']) && $_POST['travel-month']) {
-        $travelMonth = $_POST['travel-month'];
-        $travelYear = $_POST['travel-year'];
+    if (isset($_POST['formDates']) && $_POST['formDates']) {
+        $travelDate = $_POST['formDates'];
 
-        $travelDate = $travelYear . "-" . $travelMonth;
+        
     }
 
 
