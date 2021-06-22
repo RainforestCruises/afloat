@@ -388,7 +388,7 @@
 
             @media only screen and (max-width: $bp-large) {
                 top: 8rem; //to open vertically
-
+                background-color: $color-white;
                 padding-top: 1rem;
                 border-radius: 0rem;
 
@@ -878,7 +878,8 @@
         display: flex;
 
         justify-content: center;
-        padding-top: 6rem;
+        padding-top: 8rem;
+        padding-bottom: 2rem;
     }
 
     & button {
@@ -935,6 +936,7 @@
     @media only screen and (max-width: $bp-large) {
         flex-direction: column;
         align-items: center;
+        width: 4rem;
     }
 
     &-text {

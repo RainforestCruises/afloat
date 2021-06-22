@@ -63,7 +63,7 @@ $newsletter_snippet = get_field('newsletter_snippet');
 
   <!-- Full Search Mobile -->
   <div class="home-full-search" id="home-full-search">
-
+  <?php $logo_vertical = get_field('logo_vertical', 'options'); ?>
 
     <!-- Destination -->
     <div class="home-full-search__destination">
@@ -73,6 +73,10 @@ $newsletter_snippet = get_field('newsletter_snippet');
           Cancel
         </div>
 
+      </div>
+
+      <div class="home-full-search__destination__logo-area">
+        <img src="<?php echo $logo_vertical['url']; ?>" alt="logo">
       </div>
     </div>
 
@@ -86,6 +90,12 @@ $newsletter_snippet = get_field('newsletter_snippet');
         </div>
       </div>
     </div>
+    
+
+
+
+
+
 
 
 
@@ -93,9 +103,9 @@ $newsletter_snippet = get_field('newsletter_snippet');
 </div>
 <!-- form -->
 <form class="home-search-form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="home-search-form">
-    <input type="hidden" name="action" value="homeSearch">
-    <input type="hidden" name="formDates" id="formDates" value="">
-    <input type="hidden" name="formDestination" id="formDestination" value="">
+  <input type="hidden" name="action" value="homeSearch">
+  <input type="hidden" name="formDates" id="formDates" value="">
+  <input type="hidden" name="formDestination" id="formDestination" value="">
 </form>
 
 

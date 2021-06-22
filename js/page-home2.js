@@ -206,6 +206,8 @@ jQuery(document).ready(function ($) {
             dropdown.classList.remove('closed');
         });
         suggestionsArray = [];
+
+        //console.log('dest focus');
     });
 
 
@@ -288,7 +290,7 @@ jQuery(document).ready(function ($) {
             destinationList.classList.remove('open'); //close list
         }
 
-
+        console.log('blur event destination');
     });
 
     //change background
@@ -316,11 +318,13 @@ jQuery(document).ready(function ($) {
 
     //let initialDates = true;
     //trigger dates
+
+    const logoArea = document.querySelector('.home-full-search__destination__logo-area');
     function showDateSelect() {
         searchContainer.classList.add('expand');
         datesInputContainer.classList.add('show');
         mobileSearchDatesContainer.classList.add('active');
-
+        logoArea.classList.add('hide');
 
         //ISSUE -- need to find a away to intially open the dates... click away is interfering
         //datesInput.click();
@@ -388,16 +392,16 @@ jQuery(document).ready(function ($) {
                 }
             })
 
-            if(dateYear.getAttribute("year") == selectedYear){
-                datesListItems.forEach(monthItem => { 
-                    if(monthItem.value == selectedMonth){
+            if (dateYear.getAttribute("year") == selectedYear) {
+                datesListItems.forEach(monthItem => {
+                    if (monthItem.value == selectedMonth) {
                         monthItem.classList.add('selected');
                     } else {
                         monthItem.classList.remove('selected');
                     }
                 });
             } else {
-                datesListItems.forEach(monthItem => { 
+                datesListItems.forEach(monthItem => {
                     monthItem.classList.remove('selected');
                 });
             }
@@ -415,7 +419,7 @@ jQuery(document).ready(function ($) {
         item.addEventListener('click', (e) => {
             if (!item.classList.contains('disabled')) {
 
-                
+
                 var activeYearDiv = document.querySelector('.home-search__dates__list__years__year.selected');
                 selectedYear = activeYearDiv.getAttribute('year');
                 selectedMonth = item.value;
@@ -464,14 +468,18 @@ jQuery(document).ready(function ($) {
         //     destinationList.classList.remove('open');
         // }
 
-        if (!isDatesInput && !isDatesList) { //needs both because not all area is clickable space
-            datesList.classList.remove('open');
+        if (datesListIsOpen && !isDatesInput && !isDatesList) { //needs both because not all area is clickable space
+
+            if ($(window).width() > 1000) {
+                datesList.classList.remove('open');
+            }
+
         }
 
         if (!isDestinationInput && !isDatesInput && !isSearchContainer) {
             searchContainer.classList.remove('active'); //here
         }
-
+        console.log('click away');
     });
 
 
@@ -486,6 +494,7 @@ jQuery(document).ready(function ($) {
 
     mobileSearchBackButton.addEventListener('click', () => {
         mobileSearchDatesContainer.classList.remove('active');
+        logoArea.classList.remove('hide');
     });
 
 
@@ -511,7 +520,6 @@ jQuery(document).ready(function ($) {
     $(window).resize(function () {
         if ($(window).width() < 1000) { //mobile view    
 
-
             if (homeFullSearchDestinationTop.contains(destinationInput) == false) {
                 homeFullSearchDestinationTop.appendChild(destinationInput);
                 homeFullSearchDestination.appendChild(destinationList);
@@ -522,7 +530,7 @@ jQuery(document).ready(function ($) {
         }
         else { //desktop view    
             //hideMobileFilters();
-
+            hideMobileFilters();
 
             if (searchContainer.contains(destinationInput) == false) {
                 destinationInputContainer.appendChild(destinationInput);
@@ -535,25 +543,34 @@ jQuery(document).ready(function ($) {
     });
 
 
+    const body = document.querySelector('body');
+    const overlay = document.querySelector('.home-full-search');
+
+
     //Mobile search button
     $('#mobile-search-button').click(function (event) {
 
-        const body = document.querySelector('body');
-        body.classList.add('lock-scroll');
-        const overlay = document.querySelector('.home-full-search');
-        overlay.classList.add('active');
+        showMobileFilters();
 
     })
 
     //Mobile search close
     $('#mobile-search-close').click(function (event) {
 
-        const body = document.querySelector('body');
-        body.classList.remove('lock-scroll');
-        const overlay = document.querySelector('.home-full-search');
-        overlay.classList.remove('active');
+        hideMobileFilters();
 
     })
+
+
+    function hideMobileFilters() {
+        body.classList.remove('lock-scroll');
+        overlay.classList.remove('active');
+    }
+
+    function showMobileFilters() {
+        body.classList.add('lock-scroll');
+        overlay.classList.add('active');
+    }
 
 });
 

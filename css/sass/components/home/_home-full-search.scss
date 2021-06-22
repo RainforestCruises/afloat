@@ -21,6 +21,8 @@
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 5;
+        background-color: $color-white;
         &__top {
             display: flex;
             justify-content: space-between;
@@ -43,6 +45,29 @@
                 }
             }
         }
+
+        //add mackground image here
+        &__logo-area {
+            height: 100%;
+            width: 100%;
+            //position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: -1;
+            //transform: translateY(-50%);
+
+            &.hide {
+                display: none;
+            }
+            & img {
+                width: 26rem;
+                height: auto;
+                filter: brightness(0) invert(.8);
+                transform: translateY(-50%);
+            }
+            
+        }
     }
 
 
@@ -54,7 +79,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        
+        z-index: 6;
     
         transform: translateX(-100%);
 
@@ -88,6 +113,8 @@
         }
     }
     
+
+   
     
 
 }
