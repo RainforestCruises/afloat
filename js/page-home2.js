@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
 
 
     // Down Arrow
-    $('#down-arrow-button').click(function (event) {
+    $('#scroll-down').click(function (event) {
         var id = $(this).attr('href');
         changePosition(id)
         event.preventDefault();
@@ -44,7 +44,7 @@ jQuery(document).ready(function ($) {
         centerMode: false,
         arrows: false,
         draggable: false,
-        fade: false,
+        fade: true,
         speed: 1000,
         prevArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--left home-hero__bottom__slide-nav__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
         nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right home-hero__bottom__slide-nav__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
@@ -293,6 +293,7 @@ jQuery(document).ready(function ($) {
 
     //change background
     function changeSlide(slidePostId) {
+        console.log('change');
         const slideDiv = document.querySelector('.home-hero__bg__slide[postid="' + slidePostId + '"]');
         if (slideDiv) {
             const slideNumber = slideDiv.getAttribute('slidenumber');

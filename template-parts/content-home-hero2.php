@@ -29,8 +29,11 @@ $currentYear = date("Y");
             $sliderImage = $s['image'];
             $sliderTitle = $s['title'];
             $sliderDestination = $s['destination'];
-
-            $sliderDestinationPostId = $sliderDestination->ID;
+            $sliderDestinationPostId = null;
+            if($sliderDestination) {
+                $sliderDestinationPostId = $sliderDestination->ID;
+            }
+            
         ?>
             <div class="home-hero__bg__slide" postid="<?php echo $sliderDestinationPostId ?>" slidenumber="<?php echo $slideCount; ?>">
                 <?php if ($sliderImage) : ?>
@@ -144,7 +147,7 @@ $currentYear = date("Y");
     </div>
 
     <div class="home-hero__bottom">
-        <div class="scroll-down">
+        <div class="scroll-down" id="scroll-down" href="#intro">
             <div class="scroll-down-bar"></div>
             <div class="scroll-down-text">SCROLL DOWN</div>
         </div>

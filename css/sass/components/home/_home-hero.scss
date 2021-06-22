@@ -10,6 +10,7 @@
 
     @media only screen and (max-width: $bp-large) {
         min-height: 60rem;
+        padding-bottom: 12rem;
     }
 
     &__bg {
@@ -57,16 +58,6 @@
         }
 
 
-
-
-
-
-
-
-
-
-
-
         &:after {
             //gradient overlay
             content: "";
@@ -99,6 +90,7 @@
         @media only screen and (max-width: $bp-large) {
             align-items: center;
             margin-top: 12rem;
+            margin-bottom: 0rem;
         }
 
         &__title-group {
@@ -165,10 +157,8 @@
         align-items: center;
 
         @media only screen and (max-width: $bp-large) {
-            
-
             justify-content: center;
-        }
+        } 
 
         &__slide-nav {
 
@@ -178,10 +168,15 @@
             font-weight: 300;
             letter-spacing: .2rem;
             color: rgba($color-white, 0.85);
-            //display: none ;
+            
             position: relative;
 
             margin-right: 8rem;
+
+
+            @media only screen and (max-width: $bp-large) {
+                display: none ;
+            } 
 
             & .slick-list {
                 height: 100% !important;
@@ -936,7 +931,7 @@
 
     display: flex;
     align-items: center;
-
+    cursor: pointer;
     @media only screen and (max-width: $bp-large) {
         flex-direction: column;
         align-items: center;
@@ -973,7 +968,8 @@
         }
 
         &::before {
-            animation: scrollDown 1.5s infinite;
+            animation: scrollDown 2s infinite;
+            
             background: rgba($color-white, 1);
             content: "";
             display: inline-block;
@@ -987,55 +983,61 @@
     }
 }
 
-@-moz-keyframes scrollDown {
-    0% {
-        transform: translate3d(0, -1rem, 0);
-    }
-    50% {
-        animation-timing-function: ease-out;
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        animation-timing-function: ease-in;
-        transform: translate3d(0, 3rem, 0);
-    }
-}
-@-webkit-keyframes scrollDown {
-    0% {
-        transform: translate3d(0, -1rem, 0);
-    }
-    50% {
-        animation-timing-function: ease-out;
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        animation-timing-function: ease-in;
-        transform: translate3d(0, 3rem, 0);
-    }
-}
-@-o-keyframes scrollDown {
-    0% {
-        transform: translate3d(0, -1rem, 0);
-    }
-    50% {
-        animation-timing-function: ease-out;
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        animation-timing-function: ease-in;
-        transform: translate3d(0, 3rem, 0);
-    }
-}
+// @-moz-keyframes scrollDown {
+//     0% {
+//         transform: translate3d(0, -1rem, 0);
+//     }
+//     50% {
+//         animation-timing-function: ease-out;
+//         transform: translate3d(0, 0, 0);
+//     }
+//     100% {
+//         animation-timing-function: ease-in;
+//         transform: translate3d(0, 3rem, 0);
+//     }
+// }
+// @-webkit-keyframes scrollDown {
+//     0% {
+//         transform: translate3d(0, -1rem, 0);
+//     }
+//     50% {
+//         animation-timing-function: ease-out;
+//         transform: translate3d(0, 0, 0);
+//     }
+//     100% {
+//         animation-timing-function: ease-in;
+//         transform: translate3d(0, 3rem, 0);
+//     }
+// }
+// @-o-keyframes scrollDown {
+//     0% {
+//         transform: translate3d(0, -1rem, 0);
+//     }
+//     50% {
+//         animation-timing-function: ease-out;
+//         transform: translate3d(0, 0, 0);
+//     }
+//     100% {
+//         animation-timing-function: ease-in;
+//         transform: translate3d(0, 3rem, 0);
+//     }
+// }
 @keyframes scrollDown {
     0% {
-        transform: translate3d(0, -1rem, 0);
+        transform: translate3d(0, -2rem, 0);
+        animation-timing-function: ease-in;
     }
+
+    25% {
+        transform: translate3d(0, 1rem, 0);
+        //animation-timing-function: ease-in;
+    }
+    
     50% {
         animation-timing-function: ease-out;
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 3rem, 0);
     }
     100% {
-        animation-timing-function: ease-in;
         transform: translate3d(0, 3rem, 0);
     }
 }

@@ -6515,7 +6515,8 @@ h5 {
   position: relative; }
   @media only screen and (max-width: 62.5em) {
     .home-hero {
-      min-height: 60rem; } }
+      min-height: 60rem;
+      padding-bottom: 12rem; } }
   .home-hero__bg {
     position: absolute;
     top: 0;
@@ -6565,7 +6566,8 @@ h5 {
     @media only screen and (max-width: 62.5em) {
       .home-hero__content {
         align-items: center;
-        margin-top: 12rem; } }
+        margin-top: 12rem;
+        margin-bottom: 0rem; } }
     .home-hero__content__title-group {
       display: flex;
       flex-direction: column;
@@ -6627,6 +6629,9 @@ h5 {
       color: rgba(255, 255, 255, 0.85);
       position: relative;
       margin-right: 8rem; }
+      @media only screen and (max-width: 62.5em) {
+        .home-hero__bottom__slide-nav {
+          display: none; } }
       .home-hero__bottom__slide-nav .slick-list {
         height: 100% !important; }
       .home-hero__bottom__slide-nav .slick-track {
@@ -7148,7 +7153,8 @@ h5 {
   height: min-content;
   width: min-content;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  cursor: pointer; }
   @media only screen and (max-width: 62.5em) {
     .scroll-down {
       flex-direction: column;
@@ -7178,7 +7184,7 @@ h5 {
       .scroll-down-bar {
         margin-bottom: 0.5rem; } }
     .scroll-down-bar::before {
-      animation: scrollDown 1.5s infinite;
+      animation: scrollDown 2s infinite;
       background: white;
       content: "";
       display: inline-block;
@@ -7188,44 +7194,16 @@ h5 {
       width: 2px;
       z-index: 1; }
 
-@-moz-keyframes scrollDown {
-  0% {
-    transform: translate3d(0, -1rem, 0); }
-  50% {
-    animation-timing-function: ease-out;
-    transform: translate3d(0, 0, 0); }
-  100% {
-    animation-timing-function: ease-in;
-    transform: translate3d(0, 3rem, 0); } }
-
-@-webkit-keyframes scrollDown {
-  0% {
-    transform: translate3d(0, -1rem, 0); }
-  50% {
-    animation-timing-function: ease-out;
-    transform: translate3d(0, 0, 0); }
-  100% {
-    animation-timing-function: ease-in;
-    transform: translate3d(0, 3rem, 0); } }
-
-@-o-keyframes scrollDown {
-  0% {
-    transform: translate3d(0, -1rem, 0); }
-  50% {
-    animation-timing-function: ease-out;
-    transform: translate3d(0, 0, 0); }
-  100% {
-    animation-timing-function: ease-in;
-    transform: translate3d(0, 3rem, 0); } }
-
 @keyframes scrollDown {
   0% {
-    transform: translate3d(0, -1rem, 0); }
+    transform: translate3d(0, -2rem, 0);
+    animation-timing-function: ease-in; }
+  25% {
+    transform: translate3d(0, 1rem, 0); }
   50% {
     animation-timing-function: ease-out;
-    transform: translate3d(0, 0, 0); }
+    transform: translate3d(0, 3rem, 0); }
   100% {
-    animation-timing-function: ease-in;
     transform: translate3d(0, 3rem, 0); } }
 
 .home-intro {
