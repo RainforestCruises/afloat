@@ -30,10 +30,10 @@ $currentYear = date("Y");
             $sliderTitle = $s['title'];
             $sliderDestination = $s['destination'];
             $sliderDestinationPostId = null;
-            if($sliderDestination) {
+            if ($sliderDestination) {
                 $sliderDestinationPostId = $sliderDestination->ID;
             }
-            
+
         ?>
             <div class="home-hero__bg__slide" postid="<?php echo $sliderDestinationPostId ?>" slidenumber="<?php echo $slideCount; ?>">
                 <?php if ($sliderImage) : ?>
@@ -89,15 +89,15 @@ $currentYear = date("Y");
                     <div class="home-search__dates__list" id="dates-list">
                         <div class="home-search__dates__list__years">
                             <?php
-                            for ($y = 0; $y < 2; $y++) : 
-                            $loopYear = $currentYear + $y;
+                            for ($y = 0; $y < 2; $y++) :
+                                $loopYear = $currentYear + $y;
                             ?>
                                 <div class="home-search__dates__list__years__year <?php echo ($y == 0) ? "selected" : ""; ?>" year="<?php echo $loopYear; ?>">
-                                <?php echo $loopYear; ?>
+                                    <?php echo $loopYear; ?>
                                 </div>
                             <?php endfor;
                             ?>
-                            
+
                         </div>
                         <ul class="home-search__dates__list__months selected">
                             <li value="01" name="January">Jan</li>
@@ -120,15 +120,25 @@ $currentYear = date("Y");
                 <!-- CTA Button -->
                 <div class="home-search__cta">
                     <button class="home-search__cta__button" id="search-button" type="submit" form="home-search-form">
+                        <span>
+                            Search
+                        </span>
                         <svg>
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-magnifying-glass"></use>
                         </svg>
+
+                        <div class="lds-ring">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
                     </button>
                 </div>
 
             </div>
 
-            <!-- Search Container Mobile -->
+            <!-- Search Container / button Mobile -->
             <div class="home-search-mobile">
                 <button id="mobile-search-button">
                     Where would you like to go?

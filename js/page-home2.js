@@ -320,12 +320,33 @@ jQuery(document).ready(function ($) {
     //trigger dates
 
     const logoArea = document.querySelector('.home-full-search__destination__logo-area');
+    const searchButton = document.querySelector('#search-button');
+    const mobileSearchButton = document.querySelector('.home-full-search-cta__button');
+
+    //home-full-search-cta__button
+
+    //search-button
+    searchButton.addEventListener('click', (e) => {
+        let isActive = searchButton.classList.contains('active');
+        if (!isActive) {
+            e.preventDefault();
+        } else {
+            searchButton.classList.add('loading');
+        }
+
+    });
+
+    mobileSearchButton.addEventListener('click', (e) => {
+        mobileSearchButton.classList.add('loading');
+
+    });
+
     function showDateSelect() {
         searchContainer.classList.add('expand');
         datesInputContainer.classList.add('show');
         mobileSearchDatesContainer.classList.add('active');
         logoArea.classList.add('hide');
-
+        searchButton.classList.add('active');
         //ISSUE -- need to find a away to intially open the dates... click away is interfering
         //datesInput.click();
 
@@ -337,6 +358,7 @@ jQuery(document).ready(function ($) {
 
             datesList.classList.add('open');
             datesInput.classList.add('open');
+            overlayCta.classList.add('active');
         }
     }
 
@@ -495,6 +517,7 @@ jQuery(document).ready(function ($) {
     mobileSearchBackButton.addEventListener('click', () => {
         mobileSearchDatesContainer.classList.remove('active');
         logoArea.classList.remove('hide');
+        overlayCta.classList.remove('active');
     });
 
 
@@ -545,6 +568,7 @@ jQuery(document).ready(function ($) {
 
     const body = document.querySelector('body');
     const overlay = document.querySelector('.home-full-search');
+    const overlayCta = document.querySelector('.home-full-search-cta');
 
 
     //Mobile search button
@@ -565,6 +589,7 @@ jQuery(document).ready(function ($) {
     function hideMobileFilters() {
         body.classList.remove('lock-scroll');
         overlay.classList.remove('active');
+        overlayCta.classList.remove('active');
     }
 
     function showMobileFilters() {

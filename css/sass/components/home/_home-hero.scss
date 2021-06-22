@@ -29,17 +29,15 @@
         //     width: 100%;
         // }
 
-
         //Must Specify 100% height on all three elements!!
         & .slick-list {
             height: 100% !important;
         }
         & .slick-track {
             height: 100% !important;
-    
         }
         & .slick-slide div {
-            height: 100% !important;  
+            height: 100% !important;
         }
 
         &__slide {
@@ -57,7 +55,6 @@
             }
         }
 
-
         &:after {
             //gradient overlay
             content: "";
@@ -71,7 +68,6 @@
             top: 0;
             left: 0;
             z-index: 2;
-
         }
     }
 
@@ -158,35 +154,32 @@
 
         @media only screen and (max-width: $bp-large) {
             justify-content: center;
-        } 
+        }
 
         &__slide-nav {
-
             width: 24rem;
             font-size: 1.2rem;
             text-transform: uppercase;
             font-weight: 300;
-            letter-spacing: .2rem;
+            letter-spacing: 0.2rem;
             color: rgba($color-white, 0.85);
-            
+
             position: relative;
 
             margin-right: 8rem;
 
-
             @media only screen and (max-width: $bp-large) {
-                display: none ;
-            } 
+                display: none;
+            }
 
             & .slick-list {
                 height: 100% !important;
             }
             & .slick-track {
                 height: 100% !important;
-        
             }
             & .slick-slide div {
-                height: 100% !important;  
+                height: 100% !important;
             }
 
             &__slide {
@@ -195,7 +188,6 @@
                 align-items: center;
                 height: 100%;
                 width: 100%;
-                
             }
 
             &__arrow-left {
@@ -205,7 +197,6 @@
                 right: -2rem;
                 z-index: 10;
                 margin: 0;
-             
             }
             &__arrow-right {
                 position: absolute;
@@ -213,7 +204,7 @@
                 bottom: 50%;
                 right: -6rem;
                 z-index: 10;
-             
+
                 margin: 0;
             }
         }
@@ -243,8 +234,8 @@
 
     &.expand {
         //transition: width 0.3s;
-        width: 70rem;
-        background-color: rgba($color-black, 0.3);
+        width: 80rem;
+        background-color: rgba($color-primary-dark, 0.3);
         & .home-search__dates {
             animation: fadein 0.5s 0.2s;
             animation-fill-mode: both;
@@ -252,11 +243,11 @@
     }
 
     &:hover {
-        background-color: rgba($color-black, 0.3);
+        background-color: rgba($color-primary-dark, 0.3);
     }
 
     &.active {
-        background-color: rgba($color-black, 0.8);
+        background-color: rgba($color-primary-dark, 0.8);
         border: 2px solid $color-white;
     }
 
@@ -371,11 +362,11 @@
 
             &::-webkit-scrollbar-track {
                 -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-                background-color: #000000;
+                background-color: $color-primary-dark;
             }
             &::-webkit-scrollbar {
                 width: 4px;
-                background-color: #000000;
+                background-color: $color-primary-dark;
             }
             &::-webkit-scrollbar-thumb {
                 background-color: $color-grey-3;
@@ -398,7 +389,7 @@
                 }
                 &::-webkit-scrollbar {
                     width: 4px;
-                    background-color: #000000;
+                    background-color: $color-primary-dark;
                 }
                 &::-webkit-scrollbar-thumb {
                     background-color: $color-grey-3;
@@ -415,7 +406,7 @@
             li {
                 position: relative;
                 height: 4rem;
-                background-color: rgba($color-black, 1);
+                background-color: rgba($color-primary-dark, 1);
 
                 color: $color-white;
                 padding: 0 1rem;
@@ -595,7 +586,7 @@
 
             transition: 0.3s ease-in-out;
 
-            background-color: rgba($color-black, 1);
+            background-color: rgba($color-primary-dark, 1);
 
             border-radius: 0.8rem;
 
@@ -695,7 +686,6 @@
 
                         position: relative;
                         transition: all 0.2s;
-
 
                         &::after {
                             content: "";
@@ -856,17 +846,65 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            cursor: pointer;
+            
+
+            & .lds-ring {
+                display: none;
+            }
+
+            & span {
+                color: $color-white;
+                font-weight: 700;
+                width: max-content;
+                margin-left: 1.5rem;
+                font-size: 1.4rem;
+                letter-spacing: 0.2rem;
+                text-transform: uppercase;
+                display: none;
+                opacity: 0;
+            }
+
+            &.loading {
+                & .lds-ring {
+                    display: block;
+                }
+
+                & svg {
+                    display: none !important;
+                }
+            }
+
+            &.active {
+                width: 14rem;
+                justify-content: space-between;
+                background-color: $color-gold;
+                transition: all 0.3s;
+                padding-left: .5rem;
+                padding-right: 1.5rem;
+                transition-delay: .1s;
+                cursor: pointer;
+                & span {
+                    //opacity: 1;
+                    display: flex;
+                    animation: fadein .5s forwards;
+                    animation-delay: .2s;
+                    transition: all 0.3s;
+                }
+
+                &:hover {
+                    background-color: $color-gold-light;
+                    transition-delay: 0s;
+                }
+            }
+
+            
             & svg {
                 height: 2rem;
                 width: 2rem;
                 fill: $color-white;
             }
 
-            &:hover {
-                background-color: $color-gold;
-                transition: all 0.3s;
-            }
+            
         }
     }
 }
@@ -971,7 +1009,7 @@
 
         &::before {
             animation: scrollDown 2s infinite;
-            
+
             background: rgba($color-white, 1);
             content: "";
             display: inline-block;
@@ -1034,7 +1072,7 @@
         transform: translate3d(0, 1rem, 0);
         //animation-timing-function: ease-in;
     }
-    
+
     50% {
         animation-timing-function: ease-out;
         transform: translate3d(0, 3rem, 0);
