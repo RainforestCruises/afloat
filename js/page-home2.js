@@ -264,6 +264,8 @@ jQuery(document).ready(function ($) {
 
             formDestination.value = item.getAttribute('postid'); //assign selection
             changeSlide(formDestination.value); //change background
+
+            destinationInput.blur();
         });
     })
 
@@ -319,11 +321,9 @@ jQuery(document).ready(function ($) {
     //let initialDates = true;
     //trigger dates
 
-    const logoArea = document.querySelector('.home-full-search__destination__logo-area');
     const searchButton = document.querySelector('#search-button');
     const mobileSearchButton = document.querySelector('.home-full-search-cta__button');
-
-    //home-full-search-cta__button
+    const mobileLoading = document.querySelector('.home-full-search-loading');
 
     //search-button
     searchButton.addEventListener('click', (e) => {
@@ -331,13 +331,17 @@ jQuery(document).ready(function ($) {
         if (!isActive) {
             e.preventDefault();
         } else {
+            //submit action inherent in element
+            
             searchButton.classList.add('loading');
         }
-
+        
     });
 
     mobileSearchButton.addEventListener('click', (e) => {
-        mobileSearchButton.classList.add('loading');
+        //submit action inherent in element
+
+        mobileLoading.classList.add('active');
 
     });
 
@@ -345,7 +349,7 @@ jQuery(document).ready(function ($) {
         searchContainer.classList.add('expand');
         datesInputContainer.classList.add('show');
         mobileSearchDatesContainer.classList.add('active');
-        logoArea.classList.add('hide');
+        //logoArea.classList.add('hide');
         searchButton.classList.add('active');
         //ISSUE -- need to find a away to intially open the dates... click away is interfering
         //datesInput.click();
@@ -436,6 +440,8 @@ jQuery(document).ready(function ($) {
         });
     })
 
+    
+    const searchForm = document.querySelector('#home-search-form');
     //Month Click - event handler to each LI
     datesListItems.forEach(item => {
         item.addEventListener('click', (e) => {
@@ -460,6 +466,9 @@ jQuery(document).ready(function ($) {
                     datesList.classList.remove('open');
                     datesInput.classList.remove('open');
                     searchContainer.classList.remove('active');
+                } else {
+                    searchForm.submit();
+                    mobileLoading.classList.add('active');
                 }
 
 
@@ -516,8 +525,9 @@ jQuery(document).ready(function ($) {
 
     mobileSearchBackButton.addEventListener('click', () => {
         mobileSearchDatesContainer.classList.remove('active');
-        logoArea.classList.remove('hide');
+        //logoArea.classList.remove('hide');
         overlayCta.classList.remove('active');
+        destinationInput.focus();
     });
 
 
@@ -595,6 +605,7 @@ jQuery(document).ready(function ($) {
     function showMobileFilters() {
         body.classList.add('lock-scroll');
         overlay.classList.add('active');
+        destinationInput.focus();
     }
 
 });

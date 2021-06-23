@@ -75,9 +75,7 @@ $newsletter_snippet = get_field('newsletter_snippet');
 
       </div>
 
-      <div class="home-full-search__destination__logo-area">
-        <img src="<?php echo $logo_vertical['url']; ?>" alt="logo">
-      </div>
+
     </div>
 
     <!-- Dates -->
@@ -97,31 +95,38 @@ $newsletter_snippet = get_field('newsletter_snippet');
   <div class="home-full-search-cta">
     <button class="home-full-search-cta__button" type="submit" form="home-search-form">
       <span>
-        SEARCH
+        SEARCH ALL DATES
       </span>
 
-      <div class="lds-ring">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+
     </button>
   </div>
-</div>
-<!-- form -->
-<form class="home-search-form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="home-search-form">
-  <input type="hidden" name="action" value="homeSearch">
-  <input type="hidden" name="formDates" id="formDates" value="">
-  <input type="hidden" name="formDestination" id="formDestination" value="">
-</form>
+  <div class="home-full-search-loading">
+
+    <?php $logo_vertical = get_field('logo_vertical', 'options'); ?>
+    <img class="home-full-search-loading__logo" src="<?php echo $logo_vertical['url']; ?>">
+
+    <div class="lds-ring lds-ring--large">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    </img>
+  </div>
+  <!-- form -->
+  <form class="home-search-form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="home-search-form">
+    <input type="hidden" name="action" value="homeSearch">
+    <input type="hidden" name="formDates" id="formDates" value="">
+    <input type="hidden" name="formDestination" id="formDestination" value="">
+  </form>
 
 
 
 
-<?php get_footer(); ?>
+  <?php get_footer(); ?>
 
 
-<script>
-  var templateUrl = "<?php echo bloginfo('template_url') ?>";
-</script>
+  <script>
+    var templateUrl = "<?php echo bloginfo('template_url') ?>";
+  </script>

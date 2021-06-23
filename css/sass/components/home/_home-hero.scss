@@ -378,7 +378,7 @@
             }
 
             @media only screen and (max-width: $bp-large) {
-                top: 8rem; //to open vertically
+                top: 8.1rem; //to open vertically -- .1 for border
                 background-color: $color-white;
                 padding-top: 1rem;
                 border-radius: 0rem;

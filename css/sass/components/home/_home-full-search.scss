@@ -183,3 +183,38 @@
         
     }
 }
+
+.home-full-search-loading {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $color-white;
+    z-index: 10002;
+
+    &__logo {
+        width: 22rem;
+        height: auto;
+        filter: brightness(0) invert(0.1);
+        //transform: translateY(-50%);
+        margin-bottom: 6rem;
+    }
+
+    &.active {
+       display: flex;
+    }
+
+    & .lds-ring {
+        //width: 80rem;  
+        //height: 80rem; 
+
+        & div {
+            border-color: $color-supporting-light transparent transparent transparent;
+        }
+    }
+}

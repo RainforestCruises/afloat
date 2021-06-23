@@ -6764,7 +6764,7 @@ h5 {
         overflow: auto; }
       @media only screen and (max-width: 62.5em) {
         .home-search__destination__list {
-          top: 8rem;
+          top: 8.1rem;
           background-color: #fff;
           padding-top: 1rem;
           border-radius: 0rem; }
@@ -7908,6 +7908,28 @@ h5 {
       display: none !important; }
     .home-full-search-cta__button.loading .lds-ring {
       display: block; }
+
+.home-full-search-loading {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  z-index: 10002; }
+  .home-full-search-loading__logo {
+    width: 22rem;
+    height: auto;
+    filter: brightness(0) invert(0.1);
+    margin-bottom: 6rem; }
+  .home-full-search-loading.active {
+    display: flex; }
+  .home-full-search-loading .lds-ring div {
+    border-color: #40739c transparent transparent transparent; }
 
 .experience-hero {
   display: flex;
@@ -9283,8 +9305,7 @@ h5 {
       animation-delay: -0.15s; }
   .lds-ring--large {
     width: 80px;
-    height: 80px;
-    transform: translateX(-50%); }
+    height: 80px; }
     .lds-ring--large div {
       width: 64px;
       height: 64px;
