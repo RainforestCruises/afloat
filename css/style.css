@@ -7150,7 +7150,7 @@ h5 {
       display: flex;
       justify-content: center;
       padding-top: 8rem;
-      padding-bottom: 2rem; } }
+      padding-bottom: 5rem; } }
   .home-search-mobile button {
     height: min-content;
     display: flex;
@@ -7864,7 +7864,7 @@ h5 {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 14rem;
+  height: 11rem;
   width: 100%;
   background-color: #fff;
   border-top: 1px solid #c2c6c9;

@@ -570,7 +570,7 @@ jQuery(document).ready(function ($) {
     const overlay = document.querySelector('.home-full-search');
     const overlayCta = document.querySelector('.home-full-search-cta');
 
-
+    hideMobileFilters();
     //Mobile search button
     $('#mobile-search-button').click(function (event) {
 
