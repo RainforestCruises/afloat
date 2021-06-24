@@ -6669,13 +6669,12 @@ h5 {
   border: 2px solid #d9a402;
   border-radius: 10rem;
   transition: all 0.3s;
-  justify-content: space-between;
   align-items: center; }
   @media only screen and (max-width: 62.5em) {
     .home-search {
       display: none; } }
   .home-search.expand {
-    width: 80rem;
+    width: 84rem;
     background-color: rgba(29, 34, 37, 0.3); }
     .home-search.expand .home-search__dates {
       animation: fadein 0.5s 0.2s;
@@ -6691,6 +6690,22 @@ h5 {
     @media only screen and (max-width: 62.5em) {
       .home-search__destination {
         height: 100vh; } }
+    .home-search__destination__label {
+      letter-spacing: 0.1rem;
+      font-size: 1.6rem;
+      line-height: 1.6rem;
+      font-weight: 400;
+      height: 4rem;
+      color: #d9a402;
+      align-items: center;
+      text-transform: uppercase;
+      display: none; }
+      .home-search__destination__label.active {
+        display: flex; }
+      .home-search__destination__label svg {
+        height: 2.8rem;
+        width: 2.8rem;
+        fill: #d9a402; }
     .home-search__destination__input {
       position: relative;
       color: rgba(255, 255, 255, 0.95);
@@ -6742,7 +6757,7 @@ h5 {
     .home-search__destination__clear {
       position: absolute;
       top: 50%;
-      right: -1rem;
+      right: .5rem;
       background-color: #9ea0a4;
       border-radius: 8rem;
       border: none;
@@ -6880,6 +6895,22 @@ h5 {
       transform: translateY(-50%);
       background-color: #c2c6c9;
       width: 1px; }
+    .home-search__dates__label {
+      letter-spacing: 0.1rem;
+      font-size: 1.6rem;
+      line-height: 1.6rem;
+      font-weight: 400;
+      height: 4rem;
+      color: #d9a402;
+      align-items: center;
+      text-transform: uppercase;
+      display: none; }
+      .home-search__dates__label.active {
+        display: flex; }
+      .home-search__dates__label svg {
+        height: 2.2rem;
+        width: 2.2rem;
+        fill: #d9a402; }
     .home-search__dates__input {
       position: relative;
       color: rgba(255, 255, 255, 0.95);
@@ -7120,7 +7151,8 @@ h5 {
                   color: #9ea0a4; } }
   .home-search__cta {
     width: min-content;
-    height: min-content; }
+    height: min-content;
+    margin-left: auto; }
     .home-search__cta__button {
       height: 5rem;
       width: 5rem;

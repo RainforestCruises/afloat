@@ -225,7 +225,7 @@
     border-radius: 10rem;
 
     transition: all 0.3s;
-    justify-content: space-between;
+    //justify-content: space-between;
     align-items: center;
 
     @media only screen and (max-width: $bp-large) {
@@ -234,7 +234,7 @@
 
     &.expand {
         //transition: width 0.3s;
-        width: 80rem;
+        width: 84rem;
         background-color: rgba($color-primary-dark, 0.3);
         & .home-search__dates {
             animation: fadein 0.5s 0.2s;
@@ -258,6 +258,30 @@
         //align-items: center;
         @media only screen and (max-width: $bp-large) {
             height: 100vh;
+        }
+
+        &__label {
+            letter-spacing: 0.1rem;
+            font-size: 1.6rem;
+            line-height: 1.6rem;
+            font-weight: 400;
+            height: 4rem;
+            //padding-left: 1rem;
+            color: $color-gold;
+            //display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            display: none;
+
+            &.active {
+                display: flex;
+            }
+
+            & svg {
+                height: 2.8rem;
+                width: 2.8rem;
+                fill: $color-gold;
+            }
         }
 
         &__input {
@@ -348,8 +372,7 @@
         &__clear {
             position: absolute;
             top: 50%;
-            right: -1rem;
-
+            right: .5rem;
 
             @media only screen and (max-width: $bp-large) {
                 right: 13rem;
@@ -364,9 +387,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            //font-family: $font-primary;
-            //font-weight: 700;
-            //font-size: 1.5rem;
             transform: translateY(-55%);
             cursor: pointer;
             transition: all .2s;
@@ -531,7 +551,8 @@
             display: flex;
             opacity: 1;
         }
-
+        
+        
         margin-left: 3rem;
         &::before {
             content: "";
@@ -542,6 +563,31 @@
             transform: translateY(-50%);
             background-color: $color-grey-light-2;
             width: 1px;
+        }
+
+        &__label {
+            letter-spacing: 0.1rem;
+            font-size: 1.6rem;
+            line-height: 1.6rem;
+            font-weight: 400;
+            height: 4rem;
+            //padding-left: 1rem;
+            color: $color-gold;
+            //display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            display: none;
+
+            &.active {
+                display: flex;
+            }
+
+            & svg {
+                //stroke-width: 3;
+                height: 2.2rem;
+                width: 2.2rem;
+                fill: $color-gold;
+            }
         }
 
         &__input {
@@ -878,7 +924,7 @@
         //display: flex;
         width: min-content;
         height: min-content;
-
+        margin-left: auto;
         &__button {
             height: 5rem;
             width: 5rem;

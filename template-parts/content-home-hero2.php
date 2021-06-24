@@ -72,6 +72,11 @@ $currentYear = date("Y");
 
                 <!-- Destination -->
                 <div class="home-search__destination" id="destination-input-container">
+                    <label for="destination-input" class="home-search__destination__label">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-location-pin"></use>
+                        </svg>
+                    </label>
                     <input class="home-search__destination__input" id="destination-input" value="" placeholder="Where would you like to go?" autocomplete="off">
                     <button class="home-search__destination__clear">
                         <svg>
@@ -88,6 +93,11 @@ $currentYear = date("Y");
 
                 <!-- Dates -->
                 <div class="home-search__dates">
+                    <label for="dates-input" class="home-search__dates__label">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-calendar-2"></use>
+                        </svg>
+                    </label>
                     <div class="home-search__dates__input" id="dates-input">
                         When would you like to travel?
                     </div>

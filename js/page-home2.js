@@ -176,6 +176,7 @@ jQuery(document).ready(function ($) {
 
     //DESTINATION SELECT COMPONENT 
     const destinationInputClear = document.querySelector('.home-search__destination__clear');
+    const destinationInputLabel = document.querySelector('.home-search__destination__label');
     const destinationInputContainer = document.querySelector('#destination-input-container');
     const destinationInput = document.querySelector('#destination-input');
     const destinationList = document.querySelector('#destination-list');
@@ -224,9 +225,9 @@ jQuery(document).ready(function ($) {
         suggestionsArray = [];
         destinationInput.value = "";
         destinationInputClear.classList.remove('active');
-       
 
-        if ($(window).width() > 1000) { 
+
+        if ($(window).width() > 1000) {
             destinationInput.blur();
             destinationInput.focus();
         } else {
@@ -236,7 +237,7 @@ jQuery(document).ready(function ($) {
             });
             destinationInput.focus();
         }
-        
+
     });
 
 
@@ -314,6 +315,7 @@ jQuery(document).ready(function ($) {
                 formDestination.value = suggestionsArray[0].suggestionPostId; //assign selection
                 changeSlide(formDestination.value); //change background
                 showDateSelect();
+
             } else {
                 //nothing selected         
                 let isValidSelection = destinationStringArray.includes(destinationInput.value); //check if entered text matches one in the array 
@@ -325,6 +327,12 @@ jQuery(document).ready(function ($) {
         }
         destinationInputClear.classList.remove('active');
         console.log('blur event destination');
+        if (destinationInput.value.length > 0) {
+            destinationInputLabel.classList.add('active');
+        } else {
+            destinationInputLabel.classList.remove('active');
+        }
+
     });
 
     //change background
@@ -401,6 +409,8 @@ jQuery(document).ready(function ($) {
 
     // //DATE SELECT COMPONENT ------------------------------------------------------------------------------------
     const datesInputContainer = document.querySelector('.home-search__dates');
+    const datesInputLabel = document.querySelector('.home-search__dates__label');
+
     const datesInput = document.querySelector('#dates-input');
     const datesList = document.querySelector('#dates-list');
     const datesListItems = [...document.querySelectorAll('#dates-list li')];
@@ -495,11 +505,17 @@ jQuery(document).ready(function ($) {
                     datesList.classList.remove('open');
                     datesInput.classList.remove('open');
                     searchContainer.classList.remove('active');
+
+                    
+                    
+                
                 } else {
                     searchForm.submit();
                     mobileLoading.classList.add('active');
                 }
 
+                datesInputLabel.classList.add('active');
+               
 
             }
 

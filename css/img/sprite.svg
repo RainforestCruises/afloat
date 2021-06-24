@@ -219,7 +219,9 @@
                 <circle cx="32" cy="32" r="4" fill="none" stroke="currentColor" stroke-miterlimit="10"/>
             </g>
         </symbol>
-
+        <symbol id="icon-clock" viewBox="0 0 32 32">
+            <path d="M20.586 23.414l-6.586-6.586v-8.828h4v7.172l5.414 5.414zM16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 28c-6.627 0-12-5.373-12-12s5.373-12 12-12c6.627 0 12 5.373 12 12s-5.373 12-12 12z"></path>
+            </symbol>
         <symbol id="icon-m-time" viewBox="0 0 64 64">
             <title>m time</title>
             <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke="currentColor">
@@ -228,6 +230,19 @@
                 <circle cx="50" cy="49" r="12" fill="none" stroke-miterlimit="10"/>
                 <line x1="22" y1="4" x2="22" y2="52" fill="none" stroke="currentColor" stroke-miterlimit="10" data-cap="butt" stroke-linecap="butt"/>
                 <line x1="42" y1="12" x2="42" y2="32" fill="none" stroke="currentColor" stroke-miterlimit="10" data-cap="butt" stroke-linecap="butt"/>
+            </g>
+        </symbol>
+        <symbol id="icon-calendar-2" viewBox="0 0 32 32">
+            <path d="M10 12h4v4h-4zM16 12h4v4h-4zM22 12h4v4h-4zM4 24h4v4h-4zM10 24h4v4h-4zM16 24h4v4h-4zM10 18h4v4h-4zM16 18h4v4h-4zM22 18h4v4h-4zM4 18h4v4h-4zM26 0v2h-4v-2h-14v2h-4v-2h-4v32h30v-32h-4zM28 30h-26v-22h26v22z"></path>
+            </symbol>
+        <symbol id="icon-boat-front-2" viewBox="0 0 32 32">
+            <title>boat front</title>
+            <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" stroke-miterlimit="10">
+                <line fill="none" stroke="currentColor" x1="16" y1="13" x2="16" y2="25" stroke-linecap="butt"></line>
+                <path fill="none" d="M1,27 c0,2.209,1.791,4,4,4c1.518,0,2.822-0.855,3.5-2.101C9.178,30.145,10.482,31,12,31s2.822-0.855,3.5-2.101 C16.178,30.145,17.482,31,19,31s2.822-0.855,3.5-2.101C23.178,30.145,24.482,31,26,31c2.209,0,4-1.791,4-4"></path>
+                <polyline fill="none" points=" 13,8 13,1 19,1 19,8 "></polyline>
+                <polyline fill="none" stroke="currentColor" points="7,18.25 7,8 25,8 25,18.25 " stroke-linecap="butt"></polyline>
+                <polyline fill="none" stroke="currentColor" points="6,26 4,20 16,13 28,20 26,26 "></polyline>
             </g>
         </symbol>
 
