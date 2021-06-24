@@ -358,14 +358,14 @@
                 font-size: 1.6rem;
             }
 
-            // &.error {
-            //     box-shadow: inset 0 -2px 0 $color-red;
-            //     color: $color-white;
+            &.error {
+                box-shadow: inset 0 -2px 0 $color-red;
+                color: $color-white;
 
-            //     &::-webkit-input-placeholder {
-            //         color: $color-white;
-            //     }
-            // }
+                &::-webkit-input-placeholder {
+                    color: $color-white;
+                }
+            }
         }
 
         //clear button

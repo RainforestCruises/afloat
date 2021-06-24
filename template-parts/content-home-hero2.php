@@ -172,10 +172,19 @@ $currentYear = date("Y");
     </div>
 
     <div class="home-hero__bottom">
-        <div class="scroll-down" id="scroll-down" href="#intro">
+
+        <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="scroll-down" href="#intro">
+            <svg class="btn-circle--arrow-main">
+                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
+            </svg>
+            <svg class="btn-circle--arrow-animate">
+                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
+            </svg>
+        </button>
+        <!-- <div class="scroll-down" id="scroll-down" href="#intro">
             <div class="scroll-down-bar"></div>
             <div class="scroll-down-text">SCROLL DOWN</div>
-        </div>
+        </div> -->
 
         <div class="home-hero__bottom__slide-nav" id="home-hero__bottom__slide-nav">
             <!-- Slider -->

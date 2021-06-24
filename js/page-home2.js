@@ -203,6 +203,7 @@ jQuery(document).ready(function ($) {
         destinationList.classList.add('open');
         searchContainer.classList.add('active');
         datesList.classList.remove('open');
+        destinationInput.classList.remove('error');
 
         destinationListItems.forEach(dropdown => {
             dropdown.classList.remove('closed');
@@ -225,7 +226,7 @@ jQuery(document).ready(function ($) {
         suggestionsArray = [];
         destinationInput.value = "";
         destinationInputClear.classList.remove('active');
-
+        destinationInput.classList.remove('error');
 
         if ($(window).width() > 1000) {
             destinationInput.blur();
@@ -244,6 +245,7 @@ jQuery(document).ready(function ($) {
     //Destination Input - occurs on typing text into destination field
     destinationInput.addEventListener('input', () => {
         destinationList.classList.add('open');
+        destinationInput.classList.remove('error');
         let inputValue = destinationInput.value.toLowerCase();
 
         let inputSuggestions = [];
@@ -308,7 +310,7 @@ jQuery(document).ready(function ($) {
     destinationInput.addEventListener('blur', (event) => {
 
         let destinationListOpen = destinationList.classList.contains('open');
-
+        let isValidSelection = destinationStringArray.includes(destinationInput.value); //check if entered text matches one in the array 
         if (destinationListOpen) {
             if (suggestionsArray.length > 0) { //make best selection
                 destinationInput.value = suggestionsArray[0].suggestionText;
@@ -318,7 +320,7 @@ jQuery(document).ready(function ($) {
 
             } else {
                 //nothing selected         
-                let isValidSelection = destinationStringArray.includes(destinationInput.value); //check if entered text matches one in the array 
+                
                 if (!isValidSelection) {
                     formDestination.value = null; //assign null selection if invalid input
                 }
@@ -327,7 +329,7 @@ jQuery(document).ready(function ($) {
         }
         destinationInputClear.classList.remove('active');
         console.log('blur event destination');
-        if (destinationInput.value.length > 0) {
+        if (destinationInput.value.length > 0 && isValidSelection) {
             destinationInputLabel.classList.add('active');
         } else {
             destinationInputLabel.classList.remove('active');
@@ -373,7 +375,15 @@ jQuery(document).ready(function ($) {
         } else {
             //submit action inherent in element
 
-            searchButton.classList.add('loading');
+            if(formDestination.value != ""){
+                searchButton.classList.add('loading');
+                
+            } else {
+                destinationInput.classList.add('error');
+                e.preventDefault();
+            }
+
+            
         }
 
     });
