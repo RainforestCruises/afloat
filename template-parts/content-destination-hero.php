@@ -143,7 +143,8 @@
                   </svg>
                   <svg class="btn-circle--arrow-animate">
                       <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
-                  </svg></button>
+                  </svg>
+                </button>
           </div>
 
           <div class="destination-hero__content__location">
