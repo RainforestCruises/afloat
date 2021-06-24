@@ -174,6 +174,17 @@ jQuery(document).ready(function ($) {
     const formDestination = document.querySelector('#formDestination');
     const formDates = document.querySelector('#formDates');
 
+
+    //DATES
+    const datesInputContainer = document.querySelector('.home-search__dates');
+    const datesInputLabel = document.querySelector('.home-search__dates__label');
+
+    const datesInput = document.querySelector('#dates-input');
+    const datesList = document.querySelector('#dates-list');
+    const datesListItems = [...document.querySelectorAll('#dates-list li')];
+
+    const dateYearArray = [...document.querySelectorAll('.home-search__dates__list__years__year')];
+
     //DESTINATION SELECT COMPONENT 
     const destinationInputClear = document.querySelector('.home-search__destination__clear');
     const destinationInputLabel = document.querySelector('.home-search__destination__label');
@@ -418,14 +429,7 @@ jQuery(document).ready(function ($) {
 
 
     // //DATE SELECT COMPONENT ------------------------------------------------------------------------------------
-    const datesInputContainer = document.querySelector('.home-search__dates');
-    const datesInputLabel = document.querySelector('.home-search__dates__label');
-
-    const datesInput = document.querySelector('#dates-input');
-    const datesList = document.querySelector('#dates-list');
-    const datesListItems = [...document.querySelectorAll('#dates-list li')];
-
-    const dateYearArray = [...document.querySelectorAll('.home-search__dates__list__years__year')];
+   
 
 
 
