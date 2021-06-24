@@ -6739,6 +6739,33 @@ h5 {
       @media only screen and (max-width: 37.5em) {
         .home-search__destination__input {
           font-size: 1.6rem; } }
+    .home-search__destination__clear {
+      position: absolute;
+      top: 50%;
+      right: -1rem;
+      background-color: #9ea0a4;
+      border-radius: 8rem;
+      border: none;
+      height: 2.6rem;
+      width: 2.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(-55%);
+      cursor: pointer;
+      transition: all .2s;
+      display: none; }
+      @media only screen and (max-width: 62.5em) {
+        .home-search__destination__clear {
+          right: 13rem; } }
+      .home-search__destination__clear svg {
+        height: 1.2rem;
+        width: 1.2rem;
+        fill: #142838; }
+      .home-search__destination__clear.active {
+        display: flex; }
+      .home-search__destination__clear:hover {
+        background-color: #c2c6c9; }
     .home-search__destination__list {
       position: absolute;
       z-index: 15;
@@ -7800,7 +7827,8 @@ h5 {
     .home-full-search__destination__top {
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid #c2c6c9; }
+      border-bottom: 1px solid #c2c6c9;
+      position: relative; }
       .home-full-search__destination__top__cancel {
         order: 2;
         width: min-content;
@@ -7928,8 +7956,10 @@ h5 {
     margin-bottom: 6rem; }
   .home-full-search-loading.active {
     display: flex; }
-  .home-full-search-loading .lds-ring div {
-    border-color: #40739c transparent transparent transparent; }
+  .home-full-search-loading .lds-ring {
+    transform: translateX(0%) !important; }
+    .home-full-search-loading .lds-ring div {
+      border-color: #40739c transparent transparent transparent; }
 
 .experience-hero {
   display: flex;
@@ -9305,7 +9335,8 @@ h5 {
       animation-delay: -0.15s; }
   .lds-ring--large {
     width: 80px;
-    height: 80px; }
+    height: 80px;
+    transform: translateX(-50%); }
     .lds-ring--large div {
       width: 64px;
       height: 64px;

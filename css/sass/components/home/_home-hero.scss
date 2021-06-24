@@ -255,7 +255,7 @@
     &__destination {
         display: flex;
         position: relative;
-
+        //align-items: center;
         @media only screen and (max-width: $bp-large) {
             height: 100vh;
         }
@@ -342,6 +342,49 @@
             //         color: $color-white;
             //     }
             // }
+        }
+
+        //clear button
+        &__clear {
+            position: absolute;
+            top: 50%;
+            right: -1rem;
+
+
+            @media only screen and (max-width: $bp-large) {
+                right: 13rem;
+            }
+
+            background-color: $color-grey-1;
+            border-radius: 8rem;
+            border: none;
+            
+            height: 2.6rem;
+            width: 2.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            //font-family: $font-primary;
+            //font-weight: 700;
+            //font-size: 1.5rem;
+            transform: translateY(-55%);
+            cursor: pointer;
+            transition: all .2s;
+            display: none;
+
+            & svg {
+                height: 1.2rem;
+                width: 1.2rem;
+                fill: $color-primary;
+            }
+
+            &.active {
+                display: flex;
+            }
+            &:hover {
+                background-color: $color-grey-light-2;
+            }
+
         }
 
         &__list {

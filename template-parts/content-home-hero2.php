@@ -72,7 +72,12 @@ $currentYear = date("Y");
 
                 <!-- Destination -->
                 <div class="home-search__destination" id="destination-input-container">
-                    <input class="home-search__destination__input" id="destination-input" type="text" value="" placeholder="Where would you like to go?" autocomplete="off">
+                    <input class="home-search__destination__input" id="destination-input" value="" placeholder="Where would you like to go?" autocomplete="off">
+                    <button class="home-search__destination__clear">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-cross"></use>
+                        </svg>
+                    </button>
 
                     <ul class="home-search__destination__list" id="destination-list">
                         <?php foreach ($destinations as $d) : ?>

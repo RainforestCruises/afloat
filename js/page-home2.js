@@ -175,6 +175,7 @@ jQuery(document).ready(function ($) {
     const formDates = document.querySelector('#formDates');
 
     //DESTINATION SELECT COMPONENT 
+    const destinationInputClear = document.querySelector('.home-search__destination__clear');
     const destinationInputContainer = document.querySelector('#destination-input-container');
     const destinationInput = document.querySelector('#destination-input');
     const destinationList = document.querySelector('#destination-list');
@@ -207,7 +208,35 @@ jQuery(document).ready(function ($) {
         });
         suggestionsArray = [];
 
-        //console.log('dest focus');
+        let inputValue = destinationInput.value.toLowerCase();
+        if (inputValue.length > 0) {
+            destinationInputClear.classList.add('active');
+        } else {
+            destinationInputClear.classList.remove('active');
+        }
+
+    });
+
+
+    //Destination Clear
+    destinationInputClear.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        
+        destinationInput.value = "";
+        destinationInputClear.classList.remove('active');
+       
+
+        if ($(window).width() > 1000) { 
+            destinationInput.blur();
+            destinationInput.focus();
+        } else {
+
+            destinationListItems.forEach(item => {
+                item.classList.remove('closed');
+            });
+            destinationInput.focus();
+        }
+        
     });
 
 
@@ -234,10 +263,13 @@ jQuery(document).ready(function ($) {
                     inputSuggestions.push(suggestion);
                 }
             }
+
+            destinationInputClear.classList.add('active');
         } else {
             for (let i = 0; i < destinationListItems.length; i++) {
                 destinationListItems[i].classList.remove('closed');
             }
+            destinationInputClear.classList.remove('active');
         }
 
         suggestionsArray = inputSuggestions;
@@ -291,7 +323,7 @@ jQuery(document).ready(function ($) {
             }
             destinationList.classList.remove('open'); //close list
         }
-
+        destinationInputClear.classList.remove('active');
         console.log('blur event destination');
     });
 
@@ -332,10 +364,10 @@ jQuery(document).ready(function ($) {
             e.preventDefault();
         } else {
             //submit action inherent in element
-            
+
             searchButton.classList.add('loading');
         }
-        
+
     });
 
     mobileSearchButton.addEventListener('click', (e) => {
@@ -349,10 +381,7 @@ jQuery(document).ready(function ($) {
         searchContainer.classList.add('expand');
         datesInputContainer.classList.add('show');
         mobileSearchDatesContainer.classList.add('active');
-        //logoArea.classList.add('hide');
         searchButton.classList.add('active');
-        //ISSUE -- need to find a away to intially open the dates... click away is interfering
-        //datesInput.click();
 
 
         //check screen size
@@ -440,7 +469,7 @@ jQuery(document).ready(function ($) {
         });
     })
 
-    
+
     const searchForm = document.querySelector('#home-search-form');
     //Month Click - event handler to each LI
     datesListItems.forEach(item => {
@@ -540,21 +569,24 @@ jQuery(document).ready(function ($) {
 
     const mobileSearchDatesTop = document.querySelector('.home-full-search__dates__top');
 
-    //move sort filter -- initial
+    //move elements -- initial
     if ($(window).width() < 1000) {
         homeFullSearchDestinationTop.appendChild(destinationInput);
+        homeFullSearchDestinationTop.appendChild(destinationInputClear);
+
         homeFullSearchDestination.appendChild(destinationList);
         mobileSearchDatesTop.appendChild(datesInput);
         mobileSearchDatesContainer.appendChild(datesList);
     }
 
 
-    //move elements on resize
+    //move elements -- on resize
     $(window).resize(function () {
         if ($(window).width() < 1000) { //mobile view    
 
             if (homeFullSearchDestinationTop.contains(destinationInput) == false) {
                 homeFullSearchDestinationTop.appendChild(destinationInput);
+                homeFullSearchDestinationTop.appendChild(destinationInputClear);
                 homeFullSearchDestination.appendChild(destinationList);
                 mobileSearchDatesTop.appendChild(datesInput);
                 mobileSearchDatesContainer.appendChild(datesList);
@@ -562,11 +594,11 @@ jQuery(document).ready(function ($) {
 
         }
         else { //desktop view    
-            //hideMobileFilters();
             hideMobileFilters();
 
             if (searchContainer.contains(destinationInput) == false) {
                 destinationInputContainer.appendChild(destinationInput);
+                destinationInputContainer.appendChild(destinationInputClear);
                 destinationInputContainer.appendChild(destinationList);
                 datesInputContainer.appendChild(datesInput);
                 datesInputContainer.appendChild(datesList);
