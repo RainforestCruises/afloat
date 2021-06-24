@@ -221,7 +221,7 @@ jQuery(document).ready(function ($) {
     //Destination Clear
     destinationInputClear.addEventListener('mousedown', (e) => {
         e.preventDefault();
-        
+        suggestionsArray = [];
         destinationInput.value = "";
         destinationInputClear.classList.remove('active');
        
