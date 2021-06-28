@@ -6,9 +6,9 @@ $featured_cruise_subtext = get_field('featured_title_subtext');
 
 <div class="home-featured">
     <div class="home-featured__header">
-        <div class="home-featured__header__title page-divider">
+        <h2 class="home-featured__header__title page-divider">
             Expedition Cruises
-        </div>
+        </h2>
         <div class="home-featured__header__sub-text">
             <?php echo $featured_cruise_subtext ?>
         </div>
@@ -27,9 +27,9 @@ $featured_cruise_subtext = get_field('featured_title_subtext');
                     <div class="home-featured-item">
 
                         <div class="home-featured-item__content">
-                            <div class="home-featured-item__content__title">
+                            <h3 class="home-featured-item__content__title">
                                 <?php echo $c_title ?>
-                            </div>
+                            </h3>
                             <div class="home-featured-item__content__text">
                                 <?php echo $c_snippet ?>
                             </div>

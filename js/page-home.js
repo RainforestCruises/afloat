@@ -1,25 +1,9 @@
 jQuery(document).ready(function ($) {
-    // Down Arrow
-    $('#mobile-search-button').click(function (event) {
-        
-        const body = document.querySelector('body');
-        body.classList.add('lock-scroll');
-        const overlay = document.querySelector('.home-full-search');
-        overlay.classList.add('active');
 
-    })
 
-    $('#search-close').click(function (event) {
-        
-        const body = document.querySelector('body');
-        body.classList.remove('lock-scroll');
-        const overlay = document.querySelector('.home-full-search');
-        overlay.classList.remove('active');
-
-    })
 
     // Down Arrow
-    $('#down-arrow-button').click(function (event) {
+    $('#scroll-down').click(function (event) {
         var id = $(this).attr('href');
         changePosition(id)
         event.preventDefault();
@@ -35,6 +19,47 @@ jQuery(document).ready(function ($) {
 
 
     //SLIDERS
+    //hero bg
+    $('.home-hero__bg').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        centerMode: false,
+        draggable: false,
+        asNavFor: '#home-hero__bottom__slide-nav',
+        fade: true,
+        arrows: false,
+        speed: 1000,
+        //autoplay: true,
+        //autoplaySpeed: 8000,
+    });
+
+
+    //--hero bg nav/label
+    $('.home-hero__bottom__slide-nav').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        asNavFor: '#home-hero__bg',
+        centerMode: false,
+        arrows: false,
+        draggable: false,
+        fade: true,
+        speed: 1000,
+        prevArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--left home-hero__bottom__slide-nav__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+        nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right home-hero__bottom__slide-nav__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+        responsive: [
+            {
+                breakpoint: 1000,
+                // settings: {
+                //     prevArrow: '<button class="btn-circle btn-circle--noborder    btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+                //     nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+                //     speed: 800,
+                // }
+            },
+        ]
+    })
+
     $('#intro-testimonials').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -48,7 +73,7 @@ jQuery(document).ready(function ($) {
         $('#intro-testimonials').slick("slickNext");
     });
 
-
+    //SLIDER - Destinations slider
     $('#destinations-slider').slick({
         rows: 2,
         dots: false,
@@ -145,258 +170,505 @@ jQuery(document).ready(function ($) {
     });
 
 
-    //DESTINATION SELECT COMPONENT --------------------------------------------------------------------------------------------
-    const inputField = document.querySelector('.home-destination-select');
-    const dropdown = document.querySelector('.home-destination-value-list');
-    const label = document.querySelector('#chosen-value-label');
-    const dropdownArray = [...document.querySelectorAll('.home-destination-value-list li')];
-    let selectedDestination = 0;
+    //SEARCH UI --------------------------------------------------------------------------------------------
+    const formDestination = document.querySelector('#formDestination');
+    const formDates = document.querySelector('#formDates');
 
-    for (let i = 0; i < dropdownArray.length; i++) {
-        dropdownArray[i].classList.add('closed');
+
+    //DATES
+    const datesInputContainer = document.querySelector('.home-search__dates');
+    const datesInputLabel = document.querySelector('.home-search__dates__label');
+
+    const datesInput = document.querySelector('#dates-input');
+    const datesList = document.querySelector('#dates-list');
+    const datesListItems = [...document.querySelectorAll('#dates-list li')];
+
+    const dateYearArray = [...document.querySelectorAll('.home-search__dates__list__years__year')];
+
+    //DESTINATION SELECT COMPONENT 
+    const destinationInputClear = document.querySelector('.home-search__destination__clear');
+    const destinationInputLabel = document.querySelector('.home-search__destination__label');
+    const destinationInputContainer = document.querySelector('#destination-input-container');
+    const destinationInput = document.querySelector('#destination-input');
+    const destinationList = document.querySelector('#destination-list');
+    const searchContainer = document.querySelector('#search-container');
+    const destinationListItems = [...document.querySelectorAll('#destination-list li')];
+    let suggestionsArray = [];
+
+    //destination list initialize
+    for (let i = 0; i < destinationListItems.length; i++) {
+        destinationListItems[i].classList.add('closed');
     }
 
-    let valueArray = [];
-    dropdownArray.forEach(item => {
-        valueArray.push(item.textContent);
+    //build destination full Arrays
+    let destinationStringArray = []; //array of destination strings
+    let destinationIdArray = []; //array of destination Ids
+    destinationListItems.forEach(item => {
+        destinationStringArray.push(item.textContent);
+        destinationIdArray.push(parseInt(item.getAttribute('postid')));
     });
 
-    inputField.addEventListener('input', () => {
-        dropdown.classList.add('open');
-        let inputValue = inputField.value.toLowerCase();
+
+    //Destination Focus - on setting focus to destination field 
+    destinationInput.addEventListener('focus', () => {
+        destinationList.classList.add('open');
+        searchContainer.classList.add('active');
+        datesList.classList.remove('open');
+        destinationInput.classList.remove('error');
+
+        destinationListItems.forEach(dropdown => {
+            dropdown.classList.remove('closed');
+        });
+        suggestionsArray = [];
+
+        let inputValue = destinationInput.value.toLowerCase();
         if (inputValue.length > 0) {
-            for (let j = 0; j < valueArray.length; j++) {
-                if (!(inputValue.substring(0, inputValue.length) === valueArray[j].substring(0, inputValue.length).toLowerCase())) {
-                    dropdownArray[j].classList.add('closed');
-                } else {
-                    dropdownArray[j].classList.remove('closed');
-                }
-            }
+            destinationInputClear.classList.add('active');
         } else {
-            for (let i = 0; i < dropdownArray.length; i++) {
-                dropdownArray[i].classList.remove('closed');
-            }
+            destinationInputClear.classList.remove('active');
         }
 
+    });
+
+
+    //Destination Clear
+    destinationInputClear.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        suggestionsArray = [];
+        destinationInput.value = "";
+        destinationInputClear.classList.remove('active');
+        destinationInput.classList.remove('error');
+
+        if ($(window).width() > 1000) {
+            destinationInput.blur();
+            destinationInput.focus();
+        } else {
+
+            destinationListItems.forEach(item => {
+                item.classList.remove('closed');
+            });
+            destinationInput.focus();
+        }
 
     });
 
 
-    //add click event handler to each LI
-    dropdownArray.forEach(item => {
-        item.addEventListener('click', () => {
-            inputField.value = item.textContent;
+    //Destination Input - occurs on typing text into destination field
+    destinationInput.addEventListener('input', () => {
+        destinationList.classList.add('open');
+        destinationInput.classList.remove('error');
+        let inputValue = destinationInput.value.toLowerCase();
+
+        let inputSuggestions = [];
+
+        if (inputValue.length > 0) {
+            for (let j = 0; j < destinationStringArray.length; j++) {
+                if (!(inputValue.substring(0, inputValue.length) === destinationStringArray[j].substring(0, inputValue.length).toLowerCase())) {
+                    destinationListItems[j].classList.add('closed');
+                } else {
+                    destinationListItems[j].classList.remove('closed');
+
+                    let destinationText = destinationListItems[j].textContent;
+                    let destinationPostId = destinationListItems[j].getAttribute('postid');
+
+
+                    const suggestion = { suggestionText: destinationText, suggestionPostId: destinationPostId };
+
+                    inputSuggestions.push(suggestion);
+                }
+            }
+
+            destinationInputClear.classList.add('active');
+        } else {
+            for (let i = 0; i < destinationListItems.length; i++) {
+                destinationListItems[i].classList.remove('closed');
+            }
+            destinationInputClear.classList.remove('active');
+        }
+
+        suggestionsArray = inputSuggestions;
+    });
+
+
+    //Destination List Click (mousedown) - add click event handler to each LI
+    destinationListItems.forEach(item => {
+
+        item.addEventListener('mousedown', (e) => {
+
+            e.preventDefault(); //prevent blur
+
+            //ISSUE -- need to remove focus once selected
+
+            destinationInput.value = item.textContent;
             selectedDestination = item.getAttribute("postId");
-            dropdownArray.forEach(dropdown => {
+
+            destinationListItems.forEach(dropdown => {
                 dropdown.classList.add('closed');
             });
+
+            showDateSelect();
+
+            formDestination.value = item.getAttribute('postid'); //assign selection
+            changeSlide(formDestination.value); //change background
+
+            destinationInput.blur();
         });
     })
 
-    inputField.addEventListener('focus', () => {
-        inputField.placeholder = 'Where would you like to go?'; //can change here to new placeholder
-        dropdown.classList.add('open');
-        label.classList.add('open');
-        dropdownArray.forEach(dropdown => {
-            dropdown.classList.remove('closed');
-        });
-    });
 
-    //leave focus
-    inputField.addEventListener('blur', () => {
-        inputField.placeholder = 'Where would you like to go?';
-        label.classList.remove('open');
 
-        let ddSuggest = [];
-        dropdownArray.forEach(dropdown => {
-            if (!dropdown.classList.contains('closed')) {
-                ddSuggest.push(dropdown);
-            }
-        });
+    //Destination Blur - leave focus
+    destinationInput.addEventListener('blur', (event) => {
 
-        if (ddSuggest.length == 0) {
-            inputField.classList.add('error')
-        } else {
-            inputField.classList.remove('error')
-            //check if matches one
-            let match = false;
-            ddSuggest.forEach(element => {
-                if (element.textContent == inputField.value) {
-                    match = true;
+        let destinationListOpen = destinationList.classList.contains('open');
+        let isValidSelection = destinationStringArray.includes(destinationInput.value); //check if entered text matches one in the array 
+        if (destinationListOpen) {
+            if (suggestionsArray.length > 0) { //make best selection
+                destinationInput.value = suggestionsArray[0].suggestionText;
+                formDestination.value = suggestionsArray[0].suggestionPostId; //assign selection
+                changeSlide(formDestination.value); //change background
+                showDateSelect();
+
+            } else {
+                //nothing selected         
+                
+                if (!isValidSelection) {
+                    formDestination.value = null; //assign null selection if invalid input
                 }
-            });
-            if (!match) {
-                inputField.value = ddSuggest[0].textContent;
-                selectedDestination = ddSuggest[0].getAttribute("postId");
             }
+            destinationList.classList.remove('open'); //close list
         }
+        destinationInputClear.classList.remove('active');
+        console.log('blur event destination');
+        if (destinationInput.value.length > 0 && isValidSelection) {
+            destinationInputLabel.classList.add('active');
+        } else {
+            destinationInputLabel.classList.remove('active');
+        }
+
     });
 
-    document.addEventListener('click', evt => {
-        const isDropdown = dropdown.contains(evt.target);
-        const isInput = inputField.contains(evt.target);
-        if (!isDropdown && !isInput) {
-            dropdown.classList.remove('open');
-            label.classList.remove('open');
+    //change background
+    function changeSlide(slidePostId) {
+        console.log('change');
+        const slideDiv = document.querySelector('.home-hero__bg__slide[postid="' + slidePostId + '"]');
+        if (slideDiv) {
+            const slideNumber = slideDiv.getAttribute('slidenumber');
+            $('#home-hero__bg').slick('slickGoTo', slideNumber);
         }
-    });
+    }
+
 
     //Tab press
     $('.home-destination-select').on('keydown', function (e) {
         var keyCode = e.keyCode || e.which;
 
         if (keyCode == 9) {
-            e.preventDefault();
-            document.activeElement.blur();
-            document.querySelector('#date-select').click();
+            //e.preventDefault();
+            //document.activeElement.blur();
+            //document.querySelector('#dates-input').click();
         }
     });
+
+
+    //let initialDates = true;
+    //trigger dates
+
+    const searchButton = document.querySelector('#search-button');
+    const mobileSearchButton = document.querySelector('.home-full-search-cta__button');
+    const mobileLoading = document.querySelector('.home-full-search-loading');
+
+    //search-button
+    searchButton.addEventListener('click', (e) => {
+        let isActive = searchButton.classList.contains('active');
+        if (!isActive) {
+            e.preventDefault();
+        } else {
+            //submit action inherent in element
+
+            if(formDestination.value != ""){
+                searchButton.classList.add('loading');
+                
+            } else {
+                destinationInput.classList.add('error');
+                e.preventDefault();
+            }
+
+            
+        }
+
+    });
+
+    mobileSearchButton.addEventListener('click', (e) => {
+        //submit action inherent in element
+
+        mobileLoading.classList.add('active');
+
+    });
+
+    function showDateSelect() {
+        searchContainer.classList.add('expand');
+        datesInputContainer.classList.add('show');
+        mobileSearchDatesContainer.classList.add('active');
+        searchButton.classList.add('active');
+
+
+        //check screen size
+        if ($(window).width() < 1000) {
+            destinationInput.blur();
+            datesInput.focus();
+
+            datesList.classList.add('open');
+            datesInput.classList.add('open');
+            overlayCta.classList.add('active');
+        }
+    }
+
     //END DESTINATION SELECT -----------------------------------------------------------------------------------
-    // $(document).on('keydown', function (e) {
-    //     var keyCode = e.keyCode || e.which;     
-    //     if (keyCode == 9) {
-    //         e.preventDefault();
-
-    //     }
-    // });
 
 
-    //DATE SELECT COMPONENT ------------------------------------------------------------------------------------
-    const dateInputField = document.querySelector('#date-select');
-    const dateDropdown = document.querySelector('#date-values');
-    const dateLabel = document.querySelector('#date-label');
-    const dateDropdownArray = [...document.querySelectorAll('.home-date-values__months li')];
-    const dateYearArray = [...document.querySelectorAll('.home-date-values__years__year')];
 
-    let selectedYear = moment().format('YYYY');
-    let selectedMonth = moment().format('MM');
+    // //DATE SELECT COMPONENT ------------------------------------------------------------------------------------
+   
+
+
+
     let currentYear = moment().format('YYYY');
     let currentMonth = moment().format('MM');
 
+    let selectedYear = currentYear;
+    let selectedMonth = null;
 
     //Dates LI initialize
     //if current year, disable past months, if prox year, remove all disabled -- on first load
-    dateDropdownArray.forEach(item => {
-        if (selectedYear == currentYear) {
-            if (item.getAttribute('month') < currentMonth) {
-                item.classList.add('disabled');
-            }
-        } else {
-            item.classList.remove('disabled');
-        }
+    datesListItems.forEach(item => {
 
-        if (item.getAttribute('month') == currentMonth) {
-            item.classList.add('selected');
+        if (item.value < currentMonth) {
+            item.classList.add('disabled');
         }
     })
 
 
-    //Input Field Click
-    dateInputField.addEventListener('click', () => {
-        dateInputField.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear;
-        dateDropdown.classList.add('open');
-        dateLabel.classList.add('open');
-        dateInputField.classList.add('open');
+    //Date Input Field Click -- open 
+    datesInput.addEventListener('click', () => {
+        datesList.classList.add('open');
+        datesInput.classList.add('open');
+        searchContainer.classList.add('active');
     });
 
     //Year Click - event handler to each LI
-    dateYearArray.forEach(item => {
-        item.addEventListener('click', () => {
+    dateYearArray.forEach(dateYear => {
+        dateYear.addEventListener('click', () => {
 
-            selectedYear = item.getAttribute("year");
             //if current year, disable past months, if prox year, remove all disabled -- fires every time year is clicked
-            dateDropdownArray.forEach(item => {
-                if (selectedYear == currentYear) {
-
-                    if (item.getAttribute('month') < currentMonth) {
+            datesListItems.forEach(item => {
+                if (dateYear.getAttribute("year") == currentYear) {
+                    if (item.value < currentMonth) {
                         item.classList.add('disabled');
-                        //if on prox year and selected prev month and went back to prev year, set month selected to current month
-                        if (item.classList.contains('selected')) {
-                            item.classList.remove('selected');
-                            //find item with current month and apply selected
-                            dateDropdownArray.forEach(monthItem => {
-                                if (monthItem.getAttribute('month') == currentMonth) {
-                                    monthItem.classList.add('selected')
-                                    selectedMonth = monthItem.getAttribute("month");
-                                }
-                            })
-                        }
                     }
                 } else {
                     item.classList.remove('disabled');
                 }
             })
 
-            dateInputField.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear;
+            if (dateYear.getAttribute("year") == selectedYear) {
+                datesListItems.forEach(monthItem => {
+                    if (monthItem.value == selectedMonth) {
+                        monthItem.classList.add('selected');
+                    } else {
+                        monthItem.classList.remove('selected');
+                    }
+                });
+            } else {
+                datesListItems.forEach(monthItem => {
+                    monthItem.classList.remove('selected');
+                });
+            }
 
             dateYearArray.forEach(year => {
                 year.classList.remove('selected');
             });
 
-            item.classList.add('selected')
+            dateYear.classList.add('selected')
         });
     })
 
+
+    const searchForm = document.querySelector('#home-search-form');
     //Month Click - event handler to each LI
-    dateDropdownArray.forEach(item => {
+    datesListItems.forEach(item => {
         item.addEventListener('click', (e) => {
             if (!item.classList.contains('disabled')) {
-                selectedMonth = item.getAttribute("month");
-                dateInputField.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear;
 
-                dateDropdownArray.forEach(month => {
+
+                var activeYearDiv = document.querySelector('.home-search__dates__list__years__year.selected');
+                selectedYear = activeYearDiv.getAttribute('year');
+                selectedMonth = item.value;
+
+                formDates.value = selectedYear + "-" + zeroPad(selectedMonth, 2);
+                datesInput.innerHTML = moment(selectedMonth, 'MM').format('MMMM') + ", " + selectedYear; //can get from attribute string
+
+                datesListItems.forEach(month => {
                     month.classList.remove('selected');
                 });
                 item.classList.add('selected');
-                closeDropdown();
+
+
+                //desktop
+                if ($(window).width() > 1000) {
+                    datesList.classList.remove('open');
+                    datesInput.classList.remove('open');
+                    searchContainer.classList.remove('active');
+
+                    
+                    
+                
+                } else {
+                    searchForm.submit();
+                    mobileLoading.classList.add('active');
+                }
+
+                datesInputLabel.classList.add('active');
+               
+
             }
 
         });
     })
 
-    document.addEventListener('click', evt => {
-        const isInput = dateInputField.contains(evt.target);
-        const isDropdown = dateDropdown.contains(evt.target);
-        if (!isInput && !isDropdown) {
-            closeDropdown();
-        }
-    });
-
-    const closeDropdown = () => {
-        dateDropdown.classList.remove('open');
-        dateInputField.classList.remove('open');
-        dateLabel.classList.remove('open');
+    function zeroPad(num, places) {
+        var zero = places - num.toString().length + 1;
+        return Array(+(zero > 0 && zero)).join("0") + num;
     }
 
 
-    const searchButton = document.querySelector('#search-button');
-    searchButton.addEventListener('click', (e) => {
-        $("#travel-destination").val(selectedDestination);
+    //CLICK AWAY
+    document.addEventListener('click', evt => {
 
-        // var formMonth = document.getElementById('travel-month').value;
-        // var formYear = document.getElementById('travel-year').value;
-        // console.log(formMonth);
-        // console.log(formYear);
+        const isDestinationInput = destinationInput.contains(evt.target);
+        const isDatesInput = datesInput.contains(evt.target);
+        const isDatesList = datesList.contains(evt.target);
+        const datesListIsOpen = datesList.classList.contains('open');
 
-        // if(formMonth != "") {
-        //     $("#travel-month").val(selectedMonth);
+
+        const isSearchContainer = searchContainer.contains(evt.target);
+
+
+        // if (!isDestinationInput) {
+        //     destinationList.classList.remove('open');
         // }
-        // if(formYear != ""){
-        //     $("#travel-year").val(selectedYear);
-        // }
-        
-         $("#travel-month").val(selectedMonth);
-         $("#travel-year").val(selectedYear);
 
-        if (selectedDestination == 0) {
-            e.preventDefault();
-            inputField.classList.add('error')
-        } else {
-            searchButton.classList.add('loading');
+        if (datesListIsOpen && !isDatesInput && !isDatesList) { //needs both because not all area is clickable space
+
+            if ($(window).width() > 1000) {
+                datesList.classList.remove('open');
+            }
+
+        }
+
+        if (!isDestinationInput && !isDatesInput && !isSearchContainer) {
+            searchContainer.classList.remove('active'); //here
+        }
+        console.log('click away');
+    });
+
+
+
+
+    //END SEARCH UI ---------------------------------------------------------------------------------
+
+    //SEARCH UI MOBILE ---------------------------------------------------------------------------------
+    const mobileSearchBackButton = document.querySelector('#mobile-search-back');
+    const mobileSearchDatesContainer = document.querySelector('.home-full-search__dates');
+
+
+    mobileSearchBackButton.addEventListener('click', () => {
+        mobileSearchDatesContainer.classList.remove('active');
+        //logoArea.classList.remove('hide');
+        overlayCta.classList.remove('active');
+        destinationInput.focus();
+    });
+
+
+
+
+
+    //Mobile Rearrangement ---------------------
+    const homeFullSearchDestinationTop = document.querySelector('.home-full-search__destination__top');
+    const homeFullSearchDestination = document.querySelector('.home-full-search__destination');
+
+    const mobileSearchDatesTop = document.querySelector('.home-full-search__dates__top');
+
+    //move elements -- initial
+    if ($(window).width() < 1000) {
+        homeFullSearchDestinationTop.appendChild(destinationInput);
+        homeFullSearchDestinationTop.appendChild(destinationInputClear);
+
+        homeFullSearchDestination.appendChild(destinationList);
+        mobileSearchDatesTop.appendChild(datesInput);
+        mobileSearchDatesContainer.appendChild(datesList);
+    }
+
+
+    //move elements -- on resize
+    $(window).resize(function () {
+        if ($(window).width() < 1000) { //mobile view    
+
+            if (homeFullSearchDestinationTop.contains(destinationInput) == false) {
+                homeFullSearchDestinationTop.appendChild(destinationInput);
+                homeFullSearchDestinationTop.appendChild(destinationInputClear);
+                homeFullSearchDestination.appendChild(destinationList);
+                mobileSearchDatesTop.appendChild(datesInput);
+                mobileSearchDatesContainer.appendChild(datesList);
+            }
+
+        }
+        else { //desktop view    
+            hideMobileFilters();
+
+            if (searchContainer.contains(destinationInput) == false) {
+                destinationInputContainer.appendChild(destinationInput);
+                destinationInputContainer.appendChild(destinationInputClear);
+                destinationInputContainer.appendChild(destinationList);
+                datesInputContainer.appendChild(datesInput);
+                datesInputContainer.appendChild(datesList);
+            }
+
         }
     });
 
 
+    const body = document.querySelector('body');
+    const overlay = document.querySelector('.home-full-search');
+    const overlayCta = document.querySelector('.home-full-search-cta');
+
+    hideMobileFilters();
+    //Mobile search button
+    $('#mobile-search-button').click(function (event) {
+
+        showMobileFilters();
+
+    })
+
+    //Mobile search close
+    $('#mobile-search-close').click(function (event) {
+
+        hideMobileFilters();
+
+    })
+
+
+    function hideMobileFilters() {
+        body.classList.remove('lock-scroll');
+        overlay.classList.remove('active');
+        overlayCta.classList.remove('active');
+    }
+
+    function showMobileFilters() {
+        body.classList.add('lock-scroll');
+        overlay.classList.add('active');
+        destinationInput.focus();
+    }
 
 });
 

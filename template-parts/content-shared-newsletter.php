@@ -2,9 +2,9 @@
 
 <section class="newsletter">
     <div class="newsletter__content">
-        <div class="newsletter__content__title">
+        <h3 class="newsletter__content__title">
             <?php echo get_field('newsletter_title', 'options'); ?>
-        </div>
+        </h3>
         <div class="newsletter__content__text">
             <?php echo get_field('newsletter_snippet', 'options'); ?>
         </div>

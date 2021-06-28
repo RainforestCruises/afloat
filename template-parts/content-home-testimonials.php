@@ -5,9 +5,9 @@ $testimonials = get_field('testimonials');
 ?>
 
 <div class="home-testimonials">
-    <div class="home-testimonials__publications-title">
+    <h2 class="home-testimonials__publications-title">
         As Featured In:
-    </div>
+    </h2>
     <div class="home-testimonials__publications">
         <?php if ($publications) :
             foreach ($publications as $p) :
@@ -20,9 +20,9 @@ $testimonials = get_field('testimonials');
         <?php endforeach;
         endif; ?>
     </div>
-    <div class="home-testimonials__publications-title">
+    <h2 class="home-testimonials__publications-title">
         Traveler Reviews:
-    </div>
+    </h2>
     <div class="home-testimonials__testimonials">
         <div class="home-testimonials__testimonials__slider" id="main-testimonials">
             <?php if ($testimonials) :
