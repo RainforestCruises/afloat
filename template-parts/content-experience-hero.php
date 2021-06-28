@@ -21,9 +21,9 @@ $hero_snippet = get_field('hero_snippet');
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
                 </svg>
             </div>
-            <div class="experience-hero__content__title-group__title">
+            <h1 class="experience-hero__content__title-group__title">
                 <?php echo $hero_title ?>
-            </div>
+            </h1>
         </div>
         <div class="experience-hero__content__snippet">
             <?php echo $hero_snippet ?>

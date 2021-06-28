@@ -1,8 +1,8 @@
 <div class="about-mission">
     <div class="about-mission__intro">
-        <div class="about-mission__intro__title">
+        <h1 class="about-mission__intro__title">
             <?php echo get_field('title') ?>
-        </div>
+        </h1>
         <div class="about-mission__intro__text">
             <?php echo get_field('intro_text') ?>
         </div>
@@ -16,10 +16,10 @@
 
         <div class="about-mission__imagery__main-image">
             <img <?php afloat_responsive_image($collage_image_1['id'], 'featured-large', array('featured-large', 'featured-small')); ?> alt="">
-            <div class="about-mission__imagery__main-image__tagline">
+            <h3 class="about-mission__imagery__main-image__tagline">
                 <?php echo get_field('collage_tagline') ?>
 
-            </div>
+            </h3>
         </div>
         <div class="about-mission__imagery__secondary-image">
             <img <?php afloat_responsive_image($collage_image_2['id'], 'square-medium', array('square-medium')); ?> alt="">
@@ -30,7 +30,6 @@
 
             <div class="about-mission__imagery__text-area__snippet">
                 <?php echo get_field('collage_snippet') ?>
-
             </div>
 
         </div>

@@ -22,12 +22,12 @@ if ($results) :
                         <?php endif; ?>
                     </div>
                     <div class="search-result__content__top__title-group">
-                        <div class="search-result__content__top__title-group__subtitle">
+                        <h3 class="search-result__content__top__title-group__subtitle">
                             <?php echo $result->productTypeDisplay ?>
-                        </div>
-                        <div class="search-result__content__top__title-group__title">
+                        </h3>
+                        <h2 class="search-result__content__top__title-group__title">
                             <?php echo $result->productTitle ?>
-                        </div>
+                        </h2>
                     </div>
                     <div class="search-result__content__top__snippet">
                         <?php echo $result->snippet ?>

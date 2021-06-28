@@ -31,17 +31,17 @@ $cruise_experiences = get_field('cruise_experiences');
     <!-- Intro -->
     <div class="destination-main__intro">
         <div class="destination-main__intro__description">
-            <div class="destination-main__intro__description__title" id="intro">
+            <h2 class="destination-main__intro__description__title" id="intro">
                 <?php echo get_field('intro_title') ?>
 
-            </div>
+            </h2>
             <div class="destination-main__intro__description__text">
                 <?php echo get_field('intro_text') ?>
             </div>
             <?php if ($highlights) : ?>
-                <div class="destination-main__intro__description__highlights-title">
+                <h5 class="destination-main__intro__description__highlights-title">
                     Highlights
-                </div>
+                </h5>
                 <ul class="destination-main__intro__description__highlights">
                     <?php
                     foreach ($highlights as $h) : ?>
@@ -64,9 +64,9 @@ $cruise_experiences = get_field('cruise_experiences');
     <!-- Cruises -->
     <div class="destination-main__packages" id="cruises">
         <div class="destination-main__packages__header">
-            <div class="destination-main__packages__header__title page-divider">
+            <h2 class="destination-main__packages__header__title page-divider">
                 <?php echo $title ?> Cruises
-            </div>
+            </h2>
             <div class="destination-main__packages__header__sub-text">
                 <?php echo get_field('cruise_title_subtext') ?>
             </div>
@@ -109,9 +109,9 @@ $cruise_experiences = get_field('cruise_experiences');
                         </div>
                         <div class="product-card__bottom">
                             <div class="product-card__bottom__title-group">
-                                <div class="product-card__bottom__title-group__product-name">
+                                <h3 class="product-card__bottom__title-group__product-name">
                                     <?php echo get_the_title($c) ?>
-                                </div>
+                                </h3>
 
                             </div>
                             <div class="product-card__bottom__text">
@@ -161,9 +161,9 @@ $cruise_experiences = get_field('cruise_experiences');
     <!-- destination tiles -->
     <?php $hideDesinations = get_field('hide_cruise_destinations') ?>
     <?php if ($hideDesinations == false) : ?>
-        <div class="sub-divider destination-main__experiences-title">
+        <h2 class="sub-divider destination-main__experiences-title">
             <?php echo $title ?> Destinations
-        </div>
+        </h2>
         <div class="destination-main__experiences-sub-text">
             <?php echo get_field('cruise_destination_title_subtext') ?>
         </div>
@@ -183,9 +183,9 @@ $cruise_experiences = get_field('cruise_experiences');
                         </div>
 
                         <div class="category-card__content">
-                            <div class="category-card__content__title">
+                            <h4 class="category-card__content__title">
                                 <?php echo get_field('navigation_title', $location); ?> Cruises
-                            </div>
+                            </h4>
                             <div class="category-card__content__availability">
                                 <?php
                                 echo cruises_available_location($location) . ' Cruises Available';
@@ -201,9 +201,9 @@ $cruise_experiences = get_field('cruise_experiences');
     <?php endif; ?>
 
     <!-- experiences -->
-    <div class="sub-divider destination-main__experiences-title">
+    <h2 class="sub-divider destination-main__experiences-title">
         <?php echo $title ?> Experiences
-    </div>
+    </h2>
     <div class="destination-main__experiences-sub-text">
         <?php echo get_field('cruise_experience_title_subtext') ?>
     </div>
@@ -225,14 +225,14 @@ $cruise_experiences = get_field('cruise_experiences');
                     </div>
 
                     <div class="category-card__content">
-                        <div class="category-card__content__title">
+                        <h4 class="category-card__content__title">
                             <?php if ($is_charter) :
                                 echo 'Charter Cruises';
                             else :
                                 echo get_the_title($experience) . ' Cruises';
                             endif; ?>
 
-                        </div>
+                        </h4>
                         <div class="category-card__content__availability">
                             <?php if ($is_charter) :
                                 echo cruises_available_charter($destination) . ' Cruises Available';

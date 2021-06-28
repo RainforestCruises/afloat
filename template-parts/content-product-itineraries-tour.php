@@ -37,9 +37,9 @@ $img = get_field('map');
                 <!-- Map Area -->
                 <div class="product-itinerary-slide__top__map-area">
                     <div class="product-itinerary-slide__top__map-area__title">
-                        <div class="product-itinerary-slide__top__map-area__title__text">
+                        <h3 class="product-itinerary-slide__top__map-area__title__text">
                             <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night - <?php echo get_field('tour_name') ?>
-                        </div>
+                        </h3>
                     </div>
                     <!-- Map -->
                     <a class="itinerary-map-image" href="<?php echo $img['url']; ?>" title="<?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night - <?php echo get_field('tour_name') ?>">
@@ -149,9 +149,9 @@ $img = get_field('map');
                         <div class="product-itinerary-slide__top__side-info__content__widget noborder">
                             <?php $locations = get_field('locations');
                             if ($locations) : ?>
-                                <div class="product-itinerary-slide__top__side-info__content__widget__small-title">
+                                <h4 class="product-itinerary-slide__top__side-info__content__widget__small-title">
                                     Places Visited
-                                </div>
+                                </h4>
                                 <ul class="product-itinerary-slide__top__side-info__content__widget__list">
                                     <?php foreach ($locations as $l) : ?>
                                         <li><?php echo get_field('navigation_title', $l) ?></li>
@@ -166,9 +166,9 @@ $img = get_field('map');
                         if ($activities) : ?>
                             <div class="product-itinerary-slide__top__side-info__content__widget noborder">
 
-                                <div class="product-itinerary-slide__top__side-info__content__widget__small-title">
+                                <h4 class="product-itinerary-slide__top__side-info__content__widget__small-title">
                                     Activities
-                                </div>
+                                </h4>
                                 <ul class="product-itinerary-slide__top__side-info__content__widget__list">
                                     <?php foreach ($activities as $a) : ?>
                                         <li><?php echo get_the_title($a) ?></li>

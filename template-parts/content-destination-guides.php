@@ -6,9 +6,9 @@ $travel_guide_posts = get_field('travel_guide_posts');
 ?>
 
 <div class="destination-guides">
-    <div class="destination-guides__header page-divider page-divider--padding">
+    <h2 class="destination-guides__header page-divider page-divider--padding">
         Travel Guide
-    </div>
+    </h2>
     <div class="destination-guides__sub-text">
         <?php echo get_field('travel_guide_title_subtext') ?>
     </div>
@@ -32,12 +32,12 @@ $travel_guide_posts = get_field('travel_guide_posts');
                     <a href="<?php echo get_permalink($travel_guide); ?>" class="destination-guides__grid-container__grid__item">
                         <img src="<?php echo esc_url($img['url']); ?>" alt="">
                         <div class="destination-guides__grid-container__grid__item__content">
-                            <div class="destination-guides__grid-container__grid__item__content__category">
+                            <h5 class="destination-guides__grid-container__grid__item__content__category">
                                 <?php echo $displayCategory ?>
-                            </div>
-                            <div class="destination-guides__grid-container__grid__item__content__title">
+                            </h5>
+                            <h3 class="destination-guides__grid-container__grid__item__content__title">
                                 <?php echo $displayTitle ?>
-                            </div>
+                            </h3>
                             <div class="destination-guides__grid-container__grid__item__content__link">
                                 <button class="goto-button" >
                                     Read Guide

@@ -15,9 +15,9 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
 <!-- Contact Page Container -->
 <section class="contact-page">
     <div class="contact-page__intro">
-        <div class="contact-page__intro__title">
+        <h1 class="contact-page__intro__title">
             Plan Your Adventure Today.
-        </div>
+        </h1>
         <div class="contact-page__intro__subtitle">
             Call us on the number below to speak to one of our destination specialists, or alternatively please fill in the form beneath and we'll get back to you ASAP.
         </div>
@@ -33,9 +33,9 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-headset"></use>
                     </svg>
                 </div>
-                <div class="contact__wrapper__intro__title">
+                <h3 class="contact__wrapper__intro__title">
                     Give us a Call
-                </div>
+                </h3>
                 <div class="contact__wrapper__intro__subtitle">
                     Speak with our trip specialists to book your next experience.
                 </div>
@@ -55,9 +55,9 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
 </section>
 
 <div class="destination-testimonials u-margin-bottom-big u-margin-top-big">
-    <div class="contact-page__testimonial-title">
+    <h3 class="contact-page__testimonial-title">
         What Our Customers are Saying About Us
-    </div>
+    </h3>
     <div class="destination-testimonials__slider" id="testimonials-slider">
         <?php
         $testimonials = get_field('testimonials', 'options');

@@ -11,9 +11,9 @@ $hotels = get_field('hotels');
 <?php if ($properties) : ?>
     <div class="product-cabins u-margin-bottom-small">
 
-        <div class="xsub-divider xsub-divider--dark u-margin-bottom-small">
+        <h2 class="xsub-divider xsub-divider--dark u-margin-bottom-small">
             Cruises & Lodges
-        </div>
+        </h2>
 
         <?php foreach ($properties as $property) : ?>
             <?php
@@ -76,9 +76,9 @@ $hotels = get_field('hotels');
 <?php if ($hotels) : ?>
     <div class="product-hotels">
 
-        <div class="xsub-divider xsub-divider--dark u-margin-bottom-small">
+        <h2 class="xsub-divider xsub-divider--dark u-margin-bottom-small">
             Hotel Options
-        </div>
+        </h2>
         <div class="sub-divider-text">
             <p><?php echo get_field('hotels_snippet') ?></p>
         </div>
@@ -112,12 +112,12 @@ $hotels = get_field('hotels');
                             <?php echo $hotelPriceLevel; ?>
                         </div>
                         <div>
-                            <div class="card-square__title-group__name">
+                            <h3 class="card-square__title-group__name">
                                 <?php echo  $hotelTitle ?>
-                            </div>
-                            <div class="card-square__title-group__subtext">
+                            </h3>
+                            <h5 class="card-square__title-group__subtext">
                                 <?php echo get_field('navigation_title', $hotelCity) ?>
-                            </div>
+                            </h5>
                         </div>
 
                     </div>

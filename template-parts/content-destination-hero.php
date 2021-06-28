@@ -43,9 +43,9 @@
 
           <!-- Title -->
           <div class="destination-hero__content__title-group">
-              <div class="destination-hero__content__title-group__title" id="page-title">
+              <h1 class="destination-hero__content__title-group__title" id="page-title">
                   <?php echo get_the_title(); ?>
-              </div>
+              </h1>
           </div>
 
           <!-- Nav -->
@@ -155,9 +155,9 @@
 
                       <?php foreach ($sliderContent as $s) : ?>
                           <div class="destination-hero__content__location__slider__item">
-                              <div class="destination-hero__content__location__slider__item__title">
+                              <h3 class="destination-hero__content__location__slider__item__title">
                                   <?php echo $s['title']; ?>
-                              </div>
+                              </h3>
                               <div class="destination-hero__content__location__slider__item__text">
                                   <?php echo $s['caption']; ?>
                               </div>

@@ -114,13 +114,13 @@ if (get_field('itinerary_length_max') != null) {
     <!-- Departure Date Filter -->
     <div class="filter">
         <div class="filter__heading" id="departure-filter-heading">
-            <div class="filter__heading__text">
+            <h5 class="filter__heading__text">
                 Departure Date
                 <?php $filterCount = count($selectedDepartures); ?>
                 <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="departuresFilterCount">
                     <?php echo $filterCount; ?>
                 </div>
-            </div>
+            </h5>
             <svg>
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
             </svg>
@@ -154,14 +154,14 @@ if (get_field('itinerary_length_max') != null) {
     <!-- Travel Style Filter -->
     <div class="filter">
         <div class="filter__heading">
-            <div class="filter__heading__text">
+            <h5 class="filter__heading__text">
                 Travel Style
 
                 <?php $filterCount = count($selectedTravelTypes); ?>
                 <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="travelStyleFilterCount">
                     <?php echo $filterCount; ?>
                 </div>
-            </div>
+            </h5>
 
             <svg>
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
@@ -202,7 +202,7 @@ if (get_field('itinerary_length_max') != null) {
     <!-- Destinations/Locations Filter -->
     <div class="filter">
         <div class="filter__heading">
-            <div class="filter__heading__text">
+            <h5 class="filter__heading__text">
                 Destinations
                 <?php
                 $filterCount = count($selectedDestinations);
@@ -211,7 +211,7 @@ if (get_field('itinerary_length_max') != null) {
                     <?php echo $filterCount; ?>
                 </div>
 
-            </div>
+            </h5>
             <svg>
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
             </svg>
@@ -239,13 +239,13 @@ if (get_field('itinerary_length_max') != null) {
     <!-- Experiences Filter -->
     <div class="filter">
         <div class="filter__heading">
-            <div class="filter__heading__text">
+            <h5 class="filter__heading__text">
                 Experiences
                 <?php $filterCount = count($selectedExperiences); ?>
                 <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="experiencesFilterCount">
                     <?php echo $filterCount; ?>
                 </div>
-            </div>
+            </h5>
             <svg>
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
             </svg>
@@ -274,9 +274,9 @@ if (get_field('itinerary_length_max') != null) {
     <!-- Length Filter -->
     <div class="filter">
         <div class="filter__heading">
-            <div class="filter__heading__text">
+            <h5 class="filter__heading__text">
                 Itinerary Length
-            </div>
+            </h5>
             <svg>
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
             </svg>

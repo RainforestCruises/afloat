@@ -10,9 +10,9 @@ console_log($cruises);
 
 <div class="destination-secondary">
     <div class="destination-secondary__header">
-        <div class="destination-secondary__header__title page-divider">
+        <h2 class="destination-secondary__header__title page-divider">
             Cruises
-        </div>
+        </h2>
         <div class="destination-secondary__header__sub-text">
             <?php echo get_field('cruise_title_subtext') ?>
         </div>
@@ -48,9 +48,9 @@ console_log($cruises);
                     </div>
                     <div class="product-card__bottom">
                         <div class="product-card__bottom__title-group">
-                            <div class="product-card__bottom__title-group__product-name">
+                            <h3 class="product-card__bottom__title-group__product-name">
                                 <?php echo get_the_title($c) ?>
-                            </div>
+                            </h3>
 
                         </div>
                         <div class="product-card__bottom__text">

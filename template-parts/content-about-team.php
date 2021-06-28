@@ -6,9 +6,9 @@ $headerText = get_field('team_header');
 ?>
 
 <div class="about-team">
-    <div class="about-team__title">
+    <h2 class="about-team__title">
         <?php echo $headerText ?>
-    </div>
+    </h2>
     <div class="about-team__grid">
 
         <?php

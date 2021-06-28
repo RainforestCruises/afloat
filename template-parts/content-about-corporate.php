@@ -6,9 +6,9 @@ $badges = get_field('badges');
 
 <div class="about-partners">
     <div class="about-partners__content">
-        <div class="about-partners__content__title">
+        <h2 class="about-partners__content__title">
             Our Partners 
-        </div>
+        </h2>
         <div class="about-partners__content__snippet">
             <?php echo get_field('partners_snippet'); ?>
 
@@ -20,17 +20,17 @@ $badges = get_field('badges');
     <div class="about-corporate__grey">
         <div class="about-corporate__grey__content">
             <div class="about-corporate__grey__content__corporate-info">
-                <div class="about-corporate__grey__content__corporate-info__title">
+                <h2 class="about-corporate__grey__content__corporate-info__title">
                     Corporate Information
-                </div>
+                </h2>
                 <div class="about-corporate__grey__content__corporate-info__snippet">
                     <?php echo get_field('corporate_snippet'); ?>
                 </div>
             </div>
             <div class="about-corporate__grey__content__contact-details">
-                <div class="about-corporate__grey__content__contact-details__title">
+                <h3 class="about-corporate__grey__content__contact-details__title">
                     Contact Details
-                </div>
+                </h3>
                 <div class="about-corporate__grey__content__contact-details__snippet">
                     <?php echo get_field('contact_details'); ?>
                 </div>

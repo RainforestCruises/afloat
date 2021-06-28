@@ -1,7 +1,7 @@
 <div class="destination-testimonials">
-    <div class="destination-testimonials__header page-divider">
+    <h2 class="destination-testimonials__header page-divider">
         Testimonials
-    </div>
+    </h2>
     <div class="destination-testimonials__slider" id="testimonials-slider">
         <?php
         $testimonials = get_field('testimonials');

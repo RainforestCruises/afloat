@@ -84,7 +84,7 @@
                 font-family: $font-secondary;
                 text-align: center;
                 z-index: 5;
-
+                font-weight: 400;
                 @media only screen and (max-width: $bp-medium) {
                     font-size: 5rem;
                     line-height: 5.5rem;

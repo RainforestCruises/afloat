@@ -10,9 +10,9 @@ $title = $args['title'];
 ?>
 <div class="destination-accommodations">
     <div class="destination-accommodations__header">
-        <div class="destination-accommodations__header__title page-divider">
+        <h2 class="destination-accommodations__header__title page-divider">
             Accommodation
-        </div>
+        </h2>
         <div class="destination-accommodations__header__sub-text">
             <?php echo get_field('accommodations_title_subtext') ?>
         </div>
@@ -26,9 +26,9 @@ $title = $args['title'];
                 <?php endif; ?>
             </div>
             <div class="accommodations-card__bottom">
-                <div class="accommodations-card__bottom__title">
+                <h3 class="accommodations-card__bottom__title">
                     <?php echo $title; ?> Lodges
-                </div>
+                </h3>
                 <div class="accommodations-card__bottom__text">
                     <?php echo $lodges_snippet; ?>
                 </div>
@@ -42,9 +42,9 @@ $title = $args['title'];
                 <?php endif; ?>
             </div>
             <div class="accommodations-card__bottom">
-                <div class="accommodations-card__bottom__title">
+                <h3 class="accommodations-card__bottom__title">
                     <?php echo $title; ?> Cruises
-                </div>
+                </h3>
                 <div class="accommodations-card__bottom__text">
                     <?php echo $cruises_snippet; ?>
                 </div>

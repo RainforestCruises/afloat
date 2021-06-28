@@ -175,6 +175,8 @@
             font-weight: 700;
             color: $color-primary;
             position: relative;
+            letter-spacing: 0;
+            margin-bottom: 0;
 
             &__count {
                 position: absolute;

@@ -8,9 +8,9 @@
         <div class="experience-intro__feature__icon">
             <?php echo get_field('first_icon'); ?>
         </div>
-        <div class="experience-intro__feature__title">
+        <h3 class="experience-intro__feature__title">
             <?php echo get_field('first_title'); ?>
-        </div>
+        </h3>
         <div class="experience-intro__feature__snippet">
             <?php echo get_field('first_snippet'); ?>
         </div>
@@ -19,9 +19,9 @@
     <div class="experience-intro__feature__icon">
             <?php echo get_field('second_icon'); ?>
         </div>
-        <div class="experience-intro__feature__title">
+        <h3 class="experience-intro__feature__title">
             <?php echo get_field('second_title'); ?>
-        </div>
+        </h3>
         <div class="experience-intro__feature__snippet">
             <?php echo get_field('second_snippet'); ?>
         </div>
@@ -30,9 +30,9 @@
     <div class="experience-intro__feature__icon">
             <?php echo get_field('third_icon'); ?>
         </div>
-        <div class="experience-intro__feature__title">
+        <h3 class="experience-intro__feature__title">
             <?php echo get_field('third_title'); ?>
-        </div>
+        </h3>
         <div class="experience-intro__feature__snippet">
             <?php echo get_field('third_snippet'); ?>
         </div>

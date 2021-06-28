@@ -29,12 +29,12 @@ $count = 0;
             <div class="experience-region__content__text">
 
                 <div class="experience-region__content__text__title-group">
-                    <div class="experience-region__content__text__title-group__subtitle">
+                    <h4 class="experience-region__content__text__title-group__subtitle">
                         <?php echo $r['subtitle'] ?>
-                    </div>
-                    <div class="experience-region__content__text__title-group__title">
+                    </h4>
+                    <h2 class="experience-region__content__text__title-group__title">
                         <?php echo $r['title'] ?>
-                    </div>
+                    </h2>
                 </div>
                 <div class="experience-region__content__text__snippet">
                     <?php echo $r['snippet'] ?>
@@ -107,10 +107,10 @@ $count = 0;
                                 <?php endif; ?>
                             </div>
                             <div class="wide-slider-card__content__text-area">
-                                <div class="wide-slider-card__content__text-area__title">
+                                <h3 class="wide-slider-card__content__text-area__title">
                                     <?php echo get_field('navigation_title', $destinationPost) ?>
-                                </div>
-                                <div class="wide-slider-card__content__text-area__info">
+                                </h3>
+                                <h5 class="wide-slider-card__content__text-area__info">
                                     <div class="wide-slider-card__content__text-area__info__length">
 
                                         <?php
@@ -123,7 +123,7 @@ $count = 0;
 
 
                                     </div>
-                                </div>
+                                </h5>
                             </div>
                         </div>
                     </a>

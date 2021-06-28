@@ -29,18 +29,18 @@ $highlights = get_field('highlights');
     <!-- Intro -->
     <div class="destination-main__intro" >
         <div class="destination-main__intro__description">
-        <!-- Jump Link Position -->
-            <div class="destination-main__intro__description__title" id="intro">
+        
+            <h2 class="destination-main__intro__description__title" id="intro">
                 <?php echo get_field('intro_title') ?>
-            </div>
+            </h2>
             <div class="destination-main__intro__description__text">
                 <?php echo get_field('intro_text') ?>
             </div>
 
             <?php if ($highlights) : ?>
-                <div class="destination-main__intro__description__highlights-title">
+                <h5 class="destination-main__intro__description__highlights-title">
                     Highlights
-                </div>
+                </h5>
                 <ul class="destination-main__intro__description__highlights">
                     <?php
                     foreach ($highlights as $h) : ?>
@@ -63,9 +63,9 @@ $highlights = get_field('highlights');
     <!-- Packages -->
     <div class="destination-main__packages" id="packages">
         <div class="destination-main__packages__header">
-            <div class="destination-main__packages__header__title page-divider">
+            <h2 class="destination-main__packages__header__title page-divider">
                 <?php echo $title ?> <?php echo ($is_bucket_list) ? ' Tour Packages' : ' Vacation Packages' ?>
-            </div>
+            </h2>
             <div class="destination-main__packages__header__sub-text">
                 <?php echo get_field('tour_package_title_subtext') ?>
             </div>
@@ -114,10 +114,10 @@ $highlights = get_field('highlights');
                                         <?php endif;
                                         endforeach; ?>
                                     </div>
-                                    <div class="wide-slider-card__content__text-area__title">
+                                    <h3 class="wide-slider-card__content__text-area__title">
                                         <?php echo get_field('tour_name', $t) ?>
-                                    </div>
-                                    <div class="wide-slider-card__content__text-area__info">
+                                    </h3>
+                                    <h5 class="wide-slider-card__content__text-area__info">
                                         <div class="wide-slider-card__content__text-area__info__length">
                                             <?php echo get_field('length', $t) ?>-Day Tour
                                         </div>
@@ -125,7 +125,7 @@ $highlights = get_field('highlights');
                                             From <?php echo "$" . number_format($lowest, 0); ?> <span>USD</span>
                                         </div>
 
-                                    </div>
+                                    </h5>
                                 </div>
                             </div>
                         </a>
@@ -138,9 +138,9 @@ $highlights = get_field('highlights');
         </div>
 
     </div>
-    <div class="sub-divider destination-main__experiences-title">
+    <h2 class="sub-divider destination-main__experiences-title">
         <?php echo $title ?> Experiences
-    </div>
+    </h2>
     <div class="destination-main__experiences-sub-text">
         <?php echo get_field('tour_experience_title_subtext') ?>
     </div>
@@ -162,9 +162,9 @@ $highlights = get_field('highlights');
                     </div>
 
                     <div class="category-card__content">
-                        <div class="category-card__content__title">
+                        <h4 class="category-card__content__title">
                             <?php echo get_the_title($experience); ?> Tours
-                        </div>
+                        </h4>
                         <div class="category-card__content__availability">
                             <?php if ($destinationType == 'region') {
                                 echo tours_available_region($destination, $experience) . ' Tours Available';

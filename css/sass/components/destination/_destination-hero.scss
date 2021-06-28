@@ -188,6 +188,7 @@
                 position: relative;
                 margin-bottom: 2rem;
                 margin-top: 1rem;
+                font-weight: 400;
 
                 &::after {
                     content: "";
@@ -517,13 +518,6 @@
                     }
                 }
 
-                // &.slick-slider {
-                //     -webkit-user-select: text;
-                //     -khtml-user-select: text;
-                //     -moz-user-select: text;
-                //     -ms-user-select: text;
-                //     user-select: text;
-                //   }
 
                 & .slick-active {
                     animation: slideFade 1s both;
@@ -563,6 +557,8 @@
                         position: relative;
                         display: inline-block;
                         margin-bottom: 1rem;
+                        color: $color-white;
+                        font-weight: 400;
 
                         @media only screen and (max-width: $bp-medium) {
                             font-size: 2rem;

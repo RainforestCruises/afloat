@@ -21,12 +21,12 @@
             endif; ?>
 
        </ol>
-       <div class="search-intro__title">
+       <h1 class="search-intro__title">
            <span><?php echo get_field('title_text') ?></span>
            <svg>
                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
            </svg>
-       </div>
+       </h1>
        <div class="search-intro__text" style="display: block;">
            <?php echo get_field('intro_snippet') ?>
        </div>

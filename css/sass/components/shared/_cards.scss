@@ -229,7 +229,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            
             &__product-name {
+                letter-spacing: 0;
                 font-size: 1.8rem;
                 line-height: 2.2rem;
                 font-weight: 700;
@@ -419,7 +421,7 @@
                 letter-spacing: 0.2rem;
                 list-style: none;
                 display: flex;
-
+                color: currentColor;
                 @media only screen and (max-width: $bp-medium) {
                     justify-content: center;
                 }
@@ -439,7 +441,8 @@
                 letter-spacing: 0.3rem;
                 text-transform: uppercase;
                 line-height: 3.8rem;
-
+                color: currentColor;
+                font-weight: 500;
                 @media only screen and (max-width: $bp-medium) {
                     font-size: 2.6rem;
                     line-height: 3.2rem;
@@ -453,7 +456,7 @@
                 letter-spacing: 0.2rem;
                 display: flex;
                 justify-content: space-between;
-
+                color: currentColor;
                 @media only screen and (max-width: $bp-medium) {
                     justify-content: center;
                     margin-top: 1rem;
@@ -553,6 +556,7 @@
             letter-spacing: 0.3rem;
             font-weight: 600;
             z-index: 2;
+            color: currentColor;
             @media only screen and (max-width: $bp-medium) {
                 font-size: 2rem;
                 line-height: 2.7rem;
@@ -564,7 +568,7 @@
             font-size: 1.5rem;
             letter-spacing: 0.2rem;
             z-index: 2;
-
+            color: currentColor;
             @media only screen and (max-width: $bp-medium) {
                 font-size: 1.3rem;
             }

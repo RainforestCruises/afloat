@@ -89,18 +89,19 @@
                         font-weight: 600;
                         margin-bottom: 3rem;
                         padding: 1rem 0;
+                        color: currentColor;
                         @media only screen and (max-width: $bp-medium) {
                             margin-bottom: 1rem;
                         }
                     }
 
                     &__title {
-                        font-size: 3.5rem;
+                        font-size: 3.2rem;
                         font-family: $font-secondary;
-                        letter-spacing: .4rem;
+                        letter-spacing: .3rem;
                         font-weight: 400;
                         line-height: 4rem;
-
+                        color: currentColor;
                       
                     }
 
@@ -110,6 +111,7 @@
                         letter-spacing: .3rem;
                         font-weight: 600;
                         align-self: end;
+                        color: currentColor;
                     }
                 }
 

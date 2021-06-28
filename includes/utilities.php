@@ -59,7 +59,7 @@ function priceFormat($price) {
 
     $display = "";
     if($price > 0) {
-       $display = "$ " .  number_format($price, 0);
+       $display = "$" .  number_format($price, 0);
     } else {
         $display = "N/A";
     }

@@ -3,9 +3,9 @@ $rows = get_field('faqs');
 ?>
 
 <div class="destination-faq">
-    <div class="destination-faq__header page-divider">
+    <h2 class="destination-faq__header page-divider">
         FAQ
-    </div>
+    </h2>
     <div class="destination-faq__grid-container">
         <?php
         if ($rows) {

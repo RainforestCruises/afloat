@@ -10,12 +10,12 @@ $tour_experiences = get_field('tour_experiences');
 
 <div class="destination-secondary">
     <div class="destination-secondary__header">
-        <div class="destination-secondary__header__title page-divider" id="packages">
+        <h2 class="destination-secondary__header__title page-divider" id="packages">
             Cruise Packages
-        </div>
+        </h2>
         <div class="destination-secondary__header__sub-text">
         <?php echo get_field('tour_package_title_subtext') ?> 
-               </div>
+        </div>
     </div>
     <div class="destination-main__packages">
         <div class="destination-main__packages__best-selling">
@@ -58,10 +58,10 @@ $tour_experiences = get_field('tour_experiences');
 
                                     <?php endif; endforeach; ?>
                                 </div>
-                                <div class="wide-slider-card__content__text-area__title">
+                                <h3 class="wide-slider-card__content__text-area__title">
                                     <?php echo get_field('tour_name', $t) ?>
-                                </div>
-                                <div class="wide-slider-card__content__text-area__info">
+                                </h3>
+                                <h5 class="wide-slider-card__content__text-area__info">
                                     <div class="wide-slider-card__content__text-area__info__length">
                                         <?php echo get_field('length', $t) ?>-Day Tour
                                     </div>
@@ -69,7 +69,7 @@ $tour_experiences = get_field('tour_experiences');
                                         From <?php echo "$" . number_format($lowest, 0); ?> <span>USD</span>
                                     </div>
 
-                                </div>
+                                </h5>
                             </div>
                         </div>
                     </a>

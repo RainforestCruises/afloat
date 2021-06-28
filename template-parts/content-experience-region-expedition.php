@@ -23,12 +23,12 @@ $count = 0;
             <div class="experience-region__content__text">
 
                 <div class="experience-region__content__text__title-group">
-                    <div class="experience-region__content__text__title-group__subtitle">
+                    <h4 class="experience-region__content__text__title-group__subtitle">
                         <?php echo $d['subtitle'] ?>
-                    </div>
-                    <div class="experience-region__content__text__title-group__title">
+                    </h4>
+                    <h2 class="experience-region__content__text__title-group__title">
                         <?php echo $d['title'] ?>
-                    </div>
+                    </h2>
                 </div>
                 <div class="experience-region__content__text__snippet">
                     <?php echo $d['snippet'] ?>
@@ -97,17 +97,17 @@ $count = 0;
                                             <?php endif;
                                             endforeach; ?>
                                         </div>
-                                        <div class="wide-slider-card__content__text-area__title">
+                                        <h3 class="wide-slider-card__content__text-area__title">
                                             <?php echo get_field('tour_name', $t) ?>
-                                        </div>
-                                        <div class="wide-slider-card__content__text-area__info">
+                                        </h3>
+                                        <h5 class="wide-slider-card__content__text-area__info">
                                             <div class="wide-slider-card__content__text-area__info__length">
                                                 <?php echo get_field('length', $t) ?>-Day Tour
                                             </div>
                                             <div class="wide-slider-card__content__text-area__info__price">
                                                 From <?php echo "$" . number_format($lowest, 0); ?> <span>USD</span>
                                             </div>
-                                        </div>
+                                        </h5>
                                     </div>
                                 </div>
                             </a>

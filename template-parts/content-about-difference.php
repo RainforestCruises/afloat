@@ -5,9 +5,9 @@ $headerText = get_field('difference_header');
 ?>
 
 <div class="about-difference">
-    <div class="about-difference__title">
+    <h2 class="about-difference__title">
         <?php echo $headerText ?>
-    </div>
+    </h2>
     <div class="about-difference__slider-area">
         <div class="about-difference__slider-area__slider" id="difference-slider">
             <?php
@@ -23,9 +23,9 @@ $headerText = get_field('difference_header');
 
                         </div>
                         <div class="difference-card__content">
-                            <div class="difference-card__content__title">
+                            <h3 class="difference-card__content__title">
                                 <?php echo $slide['title'] ?>
-                            </div>
+                            </h3>
                             <div class="difference-card__content__snippet">
                                 <?php echo $slide['snippet'] ?>
                             </div>
