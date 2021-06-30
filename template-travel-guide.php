@@ -83,14 +83,39 @@ if ($destination_type == 'rfc_locations') {
     $pageTitle = get_field('navigation_title', $location);
 };
 
+
+
+//breadcrumbs
+//destination / region
+$breadcrumbDestinationPage  = get_field('breadcrumb_destination_page');
+
+$breadcrumbDestinationURL = get_permalink($breadcrumbDestinationPage);
+console_log($breadcrumbDestinationURL);
+
+$templateType = get_page_template_slug($breadcrumbDestinationPage->ID);
+$breadcrumbDestinationText = "";
+if ($templateType == 'template-destinations-destination.php' || $templateType == 'template-destinations-cruise.php') {
+    $destinationPost = get_field('destination_post', $breadcrumbDestinationPage);
+    $breadcrumbDestinationText  = get_field('navigation_title', $destinationPost);
+}
+if ($templateType == 'template-destinations-region.php') {
+    $regionPost = get_field('region_post', $breadcrumbDestinationPage);
+    $breadcrumbDestinationText  = get_field('navigation_title', $regionPost);
+}
+
+
+
+
+
 $travelGuidePosts = new WP_Query($args);
 
 ?>
 
 <div class="travel-guide-landing-page">
-
+  
     <!-- Intro -->
     <div class="travel-guide-landing-page__header">
+
         <div class="travel-guide-landing-page__header__image-area">
             <?php if ($image) : ?>
                 <img <?php afloat_responsive_image($image['ID'], 'pill-large', array('pill-large', 'featured-small', 'featured-large', 'pill-large')); ?> alt="">
@@ -107,6 +132,19 @@ $travelGuidePosts = new WP_Query($args);
 
     <!-- Content -->
     <div class="travel-guide-landing-page__content">
+      <!-- Breadcrumb -->
+      <ol class="travel-guide-landing-page__breadcrumb">
+        <li>
+            <a href="<?php echo home_url() ?>">Home</a>
+        </li>
+        <li>
+            <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
+        </li>
+
+        <li>
+            <?php echo get_the_title(); ?>
+        </li>
+    </ol>
         <div class="travel-guide-landing-page__content__title">
             <?php echo $pageTitle ?> Travel Guide
         </div>

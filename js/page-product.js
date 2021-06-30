@@ -145,7 +145,7 @@ jQuery(document).ready(function ($) {
 
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 800, 
         settings: {
           dots: false
         }

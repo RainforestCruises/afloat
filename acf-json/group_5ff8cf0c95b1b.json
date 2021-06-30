@@ -142,6 +142,30 @@
             "mime_types": ""
         },
         {
+            "key": "field_60dc9e5f16988",
+            "label": "Breadcrumb Destination Page",
+            "name": "breadcrumb_destination_page",
+            "type": "post_object",
+            "instructions": "Destination Landing Page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:destinations"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
             "key": "field_5ff8cf492b797",
             "label": "Intro Snippet",
             "name": "intro_snippet",
@@ -178,5 +202,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide Landing - Page",
-    "modified": 1621980600
+    "modified": 1625071653
 }

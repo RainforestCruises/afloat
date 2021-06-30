@@ -1562,6 +1562,7 @@ h5 {
       width: max-content; }
       .travel-guide__breadcrumb li:not(:last-child):after {
         content: " / ";
+        padding-left: 1px;
         padding-right: 4px; }
       .travel-guide__breadcrumb li a {
         position: relative;
@@ -1941,6 +1942,51 @@ h5 {
   position: relative;
   z-index: 0;
   padding-top: 14rem; }
+  @media only screen and (max-width: 62.5em) {
+    .travel-guide-landing-page {
+      padding-top: 12rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .travel-guide-landing-page {
+      padding-top: 10rem; } }
+  .travel-guide-landing-page__breadcrumb {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    justify-self: flex-start;
+    font-weight: 400;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    list-style: none;
+    height: max-content;
+    width: 100%;
+    max-width: max-content;
+    flex-wrap: wrap;
+    color: #305a7c; }
+    .travel-guide-landing-page__breadcrumb li {
+      display: inline-block;
+      width: max-content; }
+      .travel-guide-landing-page__breadcrumb li:not(:last-child):after {
+        content: " / ";
+        padding-left: 1px;
+        padding-right: 4px; }
+      .travel-guide-landing-page__breadcrumb li a {
+        position: relative;
+        text-decoration: none;
+        color: currentColor; }
+        .travel-guide-landing-page__breadcrumb li a::after {
+          content: "";
+          position: absolute;
+          bottom: -0.3rem;
+          left: 0;
+          width: 97%;
+          height: 1px;
+          background-color: currentColor;
+          transition: all 0.2s;
+          opacity: 0; }
+        .travel-guide-landing-page__breadcrumb li a:hover::after {
+          color: currentColor;
+          opacity: 1; }
   .travel-guide-landing-page__header {
     max-width: calc(112rem + 12rem);
     padding: 0 6rem;
@@ -1952,7 +1998,7 @@ h5 {
     .travel-guide-landing-page__header__image-area {
       width: 100%;
       height: 100%;
-      min-height: 16rem;
+      height: 35rem;
       display: flex;
       position: relative;
       align-items: center;
@@ -2020,7 +2066,6 @@ h5 {
       color: #142838;
       letter-spacing: 0.2rem;
       font-weight: 500;
-      margin-top: 2rem;
       line-height: 6rem;
       text-align: center;
       max-width: calc(112rem + 12rem);
@@ -4663,10 +4708,13 @@ h5 {
     display: flex;
     list-style: none;
     font-size: 1.5rem;
-    font-weight: 500; }
+    font-weight: 500;
+    flex-wrap: wrap;
+    margin-bottom: .5rem; }
     .search-intro__breadcrumb li {
       display: inline-block;
-      color: #9ea0a4; }
+      color: #9ea0a4;
+      width: max-content; }
       .search-intro__breadcrumb li:not(:last-child):after {
         content: "/";
         padding-left: 1px;

@@ -85,7 +85,9 @@ while (have_posts()) :
     <div class="travel-guide">
       <!-- Breadcrumb -->
       <ol class="travel-guide__breadcrumb">
-
+        <li>
+          <a href="<?php echo home_url() ?>">Home</a>
+        </li>
         <li>
           <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
         </li>
@@ -96,7 +98,7 @@ while (have_posts()) :
           <?php echo get_field('navigation_title'); ?>
         </li>
       </ol>
-   
+
       <h1 class="travel-guide__title">
         <?php echo get_field('navigation_title'); ?>
       </h1>
@@ -109,13 +111,13 @@ while (have_posts()) :
         <?php endif; ?>
       </div>
 
-    
+
 
 
       <div class="travel-guide__content drop-cap-1a">
         <?php echo the_content(); ?>
       </div>
-      
+
       <div class="travel-guide__disclaimer">
         <div class="travel-guide__disclaimer__header">
           Disclaimer
@@ -125,7 +127,7 @@ while (have_posts()) :
       <div class="travel-guide__entry">
         This entry was posted <?php echo get_the_date(); ?>
       </div>
-      
+
     </div>
     <div class="travel-guide-related">
       <div class="travel-guide-related__title">

@@ -7,18 +7,19 @@
       list-style: none;
       font-size: 1.5rem;
       font-weight: 500;
-       
+      flex-wrap: wrap;
+      margin-bottom: .5rem;
       & li {
         display: inline-block;
         color: $color-grey-1; 
-
+        width: max-content;
         &:not(:last-child):after{
           content: "/";
           padding-left: 1px;
-          padding-right: 4px;
+          padding-right: 4px; 
         }
 
-        & a {
+        & a { 
           text-decoration: none;
           color: currentColor;
           &:hover {

@@ -37,6 +37,12 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
     if ($searchType == 'destination') { //DESTINATION
         if ($destinations != null) { //selection - (Get Lima, Cusco, Amazon)
 
+            $args['meta_query'][] = array(
+                'key' => 'destinations',
+                'value' => '"' . $destinationId . '"',
+                'compare' => 'LIKE'
+            );
+
             $queryargs = array();
             $queryargs['relation'] = 'OR';
             foreach ($destinations as $l) {
