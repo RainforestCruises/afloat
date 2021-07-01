@@ -225,18 +225,23 @@ $args = array(
 
     </section>
 
-    <div class="search-filter-mobile-cta" id="search-filter-mobile-cta">
-        <button id="search-filter-mobile-cta-button">
-        See <?php echo $resultCount; ?> Results
-        </button>
-    </div>
-    <!-- Bottom -->
-    <!-- <div class="search-page__bottom">
-        bottom
-    </div> -->
+
+
 </main>
 
+<!-- Full Search Mobile -->
+<div class="search-filter-mobile-area" id="search-filter-mobile-area">
+</div>
 
+<div class="search-filter-mobile-cta" id="search-filter-mobile-cta">
+    <button id="search-filter-mobile-cta-button">
+        See <?php echo $resultCount; ?> Results
+    </button>
+</div>
+
+
+
+<!-- Hidden Form -->
 <form class="search-form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">
 
     <!-- Direct to function within functions.php -->

@@ -276,12 +276,17 @@ foreach ($menuitems as $m) {
                     </a>
 
                     <!-- Cruises -->
-                    <a href="<?php echo $destination_group['url'] ?>" class="nav-mobile__content-panel__button mobile-link">View All</a>
+
 
                     <?php $destinationsMenuArray = $destination_group['destinations']; ?>
                     <?php foreach ($destinationsMenuArray as $destinationMenuItem) : ?>
                         <a href="<?php echo $destinationMenuItem['url'] ?>" class="nav-mobile__content-panel__button mobile-link"><?php echo $destinationMenuItem['title'] ?></a>
                     <?php endforeach; ?>
+                    <a href="<?php echo $destination_group['url'] ?>" class="nav-mobile__content-panel__button mobile-link">
+                        <button class="search-button ">
+                            View All
+                        </button>
+                    </a>
                 </div>
             <?php endforeach; ?>
 
@@ -452,9 +457,9 @@ foreach ($menuitems as $m) {
                             <a href="#travel-guide">Travel Guide</a>
                         </li>
                         <?php if (get_field('show_testimonials') == true) { ?>
-                        <li>
-                            <a href="#testimonials">Testimonials</a>
-                        </li>
+                            <li>
+                                <a href="#testimonials">Testimonials</a>
+                            </li>
                         <?php } ?>
                         <li href="#faq">
                             <a href="#faq">FAQ</a>
@@ -517,11 +522,11 @@ foreach ($menuitems as $m) {
                     <li class="nav-secondary-mobile__list__item">
                         <a href="#travel-guide" class="nav-secondary-mobile__list__item__link">Travel Guide</a>
                     </li>
-                    
+
                     <?php if (get_field('show_testimonials') == true) { ?>
-                    <li class="nav-secondary-mobile__list__item">
-                        <a href="#testimonials" class="nav-secondary-mobile__list__item__link">Testimonials</a>
-                    </li>
+                        <li class="nav-secondary-mobile__list__item">
+                            <a href="#testimonials" class="nav-secondary-mobile__list__item__link">Testimonials</a>
+                        </li>
                     <?php } ?>
                     <li class="nav-secondary-mobile__list__item" href="#faq">
                         <a href="#faq" class="nav-secondary-mobile__list__item__link">FAQ</a>

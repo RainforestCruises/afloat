@@ -14,6 +14,8 @@ jQuery(document).ready(function ($) {
   const searchSidebar = document.getElementById('search-sidebar');
   const searchMobileClose = document.getElementById('search-sidebar-mobile-close-button');
   const headerDiv = document.getElementById('header');
+  const mobileFiltersDiv = document.getElementById('search-filter-mobile-area');
+
   const showResultsButton = document.getElementById('search-filter-mobile-cta-button');
 
   //filter button click -- show menu 
@@ -36,7 +38,8 @@ jQuery(document).ready(function ($) {
 
     document.body.classList.add('lock-scroll');
     searchMobileCTA.style.display = 'flex';
-    headerDiv.appendChild(searchSidebar);
+    mobileFiltersDiv.appendChild(searchSidebar);
+    mobileFiltersDiv.classList.add('active');
   }
 
   function hideMobileFilters() {
@@ -44,6 +47,7 @@ jQuery(document).ready(function ($) {
     document.body.classList.remove('lock-scroll');
     searchMobileCTA.style.display = 'none';
     searchContent.insertBefore(searchSidebar, searchContent.firstChild);
+    mobileFiltersDiv.classList.remove('active');
   }
 
 
@@ -63,8 +67,8 @@ jQuery(document).ready(function ($) {
         searchFilterBar.appendChild(searchSortControl)
       }
       //sidebar
-      if (headerDiv.contains(searchSidebar) == false) {
-        headerDiv.appendChild(searchSidebar)
+      if (mobileFiltersDiv.contains(searchSidebar) == false) {
+        mobileFiltersDiv.appendChild(searchSidebar);
       }
     }
     else { //desktop view    
@@ -77,6 +81,7 @@ jQuery(document).ready(function ($) {
       if (searchContent.contains(searchSidebar) == false) {
         searchContent.insertBefore(searchSidebar, searchContent.firstChild);
       }
+      
     }
   });
 

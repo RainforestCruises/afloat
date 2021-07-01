@@ -9,7 +9,7 @@ $newsletter_snippet = get_field('newsletter_snippet');
 ?>
 
 
-<div class="home-page">
+<main class="home-page">
 
   <!-- Hero -->
   <section class="home-page__section-hero" id="top">
@@ -60,73 +60,75 @@ $newsletter_snippet = get_field('newsletter_snippet');
     get_template_part('template-parts/content', 'shared-newsletter');
     ?>
   </section>
+</main>
 
-  <!-- Full Search Mobile -->
-  <div class="home-full-search" id="home-full-search">
-    <?php $logo_vertical = get_field('logo_vertical', 'options'); ?>
+<!-- Full Search Mobile -->
+<div class="home-full-search" id="home-full-search">
+  <?php $logo_vertical = get_field('logo_vertical', 'options'); ?>
 
-    <!-- Destination -->
-    <div class="home-full-search__destination">
-      <div class="home-full-search__destination__top">
+  <!-- Destination -->
+  <div class="home-full-search__destination">
+    <div class="home-full-search__destination__top">
 
-        <div class="home-full-search__destination__top__cancel" id="mobile-search-close">
-          Cancel
-        </div>
-
+      <div class="home-full-search__destination__top__cancel" id="mobile-search-close">
+        Cancel
       </div>
 
-
     </div>
 
-    <!-- Dates -->
-    <div class="home-full-search__dates">
-      <div class="home-full-search__dates__top">
-        <div class="home-full-search__dates__top__back" id="mobile-search-back">
-          <svg>
-            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_left_36px"></use>
-          </svg>
-        </div>
+
+  </div>
+
+  <!-- Dates -->
+  <div class="home-full-search__dates">
+    <div class="home-full-search__dates__top">
+      <div class="home-full-search__dates__top__back" id="mobile-search-back">
+        <svg>
+          <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_left_36px"></use>
+        </svg>
       </div>
-
-
     </div>
 
+
   </div>
-  <div class="home-full-search-cta">
-    <button class="home-full-search-cta__button" type="submit" form="home-search-form">
-      <span>
-        SEARCH ALL DATES
-      </span>
 
+</div>
 
-    </button>
+<!-- Full Search Mobile - CTA -->
+<div class="home-full-search-cta">
+  <button class="home-full-search-cta__button" type="submit" form="home-search-form">
+    <span>
+      SEARCH ALL DATES
+    </span>
+  </button>
+</div>
+
+<!-- Full Search Mobile - Loading -->
+<div class="home-full-search-loading">
+  <?php $logo_vertical = get_field('logo_vertical', 'options'); ?>
+  <img class="home-full-search-loading__logo" src="<?php echo $logo_vertical['url']; ?>">
+
+  <div class="lds-ring lds-ring--large">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
-  <div class="home-full-search-loading">
-
-    <?php $logo_vertical = get_field('logo_vertical', 'options'); ?>
-    <img class="home-full-search-loading__logo" src="<?php echo $logo_vertical['url']; ?>">
-
-    <div class="lds-ring lds-ring--large">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    </img>
-  </div>
-  <!-- form -->
-  <form class="home-search-form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="home-search-form">
-    <input type="hidden" name="action" value="homeSearch">
-    <input type="hidden" name="formDates" id="formDates" value="">
-    <input type="hidden" name="formDestination" id="formDestination" value="">
-  </form>
+  </img>
+</div>
 
 
+<!-- Form Hidden -->
+<form class="home-search-form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="home-search-form">
+  <input type="hidden" name="action" value="homeSearch">
+  <input type="hidden" name="formDates" id="formDates" value="">
+  <input type="hidden" name="formDestination" id="formDestination" value="">
+</form>
 
 
-  <?php get_footer(); ?>
+<?php get_footer(); ?>
 
 
-  <script>
-    var templateUrl = "<?php echo bloginfo('template_url') ?>";
-  </script>
+<script>
+  var templateUrl = "<?php echo bloginfo('template_url') ?>";
+</script>

@@ -348,7 +348,7 @@
             animation-timing-function: ease-out;
             & a {
                 animation-name: example;
-                animation-duration: 0.5s;
+                animation-duration: 0.4s;
                 animation-timing-function: ease-out;
                 animation-fill-mode: both;
             }
@@ -357,16 +357,16 @@
                 animation-delay: 0s;
             }
             & a:nth-child(2) {
-                animation-delay: 0.1s;
+                animation-delay: 0.05s;
             }
             & a:nth-child(3) {
-                animation-delay: 0.2s;
+                animation-delay: 0.1s;
             }
             & a:nth-child(4) {
-                animation-delay: 0.3s;
+                animation-delay: 0.15s;
             }
             & a:nth-child(5) {
-                animation-delay: 0.4s;
+                animation-delay: 0.2s;
             }
         }
 
@@ -380,6 +380,7 @@
                 transform: translateX(0%);
             }
         }
+        
         &__button {
             color: $color-primary;
 

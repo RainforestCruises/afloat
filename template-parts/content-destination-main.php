@@ -17,7 +17,7 @@ $highlights = get_field('highlights');
 
 ?>
 
-<div class="destination-main" >
+<div class="destination-main">
 
     <!-- Map Background -->
     <div class="destination-main__bg">
@@ -27,9 +27,9 @@ $highlights = get_field('highlights');
     </div>
 
     <!-- Intro -->
-    <div class="destination-main__intro" >
+    <div class="destination-main__intro">
         <div class="destination-main__intro__description">
-        
+
             <h2 class="destination-main__intro__description__title" id="intro">
                 <?php echo get_field('intro_title') ?>
             </h2>
@@ -152,6 +152,10 @@ $highlights = get_field('highlights');
                 $experience = $e['experience'];
                 $background_image = $e['background_image'];
                 $search_link = $e['search_link'];
+                $is_charter = false;
+                if ($destinationType == 'region') { //destination variant template doesnt have charter option
+                    $is_charter = $e['is_charter'];
+                }
 
         ?>
                 <a class="category-card" href="<?php echo $search_link ?>">
@@ -163,11 +167,24 @@ $highlights = get_field('highlights');
 
                     <div class="category-card__content">
                         <h4 class="category-card__content__title">
-                            <?php echo get_the_title($experience); ?> Tours
+                            <?php if ($is_charter) :
+                                echo 'Charter Cruises';
+                            else :
+                                echo get_the_title($experience) . ' Tours';
+                            endif; ?>
+
                         </h4>
                         <div class="category-card__content__availability">
                             <?php if ($destinationType == 'region') {
-                                echo tours_available_region($destination, $experience) . ' Tours Available';
+
+                                if ($is_charter) :
+                                    echo cruises_available_region($destination, null, true) . ' Cruises Available'; //destination is region in this case
+                                else :
+                                    echo tours_available_region($destination, $experience) . ' Tours Available'; //destination is region in this case
+                                endif;
+
+                                
+
                             } else if ($destinationType == 'destination') {
                                 echo tours_available($destination, $experience) . ' Tours Available';
                             } ?>

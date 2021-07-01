@@ -84,9 +84,13 @@ add_action( 'rank_math/vars/register_extra_replacements', function(){
                     'variable'    => 'seo_years',
                     'example'     => date("Y") . "/" . date('y', strtotime('+1 year')),
             ],
-            date("Y") . "/" . date('y', strtotime('+1 year'))
+            'shortcode_var_name_call_back'
             );
 });
+
+function shortcode_var_name_call_back(){
+	return date("Y") . "/" . date('y', strtotime('+1 year')); /* FIELD FROM OPTIONS PAGE */
+}
 
 
 //Removes P tags on blog posts

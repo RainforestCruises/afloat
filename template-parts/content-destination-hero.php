@@ -17,7 +17,10 @@
             ?>
               <div class="destination-hero__bg-slider__slide">
                   <?php if ($sliderImage) : ?>
-                      <img <?php afloat_responsive_image($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
+                      <div class="destination-hero__bg-slider__slide__image-area">
+                          <img loading="lazy" <?php afloat_responsive_image($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
+
+                      </div>
                   <?php endif; ?>
               </div>
 
@@ -54,7 +57,7 @@
               <!-- sticky wrapper -->
               <nav class="destination-hero__content__page-nav__sticky-wrapper" id="template-nav">
                   <div class="page-nav-title" href="#top">
-                    <?php echo $title  ?>
+                      <?php echo $title  ?>
                   </div>
                   <!-- <div class="destination-hero__content__page-nav__title" id="template-nav-title" href="#top">
                       <?php echo $title  ?>
@@ -109,9 +112,9 @@
                           <a href="#travel-guide" class="destination-hero__content__page-nav__list__item__link page-nav-template">Travel Guide</a>
                       </li>
                       <?php if (get_field('show_testimonials') == true) { ?>
-                      <li class="destination-hero__content__page-nav__list__item">
-                          <a href="#testimonials" class="destination-hero__content__page-nav__list__item__link page-nav-template">Testimonials</a>
-                      </li>
+                          <li class="destination-hero__content__page-nav__list__item">
+                              <a href="#testimonials" class="destination-hero__content__page-nav__list__item__link page-nav-template">Testimonials</a>
+                          </li>
                       <?php } ?>
                       <li class="destination-hero__content__page-nav__list__item">
                           <a href="#faq" class="destination-hero__content__page-nav__list__item__link page-nav-template">FAQ</a>
@@ -131,7 +134,7 @@
                       </div>
                   </div>
 
-              
+
               </nav>
 
 
@@ -144,7 +147,7 @@
                   <svg class="btn-circle--arrow-animate">
                       <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
                   </svg>
-                </button>
+              </button>
           </div>
 
           <div class="destination-hero__content__location">
