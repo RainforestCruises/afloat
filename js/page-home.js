@@ -30,8 +30,8 @@ jQuery(document).ready(function ($) {
         fade: true,
         arrows: false,
         speed: 1000,
-        //autoplay: true,
-        //autoplaySpeed: 8000,
+        lazyLoad: 'ondemand',
+
     });
 
 

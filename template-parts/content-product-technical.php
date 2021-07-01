@@ -10,14 +10,14 @@ $equipment = get_field('equipment');
 ?>
 
 <div class="product-technical">
-    <h2 class="xsub-divider">
+    <h3 class="xsub-divider">
         Technical Information
-    </h2>
+    </h3>
     <div class="product-technical__content">
         <div class="product-technical__content__image-area <?php echo ($show_equipment) ? "" : "half-width" ?>">
-            <h3 class="product-technical__content__image-area__title">
+            <h4 class="product-technical__content__image-area__title">
                <?php echo (get_post_type() == 'rfc_lodges')  ? 'Property Layout' : 'Deck Plan' ?>
-            </h3>
+            </h4>
             <a class="product-technical__content__image-area" id="deckplan-image" href="<?php echo esc_url($deck_plan['url']); ?>" title="Deckplan">
 
                 <img src="<?php echo esc_url($deck_plan['url']); ?>" alt="">
@@ -32,9 +32,9 @@ $equipment = get_field('equipment');
             <div class="product-technical__content__columns__info">
 
                 <!-- Features -->
-                <h3 class="product-technical__content__columns__info__title">
+                <h4 class="product-technical__content__columns__info__title">
                     Features
-                </h3>
+                </h4>
                 <ul class="product-technical__content__columns__info__list">
 
 
@@ -323,9 +323,9 @@ $equipment = get_field('equipment');
             <?php if ($show_equipment) : ?>
                 <div class="product-technical__content__columns__info">
 
-                    <h3 class="product-technical__content__columns__info__title">
+                    <h4 class="product-technical__content__columns__info__title">
                         Equipment
-                    </h3>
+                    </h4>
 
                     <ul class="product-technical__content__columns__info__list">
                         <!-- Diving gear -->

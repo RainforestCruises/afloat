@@ -49,6 +49,7 @@ jQuery(document).ready(function ($) {
         fade: true,
         arrows: false,
         speed: 1800,
+        lazyLoad: 'ondemand',
         responsive: [
             {
                 breakpoint: 1000,

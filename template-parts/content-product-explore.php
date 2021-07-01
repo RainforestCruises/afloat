@@ -3,11 +3,10 @@
     ?>
 
 
-    <!-- H2 Title -->
-    <h2 class="page-divider page-divider--padding u-margin-bottom-small">
-        Accommodations
-    </h2>
 
+    <h3 class="xsub-divider xsub-divider--dark u-margin-bottom-small">
+        Social Areas
+    </h3>
 
     <!-- Common Areas Gallery -->
     <div class="product-areas">

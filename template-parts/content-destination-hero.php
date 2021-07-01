@@ -155,9 +155,9 @@
 
                       <?php foreach ($sliderContent as $s) : ?>
                           <div class="destination-hero__content__location__slider__item">
-                              <h3 class="destination-hero__content__location__slider__item__title">
+                              <div class="destination-hero__content__location__slider__item__title">
                                   <?php echo $s['title']; ?>
-                              </h3>
+                              </div>
                               <div class="destination-hero__content__location__slider__item__text">
                                   <?php echo $s['caption']; ?>
                               </div>

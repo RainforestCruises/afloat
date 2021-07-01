@@ -56,10 +56,16 @@ while (have_posts()) :
 
     <!-- Accommodations Content -->
     <section class="product-page__section-accommodation" id="accommodations">
+      <!-- H2 Title -->
+      <h2 class="page-divider page-divider--padding u-margin-bottom-small">
+        Accommodations
+      </h2>
       <?php
-      get_template_part('template-parts/content', 'product-explore', $args); //common areas gallery
-      ?>
-      <?php
+      $show_areas = get_field('show_areas');
+      if ($show_areas) :
+        get_template_part('template-parts/content', 'product-explore', $args); //common areas gallery
+      endif;
+
       get_template_part('template-parts/content', 'product-cabins-tour', $args);
       ?>
     </section>
