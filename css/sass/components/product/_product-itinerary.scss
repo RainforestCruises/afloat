@@ -9,6 +9,45 @@
         padding: 0 3rem;
     }
 
+    &__price-notes-modal {
+        display: none;
+        width: 100%;
+        max-width: 100rem;
+        
+        height: 30rem;
+        position: fixed;
+        top: 50%;
+        left:  50%;
+        transform: translateY(-50%) translateX(-50%);
+        z-index: 100;
+        
+        @include flexPadding;
+
+        &.active {
+            display: flex;
+        }
+
+        &__content {
+            background-color: $color-grey-light-1;
+            border-radius: .4rem;
+            border: 2px solid $color-primary;
+            padding: 2rem 3rem;
+            width: 100%;
+            position: relative;
+
+            &__close-button {
+                position: absolute;
+                top: 3rem;
+                right: 3rem;
+    
+                @media only screen and (max-width: $bp-small) {
+                    top: 2rem;
+                }
+            }
+        }
+        
+    }
+
     &__nav {
         width: 100%;
         //margin-top: 2rem;
@@ -572,7 +611,24 @@
                             text-transform: uppercase;
                             letter-spacing: 0.1rem;
                             margin-bottom: 0;
+                            
+                            display: flex;
+                            align-items: center;
+                            & svg {
+                                cursor: pointer;
+                                height: 2rem;
+                                width: 2rem;
+                                fill: $color-primary;
+                                transition: all .2s;
+                                margin-left: 1.5rem;
+                                transform: translateY(-.2rem);
+                                &:hover {
+                                    fill: $color-supporting-light;
+                                }
+                            }
+                            
                         }
+                        
                     }
 
                     &__legend {

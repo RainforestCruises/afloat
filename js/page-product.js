@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
 
 
-  
+
   var currentYear = new Date().getFullYear();
 
   //Contact
@@ -16,22 +16,36 @@ jQuery(document).ready(function ($) {
 
   });
 
-  $('.close-button').on('click', () => {
+ 
 
+
+
+  //Price Notes Modal
+
+  var priceNotesModal = document.getElementById("product-itineraries__price-notes-modal");
+
+  const priceNoteButtons = [...document.querySelectorAll('.price-notes')];
+  priceNoteButtons.forEach(item => {
+    item.addEventListener('click', () => {
+      console.log('price note button click');
+      body.addClass('no-scroll');
+      priceNotesModal.classList.add('active');
+    });
+  })
+
+  $('.close-button').on('click', () => {
+    priceNotesModal.classList.remove('active');
     modal.style.display = "none";
     body.removeClass('no-scroll');
 
   });
 
   window.onclick = function (event) {
-    if (event.target == modal) {
+    if (event.target == modal) { //trigger by background click
       modal.style.display = "none";
       body.removeClass('no-scroll');
-    }
+    }    
   }
-
-
-
 
 
   //Side Info Tabs - Overview / Inclusions / Exclusions
@@ -85,10 +99,10 @@ jQuery(document).ready(function ($) {
   $('#itineraries-slider-nav').on('init', function (event, slick) {
     var counterDiv = $('#itineraries-slider-counter');
     counterDiv.text('1 / ' + slick.slideCount); //set count div
-    if(slick.slideCount < 2){ //if one slide, remove padding for nav arrows
+    if (slick.slideCount < 2) { //if one slide, remove padding for nav arrows
       $('.product-itineraries__nav__slider').css("padding-right", 0);
     }
-    
+
   }).slick({
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -145,7 +159,7 @@ jQuery(document).ready(function ($) {
 
     responsive: [
       {
-        breakpoint: 800, 
+        breakpoint: 800,
         settings: {
           dots: false
         }

@@ -41,7 +41,7 @@ while (have_posts()) :
     $charter_view = true;
   }
 
- 
+
 
   $lowestPrice = lowest_property_price($cruise_data, 0, 2021);
 
@@ -114,11 +114,11 @@ while (have_posts()) :
 
     <!-- Reviews -->
     <?php if (get_field('show_testimonials') == true) { ?>
-    <section class="product-page__section-reviews">
-      <?php
-      get_template_part('template-parts/content', 'product-reviews', $args);
-      ?>
-    </section>
+      <section class="product-page__section-reviews">
+        <?php
+        get_template_part('template-parts/content', 'product-reviews', $args);
+        ?>
+      </section>
     <?php } ?>
 
     <!-- Related Travel -->
@@ -152,12 +152,19 @@ while (have_posts()) :
   get_template_part('template-parts/content', 'shared-contact-modal', $args);
   ?>
 
+  <div class="product-itineraries__price-notes-modal" id="product-itineraries__price-notes-modal">
+    <div class="product-itineraries__price-notes-modal__content">
+      <button class="product-itineraries__price-notes-modal__content__close-button close-button" tabindex="0">
+      </button>
+      Modal Info
+    </div>
+
+  </div>
 
 
   <script>
     var templateUrl = '<?php echo bloginfo('template_url') ?>';
     var initialPriceYear = '<?php echo date("Y"); ?>';
-
   </script>
 
 <?php

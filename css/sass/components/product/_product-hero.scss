@@ -76,7 +76,6 @@
       @media only screen and (max-width: $bp-large) {
         align-items: center;
         text-align: center;
-        //height: 100%;
       }
 
       &__breadcrumb {
@@ -90,11 +89,13 @@
         position: relative;
         list-style: none;
         height: max-content;
-        width: max-content;
+        
+        flex-wrap: wrap;
 
         @media only screen and (max-width: $bp-large) {
           justify-self: center;
           margin-top: 1rem;
+          justify-content: center;
         }
 
         & li {
@@ -102,7 +103,7 @@
           width: max-content;
           &:not(:last-child):after {
             content: " / ";
-            //padding-left: 1px;
+            padding-left: 1px;
             padding-right: 4px;
           }
 

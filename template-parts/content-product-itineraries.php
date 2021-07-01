@@ -223,7 +223,12 @@ endforeach;
                                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
                                                 <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
                                                     Prices
+                                                    <svg class="price-notes">
+                                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-info-circle">
+                                                        </use>
+                                                    </svg>
                                                 </h4>
+
                                                 <!-- Select-Box -->
                                                 <div class="product-itinerary-slide__select-group">
 
@@ -616,6 +621,8 @@ endforeach;
     </div>
 
 </div>
+
+
 
 
 

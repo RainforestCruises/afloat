@@ -2430,16 +2430,18 @@ h5 {
         position: relative;
         list-style: none;
         height: max-content;
-        width: max-content; }
+        flex-wrap: wrap; }
         @media only screen and (max-width: 62.5em) {
           .product-hero__top__content__breadcrumb {
             justify-self: center;
-            margin-top: 1rem; } }
+            margin-top: 1rem;
+            justify-content: center; } }
         .product-hero__top__content__breadcrumb li {
           display: inline-block;
           width: max-content; }
           .product-hero__top__content__breadcrumb li:not(:last-child):after {
             content: " / ";
+            padding-left: 1px;
             padding-right: 4px; }
           .product-hero__top__content__breadcrumb li a {
             position: relative;
@@ -2952,6 +2954,36 @@ h5 {
   @media only screen and (max-width: 37.5em) {
     .product-itineraries {
       padding: 0 3rem; } }
+  .product-itineraries__price-notes-modal {
+    display: none;
+    width: 100%;
+    max-width: 100rem;
+    height: 30rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    z-index: 100;
+    padding: 0 6rem; }
+    @media only screen and (max-width: 37.5em) {
+      .product-itineraries__price-notes-modal {
+        padding: 0 3rem; } }
+    .product-itineraries__price-notes-modal.active {
+      display: flex; }
+    .product-itineraries__price-notes-modal__content {
+      background-color: #f8f8f8;
+      border-radius: .4rem;
+      border: 2px solid #142838;
+      padding: 2rem 3rem;
+      width: 100%;
+      position: relative; }
+      .product-itineraries__price-notes-modal__content__close-button {
+        position: absolute;
+        top: 3rem;
+        right: 3rem; }
+        @media only screen and (max-width: 37.5em) {
+          .product-itineraries__price-notes-modal__content__close-button {
+            top: 2rem; } }
   .product-itineraries__nav {
     width: 100%;
     position: relative; }
@@ -3331,7 +3363,19 @@ h5 {
               font-size: 1.5rem;
               text-transform: uppercase;
               letter-spacing: 0.1rem;
-              margin-bottom: 0; }
+              margin-bottom: 0;
+              display: flex;
+              align-items: center; }
+              .product-itinerary-slide__top__side-info__content__widget__top-section__title svg {
+                cursor: pointer;
+                height: 2rem;
+                width: 2rem;
+                fill: #142838;
+                transition: all .2s;
+                margin-left: 1.5rem;
+                transform: translateY(-0.2rem); }
+                .product-itinerary-slide__top__side-info__content__widget__top-section__title svg:hover {
+                  fill: #40739c; }
           .product-itinerary-slide__top__side-info__content__widget__legend {
             margin-top: 1rem;
             display: flex;
