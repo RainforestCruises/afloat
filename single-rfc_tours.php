@@ -21,7 +21,7 @@ while (have_posts()) :
   $lowestPrice = lowest_tour_price($price_packages, $currentYear);
 
   $lowestYear = initial_price_year($price_packages);
- 
+
 
 
   $args = array(
@@ -100,8 +100,15 @@ while (have_posts()) :
 endwhile;
 ?>
 
- <!-- Contact Modal -->
- <?php
-  get_template_part('template-parts/content', 'shared-contact-modal', $args);
-  ?>
+<!-- Contact Modal -->
+<?php
+get_template_part('template-parts/content', 'shared-contact-modal', $args);
+?>
+
+<!-- Prices Extra -->
+<?php
+get_template_part('template-parts/content', 'product-prices-extra', $args);
+?>
+
+
 <?php get_footer() ?>

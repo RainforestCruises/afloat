@@ -72,22 +72,15 @@ while (have_posts()) :
       ?>
     </section>
 
-    <!-- Prices Content -->
-    <section class="product-page__section-prices" id="prices" style="display: none;">
-      <?php
-      get_template_part('template-parts/content', 'product-prices', $args);
-      ?>
-    </section>
-
 
     <!-- Reviews -->
-    <?php if (get_field('show_testimonials') == true) { ?>
+    <?php if (get_field('show_testimonials') == true) : ?>
       <section class="product-page__section-reviews">
         <?php
         get_template_part('template-parts/content', 'product-reviews', $args);
         ?>
       </section>
-    <?php } ?>
+    <?php endif; ?>
 
     <!-- Related Travel -->
 
@@ -106,7 +99,6 @@ while (have_posts()) :
   <script>
     var templateUrl = '<?php echo bloginfo('template_url') ?>';
     var initialPriceYear = '<?php echo date("Y"); ?>';
-
   </script>
 
 <?php
@@ -117,5 +109,11 @@ endwhile;
 <?php
 get_template_part('template-parts/content', 'shared-contact-modal', $args);
 ?>
+
+<!-- Prices Extra -->
+<?php
+get_template_part('template-parts/content', 'product-prices-extra', $args);
+?>
+
 <!-- #site-wrapper end-->
 <?php get_footer() ?>

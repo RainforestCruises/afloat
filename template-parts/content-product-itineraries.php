@@ -217,16 +217,22 @@ endforeach;
                                     <?php endif; ?>
 
                                     <!-- Prices -->
-                                    <?php if ($charter_view == false) : ?>
-                                        <?php $rateYears = $itinerary['RateYears']; ?>
+                                    <?php if ($charter_view == false) :
+                                        $rateYears = $itinerary['RateYears'];
+                                        $display_policies = get_field('display_policies');
+                                        $display_special_note = get_field('display_special_note');
+                                    ?>
                                         <div class="product-itinerary-slide__top__side-info__content__widget">
                                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
                                                 <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
                                                     Prices
-                                                    <svg class="price-notes">
-                                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-info-circle">
-                                                        </use>
-                                                    </svg>
+
+                                                    <?php if ($display_policies || $display_special_note) : ?>
+                                                        <svg class="price-notes">
+                                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-info-circle">
+                                                            </use>
+                                                        </svg>
+                                                    <?php endif; ?>
                                                 </h4>
 
                                                 <!-- Select-Box -->

@@ -22,7 +22,7 @@ jQuery(document).ready(function ($) {
 
   //Price Notes Modal
 
-  var priceNotesModal = document.getElementById("product-itineraries__price-notes-modal");
+  var priceNotesModal = document.getElementById("page-modal");
 
   const priceNoteButtons = [...document.querySelectorAll('.price-notes')];
   priceNoteButtons.forEach(item => {
@@ -43,6 +43,10 @@ jQuery(document).ready(function ($) {
   window.onclick = function (event) {
     if (event.target == modal) { //trigger by background click
       modal.style.display = "none";
+      body.removeClass('no-scroll');
+    }   
+    if (event.target == priceNotesModal) { //trigger by background click
+      priceNotesModal.classList.remove('active');
       body.removeClass('no-scroll');
     }    
   }

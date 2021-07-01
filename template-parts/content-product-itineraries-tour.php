@@ -66,6 +66,15 @@ $img = get_field('map');
                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section u-margin-bottom-small">
                                 <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
                                     Prices
+                                    <?php 
+                                    $display_policies = get_field('display_policies');
+                                    $display_special_note = get_field('display_special_note');
+                                    if ($display_policies || $display_special_note) : ?>
+                                        <svg class="price-notes">
+                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-info-circle">
+                                            </use>
+                                        </svg>
+                                    <?php endif; ?>
                                 </h4>
                                 <?php $yearCount = 0; ?>
                                 <div class="product-itinerary-slide__select-group">
@@ -117,7 +126,7 @@ $img = get_field('map');
                                                     $single_supplement = ($pricePackage['single_supplement'] != "") ? $pricePackage['single_supplement'] : 0;
                                                     $single_price = intval($price) + intval($single_supplement);
                                                     $price_level = $pricePackage['price_level'];
-                                                    
+
                                         ?>
 
                                                     <div class="price-grid__grid__cabin-type">
@@ -130,7 +139,7 @@ $img = get_field('map');
                                                         <?php echo "$ " . number_format($single_price, 0);  ?>
                                                     </div>
 
-                                                
+
                                         <?php endif;
                                             endforeach;
                                         endif;

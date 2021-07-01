@@ -1,113 +1,111 @@
 <?php
 $currentYear = $args['currentYear'];
-
-
-?>
-
-
-<!-- Note Top-->
-<div class="product-prices__note">
-    <div class="attention-box">
-        <p>All prices listed are per person in double occupancy unless otherwise specified </p>
-    </div>
-</div>
-
-<!-- Note Bot-->
-<?php if (get_field('display_special_note') == true) { ?>
-    <div class="product-prices__note">
-        <div class="attention-box">
-            <?php echo get_field('special_note_content') ?>
-        </div>
-    </div>
-<?php } ?>
-
-<?php
 $policies = get_field('policies');
 $overall_policies = $policies['overall_policies'];
 $display_yearly = $policies['display_yearly'];
 
-$show_policies = true;
-if(get_post_type() == 'rfc_tours'){
-    if(get_field('display_policies') == false){
-        $show_policies = false;
-    };
-}
+$display_policies = get_field('display_policies');
+$display_special_note = get_field('display_special_note');
+
 ?>
 
-<?php if($show_policies) : ?>
-<!-- Policies -->
-<div class="product-prices__policies-divider">
-    <h2 class="page-divider">
-        Policies
-    </h2>
-</div>
-<div class="product-prices__policies <?php echo ($display_yearly == false) ? ('product-prices__policies--single-layout') : ('false'); ?>">
-    <div class="product-prices__policies__list-group product-prices__policies__list-group--overall">
-        <h3 class="product-prices__policies__list-group__title heading-3 heading-3--underline">
-            Pricing Policies
-        </h3>
-        <ul class="list-svg">
 
-            <?php if ($overall_policies != false) :
-                foreach ($overall_policies as $p) { ?>
-                    <li>
-                        <svg>
-                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                        </svg>
-                        <span><?php echo $p['policy']; ?></span>
-                    </li>
-            <?php
-                }
-            endif;
-            ?>
-        </ul>
+
+
+<div class="popup" id="page-modal">
+    <div class="modal-content">
+        <div class="modal-content__wrapper">
+            <button class="modal-content__wrapper__close-button close-button" tabindex="0">
+            </button>
+
+            <div class="product-prices-extra">
+                <!-- Policies -->
+                <?php if ($display_policies) : ?>
+                    <div class="product-prices-extra__policies <?php echo ($display_yearly == false) ? ('product-prices-extra__policies--single-layout') : ('false'); ?>">
+                        <div class="product-prices-extra__policies__list-group product-prices-extra__policies__list-group--overall">
+                            <div class="product-prices-extra__policies__list-group__title heading-3 heading-3--underline">
+                                Pricing Policies
+                            </div>
+                            <ul class="list-svg">
+
+                                <?php if ($overall_policies != false) :
+                                    foreach ($overall_policies as $p) { ?>
+                                        <li>
+                                            <svg>
+                                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                                            </svg>
+                                            <span><?php echo $p['policy']; ?></span>
+                                        </li>
+                                <?php
+                                    }
+                                endif;
+                                ?>
+                            </ul>
+                        </div>
+                        <?php if ($display_yearly == true) { ?>
+                            <div class="product-prices-extra__policies__list-group product-prices-extra__policies__list-group--first">
+                                <h3 class="product-prices-extra__policies__list-group__title-overall heading-3 heading-3--underline">
+                                    <?php echo $currentYear; ?>
+                                </h3>
+                                <ul class="list-svg">
+                                    <?php
+                                    $current_year_policies = $policies['current_year_policies'];
+                                    if ($current_year_policies != false) :
+                                        foreach ($current_year_policies as $p) { ?>
+                                            <li>
+                                                <svg>
+                                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                                                </svg>
+                                                <span><?php echo $p['policy']; ?></span>
+                                            </li>
+                                    <?php
+                                        }
+                                    endif;
+                                    ?>
+                                </ul>
+                            </div>
+                            <div class="product-prices-extra__policies__list-group product-prices-extra__policies__list-group--second">
+                                <h3 class="product-prices-extra__policies__list-group__title heading-3 heading-3--underline">
+                                    <?php echo ($currentYear + 1); ?>
+                                </h3>
+                                <ul class="list-svg">
+                                    <?php
+                                    $next_year_policies = $policies['next_year_policies'];
+                                    if ($next_year_policies != false) :
+                                        foreach ($next_year_policies as $p) { ?>
+                                            <li>
+                                                <svg>
+                                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
+                                                </svg>
+                                                <span><?php echo $p['policy']; ?></span>
+                                            </li>
+                                    <?php
+                                        }
+                                    endif;
+                                    ?>
+                                </ul>
+                            </div>
+
+                        <?php } ?>
+
+
+                    </div>
+                <?php endif; ?>
+
+
+                <!-- Note Bot-->
+                <?php if ($display_special_note) : ?>
+                    <div class="product-prices-extra__note">
+                        <div class="product-prices-extra__note__title heading-3 heading-3--underline">
+                            Special Pricing Information
+                        </div>
+                        <?php echo get_field('special_note_content') ?>
+                    </div>
+                <?php endif; ?>
+
+            </div>
+        </div>
+
     </div>
-    <?php if ($display_yearly == true) { ?>
-        <div class="product-prices__policies__list-group product-prices__policies__list-group--first">
-            <h3 class="product-prices__policies__list-group__title-overall heading-3 heading-3--underline">
-                <?php echo $currentYear; ?>
-            </h3>
-            <ul class="list-svg">
-                <?php
-                $current_year_policies = $policies['current_year_policies'];
-                if ($current_year_policies != false) :
-                    foreach ($current_year_policies as $p) { ?>
-                        <li>
-                            <svg>
-                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                            </svg>
-                            <span><?php echo $p['policy']; ?></span>
-                        </li>
-                <?php
-                    }
-                endif;
-                ?>
-            </ul>
-        </div>
-        <div class="product-prices__policies__list-group product-prices__policies__list-group--second">
-            <h3 class="product-prices__policies__list-group__title heading-3 heading-3--underline">
-                <?php echo ($currentYear + 1); ?>
-            </h3>
-            <ul class="list-svg">
-                <?php
-                $next_year_policies = $policies['next_year_policies'];
-                if ($next_year_policies != false) :
-                    foreach ($next_year_policies as $p) { ?>
-                        <li>
-                            <svg>
-                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-right"></use>
-                            </svg>
-                            <span><?php echo $p['policy']; ?></span>
-                        </li>
-                <?php
-                    }
-                endif;
-                ?>
-            </ul>
-        </div>
-
-    <?php } ?>
-
 
 </div>
-<?php endif; ?>

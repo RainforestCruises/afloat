@@ -103,14 +103,6 @@ while (have_posts()) :
       ?>
     </section>
 
-    <!-- Prices Content -->
-    <section class="product-page__section-prices" id="prices" style="display: none;">
-      <?php
-      get_template_part('template-parts/content', 'product-prices', $args);
-      ?>
-    </section>
-
-
 
     <!-- Reviews -->
     <?php if (get_field('show_testimonials') == true) { ?>
@@ -152,14 +144,10 @@ while (have_posts()) :
   get_template_part('template-parts/content', 'shared-contact-modal', $args);
   ?>
 
-  <div class="product-itineraries__price-notes-modal" id="product-itineraries__price-notes-modal">
-    <div class="product-itineraries__price-notes-modal__content">
-      <button class="product-itineraries__price-notes-modal__content__close-button close-button" tabindex="0">
-      </button>
-      Modal Info
-    </div>
-
-  </div>
+  <!-- Prices Extra -->
+  <?php
+  get_template_part('template-parts/content', 'product-prices-extra', $args);
+  ?>
 
 
   <script>

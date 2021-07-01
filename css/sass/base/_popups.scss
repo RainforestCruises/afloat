@@ -144,3 +144,38 @@
 }
 
 
+.modal-content {
+    width: 100%;
+    max-width: 110rem;
+    height: min-content;
+    @include flexPadding;
+
+    &__wrapper {
+        padding: 4rem;
+        background-color: $color-white;
+        border: 2px solid $color-primary;
+        border-radius: 0.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 3rem 2rem;
+        }
+
+
+        &__close-button {
+            position: absolute;
+            top: 3rem;
+            right: 3rem;
+
+            @media only screen and (max-width: $bp-small) {
+                top: 2rem;
+            }
+        }
+    }
+}
+
+
+
