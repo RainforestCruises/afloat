@@ -99,7 +99,7 @@
             "label": "Hero Slider",
             "name": "hero_slider",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "First slide Title text will display as link text instead of Title text. The first slide does not display a title.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1331,5 +1331,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1622485987
+    "modified": 1625246724
 }

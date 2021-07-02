@@ -159,7 +159,7 @@
                       <?php foreach ($sliderContent as $s) : ?>
                           <div class="destination-hero__content__location__slider__item">
                               <div class="destination-hero__content__location__slider__item__title">
-                                  <?php echo $s['title']; ?>
+                                  <?php echo ($slideCount == 0) ? "" : $s['title']; ?>
                               </div>
                               <div class="destination-hero__content__location__slider__item__text">
                                   <?php echo $s['caption']; ?>
@@ -168,7 +168,14 @@
                                   <div class="destination-hero__content__location__slider__item__cta">
 
                                       <a class="goto-button goto-button--hero goto-button--small hero-link" href="<?php echo $s['link']; ?>">
-                                          Explore <?php echo $s['title']; ?>
+
+                                          <?php if ($slideCount == 0) {
+                                                echo $s['title'];
+                                            } else {
+                                                echo 'Explore ' . $s['title'];
+                                            }
+                                            ?>
+
                                           <svg>
                                               <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
                                           </svg>

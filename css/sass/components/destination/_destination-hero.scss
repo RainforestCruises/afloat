@@ -71,7 +71,8 @@
             @media only screen and (max-width: $bp-large) {
                 background-image: linear-gradient(to left, rgba($color-black, 0.6), transparent),
                     linear-gradient(to right, rgba($color-black, 0.25), transparent 40%),
-                    linear-gradient(to top, rgba($color-black, 0.45), transparent 60%);
+                    linear-gradient(to top, rgba($color-black, 0.45), transparent 60%),
+                    linear-gradient(to top, rgba($color-black, 0.2), rgba($color-black, 0.2));
             }
         }
     }
@@ -602,6 +603,10 @@
                     &__cta {
                         padding-top: 4rem;
                         width: max-content;
+
+                        @media only screen and (max-width: $bp-large) {
+                            padding-top: 6rem;                   
+                        }
 
                         & svg {
                             @media only screen and (max-width: $bp-medium) {
