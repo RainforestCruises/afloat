@@ -2149,11 +2149,7 @@ h5 {
       position: relative;
       margin-bottom: 12rem;
       width: 100%;
-      padding: 0 6rem;
       margin-top: 2rem; }
-      @media only screen and (max-width: 37.5em) {
-        .travel-guide-landing-page__content__results {
-          padding: 0 3rem; } }
 
 .guide-item {
   margin: 3rem;
@@ -2167,13 +2163,16 @@ h5 {
   flex-direction: column; }
   @media only screen and (max-width: 37.5em) {
     .guide-item {
-      margin: 3rem 1rem; } }
+      margin-bottom: 3rem; } }
   .guide-item__image-area {
-    height: min-content; }
+    height: 35rem; }
+    @media only screen and (max-width: 37.5em) {
+      .guide-item__image-area {
+        height: 26rem; } }
     .guide-item__image-area img {
       border-top-left-radius: 0.4rem;
       border-top-right-radius: 0.4rem;
-      object-fit: contain;
+      object-fit: cover;
       height: 100%;
       width: 100%; }
   .guide-item__bottom {

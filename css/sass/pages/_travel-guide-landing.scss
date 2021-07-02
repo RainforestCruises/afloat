@@ -239,12 +239,9 @@
             position: relative;
             margin-bottom: 12rem;
             width: 100%;
-            padding: 0 6rem;
 
             margin-top: 2rem;
-            @media only screen and (max-width: $bp-small) {
-                padding: 0 3rem;
-            }
+           
         }
     }
 }
@@ -261,19 +258,24 @@
     max-width: 42rem;
 
     @media only screen and (max-width: $bp-small) {
-        margin: 3rem 1rem;
+        margin-bottom: 3rem;
     }
 
     display: flex;
     flex-direction: column;
 
     &__image-area {
-        height: min-content;
+        height: 35rem;
+
+        @media only screen and (max-width: $bp-small) {
+            height: 26rem
+        }
+
         & img {
             border-top-left-radius: 0.4rem;
             border-top-right-radius: 0.4rem;
 
-            object-fit: contain;
+            object-fit: cover;
             height: 100%;
             width: 100%;
         }
