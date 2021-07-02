@@ -153,6 +153,7 @@ $highlights = get_field('highlights');
                 $background_image = $e['background_image'];
                 $search_link = $e['search_link'];
                 $is_charter = false;
+                $include_cruises = get_field('include_cruises', $experience);
                 if ($destinationType == 'region') { //destination variant template doesnt have charter option
                     $is_charter = $e['is_charter'];
                 }
@@ -170,7 +171,14 @@ $highlights = get_field('highlights');
                             <?php if ($is_charter) :
                                 echo 'Charter Cruises';
                             else :
-                                echo get_the_title($experience) . ' Tours';
+
+                                if($include_cruises) {
+                                    echo get_the_title($experience) . ' Cruises'; // for solo 
+                                } else {
+                                    echo get_the_title($experience) . ' Tours';
+                                }
+
+                                
                             endif; ?>
 
                         </h4>
@@ -180,7 +188,17 @@ $highlights = get_field('highlights');
                                 if ($is_charter) :
                                     echo cruises_available_region($destination, null, true) . ' Cruises Available'; //destination is region in this case
                                 else :
-                                    echo tours_available_region($destination, $experience) . ' Tours Available'; //destination is region in this case
+                                    
+
+
+                                    if($include_cruises) {
+                                        //solo experience to include cruises in count
+                                        echo cruises_available_region($destination, $experience, false) . ' Cruises Available'; //destination is region in this case
+                                    } else {
+                                        echo tours_available_region($destination, $experience) . ' Tours Available'; //destination is region in this case
+                                    }
+
+
                                 endif;
 
                                 

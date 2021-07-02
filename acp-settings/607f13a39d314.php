@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.4.2',
+  'version' => '5.5.3',
   'title' => 'Experiences',
   'type' => 'rfc_experiences',
   'id' => '607f13a39d314',
-  'updated' => 1618940870,
+  'updated' => 1625245615,
   'columns' => 
   array (
     'title' => 
@@ -37,6 +37,22 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '607f13ac69fbe8',
+    ),
+    '60df47a309374c' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Include Cruises',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_60df47701c70a',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '60df47a309374c',
     ),
     'date' => 
     array (

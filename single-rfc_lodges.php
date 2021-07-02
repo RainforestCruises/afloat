@@ -61,6 +61,9 @@ while (have_posts()) :
 
     <!-- Accommodations Content -->
     <section class="product-page__section-accommodation" id="accommodations">
+      <h2 class="page-divider page-divider--padding u-margin-bottom-small">
+        Accommodations
+      </h2>
       <?php
       get_template_part('template-parts/content', 'product-explore', $args); //common areas gallery
       ?>
