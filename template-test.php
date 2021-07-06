@@ -20,7 +20,7 @@ $slider = get_field('hero');
 
         <!--  Hero -->
         <div class="test-hero">
-            <div class="test-hero__bg owl-carousel" id="test-hero__bg">
+            <div class="test-hero__bg " id="test-hero__bg">
 
 
                 <!-- Slider -->
@@ -29,17 +29,11 @@ $slider = get_field('hero');
                 foreach ($slider as $s) :
                     $sliderImage = $s['image'];
                     $sliderTitle = $s['title'];
-
-
                 ?>
-                    <div class="test-hero__bg__slide">
-                        <?php if ($sliderImage) : ?>
-                            <div class="test-hero__bg__slide__image-area">
-                            <img <?php afloat_responsive_image($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="" class="lazyload">
-
-                            </div>
-
-
+                
+                    <div class="test-hero__bg__slide" >
+                        <?php if ($sliderImage) : ?>                             
+                            <img <?php afloat_responsive_image_lazy($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
                         <?php endif; ?>
                     </div>
 

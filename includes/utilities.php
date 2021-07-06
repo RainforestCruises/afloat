@@ -36,7 +36,7 @@ function afloat_responsive_image($image_id, $image_size, $sizes_array)
     }
 }
 
-function afloat_responsive_image_lazysrc($image_id, $image_size, $sizes_array)
+function afloat_responsive_image_lazy($image_id, $image_size, $sizes_array)
 {
 
     // check the image ID is not blank
@@ -57,7 +57,9 @@ function afloat_responsive_image_lazysrc($image_id, $image_size, $sizes_array)
         }
 
         // generate the markup for the responsive image
-        echo ' data-src="' . $image_src . '" data-srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . 'px) 100vw, ' . $max_width . 'px"';
+        echo ' data-flickity-lazyload-src="' . $image_src . '" data-flickity-lazyload-srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . 'px) 100vw, ' . $max_width . 'px"';
+    } else {
+        //add pending image
     }
 }
 

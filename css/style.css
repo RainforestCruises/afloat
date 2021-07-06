@@ -2438,6 +2438,13 @@ h5 {
     .test-hero__bg__slide {
       height: 100%;
       width: 100%; }
+      .test-hero__bg__slide img {
+        background-position: center center;
+        background-repeat: no-repeat;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        z-index: 0; }
       .test-hero__bg__slide__image-area {
         height: min-content;
         position: relative; }

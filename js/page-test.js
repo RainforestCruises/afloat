@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
 
 
     // //SLIDERS
-    // //hero bg
+    // //SLICK
     // $('#test-hero__bg').slick({
     //     slidesToShow: 1,
     //     slidesToScroll: 1,
@@ -18,24 +18,31 @@ jQuery(document).ready(function ($) {
 
     // });
 
-
-    $(document).ready(function () {
-        $("#test-hero__bg").owlCarousel(
-            {
+    ////OWL
+    // $(document).ready(function () {
+    //     $("#test-hero__bg").owlCarousel(
+    //         {
                
-                nav: true,
-                items: 1,
-                lazyLoad: true,
-                navigation: true,
-                navigationText: ["", ""],
-                slideSpeed: 300,
-                paginationSpeed: 400,
-                autoPlay: true,
+    //             nav: true,
+    //             items: 1,
+    //             lazyLoad: true,
+    //             navigation: true,
+    //             navigationText: ["", ""],
+    //             slideSpeed: 300,
+    //             paginationSpeed: 400,
+    //             autoPlay: true,
         
-                animateOut: 'fadeOut'
-            }
-        );
-    });
+    //             animateOut: 'fadeOut'
+    //         }
+    //     );
+    // });
+
+    //Flickity
+    var slider = new Flickity( '.test-hero__bg', {
+        fade: true,
+        lazyLoad: true,
+        // options
+      });
 
 
 });
