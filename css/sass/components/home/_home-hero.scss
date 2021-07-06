@@ -5,7 +5,7 @@
     position: relative;
     flex-direction: column;
     align-items: center;
-    min-height: 80rem;
+    min-height: 80rem; 
     position: relative;
 
     @media only screen and (max-width: $bp-large) {
@@ -43,7 +43,7 @@
         &__slide {
             height: 100%;
             width: 100%;
-
+            //position: relative;
             & img {
                 background-position: center center;
                 background-repeat: no-repeat;
@@ -53,6 +53,18 @@
                 width: 100%;
                 z-index: 0;
             }
+
+            // &__location-title {
+            //     position: absolute;
+            //     bottom: 4rem;
+            //     right: 20vw;
+            //     z-index: 900;
+            //     font-size: 1.2rem;
+            //     text-transform: uppercase;
+            //     font-weight: 300;
+            //     letter-spacing: 0.2rem;
+            //     color: rgba($color-white, 0.85);
+            // }
         }
 
         &:after {
@@ -158,7 +170,6 @@
 
         &__slide-nav {
             width: 24rem;
-            
 
             position: relative;
 
@@ -185,10 +196,10 @@
                 height: 100%;
                 width: 100%;
                 font-size: 1.2rem;
-            text-transform: uppercase;
-            font-weight: 300;
-            letter-spacing: 0.2rem;
-            color: rgba($color-white, 0.85);
+                text-transform: uppercase;
+                font-weight: 300;
+                letter-spacing: 0.2rem;
+                color: rgba($color-white, 0.85);
             }
 
             &__arrow-left {
@@ -211,7 +222,7 @@
         }
 
         & button {
-            opacity: .8;
+            opacity: 0.8;
         }
     }
 }
@@ -377,7 +388,7 @@
         &__clear {
             position: absolute;
             top: 50%;
-            right: .5rem;
+            right: 0.5rem;
 
             @media only screen and (max-width: $bp-large) {
                 right: 13rem;
@@ -386,7 +397,7 @@
             background-color: $color-grey-1;
             border-radius: 8rem;
             border: none;
-            
+
             height: 2.6rem;
             width: 2.6rem;
             display: flex;
@@ -394,7 +405,7 @@
             justify-content: center;
             transform: translateY(-55%);
             cursor: pointer;
-            transition: all .2s;
+            transition: all 0.2s;
             display: none;
 
             & svg {
@@ -409,7 +420,6 @@
             &:hover {
                 background-color: $color-grey-light-2;
             }
-
         }
 
         &__list {
@@ -556,8 +566,7 @@
             display: flex;
             opacity: 1;
         }
-        
-        
+
         margin-left: 3rem;
         &::before {
             content: "";
@@ -940,7 +949,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            
 
             & .lds-ring {
                 display: none;
@@ -973,15 +981,15 @@
                 justify-content: space-between;
                 background-color: $color-gold;
                 transition: all 0.3s;
-                padding-left: .5rem;
+                padding-left: 0.5rem;
                 padding-right: 1.5rem;
-                transition-delay: .1s;
+                transition-delay: 0.1s;
                 cursor: pointer;
                 & span {
                     //opacity: 1;
                     display: flex;
-                    animation: fadein .5s forwards;
-                    animation-delay: .2s;
+                    animation: fadein 0.5s forwards;
+                    animation-delay: 0.2s;
                     transition: all 0.3s;
                 }
 
@@ -991,14 +999,11 @@
                 }
             }
 
-            
             & svg {
                 height: 2rem;
                 width: 2rem;
                 fill: $color-white;
             }
-
-            
         }
     }
 }

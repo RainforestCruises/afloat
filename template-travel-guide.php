@@ -17,7 +17,7 @@ $intro_snippet = get_field('intro_snippet');
 
 $destination_type = get_field('destination_type');
 
-$pageTitle = "";
+$pageTitle = get_the_title();
 
 $categories = get_posts(array(
     'post_type' => 'rfc_guide_categories',
@@ -40,9 +40,8 @@ if ($destination_type == 'rfc_destinations') {
             )
         )
 
-    );
-
-    $pageTitle = get_field('navigation_title', $destination);
+    ); 
+    console_log('dest');
 };
 
 if ($destination_type == 'rfc_regions') {
@@ -52,9 +51,10 @@ if ($destination_type == 'rfc_regions') {
         'meta_query' => array(
             array(
                 'key' => 'region', // name of custom field
-                'value' => '"' . $region->ID . '"',
+                'value' => $region->ID, // strangely will not work with quotes around
                 'compare' => 'LIKE'
-            ),
+            ) 
+            ,
             array(
                 'key' => 'is_region_level', // name of custom field
                 'value' => true,
@@ -63,8 +63,12 @@ if ($destination_type == 'rfc_regions') {
         )
 
     );
-    $pageTitle = get_field('navigation_title', $region);
+
+    
+
     //get all posts from child destinations also here
+    console_log('region');
+    console_log($region->ID);
 }
 
 
@@ -80,7 +84,6 @@ if ($destination_type == 'rfc_locations') {
             )
         )
     );
-    $pageTitle = get_field('navigation_title', $location);
 };
 
 
@@ -90,7 +93,6 @@ if ($destination_type == 'rfc_locations') {
 $breadcrumbDestinationPage  = get_field('breadcrumb_destination_page');
 
 $breadcrumbDestinationURL = get_permalink($breadcrumbDestinationPage);
-console_log($breadcrumbDestinationURL);
 
 $templateType = get_page_template_slug($breadcrumbDestinationPage->ID);
 $breadcrumbDestinationText = "";
@@ -104,10 +106,12 @@ if ($templateType == 'template-destinations-region.php') {
 }
 
 
-
+$posts = get_posts($args); //Stage I posts
 
 
 $travelGuidePosts = new WP_Query($args);
+
+console_log($posts);
 
 ?>
 
@@ -146,7 +150,7 @@ $travelGuidePosts = new WP_Query($args);
         </li>
     </ol>
         <div class="travel-guide-landing-page__content__title">
-            <?php echo $pageTitle ?> Travel Guide
+            <?php echo $pageTitle ?>
         </div>
         <div class="travel-guide-landing-page__content__subtext">
             <?php echo $intro_snippet ?>

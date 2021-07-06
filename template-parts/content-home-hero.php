@@ -38,6 +38,7 @@ $currentYear = date("Y");
             <div class="home-hero__bg__slide" postid="<?php echo $sliderDestinationPostId ?>" slidenumber="<?php echo $slideCount; ?>">
                 <?php if ($sliderImage) : ?>
                     <img <?php afloat_responsive_image($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
+                    
                 <?php endif; ?>
             </div>
 
