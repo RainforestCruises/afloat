@@ -9,7 +9,6 @@
 
     @media only screen and (max-width: $bp-large) {
         min-height: 60rem;
-
     }
 
     &__bg-slider {
@@ -20,38 +19,53 @@
         width: 100%;
         height: 100%;
 
-
         //Must Specify 100% height on all three elements!!
         & .slick-list {
             height: 100% !important;
         }
         & .slick-track {
             height: 100% !important;
-    
         }
         & .slick-slide div {
-            height: 100% !important;  
+            height: 100% !important;
         }
-
+        & .flickity-viewport {
+            height: 100% !important;
+        }
         &__slide {
             height: 100%;
             width: 100%;
+            opacity: 1;
+            // transition: opacity 1s;
+            // &.is-selected {
+            //     opacity: 1;
+            // }
 
             &__image-area {
                 height: 100%;
                 width: 100%;
+
+               
+
                 & img {
                     background-position: center center;
                     background-repeat: no-repeat;
                     object-fit: cover;
-    
+
                     height: 100%;
                     width: 100%;
                     z-index: 0;
+
+                    
+                    opacity: 0;
+                    transition: opacity 1s;
+
+                    &.flickity-lazyloaded,
+                    &.flickity-lazyerror {
+                        opacity: 1;
+                    }
                 }
             }
-
-            
         }
 
         &:after {
@@ -78,7 +92,6 @@
     }
 
     &__content {
-
         display: grid;
         grid-template-columns: 2fr 3fr;
         column-gap: 12rem;
@@ -97,7 +110,7 @@
 
         position: relative;
         color: $color-white;
-  
+
         max-width: 130rem; //slightly wider
 
         @media only screen and (max-width: $bp-large) {
@@ -105,15 +118,15 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
-          }
-  
+        }
+
         //side padding
         padding: 0 6rem;
         @media only screen and (max-width: $bp-small) {
-          padding: 0rem;
+            padding: 0rem;
 
-          margin-top: 7rem;
-          margin-bottom: 10rem;
+            margin-top: 7rem;
+            margin-bottom: 10rem;
         }
 
         &__breadcrumb {
@@ -134,8 +147,6 @@
                 margin: 0 2rem;
                 margin-top: 2rem;
             }
-
-           
 
             & li {
                 display: inline-block;
@@ -176,7 +187,6 @@
         &__title-group {
             height: min-content;
             align-self: center;
-            
 
             @media only screen and (max-width: $bp-large) {
                 display: flex;
@@ -226,7 +236,6 @@
                     font-size: 2.8rem;
                     line-height: 3.5rem;
                     letter-spacing: 0.3rem;
-
                 }
             }
         }
@@ -243,7 +252,6 @@
             z-index: 10;
 
             @media only screen and (max-width: $bp-large) {
-
                 display: none;
             }
 
@@ -253,7 +261,6 @@
                     display: flex;
                     grid-column: 1 / -1;
                     width: 100%;
-              
 
                     border-bottom: 1px solid rgba($color-grey-light-2, 0.9); //alpha 0 to prevent pixel jump
 
@@ -268,8 +275,6 @@
                             display: flex;
                         }
                     }
-
-              
 
                     & .page-nav__collapse {
                         @media only screen and (max-width: $bp-large) {
@@ -361,7 +366,6 @@
                 text-transform: uppercase;
                 position: relative;
                 display: none;
-                
 
                 &::after {
                     content: "";
@@ -468,8 +472,6 @@
                     }
                 }
             }
-
-           
         }
 
         &__arrow {
@@ -480,7 +482,6 @@
                 margin-bottom: 2rem;
                 order: 5;
                 margin-top: 0;
-
             }
         }
 
@@ -498,10 +499,9 @@
                 align-self: center;
                 text-align: center;
                 height: min-content;
-                width:  100%;
-                
-                margin-top: 2rem;
+                width: 100%;
 
+                margin-top: 2rem;
             }
 
             //top content
@@ -515,16 +515,13 @@
                 height: 100%;
 
                 @media only screen and (max-width: $bp-large) {
-                    height: min-content;     
-                    //margin: 0 9rem;    
+                    height: min-content;
+                    //margin: 0 9rem;
 
                     & .slick-list {
                         padding: 0 7rem !important;
-    
-                       
                     }
                 }
-
 
                 & .slick-active {
                     animation: slideFade 1s both;
@@ -533,28 +530,24 @@
 
                     @media only screen and (max-width: $bp-large) {
                         animation: none;
-                             
                     }
-             
 
                     & .goto-button {
-                        animation: slideFade .5s both;
-                        animation-delay: .4s;
+                        animation: slideFade 1s both;
+                        animation-timing-function: ease-out;
+                        animation-delay: 1.1s;
 
                         @media only screen and (max-width: $bp-large) {
                             animation: none;
-                                 
                         }
                     }
                 }
 
                 &__item {
-
                     @media only screen and (max-width: $bp-large) {
                         display: flex !important;
                         flex-direction: column;
                         align-items: center;
-                       
                     }
 
                     &__title {
@@ -569,7 +562,7 @@
 
                         @media only screen and (max-width: $bp-medium) {
                             font-size: 2rem;
-                            line-height: 2.6rem;                    
+                            line-height: 2.6rem;
                         }
 
                         &::after {
@@ -587,17 +580,16 @@
 
                         @media only screen and (max-width: $bp-large) {
                             font-size: 1.4rem;
-                            line-height: 2.2rem; 
-                            max-width: 60rem;  
-                            margin: 0 6rem;                 
+                            line-height: 2.2rem;
+                            max-width: 60rem;
+                            margin: 0 6rem;
                         }
-                        @media only screen and (max-width: $bp-small) {       
-                            margin: 0 1rem;                 
+                        @media only screen and (max-width: $bp-small) {
+                            margin: 0 1rem;
                         }
-                        @media only screen and (max-width: $bp-xsmall) {       
-                            margin: 0;                 
+                        @media only screen and (max-width: $bp-xsmall) {
+                            margin: 0;
                         }
-
                     }
 
                     &__cta {
@@ -605,15 +597,14 @@
                         width: max-content;
 
                         @media only screen and (max-width: $bp-large) {
-                            padding-top: 6rem;                   
+                            padding-top: 6rem;
                         }
 
                         & svg {
                             @media only screen and (max-width: $bp-medium) {
-                                display: none;                    
+                                display: none;
                             }
                         }
-                      
                     }
                 }
 
@@ -625,8 +616,6 @@
                     @media only screen and (max-width: $bp-large) {
                         top: 5%;
                         left: 0rem;
-              
-                       
                     }
                 }
                 &__arrow-right {
@@ -637,9 +626,7 @@
                     @media only screen and (max-width: $bp-large) {
                         top: 5%;
                         right: 0rem;
-                    
                     }
-
                 }
             }
 

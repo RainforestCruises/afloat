@@ -44,6 +44,7 @@ function load_scripts()
 
     wp_enqueue_script('flickity-js', get_template_directory_uri() . '/vendor/flickity/flickity.pkgd.min.js', array(), false, true);
     wp_enqueue_script('flickity-fade-js', get_template_directory_uri() . '/vendor/flickity/flickity-fade.js', array(), false, true);
+    wp_enqueue_script('flickity-nav-js', get_template_directory_uri() . '/vendor/flickity/as-nav-for.js', array(), false, true);
 
 
 

@@ -39,27 +39,62 @@ jQuery(document).ready(function ($) {
         console.log('submitted');
     });
 
-    //SLIDERS
-    $('#destination-hero__bg-slider').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: false,
-        centerMode: false,
-        draggable: false,
+    // //SLIDERS
+    // $('#destination-hero__bg-slider').slick({
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     dots: false,
+    //     centerMode: false,
+    //     draggable: false,
+    //     fade: true,
+    //     arrows: false,
+    //     speed: 1800,
+    //     lazyLoad: 'ondemand',
+    //     responsive: [
+    //         {
+    //             breakpoint: 1000,
+    //             settings: {
+    //                 speed: 800,
+    //             }
+    //         },
+    //     ]
+    // });
+
+
+
+    //Flickity
+    var flickitySlider = new Flickity('.destination-hero__bg-slider', {
+        prevNextButtons: false,
+        pageDots: false,
         fade: true,
-        arrows: false,
-        speed: 1800,
-        lazyLoad: 'ondemand',
-        responsive: [
-            {
-                breakpoint: 1000,
-                settings: {
-                    speed: 800,
-                }
-            },
-        ]
+        lazyLoad: true,
+        selectedAttraction: 0.01,
+        friction: 0.15
+        // options
     });
 
+
+
+    // //Flickity Nav
+    // var flickitySliderNav = new Flickity('.destination-hero__content__location__slider', {
+    //     prevNextButtons: true,
+    //     pageDots: false,
+    //     selectedAttraction: 0.01,
+    //     friction: 0.15,
+    //     fade: true,
+    //     //lazyLoad: true,
+    //     asNavFor: '.destination-hero__bg-slider'
+    //     // options
+    // });
+
+    // $(".destination-hero__content__location__slider .next").on("click", function () {
+    //     // Changing items of the main div
+    //     flickitySlider.next();
+    // });
+    // $(".destination-hero__content__location__slider .previous").on("click", function () {
+    //     // Changing items of the main div
+    //     flickitySlider.previous();
+    // });
 
     //location slider
     counter = new Odometer({
@@ -68,20 +103,18 @@ jQuery(document).ready(function ($) {
         duration: 200,
         value: 1
     });
-
-
     //--
     $('#destination-hero__content__location__slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
-        asNavFor: '#destination-hero__bg-slider',
+        //asNavFor: '#destination-hero__bg-slider',
         centerMode: false,
         arrows: true,
         draggable: false,
         fade: true,
         speed: 1800,
-        lazyLoad: 'ondemand',
+        //lazyLoad: 'ondemand',
         prevArrow: '<button class="btn-circle btn-circle--small   btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
         nextArrow: '<button class="btn-circle btn-circle--small  btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
         responsive: [
@@ -96,6 +129,8 @@ jQuery(document).ready(function ($) {
         ]
     }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         var num = (nextSlide + 1);
+
+        flickitySlider.select(nextSlide);
         setTimeout(function () {
             counter.update(num);
         }, 0);

@@ -19,46 +19,59 @@ jQuery(document).ready(function ($) {
 
 
     //SLIDERS
-    //hero bg
-    $('.home-hero__bg').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: false,
-        centerMode: false,
-        draggable: false,
-        asNavFor: '#home-hero__bottom__slide-nav',
-        fade: true,
-        arrows: false,
-        speed: 1000,
-        lazyLoad: 'ondemand',
+    // //SLICK -- hero bg
+    // $('.home-hero__bg').slick({
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     dots: false,
+    //     centerMode: false,
+    //     draggable: false,
+    //     //asNavFor: '#home-hero__bottom__slide-nav',
+    //     fade: true,
+    //     arrows: false,
+    //     speed: 1000,
+    //     lazyLoad: 'ondemand',
 
+    // });
+
+
+    //Flickity
+    var flickitySlider = new Flickity('.home-hero__bg', {
+        prevNextButtons: false,
+        pageDots: false,
+        fade: true,
+        lazyLoad: true,
+        
+        // options
     });
 
 
-    //--hero bg nav/label
-    $('.home-hero__bottom__slide-nav').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: false,
-        asNavFor: '#home-hero__bg',
-        centerMode: false,
-        arrows: false,
-        draggable: false,
-        fade: true,
-        speed: 1000,
-        prevArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--left home-hero__bottom__slide-nav__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-        nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right home-hero__bottom__slide-nav__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
-        responsive: [
-            {
-                breakpoint: 1000,
-                // settings: {
-                //     prevArrow: '<button class="btn-circle btn-circle--noborder    btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-                //     nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
-                //     speed: 800,
-                // }
-            },
-        ]
-    })
+
+
+    // //--hero bg nav/label
+    // $('.home-hero__bottom__slide-nav').slick({
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     dots: false,
+    //     asNavFor: '#home-hero__bg',
+    //     centerMode: false,
+    //     arrows: false,
+    //     draggable: false,
+    //     fade: true,
+    //     speed: 1000,
+    //     prevArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--left home-hero__bottom__slide-nav__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+    //     nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right home-hero__bottom__slide-nav__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+    //     responsive: [
+    //         {
+    //             breakpoint: 1000,
+    //             // settings: {
+    //             //     prevArrow: '<button class="btn-circle btn-circle--noborder    btn-white btn-circle--left destination-hero__content__location__slider__arrow-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+    //             //     nextArrow: '<button class="btn-circle btn-circle--noborder  btn-white btn-circle--right destination-hero__content__location__slider__arrow-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+    //             //     speed: 800,
+    //             // }
+    //         },
+    //     ]
+    // })
 
     $('#intro-testimonials').slick({
         slidesToShow: 1,
@@ -331,7 +344,7 @@ jQuery(document).ready(function ($) {
 
             } else {
                 //nothing selected         
-                
+
                 if (!isValidSelection) {
                     formDestination.value = null; //assign null selection if invalid input
                 }
@@ -354,7 +367,8 @@ jQuery(document).ready(function ($) {
         const slideDiv = document.querySelector('.home-hero__bg__slide[postid="' + slidePostId + '"]');
         if (slideDiv) {
             const slideNumber = slideDiv.getAttribute('slidenumber');
-            $('#home-hero__bg').slick('slickGoTo', slideNumber);
+            //$('#home-hero__bg').slick('slickGoTo', slideNumber);
+            flickitySlider.select(slideNumber);
         }
     }
 
@@ -386,15 +400,15 @@ jQuery(document).ready(function ($) {
         } else {
             //submit action inherent in element
 
-            if(formDestination.value != ""){
+            if (formDestination.value != "") {
                 searchButton.classList.add('loading');
-                
+
             } else {
                 destinationInput.classList.add('error');
                 e.preventDefault();
             }
 
-            
+
         }
 
     });
@@ -429,7 +443,7 @@ jQuery(document).ready(function ($) {
 
 
     // //DATE SELECT COMPONENT ------------------------------------------------------------------------------------
-   
+
 
 
 
@@ -520,16 +534,16 @@ jQuery(document).ready(function ($) {
                     datesInput.classList.remove('open');
                     searchContainer.classList.remove('active');
 
-                    
-                    
-                
+
+
+
                 } else {
                     searchForm.submit();
                     mobileLoading.classList.add('active');
                 }
 
                 datesInputLabel.classList.add('active');
-               
+
 
             }
 

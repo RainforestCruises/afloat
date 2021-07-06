@@ -37,8 +37,13 @@ $currentYear = date("Y");
         ?>
             <div class="home-hero__bg__slide" postid="<?php echo $sliderDestinationPostId ?>" slidenumber="<?php echo $slideCount; ?>">
                 <?php if ($sliderImage) : ?>
-                    <img <?php afloat_responsive_image($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
-                    
+                    <div class="home-hero__bg__slide__image-area">
+                        <img <?php afloat_responsive_image_lazy($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
+                        <h5 class="home-hero__bg__slide__image-area__location" postId="<?php echo $sliderDestinationPostId ?>">
+                            <?php echo $sliderTitle; ?>
+                        </h5>
+                    </div>
+
                 <?php endif; ?>
             </div>
 
@@ -47,12 +52,6 @@ $currentYear = date("Y");
         endforeach; ?>
 
 
-
-
-        <!-- <img src="<?php echo $hero_image['url'] ?>" alt=""> -->
-        <!-- <video autoplay muted loop id="myVideo">
-            <source src="https://player.vimeo.com/external/295214306.hd.mp4?s=7b0ecc1df3b24b3b79f365535c6c9137632121dc&profile_id=174" type="video/mp4">
-        </video> -->
     </div>
 
     <div class="home-hero__content">
@@ -182,21 +181,9 @@ $currentYear = date("Y");
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-down"></use>
             </svg>
         </button>
-  
 
-        <div class="home-hero__bottom__slide-nav" id="home-hero__bottom__slide-nav">
-            <!-- Slider -->
-            <?php foreach ($hero_slider as $s) :
-                $sliderTitle = $s['title'];
-                $sliderDestination = $s['destination'];
-                $sliderDestinationPostId = get_the_id($sliderDestination);
-            ?>
-                <h5 class="home-hero__bottom__slide-nav__slide" postId="<?php echo $sliderDestinationPostId ?>">
-                    <?php echo $sliderTitle; ?>
-                </h5>
 
-            <?php endforeach; ?>
-        </div>
+
     </div>
 
 

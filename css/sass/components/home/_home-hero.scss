@@ -5,7 +5,7 @@
     position: relative;
     flex-direction: column;
     align-items: center;
-    min-height: 80rem; 
+    min-height: 80rem;
     position: relative;
 
     @media only screen and (max-width: $bp-large) {
@@ -40,47 +40,84 @@
             height: 100% !important;
         }
 
+        & .flickity-viewport {
+            height: 100% !important;
+        }
+
         &__slide {
             height: 100%;
             width: 100%;
-            //position: relative;
-            & img {
-                background-position: center center;
-                background-repeat: no-repeat;
-                object-fit: cover;
-
+           
+            &__image-area {
                 height: 100%;
                 width: 100%;
-                z-index: 0;
+                position: relative;
+                & img {
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    object-fit: cover;
+    
+                    height: 100%;
+                    width: 100%;
+                    z-index: 0;
+
+                    opacity: 0;
+                    transition: opacity 1s;
+
+                    &.flickity-lazyloaded,
+                    &.flickity-lazyerror {
+                        opacity: 1;
+
+                        & + h5 { //get the location label
+                            opacity: 1;
+                            transform: translateX(0);
+                        }
+                    }
+                }
+
+                &__location {
+                    position: absolute;
+                    bottom: 5.5rem;
+                    right: 20vw;
+                    z-index: 900;
+                    font-size: 1.2rem;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    letter-spacing: 0.2rem;
+                    color: rgba($color-white, 0.85);
+               
+
+                    opacity: 0;
+                    transition: all 1s;
+                    transform: translateX(5rem);
+
+                    @media only screen and (max-width: $bp-large) {
+                        display: none;
+                             
+                    }
+                }
+
+                &:after {
+                    //gradient overlay
+                    content: "";
+                    height: 100%;
+                    width: 100%;
+                    background-image: linear-gradient(to right, rgba($color-black, 0.4) 10%, transparent),
+                        linear-gradient(to top, rgba($color-black, 0.2), rgba($color-black, 0.2)),
+                        linear-gradient(to top, rgba($color-black, 0.7), transparent 60%);
+        
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                }
+                
             }
 
-            // &__location-title {
-            //     position: absolute;
-            //     bottom: 4rem;
-            //     right: 20vw;
-            //     z-index: 900;
-            //     font-size: 1.2rem;
-            //     text-transform: uppercase;
-            //     font-weight: 300;
-            //     letter-spacing: 0.2rem;
-            //     color: rgba($color-white, 0.85);
-            // }
+            
         }
 
-        &:after {
-            //gradient overlay
-            content: "";
-            height: 100%;
-            width: 100%;
-            background-image: linear-gradient(to right, rgba($color-black, 0.4) 10%, transparent),
-                linear-gradient(to top, rgba($color-black, 0.2), rgba($color-black, 0.2)),
-                linear-gradient(to top, rgba($color-black, 0.7), transparent 60%);
-
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 2;
-        }
+        
     }
 
     &__content {
