@@ -310,19 +310,28 @@ jQuery(document).ready(function ($) {
 
             e.preventDefault(); //prevent blur
 
-            //ISSUE -- need to remove focus once selected
+            //set selections
+            let listSelectionText = item.textContent;
+            let listSelectionPostId = item.getAttribute('postid'); 
 
-            destinationInput.value = item.textContent;
-            selectedDestination = item.getAttribute("postId");
+            destinationInput.value = listSelectionText;
+            formDestination.value = listSelectionPostId; 
 
+            //close list
             destinationListItems.forEach(dropdown => {
                 dropdown.classList.add('closed');
             });
 
-            showDateSelect();
+            //before initiating blur, must clear suggestions array and push only this selection into it.
+            const suggestion = { suggestionText: listSelectionText, suggestionPostId: listSelectionPostId };
+            suggestionsArray = [];
+            suggestionsArray.push(suggestion);
 
-            formDestination.value = item.getAttribute('postid'); //assign selection
-            changeSlide(formDestination.value); //change background
+            //change slide and show date selection
+            showDateSelect();    
+            changeSlide(listSelectionPostId); 
+
+            
 
             destinationInput.blur();
         });
@@ -352,7 +361,7 @@ jQuery(document).ready(function ($) {
             destinationList.classList.remove('open'); //close list
         }
         destinationInputClear.classList.remove('active');
-        console.log('blur event destination');
+
         if (destinationInput.value.length > 0 && isValidSelection) {
             destinationInputLabel.classList.add('active');
         } else {
@@ -363,7 +372,6 @@ jQuery(document).ready(function ($) {
 
     //change background
     function changeSlide(slidePostId) {
-        console.log('change');
         const slideDiv = document.querySelector('.home-hero__bg__slide[postid="' + slidePostId + '"]');
         if (slideDiv) {
             const slideNumber = slideDiv.getAttribute('slidenumber');
@@ -372,25 +380,12 @@ jQuery(document).ready(function ($) {
         }
     }
 
-
-    //Tab press
-    $('.home-destination-select').on('keydown', function (e) {
-        var keyCode = e.keyCode || e.which;
-
-        if (keyCode == 9) {
-            //e.preventDefault();
-            //document.activeElement.blur();
-            //document.querySelector('#dates-input').click();
-        }
-    });
-
-
-    //let initialDates = true;
-    //trigger dates
-
+    //MOBILE
     const searchButton = document.querySelector('#search-button');
     const mobileSearchButton = document.querySelector('.home-full-search-cta__button');
     const mobileLoading = document.querySelector('.home-full-search-loading');
+
+    mobileLoading.classList.remove('active'); // on first load
 
     //search-button
     searchButton.addEventListener('click', (e) => {
@@ -583,7 +578,7 @@ jQuery(document).ready(function ($) {
         if (!isDestinationInput && !isDatesInput && !isSearchContainer) {
             searchContainer.classList.remove('active'); //here
         }
-        console.log('click away');
+        
     });
 
 
