@@ -958,7 +958,20 @@
 
 
             &__title {
-          
+                display: flex;
+                align-items: center;
+                & svg {
+                    cursor: pointer;
+                    height: 2rem;
+                    width: 2rem;
+                    fill: $color-primary;
+                    transition: all .2s;
+                    margin-left: 1.5rem;
+                    transform: translateY(-.2rem);
+                    &:hover {
+                        fill: $color-supporting-light;
+                    }
+                }
             }
     
             &__data {

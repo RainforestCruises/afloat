@@ -441,7 +441,7 @@ endforeach;
                                         <?php //charter
                                         $vessel_capacity = get_field('vessel_capacity');
                                         $number_of_cabins = get_field('number_of_cabins');
-
+                                        $display_charter_policies = get_field('display_policies');
                                         $charter_daily_price = get_field('charter_daily_price');
                                         $charter_snippet = get_field('charter_snippet');
 
@@ -472,6 +472,12 @@ endforeach;
                                                 <div class="charter-pricing__overall__info-group">
                                                     <div class="charter-pricing__overall__info-group__title">
                                                         Price Per Day
+                                                        <?php if ($display_charter_policies) : ?>
+                                                            <svg class="price-notes">
+                                                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-info-circle">
+                                                                </use>
+                                                            </svg>
+                                                        <?php endif; ?>
                                                     </div>
                                                     <div class="charter-pricing__overall__info-group__data">
                                                         <?php echo "$ " . number_format($charter_daily_price, 0);  ?>
