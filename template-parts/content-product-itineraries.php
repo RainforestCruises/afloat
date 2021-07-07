@@ -441,7 +441,7 @@ endforeach;
                                         <?php //charter
                                         $vessel_capacity = get_field('vessel_capacity');
                                         $number_of_cabins = get_field('number_of_cabins');
-                                        $display_charter_policies = get_field('display_policies');
+                                        $display_charter_policies = get_field('display_charter_policies');
                                         $charter_daily_price = get_field('charter_daily_price');
                                         $charter_snippet = get_field('charter_snippet');
 
