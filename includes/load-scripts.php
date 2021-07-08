@@ -40,7 +40,7 @@ function load_scripts()
 
     wp_enqueue_script('slick', get_template_directory_uri() . '/vendor/slick/slick.js', array('jquery'), false, true);
     //wp_enqueue_script('magnific-js', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js', array('jquery'), false, true);
-    wp_enqueue_script('magnific-js', get_template_directory_uri() .  '/vendor/jquery.magnific-popup.min.js', array('jquery'), false, true);
+    wp_enqueue_script('magnific-js', get_template_directory_uri() .  '/vendor/magnific/jquery.magnific-popup.min.js', array('jquery'), false, true);
 
     //wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js', array('jquery'), false, true);
     wp_enqueue_script('select2',  get_template_directory_uri() .  '/vendor/select2/select2.min.js', array('jquery'), false, true);

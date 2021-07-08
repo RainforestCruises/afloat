@@ -4,11 +4,12 @@
 <head>
 
 
-    <!-- <title>My Custom Title Here</title> -->
 
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,user-scalable=0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="preload" href=<?php echo  get_template_directory_uri() . '/vendor/slick/fonts/slick.woff'; ?> as="font" type="font/woff" crossorigin="anonymous">
 
     <!-- this loads stylesheets  -->
     <?php wp_head(); ?>
