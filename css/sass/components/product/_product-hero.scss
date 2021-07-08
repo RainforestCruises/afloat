@@ -717,7 +717,7 @@
 
         transition: all 0.3s;
       }
-
+ 
       &__item {
         color: white; //text
         font-size: 2rem;
@@ -728,6 +728,8 @@
         width: 100%;
 
         box-shadow: $shadow-medium-bottom;
+
+       
 
         & img {
           height: 100%;

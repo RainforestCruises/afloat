@@ -496,9 +496,7 @@ jQuery(document).ready(function ($) {
   });
 
   //Product Gallery
-  $('#product-gallery').on('init', function (event, slick) {
-    //$(this).find('.slick-slide[data-slick-index="' + 2 + '"]').addClass('product-slick-enlarge');
-  }).slick({
+  $('#product-gallery').slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,

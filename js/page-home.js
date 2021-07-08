@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 
-
+    window.onunload = function(){}; //to trigger onload function later
 
     // Down Arrow
     $('#scroll-down').click(function (event) {

@@ -1,36 +1,66 @@
 @font-face {
   font-family: "Metropolis";
-  src: url("../fonts/Metropolis-ExtraLight.ttf");
+  src: url("../fonts/Metropolis/Metropolis-ExtraLight.ttf");
   font-weight: 300;
   font-style: normal; }
 
 @font-face {
   font-family: "Metropolis";
-  src: url("../fonts/Metropolis-Regular.ttf");
+  src: url("../fonts/Metropolis/Metropolis-Regular.ttf");
   font-weight: 400;
   font-style: normal; }
 
 @font-face {
   font-family: "Metropolis";
-  src: url("../fonts/Metropolis-Medium.ttf");
+  src: url("../fonts/Metropolis/Metropolis-Medium.ttf");
   font-weight: 500;
   font-style: normal; }
 
 @font-face {
   font-family: "Metropolis";
-  src: url("../fonts/Metropolis-SemiBold.ttf");
+  src: url("../fonts/Metropolis/Metropolis-SemiBold.ttf");
   font-weight: 600;
   font-style: normal; }
 
 @font-face {
   font-family: "Metropolis";
-  src: url("../fonts/Metropolis-Bold.ttf");
+  src: url("../fonts/Metropolis/Metropolis-Bold.ttf");
   font-weight: 700;
   font-style: normal; }
 
 @font-face {
   font-family: "Metropolis";
-  src: url("../fonts/Metropolis-Black.ttf");
+  src: url("../fonts/Metropolis/Metropolis-Black.ttf");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay/static/PlayfairDisplay-Regular.ttf");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay/static/PlayfairDisplay-Medium.ttf");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay/static/PlayfairDisplay-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay/static/PlayfairDisplay-Bold.ttf");
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay/static/PlayfairDisplay-ExtraBold.ttf");
   font-weight: 800;
   font-style: normal; }
 

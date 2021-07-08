@@ -32,10 +32,12 @@ function afloat_responsive_image($image_id, $image_size, $sizes_array)
         }
 
         // generate the markup for the responsive image
-        echo ' loading="lazy" src="' . $image_src . '" srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . 'px) 100vw, ' . $max_width . 'px"';
+        echo 'loading="lazy" src="' . $image_src . '" srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . 'px) 100vw, ' . $max_width . 'px"';
     }
 }
 
+
+//lazy loading for flickity
 function afloat_responsive_image_lazy($image_id, $image_size, $sizes_array)
 {
 
