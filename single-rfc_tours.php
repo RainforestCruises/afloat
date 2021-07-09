@@ -2,6 +2,15 @@
 get_header();
 wp_enqueue_script('page-nav', get_template_directory_uri() . '/js/page-nav.js', array('jquery'), false, true);
 wp_enqueue_script('page-product', get_template_directory_uri() . '/js/page-product.js', array('jquery'), false, true);
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+  'page-product',
+  'page_vars',
+  array(
+    'templateUrl' =>  $templateUrl
+  )
+);
+
 ?>
 <?php
 while (have_posts()) :
@@ -96,11 +105,6 @@ while (have_posts()) :
 
 
 
-
-  <script>
-    var templateUrl = '<?php echo bloginfo('template_url') ?>';
-    var initialPriceYear = '<?php echo $lowestYear; ?>'; //to set itinerary price grid
-  </script>
 
 <?php
 endwhile;

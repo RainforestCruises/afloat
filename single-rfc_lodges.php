@@ -2,6 +2,14 @@
 
 wp_enqueue_script('page-nav', get_template_directory_uri() . '/js/page-nav.js', array('jquery'), false, true);
 wp_enqueue_script('page-product', get_template_directory_uri() . '/js/page-product.js', array('jquery'), false, true);
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+  'page-product',
+  'page_vars',
+  array(
+    'templateUrl' =>  $templateUrl
+  )
+);
 
 get_header();
 ?>
@@ -30,6 +38,7 @@ while (have_posts()) :
     'years' => $years,
     'months' => $months,
     'monthNames' => $monthNames,
+    'charter_view' => false,
   );
 
 ?>
@@ -97,12 +106,6 @@ while (have_posts()) :
   </div>
 
 
-
-
-  <script>
-    var templateUrl = '<?php echo bloginfo('template_url') ?>';
-    var initialPriceYear = '<?php echo date("Y"); ?>';
-  </script>
 
 <?php
 endwhile;

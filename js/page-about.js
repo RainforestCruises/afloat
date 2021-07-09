@@ -1,6 +1,6 @@
 
 jQuery(document).ready(function ($) {
-
+    const templateUrl = page_vars.templateUrl;
 
     $('#difference-slider').slick({
         slidesToShow: 1,

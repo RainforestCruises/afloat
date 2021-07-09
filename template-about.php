@@ -3,7 +3,14 @@
 
 
 wp_enqueue_script('page-about', get_template_directory_uri() . '/js/page-about.js', array('jquery'), false, true);
-
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+    'page-about',
+    'page_vars',
+    array(
+      'templateUrl' =>  $templateUrl
+    )
+  );
 ?>
 
 <?php
@@ -58,6 +65,3 @@ get_header();
 
 <?php get_footer(); ?>
 
-<script>
-    var templateUrl = "<?php echo bloginfo('template_url') ?>";
-</script>

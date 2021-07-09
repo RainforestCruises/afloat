@@ -57,10 +57,4 @@ $toc_content = get_field('toc_content');
 </div>
 
 
-
-
 <?php get_footer(); ?>
-
-<script>
-    var templateUrl = "<?php echo bloginfo('template_url') ?>";
-</script>

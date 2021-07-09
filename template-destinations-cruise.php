@@ -2,6 +2,14 @@
 /*Template Name: Destinations - Cruise*/
 wp_enqueue_script('page-nav', get_template_directory_uri() . '/js/page-nav.js', array('jquery'), false, true);
 wp_enqueue_script('page-destination', get_template_directory_uri() . '/js/page-destination.js', array('jquery'), false, true);
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+  'page-destination',
+  'page_vars',
+  array(
+    'templateUrl' =>  $templateUrl
+  )
+);
 ?>
 
 <?php
@@ -134,7 +142,3 @@ get_template_part('template-parts/content', 'shared-contact-modal', $args);
 
 <?php get_footer(); ?>
 
-
-<script>
-    var templateUrl = "<?php echo bloginfo('template_url') ?>";
-</script>

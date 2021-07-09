@@ -1,6 +1,14 @@
 <?php
 /*Template Name: Expedition / Bucket */
 wp_enqueue_script('page-experience', get_template_directory_uri() . '/js/page-experience.js', array('jquery'), false, true);
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+  'page-experience',
+  'page_vars',
+  array(
+    'templateUrl' =>  $templateUrl
+  )
+);
 ?>
 
 <?php
@@ -54,6 +62,3 @@ $show_features = get_field('show_features');
 <?php get_footer(); ?>
 
 
-<script>
-    var templateUrl = "<?php echo bloginfo('template_url') ?>";
-</script>

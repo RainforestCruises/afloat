@@ -1,6 +1,9 @@
 jQuery(document).ready(function ($) {
+    const templateUrl = page_vars.templateUrl;
 
-    window.onunload = function(){}; //to trigger onload function later
+    
+    window.onunload = function () { }; //to trigger onload function later
+    
 
     // Down Arrow
     $('#scroll-down').click(function (event) {
@@ -41,7 +44,7 @@ jQuery(document).ready(function ($) {
         pageDots: false,
         fade: true,
         lazyLoad: true,
-        
+
         // options
     });
 
@@ -312,10 +315,10 @@ jQuery(document).ready(function ($) {
 
             //set selections
             let listSelectionText = item.textContent;
-            let listSelectionPostId = item.getAttribute('postid'); 
+            let listSelectionPostId = item.getAttribute('postid');
 
             destinationInput.value = listSelectionText;
-            formDestination.value = listSelectionPostId; 
+            formDestination.value = listSelectionPostId;
 
             //close list
             destinationListItems.forEach(dropdown => {
@@ -328,10 +331,10 @@ jQuery(document).ready(function ($) {
             suggestionsArray.push(suggestion);
 
             //change slide and show date selection
-            showDateSelect();    
-            changeSlide(listSelectionPostId); 
+            showDateSelect();
+            changeSlide(listSelectionPostId);
 
-            
+
 
             destinationInput.blur();
         });
@@ -578,7 +581,7 @@ jQuery(document).ready(function ($) {
         if (!isDestinationInput && !isDatesInput && !isSearchContainer) {
             searchContainer.classList.remove('active'); //here
         }
-        
+
     });
 
 

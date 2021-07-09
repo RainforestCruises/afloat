@@ -3,7 +3,14 @@
 
 
 wp_enqueue_script('page-contact', get_template_directory_uri() . '/js/page-contact.js', array('jquery'), false, true);
-
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+    'page-contact',
+    'page_vars',
+    array(
+      'templateUrl' =>  $templateUrl
+    )
+  );
 ?>
 
 <?php
@@ -94,7 +101,3 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
 
 
 <?php get_footer(); ?>
-
-<script>
-    var templateUrl = "<?php echo bloginfo('template_url') ?>";
-</script>

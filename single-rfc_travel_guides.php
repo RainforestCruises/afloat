@@ -1,6 +1,14 @@
 <?php
 get_header();
 wp_enqueue_script('page-travel-guide', get_template_directory_uri() . '/js/page-travel-guide.js', array('jquery'), false, true);
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+  'page-travel-guide',
+  'page_vars',
+  array(
+    'templateUrl' =>  $templateUrl
+  )
+);
 ?>
 
 <?php
@@ -183,7 +191,3 @@ endwhile;
 <!-- #site-wrapper end-->
 <?php get_footer() ?>
 
-
-<script>
-  var templateUrl = "<?php echo bloginfo('template_url') ?>";
-</script>

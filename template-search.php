@@ -1,7 +1,14 @@
 <?php
 /*Template Name: Search*/
 wp_enqueue_script('page-search', get_template_directory_uri() . '/js/page-search.js', array('jquery'), false, true);
-
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+    'page-search',
+    'page_vars',
+    array(
+      'templateUrl' =>  $templateUrl
+    )
+  );
 ?>
 
 <?php
@@ -265,9 +272,3 @@ $args = array(
 
 <?php get_footer(); ?>
 
-
-
-
-<script>
-    var templateUrl = "<?php echo bloginfo('template_url') ?>";
-</script>

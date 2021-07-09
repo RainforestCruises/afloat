@@ -1,4 +1,5 @@
 jQuery(document).ready(function ($) {
+  const templateUrl = page_vars.templateUrl;
 
 
 
@@ -330,7 +331,7 @@ jQuery(document).ready(function ($) {
   });
 
 
-  $('.itinerary-year-select').val(initialPriceYear).trigger("change");
+  $('.itinerary-year-select').val(currentYear).trigger("change");
 
   //Dates --------------------------------------
   //Controls

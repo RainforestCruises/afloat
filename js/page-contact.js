@@ -1,6 +1,6 @@
 
 jQuery(document).ready(function ($) {
-
+    const templateUrl = page_vars.templateUrl;
 
     $('#testimonials-slider').slick({
         slidesToShow: 1,

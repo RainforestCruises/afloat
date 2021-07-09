@@ -1,6 +1,14 @@
 <?php
 wp_enqueue_script('page-nav', get_template_directory_uri() . '/js/page-nav.js', array('jquery'), false, true);
 wp_enqueue_script('page-product', get_template_directory_uri() . '/js/page-product.js', array('jquery'), false, true);
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+  'page-product',
+  'page_vars',
+  array(
+    'templateUrl' =>  $templateUrl
+  )
+);
 
 get_header();
 ?>
@@ -152,11 +160,6 @@ while (have_posts()) :
   get_template_part('template-parts/content', 'product-prices-extra', $args);
   ?>
 
-
-  <script>
-    var templateUrl = '<?php echo bloginfo('template_url') ?>';
-    var initialPriceYear = '<?php echo date("Y"); ?>';
-  </script>
 
 <?php
 endwhile;

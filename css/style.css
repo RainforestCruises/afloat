@@ -1439,7 +1439,7 @@ h5 {
 .home-page {
   position: relative; }
   .home-page__section-hero {
-    background-color: #1e1e1e; }
+    background-color: #1d2225; }
   .home-page__section-intro {
     display: flex;
     justify-content: center;
@@ -1454,7 +1454,7 @@ h5 {
     width: 100%; }
 
 .product-page__section-hero {
-  background-color: #1e1e1e; }
+  background-color: #1d2225; }
 
 .product-page__section-overview {
   margin: 4rem 0;
@@ -1540,7 +1540,7 @@ h5 {
         padding: 0 3rem; } }
 
 .destination-page__section-hero {
-  background-color: #1e1e1e; }
+  background-color: #1d2225; }
 
 .destination-page__section-travel-guides {
   margin-top: 4rem;
@@ -2243,7 +2243,7 @@ h5 {
       padding-bottom: 2rem; }
 
 .experience-page__section-hero {
-  background-color: #1e1e1e; }
+  background-color: #1d2225; }
 
 .experience-page__section-intro {
   display: flex;
@@ -3966,9 +3966,6 @@ h5 {
             margin: 1.2rem 0;
             margin-top: 0.7rem;
             z-index: 9; }
-            @media only screen and (max-width: 50em) {
-              .product-cabins__cabin__content__title h3::after {
-                width: 100%; } }
         .product-cabins__cabin__content__title span {
           position: absolute;
           right: 0rem;

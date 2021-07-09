@@ -1,6 +1,14 @@
 <?php
 /*Template Name: Experiences*/
 wp_enqueue_script('page-experience', get_template_directory_uri() . '/js/page-experience.js', array('jquery'), false, true);
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+  'page-experience',
+  'page_vars',
+  array(
+    'templateUrl' =>  $templateUrl
+  )
+);
 ?>
 
 <?php
@@ -55,7 +63,3 @@ $experience = get_field('experience_post');
 
 <?php get_footer(); ?>
 
-
-<script>
-    var templateUrl = "<?php echo bloginfo('template_url') ?>";
-</script>
