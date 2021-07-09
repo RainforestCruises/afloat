@@ -190,6 +190,9 @@ jQuery(document).ready(function ($) {
     const formDestination = document.querySelector('#formDestination');
     const formDates = document.querySelector('#formDates');
 
+    const mobileSearchBackButton = document.querySelector('#mobile-search-back');
+    const mobileSearchDatesContainer = document.querySelector('.home-full-search__dates');
+
 
     //DATES
     const datesInputContainer = document.querySelector('.home-search__dates');
@@ -590,8 +593,7 @@ jQuery(document).ready(function ($) {
     //END SEARCH UI ---------------------------------------------------------------------------------
 
     //SEARCH UI MOBILE ---------------------------------------------------------------------------------
-    const mobileSearchBackButton = document.querySelector('#mobile-search-back');
-    const mobileSearchDatesContainer = document.querySelector('.home-full-search__dates');
+
 
 
     mobileSearchBackButton.addEventListener('click', () => {
