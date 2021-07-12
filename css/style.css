@@ -7417,7 +7417,7 @@ h5 {
     transform: translate3d(0, 3rem, 0); } }
 
 .home-intro {
-  margin-top: 14rem;
+  margin-top: 12rem;
   margin-bottom: 6rem;
   display: flex;
   flex-direction: column;
@@ -7428,7 +7428,7 @@ h5 {
       padding: 0 3rem; } }
   @media only screen and (max-width: 50em) {
     .home-intro {
-      margin-top: 8rem;
+      margin-top: 6rem;
       margin-bottom: 4rem; } }
   .home-intro__top {
     display: flex;
