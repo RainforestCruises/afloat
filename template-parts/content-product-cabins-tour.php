@@ -63,7 +63,7 @@ $hotels = get_field('hotels');
                             </div>
                         </div>
 
-                        <a href="<?php get_permalink($propertyPost) ?>" target="_blank" class="btn-outline btn-outline--small btn-outline--dark">
+                        <a href="<?php echo get_permalink($propertyPost) ?>" target="_blank" class="btn-outline btn-outline--small btn-outline--dark">
                             View
                         </a>
                     </div>
