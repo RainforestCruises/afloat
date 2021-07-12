@@ -127,7 +127,7 @@
     height: 100%;
     width: 100%;
     border-radius: 2.5rem;
-    border: 1px solid $color-grey-light-1a;
+    border: 2px solid $color-grey-light-2;
   }
 
   &:hover::after {
@@ -142,7 +142,7 @@
 
   &--dark {
     &::after {
-      border: 1px solid $color-primary;
+      border: 2px solid $color-primary;
     }
   }
 

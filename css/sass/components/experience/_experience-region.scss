@@ -216,6 +216,10 @@
             }
 
             & .slick-current {
+                & .wide-slider-card {
+                    pointer-events: inherit;
+                }
+                
                 & .wide-slider-card__content {
                     opacity: 1;
                 }

@@ -259,10 +259,10 @@ $cruise_experiences = get_field('cruise_experiences');
                 $link = $length['link'];
                 $buttonText = $length['button_text'];
             ?>
-                <a class="btn-outline" href="<?php echo $link; ?>"><?php echo $buttonText ?></a>
+                <a class="btn-outline btn-outline--small " href="<?php echo $link; ?>"><?php echo $buttonText ?></a>
         <?php endforeach;
         endif;
         ?>
-        <a class="btn-outline btn-outline--dark" href="<?php echo get_field('cruise_search_link'); ?>">View All Cruises</a>
+        <a class="btn-outline btn-outline--dark btn-outline--small" href="<?php echo get_field('cruise_search_link'); ?>">View All Cruises</a>
     </div>
 </div>

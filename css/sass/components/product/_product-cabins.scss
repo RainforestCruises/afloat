@@ -11,6 +11,10 @@
         padding: 0 3rem;
     }
 
+    @media only screen and (max-width: $bp-medium) {
+        border-bottom: 1px solid $color-grey-light-1a;
+    }
+
     &__cabin {
         width: 100%;
         display: flex;
@@ -127,23 +131,31 @@
             }
 
             &__snippet {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
 
-                @media only screen and (max-width: $bp-medium) {
-                    text-align: center;
-                }
+                // @media only screen and (max-width: $bp-medium) {
+                //     text-align: center;
+                // }
             }
 
             &__attributes {
                 display: flex;
                 margin: 2rem 0;
-                margin-bottom: 4rem;
+                margin-bottom: 3rem;
                 font-size: 1.4rem;
                 letter-spacing: 0.1rem;
 
                 @media only screen and (max-width: $bp-medium) {
-                    justify-content: center;
+                    //justify-content: center;
                     margin-bottom: 1rem;
+                }
+
+                
+                & a {
+                    &:link {
+                        line-height: 1.3rem !important;
+
+                    }
                 }
 
                 &__item {
@@ -153,6 +165,10 @@
                     text-align: center;
                     align-items: center;
                     flex-direction: column;
+
+
+          
+
                     &:not(:last-child) {
                         margin-right: 4rem;
                         padding-right: 4rem;
@@ -171,8 +187,20 @@
                         height: 100%;
                         text-align: start;
 
-                        @media only screen and (max-width: $bp-medium) {
-                            text-align: center;
+                   
+
+                        &__icon {
+                            margin-right: 1.5rem;
+                            display: flex;
+                            align-items: center;
+                            & svg {
+                                stroke: $color-primary;
+                                stroke-width: 4;
+                                height: 3rem;
+                                width: 3rem;
+                                color: $color-primary;
+                                fill: $color-primary;
+                            }
                         }
 
                         &__text {
@@ -244,12 +272,16 @@
             }
 
             &__cta {
-                margin-top: 2rem;
+                margin-top: 0rem;
                 display: flex;
-                justify-content: center;
+
+                & button {
+                    margin: 0rem;
+                }
 
                 @media only screen and (max-width: $bp-medium) {
-                    padding-top: 0rem;
+                    margin-top: 2rem;
+                    justify-content: center;
                 }
             }
         }
@@ -391,19 +423,16 @@
                 flex-direction: column;
             }
 
-
             &__info {
                 flex-grow: 1;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
 
-                &:not(:last-child){
+                &:not(:last-child) {
                     margin-right: 6rem;
                     @media only screen and (max-width: $bp-medium) {
-                  
                         margin-right: 0rem;
-                    
                     }
                 }
 
@@ -413,8 +442,6 @@
                     margin-right: 0rem;
                     margin-bottom: 3rem;
                 }
-
-
 
                 &__title {
                     font-size: 1.4rem;
@@ -464,20 +491,18 @@
                 position: absolute;
                 bottom: -4rem;
                 left: 0;
-                color: rgba($color-white, .8);
+                color: rgba($color-white, 0.8);
                 font-size: 1.3rem;
             }
         }
     }
-
-    
 }
 
 .product-hotels {
     width: 100%;
     display: flex;
     position: relative;
-    padding-bottom: 6rem;
+    //padding-bottom: 2rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;

@@ -26,16 +26,32 @@ jQuery(document).ready(function ($) {
     });
 
 
-});
 
 
 
 //SCROLLING
+    const downArrow = document.querySelector('#down-arrow-button');
+    downArrow.addEventListener('click', (event) => {
+
+        var id = downArrow.getAttribute('href');
+        var target = $(id).offset().top;
+
+        target = target - 60;
+     
+        $('html, body').animate({ scrollTop: target }, 500);
+        window.location.hash = id;
+
+        event.preventDefault();
+
+    });
 
 
-
-const dateInputField = document.querySelector('#down-arrow-button');
-dateInputField.addEventListener('click', () => {
-    var target = $('#intro').offset().top - 60;
-    $('html, body').animate({ scrollTop: target }, 500);
 });
+
+
+
+
+
+
+
+

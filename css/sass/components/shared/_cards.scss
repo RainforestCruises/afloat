@@ -345,6 +345,8 @@
     position: relative;
     text-decoration: none;
 
+    pointer-events: none;
+
     &__image {
         grid-row: 1 / -1;
         grid-column: 1 / -1;

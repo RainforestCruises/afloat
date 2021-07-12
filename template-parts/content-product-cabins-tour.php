@@ -9,7 +9,7 @@ $hotels = get_field('hotels');
 
 <!-- Cruises & Lodges -->
 <?php if ($properties) : ?>
-    <div class="product-cabins u-margin-bottom-small">
+    <div class="product-cabins u-margin-bottom-medium">
 
         <h2 class="xsub-divider xsub-divider--dark u-margin-bottom-small">
             Cruises & Lodges
@@ -32,31 +32,43 @@ $hotels = get_field('hotels');
                     <img <?php afloat_responsive_image($featured_image['id'], 'featured-large', array('featured-large', 'featured-medium', 'featured-small')); ?> alt="">
                 </div>
                 <div class="product-cabins__cabin__content">
-                    <div class="product-cabins__cabin__content__title center-title">
+                    <div class="product-cabins__cabin__content__title ">
                         <h3><?php echo $propertyTitle; ?></h3>
                     </div>
                     <div class="product-cabins__cabin__content__snippet">
                         <?php echo $propertySnippet; ?>
                     </div>
-
-                    <!-- New -->
-                    <?php if($isCruise) : ?>
                     <div class="product-cabins__cabin__content__attributes">
                         <!-- Capacity -->
                         <div class="product-cabins__cabin__content__attributes__item">
                             <div class="product-cabins__cabin__content__attributes__item__data">
+                                <div class="product-cabins__cabin__content__attributes__item__data__icon">
+                                    <?php if (get_post_type($p) != 'rfc_lodges') : ?>
+                                        <svg>
+                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-boat-front"></use>
+                                        </svg>
+                                    <?php else : ?>
+                                        <svg>
+                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-bed-23"></use>
+                                        </svg>
+                                    <?php endif; ?>
+                                </div>
                                 <div class="product-cabins__cabin__content__attributes__item__data__text">
-                                    <?php echo $vessel_capacity; ?> Guests 
+                                    <?php echo $vessel_capacity; ?> Guests
                                     <div class="sub-attribute">
-                                    <?php echo $number_of_cabins; ?> Cabins
+                                        <?php echo $number_of_cabins; ?> Cabins
                                     </div>
                                 </div>
 
                             </div>
                         </div>
+
+                        <a href="<?php get_permalink($propertyPost) ?>" target="_blank" class="btn-outline btn-outline--small btn-outline--dark">
+                            View
+                        </a>
                     </div>
 
-                    <?php endif; ?>
+              
 
                 </div>
             </div>

@@ -84,7 +84,7 @@ $tour_experiences = get_field('tour_experiences');
 
     <div class="destination-main__lengths">
       
-        <a class="btn-outline btn-outline--dark " href="<?php echo $tour_search_link; ?>">View All Tours</a>
+        <a class="btn-outline btn-outline--dark btn-outline--small" href="<?php echo $tour_search_link; ?>">View All Tours</a>
     </div>
 
 

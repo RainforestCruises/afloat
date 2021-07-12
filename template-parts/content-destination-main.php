@@ -225,10 +225,10 @@ $highlights = get_field('highlights');
                 $link = $length['link'];
                 $buttonText = $length['button_text'];
             ?>
-                <a class="btn-outline" href="<?php echo $link; ?>"><?php echo $buttonText ?></a>
+                <a class="btn-outline btn-outline--small" href="<?php echo $link; ?>"><?php echo $buttonText ?></a>
         <?php endforeach;
         endif;
         ?>
-        <a class="btn-outline btn-outline--dark " href="<?php echo $tour_search_link; ?>">View All Tours</a>
+        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $tour_search_link; ?>">View All Tours</a>
     </div>
 </div>

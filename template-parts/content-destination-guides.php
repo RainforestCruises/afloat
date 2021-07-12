@@ -55,7 +55,7 @@ $travel_guide_posts = get_field('travel_guide_posts');
         </div>
     </div>
     <div class="destination-guides__btn ">
-        <a class="btn-outline btn-outline--dark  " href="<?php echo get_field('view_all_guide_link') ?>">View All Travel Guide</a>
+        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo get_field('view_all_guide_link') ?>">View <?php echo get_field('navigation_title', $destination) ?> Travel Guide</a>
     </div>
 
 </div>

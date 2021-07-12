@@ -41,6 +41,8 @@ while (have_posts()) :
     'years' => $years,
     'months' => $months,
     'monthNames' => $monthNames,
+    'charter_view' => false,
+
   );
 
 

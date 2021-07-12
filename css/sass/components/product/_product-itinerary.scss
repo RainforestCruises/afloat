@@ -157,6 +157,10 @@
         flex-direction: column;
         font-size: 1.5rem;
 
+        & .lds-dual-ring {
+            transform: translateX(0%);
+        }
+
         &__grid {
             color: $color-primary;
             display: grid;
@@ -785,7 +789,7 @@
                     &__title {
                         font-size: 2.2rem;
                         font-weight: 600;
-                        color: $color-primary;
+                        color: $color-primary; 
                         margin: 1rem 0;
                         letter-spacing: 0;
                     }
@@ -795,6 +799,12 @@
                         padding-right: 4rem;
                         @media only screen and (max-width: $bp-medium) {
                             padding-right: 0rem;
+                        }
+
+                        & ul, ol {
+                            margin-left: 3rem;
+                            list-style: disc;
+                            margin-bottom: 2rem;
                         }
                     }
                 }

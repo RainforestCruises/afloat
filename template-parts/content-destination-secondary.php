@@ -92,6 +92,6 @@ console_log($cruises);
     ?>
 
     <div class="destination-secondary__btn ">
-        <a class="btn-outline btn-outline--dark" href="<?php echo $cruise_search_link; ?>">View All Cruises</a>
+        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $cruise_search_link; ?>">View All Cruises</a>
     </div>
 </div>
