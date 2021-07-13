@@ -154,6 +154,11 @@ a[href^="tel"] {
   -ms-user-select: none !important;
   user-select: none !important; }
 
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
 .heading-1, .heading-2, .heading-3, .heading-4, .heading-5 {
   font-family: "Metropolis", sans-serif;
   font-weight: 400; }
@@ -1571,6 +1576,12 @@ h5 {
   @media only screen and (max-width: 50em) {
     .travel-guide-page {
       padding-top: 9rem; } }
+
+.travel-guide-newsletter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 .travel-guide {
   display: flex;
@@ -7313,7 +7324,7 @@ h5 {
           animation-delay: 0.2s;
           transition: all 0.3s; }
         .home-search__cta__button.active:hover {
-          background-color: #efb400;
+          background-color: #fbcf00;
           transition-delay: 0s; }
       .home-search__cta__button svg {
         height: 2rem;
@@ -9521,6 +9532,9 @@ h5 {
   margin: 10rem 0;
   max-width: calc(112rem + 12rem);
   padding: 0 6rem; }
+  @media only screen and (max-width: 50em) {
+    .newsletter {
+      margin: 6rem 0; } }
   @media only screen and (max-width: 37.5em) {
     .newsletter {
       padding: 0 3rem; } }
@@ -9554,48 +9568,48 @@ h5 {
     .newsletter__content__text {
       color: #142838;
       font-size: 1.6rem;
-      margin-bottom: 9rem; }
+      margin-bottom: 5rem; }
       @media only screen and (max-width: 50em) {
         .newsletter__content__text {
           margin-bottom: 6rem;
           text-align: center; } }
     .newsletter__content__email {
-      display: flex;
-      flex-wrap: wrap; }
+      width: 100%;
+      display: flex; }
       @media only screen and (max-width: 50em) {
         .newsletter__content__email {
           justify-content: center; } }
-      @media only screen and (max-width: 37.5em) {
-        .newsletter__content__email {
-          flex-direction: column;
-          align-items: center; } }
-      .newsletter__content__email__input {
+      .newsletter__content__email__button {
         font-size: 1.5rem;
-        padding: 0 3rem;
+        height: 5rem;
+        width: 28rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
         border: 2px solid #142838;
+        border-radius: 4rem;
         letter-spacing: 0.1rem;
         font-family: "Metropolis", sans-serif;
-        margin-right: 1rem;
-        margin-bottom: 1rem;
-        height: 6rem; }
-        @media only screen and (max-width: 37.5em) {
-          .newsletter__content__email__input {
-            width: 90%;
-            margin-right: 0; } }
-      .newsletter__content__email__button {
-        padding: 0 3rem;
-        height: 6rem;
-        font-family: "Metropolis", sans-serif;
-        background-color: #142838;
-        color: #fff;
-        letter-spacing: 0.3rem;
-        font-size: 1.5rem;
-        border: 2px solid #142838;
-        text-transform: uppercase; }
-        @media only screen and (max-width: 37.5em) {
-          .newsletter__content__email__button {
-            width: 50%;
-            margin-top: 4rem; } }
+        padding: 0 2.5rem;
+        cursor: pointer;
+        transition: all .2s; }
+        .newsletter__content__email__button:hover {
+          color: #747474; }
+          .newsletter__content__email__button:hover svg {
+            opacity: 1;
+            transform: translateX(1.5rem); }
+        .newsletter__content__email__button svg {
+          transition: all .2s;
+          transform: translateX(0);
+          opacity: 0;
+          height: 2rem;
+          width: 2rem;
+          color: #142838; }
+          @media only screen and (max-width: 50em) {
+            .newsletter__content__email__button svg {
+              opacity: 1;
+              transform: translateX(1.5rem); } }
   .newsletter__image {
     width: 40%; }
     @media only screen and (max-width: 50em) {
@@ -9615,6 +9629,7 @@ h5 {
 .contact {
   width: 100%;
   max-width: calc(80rem + 12rem);
+  height: min-content;
   padding: 0 6rem; }
   @media only screen and (max-width: 37.5em) {
     .contact {

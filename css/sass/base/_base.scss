@@ -91,3 +91,11 @@ a[href^="tel"] {
     -ms-user-select: none !important;
     user-select: none !important;
 }
+
+
+//remove iOS shadows
+input {   
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}

@@ -154,6 +154,27 @@
             "endpoint": 0
         },
         {
+            "key": "field_60edd3e5162d8",
+            "label": "Newsletter Form ID",
+            "name": "newsletter_form_id",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_6036b9256b51f",
             "label": "Newsletter Title",
             "name": "newsletter_title",
@@ -535,5 +556,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1623189385
+    "modified": 1626199065
 }

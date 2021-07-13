@@ -2,10 +2,10 @@
 .contact {
     width: 100%;
     max-width: $page-width-narrow;
-
+    height: min-content;
     @include flexPadding;
 
-    &__wrapper {
+    &__wrapper { 
         padding: 6rem 2rem;
         padding-bottom: 4rem;
         background-color: $color-white;

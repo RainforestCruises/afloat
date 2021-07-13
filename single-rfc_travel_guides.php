@@ -178,12 +178,15 @@ while (have_posts()) :
       </div>
 
     </div>
-
-    <?php
+    
+   
+  </div>
+  <div class="travel-guide-newsletter">
+  <?php
     get_template_part('template-parts/content', 'shared-newsletter');
     ?>
-  </div>
 
+  </div>
 
 <?php
 endwhile;

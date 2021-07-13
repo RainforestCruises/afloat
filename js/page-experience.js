@@ -29,10 +29,9 @@ jQuery(document).ready(function ($) {
 
 
 
-//SCROLLING
+    //SCROLLING
     const downArrow = document.querySelector('#down-arrow-button');
     downArrow.addEventListener('click', (event) => {
-
         var id = downArrow.getAttribute('href');
         var target = $(id).offset().top;
 
@@ -43,6 +42,43 @@ jQuery(document).ready(function ($) {
 
         event.preventDefault();
 
+    });
+
+
+
+    
+    //Newsletter
+    $('.close-button').on('click', () => {
+        $('.popup').removeClass('active');
+        body.classList.remove('no-scroll');
+    });
+
+    document.addEventListener('click', evt => {
+        const contactForm = document.querySelector('.contact');
+        const popup = document.querySelector('.popup');
+        const button = document.querySelector('#newsletterButton');
+
+        const isContact = contactForm.contains(evt.target);
+        const isButton = button.contains(evt.target);
+        const isActive = popup.classList.contains('active');
+        if (isActive) {
+            if (!isContact && !isButton) {
+                $('.popup').toggleClass('active');
+                body.classList.remove('no-scroll');
+            }
+        }
+
+    });
+
+    $('#newsletterButton').on('click', () => {
+        $('.popup').addClass('active');
+        body.classList.add('no-scroll');
+    });
+
+    $('.form-general').on('submit', function () {
+        $('.contact__wrapper__intro__title').text('Thank You');
+        $('.contact__wrapper__intro__introtext').hide();
+        console.log('submitted');
     });
 
 

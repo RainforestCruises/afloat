@@ -20,7 +20,6 @@ jQuery(document).ready(function ($) {
         const isButton = button.contains(evt.target);
         const isActive = popup.classList.contains('active');
         if (isActive) {
-
             if (!isContact && !isButton) {
                 $('.popup').toggleClass('active');
                 $body.removeClass('no-scroll');

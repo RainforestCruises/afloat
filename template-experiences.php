@@ -21,7 +21,7 @@ $experience = get_field('experience_post');
 
 ?>
 
-<div class="experience-page">
+<main class="experience-page">
 
     <!-- Hero -->
     <section class="experience-page__section-hero" id="top">
@@ -59,7 +59,7 @@ $experience = get_field('experience_post');
 
 
 
-</div>
+</ma>
 
 <?php get_footer(); ?>
 
