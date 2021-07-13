@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
     //On Scroll Listener
     window.onscroll = function () { scrollCheck() };
     function scrollCheck() {
-
+        
         var titleVisible = Utils.isElementInView($('#page-title'), false);
 
         if (titleVisible) {
@@ -21,6 +21,7 @@ jQuery(document).ready(function ($) {
             //and if burger menu isnt active
             if ($(".burger-menu").hasClass('burger-menu--active') != true) {
                 $('.nav-secondary').addClass('active');
+                
             }
         }
 
@@ -64,9 +65,15 @@ jQuery(document).ready(function ($) {
         event.preventDefault();
     })
 
+    // $('.nav-secondary-mobile__list').click(function (event) {
+    //     console.log('xxx')
+    //     $('.nav-secondary-mobile').removeClass('active'); //if mobile open - close menu / button
+    //     $("#nav-secondary-button").removeClass('active');
+    // })
+
     // Animate Change Position
     function changePosition(id) {
-        console.log('change pos');
+
         $('.nav-secondary-mobile').removeClass('active'); //if mobile open - close menu / button
         $("#nav-secondary-button").removeClass('active');
 
@@ -103,6 +110,39 @@ jQuery(document).ready(function ($) {
 
         }
     });
+
+
+
+
+
+    // document.addEventListener('click', evt => {
+
+    //     //const mobileButton = document.querySelector('.nav-secondary__main__title-area__button');
+    //     const mobileMenu = document.querySelector('.nav-secondary-mobile__list');
+
+
+    //     // const mobileMenuItems = [...document.querySelectorAll('.nav-secondary-mobile__list__item')];
+    //     // const isList = false;
+    //     // mobileMenuItems.forEach(item => {
+    //     //     const contains = item.contains(evt.target);
+    //     //     if(contains) {
+    //     //         isList = true;
+    //     //     }
+
+    //     // })
+
+
+
+       
+    //     // const isButton = mobileButton.contains(evt.target);
+
+    //     const isActive = mobileMenu.classList.contains('active');
+    //     if (isActive) {
+    //         $('.nav-secondary-mobile').removeClass('active');
+    //         $("#nav-secondary-button").removeClass('active');
+    //     }
+
+    // });
 
 
 });

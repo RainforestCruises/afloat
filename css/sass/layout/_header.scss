@@ -4,6 +4,10 @@
     width: 100%;
 
     user-select: none;
+    transition: all .3s;
+    &.scrollUp {
+        transform: translateY(-7rem);
+    }
 
 
     &__main {
@@ -37,7 +41,10 @@
         -webkit-backdrop-filter: blur(8px);
         backdrop-filter: blur(8px);
 
-        transition: height 0.3s;
+        transition: all 0.3s;
+
+
+      
 
         &--clear {
             border-bottom: 1px solid rgba($color-grey-light-2, 0);

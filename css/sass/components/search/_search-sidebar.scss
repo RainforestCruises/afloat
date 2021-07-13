@@ -335,6 +335,12 @@
 
     display: none;
 
+    transition: all .3s;
+    
+    &.scrollUp {
+        transform: translateY(-7rem)
+    }
+
     @include flexPadding;
 
     @media only screen and (max-width: $bp-large) {
@@ -346,16 +352,9 @@
         z-index: 30;
         border-top: none;    
 
-        // height: 5rem;
-        // transition: all .3s;
-
-        // & button {
-        //     transform: scale(.7);
-        // }
     }
 
-    &__button {
-        
+    &__button {      
        
     }
 }

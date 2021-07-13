@@ -5,32 +5,19 @@ jQuery(document).ready(function ($) {
   //phone-mobile
   const phoneMobile = document.getElementById('phone-mobile');
   const phoneMobileExpand = document.getElementById('phone-mobile-expand');
-  //let phoneMobileOpen = false;
 
   phoneMobile.addEventListener('click', evt => {
-
     phoneMobileExpand.classList.toggle('active');
-
-
   });
 
-  // document.addEventListener('click', evt => {
-    
- 
-  //   let isMenuClick = phoneMobileExpand.contains(evt.target);
 
-  //   if ((isMenuClick == false) && phoneMobileOpen == true) {
-  //     phoneMobileExpand.classList.remove('active');
-  //     phoneMobileOpen = false;
-  //   }
-  // });
-
-  //$("body").hasClass("page-template-template-test") || 
   var opaqueNavAlways = false;
   if ($("body").hasClass("page-template-template-generic") || $("body").hasClass("page-template-template-about") || $("body").hasClass("page-template-template-contact") || $("body").hasClass("page-template-template-search") || $("body").hasClass("single-rfc_travel_guides") || $("body").hasClass("page-template-template-travel-guide")) {
     opaqueNavAlways = true;
     $('.header__main').addClass('header__main--opaque-nav');
   }
+
+  
 
   //HEADER --------------
   //Header Main -- Scroll
@@ -236,6 +223,35 @@ jQuery(document).ready(function ($) {
 
 
 
+  //Hidden Nav
+
+  const searchFilterBar = document.getElementById('search-filter-bar');
+
+  var c, currentScrollTop = 0,
+       navbar = $('.header');
+
+   $(window).scroll(function () {
+      var a = $(window).scrollTop();
+      var b = navbar.height();
+     
+      currentScrollTop = a;
+     
+      if (c < currentScrollTop && a > b + b) {
+        navbar.addClass("scrollUp");
+
+        if(searchFilterBar != null) {
+          searchFilterBar.classList.add("scrollUp");
+        }
+        
+      } else if (c > currentScrollTop && !(a <= b)) {
+        navbar.removeClass("scrollUp");
+        if(searchFilterBar != null) {
+          searchFilterBar.classList.remove("scrollUp");
+        }
+      }
+      c = currentScrollTop;
+ 
+  });
 
 
 });

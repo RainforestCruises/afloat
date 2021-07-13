@@ -3,6 +3,10 @@ jQuery(document).ready(function ($) {
   const templateUrl = page_vars.templateUrl;
 
 
+  function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+  }
+
 
   //Element variables
   const searchMobileCTA = document.getElementById('search-filter-mobile-cta');
@@ -82,16 +86,20 @@ jQuery(document).ready(function ($) {
       if (searchContent.contains(searchSidebar) == false) {
         searchContent.insertBefore(searchSidebar, searchContent.firstChild);
       }
-      
+
     }
   });
 
   //sticky on scroll 
+  const mainNav = document.querySelector('.header__main');
+
   $(window).scroll(function () {
     if ($(this).scrollTop() > searchIntro) {
       searchFilterBar.classList.add("sticky");
+      //insertAfter(searchFilterBar, mainNav);
     } else {
       searchFilterBar.classList.remove("sticky");
+      //insertAfter(searchFilterBar, searchIntro);
     }
 
     //for the content add margin top to prevent jump
