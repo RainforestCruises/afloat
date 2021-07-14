@@ -145,6 +145,7 @@ jQuery(document).ready(function ($) {
     function () {
       $('.nav-mega').removeClass('active');
       $('.header__main').addClass('active');
+      $('.nav-secondary').removeClass('mega-hide');
     },
   );
 
@@ -173,9 +174,9 @@ jQuery(document).ready(function ($) {
     } else {
       //$('#page-nav').show();
       document.body.classList.remove('lock-scroll');
-      if (window.scrollY <= topOfNav) {
+      if (window.scrollY == 0) {
         if (opaqueNavAlways == false) {
-          $('.header__main').removeClass('header__main--opaque-nav');
+          $('.header__main').removeClass('active');
         }
       }
       $(".burger-menu").removeClass('burger-menu--active');
