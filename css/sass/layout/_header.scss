@@ -34,7 +34,7 @@
         border-bottom: 1px solid rgba($color-grey-light-2, 0.1);
 
         @media only screen and (max-width: $bp-small) {
-            border-bottom: 1px solid rgba($color-grey-light-2, 0.9);
+            //border-bottom: 1px solid rgba($color-grey-light-2, 0.9);
         }
 
         background-color: rgba($color-white, 0.1);
@@ -54,7 +54,7 @@
             backdrop-filter: blur(0);
         }
 
-        &--opaque-nav {
+        &.active {
             background-color: $color-nav; //make background opaque
             border-bottom: 1px solid rgba($color-grey-light-2, 0.9);
 
@@ -81,13 +81,19 @@
             }
 
             & .burger-menu {
+
+                &::after {
+
+                    background-color: rgba($color-primary, 0.3);
+                }
+
                 &__bar {
                     background-color: $color-primary;
                 }
             }
         }
 
-        &--small-nav {
+        &.small-nav {
             //reduce height of nav from 9 to 7rem
             height: 7rem;
         }
@@ -231,7 +237,7 @@
                 display: none;
 
                 color: currentColor;
-                border-left: 1px solid $color-grey-light-2;
+                //border-left: 1px solid $color-grey-light-2;
                 cursor: pointer;
                 position: relative;
                 z-index: 900;
@@ -469,6 +475,8 @@
         display: flex;
         animation: fadein 0.3s;
         opacity: 1;
+
+        
     }
 
     &__nav {
@@ -581,6 +589,10 @@
         opacity: 1;
     }
 
+    &.mega-hide {
+        display: none !important;
+    }
+
     &__main {
         flex-grow: 1;
         display: flex;
@@ -637,7 +649,7 @@
                 &:link,
                 &:visited {
                     color: $color-primary;
-                    font-weight: 600;
+                    font-weight: 700;
                 }
 
                 &:hover {
@@ -746,7 +758,7 @@
                     &:link {
                         color: $color-grey-3;
                         transition: color 0.3s;
-                        font-weight: 500;
+                        font-weight: 600;
                     }
                     &:hover {
                         color: $color-supporting-light;
@@ -882,6 +894,21 @@
     justify-content: center;
     align-items: center;
     transition: all 0.3s;
+    position: relative;
+
+    
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 3rem;
+        background-color: rgba($color-white, 0.3);
+        transition: all 0.3s;
+    }
+    
 
     @media only screen and (max-width: $bp-large) {
         display: flex;
@@ -889,33 +916,23 @@
 
     @media only screen and (max-width: $bp-small) {
         display: flex;
-        border-left: 1px solid $color-grey-light-2;
+        //border-left: 1px solid $color-grey-light-2;
     }
 
-    &:hover {
-        transition: color 0.3s;
-        & .burger-menu__bar {
-            // &::before {
-            //     transform: translateY(-1.3rem);
-            // }
-            // &::after {
-            //     transform: translateY(1.3rem);
-            // }
-        }
-    }
+ 
 
     &__bar {
-        width: 3rem;
-        height: 2px;
+        width: 2.7rem;
+        height: 1px;
         background-color: $color-white;
         display: block;
 
         &::before {
             content: "";
             position: absolute;
-            transform: translateY(-0.8rem);
-            width: 3rem;
-            height: 2px;
+            transform: translateY(-0.7rem);
+            width: 2.7rem;
+            height: 1px;
             background-color: inherit;
             display: block;
 
@@ -925,10 +942,10 @@
         &::after {
             content: "";
             position: absolute;
-            transform: translateY(0.8rem);
+            transform: translateY(0.7rem);
 
-            width: 3rem;
-            height: 2px;
+            width: 2.7rem;
+            height: 1px;
             background-color: inherit;
             display: block;
 

@@ -9769,28 +9769,27 @@ h5 {
       .header__main {
         justify-content: space-between;
         height: 7rem; } }
-    @media only screen and (max-width: 37.5em) {
-      .header__main {
-        border-bottom: 1px solid rgba(194, 198, 201, 0.9); } }
     .header__main--clear {
       border-bottom: 1px solid rgba(194, 198, 201, 0);
       background-color: rgba(255, 255, 255, 0);
       -webkit-backdrop-filter: blur(0);
       backdrop-filter: blur(0); }
-    .header__main--opaque-nav {
+    .header__main.active {
       background-color: #fff;
       border-bottom: 1px solid rgba(194, 198, 201, 0.9); }
-      .header__main--opaque-nav .header__main__logo-area__logo img {
+      .header__main.active .header__main__logo-area__logo img {
         filter: brightness(1) invert(0); }
-      .header__main--opaque-nav .header__main__nav__list__item {
+      .header__main.active .header__main__nav__list__item {
         color: #142838; }
-        .header__main--opaque-nav .header__main__nav__list__item:hover {
+        .header__main.active .header__main__nav__list__item:hover {
           color: #40739c; }
-      .header__main--opaque-nav .header__main__right {
+      .header__main.active .header__main__right {
         color: #142838; }
-      .header__main--opaque-nav .burger-menu__bar {
+      .header__main.active .burger-menu::after {
+        background-color: rgba(20, 40, 56, 0.3); }
+      .header__main.active .burger-menu__bar {
         background-color: #142838; }
-    .header__main--small-nav {
+    .header__main.small-nav {
       height: 7rem; }
     .header__main__logo-area {
       width: min-content;
@@ -9888,7 +9887,6 @@ h5 {
       .header__main__right__phone-mobile {
         display: none;
         color: currentColor;
-        border-left: 1px solid #c2c6c9;
         cursor: pointer;
         position: relative;
         z-index: 900; }
@@ -10126,6 +10124,8 @@ h5 {
     display: flex;
     animation: fadein 0.4s;
     opacity: 1; }
+  .nav-secondary.mega-hide {
+    display: none !important; }
   .nav-secondary__main {
     flex-grow: 1;
     display: flex;
@@ -10168,7 +10168,7 @@ h5 {
             white-space: normal; } }
         .nav-secondary__main__title-area__title:link, .nav-secondary__main__title-area__title:visited {
           color: #142838;
-          font-weight: 600; }
+          font-weight: 700; }
         .nav-secondary__main__title-area__title:hover {
           color: #40739c; }
       .nav-secondary__main__title-area::after {
@@ -10246,7 +10246,7 @@ h5 {
           .nav-secondary__main__links li a:visited, .nav-secondary__main__links li a:link {
             color: #747474;
             transition: color 0.3s;
-            font-weight: 500; }
+            font-weight: 600; }
           .nav-secondary__main__links li a:hover {
             color: #40739c; }
           .nav-secondary__main__links li a.current {
@@ -10335,36 +10335,44 @@ h5 {
   width: 10rem;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s; }
+  transition: all 0.3s;
+  position: relative; }
+  .burger-menu::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 3rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s; }
   @media only screen and (max-width: 62.5em) {
     .burger-menu {
       display: flex; } }
   @media only screen and (max-width: 37.5em) {
     .burger-menu {
-      display: flex;
-      border-left: 1px solid #c2c6c9; } }
-  .burger-menu:hover {
-    transition: color 0.3s; }
+      display: flex; } }
   .burger-menu__bar {
-    width: 3rem;
-    height: 2px;
+    width: 2.7rem;
+    height: 1px;
     background-color: #fff;
     display: block; }
     .burger-menu__bar::before {
       content: "";
       position: absolute;
-      transform: translateY(-0.8rem);
-      width: 3rem;
-      height: 2px;
+      transform: translateY(-0.7rem);
+      width: 2.7rem;
+      height: 1px;
       background-color: inherit;
       display: block;
       transition: transform 0.3s; }
     .burger-menu__bar::after {
       content: "";
       position: absolute;
-      transform: translateY(0.8rem);
-      width: 3rem;
-      height: 2px;
+      transform: translateY(0.7rem);
+      width: 2.7rem;
+      height: 1px;
       background-color: inherit;
       display: block;
       transition: transform 0.3s; }

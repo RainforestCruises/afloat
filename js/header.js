@@ -14,10 +14,10 @@ jQuery(document).ready(function ($) {
   var opaqueNavAlways = false;
   if ($("body").hasClass("page-template-template-generic") || $("body").hasClass("page-template-template-about") || $("body").hasClass("page-template-template-contact") || $("body").hasClass("page-template-template-search") || $("body").hasClass("single-rfc_travel_guides") || $("body").hasClass("page-template-template-travel-guide")) {
     opaqueNavAlways = true;
-    $('.header__main').addClass('header__main--opaque-nav');
+    $('.header__main').addClass('active');
   }
 
-  
+
 
   //HEADER --------------
   //Header Main -- Scroll
@@ -25,47 +25,54 @@ jQuery(document).ready(function ($) {
   const topOfNav = 60; //change to 0 for absolute top of page
 
   function fixNav() {
-    if (window.scrollY >= topOfNav) {
-      $('.header__main').addClass('header__main--small-nav header__main--opaque-nav');
+
+    var megaActive = $('.nav-mega').hasClass('active');
+
+    //small nav
+    if (window.scrollY == 0) {
+      $('.header__main').removeClass('small-nav');
     } else {
-      //if mega not active
-      if ($('.nav-mega').hasClass('active') != true) {
-
-        $('.header__main').removeClass('header__main--small-nav ');
-
-        if ($('.burger-menu').hasClass('burger-menu--active') != true) {
-          if (opaqueNavAlways == false) {
-            $('.header__main').removeClass('header__main--opaque-nav');
-          }
-
-        }
-      }
+      $('.header__main').addClass('small-nav');
     }
+
+
+    //active (non-transparent)
+    if (!opaqueNavAlways && !megaActive) {
+      if (window.scrollY > 300) {
+        $('.header__main').addClass('active');
+      } else {
+        $('.header__main').removeClass('active');
+      }
+
+    }
+
   }
   window.addEventListener('scroll', fixNav);
 
   //Header Main -- Hover
-  //Make navbar white on hover - add class: header__main--opaque-nav
+  //Make navbar white on hover - add class: active
 
   $('.header__main').hover(
     function () {
-
       if (opaqueNavAlways == false) {
-        $('.header__main').addClass('header__main--opaque-nav');
+        $('.header__main').addClass('active');
       }
     },
     function () {
-      //if not small and mega active
-      if ($('.header__main').hasClass('header__main--small-nav') != true) {
 
-        if ($('.burger-menu').hasClass('burger-menu--active') != true) {
-          if ($('.nav-mega').hasClass('active') != true) {
-            if (opaqueNavAlways == false) {
-              $('.header__main').removeClass('header__main--opaque-nav');
-            }
-          }
-        }
+      var mobileExpanded = $('.burger-menu').hasClass('burger-menu--active');
+      var pageNavActive = $('.nav-secondary').hasClass('active');
+      var megaActive = $('.nav-mega').hasClass('active');
+
+      var scrolledDown = false;
+      if (window.scrollY > 300) {
+        scrolledDown = true;
       }
+
+      if (!mobileExpanded && !opaqueNavAlways && !pageNavActive && !scrolledDown && !megaActive) {
+        $('.header__main').removeClass('active');
+      }
+
     }
   )
 
@@ -75,32 +82,32 @@ jQuery(document).ready(function ($) {
   //remove mega when mouse out of window
   $(document).mouseleave(function () {
     $('.nav-mega').removeClass('active');
+    $('.nav-secondary').removeClass('mega-hide');
+    //$('.nav-secondary').removeClass('mega-hide');
+    if (window.scrollY == 0 && !opaqueNavAlways) {
+      $('.header__main').removeClass('active');
+    }
   });
 
   //MEGA
   //--hover behavior
   $('.nav-mega').hover(
-    function () { },
-    function () {
+    function () {//on hover over
+      
+    },
+    function () {//on hover out
+      $('.nav-mega').removeClass('active');
+      //$('.nav-secondary').removeClass('mega-hide');
+      $('.nav-secondary').removeClass('mega-hide');
 
-      //if no active burger
-      if ($(".burger-menu").hasClass('burger-menu--active') != true) {
-
-        //if product-nav then dont do (sticky wrapper)
-        var elementExists = document.getElementById("page-nav");
-        if (elementExists == null) {
-          $('.nav-mega').removeClass('active');
-        }
-
-        //if not header small -- remove opaque from header__main
-        if ($('.header__main').hasClass('header__main--small-nav') != true) {
-
-          if (opaqueNavAlways == false) {
-            $('.header__main').removeClass('header__main--opaque-nav');
-          }
-        }
+      if (window.scrollY == 0 && !opaqueNavAlways) {
+        $('.header__main').removeClass('active');
       }
     }
+
+
+
+
   )
 
   //main link -expand mega
@@ -108,25 +115,36 @@ jQuery(document).ready(function ($) {
     function () {
       var navelement = this.getAttribute("navelement");
       $('.nav-mega').addClass('active');
+      $('.nav-secondary').addClass('mega-hide');
+
+      $('.header__main').addClass('active');
 
       if (navelement == "Destinations") {
         $('.nav-mega__nav--experiences').hide();
-        $('.nav-mega__nav--destinations').fadeIn(200);
+        $('.nav-mega__nav--destinations').show();
+
+        //$('.nav-mega__nav--destinations').fadeIn(200);
 
       } else if (navelement == "Experiences") {
         $('.nav-mega__nav--destinations').hide();
-        $('.nav-mega__nav--experiences').fadeIn(200);
+        $('.nav-mega__nav--experiences').show();
       }
       else {
         $('.nav-mega__nav--destinations').hide();
-        $('.nav-mega__nav--experiences').fadeIn(200);
+        $('.nav-mega__nav--experiences').show();
       }
-    },
+    }, function () {
+      var megaActive = $('.nav-mega').hasClass('active');
+      if (window.scrollY == 0 && !opaqueNavAlways && !megaActive) {
+        $('.header__main').removeClass('active');
+      }
+    }
   );
+
   $('.header__main__nav__list__item__link.no-mega').hover(
     function () {
       $('.nav-mega').removeClass('active');
-
+      $('.header__main').addClass('active');
     },
   );
 
@@ -144,7 +162,7 @@ jQuery(document).ready(function ($) {
     //on open
     if ($(".nav-mobile").hasClass('nav-mobile--active') == true) {
 
-      $('.header__main').addClass('header__main--opaque-nav');
+      $('.header__main').addClass('active');
       $('.nav-mobile__content-panel').removeClass('slide-out-left');
       $('.nav-mobile__content-panel').removeClass('slide-center');
       document.body.classList.add('lock-scroll');
@@ -225,32 +243,43 @@ jQuery(document).ready(function ($) {
 
   //Hidden Nav
 
-  const searchFilterBar = document.getElementById('search-filter-bar');
+  const searchFilterBar = document.getElementById('search-filter-bar'); //for search template
 
-  var c, currentScrollTop = 0,
-       navbar = $('.header');
 
-   $(window).scroll(function () {
+  var c;
+  var currentScrollTop = 0;
+  var navbar = $('.header');
+
+  $(window).scroll(function () {
+
+    let preventNavExpand = $('.header').hasClass('preventExpand'); //added and removed with delay from page nav
+    let isMega = $('.nav-mega').hasClass('active');
+
+    if (!preventNavExpand && !isMega) {
       var a = $(window).scrollTop();
       var b = navbar.height();
-     
+
       currentScrollTop = a;
-     
+
+      //CHECK IF MEGA OPEN!!
       if (c < currentScrollTop && a > b + b) {
         navbar.addClass("scrollUp");
 
-        if(searchFilterBar != null) {
+        if (searchFilterBar != null) {
           searchFilterBar.classList.add("scrollUp");
         }
-        
+
       } else if (c > currentScrollTop && !(a <= b)) {
         navbar.removeClass("scrollUp");
-        if(searchFilterBar != null) {
+        if (searchFilterBar != null) {
           searchFilterBar.classList.remove("scrollUp");
         }
       }
       c = currentScrollTop;
- 
+    }
+
+
+
   });
 
 

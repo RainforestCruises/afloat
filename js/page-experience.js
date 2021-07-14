@@ -35,7 +35,7 @@ jQuery(document).ready(function ($) {
         var id = downArrow.getAttribute('href');
         var target = $(id).offset().top;
 
-        target = target - 60;
+        target = target;
      
         $('html, body').animate({ scrollTop: target }, 500);
         window.location.hash = id;

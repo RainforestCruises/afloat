@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
     // Animate Change Position
     function changePosition(id) {
         var target = $(id).offset().top;
-        target = target - 50;
+        target = target - 0;
         $('html, body').animate({ scrollTop: target }, 500);
         window.location.hash = id;
     }
