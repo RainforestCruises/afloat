@@ -5,11 +5,11 @@ wp_enqueue_script('page-nav', get_template_directory_uri() . '/js/page-nav.js', 
 wp_enqueue_script('page-destination', get_template_directory_uri() . '/js/page-destination.js', array('jquery'), false, true);
 $templateUrl = get_template_directory_uri();
 wp_localize_script(
-  'page-destination',
-  'page_vars',
-  array(
-    'templateUrl' =>  $templateUrl
-  )
+    'page-destination',
+    'page_vars',
+    array(
+        'templateUrl' =>  $templateUrl
+    )
 );
 
 ?>
@@ -87,59 +87,59 @@ $args = array(
 
 ?>
 
-<div class="destination-page"></div>
-<section class="destination-page__section-hero" id="top">
-    <?php
-    get_template_part('template-parts/content', 'destination-hero', $args);
-    ?>
-</section>
-
-<div class="destination-page__section-main">
-    <?php
-    get_template_part('template-parts/content', 'destination-main', $args);
-    ?>
-</div>
-
-<!-- Cruises-->
-<?php if (get_field('hide_cruises') == false) { ?>
-    <section class="destination-page__section-secondary" id="cruises">
+<div class="destination-page">
+    <section class="destination-page__section-hero" id="top">
         <?php
-        get_template_part('template-parts/content', 'destination-secondary', $args);
+        get_template_part('template-parts/content', 'destination-hero', $args);
         ?>
     </section>
-<?php } ?>
 
-<!-- Accommodations -->
-<?php if (get_field('hide_accommodations') == false) { ?>
-    <section class="destination-page__section-accommodations" id="accommodation">
+    <div class="destination-page__section-main">
         <?php
-        get_template_part('template-parts/content', 'destination-accommodations', $args);
+        get_template_part('template-parts/content', 'destination-main', $args);
+        ?>
+    </div>
+
+    <!-- Cruises-->
+    <?php if (get_field('hide_cruises') == false) { ?>
+        <section class="destination-page__section-secondary" id="cruises">
+            <?php
+            get_template_part('template-parts/content', 'destination-secondary', $args);
+            ?>
+        </section>
+    <?php } ?>
+
+    <!-- Accommodations -->
+    <?php if (get_field('hide_accommodations') == false) { ?>
+        <section class="destination-page__section-accommodations" id="accommodation">
+            <?php
+            get_template_part('template-parts/content', 'destination-accommodations', $args);
+            ?>
+        </section>
+    <?php } ?>
+
+    <!-- Travel Guides -->
+    <section class="destination-page__section-travel-guides" id="travel-guide">
+        <?php
+        get_template_part('template-parts/content', 'destination-guides', $args);
         ?>
     </section>
-<?php } ?>
 
-<!-- Travel Guides -->
-<section class="destination-page__section-travel-guides" id="travel-guide">
-    <?php
-    get_template_part('template-parts/content', 'destination-guides', $args);
-    ?>
-</section>
+    <!-- Testimonials -->
+    <?php if (get_field('show_testimonials') == true) { ?>
+        <section class="destination-page__section-testimonials" id="testimonials">
+            <?php
+            get_template_part('template-parts/content', 'destination-testimonials', $args);
+            ?>
+        </section>
+    <?php } ?>
 
-<!-- Testimonials -->
-<?php if (get_field('show_testimonials') == true) { ?>
-    <section class="destination-page__section-testimonials" id="testimonials">
+    <!-- FAQ -->
+    <section class="destination-page__section-faq" id="faq">
         <?php
-        get_template_part('template-parts/content', 'destination-testimonials', $args);
+        get_template_part('template-parts/content', 'destination-faq', $args);
         ?>
     </section>
-<?php } ?>
-
-<!-- FAQ -->
-<section class="destination-page__section-faq" id="faq">
-    <?php
-    get_template_part('template-parts/content', 'destination-faq', $args);
-    ?>
-</section>
 
 </div>
 
@@ -149,5 +149,3 @@ get_template_part('template-parts/content', 'shared-contact-modal', $args);
 ?>
 
 <?php get_footer(); ?>
-
-

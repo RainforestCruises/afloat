@@ -4,11 +4,10 @@
     width: 100%;
 
     user-select: none;
-    transition: all .3s;
+    transition: all 0.3s;
     &.scrollUp {
         transform: translateY(-7rem);
     }
-
 
     &__main {
         z-index: 1;
@@ -42,9 +41,6 @@
         backdrop-filter: blur(8px);
 
         transition: all 0.3s;
-
-
-      
 
         &--clear {
             border-bottom: 1px solid rgba($color-grey-light-2, 0);
@@ -80,10 +76,8 @@
                 color: $color-primary;
             }
 
-            & .burger-menu {
-
+            & .burger-button {
                 &::after {
-
                     background-color: rgba($color-primary, 0.3);
                 }
 
@@ -130,7 +124,6 @@
 
                     @media only screen and (max-width: $bp-small) {
                         height: 3.5rem;
-
                     }
                 }
             }
@@ -216,6 +209,9 @@
                 margin-right: 4rem;
                 color: currentColor;
                 text-decoration: none;
+                @media only screen and (max-width: $bp-medium) {
+                    margin-right: 2rem;
+                }
 
                 @media only screen and (max-width: $bp-small) {
                     display: none;
@@ -247,6 +243,7 @@
                 z-index: 900;
                 @media only screen and (max-width: $bp-small) {
                     display: flex;
+                    display: none; //HERE
                     align-items: center;
                     justify-content: center;
                     height: 100%;
@@ -306,7 +303,7 @@
                             outline: none;
                             white-space: nowrap;
                         }
-                       
+
                         &:hover {
                             background-color: $color-supporting;
                         }
@@ -318,47 +315,59 @@
 }
 
 .nav-mobile {
-    grid-column: 1 / -1;
-    grid-row: 2 / span 1;
 
     display: none; //toggle active (js)
     justify-items: center;
 
-    height: calc(100vh - 7rem);
+    height: 100vh;
+    width: 29rem;
     //min-height: -webkit-fill-available;
-    width: 100%;
+
+    position: fixed;
+    z-index: 9999999;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    
 
     &--active {
         display: grid;
-        position: relative;
+        //position: relative;
     }
 
     &__content-panel {
         grid-column: 1 / -1;
         grid-row: 1 / span 1;
-        background-color: $color-nav;
+        background-color: $color-primary-dark;
         width: 100%;
         display: flex;
         flex-direction: column;
-        overflow-y: scroll;
+        overflow-x: hidden;
 
         z-index: 20;
         transform: translateX(0%);
         transition: all 0.4s;
 
-        //padding-top: 12rem;
+        padding-top: 7rem;
         position: relative;
 
         &.slide-out-left {
             transform: translateX(-100%);
         }
 
-        &--top {
-            padding-top: 4rem;
+        & .search-button {
+            margin-right: 0;
+            margin-top: 2rem;
+            color: $color-supporting-light-2;
+            
+        }
 
-            @media only screen and (max-width: $bp-xsmall) {
-                padding-top: 3rem;
-            }
+        &--top {
+            // padding-top: 4rem;
+
+            // @media only screen and (max-width: $bp-xsmall) {
+            //     padding-top: 3rem;
+            // }
 
             animation-name: example;
             animation-duration: 0.3s;
@@ -397,13 +406,13 @@
                 transform: translateX(0%);
             }
         }
-        
-        &__button {
-            color: $color-primary;
 
-            font-size: 1.6rem;
+        & a { //button
+            color: $color-gold;
+
+            font-size: 1.4rem;
             letter-spacing: 0.2rem;
-
+            
             font-weight: 600;
             background-color: transparent;
             text-decoration: none;
@@ -413,38 +422,68 @@
             outline: none;
             position: relative;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
 
-            padding: 2rem;
+            padding: 1rem 2rem;
+            padding-right: 5rem;
+            text-align: right;
 
-            text-align: center;
+            &.divider {
+
+                padding-top: 5rem;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    height: 1px;
+                    width: 12rem;
+                    background-color: $color-grey-3;
+                    top: 2rem;
+                    right: 5rem;
+                }
+            }
 
             &:last-child {
-                margin-bottom: 9rem;
+                margin-bottom: 14rem;
             }
 
             & svg {
-                height: 3rem;
-                width: 3rem;
+                height: 2.5rem;
+                width: 2.5rem;
                 fill: $color-grey-1;
                 position: absolute;
                 top: 50%;
+                right: 1rem;
 
-                transform: translateY(-50%);
+                transform: translateY(-55%);
             }
 
-            &--back {
-                //height: 7rem !important;
-                padding: 2rem;
-                border-bottom: 1px solid rgba($color-grey-light-2, 0.9);
-                margin-bottom: 2rem;
-                & svg {
-                    left: 3rem;
+            &.back-link {
+                
+               
+                //border-bottom: 1px solid rgba($color-grey-light-2, 0.9);
+                //margin-bottom: 2rem;
+                // justify-content: flex-start;
 
-                    @media only screen and (max-width: $bp-xsmall) {
-                        left: 1.5rem;
-                    }
+                // padding: 1rem 2rem;
+                // padding-left: 5rem;
+                text-align: start;
+                margin-bottom: 3rem;
+                justify-content: flex-end;
+                & svg {
+                    position: relative;
+                    
+                    margin-right: 1rem;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    height: 1px;
+                    width: 12rem;
+                    background-color: $color-grey-3;
+                    bottom: -1rem;
+                    right: 5rem;
                 }
             }
 
@@ -479,8 +518,6 @@
         display: flex;
         animation: fadein 0.3s;
         opacity: 1;
-
-        
     }
 
     &__nav {
@@ -811,7 +848,7 @@
             position: absolute;
             height: 1000%;
             width: 100%;
-            background-color: rgba($color-black, 0.3);
+            background-color: rgba($color-black, 0.7);
             bottom: -1000%;
             left: 0;
             z-index: 40;
@@ -889,30 +926,16 @@
 
 //Burger ------------------
 
-.burger-menu {
-    grid-column: col-end 8 / -1;
+.burger-button {
+   
     cursor: pointer;
     display: none;
-    height: 100%;
+    height: 7rem;
     width: 10rem;
     justify-content: center;
     align-items: center;
     transition: all 0.3s;
-    position: relative;
 
-    
-    &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 1px;
-        height: 3rem;
-        background-color: rgba($color-white, 0.3);
-        transition: all 0.3s;
-    }
-    
 
     @media only screen and (max-width: $bp-large) {
         display: flex;
@@ -920,10 +943,7 @@
 
     @media only screen and (max-width: $bp-small) {
         display: flex;
-        //border-left: 1px solid $color-grey-light-2;
     }
-
- 
 
     &__bar {
         width: 2.7rem;
@@ -957,8 +977,12 @@
         }
     }
 
-    &--active {
-        & .burger-menu__bar {
+    &.close {
+        position: absolute;
+        top: 0;
+        right: 20rem;
+        z-index: 999999999;
+        & .burger-button__bar {
             visibility: hidden;
             &::before {
                 transform: rotate(-45deg) translateY(0);
@@ -971,7 +995,7 @@
         }
 
         &:hover {
-            & .burger-menu__bar {
+            & .burger-button__bar {
                 visibility: hidden;
                 &::before {
                     transform: rotate(-45deg) translateY(0);
@@ -1000,7 +1024,7 @@
     transform: rotate(45deg) translate(-10px, -5px);
 }
 
-//ANIMATOINS
+//ANIMATIONS
 @keyframes example {
     from {
         transform: translateX(100%);
@@ -1022,3 +1046,7 @@
         opacity: 1;
     }
 }
+
+
+
+

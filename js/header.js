@@ -2,13 +2,13 @@
 jQuery(document).ready(function ($) {
 
 
-  //phone-mobile
-  const phoneMobile = document.getElementById('phone-mobile');
-  const phoneMobileExpand = document.getElementById('phone-mobile-expand');
+  // //phone-mobile
+  // const phoneMobile = document.getElementById('phone-mobile');
+  // const phoneMobileExpand = document.getElementById('phone-mobile-expand');
 
-  phoneMobile.addEventListener('click', evt => {
-    phoneMobileExpand.classList.toggle('active');
-  });
+  // phoneMobile.addEventListener('click', evt => {
+  //   phoneMobileExpand.classList.toggle('active');
+  // });
 
 
   var opaqueNavAlways = false;
@@ -20,16 +20,19 @@ jQuery(document).ready(function ($) {
 
 
   //Variables
+  const bodyDiv = document.querySelector('#body');
+
   const headerDiv = document.querySelector('.header');
   const headerMain = document.querySelector('.header__main');
 
   const megaMenu = document.querySelector('.nav-mega');
-  const burgerButton = document.querySelector('.burger-menu');
+  const burgerButton = document.querySelector('#burger-menu');
+  const burgerButtonClose = document.querySelector('#burger-menu-close');
   const navMobile = document.querySelector('.nav-mobile');
 
 
   //HEADER --------------
-
+  fixNav();
   //Header Main -- Scroll
   window.addEventListener('scroll', fixNav);
   function fixNav() {
@@ -67,7 +70,7 @@ jQuery(document).ready(function ($) {
     },
     function () {
 
-      var mobileExpanded = burgerButton.classList.contains('burger-menu--active');    
+      var mobileExpanded = burgerButton.classList.contains('nav-mobile--active');
       var megaActive = megaMenu.classList.contains('active');
       var pageNavActive = $('.nav-secondary').hasClass('active');
 
@@ -76,7 +79,7 @@ jQuery(document).ready(function ($) {
         scrolledDown = true;
       }
 
-      if (!mobileExpanded && !opaqueNavAlways && !pageNavActive && !scrolledDown && !megaActive) {    
+      if (!mobileExpanded && !opaqueNavAlways && !pageNavActive && !scrolledDown && !megaActive) {
         headerMain.classList.remove('active');
       }
 
@@ -86,7 +89,7 @@ jQuery(document).ready(function ($) {
 
   //Mouse Leave - remove mega / active
   $(document).mouseleave(function () {
-   
+
     megaMenu.classList.remove('active');
     $('.nav-secondary').removeClass('mega-hide');
 
@@ -146,7 +149,7 @@ jQuery(document).ready(function ($) {
     }
   );
 
-   //Header Main Nav Link - Hover - No Mega Menu
+  //Header Main Nav Link - Hover - No Mega Menu
   $('.header__main__nav__list__item__link.no-mega').hover(
     function () {
       megaMenu.classList.remove('active');
@@ -158,52 +161,34 @@ jQuery(document).ready(function ($) {
 
 
   //MOBILE MENU -----------------------------------------
-
-  //Burger  -- click
+  //Burger-- open
   burgerButton.addEventListener('click', evt => {
 
-    burgerButton.classList.toggle('burger-menu--active');   
-    navMobile.classList.toggle('nav-mobile--active');
+    navMobile.classList.add('nav-mobile--active');
+    headerMain.classList.add('active');
+    $('.nav-mobile__content-panel').removeClass('slide-out-left');
+    $('.nav-mobile__content-panel').removeClass('slide-center');
+    document.body.classList.add('lock-scroll');
+    bodyDiv.classList.add('overlay');
+  });
 
-    let menuActive = navMobile.classList.contains('nav-mobile--active');
-    //on open
-    if (menuActive) {
 
-      headerMain.classList.add('active');
-      $('.nav-mobile__content-panel').removeClass('slide-out-left');
-      $('.nav-mobile__content-panel').removeClass('slide-center');
-      document.body.classList.add('lock-scroll');
+  //Burger-- close
+  burgerButtonClose.addEventListener('click', evt => {
 
-      //on close
-    } else {
-     
-      document.body.classList.remove('lock-scroll');
+    closeMobile();
+  });
 
-      if (window.scrollY == 0) {
-        if (opaqueNavAlways == false) {
-          headerMain.classList.remove('active');
-        }
+  function closeMobile() {
+    bodyDiv.classList.remove('overlay');
+    navMobile.classList.remove('nav-mobile--active');
+    document.body.classList.remove('lock-scroll');
+    if (window.scrollY == 0) {
+      if (opaqueNavAlways == false) {
+        headerMain.classList.remove('active');
       }
-
-      burgerButton.classList.remove('burger-menu--active');   
-
     }
-
-  });
-
-
-
-
-  //Resize Window - Close menus
-  $(window).resize(function () {
-    if ($(window).width() > 1000) {
-      navMobile.classList.remove('nav-mobile--active');
-      burgerButton.classList.remove('burger-menu--active');   
-    }
-    if ($(window).width() <= 1000) {
-      megaMenu.classList.remove('active');
-    }
-  });
+  }
 
 
   //New Mobile Menu
@@ -215,7 +200,7 @@ jQuery(document).ready(function ($) {
       var topPanel = document.querySelector('.nav-mobile__content-panel--top');
       var subPanel = document.querySelector('[menuid="' + menuLink + '"]');
 
-      var isBackButton = $(item).hasClass('nav-mobile__content-panel__button--back');
+      var isBackButton = $(item).hasClass('back-link');
       if (isBackButton) {
         $(topPanel).removeClass('slide-out-left');
         $(item).parent().removeClass('slide-center');
@@ -225,16 +210,35 @@ jQuery(document).ready(function ($) {
           topPanel.classList.add('slide-out-left');
           $(subPanel).addClass('slide-center');
         } else {
-          $('.nav-mobile').removeClass('nav-mobile--active');
-          $(".burger-menu").removeClass('burger-menu--active');
-          document.body.classList.remove('lock-scroll');
+          closeMobile();
         }
 
       }
-
-
     });
   })
+
+
+  //CLICK AWAY
+  document.addEventListener('click', evt => {
+
+    const isMobileMenu = navMobile.contains(evt.target);
+    const isBurgerOpen = burgerButton.contains(evt.target);
+
+    let navActive = navMobile.classList.contains('nav-mobile--active');
+    
+
+    if(!isBurgerOpen && navActive && !isMobileMenu){
+      closeMobile();
+    }
+
+
+  });
+
+
+
+
+
+
 
 
   //Page Nav-- Hover
@@ -249,17 +253,40 @@ jQuery(document).ready(function ($) {
 
 
 
-  //Hidden Nav
 
+
+
+
+
+
+
+
+
+  //EXTRAS -----------------------------------------------------------------
+  //Hidden Nav
   const searchFilterBar = document.getElementById('search-filter-bar'); //for search template
+
+  //Resize Window - Close menus
+  $(window).resize(function () {
+
+
+
+    if ($(window).width() > 1000) {
+      navMobile.classList.remove('nav-mobile--active');
+      bodyDiv.classList.remove('overlay');
+    }
+    if ($(window).width() <= 1000) {
+      megaMenu.classList.remove('active');
+    }
+  });
+
 
 
   var c;
   var currentScrollTop = 0;
-  //var navbar = $('.header');
 
   $(window).scroll(function () {
-  
+
     let preventNavExpand = headerDiv.classList.contains('preventExpand'); //added and removed with delay from page nav
 
     let megaActive = megaMenu.classList.contains('active');

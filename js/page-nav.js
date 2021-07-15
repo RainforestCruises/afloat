@@ -10,9 +10,9 @@ jQuery(document).ready(function ($) {
     //On Scroll Listener
     window.onscroll = function () { scrollCheck() };
     function scrollCheck() {
-        
+
         var threshHold = 320
-        if ($(window).width() > 1000) { 
+        if ($(window).width() > 1000) {
             threshHold = 700;
         }
 
@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
             //and if burger menu isnt active
             if ($(".burger-menu").hasClass('burger-menu--active') != true) {
                 $('.nav-secondary').addClass('active');
-                
+
             }
         }
 
@@ -70,29 +70,29 @@ jQuery(document).ready(function ($) {
 
     // Animate Change Position
     function changePosition(id) {
-        
-        if(id != "#top") {
+
+        if (id != "#top") {
             $('.header').addClass('preventExpand');
         }
-        
-        
+
+
         $('.nav-secondary-mobile').removeClass('active'); //if mobile open - close menu / button
         $("#nav-secondary-button").removeClass('active');
 
         var target = $(id).offset().top;
         var isScrollUp = $('.header').hasClass('scrollUp');
-        
+
 
         if ($(window).width() > 1200) {
-            
-            if(!isScrollUp) {
+
+            if (!isScrollUp) {
                 target = target - 160;
             } else {
                 target = target - 80;
             }
-            
+
         } else { // small screen 
-            if(!isScrollUp) {
+            if (!isScrollUp) {
                 target = target - 125;
             } else {
                 target = target - 60;
@@ -105,7 +105,7 @@ jQuery(document).ready(function ($) {
     }
 
     function setScrollStatus() {
-        
+
         $('.header').removeClass('preventExpand');
     }
 
@@ -120,7 +120,40 @@ jQuery(document).ready(function ($) {
 
     });
 
-    //Burger Menu -- resize window -- remove collapse menu over 1000
+
+
+    //CLICK AWAY
+    const navSecondaryMobile = document.querySelector('.nav-secondary-mobile')
+    const navSecondaryMobileList = document.querySelector('.nav-secondary-mobile__list')
+    const navSecondaryButton = document.querySelector('#nav-secondary-button')
+
+    document.addEventListener('click', evt => {
+        
+        const isMenuClick = navSecondaryMobileList.contains(evt.target);
+        const isButtonClick = navSecondaryButton.contains(evt.target);
+        const isOpen = navSecondaryMobile.classList.contains('active');
+
+
+
+
+        if (!isButtonClick && isOpen && !isMenuClick) {
+            navSecondaryMobile.classList.remove('active');
+            navSecondaryButton.classList.remove('active');
+        }
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+    //resize window -- remove collapse menu over 1000
     $(window).resize(function () {
         if ($(window).width() > 600) {
             $('.nav-secondary-mobile').removeClass('active');
