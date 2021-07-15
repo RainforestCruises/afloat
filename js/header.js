@@ -165,7 +165,7 @@ jQuery(document).ready(function ($) {
   burgerButton.addEventListener('click', evt => {
 
     navMobile.classList.add('nav-mobile--active');
-    headerMain.classList.add('active');
+    //headerMain.classList.add('active');
     $('.nav-mobile__content-panel').removeClass('slide-out-left');
     $('.nav-mobile__content-panel').removeClass('slide-center');
     document.body.classList.add('lock-scroll');

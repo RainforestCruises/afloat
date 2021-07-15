@@ -108,7 +108,7 @@ foreach ($menuitems as $m) {
 
     <!-- Mobile Menu -->
     <nav class="nav-mobile">
-        
+
         <div class="burger-button close" id="burger-menu-close">
             <span class="burger-button__bar "></span>
         </div>
@@ -132,6 +132,14 @@ foreach ($menuitems as $m) {
             <?php endforeach; ?>
 
             <a class="nav-mobile__content-panel__button mobile-link divider" href="<?php echo get_home_url(); ?>/contact">Contact</a>
+            <div class="nav-mobile__content-panel__phone">
+                <svg>
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-phone-call"></use>
+                </svg>
+                <span>
+                    <?php echo get_field('phone_number', 'options'); ?>
+                </span>
+            </div>
         </div>
 
 
