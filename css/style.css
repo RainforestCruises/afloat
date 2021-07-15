@@ -9882,6 +9882,9 @@ h5 {
           height: 1.6rem;
           width: 1.6rem;
           color: currentColor; }
+          @media only screen and (max-width: 37.5em) {
+            .header__main__right__phone-desktop svg {
+              stroke-width: 2; } }
         .header__main__right__phone-desktop span {
           margin-left: 1rem; }
       .header__main__right__phone-mobile {

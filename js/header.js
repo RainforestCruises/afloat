@@ -19,35 +19,42 @@ jQuery(document).ready(function ($) {
 
 
 
-  //HEADER --------------
-  //Header Main -- Scroll
-  const nav = document.querySelector('#header');
-  const topOfNav = 60; //change to 0 for absolute top of page
+  //Variables
+  const headerDiv = document.querySelector('.header');
+  const headerMain = document.querySelector('.header__main');
 
+  const megaMenu = document.querySelector('.nav-mega');
+  const burgerButton = document.querySelector('.burger-menu');
+  const navMobile = document.querySelector('.nav-mobile');
+
+
+  //HEADER --------------
+
+  //Header Main -- Scroll
+  window.addEventListener('scroll', fixNav);
   function fixNav() {
 
-    var megaActive = $('.nav-mega').hasClass('active');
+    let megaActive = megaMenu.classList.contains('active');
 
     //small nav
     if (window.scrollY == 0) {
-      $('.header__main').removeClass('small-nav');
+      headerMain.classList.remove('small-nav');
     } else {
-      $('.header__main').addClass('small-nav');
+      headerMain.classList.add('small-nav');
     }
-
 
     //active (non-transparent)
     if (!opaqueNavAlways && !megaActive) {
       if (window.scrollY > 300) {
-        $('.header__main').addClass('active');
+        headerMain.classList.add('active');
       } else {
-        $('.header__main').removeClass('active');
+        headerMain.classList.remove('active');
       }
 
     }
 
   }
-  window.addEventListener('scroll', fixNav);
+
 
   //Header Main -- Hover
   //Make navbar white on hover - add class: active
@@ -55,75 +62,73 @@ jQuery(document).ready(function ($) {
   $('.header__main').hover(
     function () {
       if (opaqueNavAlways == false) {
-        $('.header__main').addClass('active');
+        headerMain.classList.add('active');
       }
     },
     function () {
 
-      var mobileExpanded = $('.burger-menu').hasClass('burger-menu--active');
+      var mobileExpanded = burgerButton.classList.contains('burger-menu--active');    
+      var megaActive = megaMenu.classList.contains('active');
       var pageNavActive = $('.nav-secondary').hasClass('active');
-      var megaActive = $('.nav-mega').hasClass('active');
 
       var scrolledDown = false;
       if (window.scrollY > 300) {
         scrolledDown = true;
       }
 
-      if (!mobileExpanded && !opaqueNavAlways && !pageNavActive && !scrolledDown && !megaActive) {
-        $('.header__main').removeClass('active');
+      if (!mobileExpanded && !opaqueNavAlways && !pageNavActive && !scrolledDown && !megaActive) {    
+        headerMain.classList.remove('active');
       }
 
     }
   )
 
 
-
-
-  //remove mega when mouse out of window
+  //Mouse Leave - remove mega / active
   $(document).mouseleave(function () {
-    $('.nav-mega').removeClass('active');
+   
+    megaMenu.classList.remove('active');
     $('.nav-secondary').removeClass('mega-hide');
-    //$('.nav-secondary').removeClass('mega-hide');
-    if (window.scrollY == 0 && !opaqueNavAlways) {
-      $('.header__main').removeClass('active');
+
+    let menuActive = navMobile.classList.contains('nav-mobile--active');
+
+    if (window.scrollY == 0 && !opaqueNavAlways && !menuActive) {
+      headerMain.classList.remove('active');
     }
   });
 
-  //MEGA
-  //--hover behavior
+  //MEGA MENU -------------------------
+
+  //Hover behavior
   $('.nav-mega').hover(
     function () {//on hover over
-      
+
     },
     function () {//on hover out
-      $('.nav-mega').removeClass('active');
-      //$('.nav-secondary').removeClass('mega-hide');
+      megaMenu.classList.remove('active');
       $('.nav-secondary').removeClass('mega-hide');
 
       if (window.scrollY == 0 && !opaqueNavAlways) {
-        $('.header__main').removeClass('active');
+        headerMain.classList.remove('active');
       }
     }
 
-
-
-
   )
 
-  //main link -expand mega
+  //Header Main Nav Link - Hover - Expand Mega Menu
   $('.header__main__nav__list__item__link.mega').hover(
     function () {
       var navelement = this.getAttribute("navelement");
-      $('.nav-mega').addClass('active');
+
+      megaMenu.classList.add('active');
+      headerMain.classList.add('active');
       $('.nav-secondary').addClass('mega-hide');
 
-      $('.header__main').addClass('active');
 
       if (navelement == "Destinations") {
         $('.nav-mega__nav--experiences').hide();
         $('.nav-mega__nav--destinations').show();
 
-        //$('.nav-mega__nav--destinations').fadeIn(200);
 
       } else if (navelement == "Experiences") {
         $('.nav-mega__nav--destinations').hide();
@@ -134,69 +139,71 @@ jQuery(document).ready(function ($) {
         $('.nav-mega__nav--experiences').show();
       }
     }, function () {
-      var megaActive = $('.nav-mega').hasClass('active');
+      var megaActive = megaMenu.classList.contains('active');
       if (window.scrollY == 0 && !opaqueNavAlways && !megaActive) {
-        $('.header__main').removeClass('active');
+        headerMain.classList.remove('active');
       }
     }
   );
 
+   //Header Main Nav Link - Hover - No Mega Menu
   $('.header__main__nav__list__item__link.no-mega').hover(
     function () {
-      $('.nav-mega').removeClass('active');
-      $('.header__main').addClass('active');
+      megaMenu.classList.remove('active');
+      headerMain.classList.add('active');
       $('.nav-secondary').removeClass('mega-hide');
     },
   );
 
 
 
-  //Burger Menu
+  //MOBILE MENU -----------------------------------------
 
-  //Burger Menu -- click
-  $(".burger-menu ").on("click", function () {
+  //Burger  -- click
+  burgerButton.addEventListener('click', evt => {
 
-    $(".burger-menu").toggleClass('burger-menu--active');
-    $('.nav-mobile').toggleClass('nav-mobile--active');
+    burgerButton.classList.toggle('burger-menu--active');   
+    navMobile.classList.toggle('nav-mobile--active');
 
-
+    let menuActive = navMobile.classList.contains('nav-mobile--active');
     //on open
-    if ($(".nav-mobile").hasClass('nav-mobile--active') == true) {
+    if (menuActive) {
 
-      $('.header__main').addClass('active');
+      headerMain.classList.add('active');
       $('.nav-mobile__content-panel').removeClass('slide-out-left');
       $('.nav-mobile__content-panel').removeClass('slide-center');
       document.body.classList.add('lock-scroll');
 
-      //$('#page-nav').hide();
-
       //on close
     } else {
-      //$('#page-nav').show();
+     
       document.body.classList.remove('lock-scroll');
+
       if (window.scrollY == 0) {
         if (opaqueNavAlways == false) {
-          $('.header__main').removeClass('active');
+          headerMain.classList.remove('active');
         }
       }
-      $(".burger-menu").removeClass('burger-menu--active');
+
+      burgerButton.classList.remove('burger-menu--active');   
 
     }
+
   });
 
-  //Toggle Mega / Mobile -- resize window
+
+
+
+  //Resize Window - Close menus
   $(window).resize(function () {
     if ($(window).width() > 1000) {
-      $('.nav-mobile').removeClass('nav-mobile--active');
-      $(".burger-menu").removeClass('burger-menu--active');
-
+      navMobile.classList.remove('nav-mobile--active');
+      burgerButton.classList.remove('burger-menu--active');   
     }
     if ($(window).width() <= 1000) {
-      $('.nav-mega').removeClass('active');
+      megaMenu.classList.remove('active');
     }
   });
-
-
 
 
   //New Mobile Menu
@@ -249,29 +256,29 @@ jQuery(document).ready(function ($) {
 
   var c;
   var currentScrollTop = 0;
-  var navbar = $('.header');
+  //var navbar = $('.header');
 
   $(window).scroll(function () {
+  
+    let preventNavExpand = headerDiv.classList.contains('preventExpand'); //added and removed with delay from page nav
 
-    let preventNavExpand = $('.header').hasClass('preventExpand'); //added and removed with delay from page nav
-    let isMega = $('.nav-mega').hasClass('active');
+    let megaActive = megaMenu.classList.contains('active');
 
-    if (!preventNavExpand && !isMega) {
+    if (!preventNavExpand && !megaActive) {
       var a = $(window).scrollTop();
-      var b = navbar.height();
+      var b = headerDiv.offsetHeight;
 
       currentScrollTop = a;
 
-      //CHECK IF MEGA OPEN!!
       if (c < currentScrollTop && a > b + b) {
-        navbar.addClass("scrollUp");
+        headerDiv.classList.add("scrollUp");
 
         if (searchFilterBar != null) {
           searchFilterBar.classList.add("scrollUp");
         }
 
       } else if (c > currentScrollTop && !(a <= b)) {
-        navbar.removeClass("scrollUp");
+        headerDiv.classList.remove("scrollUp");
         if (searchFilterBar != null) {
           searchFilterBar.classList.remove("scrollUp");
         }
