@@ -679,6 +679,9 @@ jQuery(document).ready(function ($) {
         body.classList.remove('lock-scroll');
         overlay.classList.remove('active');
         overlayCta.classList.remove('active');
+
+        mobileSearchDatesContainer.classList.remove('active');
+        destinationInput.focus();
     }
 
     function showMobileFilters() {
