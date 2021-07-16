@@ -10008,18 +10008,6 @@ h5 {
     transition: all 0.4s;
     padding-top: 7rem;
     position: relative; }
-    .nav-mobile__content-panel__phone {
-      display: flex;
-      align-items: center;
-      padding-right: 5rem;
-      padding-top: 1rem;
-      color: #d9a402;
-      text-decoration: none;
-      justify-content: flex-end;
-      font-size: 1.4rem;
-      font-weight: 600;
-      letter-spacing: 0.2rem;
-      text-align: right; }
     .nav-mobile__content-panel.slide-out-left {
       transform: translateX(-100%); }
     .nav-mobile__content-panel .search-button {

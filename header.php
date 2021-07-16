@@ -133,9 +133,9 @@ foreach ($menuitems as $m) {
 
             <a class="nav-mobile__content-panel__button mobile-link divider" href="<?php echo get_home_url(); ?>/contact">Contact</a>
             
-            <div class="nav-mobile__content-panel__phone">
+            <a class="nav-mobile__content-panel__button mobile-link phone">
                 <?php echo get_field('phone_number', 'options'); ?>
-            </div>
+            </a>
         </div>
 
 

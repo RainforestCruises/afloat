@@ -354,21 +354,21 @@
         padding-top: 7rem;
         position: relative;
 
-        &__phone {
-            display: flex;
-            align-items: center;
-            padding-right: 5rem;
-            padding-top: 1rem;
-            color: $color-gold;
-            text-decoration: none;
-            justify-content: flex-end;
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: 0.2rem;
-            text-align: right;
+        // &__phone {
+        //     display: flex;
+        //     align-items: center;
+        //     padding-right: 5rem;
+        //     padding-top: 1rem;
+        //     color: $color-gold;
+        //     text-decoration: none;
+        //     justify-content: flex-end;
+        //     font-size: 1.4rem;
+        //     font-weight: 600;
+        //     letter-spacing: 0.2rem;
+        //     text-align: right;
 
    
-        }
+        // }
 
         &.slide-out-left {
             transform: translateX(-100%);
@@ -498,6 +498,10 @@
                     right: 5rem;
                 }
             }
+
+            // &.phone {
+
+            // }
 
             &--forward {
                 & svg {

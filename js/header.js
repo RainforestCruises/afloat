@@ -215,9 +215,13 @@ jQuery(document).ready(function ($) {
       var subPanel = document.querySelector('[menuid="' + menuLink + '"]');
 
       var isBackButton = $(item).hasClass('back-link');
+      var isPhoneButton = $(item).hasClass('phone');
+
       if (isBackButton) {
         $(topPanel).removeClass('slide-out-left');
         $(item).parent().removeClass('slide-center');
+      } else if (isPhoneButton) {
+          //do nothing
       } else {
 
         if (!item.classList.contains("mobile-link")) {

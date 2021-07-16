@@ -394,6 +394,7 @@ jQuery(document).ready(function ($) {
 
     window.onpageshow = function(event) {
         mobileLoading.classList.remove('active'); // on first load
+        hideMobileFilters();
     };
 
     //search-button
@@ -601,7 +602,6 @@ jQuery(document).ready(function ($) {
 
     mobileSearchBackButton.addEventListener('click', () => {
         mobileSearchDatesContainer.classList.remove('active');
-        //logoArea.classList.remove('hide');
         overlayCta.classList.remove('active');
         destinationInput.focus();
     });
@@ -659,7 +659,7 @@ jQuery(document).ready(function ($) {
     const overlay = document.querySelector('.home-full-search');
     const overlayCta = document.querySelector('.home-full-search-cta');
 
-    hideMobileFilters();
+    
     //Mobile search button
     $('#mobile-search-button').click(function (event) {
 
