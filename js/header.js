@@ -65,7 +65,12 @@ jQuery(document).ready(function ($) {
   $('.header__main').hover(
     function () {
       if (opaqueNavAlways == false) {
-        headerMain.classList.add('active');
+
+        var mobileExpanded = burgerButton.classList.contains('nav-mobile--active');
+        if(!mobileExpanded){
+          headerMain.classList.add('active');
+        }
+        
       }
     },
     function () {

@@ -320,7 +320,7 @@
     justify-items: center;
 
     height: 100vh;
-    width: 29rem;
+    width: 27rem;
     //min-height: -webkit-fill-available;
 
     position: fixed;
@@ -354,7 +354,7 @@
 
         &__phone {
             display: flex;
-            align-items: center;
+            align-items: center; 
             margin-right: 5rem;
             margin-top: 1rem;
             color: $color-gold;
