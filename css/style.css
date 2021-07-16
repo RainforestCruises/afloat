@@ -9984,7 +9984,7 @@ h5 {
   display: none;
   justify-items: center;
   height: 100vh;
-  width: 27rem;
+  width: 28rem;
   position: fixed;
   z-index: 9999999;
   top: 0;
@@ -9992,6 +9992,9 @@ h5 {
   overflow-x: hidden; }
   .nav-mobile--active {
     display: grid; }
+    .nav-mobile--active .burger-button {
+      animation: fadein .3s both;
+      animation-delay: .2s; }
   .nav-mobile__content-panel {
     grid-column: 1 / -1;
     grid-row: 1 / span 1;
@@ -10008,26 +10011,14 @@ h5 {
     .nav-mobile__content-panel__phone {
       display: flex;
       align-items: center;
-      margin-right: 5rem;
-      margin-top: 1rem;
+      padding-right: 5rem;
+      padding-top: 1rem;
       color: #d9a402;
       text-decoration: none;
       justify-content: flex-end;
       font-size: 1.4rem;
       font-weight: 600;
-      letter-spacing: .2rem; }
-      .nav-mobile__content-panel__phone svg {
-        transform: translateY(-1px);
-        stroke-width: 4;
-        height: 2rem;
-        width: 2rem;
-        color: currentColor;
-        display: none; }
-        @media only screen and (max-width: 37.5em) {
-          .nav-mobile__content-panel__phone svg {
-            stroke-width: 2; } }
-      .nav-mobile__content-panel__phone span {
-        margin-left: 1rem; }
+      letter-spacing: 0.2rem; }
     .nav-mobile__content-panel.slide-out-left {
       transform: translateX(-100%); }
     .nav-mobile__content-panel .search-button {
@@ -10067,7 +10058,7 @@ h5 {
         transform: translateX(0%); }
     .nav-mobile__content-panel a {
       color: #d9a402;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       letter-spacing: 0.2rem;
       font-weight: 600;
       background-color: transparent;
@@ -10080,11 +10071,11 @@ h5 {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 1.5rem 2rem;
       padding-right: 5rem;
       text-align: right; }
       .nav-mobile__content-panel a.divider {
-        padding-top: 5rem; }
+        padding-top: 6rem; }
         .nav-mobile__content-panel a.divider::after {
           content: "";
           position: absolute;
@@ -10452,7 +10443,7 @@ h5 {
   .burger-button.close {
     position: absolute;
     top: 0;
-    right: 20rem;
+    right: 18rem;
     z-index: 999999999; }
     .burger-button.close .burger-button__bar {
       visibility: hidden; }

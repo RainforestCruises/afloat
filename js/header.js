@@ -64,13 +64,18 @@ jQuery(document).ready(function ($) {
 
   $('.header__main').hover(
     function () {
-      if (opaqueNavAlways == false) {
+      let isMobile = false;
+      if ($(window).width() < 1000) {
+        isMobile = true;
+      }
 
-        var mobileExpanded = burgerButton.classList.contains('nav-mobile--active');
-        if(!mobileExpanded){
-          headerMain.classList.add('active');
-        }
-        
+
+      if (!opaqueNavAlways && !isMobile) {
+
+
+        headerMain.classList.add('active');
+
+
       }
     },
     function () {
@@ -170,9 +175,7 @@ jQuery(document).ready(function ($) {
   burgerButton.addEventListener('click', evt => {
 
     navMobile.classList.add('nav-mobile--active');
-    //headerMain.classList.add('active');
-    $('.nav-mobile__content-panel').removeClass('slide-out-left');
-    $('.nav-mobile__content-panel').removeClass('slide-center');
+    burgerButtonClose.classList.add('active');
     document.body.classList.add('lock-scroll');
     bodyDiv.classList.add('overlay');
   });
@@ -185,9 +188,15 @@ jQuery(document).ready(function ($) {
   });
 
   function closeMobile() {
+    burgerButtonClose.classList.remove('active');
     bodyDiv.classList.remove('overlay');
     navMobile.classList.remove('nav-mobile--active');
     document.body.classList.remove('lock-scroll');
+
+    $('.nav-mobile__content-panel').removeClass('slide-out-left');
+    $('.nav-mobile__content-panel').removeClass('slide-center');
+
+
     if (window.scrollY == 0) {
       if (opaqueNavAlways == false) {
         headerMain.classList.remove('active');
@@ -230,9 +239,9 @@ jQuery(document).ready(function ($) {
     const isBurgerOpen = burgerButton.contains(evt.target);
 
     let navActive = navMobile.classList.contains('nav-mobile--active');
-    
 
-    if(!isBurgerOpen && navActive && !isMobileMenu){
+
+    if (!isBurgerOpen && navActive && !isMobileMenu) {
       closeMobile();
     }
 

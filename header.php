@@ -132,13 +132,9 @@ foreach ($menuitems as $m) {
             <?php endforeach; ?>
 
             <a class="nav-mobile__content-panel__button mobile-link divider" href="<?php echo get_home_url(); ?>/contact">Contact</a>
+            
             <div class="nav-mobile__content-panel__phone">
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-phone-call"></use>
-                </svg>
-                <span>
-                    <?php echo get_field('phone_number', 'options'); ?>
-                </span>
+                <?php echo get_field('phone_number', 'options'); ?>
             </div>
         </div>
 
@@ -173,7 +169,6 @@ foreach ($menuitems as $m) {
                 <?php if ($toplevelItem->title == 'Experiences') : ?>
                     <?php foreach ($menu_experiences as $experience) : ?>
                         <a href="<?php echo $experience['url'] ?>" class="nav-mobile__content-panel__button mobile-link">
-
                             <?php echo $experience['title'] ?>
                         </a>
                     <?php endforeach; ?>
@@ -203,10 +198,10 @@ foreach ($menuitems as $m) {
                 <?php foreach ($destinationsMenuArray as $destinationMenuItem) : ?>
                     <a href="<?php echo $destinationMenuItem['url'] ?>" class="nav-mobile__content-panel__button mobile-link"><?php echo $destinationMenuItem['title'] ?></a>
                 <?php endforeach; ?>
-                <a href="<?php echo $destination_group['url'] ?>" class="nav-mobile__content-panel__button mobile-link">
-                    <button class="search-button ">
+                <a href="<?php echo $destination_group['url'] ?>" class="nav-mobile__content-panel__button mobile-link divider">
+                   
                         View All
-                    </button>
+                  
                 </a>
             </div>
         <?php endforeach; ?>

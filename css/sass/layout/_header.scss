@@ -315,12 +315,11 @@
 }
 
 .nav-mobile {
-
     display: none; //toggle active (js)
     justify-items: center;
 
     height: 100vh;
-    width: 27rem;
+    width: 28rem;
     //min-height: -webkit-fill-available;
 
     position: fixed;
@@ -328,11 +327,15 @@
     top: 0;
     right: 0;
     overflow-x: hidden;
-    
 
     &--active {
         display: grid;
         //position: relative;
+
+        & .burger-button {
+            animation: fadein .3s both;
+            animation-delay: .2s;
+        }
     }
 
     &__content-panel {
@@ -351,34 +354,19 @@
         padding-top: 7rem;
         position: relative;
 
-
         &__phone {
             display: flex;
-            align-items: center; 
-            margin-right: 5rem;
-            margin-top: 1rem;
+            align-items: center;
+            padding-right: 5rem;
+            padding-top: 1rem;
             color: $color-gold;
             text-decoration: none;
             justify-content: flex-end;
             font-size: 1.4rem;
             font-weight: 600;
-            letter-spacing: .2rem;
-          
-            & svg {
-                transform: translateY(-1px);
-                stroke-width: 4;
-                height: 2rem;
-                width: 2rem;
-                color: currentColor;
-                display: none;
-                @media only screen and (max-width: $bp-small) {
-                    stroke-width: 2;
-                }
-            }
+            letter-spacing: 0.2rem;
 
-            & span {
-                margin-left: 1rem;
-            }
+   
         }
 
         &.slide-out-left {
@@ -389,11 +377,9 @@
             margin-right: 0;
             margin-top: 2rem;
             color: $color-supporting-light-2;
-            
         }
 
         &--top {
-
             animation-name: example;
             animation-duration: 0.3s;
             animation-timing-function: ease-out;
@@ -440,12 +426,13 @@
             }
         }
 
-        & a { //button
+        & a {
+            //button
             color: $color-gold;
 
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             letter-spacing: 0.2rem;
-            
+
             font-weight: 600;
             background-color: transparent;
             text-decoration: none;
@@ -458,13 +445,12 @@
             justify-content: flex-end;
             align-items: center;
 
-            padding: 1rem 2rem;
+            padding: 1.5rem 2rem;
             padding-right: 5rem;
             text-align: right;
 
             &.divider {
-
-                padding-top: 5rem;
+                padding-top: 6rem;
                 &::after {
                     content: "";
                     position: absolute;
@@ -492,13 +478,12 @@
             }
 
             &.back-link {
-                
                 text-align: start;
                 margin-bottom: 3rem;
                 justify-content: flex-end;
                 & svg {
                     position: relative;
-                    
+
                     margin-right: 1rem;
                 }
 
@@ -953,7 +938,6 @@
 //Burger ------------------
 
 .burger-button {
-   
     cursor: pointer;
     display: none;
     height: 7rem;
@@ -961,7 +945,6 @@
     justify-content: center;
     align-items: center;
     transition: all 0.3s;
-
 
     @media only screen and (max-width: $bp-large) {
         display: flex;
@@ -1003,11 +986,16 @@
         }
     }
 
+
+
     &.close {
         position: absolute;
         top: 0;
-        right: 20rem;
+        right: 18rem;
         z-index: 999999999;
+        
+        
+
         & .burger-button__bar {
             visibility: hidden;
             &::before {
@@ -1072,7 +1060,3 @@
         opacity: 1;
     }
 }
-
-
-
-
