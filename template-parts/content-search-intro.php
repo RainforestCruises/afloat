@@ -28,6 +28,19 @@
            </svg>
        </h1>
        <div class="search-intro__text" style="display: block;">
-           <?php echo get_field('intro_snippet') ?>
+           <?php
+            $hasCustomText = get_field('intro_snippet_custom_text');
+
+            if ($hasCustomText) {
+                echo get_field('intro_snippet');
+            } else {
+                echo "<p>Looking for the best " . get_field('title_text') ."? Choose from the following expertly 
+            crafted travel packages. These are just examples of what we can create for you – all 
+            our tour packages are bespoke and hand-picked by our destination specialists. Operated 
+            by only the most trusted of partners, these travel options have been carefully selected for their 
+            authentic design, customer service excellence, and extraordinary itineraries.</p>";
+            }
+
+            ?>
        </div>
    </div>
