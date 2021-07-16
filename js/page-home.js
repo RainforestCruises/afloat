@@ -2,8 +2,6 @@ jQuery(document).ready(function ($) {
     const templateUrl = page_vars.templateUrl;
 
     
-    window.onunload = function () { }; //to trigger onload function later
-    
 
     // Down Arrow
     $('#scroll-down').click(function (event) {
@@ -391,7 +389,12 @@ jQuery(document).ready(function ($) {
     const mobileSearchButton = document.querySelector('.home-full-search-cta__button');
     const mobileLoading = document.querySelector('.home-full-search-loading');
 
-    mobileLoading.classList.remove('active'); // on first load
+    
+
+
+    window.onpageshow = function(event) {
+        mobileLoading.classList.remove('active'); // on first load
+    };
 
     //search-button
     searchButton.addEventListener('click', (e) => {
