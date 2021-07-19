@@ -105,7 +105,7 @@ $menu_group = [];
     </div>
     <div class="footer__logo">
         <?php $logo_vertical = get_field('logo_vertical', 'options'); ?>
-        <img src="<?php echo $logo_vertical['url']; ?>" alt="logo" />
+        <img src="<?php echo $logo_vertical['url']; ?>" alt="<?php echo get_bloginfo( 'name' ) ?>" />
     </div>
     <div class="footer__copyright">
         &#169; 2021 Rainforest Cruises. All rights reserved.

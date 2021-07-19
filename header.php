@@ -210,7 +210,7 @@ foreach ($menuitems as $m) {
 
     </nav>
 
-
+    <!-- Desktop Header -->
     <!-- Header -->
     <header class="header" id="header">
 
@@ -219,11 +219,11 @@ foreach ($menuitems as $m) {
             <div class="header__main__logo-area">
                 <a href="<?php echo get_home_url(); ?>" class="header__main__logo-area__logo">
                     <?php
-                    $logo = get_theme_mod('custom_logo');
-                    $image = wp_get_attachment_image_src($logo, 'full');
+                    $logo = get_theme_mod('custom_logo');               
+                    $image = wp_get_attachment_image_src($logo, 'full');                 
                     $image_url = $image[0];
                     ?>
-                    <img src="<?php echo $image_url ?>" />
+                    <img src="<?php echo $image_url ?>" alt="<?php echo get_bloginfo( 'name' ) ?>" />
                 </a>
             </div>
 

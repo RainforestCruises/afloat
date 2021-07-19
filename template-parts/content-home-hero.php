@@ -38,7 +38,7 @@ $currentYear = date("Y");
             <div class="home-hero__bg__slide" postid="<?php echo $sliderDestinationPostId ?>" slidenumber="<?php echo $slideCount; ?>">
                 <?php if ($sliderImage) : ?>
                     <div class="home-hero__bg__slide__image-area">
-                        <img <?php afloat_responsive_image_lazy($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
+                        <img <?php afloat_responsive_image_lazy($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?>>
                         <h5 class="home-hero__bg__slide__image-area__location" postId="<?php echo $sliderDestinationPostId ?>">
                             <?php echo $sliderTitle; ?>
                         </h5>

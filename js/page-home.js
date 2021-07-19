@@ -391,7 +391,7 @@ jQuery(document).ready(function ($) {
 
     
 
-
+    
     window.onpageshow = function(event) {
         mobileLoading.classList.remove('active'); // on first load
         hideMobileFilters();
@@ -681,7 +681,7 @@ jQuery(document).ready(function ($) {
         overlayCta.classList.remove('active');
 
         mobileSearchDatesContainer.classList.remove('active');
-        destinationInput.focus();
+        
     }
 
     function showMobileFilters() {

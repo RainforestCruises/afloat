@@ -11,7 +11,7 @@ $intro_testimonials = get_field('intro_testimonials');
 <div class="home-intro">
     <div class="home-intro__top">
         <div class="home-intro__top__image-area">
-            <img <?php afloat_responsive_image($intro_image['id'], 'vertical-medium', array('vertical-medium')); ?> alt="" class="home-intro__top__img">
+            <img <?php afloat_responsive_image($intro_image['id'], 'vertical-medium', array('vertical-medium')); ?> class="home-intro__top__img">
 
         </div>
 
@@ -30,7 +30,7 @@ $intro_testimonials = get_field('intro_testimonials');
                 ?>
                         <div class="home-intro__top__content__testimonials__testimonial">
                             <div class="home-intro__top__content__testimonials__testimonial__image">
-                                <img src="<?php echo esc_url($i_image['url']); ?>" alt="">
+                                <img src="<?php echo esc_url($i_image['url']); ?>" alt="<?php echo get_post_meta($i_image['id'], '_wp_attachment_image_alt', TRUE) ?>">
                             </div>
                             <div class="home-intro__top__content__testimonials__testimonial__snippet">
                                 <?php echo $i_snippet; ?>

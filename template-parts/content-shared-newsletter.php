@@ -17,7 +17,7 @@
     </div>
     <div class="newsletter__image">
         <?php $newsletter_image = get_field('newsletter_image', 'options'); ?>
-        <img <?php afloat_responsive_image($newsletter_image['id'], 'vertical-medium', array('vertical-medium')); ?> alt="">
+        <img <?php afloat_responsive_image($newsletter_image['id'], 'vertical-medium', array('vertical-medium')); ?>>
 
     </div>
 </section>

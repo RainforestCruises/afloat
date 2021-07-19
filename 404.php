@@ -1,44 +1,27 @@
 <?php get_header(); ?>
-<img class="img-fluid" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
-<div class="content-area">
-    <main>
-        <section class="middle-area">
-        <div id="wrapper-content" class="wrapper-content pt-0 pb-0">
-            <div class="container">
-                <div class="page-container text-center">
-                    <div class="mb-7">
-                        <svg class="icon icon-map-marker-crossed">
-                            <use xlink:href="#icon-map-marker-crossed"></use>
-                        </svg>
-                    </div>
-                    <div class="mb-7">
-                        <h3 class="mb-7">Ohh! Page Not Found</h3>
-                        <div class="text-gray">It seems we can’t find what you’re looking for. Perhaps
-                            searching
-                            can help or go back to <a href="index.html"
-                                                      class="text-primary text-decoration-underline">Homepage</a>.
-                        </div>
-                    </div>
-                    <div class="form-search">
-                        <form>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search again...">
-                                <button class="btn btn-link input-group-append text-dark pr-3" type="submit"><i
-                                        class="fal fa-search"></i></button>
-                            </div>
-                        </form>
-                    </div>
+<main class="error404-page">
+    <section class="error404-page__content">
+        <h2 class="error404-page__content__title">
+            Whoops!
+        </h2>
+        <h1 class="error404-page__content__subtitle">
+            404 Page Not Found
+        </h1>
 
-                </div>
-            </div>
+        <div class="error404-page__content__image-area">
+            <svg>
+                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-magnifying-glass"></use>
+            </svg>
         </div>
-        <!-- #wrapper-content end -->
-        </section>
-        <section class="map">
-            <div class="container">
-                <div class="row">Map</div>
-            </div>
-        </section>
-    </main>
-</div>
+
+        <div class="error404-page__content__snippet">
+            Looks like this page went on vacation.
+        </div>
+        <div class="error404-page__content__links">
+            Try our <a href="<?php echo get_home_url(); ?>">homepage</a> instead.
+        </div>
+
+    </section>
+
+</main>
 <?php get_footer(); ?>

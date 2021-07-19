@@ -15,7 +15,7 @@ $testimonials = get_field('testimonials');
         ?>
 
                 <div class="home-testimonials__publications__logo-area">
-                    <img src="<?php echo esc_url($p_image['url']); ?>" alt="">
+                    <img src="<?php echo esc_url($p_image['url']); ?>" alt="<?php echo get_post_meta($p_image['id'], '_wp_attachment_image_alt', TRUE) ?>">
                 </div>
         <?php endforeach;
         endif; ?>
@@ -44,7 +44,7 @@ $testimonials = get_field('testimonials');
                         </div>
         
                         <div class="testimonial__image-area <?php echo ($t_count % 2 != 0) ? "" : "" ;?>">
-                            <img <?php afloat_responsive_image($t_image['id'], 'vertical-small', array('vertical-small')); ?> alt="">
+                            <img <?php afloat_responsive_image($t_image['id'], 'vertical-small', array('vertical-small')); ?>>
                         </div>
                     </div>
 

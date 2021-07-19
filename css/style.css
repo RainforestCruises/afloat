@@ -2645,6 +2645,57 @@ h5 {
     .test-hero__bottom button {
       opacity: 0.8; }
 
+.error404-page {
+  padding-top: 9rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center; }
+  @media only screen and (max-width: 62.5em) {
+    .error404-page {
+      padding-top: 7rem; } }
+  .error404-page__content {
+    width: 100%;
+    max-width: calc(112rem + 12rem);
+    padding: 3rem 0;
+    height: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: calc(112rem + 12rem);
+    align-items: center;
+    padding: 0 6rem; }
+    @media only screen and (max-width: 37.5em) {
+      .error404-page__content {
+        height: 50rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .error404-page__content {
+        padding: 0 3rem; } }
+    .error404-page__content__title {
+      font-size: 4rem;
+      color: #142838;
+      text-align: center; }
+    .error404-page__content__subtitle {
+      font-size: 2rem;
+      color: #142838;
+      text-align: center; }
+    .error404-page__content__image-area {
+      display: flex;
+      justify-content: center;
+      padding: 4rem; }
+      .error404-page__content__image-area svg {
+        height: 12rem;
+        width: 12rem;
+        fill: #142838; }
+    .error404-page__content__snippet {
+      font-size: 2rem;
+      text-align: center; }
+    .error404-page__content__links {
+      font-size: 1.6rem;
+      text-align: center; }
+
 .product-hero {
   display: flex;
   width: 100%;

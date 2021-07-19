@@ -212,7 +212,7 @@ $args = array(
 <main class="search-page">
     <section class="search-page__intro" id="search-page-intro">
         <?php
-        get_template_part('template-parts/content', 'search-intro');
+        get_template_part('template-parts/content', 'search-intro', $args);
         ?>
     </section>
 
