@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="destination-testimonial__image-area ">
-                        <img <?php afloat_responsive_image($t_image['id'], 'vertical-medium', array('vertical-medium')); ?> alt="">
+                        <img <?php afloat_responsive_image($t_image['id'], 'vertical-medium', array('vertical-medium')); ?> >
                     </div>
                 </div>
 

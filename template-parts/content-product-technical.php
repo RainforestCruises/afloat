@@ -20,7 +20,7 @@ $equipment = get_field('equipment');
             </h4>
             <a class="product-technical__content__image-area" id="deckplan-image" href="<?php echo esc_url($deck_plan['url']); ?>" title="Deckplan">
 
-                <img src="<?php echo esc_url($deck_plan['url']); ?>" alt="">
+                <img src="<?php echo esc_url($deck_plan['url']); ?>" alt="<?php echo get_post_meta($deck_plan['id'], '_wp_attachment_image_alt', TRUE) ?>">
                 <svg>
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-enlarge"></use>
                 </svg>

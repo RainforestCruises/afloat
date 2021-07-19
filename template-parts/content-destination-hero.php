@@ -18,7 +18,7 @@
               <div class="destination-hero__bg-slider__slide">
                   <?php if ($sliderImage) : ?>
                       <div class="destination-hero__bg-slider__slide__image-area">
-                          <img <?php afloat_responsive_image_lazy($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
+                          <img <?php afloat_responsive_image_lazy($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> >
 
                       </div>
                   <?php endif; ?>

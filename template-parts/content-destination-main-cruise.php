@@ -25,7 +25,7 @@ $cruise_experiences = get_field('cruise_experiences');
 
     <!-- Map Background -->
     <div class="destination-main__bg">
-        <img src="<?php echo esc_url($background_map['url']); ?>" alt="">
+        <img src="<?php echo esc_url($background_map['url']); ?>" alt="<?php echo get_post_meta($background_map['id'], '_wp_attachment_image_alt', TRUE) ?>">
     </div>
 
     <!-- Intro -->
@@ -97,7 +97,7 @@ $cruise_experiences = get_field('cruise_experiences');
                     <a class="product-card" href="<?php echo get_permalink($c); ?>">
                         <div class="product-card__image-area">
                             <?php if ($featured_image) : ?>
-                                <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
+                                <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?>>
                             <?php endif; ?>
                             <?php if ($charter_only) : ?>
                                 <div class="product-card__image-area__badge-area">
@@ -179,7 +179,7 @@ $cruise_experiences = get_field('cruise_experiences');
             ?>
                     <a class="category-card" href="<?php echo $link ?>">
                         <div class="category-card__image">
-                            <img src="<?php echo esc_url($background_image['url']); ?>" alt="">
+                            <img <?php afloat_responsive_image($background_image['id'], 'pill-large', array('pill-large', 'pill-small')); ?>>
                         </div>
 
                         <div class="category-card__content">
@@ -220,7 +220,7 @@ $cruise_experiences = get_field('cruise_experiences');
                 <a class="category-card" href="<?php echo $search_link ?>">
                     <div class="category-card__image">
                         <?php if ($background_image) : ?>
-                            <img <?php afloat_responsive_image($background_image['id'], 'pill-large', array('pill-large', 'pill-small')); ?> alt="">
+                            <img <?php afloat_responsive_image($background_image['id'], 'pill-large', array('pill-large', 'pill-small')); ?> >
                         <?php endif; ?>
                     </div>
 

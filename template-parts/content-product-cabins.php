@@ -35,7 +35,7 @@ $cruise_data = $args['cruiseData'];
                         }
                     }         
                     ?>
-                    <img src="<?php echo esc_html($mainImage['ImageUrl']); ?>" alt="">
+                    <img src="<?php echo esc_html($mainImage['ImageUrl']); ?>" alt="<?php echo esc_html($mainImage['AltText']); ?>">
                 </div>
                 <div class="product-cabins__cabin__content">
                     <div class="product-cabins__cabin__content__title">

@@ -44,7 +44,7 @@ $img = get_field('map');
                     <!-- Map -->
                     <a class="itinerary-map-image" href="<?php echo $img['url']; ?>" title="<?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night - <?php echo get_field('tour_name') ?>">
                         <?php if ($img) : ?>
-                            <img src="<?php echo $img['url']; ?>" alt="">
+                            <img src="<?php echo $img['url']; ?>" alt="itinerary map">
                         <?php endif ?>
                     </a>
                 </div>
@@ -267,7 +267,7 @@ $img = get_field('map');
                                 <div class="product-itinerary-slide__bottom__days__item__side">
                                     <div class="product-itinerary-slide__bottom__days__item__side__image-area">
                                         <?php if ($img != null) : ?>
-                                            <img <?php afloat_responsive_image($img['id'], 'featured-large', array('featured-large', 'featured-small')); ?> alt="">
+                                            <img <?php afloat_responsive_image($img['id'], 'featured-large', array('featured-large', 'featured-small')); ?>>
                                         <?php endif; ?>
                                     </div>
                                     <div class="product-itinerary-slide__bottom__days__item__side__detail">

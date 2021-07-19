@@ -127,7 +127,7 @@ endforeach;
                             <?php $itineraryImages = $itinerary['MapImageDTOs']; ?>
                             <a class="itinerary-map-image" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
                                 <?php if ($itineraryImages) : ?>
-                                    <img src="<?php echo $itineraryImages[0]['ImageUrl']; ?>" alt="">
+                                    <img src="<?php echo $itineraryImages[0]['ImageUrl']; ?>" alt="itinerary map">
 
                                 <?php endif ?>
                             </a>

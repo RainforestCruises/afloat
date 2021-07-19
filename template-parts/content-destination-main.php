@@ -91,7 +91,7 @@ $highlights = get_field('highlights');
                         <a class="wide-slider-card" href="<?php echo get_permalink($t); ?>">
                             <?php if ($hero_image) : ?>
                                 <div class="wide-slider-card__image">
-                                    <img <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?> alt="">
+                                    <img <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?>>
                                 </div>
                             <?php endif; ?>
 
@@ -162,7 +162,7 @@ $highlights = get_field('highlights');
                 <a class="category-card" href="<?php echo $search_link ?>">
                     <div class="category-card__image">
                         <?php if ($background_image) : ?>
-                            <img <?php afloat_responsive_image($background_image['id'], 'pill-large', array('pill-large', 'pill-small')); ?> alt="">
+                            <img <?php afloat_responsive_image($background_image['id'], 'pill-large', array('pill-large', 'pill-small')); ?>>
                         <?php endif; ?>
                     </div>
 

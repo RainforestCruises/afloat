@@ -9,7 +9,7 @@ $hero_snippet = get_field('hero_snippet');
 <!--  Hero -->
 <div class="experience-hero">
     <div class="experience-hero__bg">
-        <img <?php afloat_responsive_image($hero_image['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
+        <img <?php afloat_responsive_image($hero_image['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?>>
 
     </div>
 

@@ -47,7 +47,7 @@ $count = 0;
             </div>
             <div class="experience-region__content__image">
                 <!-- responsive -->
-                <img <?php afloat_responsive_image($d['image']['id'], 'vertical-medium', array('vertical-medium')); ?> alt="">
+                <img <?php afloat_responsive_image($d['image']['id'], 'vertical-medium', array('vertical-medium')); ?>>
 
             </div>
         </div>
@@ -72,7 +72,7 @@ $count = 0;
 
                                 <div class="wide-slider-card__image">
                                     <?php if ($hero_image) : ?>
-                                        <img <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?> alt="">
+                                        <img <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?>>
                                     <?php endif; ?>
                                 </div>
 

@@ -36,7 +36,7 @@ console_log($cruises);
                 <a class="product-card" href="<?php echo get_permalink($c); ?>">
                     <div class="product-card__image-area">
                         <?php if ($featured_image) : ?>
-                            <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
+                            <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?>>
                         <?php endif; ?>
                         <?php if ($charter_only) : ?>
                             <div class="product-card__image-area__badge-area">

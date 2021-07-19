@@ -19,7 +19,7 @@ $headerText = get_field('difference_header');
                     <div class="difference-card">
                         <div class="difference-card__bg">
                             <?php $image =  $slide['image'] ?>
-                            <img <?php afloat_responsive_image($image['id'], 'full-hero-large', array('full-hero-large')); ?> alt="">
+                            <img <?php afloat_responsive_image($image['id'], 'full-hero-large', array('full-hero-large')); ?> >
 
                         </div>
                         <div class="difference-card__content">

@@ -10,7 +10,7 @@ if ($results) :
 ?>
         <div class="search-result">
             <div class="search-result__image-area">
-                <img src="<?php echo esc_html($result->productImageUrl); ?>" alt="">
+            <img <?php afloat_responsive_image($result->productImageId, 'featured-medium', array('featured-medium')); ?>>
             </div>
             <div class="search-result__content">
                 <div class="search-result__content__top">

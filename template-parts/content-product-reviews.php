@@ -5,8 +5,7 @@
     <?php $reviews_background = get_field('reviews_background'); ?>
 
     <div class="product-reviews__bg" style="background-image:url(<?php echo $reviews_background['url'] ?>)">
-        <!-- <img <?php afloat_responsive_image($reviews_background['id'], 'full-hero-large', array('full-hero-large, full-hero-medium, full-hero-small')); ?> alt=""> -->
-
+        <!-- Parallax -->
     </div>
     <div class="product-reviews__slider" id="reviews-slider">
         <?php

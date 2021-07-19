@@ -195,11 +195,11 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         $searchRank = intval(get_field('search_rank', $p) ?? 1);
         $snippet = get_field('top_snippet', $p);
         $featuredImage = get_field('featured_image', $p); //need specific image size  - 600x500
-        $productImageUrl = "";
+        $productImageId = '';
         $charterOnly = get_field('charter_only', $p);
 
         if ($featuredImage) {
-            $productImageUrl = wp_get_attachment_image_url($featuredImage['id'], 'featured-square');
+            $productImageId = $featuredImage['id'];
         }
 
 
@@ -478,7 +478,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             'productTypeDisplay' => $productTypeDisplay,
             'productTypeCta' => $productTypeCta,
             'productTitle' => $productTitle,
-            'productImageUrl' => $productImageUrl, //need image ID and then get custom size -- return URL here
+            'productImageId' => $productImageId, //need image ID and then get custom size -- return URL here
             'snippet' => $snippet,
             'itineraries' => $itineraries,
             'destinations' => get_field('destinations', $p),

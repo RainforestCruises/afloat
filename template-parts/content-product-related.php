@@ -94,7 +94,7 @@ $posts = get_posts($queryArgs);
                 <a class="product-card" href="<?php echo $link; ; ?>">
                     <div class="product-card__image-area">
                         <?php if ($featured_image) : ?>
-                            <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?> alt="">
+                            <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?>>
                         <?php endif; ?>
                         <?php if ($charterView) : ?>
                             <div class="product-card__image-area__badge-area">

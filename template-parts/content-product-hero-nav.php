@@ -33,7 +33,7 @@ $images = get_field('highlight_gallery');
     <!-- Top Section -->
     <div class="product-hero__top">
         <div class="product-hero__top__bg" id="top">
-            <img <?php afloat_responsive_image($hero_image['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
+            <img <?php afloat_responsive_image($hero_image['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?>>
 
         </div>
 
@@ -131,7 +131,7 @@ $images = get_field('highlight_gallery');
                     <div class="product-hero__gallery__slick__item">
 
                         <a href="<?php echo esc_url($image['url']); ?>">
-                                <img <?php afloat_responsive_image($image['id'], 'square-small', array('square-small')); ?> alt="">
+                                <img <?php afloat_responsive_image($image['id'], 'square-small', array('square-small')); ?>>
                           
                             
 
