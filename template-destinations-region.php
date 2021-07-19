@@ -83,6 +83,14 @@ $cruiseCriteria = array(
 $cruises = get_posts($cruiseCriteria);
 
 
+
+console_log('cruises');
+console_log($cruises);
+
+console_log('tours');
+console_log($tours);
+
+
 //Title (Region)
 $title = $region->post_title;
 
