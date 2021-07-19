@@ -72,65 +72,79 @@ $highlights = get_field('highlights');
         </div>
 
         <!-- Best Selling -->
+
+        <?php
+        $filteredTours = [];
+        foreach ($tours as $t) {
+            $best_selling = ($destinationType != 'region') ? get_field('best_selling', $t) : get_field('best_selling_regional', $t);
+            if ($best_selling) {
+                $filteredTours[] = $t;
+            }
+        }
+
+        console_log($filteredTours);
+        ?>
+
         <div class="destination-main__packages__best-selling">
             <div class="destination-main__packages__best-selling__slider" id="main-slider">
 
 
-                <?php foreach ($tours as $t) : ?>
-                    <?php
-                    $best_selling = ($destinationType != 'region') ? get_field('best_selling', $t) : get_field('best_selling_regional', $t);
 
-                    if ($best_selling) :
-                        $hero_image = get_field('best_selling_image', $t);
-                        $countries  = get_field('destinations', $t);
-                        $price_packages = get_field('price_packages', $t);
-                        $lowest = lowest_tour_price($price_packages, $currentYear);
+                <?php foreach ($filteredTours as $t) : ?>
+                    <?php
+
+                    $hero_image = get_field('best_selling_image', $t);
+                    $countries  = get_field('destinations', $t);
+                    $price_packages = get_field('price_packages', $t);
+
+                    $lowest = lowest_tour_price($price_packages, $currentYear);
+                    
 
                     ?>
-                        <!-- Tour Card -->
-                        <a class="wide-slider-card" href="<?php echo get_permalink($t); ?>">
-                            <?php if ($hero_image) : ?>
-                                <div class="wide-slider-card__image">
-                                    <img <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?>>
-                                </div>
-                            <?php endif; ?>
-
-                            <div class="wide-slider-card__content">
-                                <div class="wide-slider-card__content__tag-area">
-                                    <div class="wide-slider-card__content__tag-area__tag">
-                                        Best Seller
-                                    </div>
-
-                                </div>
-                                <div class="wide-slider-card__content__text-area">
-                                    <div class="wide-slider-card__content__text-area__country">
-                                        <?php foreach ($countries as $c) :
-                                            $isCountry = get_field('is_country', $c);
-                                            if ($isCountry) : ?>
-                                                <li>
-                                                    <?php echo get_the_title($c); ?>
-                                                </li>
-
-                                        <?php endif;
-                                        endforeach; ?>
-                                    </div>
-                                    <h3 class="wide-slider-card__content__text-area__title">
-                                        <?php echo get_field('tour_name', $t) ?>
-                                    </h3>
-                                    <h5 class="wide-slider-card__content__text-area__info">
-                                        <div class="wide-slider-card__content__text-area__info__length">
-                                            <?php echo get_field('length', $t) ?>-Day Tour
-                                        </div>
-                                        <div class="wide-slider-card__content__text-area__info__price">
-                                            From <?php echo "$" . number_format($lowest, 0); ?> <span>USD</span>
-                                        </div>
-
-                                    </h5>
-                                </div>
+                    <!-- Tour Card -->
+                    <a class="wide-slider-card" href="<?php echo get_permalink($t); ?>">
+                        <?php if ($hero_image) : ?>
+                            <div class="wide-slider-card__image">
+                                <img <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?>>
                             </div>
-                        </a>
-                <?php endif;
-                endforeach; ?>
+                        <?php endif; ?>
+
+                        <div class="wide-slider-card__content">
+                            <div class="wide-slider-card__content__tag-area">
+                                <div class="wide-slider-card__content__tag-area__tag">
+                                    Best Seller
+                                </div>
+
+                            </div>
+                            <div class="wide-slider-card__content__text-area">
+                                <div class="wide-slider-card__content__text-area__country">
+                                    <?php foreach ($countries as $c) :
+                                        $isCountry = get_field('is_country', $c);
+                                        if ($isCountry) : ?>
+                                            <li>
+                                                <?php echo get_the_title($c); ?>
+                                            </li>
+
+                                    <?php endif;
+                                    endforeach; ?>
+                                </div>
+                                <h3 class="wide-slider-card__content__text-area__title">
+                                    <?php echo get_field('tour_name', $t) ?>
+                                </h3>
+                                <h5 class="wide-slider-card__content__text-area__info">
+                                    <div class="wide-slider-card__content__text-area__info__length">
+                                        <?php echo get_field('length', $t) ?>-Day Tour
+                                    </div>
+                                    <div class="wide-slider-card__content__text-area__info__price">
+                                        From <?php echo "$" . number_format($lowest, 0); ?> <span>USD</span>
+                                    </div>
+
+                                </h5>
+                            </div>
+                        </div>
+                    </a>
+
+                <?php endforeach; ?>
 
 
 
@@ -172,13 +186,13 @@ $highlights = get_field('highlights');
                                 echo 'Charter Cruises';
                             else :
 
-                                if($include_cruises) {
+                                if ($include_cruises) {
                                     echo get_the_title($experience) . ' Cruises'; // for solo 
                                 } else {
                                     echo get_the_title($experience) . ' Tours';
                                 }
 
-                                
+
                             endif; ?>
 
                         </h4>
@@ -188,10 +202,10 @@ $highlights = get_field('highlights');
                                 if ($is_charter) :
                                     echo cruises_available_region($destination, null, true) . ' Cruises Available'; //destination is region in this case
                                 else :
-                                    
 
 
-                                    if($include_cruises) {
+
+                                    if ($include_cruises) {
                                         //solo experience to include cruises in count
                                         echo cruises_available_region($destination, $experience, false) . ' Cruises Available'; //destination is region in this case
                                     } else {
@@ -200,9 +214,6 @@ $highlights = get_field('highlights');
 
 
                                 endif;
-
-                                
-
                             } else if ($destinationType == 'destination') {
                                 echo tours_available($destination, $experience) . ' Tours Available';
                             } ?>
