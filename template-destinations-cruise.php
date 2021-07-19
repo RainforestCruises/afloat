@@ -34,7 +34,7 @@ $tourCriteria = array(
     'posts_per_page' => -1,
     'post_type' => 'rfc_tours',
     'meta_key' => 'search_rank',
-    'orderby' => 'meta_value',
+    'orderby' => 'meta_value_num',
     'order' => 'DESC',
     'meta_query' => array(
         array(
@@ -51,7 +51,7 @@ $cruiseCriteria = array(
     'posts_per_page' => -1,
     'post_type' => 'rfc_cruises',
     'meta_key' => 'search_rank',
-    'orderby' => 'meta_value',
+    'orderby' => 'meta_value_num',
     'order' => 'DESC',
     'meta_query' => array(
         array(
