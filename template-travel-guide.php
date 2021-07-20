@@ -40,7 +40,7 @@ if ($destination_type == 'rfc_destinations') {
             )
         )
 
-    ); 
+    );
     console_log('dest');
 };
 
@@ -53,8 +53,7 @@ if ($destination_type == 'rfc_regions') {
                 'key' => 'region', // name of custom field
                 'value' => $region->ID, // strangely will not work with quotes around
                 'compare' => 'LIKE'
-            ) 
-            ,
+            ),
             array(
                 'key' => 'is_region_level', // name of custom field
                 'value' => true,
@@ -64,7 +63,7 @@ if ($destination_type == 'rfc_regions') {
 
     );
 
-    
+
 
     //get all posts from child destinations also here
     console_log('region');
@@ -109,14 +108,10 @@ if ($templateType == 'template-destinations-region.php') {
 $posts = get_posts($args); //Stage I posts
 
 
-$travelGuidePosts = new WP_Query($args);
-
-console_log($posts);
-
 ?>
 
 <div class="travel-guide-landing-page">
-  
+
     <!-- Intro -->
     <div class="travel-guide-landing-page__header">
 
@@ -136,19 +131,19 @@ console_log($posts);
 
     <!-- Content -->
     <div class="travel-guide-landing-page__content">
-      <!-- Breadcrumb -->
-      <ol class="travel-guide-landing-page__breadcrumb">
-        <li>
-            <a href="<?php echo home_url() ?>">Home</a>
-        </li>
-        <li>
-            <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
-        </li>
+        <!-- Breadcrumb -->
+        <ol class="travel-guide-landing-page__breadcrumb">
+            <li>
+                <a href="<?php echo home_url() ?>">Home</a>
+            </li>
+            <li>
+                <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
+            </li>
 
-        <li>
-            <?php echo get_the_title(); ?>
-        </li>
-    </ol>
+            <li>
+                <?php echo get_the_title(); ?>
+            </li>
+        </ol>
         <div class="travel-guide-landing-page__content__title">
             <?php echo $pageTitle ?>
         </div>
@@ -170,22 +165,25 @@ console_log($posts);
         <div class="travel-guide-landing-page__content__results" id="results">
 
             <?php
-            if ($travelGuidePosts->have_posts()) :
-                while ($travelGuidePosts->have_posts()) : $travelGuidePosts->the_post();
-                    $featured_image = get_field('featured_image');
-                    $guideCategories = get_field('categories');
 
+            if ($posts) :
+
+                foreach ($posts as $p) :
+                    $featured_image = get_field('featured_image', $p);
+                    $guideCategories = get_field('categories', $p);
                     $isoClasses = '';
-                    if ($guideCategories) :
-                        foreach ($guideCategories as $c) :
+                    if ($guideCategories) {
+                        foreach ($guideCategories as $c) {
                             $isoClasses = $isoClasses . ' ' . $c->post_name;
-                        endforeach;
-                    endif;
+                        };
+                    };
 
             ?>
+
+
                     <div class="guide-item <?php echo $isoClasses ?>">
                         <div class="guide-item__image-area">
-                            <img <?php afloat_responsive_image($featured_image['ID'], 'featured-medium', array('featured-small', 'featured-medium')); ?> alt="">
+                            <img <?php afloat_responsive_image($featured_image['ID'], 'featured-medium', array('featured-small', 'featured-medium')); ?>>
                         </div>
                         <div class="guide-item__bottom">
                             <ul class="guide-item__bottom__category">
@@ -200,16 +198,16 @@ console_log($posts);
                                 <?php endforeach;
                                 endif;  ?>
                             </ul>
-                            <a class="guide-item__bottom__title" href="<?php echo the_permalink() ?>">
-                                <?php echo get_field('navigation_title'); ?>
+                            <a class="guide-item__bottom__title" href="<?php echo the_permalink($p) ?>">
+                                <?php echo get_field('navigation_title', $p); ?>
                             </a>
                             <div class="guide-item__bottom__snippet">
                                 <?php
-                                echo the_excerpt();
+                                echo get_the_excerpt($p);
                                 ?>
                             </div>
                             <div class="guide-item__bottom__cta">
-                                <a class="goto-button goto-button--dark" href="<?php echo the_permalink() ?>">
+                                <a class="goto-button goto-button--dark" href="<?php echo the_permalink($p) ?>">
                                     Read More
                                     <svg>
                                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
@@ -218,9 +216,10 @@ console_log($posts);
                             </div>
                         </div>
                     </div>
+
+
             <?php
-                endwhile;
-                wp_reset_postdata(); //very important to rest after custom query
+                endforeach;
             endif;
             ?>
         </div>
