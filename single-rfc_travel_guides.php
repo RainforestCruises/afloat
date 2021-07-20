@@ -46,7 +46,7 @@ while (have_posts()) :
   $breadcrumbTravelGuideURL = get_permalink($breadcrumbTravelGuidePage);
 
   $guideType = get_field('destination_type', $breadcrumbTravelGuidePage);
-  console_log($guideType);
+
   $breadcrumbTravelGuideText  = "";
 
   if ($guideType == 'rfc_destinations') {
@@ -127,9 +127,9 @@ while (have_posts()) :
       </div>
 
       <div class="travel-guide__disclaimer">
-        <div class="travel-guide__disclaimer__header">
+        <h5 class="travel-guide__disclaimer__header">
           Disclaimer
-        </div>
+        </h5>
         <?php echo get_field('disclaimer', 'options'); ?>
       </div>
       <div class="travel-guide__entry">
@@ -138,9 +138,9 @@ while (have_posts()) :
 
     </div>
     <div class="travel-guide-related">
-      <div class="travel-guide-related__title">
+      <h2 class="travel-guide-related__title">
         You may also like
-      </div>
+      </h2>
       <div class="travel-guide-related__slider-area">
         <div class="travel-guide-related__slider-area__slider" id="related-slider">
 
@@ -148,13 +148,20 @@ while (have_posts()) :
           if ($travelGuidePosts->have_posts()) :
             while ($travelGuidePosts->have_posts()) : $travelGuidePosts->the_post();
               $post_featured_image = get_field('featured_image');
+              $imageId = "";
+              if($post_featured_image){
+                $imageId = $post_featured_image['id'];
+              }
           ?>
               <!-- Item -->
               <div class="travel-guide-related__slider-area__slider__item">
-                <img <?php afloat_responsive_image($post_featured_image['id'], 'featured-medium', array('featured-medium', 'featured-small')); ?> alt="" class="travel-guide-related__slider-area__slider__item__image">
+                <img <?php afloat_responsive_image($imageId, 'featured-medium', array('featured-medium', 'featured-small')); ?> alt="" class="travel-guide-related__slider-area__slider__item__image">
                 <div class="travel-guide-related__slider-area__slider__item__content">
                   <a class="travel-guide-related__slider-area__slider__item__content__title" href="<?php echo the_permalink(); ?>">
+                    <h3>
                     <?php echo the_title(); ?>
+                    </h3>
+                    
                   </a>
                   <div class="travel-guide-related__slider-area__slider__item__content__text">
                     <?php echo the_excerpt(); ?>
@@ -178,11 +185,11 @@ while (have_posts()) :
       </div>
 
     </div>
-    
-   
+
+
   </div>
   <div class="travel-guide-newsletter">
-  <?php
+    <?php
     get_template_part('template-parts/content', 'shared-newsletter');
     ?>
 
@@ -193,4 +200,3 @@ endwhile;
 ?>
 <!-- #site-wrapper end-->
 <?php get_footer() ?>
-

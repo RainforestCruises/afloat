@@ -16,12 +16,12 @@ $intro_testimonials = get_field('intro_testimonials');
         </div>
 
         <div class="home-intro__top__content">
-            <h2 class="home-intro__top__content__pretitle">
+            <div class="home-intro__top__content__pretitle">
                 <?php echo get_field('intro_pretitle'); ?>
-            </h2>
-            <h3 class="home-intro__top__content__title">
+            </div>
+            <h2 class="home-intro__top__content__title">
                 <?php echo get_field('intro_title'); ?>
-            </h3>
+            </h2>
             <div class="home-intro__top__content__testimonials">
                 <?php if ($intro_testimonials) :
                         //$i = $intro_testimonials[0];
@@ -47,9 +47,9 @@ $intro_testimonials = get_field('intro_testimonials');
             <div class="home-intro__bottom__feature__icon">
                 <?php echo get_field('first_icon'); ?>
             </div>
-            <h4 class="home-intro__bottom__feature__title">
+            <h3 class="home-intro__bottom__feature__title">
                 <?php echo get_field('first_title'); ?>
-            </h4>
+            </h3>
             <div class="home-intro__bottom__feature__snippet">
                 <?php echo get_field('first_snippet'); ?>
             </div>
@@ -58,9 +58,9 @@ $intro_testimonials = get_field('intro_testimonials');
             <div class="home-intro__bottom__feature__icon">
                 <?php echo get_field('second_icon'); ?>
             </div>
-            <h4 class="home-intro__bottom__feature__title">
+            <h3 class="home-intro__bottom__feature__title">
                 <?php echo get_field('second_title'); ?>
-            </h4>
+            </h3>
             <div class="home-intro__bottom__feature__snippet">
                 <?php echo get_field('second_snippet'); ?>
             </div>
@@ -69,9 +69,9 @@ $intro_testimonials = get_field('intro_testimonials');
             <div class="home-intro__bottom__feature__icon">
                 <?php echo get_field('third_icon'); ?>
             </div>
-            <h4 class="home-intro__bottom__feature__title">
+            <h3 class="home-intro__bottom__feature__title">
                 <?php echo get_field('third_title'); ?>
-            </h4>
+            </h3>
             <div class="home-intro__bottom__feature__snippet">
                 <?php echo get_field('third_snippet'); ?>
             </div>

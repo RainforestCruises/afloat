@@ -25,9 +25,9 @@ $headerText = get_field('team_header');
 
                     </div>
                     <div class="team-card__content">
-                        <div class="team-card__content__name">
+                        <h3 class="team-card__content__name">
                             <?php echo $member['name'] ?>
-                        </div>
+                        </h3>
                         <div class="team-card__content__position">
                             <?php echo $member['position'] ?>
                         </div>

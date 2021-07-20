@@ -38,9 +38,9 @@ $highlights = get_field('highlights');
             </div>
 
             <?php if ($highlights) : ?>
-                <h5 class="destination-main__intro__description__highlights-title">
+                <h3 class="destination-main__intro__description__highlights-title">
                     Highlights
-                </h5>
+                </h3>
                 <ul class="destination-main__intro__description__highlights">
                     <?php
                     foreach ($highlights as $h) : ?>
@@ -131,7 +131,7 @@ $highlights = get_field('highlights');
                                 <h3 class="wide-slider-card__content__text-area__title">
                                     <?php echo get_field('tour_name', $t) ?>
                                 </h3>
-                                <h5 class="wide-slider-card__content__text-area__info">
+                                <div class="wide-slider-card__content__text-area__info">
                                     <div class="wide-slider-card__content__text-area__info__length">
                                         <?php echo get_field('length', $t) ?>-Day Tour
                                     </div>
@@ -139,7 +139,7 @@ $highlights = get_field('highlights');
                                         From <?php echo "$" . number_format($lowest, 0); ?> <span>USD</span>
                                     </div>
 
-                                </h5>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -181,7 +181,7 @@ $highlights = get_field('highlights');
                     </div>
 
                     <div class="category-card__content">
-                        <h4 class="category-card__content__title">
+                        <h3 class="category-card__content__title">
                             <?php if ($is_charter) :
                                 echo 'Charter Cruises';
                             else :
@@ -195,7 +195,7 @@ $highlights = get_field('highlights');
 
                             endif; ?>
 
-                        </h4>
+                        </h3>
                         <div class="category-card__content__availability">
                             <?php if ($destinationType == 'region') {
 

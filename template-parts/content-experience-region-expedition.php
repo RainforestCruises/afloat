@@ -23,9 +23,9 @@ $count = 0;
             <div class="experience-region__content__text">
 
                 <div class="experience-region__content__text__title-group">
-                    <h4 class="experience-region__content__text__title-group__subtitle">
+                    <div class="experience-region__content__text__title-group__subtitle">
                         <?php echo $d['subtitle'] ?>
-                    </h4>
+                    </div>
                     <h2 class="experience-region__content__text__title-group__title">
                         <?php echo $d['title'] ?>
                     </h2>

@@ -86,7 +86,7 @@ $args = array(
 ?>
 
 <!-- Hero -->
-<div class="destination-page">
+<main class="destination-page">
     <section class="destination-page__section-hero" id="top">
         <?php
         get_template_part('template-parts/content', 'destination-hero', $args);
@@ -94,11 +94,11 @@ $args = array(
     </section>
 
     <!-- Cruises -->
-    <div class="destination-page__section-main" >
+    <section class="destination-page__section-main" >
         <?php
         get_template_part('template-parts/content', 'destination-main-cruise', $args);
         ?>
-    </div>
+    </section>
 
 
     <!-- Tours-->
@@ -133,7 +133,7 @@ $args = array(
         ?>
     </section>
 
-</div>
+</main>
 
 <!-- Contact Modal -->
 <?php

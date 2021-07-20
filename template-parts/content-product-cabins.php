@@ -39,25 +39,25 @@ $cruise_data = $args['cruiseData'];
                 </div>
                 <div class="product-cabins__cabin__content">
                     <div class="product-cabins__cabin__content__title">
-                        <h3><?php echo ($cabins[$cabinCount]['Name']); ?></h3>
+                        <h4><?php echo ($cabins[$cabinCount]['Name']); ?></h4>
                     </div>
                     <div class="product-cabins__cabin__content__feature-grid">
                         <div class="product-cabins__cabin__content__feature-item">
-                            <h5 class="product-cabins__cabin__content__feature-item__title">
+                            <div class="product-cabins__cabin__content__feature-item__title">
                                 Guests
-                            </h5>
+                            </div>
                             <span><?php echo $occupancy; ?></span>
                         </div>
                         <div class="product-cabins__cabin__content__feature-item">
-                            <h5 class="product-cabins__cabin__content__feature-item__title">
+                            <div class="product-cabins__cabin__content__feature-item__title">
                                 Size
-                            </h5>
+                            </div>
                             <span><?php echo ($cabins[$cabinCount]['Size']); ?></span>
                         </div>
                         <div class="product-cabins__cabin__content__feature-item">
-                            <h5 class="product-cabins__cabin__content__feature-item__title">
+                            <div class="product-cabins__cabin__content__feature-item__title">
                                 Beds
-                            </h5>
+                            </div>
                             <span><?php echo ($cabins[$cabinCount]['Beds']); ?></span>
                         </div>
                     </div>

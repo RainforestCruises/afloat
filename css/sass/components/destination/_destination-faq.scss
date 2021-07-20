@@ -32,7 +32,13 @@
             &__question {
                 font-size: 2rem;
                 line-height: 2.6rem;
-                font-weight: 600;
+                
+
+                & h3 {
+                    letter-spacing: 0 !important;
+                    font-weight: 600 !important;
+                }
+                
                 color: $color-primary;
                 position: relative;
                 margin-bottom: 2.5rem;

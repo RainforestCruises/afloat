@@ -40,9 +40,9 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-headset"></use>
                     </svg>
                 </div>
-                <h3 class="contact__wrapper__intro__title">
+                <h2 class="contact__wrapper__intro__title">
                     Give us a Call
-                </h3>
+                </h2>
                 <div class="contact__wrapper__intro__subtitle">
                     Speak with our trip specialists to book your next experience.
                 </div>
@@ -62,9 +62,9 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
 </section>
 
 <div class="destination-testimonials u-margin-bottom-big u-margin-top-big">
-    <h3 class="contact-page__testimonial-title">
+    <h2 class="contact-page__testimonial-title">
         What Our Customers are Saying About Us
-    </h3>
+    </h2>
     <div class="destination-testimonials__slider" id="testimonials-slider">
         <?php
         $testimonials = get_field('testimonials', 'options');
@@ -88,7 +88,7 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
                     </div>
 
                     <div class="destination-testimonial__image-area ">
-                        <img <?php afloat_responsive_image($t_image['id'], 'vertical-medium', array('vertical-medium')); ?> alt="">
+                        <img <?php afloat_responsive_image($t_image['id'], 'vertical-medium', array('vertical-medium')); ?>>
                     </div>
                 </div>
 

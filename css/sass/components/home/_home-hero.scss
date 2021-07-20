@@ -61,8 +61,8 @@
                     &.flickity-lazyloaded,
                     &.flickity-lazyerror {
                         opacity: 1;
-
-                        & + h5 { //get the location label
+ 
+                        & + div { //get the location label
                             opacity: 1;
                             transform: translateX(0);
                         }

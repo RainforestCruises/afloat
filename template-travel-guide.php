@@ -110,10 +110,10 @@ $posts = get_posts($args); //Stage I posts
 
 ?>
 
-<div class="travel-guide-landing-page">
+<main class="travel-guide-landing-page">
 
     <!-- Intro -->
-    <div class="travel-guide-landing-page__header">
+    <section class="travel-guide-landing-page__header">
 
         <div class="travel-guide-landing-page__header__image-area">
             <?php if ($image) : ?>
@@ -126,11 +126,11 @@ $posts = get_posts($args); //Stage I posts
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-04"></use>
             </svg>
         </div>
-        <input type="text" placeholder="Search Guide..." id="quicksearch">
-    </div>
+        <!-- <input type="text" placeholder="Search Guide..." id="quicksearch"> -->
+    </section>
 
     <!-- Content -->
-    <div class="travel-guide-landing-page__content">
+    <section class="travel-guide-landing-page__content">
         <!-- Breadcrumb -->
         <ol class="travel-guide-landing-page__breadcrumb">
             <li>
@@ -144,11 +144,16 @@ $posts = get_posts($args); //Stage I posts
                 <?php echo get_the_title(); ?>
             </li>
         </ol>
-        <div class="travel-guide-landing-page__content__title">
+        <h1 class="travel-guide-landing-page__content__title">
             <?php echo $pageTitle ?>
-        </div>
+        </h1>
+       
         <div class="travel-guide-landing-page__content__subtext">
             <?php echo $intro_snippet ?>
+        </div>
+
+        <div class="travel-guide-landing-page__content__search-area">
+            <input type="text" placeholder="Search Guide..." id="quicksearch">
         </div>
         <div class="travel-guide-landing-page__content__categories filters-button-group">
             <button data-filter="*" class="filter-button filter-button-all selected">
@@ -170,6 +175,10 @@ $posts = get_posts($args); //Stage I posts
 
                 foreach ($posts as $p) :
                     $featured_image = get_field('featured_image', $p);
+                    $imageID = '';
+                    if ($featured_image) {
+                        $imageID = $featured_image['ID'];
+                    }
                     $guideCategories = get_field('categories', $p);
                     $isoClasses = '';
                     if ($guideCategories) {
@@ -183,7 +192,7 @@ $posts = get_posts($args); //Stage I posts
 
                     <div class="guide-item <?php echo $isoClasses ?>">
                         <div class="guide-item__image-area">
-                            <img <?php afloat_responsive_image($featured_image['ID'], 'featured-medium', array('featured-small', 'featured-medium')); ?>>
+                            <img <?php afloat_responsive_image($imageID, 'featured-medium', array('featured-small', 'featured-medium')); ?>>
                         </div>
                         <div class="guide-item__bottom">
                             <ul class="guide-item__bottom__category">
@@ -199,7 +208,10 @@ $posts = get_posts($args); //Stage I posts
                                 endif;  ?>
                             </ul>
                             <a class="guide-item__bottom__title" href="<?php echo the_permalink($p) ?>">
-                                <?php echo get_field('navigation_title', $p); ?>
+                                <h2>
+                                    <?php echo get_field('navigation_title', $p); ?>
+                                </h2>
+
                             </a>
                             <div class="guide-item__bottom__snippet">
                                 <?php
@@ -223,10 +235,10 @@ $posts = get_posts($args); //Stage I posts
             endif;
             ?>
         </div>
-    </div>
+    </section>
 
 
-</div>
+</main>
 
 
 

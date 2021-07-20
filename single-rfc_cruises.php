@@ -74,7 +74,7 @@ while (have_posts()) :
 ?>
 
   <!-- Product Page Container -->
-  <div class="product-page">
+  <main class="product-page">
 
     <!-- Hero -->
     <section class="product-page__section-hero" id="top">
@@ -134,7 +134,7 @@ while (have_posts()) :
 
 
 
-  </div>
+  </main>
 
   <!-- Date Search Form -->
   <form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">

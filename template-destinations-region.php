@@ -41,7 +41,6 @@ $destinationCriteria = array(
 $destinations = get_posts($destinationCriteria);
 $destinationCount = count($destinations);
 
-console_log($destinations);
 
 //get destination IDs
 $destinationIds = [];
@@ -110,18 +109,18 @@ $args = array(
 ?>
 
 <!-- Hero -->
-<div class="destination-page">
+<main class="destination-page">
     <section class="destination-page__section-hero" id="top">
         <?php
         get_template_part('template-parts/content', 'destination-hero', $args);
         ?>
     </section>
 
-    <div class="destination-page__section-main">
+    <section class="destination-page__section-main">
         <?php
         get_template_part('template-parts/content', 'destination-main', $args);
         ?>
-    </div>
+    </section>
 
 
     <!-- Cruises-->
@@ -161,7 +160,7 @@ $args = array(
         ?>
     </section>
 
-</div>
+</main>
 
 <!-- Contact Modal -->
 <?php

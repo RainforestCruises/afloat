@@ -90,18 +90,18 @@ $args = array(
 
 ?>
 
-<div class="destination-page">
+<main class="destination-page">
     <section class="destination-page__section-hero" id="top">
         <?php
         get_template_part('template-parts/content', 'destination-hero', $args);
         ?>
     </section>
 
-    <div class="destination-page__section-main">
+    <section class="destination-page__section-main">
         <?php
         get_template_part('template-parts/content', 'destination-main', $args);
         ?>
-    </div>
+    </section>
 
     <!-- Cruises-->
     <?php if (get_field('hide_cruises') == false) { ?>
@@ -144,7 +144,7 @@ $args = array(
         ?>
     </section>
 
-</div>
+</main>
 
 <!-- Contact Modal -->
 <?php

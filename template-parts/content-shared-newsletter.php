@@ -1,8 +1,8 @@
 <section class="newsletter">
     <div class="newsletter__content">
-        <h3 class="newsletter__content__title">
+        <h2 class="newsletter__content__title">
             <?php echo get_field('newsletter_title', 'options'); ?>
-        </h3>
+        </h2>
         <div class="newsletter__content__text">
             <?php echo get_field('newsletter_snippet', 'options'); ?>
         </div>

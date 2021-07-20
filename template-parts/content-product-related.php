@@ -107,9 +107,9 @@ $posts = get_posts($queryArgs);
                     <div class="product-card__bottom">
 
                         <div class="product-card__bottom__title-group">
-                            <div class="product-card__bottom__title-group__product-name">
+                            <h3 class="product-card__bottom__title-group__product-name">
                                 <?php echo (get_post_type($p) == 'rfc_tours') ? get_field('tour_name', $p) : get_the_title($p) ?>
-                            </div>
+                            </h3>
 
                         </div>
 

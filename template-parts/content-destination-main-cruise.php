@@ -33,15 +33,14 @@ $cruise_experiences = get_field('cruise_experiences');
         <div class="destination-main__intro__description">
             <h2 class="destination-main__intro__description__title" id="intro">
                 <?php echo get_field('intro_title') ?>
-
             </h2>
             <div class="destination-main__intro__description__text">
                 <?php echo get_field('intro_text') ?>
             </div>
             <?php if ($highlights) : ?>
-                <h5 class="destination-main__intro__description__highlights-title">
+                <h3 class="destination-main__intro__description__highlights-title">
                     Highlights
-                </h5>
+                </h3>
                 <ul class="destination-main__intro__description__highlights">
                     <?php
                     foreach ($highlights as $h) : ?>
@@ -183,9 +182,9 @@ $cruise_experiences = get_field('cruise_experiences');
                         </div>
 
                         <div class="category-card__content">
-                            <h4 class="category-card__content__title">
+                            <h3 class="category-card__content__title">
                                 <?php echo get_field('navigation_title', $location); ?> Cruises
-                            </h4>
+                            </h3>
                             <div class="category-card__content__availability">
                                 <?php
                                 echo cruises_available_location($location) . ' Cruises Available';
@@ -225,14 +224,14 @@ $cruise_experiences = get_field('cruise_experiences');
                     </div>
 
                     <div class="category-card__content">
-                        <h4 class="category-card__content__title">
+                        <h3 class="category-card__content__title">
                             <?php if ($is_charter) :
                                 echo 'Charter Cruises';
                             else :
                                 echo get_the_title($experience) . ' Cruises';
                             endif; ?>
 
-                        </h4>
+                        </h3>
                         <div class="category-card__content__availability">
                             <?php if ($is_charter) :
                                 echo cruises_available_charter($destination) . ' Cruises Available';

@@ -467,11 +467,26 @@
                     flex-direction: column;
 
                     &__title {
-                        font-size: 3rem;
-                        line-height: 3.5rem;
-                        margin-top: 2.5rem;
-                        text-decoration: none;
-                        color: $color-white;
+                      
+
+
+                        &:link,
+                        &:visited {
+                            text-decoration: none;
+                            color: $color-white;
+                            &:hover {
+                                //color: $color-supporting-light;
+                            }
+                        }
+                
+                        & h3 {
+                            font-size: 3rem;
+                            line-height: 3.5rem;
+                            margin-top: 2.5rem;
+                            font-weight: 600;
+                            text-decoration: none;
+                            color: $color-white;
+                        }
                     }
                     &__text {
                         font-size: 1.6rem;

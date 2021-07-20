@@ -134,11 +134,11 @@ endforeach;
                         </div>
 
                         <!-- Side Info Area -->
-                        <div class="product-itinerary-slide__top__side-info">
+                        <aside class="product-itinerary-slide__top__side-info">
                             <div class="product-itinerary-slide__top__side-info__tabs">
-                                <div class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">Overview</div>
-                                <div class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">Inclusions</div>
-                                <div class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</div>
+                                <h2 class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">Overview</h2>
+                                <h2 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">Inclusions</h2>
+                                <h2 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</h2>
                             </div>
 
                             <!-- Overview-->
@@ -149,9 +149,9 @@ endforeach;
                                         <div class="product-itinerary-slide__top__side-info__content__widget noborder">
                                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
                                                 <!-- Title -->
-                                                <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
+                                                <h3 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
                                                     Availability
-                                                </h4>
+                                                </h3>
                                                 <!-- Select-Box -->
                                                 <div class="product-itinerary-slide__select-group">
                                                     <label>
@@ -224,7 +224,7 @@ endforeach;
                                     ?>
                                         <div class="product-itinerary-slide__top__side-info__content__widget">
                                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
-                                                <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
+                                                <h3 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
                                                     Prices
 
                                                     <?php if ($display_policies || $display_special_note) : ?>
@@ -233,7 +233,7 @@ endforeach;
                                                             </use>
                                                         </svg>
                                                     <?php endif; ?>
-                                                </h4>
+                                                </h3>
 
                                                 <!-- Select-Box -->
                                                 <div class="product-itinerary-slide__select-group">
@@ -521,7 +521,7 @@ endforeach;
 
                             <!-- Inclusions -->
                             <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">
-                                <h4 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Incuded</h4>
+                                <h3 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Incuded</h3>
                                 <ul class="product-itinerary-slide__top__side-info__content__inclusions-list">
                                     <?php foreach ($itinerary['Inclusions'] as $inclusion) : ?>
                                         <li>
@@ -536,7 +536,7 @@ endforeach;
 
                             <!-- Exclusions -->
                             <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">
-                                <h4 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Excluded</h4>
+                                <h3 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Excluded</h3>
                                 <ul class="product-itinerary-slide__top__side-info__content__inclusions-list">
 
                                     <?php foreach ($itinerary['Exclusions'] as $exclusion) : ?>
@@ -550,7 +550,7 @@ endforeach;
                                 </ul>
                             </div>
 
-                        </div>
+                        </aside>
                     </div>
 
                     <!-- D2D - Bottom Section -->
@@ -581,9 +581,9 @@ endforeach;
 
                                         <!-- Content -->
                                         <div class="product-itinerary-slide__bottom__days__item__content">
-                                            <h4 class="product-itinerary-slide__bottom__days__item__content__title">
+                                            <h3 class="product-itinerary-slide__bottom__days__item__content__title">
                                                 <?php echo $day['Title']; ?>
-                                            </h4>
+                                            </h3>
                                             <div class="product-itinerary-slide__bottom__days__item__content__text">
                                                 <?php echo $day['Excerpt'] ?>
                                             </div>

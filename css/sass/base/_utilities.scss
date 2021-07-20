@@ -1,10 +1,9 @@
-
 .u-small-text {
-    font-size: 1.2rem !important;
+    font-size: 1.5rem !important;
     text-transform: uppercase;
     font-weight: 700 !important;
 }
- 
+
 .u-center-text {
     text-align: center !important;
 }
@@ -37,7 +36,6 @@
     margin-top: 0 !important;
 }
 
-
 .u-margin-top-small {
     margin-top: 2rem !important;
 }
@@ -64,10 +62,9 @@
 
 .fixed-position {
     position: fixed;
- }
-
- .lock-scroll {
-    overflow: hidden;
-    height:100%;
 }
 
+.lock-scroll {
+    overflow: hidden;
+    height: 100%;
+}

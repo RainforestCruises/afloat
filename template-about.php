@@ -19,7 +19,7 @@ get_header();
 ?>
 
 <!-- About Page Container -->
-<section class="about-page">
+<main class="about-page">
 
 
 
@@ -58,7 +58,7 @@ get_header();
     </section>
 
 
-</section>
+</main>
 
 
 

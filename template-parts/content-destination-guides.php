@@ -33,9 +33,9 @@ $travel_guide_posts = get_field('travel_guide_posts');
                         <img <?php afloat_responsive_image($img['id'], 'featured-medium', array('featured-medium', 'featured-small')); ?>>
 
                         <div class="destination-guides__grid-container__grid__item__content">
-                            <h5 class="destination-guides__grid-container__grid__item__content__category">
+                            <div class="destination-guides__grid-container__grid__item__content__category">
                                 <?php echo $displayCategory ?>
-                            </h5>
+                            </div>
                             <h3 class="destination-guides__grid-container__grid__item__content__title">
                                 <?php echo $displayTitle ?>
                             </h3>

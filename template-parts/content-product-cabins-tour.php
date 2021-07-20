@@ -11,9 +11,9 @@ $hotels = get_field('hotels');
 <?php if ($properties) : ?>
     <div class="product-cabins u-margin-bottom-medium">
 
-        <h2 class="xsub-divider xsub-divider--dark u-margin-bottom-small">
+        <h3 class="xsub-divider xsub-divider--dark u-margin-bottom-small">
             Cruises & Lodges
-        </h2>
+        </h3>
 
         <?php foreach ($properties as $property) : ?>
             <?php
@@ -33,7 +33,7 @@ $hotels = get_field('hotels');
                 </div>
                 <div class="product-cabins__cabin__content">
                     <div class="product-cabins__cabin__content__title ">
-                        <h3><?php echo $propertyTitle; ?></h3>
+                        <h4><?php echo $propertyTitle; ?></h4>
                     </div>
                     <div class="product-cabins__cabin__content__snippet">
                         <?php echo $propertySnippet; ?>
@@ -88,9 +88,9 @@ $hotels = get_field('hotels');
 <?php if ($hotels) : ?>
     <div class="product-hotels">
 
-        <h2 class="xsub-divider xsub-divider--dark u-margin-bottom-small">
+        <h3 class="xsub-divider xsub-divider--dark u-margin-bottom-small">
             Hotel Options
-        </h2>
+        </h3>
         <div class="sub-divider-text">
             <p><?php echo get_field('hotels_snippet') ?></p>
         </div>
@@ -124,12 +124,12 @@ $hotels = get_field('hotels');
                             <?php echo $hotelPriceLevel; ?>
                         </div>
                         <div>
-                            <h3 class="card-square__title-group__name">
+                            <h4 class="card-square__title-group__name">
                                 <?php echo  $hotelTitle ?>
-                            </h3>
-                            <h5 class="card-square__title-group__subtext">
+                            </h4>
+                            <div class="card-square__title-group__subtext">
                                 <?php echo get_field('navigation_title', $hotelCity) ?>
-                            </h5>
+                            </div>
                         </div>
 
                     </div>

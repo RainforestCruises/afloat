@@ -49,7 +49,7 @@ while (have_posts()) :
 ?>
 
   <!-- Product Page Container -->
-  <div class="product-page">
+  <main class="product-page">
 
     <!-- Hero -->
     <section class="product-page__section-hero" id="top">
@@ -102,7 +102,7 @@ while (have_posts()) :
     </section>
 
 
-  </div>
+  </main>
 
 
 

@@ -30,9 +30,9 @@ $destinations_subtext = get_field('destinations_title_subtext');
                             <h3 class="home-destination-card__title-area__title">
                                 <?php echo get_field('navigation_title', $destinationPost) ?>
                             </h3>
-                            <h4 class="home-destination-card__title-area__subtitle">
+                            <div class="home-destination-card__title-area__subtitle">
                                 <?php echo $d['sub_title'] ?>
-                            </h4>
+                            </div>
                         </div>
                     </a>
 

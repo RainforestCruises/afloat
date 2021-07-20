@@ -16,7 +16,7 @@ $rows = get_field('faqs');
                 <!-- FAQ -->
                 <div class="destination-faq__grid-container__faq">
                     <div class="destination-faq__grid-container__faq__question">
-                        <span><?php echo $question; ?></span>
+                        <h3><?php echo $question; ?></h3>
                         <div class="plus-minus-toggle plus-collapsed"></div>
                     </div>
                     <div class="destination-faq__grid-container__faq__answer" style="display: none;">

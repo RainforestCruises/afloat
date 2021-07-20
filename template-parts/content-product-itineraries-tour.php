@@ -37,9 +37,9 @@ $img = get_field('map');
                 <!-- Map Area -->
                 <div class="product-itinerary-slide__top__map-area">
                     <div class="product-itinerary-slide__top__map-area__title">
-                        <h3 class="product-itinerary-slide__top__map-area__title__text">
+                        <div class="product-itinerary-slide__top__map-area__title__text">
                             <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night - <?php echo get_field('tour_name') ?>
-                        </h3>
+                        </div>
                     </div>
                     <!-- Map -->
                     <a class="itinerary-map-image" href="<?php echo $img['url']; ?>" title="<?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night - <?php echo get_field('tour_name') ?>">
@@ -51,11 +51,11 @@ $img = get_field('map');
 
                 <!-- Side Info Area -->
                 <?php $count = 0; ?>
-                <div class="product-itinerary-slide__top__side-info">
+                <aside class="product-itinerary-slide__top__side-info">
                     <div class="product-itinerary-slide__top__side-info__tabs">
-                        <div class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">Overview</div>
-                        <div class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">Inclusions</div>
-                        <div class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</div>
+                        <h2 class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">Overview</h2>
+                        <h2 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">Inclusions</h2>
+                        <h2 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</h2>
                     </div>
 
                     <!-- Overview-->
@@ -64,7 +64,7 @@ $img = get_field('map');
                         <!-- Prices -->
                         <div class="product-itinerary-slide__top__side-info__content__widget">
                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section u-margin-bottom-small">
-                                <h4 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
+                                <h3 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
                                     Prices
                                     <?php 
                                     $display_policies = get_field('display_policies');
@@ -75,7 +75,7 @@ $img = get_field('map');
                                             </use>
                                         </svg>
                                     <?php endif; ?>
-                                </h4>
+                                </h3>
                                 <?php $yearCount = 0; ?>
                                 <div class="product-itinerary-slide__select-group">
                                     <label>
@@ -158,9 +158,9 @@ $img = get_field('map');
                         <div class="product-itinerary-slide__top__side-info__content__widget noborder">
                             <?php $locations = get_field('locations');
                             if ($locations) : ?>
-                                <h4 class="product-itinerary-slide__top__side-info__content__widget__small-title">
+                                <h3 class="product-itinerary-slide__top__side-info__content__widget__small-title">
                                     Places Visited
-                                </h4>
+                                </h3>
                                 <ul class="product-itinerary-slide__top__side-info__content__widget__list">
                                     <?php foreach ($locations as $l) : ?>
                                         <li><?php echo get_field('navigation_title', $l) ?></li>
@@ -175,9 +175,9 @@ $img = get_field('map');
                         if ($activities) : ?>
                             <div class="product-itinerary-slide__top__side-info__content__widget noborder">
 
-                                <h4 class="product-itinerary-slide__top__side-info__content__widget__small-title">
+                                <h3 class="product-itinerary-slide__top__side-info__content__widget__small-title">
                                     Activities
-                                </h4>
+                                </h3>
                                 <ul class="product-itinerary-slide__top__side-info__content__widget__list">
                                     <?php foreach ($activities as $a) : ?>
                                         <li><?php echo get_the_title($a) ?></li>
@@ -193,7 +193,7 @@ $img = get_field('map');
 
                     <!-- Inclusions -->
                     <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">
-                        <h4 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Incuded</h4>
+                        <h3 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Incuded</h3>
                         <ul class="product-itinerary-slide__top__side-info__content__inclusions-list">
                             <?php
                             $inclusions = get_field('inclusions');
@@ -214,7 +214,7 @@ $img = get_field('map');
 
                     <!-- Exclusions -->
                     <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">
-                        <h4 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Excluded</h4>
+                        <h3 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Excluded</h3>
                         <ul class="product-itinerary-slide__top__side-info__content__inclusions-list">
 
                             <?php
@@ -232,7 +232,7 @@ $img = get_field('map');
                         </ul>
                     </div>
 
-                </div>
+                </aside>
             </div>
 
             <!-- D2D - Bottom Section -->
@@ -255,9 +255,9 @@ $img = get_field('map');
 
                                 <!-- Content -->
                                 <div class="product-itinerary-slide__bottom__days__item__content">
-                                    <h4 class="product-itinerary-slide__bottom__days__item__content__title">
+                                    <h3 class="product-itinerary-slide__bottom__days__item__content__title">
                                         <?php echo $day['day_title']; ?>
-                                    </h4>
+                                    </h3>
                                     <div class="product-itinerary-slide__bottom__days__item__content__text">
                                         <?php echo $day['day_description']; ?>
                                     </div>

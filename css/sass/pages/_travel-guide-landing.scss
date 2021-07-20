@@ -1,6 +1,4 @@
 .travel-guide-landing-page {
-
-
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -38,39 +36,39 @@
 
         color: $color-supporting;
 
-        & li { 
-          display: inline-block;
-          width: max-content;
-          &:not(:last-child):after {
-            content: " / ";
-            padding-left: 1px;
-            padding-right: 4px;
-          }
-
-          & a {
-            position: relative;
-            text-decoration: none;
-            color: currentColor;
-
-            &::after {
-              content: "";
-              position: absolute;
-              bottom: -0.3rem;
-              left: 0;
-              width: 97%;
-              height: 1px;
-              background-color: currentColor;
-              transition: all 0.2s;
-              opacity: 0;
+        & li {
+            display: inline-block;
+            width: max-content;
+            &:not(:last-child):after {
+                content: " / ";
+                padding-left: 1px;
+                padding-right: 4px;
             }
 
-            &:hover {
-              &::after {
+            & a {
+                position: relative;
+                text-decoration: none;
                 color: currentColor;
-                opacity: 1;
-              }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -0.3rem;
+                    left: 0;
+                    width: 97%;
+                    height: 1px;
+                    background-color: currentColor;
+                    transition: all 0.2s;
+                    opacity: 0;
+                }
+
+                &:hover {
+                    &::after {
+                        color: currentColor;
+                        opacity: 1;
+                    }
+                }
             }
-          }
         }
     }
 
@@ -87,7 +85,6 @@
             width: 100%;
             height: 100%;
 
-            
             height: 35rem;
             display: flex;
             position: relative;
@@ -134,35 +131,6 @@
                 stroke-width: 2;
             }
         }
-
-        & input {
-            position: absolute;
-            bottom: 40%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            
-            width: 50rem;
-            
-            
-
-            @media only screen and (max-width: $bp-small) {
-                width: 30rem;
-                
-            }
-
-            background-color: rgba($color-white, 0.9);
-            border-radius: 0.5rem;
-            border: none;
-            padding: 2rem 3.5rem;
-            box-shadow: $shadow-medium;
-
-            font-family: $font-primary;
-            letter-spacing: 0.1rem;
-            color: $color-grey-2;
-            font-weight: 600;
-            font-size: 1.6rem;
-        }
     }
 
     &__content {
@@ -185,6 +153,45 @@
             @media only screen and (max-width: $bp-small) {
                 padding: 0 3rem;
             }
+        }
+
+        &__search-area {
+            width: 100%;
+            max-width: $page-width;
+            padding: 2rem 6rem;
+            display: flex;
+            justify-content: center;
+            @media only screen and (max-width: $bp-small) {
+                padding: 0 3rem;
+            }
+
+            position: relative;
+
+
+            & input {
+                width: 100%;
+                max-width: 50rem;
+                border-radius: 4rem;
+                background-color: rgba($color-white, 0.9);
+                border: 2px solid $color-grey-light-2;
+                padding: 1.5rem 2.5rem;
+                box-shadow: none;
+    
+                font-family: $font-primary;
+                letter-spacing: 0.1rem;
+                color: $color-grey-2;
+                font-weight: 600;
+                font-size: 1.6rem;
+
+                transition: all .2s;
+                outline: none;
+                &:focus {
+                    box-shadow: $shadow-medium;
+                    border: 2px solid $color-primary;
+                }
+            }
+
+        
         }
 
         &__subtext {
@@ -217,7 +224,7 @@
                 color: $color-primary;
                 font-weight: 800;
                 padding: 1rem 2rem;
-                border: 1px solid $color-grey-light-2;
+                border: 2px solid $color-grey-light-2;
                 border-radius: 4rem;
                 font-size: 1.6rem;
                 margin: 0.5rem;
@@ -227,11 +234,11 @@
 
                 &:hover,
                 &:active {
-                    border: 1px solid $color-primary;
+                    border: 2px solid $color-primary;
                 }
             }
             & .selected {
-                border: 1px solid $color-primary;
+                border: 2px solid $color-primary;
             }
         }
 
@@ -241,13 +248,11 @@
             width: 100%;
 
             margin-top: 2rem;
-           
         }
     }
 }
 
 .guide-item {
-
     margin: 3rem;
     margin-bottom: 6rem;
     box-shadow: $shadow-medium;
@@ -268,7 +273,7 @@
         height: 35rem;
 
         @media only screen and (max-width: $bp-small) {
-            height: 26rem
+            height: 26rem;
         }
 
         & img {
@@ -281,8 +286,6 @@
         }
     }
     &__bottom {
-
-
         display: flex;
         flex-direction: column;
 
@@ -297,34 +300,41 @@
             flex-wrap: wrap;
             margin: 1rem 0;
             list-style: none;
-           
+
             & li {
                 white-space: nowrap;
                 margin-right: 1rem;
                 position: relative;
 
-                &:not(:last-child){
+                &:not(:last-child) {
                     &::after {
                         content: ", ";
                         position: absolute;
-                        right: -.4rem;
+                        right: -0.4rem;
                     }
                 }
-              
             }
         }
 
         &__title {
-            font-size: 3rem;
-            font-weight: 500;
-            letter-spacing: 0.1rem;
-            line-height: 4rem;
-            color: $color-primary;
-            margin: 0.5rem 0;
-            text-decoration: none;
-            transition: all 0.2s;
-            &:hover {
-                color: $color-supporting-light;
+            &:link,
+            &:visited {
+                text-decoration: none;
+                color: $color-primary;
+                &:hover {
+                    color: $color-supporting-light;
+                }
+            }
+
+            & h2 {
+                font-size: 3rem;
+                font-weight: 500;
+                letter-spacing: 0.1rem;
+                line-height: 4rem;
+
+                margin: 0.5rem 0;
+
+                transition: all 0.2s;
             }
         }
 

@@ -65,7 +65,7 @@ $images = get_field('highlight_gallery');
                 <!-- H1 Title / Subtitle -->
                 <div class="product-hero__top__content__title-group">
                     <h1 class="product-hero__top__content__title-group__title" id="template-nav-title"><?php echo $productTitle ?></h1>
-                    <h2 class="product-hero__top__content__title-group__subtitle"><?php echo get_field('top_snippet') ?></h2>
+                    <div class="product-hero__top__content__title-group__subtitle"><?php echo get_field('top_snippet') ?></div>
                 </div>
 
                 <!-- Navigation Wrapper -->
