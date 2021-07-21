@@ -157,7 +157,7 @@ $posts = get_posts($args); //Stage I posts
         </div>
         <div class="travel-guide-landing-page__content__categories filters-button-group">
             <button data-filter="*" class="filter-button filter-button-all selected">
-                All Guides
+                All
             </button>
             <?php foreach ($categories as $c) : ?>
                 <button data-filter="<?php echo '.' . $c->post_name ?>" class="filter-button">

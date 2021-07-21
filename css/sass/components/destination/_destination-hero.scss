@@ -514,6 +514,8 @@
                 justify-self: flex-start;
                 height: 100%;
 
+                visibility: hidden;
+
                 @media only screen and (max-width: $bp-large) {
                     height: min-content;
                     //margin: 0 9rem;
@@ -522,6 +524,12 @@
                         padding: 0 7rem !important;
                     }
                 }
+
+                &.slick-initialized {
+                    visibility:visible;
+                }
+
+              
 
                 & .slick-active {
                     animation: slideFade 1s both;

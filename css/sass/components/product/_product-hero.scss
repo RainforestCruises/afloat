@@ -710,6 +710,12 @@
         display: none;
       }
 
+      visibility: hidden;
+
+      &.slick-initialized {
+        visibility:visible;
+    }
+
       .slick-slide {
         outline: none;
         margin: 1rem;
@@ -719,10 +725,8 @@
       }
  
       &__item {
-        color: white; //text
-        font-size: 2rem;
+
         position: relative;
-        background-color: rosybrown;
 
         height: min-content; //slick determins h/w
         width: 100%;

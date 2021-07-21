@@ -11,7 +11,7 @@ function console_log($data)
 //--------------------------------
 
 
-function afloat_responsive_image($image_id, $image_size, $sizes_array)
+function afloat_responsive_image($image_id, $image_size, $sizes_array, $slickLazy = false)
 {
 
     // check the image ID is not blank
@@ -36,9 +36,17 @@ function afloat_responsive_image($image_id, $image_size, $sizes_array)
         }
 
         // generate the markup for the responsive image
-        echo 'loading="lazy" src="' . $image_src . '" srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . 'px) 100vw, ' . $max_width . 'px" alt="' . $image_alt .'"';
+
+        if($slickLazy == true){
+            echo 'data-lazy="' . $image_src . '"  alt="' . $image_alt .'"';
+
+        }else {
+            echo 'loading="lazy" src="' . $image_src . '" srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . 'px) 100vw, ' . $max_width . 'px" alt="' . $image_alt .'"';
+
+        }
     }
 }
+
 
 
 //lazy loading for flickity

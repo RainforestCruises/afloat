@@ -1,8 +1,6 @@
 jQuery(document).ready(function ($) {
     const templateUrl = page_vars.templateUrl;
 
-    
-
     // Down Arrow
     $('#scroll-down').click(function (event) {
         var id = $(this).attr('href');
@@ -17,6 +15,20 @@ jQuery(document).ready(function ($) {
         $('html, body').animate({ scrollTop: target }, 500);
         window.location.hash = id;
     }
+
+
+
+    //Flickity
+    var flickitySlider = new Flickity('.home-hero__bg', {
+        prevNextButtons: false,
+        pageDots: false,
+        fade: true,
+        lazyLoad: true,
+
+        // options
+    });
+
+
 
 
     //SLIDERS
@@ -34,20 +46,6 @@ jQuery(document).ready(function ($) {
     //     lazyLoad: 'ondemand',
 
     // });
-
-
-    //Flickity
-    var flickitySlider = new Flickity('.home-hero__bg', {
-        prevNextButtons: false,
-        pageDots: false,
-        fade: true,
-        lazyLoad: true,
-
-        // options
-    });
-
-
-
 
     // //--hero bg nav/label
     // $('.home-hero__bottom__slide-nav').slick({
@@ -74,6 +72,8 @@ jQuery(document).ready(function ($) {
     //     ]
     // })
 
+
+    //Slick Sliders
     $('#intro-testimonials').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -389,10 +389,10 @@ jQuery(document).ready(function ($) {
     const mobileSearchButton = document.querySelector('.home-full-search-cta__button');
     const mobileLoading = document.querySelector('.home-full-search-loading');
 
-    
 
-    
-    window.onpageshow = function(event) {
+
+
+    window.onpageshow = function (event) {
         mobileLoading.classList.remove('active'); // on first load
         hideMobileFilters();
     };
@@ -659,7 +659,7 @@ jQuery(document).ready(function ($) {
     const overlay = document.querySelector('.home-full-search');
     const overlayCta = document.querySelector('.home-full-search-cta');
 
-    
+
     //Mobile search button
     $('#mobile-search-button').click(function (event) {
 
@@ -681,7 +681,7 @@ jQuery(document).ready(function ($) {
         overlayCta.classList.remove('active');
 
         mobileSearchDatesContainer.classList.remove('active');
-        
+
     }
 
     function showMobileFilters() {

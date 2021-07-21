@@ -132,7 +132,7 @@ foreach ($menuitems as $m) {
             <?php endforeach; ?>
 
             <a class="nav-mobile__content-panel__button mobile-link divider" href="<?php echo get_home_url(); ?>/contact">Contact</a>
-            
+
             <a class="nav-mobile__content-panel__button mobile-link phone" href="tel:<?php echo get_field('phone_number_numeric', 'options'); ?>">
                 <?php echo get_field('phone_number', 'options'); ?>
             </a>
@@ -199,9 +199,9 @@ foreach ($menuitems as $m) {
                     <a href="<?php echo $destinationMenuItem['url'] ?>" class="nav-mobile__content-panel__button mobile-link"><?php echo $destinationMenuItem['title'] ?></a>
                 <?php endforeach; ?>
                 <a href="<?php echo $destination_group['url'] ?>" class="nav-mobile__content-panel__button mobile-link divider">
-                   
-                        View All
-                  
+
+                    View All
+
                 </a>
             </div>
         <?php endforeach; ?>
@@ -219,11 +219,11 @@ foreach ($menuitems as $m) {
             <div class="header__main__logo-area">
                 <a href="<?php echo get_home_url(); ?>" class="header__main__logo-area__logo">
                     <?php
-                    $logo = get_theme_mod('custom_logo');               
-                    $image = wp_get_attachment_image_src($logo, 'full');                 
+                    $logo = get_theme_mod('custom_logo');
+                    $image = wp_get_attachment_image_src($logo, 'full');
                     $image_url = $image[0];
                     ?>
-                    <img src="<?php echo $image_url ?>" alt="<?php echo get_bloginfo( 'name' ) ?>" />
+                    <img src="<?php echo $image_url ?>" alt="<?php echo get_bloginfo('name') ?>" />
                 </a>
             </div>
 
@@ -293,7 +293,8 @@ foreach ($menuitems as $m) {
                 <?php endforeach; ?>
             </div>
         </div>
-
+        
+        <div class="nav-mega-overlay"></div>
 
 
 

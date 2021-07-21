@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
 
   });
 
- 
+
 
 
 
@@ -45,11 +45,11 @@ jQuery(document).ready(function ($) {
     if (event.target == modal) { //trigger by background click
       modal.style.display = "none";
       body.removeClass('no-scroll');
-    }   
+    }
     if (event.target == priceNotesModal) { //trigger by background click
       priceNotesModal.classList.remove('active');
       body.removeClass('no-scroll');
-    }    
+    }
   }
 
 
@@ -525,10 +525,20 @@ jQuery(document).ready(function ($) {
         }
       }
     ],
-  })
+  });
+
+  // //Flickity
+  // var flickitySlider = new Flickity('#product-gallery', {
+  //   prevNextButtons: false,
+  //   pageDots: false,
+  //   cellAlign: 'left',
+  //   lazyLoad: 2,
+
+  // });
 
 
-  //Magnific Images
+
+  //Magnific ---------------------------------------------------------------------------
   //Gallery
   $('#product-gallery').magnificPopup({
     delegate: '.slick-slide:not(.slick-cloned) .product-hero__gallery__slick__item a',
@@ -568,62 +578,62 @@ jQuery(document).ready(function ($) {
 
 
 
-  //Tabs Nav Itinerary (3/4/5 day...)
-  $('.product-itineraries__nav__list li').click(function () {
-    var tab_id = $(this).attr('data-tab');
+  // //Tabs Nav Itinerary (3/4/5 day...)
+  // $('.product-itineraries__nav__list li').click(function () {
+  //   var tab_id = $(this).attr('data-tab');
 
 
-    $('.product-itineraries__nav__list__item').removeClass('current');
-    $('.product-itineraries__itinerary.tab-content').removeClass('current');
+  //   $('.product-itineraries__nav__list__item').removeClass('current');
+  //   $('.product-itineraries__itinerary.tab-content').removeClass('current');
 
-    $(this).addClass('current');
-    $("#" + tab_id).addClass('current');
-  })
+  //   $(this).addClass('current');
+  //   $("#" + tab_id).addClass('current');
+  // })
 
-  //Itinerary Page Arrows
-  $('.product-itineraries__itinerary__map__btn').click(function () {
-    var tab_id = $(this).attr('data-tab');
-    console.log(tab_id)
-    $('.product-itineraries__itinerary.tab-content').removeClass('current');
-    $(".product-itineraries__nav__item").removeClass('current');
-    $("#" + tab_id + "-nav").addClass('current');
-    $("#" + tab_id).addClass('current');
-  })
-
-
-  //Inex Tabs (all itineraries)
-  var inexTabList = document.querySelectorAll(".product-itineraries__itinerary__inclusions__tabs__list li");
-  inexTabList.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      var tab_name = $(this).attr('name');
-
-      $('.product-itineraries__itinerary__inclusions__tabs__item').removeClass('current');
-      $('.product-itineraries__itinerary__inclusions__tab-pane.tab-content').removeClass('current');
-
-      var tabs = $('[name="' + tab_name + '"]'); //find all tabs (must be matching tab content class name)
-      tabs.addClass('current');
-      $("." + tab_name).addClass('current');
-    });
-  });
+  // //Itinerary Page Arrows
+  // $('.product-itineraries__itinerary__map__btn').click(function () {
+  //   var tab_id = $(this).attr('data-tab');
+  //   console.log(tab_id)
+  //   $('.product-itineraries__itinerary.tab-content').removeClass('current');
+  //   $(".product-itineraries__nav__item").removeClass('current');
+  //   $("#" + tab_id + "-nav").addClass('current');
+  //   $("#" + tab_id).addClass('current');
+  // })
 
 
+  // //Inex Tabs (all itineraries)
+  // var inexTabList = document.querySelectorAll(".product-itineraries__itinerary__inclusions__tabs__list li");
+  // inexTabList.forEach(function (tab) {
+  //   tab.addEventListener('click', function () {
+  //     var tab_name = $(this).attr('name');
+
+  //     $('.product-itineraries__itinerary__inclusions__tabs__item').removeClass('current');
+  //     $('.product-itineraries__itinerary__inclusions__tab-pane.tab-content').removeClass('current');
+
+  //     var tabs = $('[name="' + tab_name + '"]'); //find all tabs (must be matching tab content class name)
+  //     tabs.addClass('current');
+  //     $("." + tab_name).addClass('current');
+  //   });
+  // });
 
 
-  const items = document.querySelectorAll(".accordion button");
 
-  function toggleAccordion() {
-    const itemToggle = this.getAttribute('aria-expanded');
 
-    for (i = 0; i < items.length; i++) {
-      items[i].setAttribute('aria-expanded', 'false');
-    }
+  // const items = document.querySelectorAll(".accordion button");
 
-    if (itemToggle == 'false') {
-      this.setAttribute('aria-expanded', 'true');
-    }
-  }
+  // function toggleAccordion() {
+  //   const itemToggle = this.getAttribute('aria-expanded');
 
-  items.forEach(item => item.addEventListener('click', toggleAccordion));
+  //   for (i = 0; i < items.length; i++) {
+  //     items[i].setAttribute('aria-expanded', 'false');
+  //   }
+
+  //   if (itemToggle == 'false') {
+  //     this.setAttribute('aria-expanded', 'true');
+  //   }
+  // }
+
+  // items.forEach(item => item.addEventListener('click', toggleAccordion));
 
 
 

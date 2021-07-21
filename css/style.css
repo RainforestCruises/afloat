@@ -3147,20 +3147,20 @@ h5 {
       z-index: 20;
       height: min-content;
       width: 100%;
-      margin-bottom: 5rem; }
+      margin-bottom: 5rem;
+      visibility: hidden; }
       @media only screen and (max-width: 62.5em) {
         .product-hero__gallery__slick {
           display: none; } }
+      .product-hero__gallery__slick.slick-initialized {
+        visibility: visible; }
       .product-hero__gallery__slick .slick-slide {
         outline: none;
         margin: 1rem;
         margin-bottom: 3rem;
         transition: all 0.3s; }
       .product-hero__gallery__slick__item {
-        color: white;
-        font-size: 2rem;
         position: relative;
-        background-color: rosybrown;
         height: min-content;
         width: 100%;
         box-shadow: 0 2rem 2rem -1rem rgba(0, 0, 0, 0.25); }
@@ -5960,12 +5960,15 @@ h5 {
         font-size: 1.6rem;
         position: relative;
         justify-self: flex-start;
-        height: 100%; }
+        height: 100%;
+        visibility: hidden; }
         @media only screen and (max-width: 62.5em) {
           .destination-hero__content__location__slider {
             height: min-content; }
             .destination-hero__content__location__slider .slick-list {
               padding: 0 7rem !important; } }
+        .destination-hero__content__location__slider.slick-initialized {
+          visibility: visible; }
         .destination-hero__content__location__slider .slick-active {
           animation: slideFade 1s both;
           animation-timing-function: ease-out;
@@ -10175,6 +10178,20 @@ h5 {
           .nav-mobile__content-panel a--forward svg {
             right: 1.5rem; } }
 
+.nav-mega-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1000%;
+  background-image: linear-gradient(to left, rgba(30, 30, 30, 0.5), rgba(30, 30, 30, 0.5));
+  z-index: -1;
+  display: none; }
+  .nav-mega-overlay.active {
+    display: block;
+    animation: fadein 0.3s;
+    opacity: 1; }
+
 .nav-mega {
   z-index: 18;
   display: none;
@@ -10183,7 +10200,8 @@ h5 {
   background-color: #fff;
   border-bottom: 1px solid #c2c6c9;
   transition: all 0.5s;
-  opacity: 0; }
+  opacity: 0;
+  position: relative; }
   .nav-mega.active {
     display: flex;
     animation: fadein 0.3s;

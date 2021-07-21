@@ -25,6 +25,8 @@ jQuery(document).ready(function ($) {
   const headerDiv = document.querySelector('.header');
   const headerMain = document.querySelector('.header__main');
 
+  const megaMenuOverlay = document.querySelector('.nav-mega-overlay');
+
   const megaMenu = document.querySelector('.nav-mega');
   const burgerButton = document.querySelector('#burger-menu');
   const burgerButtonClose = document.querySelector('#burger-menu-close');
@@ -69,15 +71,11 @@ jQuery(document).ready(function ($) {
         isMobile = true;
       }
 
-
       if (!opaqueNavAlways && !isMobile) {
-
-
         headerMain.classList.add('active');
-
-
       }
     },
+
     function () {
 
       var mobileExpanded = burgerButton.classList.contains('nav-mobile--active');
@@ -101,6 +99,7 @@ jQuery(document).ready(function ($) {
   $(document).mouseleave(function () {
 
     megaMenu.classList.remove('active');
+    megaMenuOverlay.classList.remove('active');
     $('.nav-secondary').removeClass('mega-hide');
 
     let menuActive = navMobile.classList.contains('nav-mobile--active');
@@ -119,6 +118,8 @@ jQuery(document).ready(function ($) {
     },
     function () {//on hover out
       megaMenu.classList.remove('active');
+      megaMenuOverlay.classList.remove('active');
+
       $('.nav-secondary').removeClass('mega-hide');
 
       if (window.scrollY == 0 && !opaqueNavAlways) {
@@ -134,6 +135,8 @@ jQuery(document).ready(function ($) {
       var navelement = this.getAttribute("navelement");
 
       megaMenu.classList.add('active');
+      megaMenuOverlay.classList.add('active');
+
       headerMain.classList.add('active');
       $('.nav-secondary').addClass('mega-hide');
 
@@ -163,6 +166,8 @@ jQuery(document).ready(function ($) {
   $('.header__main__nav__list__item__link.no-mega').hover(
     function () {
       megaMenu.classList.remove('active');
+      megaMenuOverlay.classList.remove('active');
+
       headerMain.classList.add('active');
       $('.nav-secondary').removeClass('mega-hide');
     },
@@ -295,6 +300,8 @@ jQuery(document).ready(function ($) {
     }
     if ($(window).width() <= 1000) {
       megaMenu.classList.remove('active');
+      megaMenuOverlay.classList.remove('active');
+
     }
   });
 
@@ -331,10 +338,7 @@ jQuery(document).ready(function ($) {
       c = currentScrollTop;
     }
 
-
-
   });
-
 
 });
 
