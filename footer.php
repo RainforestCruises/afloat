@@ -112,6 +112,7 @@ $menu_group = [];
     </div>
 </footer>
 <?php wp_footer(); ?>
+
 </body>
 
 

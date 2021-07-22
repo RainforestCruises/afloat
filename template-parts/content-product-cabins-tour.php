@@ -68,7 +68,7 @@ $hotels = get_field('hotels');
                         </a>
                     </div>
 
-              
+
 
                 </div>
             </div>
@@ -85,16 +85,19 @@ $hotels = get_field('hotels');
 <?php endif; ?>
 
 <!-- Hotels -->
-<?php if ($hotels) : ?>
+<?php if ($hotels) :
+    $hotel_snippet = get_field('hotels_snippet');
+?>
     <div class="product-hotels">
 
         <h3 class="xsub-divider xsub-divider--dark u-margin-bottom-small">
             Hotel Options
         </h3>
-        <div class="sub-divider-text">
-            <p><?php echo get_field('hotels_snippet') ?></p>
-        </div>
-
+        <?php if ($hotel_snippet != "") : ?>
+            <div class="sub-divider-text">
+                <p><?php echo get_field('hotels_snippet') ?></p>
+            </div>
+        <?php endif ?>
 
 
         <div class="product-hotels__slider" id="hotels-slider">

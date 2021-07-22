@@ -5,10 +5,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,user-scalable=0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
-
-
+    <meta name="author" content="Ryan Lewis">
 
     <!-- Load Head / Style Sheets -->
     <?php wp_head(); ?>
@@ -18,11 +15,6 @@
 
 
 <?php
-
-
-
-
-
 
 $menu_name = 'main_menu';
 $locations = get_nav_menu_locations();

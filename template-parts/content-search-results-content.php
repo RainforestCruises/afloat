@@ -9,9 +9,9 @@ if ($results) :
     foreach ($results as $result) :
 ?>
         <div class="search-result">
-            <div class="search-result__image-area">
-            <img <?php afloat_responsive_image($result->productImageId, 'featured-medium', array('featured-medium')); ?>>
-            </div>
+            <a href="<?php echo $result->postUrl;  ?>" class="search-result__image-area">
+                <img <?php afloat_responsive_image($result->productImageId, 'featured-medium', array('featured-medium')); ?>>
+            </a>
             <div class="search-result__content">
                 <div class="search-result__content__top">
                     <div class="search-result__content__top__badge-area">

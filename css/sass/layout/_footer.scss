@@ -254,8 +254,9 @@
         }
 
         & img {
+            filter: brightness(0) invert(1);
             height: 10rem;
-            width: auto;
+            width: auto; 
         }
     }
 

@@ -197,10 +197,10 @@
     background-color: $color-white;
     z-index: 10002;
 
-    &__logo {
+    &__logo { 
         width: 22rem;
         height: auto;
-        filter: brightness(0) invert(0.1);
+        //filter: brightness(0) invert(0.1);
         //transform: translateY(-50%);
         margin-bottom: 6rem;
     }

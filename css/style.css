@@ -2101,9 +2101,9 @@ h5 {
     padding: 0 6rem;
     position: relative;
     margin-bottom: 6rem; }
-    @media only screen and (max-width: 37.5em) {
+    @media only screen and (max-width: 62.5em) {
       .travel-guide-landing-page__header {
-        padding: 0 3rem; } }
+        display: none; } }
     .travel-guide-landing-page__header__image-area {
       width: 100%;
       height: 100%;
@@ -8215,7 +8215,6 @@ h5 {
   .home-full-search-loading__logo {
     width: 22rem;
     height: auto;
-    filter: brightness(0) invert(0.1);
     margin-bottom: 6rem; }
   .home-full-search-loading.active {
     display: flex; }
@@ -10748,6 +10747,7 @@ h5 {
         grid-column: center-start / center-end;
         margin-bottom: 3rem; } }
     .footer__logo img {
+      filter: brightness(0) invert(1);
       height: 10rem;
       width: auto; }
   .footer__copyright {
