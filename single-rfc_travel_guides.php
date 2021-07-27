@@ -59,7 +59,7 @@ while (have_posts()) :
   }
   if ($guideType == 'rfc_locations') {
     $locationPost = get_field('location', $breadcrumbTravelGuidePage);
-    $breadcrumbTravelGuideText  = get_field('navigation_title', $destinationPost);
+    $breadcrumbTravelGuideText  = get_field('navigation_title', $locationPost);
   }
 
   //related posts

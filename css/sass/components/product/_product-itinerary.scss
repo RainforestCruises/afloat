@@ -512,11 +512,12 @@
                     letter-spacing: 0.1rem;
                     text-transform: uppercase;
                     font-weight: 700;
-                    color: $color-grey-1;
+                    color: $color-grey-1; 
                     padding: 1.5rem 1rem;
                     position: relative;
                     transition: color 0.2s;
                     cursor: pointer;
+                    margin-bottom: 0;
 
                     @media only screen and (max-width: $bp-small) {
                         //super small screen

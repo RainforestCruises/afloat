@@ -7,6 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="Ryan Lewis">
 
+    <!-- Structured Data / Rich Snippets -->
+    <?php
+    //Destination
+    if (is_page_template('template-destinations-destination.php') || is_page_template('template-destinations-cruise.php') || is_page_template('template-destinations-region.php')) {
+        echo structuredData('destination');
+    }
+
+    //Product
+    if (get_post_type() == 'rfc_cruises' || get_post_type() == 'rfc_tours' || get_post_type() == 'rfc_lodges') {
+        echo structuredData('product');
+    }
+
+    //Search
+    if (is_page_template('template-search.php')) {
+        echo structuredData('product'); //identical structures
+    }
+
+    //Travel Guide Landing Page
+    if (is_page_template('template-travel-guide.php')) {
+        echo structuredData('guideLanding');
+    }
+
+    //Travel Guide
+    if (get_post_type() == 'rfc_travel_guides') {
+        echo structuredData('guide');
+    }
+
+    ?>
+
     <!-- Load Head / Style Sheets -->
     <?php wp_head(); ?>
 </head>
@@ -285,7 +314,7 @@ foreach ($menuitems as $m) {
                 <?php endforeach; ?>
             </div>
         </div>
-        
+
         <div class="nav-mega-overlay"></div>
 
 

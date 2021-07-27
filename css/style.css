@@ -3641,7 +3641,8 @@ h5 {
           padding: 1.5rem 1rem;
           position: relative;
           transition: color 0.2s;
-          cursor: pointer; }
+          cursor: pointer;
+          margin-bottom: 0; }
           @media only screen and (max-width: 37.5em) {
             .product-itinerary-slide__top__side-info__tabs__item {
               font-size: 1.3rem;

@@ -53,9 +53,9 @@ $img = get_field('map');
                 <?php $count = 0; ?>
                 <aside class="product-itinerary-slide__top__side-info">
                     <div class="product-itinerary-slide__top__side-info__tabs">
-                        <h2 class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">Overview</h2>
-                        <h2 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">Inclusions</h2>
-                        <h2 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</h2>
+                        <h4 class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">Overview</h4>
+                        <h4 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">Inclusions</h4>
+                        <h4 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</h4>
                     </div>
 
                     <!-- Overview-->
@@ -64,7 +64,7 @@ $img = get_field('map');
                         <!-- Prices -->
                         <div class="product-itinerary-slide__top__side-info__content__widget">
                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section u-margin-bottom-small">
-                                <h3 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
+                                <h5 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
                                     Prices
                                     <?php 
                                     $display_policies = get_field('display_policies');
@@ -75,7 +75,7 @@ $img = get_field('map');
                                             </use>
                                         </svg>
                                     <?php endif; ?>
-                                </h3>
+                                </h5>
                                 <?php $yearCount = 0; ?>
                                 <div class="product-itinerary-slide__select-group">
                                     <label>
@@ -158,9 +158,9 @@ $img = get_field('map');
                         <div class="product-itinerary-slide__top__side-info__content__widget noborder">
                             <?php $locations = get_field('locations');
                             if ($locations) : ?>
-                                <h3 class="product-itinerary-slide__top__side-info__content__widget__small-title">
+                                <h5 class="product-itinerary-slide__top__side-info__content__widget__small-title">
                                     Places Visited
-                                </h3>
+                                </h5>
                                 <ul class="product-itinerary-slide__top__side-info__content__widget__list">
                                     <?php foreach ($locations as $l) : ?>
                                         <li><?php echo get_field('navigation_title', $l) ?></li>
@@ -175,9 +175,9 @@ $img = get_field('map');
                         if ($activities) : ?>
                             <div class="product-itinerary-slide__top__side-info__content__widget noborder">
 
-                                <h3 class="product-itinerary-slide__top__side-info__content__widget__small-title">
+                                <h5 class="product-itinerary-slide__top__side-info__content__widget__small-title">
                                     Activities
-                                </h3>
+                                </h5>
                                 <ul class="product-itinerary-slide__top__side-info__content__widget__list">
                                     <?php foreach ($activities as $a) : ?>
                                         <li><?php echo get_the_title($a) ?></li>
@@ -193,7 +193,7 @@ $img = get_field('map');
 
                     <!-- Inclusions -->
                     <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">
-                        <h3 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Incuded</h3>
+                        <h5 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Incuded</h5>
                         <ul class="product-itinerary-slide__top__side-info__content__inclusions-list">
                             <?php
                             $inclusions = get_field('inclusions');
@@ -214,7 +214,7 @@ $img = get_field('map');
 
                     <!-- Exclusions -->
                     <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">
-                        <h3 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Excluded</h3>
+                        <h5 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Excluded</h5>
                         <ul class="product-itinerary-slide__top__side-info__content__inclusions-list">
 
                             <?php
