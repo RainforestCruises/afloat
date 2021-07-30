@@ -97,11 +97,6 @@ if (isset($_GET["travel_style"])) {
     }
 }
 
-//** possible issue is present when for example: **
-// Page selection is Cruises, user unselects cruises, navigates to another page, then clicks back... 
-// The page is then filtered for cruises, (not all, which is what unselected everything would be)
-// Checkboxes are unchecked though, the issue is the initial page load is filtered for cruises.
-
 
 
 //--Destinations

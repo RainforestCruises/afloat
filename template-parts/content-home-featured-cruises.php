@@ -41,10 +41,10 @@ $featured_cruise_subtext = get_field('featured_title_subtext');
                                 </a>
                             </div>
                         </div>
-                        <div class="home-featured-item__image-area">
-                        <img <?php afloat_responsive_image($c_image['id'], 'featured-square', array('featured-square')); ?>>
+                        <a href="<?php echo $cruise_page ?>" class="home-featured-item__image-area">
+                        <img  <?php afloat_responsive_image($c_image['id'], 'featured-square', array('featured-square')); ?>>
 
-                        </div>
+                        </a>
                     </div>
 
             <?php endforeach;

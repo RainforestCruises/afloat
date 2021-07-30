@@ -13,9 +13,7 @@ function load_scripts()
     wp_enqueue_style('ion-css', get_template_directory_uri() . '/vendor/ion-range-slider/css/ion.rangeSlider.min.css', array(), false, 'all');
     wp_enqueue_style('odometer-css', get_template_directory_uri() . '/vendor/odometer/odometer-theme-minimal.css', array(), false, 'all');
 
-    wp_enqueue_style('odometer-css', get_template_directory_uri() . '/vendor/odometer/odometer-theme-minimal.css', array(), false, 'all');
 
-    //wp_enqueue_style('animsition', get_template_directory_uri() . '/vendor/animsition/animsition.min.css', array(), false, 'all');
 
     wp_enqueue_style('template', get_template_directory_uri() . '/css/style.css', array(), false, 'all');
 
@@ -23,7 +21,7 @@ function load_scripts()
 
     //JS -------------- scripts
     //wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), '3.5.1', true);
-    //wp_enqueue_script('jquery', get_template_directory_uri() . '/vendor/jquery/jquery-3.6.0.min.js', array(), '3.6.0', true);
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/vendor/jquery/jquery-3.6.0.min.js', array(), '3.6.0', true);
 
     //wp_enqueue_style('animsition-js', get_template_directory_uri() . '/vendor/animsition/animsition.min.js', array('jquery'), false, 'all');
 

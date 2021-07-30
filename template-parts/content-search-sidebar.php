@@ -46,14 +46,11 @@ if ($searchType == 'region') {
     $destinationsArgs = array(
         'post_type' => 'rfc_destinations', //destinations
         'posts_per_page' => -1,
-        'orderby' => 'title',
-        'order' => 'ASC',
         "meta_key" => "region",
         "meta_value" => $regionId,
     );
     $destinations = get_posts($destinationsArgs);
 }
-
 
 //itinerary length
 $itinerary_length_min = 1;
@@ -64,28 +61,6 @@ if (get_field('itinerary_length_min') != null) {
 if (get_field('itinerary_length_max') != null) {
     $itinerary_length_max = get_field('itinerary_length_max');
 };
-
-
-// //check if any filters applied on load
-// $hasFiltersApplied = false;
-// if(count($selectedTravelTypes) != 0){
-//     $hasFiltersApplied = true;
-// }
-// if(count($selectedExperiences) != 0){
-//     $hasFiltersApplied = true;
-// }
-// if(count($selectedDestinations) != 0){
-//     $hasFiltersApplied = true;
-// }
-// if(count($selectedDepartures) != 0){
-//     $hasFiltersApplied = true;
-// }
-// if($itinerary_length_min != 1){
-//     $hasFiltersApplied = true;
-// }
-// if($itinerary_length_max != 21){
-//     $hasFiltersApplied = true;
-// }
 
 
 ?>

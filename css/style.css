@@ -4851,6 +4851,8 @@ h5 {
       transform: rotate(-90deg); }
   .search-intro__text p {
     font-size: 1.4rem; }
+    .search-intro__text p:not(:last-child) {
+      margin-bottom: 1rem !important; }
 
 .search-results {
   margin-left: 3rem;
@@ -5944,7 +5946,7 @@ h5 {
       grid-row: 1 / -1;
       width: 40vw;
       align-self: end;
-      height: 55%;
+      height: 45rem;
       display: flex;
       flex-direction: column;
       /* progress bar */ }
@@ -5962,14 +5964,16 @@ h5 {
         position: relative;
         justify-self: flex-start;
         height: 100%;
-        visibility: hidden; }
+        visibility: hidden;
+        max-height: 42rem; }
         @media only screen and (max-width: 62.5em) {
           .destination-hero__content__location__slider {
             height: min-content; }
             .destination-hero__content__location__slider .slick-list {
               padding: 0 7rem !important; } }
         .destination-hero__content__location__slider.slick-initialized {
-          visibility: visible; }
+          visibility: visible;
+          max-height: 100%; }
         .destination-hero__content__location__slider .slick-active {
           animation: slideFade 1s both;
           animation-timing-function: ease-out;
@@ -6149,6 +6153,7 @@ h5 {
         width: 70%; }
         @media only screen and (max-width: 50em) {
           .destination-main__intro__description__text {
+            line-height: 2rem;
             text-align: center;
             width: 100%; } }
       .destination-main__intro__description__highlights-title {
@@ -6187,7 +6192,7 @@ h5 {
             stroke-width: 3; }
           .destination-main__intro__description__highlights li span p {
             font-size: 1.4rem;
-            line-height: 2.4rem; }
+            line-height: 2rem; }
     .destination-main__intro__lists {
       display: grid;
       grid-template-columns: 1fr;

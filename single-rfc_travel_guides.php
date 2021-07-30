@@ -65,7 +65,7 @@ while (have_posts()) :
   //related posts
   $queryArgs = array(
     'post_type' => 'rfc_travel_guides',
-    'posts_per_page' => -1,
+    'posts_per_page' => 9,
     'post__not_in' => array($post->ID)
   );
 
@@ -76,7 +76,7 @@ while (have_posts()) :
     foreach ($destinations as $d) {
       $queryArgsDestination[] = array(
         'key'     => 'destinations',
-        'value'   => serialize(strval($d->ID)),
+        'value'   =>  '"' . $d->ID . '"',
         'compare' => 'LIKE'
       );
     }
@@ -155,7 +155,7 @@ while (have_posts()) :
           ?>
               <!-- Item -->
               <div class="travel-guide-related__slider-area__slider__item">
-                <img <?php afloat_responsive_image($imageId, 'featured-medium', array('featured-medium', 'featured-small')); ?> alt="" class="travel-guide-related__slider-area__slider__item__image">
+                <img <?php afloat_responsive_image($imageId, 'featured-medium', array('featured-medium', 'featured-small')); ?> class="travel-guide-related__slider-area__slider__item__image">
                 <div class="travel-guide-related__slider-area__slider__item__content">
                   <a class="travel-guide-related__slider-area__slider__item__content__title" href="<?php echo the_permalink(); ?>">
                     <h3>
