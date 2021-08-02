@@ -61,6 +61,7 @@ $inner-border-light: inset 0px 0px 0px 1px $color-grey-light-1a;
     src: url($font-file + ".ttf");
     font-weight: $weight;
     font-style: normal;
+    font-display: swap;
   }
 }
 

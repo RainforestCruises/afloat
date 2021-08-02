@@ -23,6 +23,8 @@ function afloat_responsive_image($image_id, $image_size, $sizes_array, $slickLaz
         $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE);
 
 
+        // = is_ssl() ? preg_replace( "^http:", "https:", $image_src ) : $image_src ;
+
 
         $image_srcset = '';
         $max_width = 0;
