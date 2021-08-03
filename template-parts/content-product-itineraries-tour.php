@@ -193,7 +193,7 @@ $img = get_field('map');
 
                     <!-- Inclusions -->
                     <div class="product-itinerary-slide__top__side-info__content" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">
-                        <h5 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Incuded</h5>
+                        <h5 class="product-itinerary-slide__top__side-info__content__inclusions-title">What's Included</h5>
                         <ul class="product-itinerary-slide__top__side-info__content__inclusions-list">
                             <?php
                             $inclusions = get_field('inclusions');

@@ -72,14 +72,12 @@ $inner-border-light: inset 0px 0px 0px 1px $color-grey-light-1a;
 @include font("Metropolis", "../fonts/Metropolis/Metropolis-Bold", 700);
 @include font("Metropolis", "../fonts/Metropolis/Metropolis-Black", 800);
 
-//PlayfairDisplay-VariableFont_wght
 
 @include font("Playfair Display", "../fonts/PlayfairDisplay/static/PlayfairDisplay-Regular", 400);
 @include font("Playfair Display", "../fonts/PlayfairDisplay/static/PlayfairDisplay-Medium", 500);
 @include font("Playfair Display", "../fonts/PlayfairDisplay/static/PlayfairDisplay-SemiBold", 600);
 @include font("Playfair Display", "../fonts/PlayfairDisplay/static/PlayfairDisplay-Bold", 700);
 @include font("Playfair Display", "../fonts/PlayfairDisplay/static/PlayfairDisplay-ExtraBold", 800);
-//@import url('"../fonts/PlayfairDisplay/PlayfairDisplay-VariableFont_wght"');
  
 
 // FONT VARIABLES
@@ -87,7 +85,6 @@ $font-primary: "Metropolis", sans-serif;
 $font-secondary: "Playfair Display", serif;
 
 
-//$font-tertiary: "Montserrat", sans-serif;
 
 //shadows
 $shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);

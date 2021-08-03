@@ -15,7 +15,7 @@ if(get_post_type() == 'rfc_cruises' || get_post_type() == 'rfc_lodges' || get_po
             </button>
             <div class="contact__wrapper__intro">
                 <div class="contact__wrapper__intro__title">
-                    Interested in <?php echo $isProduct ? "the " : "" ?> <?php echo get_the_title(); ?><?php echo (get_post_type() == 'rfc_tours') ? " Tour" : "" ?>?
+                    Interested in <?php echo $isProduct ? "the " : "" ?> <?php echo (get_post_type() == 'rfc_tours') ? get_field("tour_name") .  " Tour" :  get_the_title(); ?>?
                 </div>
                 <div class="contact__wrapper__intro__departure" id="contactModalDeparture">
                     
