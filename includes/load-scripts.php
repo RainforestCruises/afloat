@@ -38,7 +38,28 @@ function load_scripts()
 
     wp_enqueue_script('utility', get_template_directory_uri() . '/js/utilities.js', array('jquery'), false, true);
     wp_enqueue_script('header', get_template_directory_uri() . '/js/header.js', array('jquery'), false, true);
-    //
+
+    $alwaysActiveHeader = checkActiveHeader();
+    // $templateName = get_page_template_slug();
+    // $postTypeName = get_post_type();
+
+    // if($templateName == 'template-about.php' || $templateName == 'template-generic.php' || $templateName == 'template-error404.php' || $templateName == 'template-contact.php' || $templateName == 'template-search.php' || $templateName == 'template-travel-guide.php'){
+    //     $alwaysActiveHeader = "true";
+    // }
+
+    // if($postTypeName == 'rfc_travel_guides'){
+    //     $alwaysActiveHeader = "true";
+    // }
+
+    // console_log($alwaysActiveHeader);
+    wp_localize_script(
+        'header',
+        'header_vars',
+        array(
+            'alwaysActiveHeader' =>  $alwaysActiveHeader
+        )
+    );
+    
 
 }
 

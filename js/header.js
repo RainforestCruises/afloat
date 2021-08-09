@@ -1,13 +1,11 @@
 
 jQuery(document).ready(function ($) {
 
-
-  //set this in php
   var opaqueNavAlways = false;
-  if ($("body").hasClass("error404") || $("body").hasClass("page-template-template-generic") || $("body").hasClass("page-template-template-about") || $("body").hasClass("page-template-template-contact") || $("body").hasClass("page-template-template-search") || $("body").hasClass("single-rfc_travel_guides") || $("body").hasClass("page-template-template-travel-guide")) {
+  if(header_vars.alwaysActiveHeader == true){
     opaqueNavAlways = true;
-    $('.header__main').addClass('active');
-  }
+  } 
+
 
 
 

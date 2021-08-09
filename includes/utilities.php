@@ -295,3 +295,20 @@ function structuredData($templateType)
         return $returnString .= $breadcrumbEnd;
     }
 }
+
+
+function checkActiveHeader() {
+    $alwaysActiveHeader = false;
+    $templateName = get_page_template_slug();
+    $postTypeName = get_post_type();
+
+    if($templateName == 'template-about.php' || $templateName == 'template-generic.php' || $templateName == 'template-error404.php' || $templateName == 'template-contact.php' || $templateName == 'template-search.php' || $templateName == 'template-travel-guide.php'){
+        $alwaysActiveHeader = true;
+    }
+
+    if($postTypeName == 'rfc_travel_guides'){
+        $alwaysActiveHeader = true;
+    }
+
+    return $alwaysActiveHeader;
+}

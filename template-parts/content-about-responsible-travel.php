@@ -7,7 +7,7 @@ $continents = get_field('continents');
 <div class="about-partners">
     <div class="about-partners__content">
         <div class="about-partners__content__title">
-            <h3>Local Community School Projects</h3>
+            <h2>Local Community School Projects</h2>
             
 
             <div class="about-partners__content__title__image-area">
@@ -21,9 +21,9 @@ $continents = get_field('continents');
     <div class="about-partners__continents">
         <?php foreach ($continents as $c) : ?>
             <div class="about-partners__continents__item">
-                <h4 class="about-partners__continents__item__header">
+                <h3 class="about-partners__continents__item__header">
                     <?php echo $c['header']; ?>
-                </h4>
+                </h3>
                 <div class="about-partners__continents__item__text">
                     <?php echo $c['content']; ?>
                 </div>

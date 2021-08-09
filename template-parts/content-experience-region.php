@@ -110,7 +110,7 @@ $count = 0;
                                 <h3 class="wide-slider-card__content__text-area__title">
                                     <?php echo get_field('navigation_title', $destinationPost) ?>
                                 </h3>
-                                <h5 class="wide-slider-card__content__text-area__info">
+                                <div class="wide-slider-card__content__text-area__info">
                                     <div class="wide-slider-card__content__text-area__info__length">
 
                                         <?php
@@ -123,7 +123,7 @@ $count = 0;
 
 
                                     </div>
-                                </h5>
+                                </div>
                             </div>
                         </div>
                     </a>

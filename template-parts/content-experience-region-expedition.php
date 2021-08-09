@@ -100,14 +100,14 @@ $count = 0;
                                         <h3 class="wide-slider-card__content__text-area__title">
                                             <?php echo get_field('tour_name', $t) ?>
                                         </h3>
-                                        <h5 class="wide-slider-card__content__text-area__info">
+                                        <div class="wide-slider-card__content__text-area__info">
                                             <div class="wide-slider-card__content__text-area__info__length">
                                                 <?php echo get_field('length', $t) ?>-Day Tour
                                             </div>
                                             <div class="wide-slider-card__content__text-area__info__price">
                                                 From <?php echo "$" . number_format($lowest, 0); ?> <span>USD</span>
                                             </div>
-                                        </h5>
+                                        </div>
                                     </div>
                                 </div>
                             </a>

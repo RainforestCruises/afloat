@@ -2,7 +2,7 @@
 jQuery(document).ready(function ($) {
     const templateUrl = page_vars.templateUrl;
 
-
+    
 
 
 

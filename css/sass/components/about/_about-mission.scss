@@ -33,12 +33,12 @@
         height: 80vh;
 
         @media only screen and (max-width: $bp-medium) {
-            height: 60vh;
+            height: auto;
 
         }
 
         @media only screen and (max-width: $bp-small) {
-            height: 45vh;
+            //height: 55vh;
             margin-bottom: 0rem;
         }
 

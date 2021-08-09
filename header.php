@@ -55,7 +55,8 @@ $menu_toplevel = [];
 $menu_destination_groups = [];
 $menu_experiences = [];
 
-
+$alwaysActiveHeader = checkActiveHeader();
+console_log($alwaysActiveHeader);
 foreach ($menuitems as $m) {
 
     //Top Level
@@ -233,10 +234,10 @@ foreach ($menuitems as $m) {
 
     <!-- Desktop Header -->
     <!-- Header -->
-    <header class="header" id="header">
+    <header class="header " id="header">
 
         <!-- Top Level Nav -->
-        <div class="header__main ">
+        <div class="header__main <?php echo ($alwaysActiveHeader == true) ? 'active' : ''; ?>">
             <div class="header__main__logo-area">
                 <a href="<?php echo get_home_url(); ?>" class="header__main__logo-area__logo">
                     <?php

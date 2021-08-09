@@ -454,7 +454,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
         if ($charterFilter == true) {
             $productLowestPrice = get_field('charter_daily_price', $p);
-            $priceText = "Price per night";
+            $priceText = "Price per day";
             $promoAvailable = false;
             $itineraryLengthDisplay = get_field('charter_min_days', $p) . " Days +";
             $itineraryCountDisplay = "";
