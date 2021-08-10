@@ -331,8 +331,9 @@ function structuredDataFaq() {
             $itemQuestion = $f['question'] == null ? '' : $f['question'];
             $itemAnswer = $f['answer'] == null ? '' : $f['answer'];
             $itemAnswerTrim = trim($itemAnswer);
+            $itemAnswerNoQuote = str_replace('"', "'", $itemAnswerTrim);
 
-            $itemString = '{"@type": "Question", "name": "' . $itemQuestion . '", "acceptedAnswer": {"@type": "Answer", "text": "' . $itemAnswerTrim . '"}}';;
+            $itemString = '{"@type": "Question", "name": "' . $itemQuestion . '", "acceptedAnswer": {"@type": "Answer", "text": "' . $itemAnswerNoQuote . '"}}';;
 
 
             if($count != count($faqs)){ //add comma if not last
