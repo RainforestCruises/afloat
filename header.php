@@ -11,7 +11,8 @@
     <?php
     //Destination
     if (is_page_template('template-destinations-destination.php') || is_page_template('template-destinations-cruise.php') || is_page_template('template-destinations-region.php')) {
-        echo structuredData('destination');
+        echo structuredData('destination'); //Breadcrumbs
+        echo structuredDataFaq(); // FAQ
     }
 
     //Product
@@ -55,8 +56,8 @@ $menu_toplevel = [];
 $menu_destination_groups = [];
 $menu_experiences = [];
 
-$alwaysActiveHeader = checkActiveHeader();
-console_log($alwaysActiveHeader);
+$alwaysActiveHeader = checkActiveHeader(); //return true/false depending on if current template header bar should never be transparent
+
 foreach ($menuitems as $m) {
 
     //Top Level

@@ -108,7 +108,7 @@ function priceFormat($price)
     return $display;
 }
 
-
+//Breadcrumbs - json-ld
 function structuredData($templateType)
 {
 
@@ -127,7 +127,7 @@ function structuredData($templateType)
 
     $returnString = '';
 
-    //PRODUCT
+    //PRODUCT / Search - same structure
     if ($templateType == 'product') {
 
         if ($breadcrumb) {
@@ -136,18 +136,26 @@ function structuredData($templateType)
 
             $returnString .= $initialItem;
 
+            
+
+            $i = 1;
             foreach ($breadcrumb as $b) {
                 $itemLink = $b['link'] == null ? '' : $b['link'];
                 $itemTitle = $b['title'] == null ? '' : $b['title'];
 
                 if ($b['link'] != null) {
-                    $itemString = '{"@type": "ListItem", "position": ' . $count . ', "name": "' . $itemTitle . '", "item": "' . $itemLink . '" },';
+                    $itemString = '{"@type": "ListItem", "position": ' . $count . ', "name": "' . $itemTitle . '", "item": "' . $itemLink . '" }';
                 } else {
-                    $itemString = '{"@type": "ListItem", "position": ' . $count . ', "name": "' . $itemTitle . '" },';
+                    $itemString = '{"@type": "ListItem", "position": ' . $count . ', "name": "' . $itemTitle . '" }';
+                }
+
+                if($i != count($breadcrumb)){ //add comma if not last
+                    $itemString .= ',';
                 }
 
                 $returnString .= $itemString;
                 $count++;
+                $i++;
             }
             $returnString .= $breadcrumbEnd;
         };
@@ -170,7 +178,7 @@ function structuredData($templateType)
             $returnString .= $itemString; //region
 
             $itemTitle2 = get_field('navigation_title', $destination);
-            $itemString2 = '{"@type": "ListItem", "position": 3, "name": "' . $itemTitle2 . '" },';
+            $itemString2 = '{"@type": "ListItem", "position": 3, "name": "' . $itemTitle2 . '" }';
             $returnString .= $itemString2; //current destination (no-link)
 
         } else { //Region Variant
@@ -178,7 +186,7 @@ function structuredData($templateType)
             $region = get_field('region_post');
 
             $itemTitle = get_field('navigation_title', $region);
-            $itemString = '{"@type": "ListItem", "position": 2, "name": "' . $itemTitle . '" },';
+            $itemString = '{"@type": "ListItem", "position": 2, "name": "' . $itemTitle . '" }';
             $returnString .= $itemString; // current destination (region - no link)
         }
 
@@ -215,7 +223,7 @@ function structuredData($templateType)
             $itemString = '{"@type": "ListItem", "position": 2, "name": "' . $itemTitle . '", "item": "' . $itemLink . '" },'; //parent breadcrumb
             $returnString .= $itemString;
 
-            $itemString2 = '{"@type": "ListItem", "position": 3, "name": "' . get_the_title() . '" },'; //the current page
+            $itemString2 = '{"@type": "ListItem", "position": 3, "name": "' . get_the_title() . '" }'; //the current page
             $returnString .= $itemString2;
         }
 
@@ -288,12 +296,59 @@ function structuredData($templateType)
             $returnString .= $itemString2;
 
 
-            $itemString3 = '{"@type": "ListItem", "position": 4, "name": "' . get_the_title() . '" },'; //the current page
+            $itemString3 = '{"@type": "ListItem", "position": 4, "name": "' . get_the_title() . '" }'; //the current page
             $returnString .= $itemString3;
         }
 
         return $returnString .= $breadcrumbEnd;
     }
+}
+
+
+//FAQ json-ld
+function structuredDataFaq() {
+    $faqs = get_field('faqs');
+
+    
+    $jsonStart = '<script type="application/ld+json">{ 
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [';
+
+
+    $jsonEnd = '] } </script>';
+
+    
+
+    $returnString = '';
+
+
+    if ($faqs) {
+        $count = 1; //home is first item
+        $returnString = $jsonStart;
+
+        foreach ($faqs as $f) {
+            $itemQuestion = $f['question'] == null ? '' : $f['question'];
+            $itemAnswer = $f['answer'] == null ? '' : $f['answer'];
+            $itemAnswerTrim = trim($itemAnswer);
+
+            $itemString = '{"@type": "Question", "name": "' . $itemQuestion . '", "acceptedAnswer": {"@type": "Answer", "text": "' . $itemAnswerTrim . '"}}';;
+
+
+            if($count != count($faqs)){ //add comma if not last
+                $itemString .= ',';
+            }
+
+            $returnString .= $itemString;
+            $count++;
+          
+        }
+        $returnString .= $jsonEnd;
+    };
+
+
+    
+    return $returnString;
 }
 
 
