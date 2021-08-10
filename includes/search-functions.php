@@ -318,76 +318,87 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                     }
 
 
-                    $departures = [];
-                    $priceValues = [];
-
-                    if ($itinerary['Departures'] != null) {
-                        foreach ($itinerary['Departures'] as $d) { //departure loop
-
-
-                            if ($datesArray) {
-
-                                $match = false;
-                                foreach ($datesArray as $dateSelection) { //selection loop
-
-                                    $testdate = strtotime($d['DepartureDate']); // this will be converted to YYYY-MM-DD
-                                    $selectedDate = strtotime($dateSelection);
-
-                                    if (date('Ym', $selectedDate) == date('Ym', $testdate)) { //test Ym (year + month)
-                                        $match = true;
+                    if($charterFilter && $charterOnly == true) { //Charter Only + Charter Filter -- bypass availability
+                        $itineraries[] = (object) array(
+                            'lengthInDays' => $lengthInDays,
+                            'departureCount' => 1,
+                            'lowestItineraryPrice' => 0
+                        );
+                    } else { //FIT
+                        $departures = [];
+                        $priceValues = [];
+    
+                        if ($itinerary['Departures'] != null) {
+                            foreach ($itinerary['Departures'] as $d) { //departure loop
+    
+    
+                                if ($datesArray) {
+    
+                                    $match = false;
+                                    foreach ($datesArray as $dateSelection) { //selection loop
+    
+                                        $testdate = strtotime($d['DepartureDate']); // this will be converted to YYYY-MM-DD
+                                        $selectedDate = strtotime($dateSelection);
+    
+                                        if (date('Ym', $selectedDate) == date('Ym', $testdate)) { //test Ym (year + month)
+                                            $match = true;
+                                        }
+                                    }
+    
+                                    if (!$match) { //continue to next iteration of departure loop (date doesnt match any selection range)
+                                        continue;
                                     }
                                 }
-
-                                if (!$match) { //continue to next iteration of departure loop (date doesnt match any selection range)
-                                    continue;
+    
+    
+                                if ($d['LowestPrice'] != 0) {
+                                    $priceValues[] = $d['LowestPrice'];
                                 }
+    
+                                if ($d['HasPromo'] == true) {
+                                    $promoAvailable = true;
+                                }
+    
+    
+                                $departures[] = (object) array(
+                                    'departureDate' => $d['DepartureDate'],
+                                    'lowestPrice' => $d['LowestPrice'], //lowest per cabin
+                                    'hasPromo' => $d['HasPromo'],
+                                    'isHighSeason' => $d['IsHighSeason'],
+                                    'isLowSeason' => $d['IsLowSeason'],
+                                    'promoName' => $d['PromoName'],
+                                );
                             }
-
-
-                            if ($d['LowestPrice'] != 0) {
-                                $priceValues[] = $d['LowestPrice'];
-                            }
-
-                            if ($d['HasPromo'] == true) {
-                                $promoAvailable = true;
-                            }
-
-
-                            $departures[] = (object) array(
-                                'departureDate' => $d['DepartureDate'],
-                                'lowestPrice' => $d['LowestPrice'], //lowest per cabin
-                                'hasPromo' => $d['HasPromo'],
-                                'isHighSeason' => $d['IsHighSeason'],
-                                'isLowSeason' => $d['IsLowSeason'],
-                                'promoName' => $d['PromoName'],
-                            );
+                        } else {
+                            continue; // no departure dates to begin with
                         }
-                    } else {
-                        continue; // no departure dates to begin with
+    
+                        if (!$departures) {
+                            continue; //no departures in this itinerary after date filtering
+                        }
+    
+                        $departureCount = 0;
+                        if ($departures) {
+                            $departureCount = count($departures);
+                        }
+    
+                        //lowest price for itinerary
+                        $itineraryLowestPrice = 0;
+                        if ($priceValues) {
+                            $itineraryLowestPrice = min($priceValues);
+                        }
+    
+    
+                        $itineraries[] = (object) array(
+                            'lengthInDays' => $lengthInDays,
+                            //'departures' => $departures,
+                            'departureCount' => $departureCount,
+                            'lowestItineraryPrice' => $itineraryLowestPrice
+                        );
                     }
 
-                    if (!$departures) {
-                        continue; //no departures in this itinerary after date filtering
-                    }
 
-                    $departureCount = 0;
-                    if ($departures) {
-                        $departureCount = count($departures);
-                    }
-
-                    //lowest price for itinerary
-                    $itineraryLowestPrice = 0;
-                    if ($priceValues) {
-                        $itineraryLowestPrice = min($priceValues);
-                    }
-
-
-                    $itineraries[] = (object) array(
-                        'lengthInDays' => $lengthInDays,
-                        //'departures' => $departures,
-                        'departureCount' => $departureCount,
-                        'lowestItineraryPrice' => $itineraryLowestPrice
-                    );
+          
                 }
 
                 if (!$itineraries) {
@@ -510,6 +521,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
     if ($sorting == 'low') {
         usort($results, "sortPriceLow"); //sort by search rank score
     }
+
 
     return $results;
 }
