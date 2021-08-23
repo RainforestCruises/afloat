@@ -50,7 +50,7 @@ endforeach;
 <div class="product-itineraries">
 
     <h2 class="page-divider">
-        Itineraries
+        Itineraries & Prices
     </h2>
 
 
