@@ -70,7 +70,7 @@ while (have_posts()) :
 
     <!-- Accommodations Content -->
     <section class="product-page__section-accommodation" id="accommodations">
-      <h2 class="page-divider page-divider--padding u-margin-bottom-small">
+      <h2 class="page-divider page-divider--padding u-margin-bottom-medium">
         Accommodations
       </h2>
       <?php
