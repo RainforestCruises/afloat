@@ -96,7 +96,7 @@
         grid-template-columns: 2fr 3fr;
         column-gap: 12rem;
         row-gap: 2rem;
-        grid-template-rows: min-content 1fr 30rem min-content;
+        grid-template-rows: min-content 1fr 25rem min-content;
 
         color: rgba($color-white, 0.9);
         text-transform: uppercase;
@@ -241,7 +241,7 @@
         }
 
         // left nav main
-        &__page-nav {
+        &__page-nav { 
             user-select: none;
             grid-column: 1 / span 1;
             align-self: end;

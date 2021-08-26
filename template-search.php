@@ -15,7 +15,7 @@ wp_localize_script(
 get_header();
 ?>
 
-<?php
+<?php 
 
 //Initial Search from Page Load
 

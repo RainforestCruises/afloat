@@ -93,6 +93,14 @@ function shortcode_var_name_call_back(){
 }
 
 
+/**
+ * Filter if XML sitemap transient cache is enabled.
+ *
+ * @param boolean $unsigned Enable cache or not, defaults to true
+ */
+add_filter( 'rank_math/sitemap/enable_caching', '__return_false');
+
+
 //Removes P tags on blog posts
 function filter_ptags_on_images($content)
 {

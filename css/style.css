@@ -5669,7 +5669,7 @@ h5 {
     grid-template-columns: 2fr 3fr;
     column-gap: 12rem;
     row-gap: 2rem;
-    grid-template-rows: min-content 1fr 30rem min-content;
+    grid-template-rows: min-content 1fr 25rem min-content;
     color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
     z-index: 8;
