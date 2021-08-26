@@ -59,6 +59,13 @@ if (isset($_GET["sorting"]) && $_GET["sorting"]) {
 }
 
 
+//Search Input
+$searchInput = '';
+if (isset($_GET["searchInput"]) && $_GET["searchInput"]) {
+    $searchInput = htmlspecialchars($_GET["searchInput"]);
+}
+
+
 //Departure Dates
 $departures = [];
 $departuresString = "";
@@ -184,7 +191,7 @@ if (isset($_GET["length_max"])) {
 }
 
 //first load
-$resultsObject = getSearchPosts($travelTypes,  $destinations, $experiences, $searchType, $destinationId, $regionId, $lengthMin, $lengthMax, $departures, $sorting, $pageNumber);
+$resultsObject = getSearchPosts($travelTypes,  $destinations, $experiences, $searchType, $destinationId, $regionId, $lengthMin, $lengthMax, $departures, $searchInput, $sorting, $pageNumber);
 $resultCount = $resultsObject['resultsCount'];
 
 //Page arguments ------------
@@ -199,6 +206,7 @@ $args = array(
     'lengthMin' => $lengthMin, //preselection
     'lengthMax' => $lengthMax, //preselection
     'sorting' => $sorting,
+    'searchInput' => $searchInput,
     'pageNumber' => $pageNumber,
     'resultsObject' => $resultsObject,
     'resultCount' => $resultCount,
@@ -253,6 +261,8 @@ $args = array(
 
     <!-- Direct to function within functions.php -->
     <input type="hidden" name="action" value="primarySearch">
+    <input type="hidden" name="formSearchInput" id="formSearchInput" value="<?php echo $searchInput ?>"> 
+
     <input type="hidden" name="formDates" id="formDates" value="<?php echo $departuresString ?>">
     <input type="hidden" name="formTravelStyles" id="formTravelStyles" value="<?php echo $travelTypesString ?>">
     <input type="hidden" name="formDestinations" id="formDestinations" value="<?php echo $destinationsString ?>">

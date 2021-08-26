@@ -113,6 +113,9 @@ jQuery(document).ready(function ($) {
 
   //FORM ----------------
   //form variables
+  const searchInput = document.querySelector('#searchInput');
+  const searchInputButton = document.querySelector('#searchInputButton');
+
   const formDates = document.querySelector('#formDates');
   const formTravelStyles = document.querySelector('#formTravelStyles');
   const formDestinations = document.querySelector('#formDestinations');
@@ -173,6 +176,16 @@ jQuery(document).ready(function ($) {
 
 
   //Search Filter Selections ------------------------------------
+
+
+  //Search Text 
+  let searchInputString = formSearchInput.value;
+
+  searchInputButton.addEventListener('click', () => {
+    searchInputString = searchInput.value
+    formSearchInput.value = searchInputString;
+    reloadResults();
+  })
 
 
 
@@ -382,7 +395,9 @@ jQuery(document).ready(function ($) {
     travelStylesString = "";
     destinationsString = "";
     experiencesString = "";
+    searchInputString = "";
 
+    formSearchInput.value = null;
     formDates.value = null;
     formTravelStyles.value = null;
     formDestinations.value = null;
@@ -404,6 +419,8 @@ jQuery(document).ready(function ($) {
     checkBoxes.forEach(item => {
       item.checked = false;
     });
+
+    searchInput.value = "";
 
     reloadResults();
   }
@@ -434,6 +451,10 @@ jQuery(document).ready(function ($) {
 
     //set url params
     const params = new URLSearchParams(location.search);
+
+    if (searchInputString != null) {
+      params.set('searchInput', searchInputString);
+    }
 
     if (departuresString != null) {
       params.set('departures', departuresString);

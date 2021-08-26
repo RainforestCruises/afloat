@@ -92,9 +92,16 @@ function search_filter_primary_search()
 
 
     //Paging
-     //Sorting
+    //Sorting
     $sorting = $_POST['formSort'];
     $pageNumber = $_POST['formPageNumber'];
+
+
+    //--seach input (top level only)
+    $formSearchInput = null;
+    if (isset($_POST['formSearchInput']) && $_POST['formSearchInput']) {
+        $formSearchInput = $_POST['formSearchInput'];
+    }
 
     //--travel style
     $formTravelStyles = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
@@ -137,7 +144,7 @@ function search_filter_primary_search()
 
 
 
-    $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId, $formMinLength, $formMaxLength, $formDates, $sorting, $pageNumber);
+    $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId, $formMinLength, $formMaxLength, $formDates, $formSearchInput, $sorting, $pageNumber);
 
 
 

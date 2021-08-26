@@ -5212,6 +5212,50 @@ h5 {
       .filter__content__show-more button:hover {
         background-color: #40739c;
         color: #fff; }
+  .filter__content__search-area {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative; }
+    .filter__content__search-area input {
+      width: 100%;
+      border-radius: 1rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 1px solid #9ea0a4;
+      padding: 1rem 1.5rem;
+      box-shadow: none;
+      font-family: "Metropolis", sans-serif;
+      letter-spacing: 0.1rem;
+      color: #919598;
+      font-weight: 600;
+      font-size: 1.6rem;
+      transition: all .2s;
+      outline: none; }
+      .filter__content__search-area input:focus {
+        border: 1px solid #142838; }
+    .filter__content__search-area button {
+      margin-left: .5rem;
+      background-color: transparent;
+      border-radius: 1rem;
+      border: 1px solid;
+      width: 6rem;
+      cursor: pointer;
+      border-color: #9ea0a4;
+      transition: all .2s;
+      border: none; }
+      .filter__content__search-area button.active {
+        border-color: #142838; }
+        .filter__content__search-area button.active svg {
+          fill: #142838; }
+      .filter__content__search-area button svg {
+        height: 1.8rem;
+        width: 1.8rem;
+        fill: #9ea0a4;
+        transition: all .2s; }
+      .filter__content__search-area button:hover {
+        border-color: #40739c; }
+        .filter__content__search-area button:hover svg {
+          fill: #40739c; }
 
 .clear-filters {
   display: none; }

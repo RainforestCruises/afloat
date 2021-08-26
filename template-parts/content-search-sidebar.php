@@ -24,6 +24,7 @@ $selectedTravelTypes = $args['travelTypes'];
 $selectedExperiences = $args['experiences'];
 $selectedDestinations = $args['destinations'];
 $selectedDepartures = $args['departures'];
+$searchInput = $args['searchInput'];
 
 
 
@@ -94,6 +95,33 @@ if (get_field('itinerary_length_max') != null) {
             Clear
         </button>
     </div>
+
+
+    <?php if ($searchType == 'top') : ?>
+        <!-- Product Name Search Filter -->
+        <div class="filter">
+            <div class="filter__heading">
+                <h5 class="filter__heading__text">
+                    Product Name
+                </h5>
+                <svg>
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
+                </svg>
+            </div>
+            <div class="filter__content">
+                <div class="filter__content__search-area">
+                    <input type="text" id="searchInput" value="<?php echo $searchInput; ?>">
+                    <button id="searchInputButton">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-magnifying-glass"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    <?php endif; ?>
+
     <!-- Departure Date Filter -->
     <div class="filter">
         <div class="filter__heading" id="departure-filter-heading">
@@ -186,7 +214,7 @@ if (get_field('itinerary_length_max') != null) {
     <div class="filter">
         <div class="filter__heading">
             <h5 class="filter__heading__text">
-                
+
                 <?php
                 echo ($searchType == 'top') ? 'Regions' : 'Destinations';
                 $filterCount = count($selectedDestinations);
@@ -272,7 +300,7 @@ if (get_field('itinerary_length_max') != null) {
     </div>
 
     <!-- Clear Filters Button -->
-    <div class="filter--clear clear-filters-area" id="clear-filters-area" >
+    <div class="filter--clear clear-filters-area" id="clear-filters-area">
         <button class="search-button clear-filters">
             Clear Filters
         </button>
