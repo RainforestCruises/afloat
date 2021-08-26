@@ -181,11 +181,14 @@ jQuery(document).ready(function ($) {
   //Search Text 
   let searchInputString = formSearchInput.value;
 
-  searchInputButton.addEventListener('click', () => {
-    searchInputString = searchInput.value
-    formSearchInput.value = searchInputString;
-    reloadResults();
-  })
+  if (searchInputButton != null) {
+    searchInputButton.addEventListener('click', () => {
+      searchInputString = searchInput.value
+      formSearchInput.value = searchInputString;
+      reloadResults();
+    })
+  }
+
 
 
 
