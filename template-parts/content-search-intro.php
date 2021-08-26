@@ -24,25 +24,25 @@
 
     if ($searchType == 'destination') {
         $locationDisplayText = get_field('navigation_title', $destinationId);
-    } else {
+    } else if ($searchType == 'region') {
         $locationDisplayText = get_field('navigation_title', $regionId);
     }
 
-    if($selectedDestinations != null){       
+    if ($selectedDestinations != null) {
         $locationDisplayText = get_field('navigation_title', $selectedDestinations[0]);    //select first one         
     }
 
-    if($selectedTravelTypes != null){       
+    if ($selectedTravelTypes != null) {
 
-        if($selectedTravelTypes[0] == 'rfc_cruises') {
-            $travelTypeDisplayText = "cruises";  
+        if ($selectedTravelTypes[0] == 'rfc_cruises') {
+            $travelTypeDisplayText = "cruises";
         }
-        if($selectedTravelTypes[0] == 'rfc_lodges') {
-            $travelTypeDisplayText = "lodges";  
-        }  
-        if($selectedTravelTypes[0] == 'charter_cruises') {
-            $travelTypeDisplayText = "charter cruises";  
-        }  
+        if ($selectedTravelTypes[0] == 'rfc_lodges') {
+            $travelTypeDisplayText = "lodges";
+        }
+        if ($selectedTravelTypes[0] == 'charter_cruises') {
+            $travelTypeDisplayText = "charter cruises";
+        }
 
 
 
@@ -89,13 +89,18 @@
        </h1>
        <div class="search-intro__text" style="display: block;">
            <?php
-            $hasCustomText = get_field('intro_snippet_custom_text');
-
-            if ($hasCustomText) {
-                echo get_field('intro_snippet');
+            if ($searchType == 'top') {
+                echo get_field('intro_snippet_top');
             } else {
-                echo $autoCopy;
+                $hasCustomText = get_field('intro_snippet_custom_text');
+
+                if ($hasCustomText) {
+                    echo get_field('intro_snippet');
+                } else {
+                    echo $autoCopy;
+                }
             }
+
 
             ?>
        </div>

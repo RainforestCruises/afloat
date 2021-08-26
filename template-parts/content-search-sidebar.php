@@ -52,6 +52,14 @@ if ($searchType == 'region') {
     $destinations = get_posts($destinationsArgs);
 }
 
+if ($searchType == 'top') {
+    $destinationsArgs = array(
+        'post_type' => 'rfc_destinations', //destinations
+        'posts_per_page' => -1,
+    );
+    $destinations = get_posts($destinationsArgs);
+}
+
 //itinerary length
 $itinerary_length_min = 1;
 $itinerary_length_max = 21;
@@ -178,8 +186,9 @@ if (get_field('itinerary_length_max') != null) {
     <div class="filter">
         <div class="filter__heading">
             <h5 class="filter__heading__text">
-                Destinations
+                
                 <?php
+                echo ($searchType == 'top') ? 'Regions' : 'Destinations';
                 $filterCount = count($selectedDestinations);
                 ?>
                 <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="destinationsFilterCount">

@@ -23,19 +23,24 @@ get_header();
 $searchType = get_field('search_type');
 
 $region = null;
+$regionId = null;
 $destination = null;
 $destinationId = null;
 
 if ($searchType == 'region') {
     $region = get_field('region');
-} else {
+    
+    $regionId = $region->ID;
+} else if ($searchType == 'destination'){
 
     $destination = get_field('destination');
     $region = get_field('region', $destination);
-    $destinationId = $destination->ID;
-}
 
-$regionId = $region->ID;
+    $regionId = $region->ID;
+    $destinationId = $destination->ID;
+} 
+
+
 
 
 //Preselections (strings for form values) ------------

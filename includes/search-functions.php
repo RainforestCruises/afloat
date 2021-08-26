@@ -62,9 +62,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
                 'compare' => 'LIKE'
             );
         }
-    }
-
-    if ($searchType == 'region') { //REGION 
+    } else { //REGION / TOP
         if ($destinations != null) { //if selection
 
             $queryargs = array();
@@ -81,13 +79,23 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
         } else { //if no selection
             //- Get destinations by region if nothing selected, then get all products in those destinations
 
-            $destinationCriteria = array(
-                'posts_per_page' => -1,
-                'post_type' => 'rfc_destinations',
-                "meta_key" => "region",
-                "meta_value" => $regionId
-            );
-            $destinations = get_posts($destinationCriteria);
+            if($searchType == 'region') {
+                $destinationCriteria = array(
+                    'posts_per_page' => -1,
+                    'post_type' => 'rfc_destinations',
+                    "meta_key" => "region",
+                    "meta_value" => $regionId
+                );
+                $destinations = get_posts($destinationCriteria);
+            } else {
+                $destinationCriteria = array(
+                    'posts_per_page' => -1,
+                    'post_type' => 'rfc_destinations',
+                );
+                $destinations = get_posts($destinationCriteria);
+            }
+
+            
 
             //build meta query criteria
             $queryargs = array();
@@ -104,6 +112,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
         }
     }
 
+  
 
 
     //experiences

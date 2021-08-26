@@ -33,7 +33,8 @@
             },
             "choices": {
                 "destination": "Destination",
-                "region": "Region"
+                "region": "Region",
+                "top": "Top Level"
             },
             "default_value": false,
             "allow_null": 0,
@@ -193,7 +194,15 @@
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60394c9466c2d",
+                        "operator": "!=",
+                        "value": "top"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -218,6 +227,33 @@
                         "field": "field_60f1c6bf77849",
                         "operator": "==",
                         "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_6127d8f7ae9ac",
+            "label": "Intro Snippet Top Level",
+            "name": "intro_snippet_top",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60394c9466c2d",
+                        "operator": "==",
+                        "value": "top"
                     }
                 ]
             ],
@@ -420,5 +456,5 @@
     ],
     "active": true,
     "description": "Search - Page",
-    "modified": 1626457833
+    "modified": 1630001428
 }
