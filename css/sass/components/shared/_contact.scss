@@ -165,10 +165,16 @@
     -webkit-appearance: radio !important;
     -moz-appearance: radio !important;
     appearance: radio !important;
+    cursor: pointer;
+}
+
+.wpforms-field-checkbox label {
+    cursor: pointer;
 }
 
 .wpforms-container input[type=checkbox] {
     -webkit-appearance: checkbox !important;
     -moz-appearance: checkbox !important;
     appearance: checkbox !important;
+    cursor: pointer;
 } 
