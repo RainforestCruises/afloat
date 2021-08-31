@@ -191,9 +191,9 @@ jQuery(document).ready(function ($) {
   //Search Filter Selections ------------------------------------
 
 
-  //Search Text 
+  //Search Input 
   let searchInputString = formSearchInput.value;
-  let mobileReload = false;
+  let mobileReload = false; //check to perform search when hiding mobile filters
 
   if (hasSearchInput) {
 
@@ -211,7 +211,6 @@ jQuery(document).ready(function ($) {
       if (searchInput.value != "") {
         searchInputClear.classList.add('active');
       }
-
     });
 
     //Blur - leave focus
@@ -219,9 +218,6 @@ jQuery(document).ready(function ($) {
       searchInputClear.classList.remove('active');
       searchInputString = searchInput.value
       formSearchInput.value = searchInputString;
-
-     
-      
     });
 
 
@@ -234,7 +230,7 @@ jQuery(document).ready(function ($) {
 
       if (searchInput.value == "") {
         searchInputClear.classList.remove('active');
-      } 
+      }
     });
 
 
@@ -490,8 +486,10 @@ jQuery(document).ready(function ($) {
     checkBoxes.forEach(item => {
       item.checked = false;
     });
-
-    searchInput.value = "";
+    if (hasSearchInput) {
+      searchInput.value = "";
+    }
+    
 
     reloadResults();
   }
