@@ -123,8 +123,12 @@
         font-family: $font-primary !important;
         //font-size: 1.6rem !important;
     }
+  
+    & .newsletter-form-text {
+        font-size: 1.6rem !important;
+    }
 
-    & button[type="submit"] {
+    & button {
         color: $color-white !important;
         background-color: $color-primary !important;
         padding: 0 3rem !important;
