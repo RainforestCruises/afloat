@@ -21,7 +21,6 @@
         overflow-y: scroll;
         height: 100vh;
 
-
         &.show {
             display: flex;
             flex-direction: column;
@@ -41,7 +40,7 @@
             & > .filter {
                 margin-top: 7.5rem;
             }
-            
+
             & > .filter ~ .filter {
                 margin-top: 0rem;
             }
@@ -146,7 +145,6 @@
         &.show {
             display: flex;
 
-            
             @media only screen and (max-width: $bp-large) {
                 display: none;
             }
@@ -274,64 +272,111 @@
 
         &__search-area {
             width: 100%;
-            
+
             display: flex;
             justify-content: space-between;
-     
+
             position: relative;
 
-
-            & input {
+            &__input {
                 width: 100%;
+              
                 border-radius: 1rem;
-                background-color: rgba($color-white, 0.9);
-                border: 1px solid $color-grey-1;
+                background-color: transparent;
+                border: 1px solid $color-grey-light-2;
                 padding: 1rem 1.5rem;
-                box-shadow: none;
-    
+
                 font-family: $font-primary;
                 letter-spacing: 0.1rem;
-                color: $color-grey-2;
-                font-weight: 600;
+                color: $color-primary;
+                font-weight: 400;
                 font-size: 1.6rem;
 
-                transition: all .2s;
+                transition: all 0.2s;
                 outline: none;
+                &:hover {
+                    border: 1px solid $color-grey-1;
+                }
                 &:focus {
                     border: 1px solid $color-primary;
+                    background-color: rgba($color-supporting-light, 0.1);
+                }
+            }
+ 
+            //clear button
+            &__clear {
+                position: absolute;
+                top: 50%;
+                right: 6rem;
+
+                @media only screen and (max-width: $bp-large) {
+                    right: 7rem;
+                }
+
+                background-color: $color-grey-1;
+                border-radius: 8rem;
+                border: none;
+
+                height: 2rem;
+                width: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: translateY(-50%);
+                cursor: pointer;
+                transition: all 0.2s;
+                display: none;
+
+                &.active {
+                    display: flex;
+                }
+
+                & svg {
+                    height: 1rem;
+                    width: 1rem;
+                    fill: $color-primary;
+                }
+
+                &.active {
+                    display: flex;
+                }
+                &:hover {
+                    background-color: $color-grey-light-2;
                 }
             }
 
-            & button {
-                margin-left: .5rem;
+            &__button {
+                margin-left: 0rem;
                 background-color: transparent;
                 border-radius: 1rem;
                 border: 1px solid;
                 width: 6rem;
                 cursor: pointer;
-                border-color: $color-grey-1;
-                transition: all .2s;
+                //border-color: $color-grey-1;
+                transition: all 0.2s;
 
                 border: none;
 
-                &.active {
-                    border-color: $color-primary;
-                    & svg {
-                        fill: $color-primary;
-                    }
-                }
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
                 & svg {
-                    height: 1.8rem;
-                    width: 1.8rem;
-                    fill: $color-grey-1;
-                    transition: all .2s;
+                    height: 2rem;
+                    width: 2rem;
+                    fill: $color-primary;
+                    transition: all 0.2s;
                 }
 
                 &:hover {
-                    border-color: $color-supporting-light;
                     & svg {
                         fill: $color-supporting-light;
+                    }
+                }
 
+                &.disabled {
+                    & svg {
+                        fill: $color-grey-1;
                     }
                 }
             }
@@ -400,10 +445,10 @@
 
     display: none;
 
-    transition: all .3s;
-    
+    transition: all 0.3s;
+
     &.scrollUp {
-        transform: translateY(-7rem)
+        transform: translateY(-7rem);
     }
 
     @include flexPadding;
@@ -415,20 +460,12 @@
     &.sticky {
         position: fixed;
         z-index: 30;
-        border-top: none;    
-
+        border-top: none;
     }
 
-    &__button {      
-       
+    &__button {
     }
 }
-
-
-
-
-
-
 
 .search-filter-mobile-area {
     height: 100%;
@@ -439,13 +476,12 @@
     position: fixed;
     top: 0;
     left: 0;
-    display: none; 
+    display: none;
 
     &.active {
         display: block;
     }
 }
-
 
 .search-filter-mobile-cta {
     position: fixed;
@@ -509,7 +545,7 @@
         color: $color-white;
         background-color: $color-supporting-light;
         border-radius: 2.5rem;
-        &::after{
+        &::after {
             display: none;
         }
     }

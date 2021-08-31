@@ -108,10 +108,15 @@ if (get_field('itinerary_length_max') != null) {
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
                 </svg>
             </div>
-            <div class="filter__content">
+            <div class="filter__content" style="padding-right: .5rem; padding-bottom: 3rem;">
                 <div class="filter__content__search-area">
-                    <input type="text" id="searchInput" value="<?php echo $searchInput; ?>">
-                    <button id="searchInputButton">
+                    <input class="filter__content__search-area__input" type="text" id="searchInput" autocomplete="off" value="<?php echo $searchInput; ?>">
+                    <button class="filter__content__search-area__clear" id="searchInputClear">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-cross"></use>
+                        </svg>
+                    </button>
+                    <button class="filter__content__search-area__button " id="searchInputButton">
                         <svg>
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-magnifying-glass"></use>
                         </svg>

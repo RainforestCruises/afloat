@@ -115,6 +115,8 @@ jQuery(document).ready(function ($) {
   //form variables
   const searchInput = document.querySelector('#searchInput');
   const searchInputButton = document.querySelector('#searchInputButton');
+  const searchInputClear = document.querySelector('#searchInputClear');
+
 
   const formDates = document.querySelector('#formDates');
   const formTravelStyles = document.querySelector('#formTravelStyles');
@@ -187,7 +189,43 @@ jQuery(document).ready(function ($) {
       formSearchInput.value = searchInputString;
       reloadResults();
     })
-  }
+  };
+
+
+  //Focus - on setting focus to destination field 
+  searchInput.addEventListener('focus', () => {
+    if (searchInput.value != "") {
+      searchInputClear.classList.add('active');
+    }
+
+  });
+
+  //Blur - leave focus
+  searchInput.addEventListener('blur', (event) => {
+    searchInputClear.classList.remove('active');
+  });
+
+
+  // Input - occurs on typing text into destination field
+  searchInput.addEventListener('input', () => {
+    searchInputClear.classList.add('active');
+    if (searchInput.value == "") {
+      searchInputClear.classList.remove('active');
+    }
+  });
+
+
+  //Destination Clear
+  searchInputClear.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    // suggestionsArray = [];
+    searchInput.value = "";
+    searchInputClear.classList.remove('active');
+
+
+
+  });
+
 
 
 
