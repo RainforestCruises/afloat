@@ -23,19 +23,7 @@ jQuery(document).ready(function ($) {
 
   const showResultsButton = document.getElementById('search-filter-mobile-cta-button');
 
-  //filter button click -- show menu 
-  searchFilterButton.addEventListener('click', () => {
-    showMobileFilters();
-  });
 
-  //hide menu
-  searchMobileClose.addEventListener('click', () => {
-    hideMobileFilters();
-  });
-  //hide menu
-  showResultsButton.addEventListener('click', () => {
-    hideMobileFilters();
-  });
 
 
   function showMobileFilters() {
@@ -117,6 +105,10 @@ jQuery(document).ready(function ($) {
   const searchInputButton = document.querySelector('#searchInputButton');
   const searchInputClear = document.querySelector('#searchInputClear');
 
+  let hasSearchInput = false;
+  if (searchInput != null) {
+    hasSearchInput = true;
+  }
 
   const formDates = document.querySelector('#formDates');
   const formTravelStyles = document.querySelector('#formTravelStyles');
@@ -127,7 +119,26 @@ jQuery(document).ready(function ($) {
   const formSort = document.querySelector('#formSort');
   const formPageNumber = document.querySelector('#formPageNumber');
 
+  //Do Search
+  //filter button click -- show menu 
+  searchFilterButton.addEventListener('click', () => {
+    showMobileFilters();
+  });
 
+  //hide menu
+  searchMobileClose.addEventListener('click', () => {
+    hideMobileFilters();
+  });
+  //hide menu
+  showResultsButton.addEventListener('click', () => {
+    hideMobileFilters();
+    if (mobileReload == true) {
+      reloadResults();
+      mobileReload = false;
+
+    }
+    //if text in the input...
+  });
 
   //Expand Lists --------------------------------------------
   // Departure List -- Show More Dates
@@ -182,51 +193,71 @@ jQuery(document).ready(function ($) {
 
   //Search Text 
   let searchInputString = formSearchInput.value;
+  let mobileReload = false;
 
-  if (searchInputButton != null) {
+  if (hasSearchInput) {
+
+    //magnifying glass click
     searchInputButton.addEventListener('click', () => {
       searchInputString = searchInput.value
       formSearchInput.value = searchInputString;
       reloadResults();
+      mobileReload = false;
     })
-  };
 
 
-  //Focus - on setting focus to destination field 
-  searchInput.addEventListener('focus', () => {
-    if (searchInput.value != "") {
-      searchInputClear.classList.add('active');
-    }
+    //Focus - on setting focus to destination field 
+    searchInput.addEventListener('focus', () => {
+      if (searchInput.value != "") {
+        searchInputClear.classList.add('active');
+      }
 
-  });
+    });
 
-  //Blur - leave focus
-  searchInput.addEventListener('blur', (event) => {
-    searchInputClear.classList.remove('active');
-  });
-
-
-  // Input - occurs on typing text into destination field
-  searchInput.addEventListener('input', () => {
-    searchInputClear.classList.add('active');
-    if (searchInput.value == "") {
+    //Blur - leave focus
+    searchInput.addEventListener('blur', (event) => {
       searchInputClear.classList.remove('active');
-    }
-  });
+      searchInputString = searchInput.value
+      formSearchInput.value = searchInputString;
+
+     
+      
+    });
 
 
-  //Destination Clear
-  searchInputClear.addEventListener('mousedown', (e) => {
-    e.preventDefault();
-    // suggestionsArray = [];
-    searchInput.value = "";
-    searchInputClear.classList.remove('active');
+    // Input - occurs on typing text into destination field
+    searchInput.addEventListener('input', () => {
+      searchInputClear.classList.add('active');
+      searchInputString = searchInput.value
+      formSearchInput.value = searchInputString;
+      mobileReload = true;
+
+      if (searchInput.value == "") {
+        searchInputClear.classList.remove('active');
+      } 
+    });
 
 
+    //Search Input Clear
+    searchInputClear.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      searchInput.value = "";
+      searchInputString = "";
+      formSearchInput.value = "";
+      searchInputClear.classList.remove('active');
+      mobileReload = true;
+    });
 
-  });
 
+    // Search Enter - Number 13 is the "Enter" key on the keyboard
+    searchInput.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        searchInputButton.click();
+      }
+    });
 
+  };
 
 
 
@@ -425,7 +456,6 @@ jQuery(document).ready(function ($) {
   let noResultsClearButton = document.querySelector('#no-results-clear-button');
   if (noResultsClearButton != null) {
     noResultsClearButton.addEventListener('click', (e) => {
-      console.log('boom');
       clearFilters();
     })
   }
@@ -708,6 +738,9 @@ jQuery(document).ready(function ($) {
 
   function toggleClearButtons() {
     let filtersApplied = false;
+    if (formSearchInput.value != "") {
+      filtersApplied = true;
+    }
     if (formDates.value != "") {
       filtersApplied = true;
     }

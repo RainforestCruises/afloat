@@ -281,6 +281,11 @@
 
             position: relative;
 
+            
+            @media only screen and (max-width: $bp-large) {
+                width: 95%;
+            }
+
             &__input {
                 width: 100%;
               
@@ -378,6 +383,7 @@
                 }
 
                 &.disabled {
+                    cursor: default;
                     & svg {
                         fill: $color-grey-1;
                     }

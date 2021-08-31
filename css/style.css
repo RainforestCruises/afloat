@@ -5217,6 +5217,9 @@ h5 {
     display: flex;
     justify-content: space-between;
     position: relative; }
+    @media only screen and (max-width: 62.5em) {
+      .filter__content__search-area {
+        width: 95%; } }
     .filter__content__search-area__input {
       width: 100%;
       border-radius: 1rem;
@@ -5283,8 +5286,10 @@ h5 {
         transition: all 0.2s; }
       .filter__content__search-area__button:hover svg {
         fill: #40739c; }
-      .filter__content__search-area__button.disabled svg {
-        fill: #9ea0a4; }
+      .filter__content__search-area__button.disabled {
+        cursor: default; }
+        .filter__content__search-area__button.disabled svg {
+          fill: #9ea0a4; }
 
 .clear-filters {
   display: none; }
