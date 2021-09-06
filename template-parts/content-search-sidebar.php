@@ -24,13 +24,17 @@ $selectedTravelTypes = $args['travelTypes'];
 $selectedExperiences = $args['experiences'];
 $selectedDestinations = $args['destinations'];
 $selectedDepartures = $args['departures'];
+$searchInput = $args['searchInput'];
 
 
 
 //Build Filter Lists
 $experiencesArgs = array(
     'post_type' => 'rfc_experiences',
-    'posts_per_page' => -1
+    'posts_per_page' => -1,
+    'order' => 'ASC',
+    'orderby' => 'title',
+
 );
 
 $experiences = get_posts($experiencesArgs);
@@ -40,6 +44,8 @@ $isBucketList = false;
 if ($searchType == 'destination') {
     $destinations = get_field('locations', $destinationId); //locations
     $isBucketList = get_field('is_bucket_list', $destinationId); //to hide location filters
+
+    usort($destinations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
 }
 
 if ($searchType == 'region') {
@@ -48,6 +54,20 @@ if ($searchType == 'region') {
         'posts_per_page' => -1,
         "meta_key" => "region",
         "meta_value" => $regionId,
+    );
+    $destinations = get_posts($destinationsArgs);
+
+    usort($destinations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+
+}
+
+if ($searchType == 'top') {
+    $destinationsArgs = array(
+        'post_type' => 'rfc_destinations', //destinations
+        'posts_per_page' => -1,
+        'orderby'   => 'meta_value',
+        'order' => 'ASC',
+        'meta_key' => 'navigation_title',
     );
     $destinations = get_posts($destinationsArgs);
 }
@@ -86,6 +106,38 @@ if (get_field('itinerary_length_max') != null) {
             Clear
         </button>
     </div>
+
+
+    <?php if ($searchType == 'top') : ?>
+        <!-- Product Name Search Filter -->
+        <div class="filter">
+            <div class="filter__heading">
+                <h5 class="filter__heading__text">
+                    Product Name
+                </h5>
+                <svg>
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
+                </svg>
+            </div>
+            <div class="filter__content" style="padding-right: .5rem; padding-bottom: 3.5rem; padding-top: 0rem;">
+                <div class="filter__content__search-area">
+                    <input class="filter__content__search-area__input" type="text" id="searchInput" autocomplete="off" value="<?php echo $searchInput; ?>">
+                    <button class="filter__content__search-area__clear" id="searchInputClear">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-cross"></use>
+                        </svg>
+                    </button>
+                    <button class="filter__content__search-area__button " id="searchInputButton">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-magnifying-glass"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    <?php endif; ?>
+
     <!-- Departure Date Filter -->
     <div class="filter">
         <div class="filter__heading" id="departure-filter-heading">
@@ -178,8 +230,9 @@ if (get_field('itinerary_length_max') != null) {
     <div class="filter">
         <div class="filter__heading">
             <h5 class="filter__heading__text">
-                Destinations
+
                 <?php
+                echo ($searchType == 'top') ? 'Regions' : 'Destinations';
                 $filterCount = count($selectedDestinations);
                 ?>
                 <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="destinationsFilterCount">
@@ -263,7 +316,7 @@ if (get_field('itinerary_length_max') != null) {
     </div>
 
     <!-- Clear Filters Button -->
-    <div class="filter--clear clear-filters-area" id="clear-filters-area" >
+    <div class="filter--clear clear-filters-area" id="clear-filters-area">
         <button class="search-button clear-filters">
             Clear Filters
         </button>

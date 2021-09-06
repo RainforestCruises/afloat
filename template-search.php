@@ -23,22 +23,29 @@ get_header();
 $searchType = get_field('search_type');
 
 $region = null;
+$regionId = null;
 $destination = null;
 $destinationId = null;
 
 if ($searchType == 'region') {
     $region = get_field('region');
-} else {
+    
+    $regionId = $region->ID;
+} else if ($searchType == 'destination'){
 
     $destination = get_field('destination');
     $region = get_field('region', $destination);
-    $destinationId = $destination->ID;
-}
 
-$regionId = $region->ID;
+    $regionId = $region->ID;
+    $destinationId = $destination->ID;
+} 
+
+
 
 
 //Preselections (strings for form values) ------------
+//From URL
+
 //Paging
 $pageNumber = 1;
 if (isset($_GET["pageNumber"]) && $_GET["pageNumber"]) {
@@ -52,6 +59,35 @@ $sorting = "popularity";
 if (isset($_GET["sorting"]) && $_GET["sorting"]) {
     $sorting = htmlspecialchars($_GET["sorting"]);
 }
+
+
+//Search Input
+$searchInput = '';
+if (isset($_GET["searchInput"]) && $_GET["searchInput"]) {
+    $searchInput = htmlspecialchars($_GET["searchInput"]);
+}
+
+//View
+$viewType = 'list';
+$gridDefault = get_field('grid_view_default');
+
+if($gridDefault == true){
+    $viewType = 'grid';
+}
+
+if (isset($_GET["viewType"]) && $_GET["viewType"]) {
+    $viewType = htmlspecialchars($_GET["viewType"]);
+}
+
+
+
+//--Length Max
+$lengthMax = 21;
+$selectedLengthMax = get_field('itinerary_length_max');
+if ($selectedLengthMax != null) {
+    $lengthMax = $selectedLengthMax;
+}
+
 
 
 //Departure Dates
@@ -179,7 +215,7 @@ if (isset($_GET["length_max"])) {
 }
 
 //first load
-$resultsObject = getSearchPosts($travelTypes,  $destinations, $experiences, $searchType, $destinationId, $regionId, $lengthMin, $lengthMax, $departures, $sorting, $pageNumber);
+$resultsObject = getSearchPosts($travelTypes,  $destinations, $experiences, $searchType, $destinationId, $regionId, $lengthMin, $lengthMax, $departures, $searchInput, $sorting, $pageNumber, $viewType);
 $resultCount = $resultsObject['resultsCount'];
 
 //Page arguments ------------
@@ -194,9 +230,11 @@ $args = array(
     'lengthMin' => $lengthMin, //preselection
     'lengthMax' => $lengthMax, //preselection
     'sorting' => $sorting,
+    'searchInput' => $searchInput,
     'pageNumber' => $pageNumber,
     'resultsObject' => $resultsObject,
     'resultCount' => $resultCount,
+    'viewType' => $viewType,
 
 );
 
@@ -248,6 +286,10 @@ $args = array(
 
     <!-- Direct to function within functions.php -->
     <input type="hidden" name="action" value="primarySearch">
+    <input type="hidden" name="formSearchInput" id="formSearchInput" value="<?php echo $searchInput ?>"> 
+    <input type="hidden" name="formViewType" id="formViewType" value="<?php echo $viewType ?>"> 
+
+
     <input type="hidden" name="formDates" id="formDates" value="<?php echo $departuresString ?>">
     <input type="hidden" name="formTravelStyles" id="formTravelStyles" value="<?php echo $travelTypesString ?>">
     <input type="hidden" name="formDestinations" id="formDestinations" value="<?php echo $destinationsString ?>">

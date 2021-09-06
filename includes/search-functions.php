@@ -1,6 +1,6 @@
 <?php
 //Upper bounded list of products for search results
-function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray, $sorting, $pageNumber)
+function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray, $searchInput, $sorting, $pageNumber, $viewType)
 {
 
     $charterFilter = false;
@@ -62,9 +62,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
                 'compare' => 'LIKE'
             );
         }
-    }
-
-    if ($searchType == 'region') { //REGION 
+    } else { //REGION / TOP
         if ($destinations != null) { //if selection
 
             $queryargs = array();
@@ -81,13 +79,23 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
         } else { //if no selection
             //- Get destinations by region if nothing selected, then get all products in those destinations
 
-            $destinationCriteria = array(
-                'posts_per_page' => -1,
-                'post_type' => 'rfc_destinations',
-                "meta_key" => "region",
-                "meta_value" => $regionId
-            );
-            $destinations = get_posts($destinationCriteria);
+            if ($searchType == 'region') {
+                $destinationCriteria = array(
+                    'posts_per_page' => -1,
+                    'post_type' => 'rfc_destinations',
+                    "meta_key" => "region",
+                    "meta_value" => $regionId
+                );
+                $destinations = get_posts($destinationCriteria);
+            } else {
+                $destinationCriteria = array(
+                    'posts_per_page' => -1,
+                    'post_type' => 'rfc_destinations',
+                );
+                $destinations = get_posts($destinationCriteria);
+            }
+
+
 
             //build meta query criteria
             $queryargs = array();
@@ -103,6 +111,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
             $args['meta_query'][] = $queryargs;
         }
     }
+
 
 
 
@@ -126,13 +135,17 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
     $posts = get_posts($args); //Stage I posts
-    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting); //Stage II metadata
+    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting, $searchInput); //Stage II metadata
 
 
-   
 
+    
 
     $resultsPerPage = 8;
+    if($viewType == 'grid'){
+        $resultsPerPage = 30;
+    }
+
     $resultsTotal = count($formattedPosts);
 
     $pageCount = floor($resultsTotal / $resultsPerPage);
@@ -140,13 +153,13 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
         $pageCount++;
     };
 
-   
+
 
 
     if (is_numeric($pageNumber) && $pageNumber != 'all') {
         $startIndex = (($pageNumber - 1) * $resultsPerPage);
         $formattedPosts = array_slice($formattedPosts, $startIndex, $resultsPerPage);
-    } else if ($pageNumber == 'all')  {
+    } else if ($pageNumber == 'all') {
         $formattedPosts = array_slice($formattedPosts, 0, 50);
     } else {
         $startIndex = 0;
@@ -156,9 +169,11 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
     //return object with results, result count, and page count seperately
     $searchResults = [
         'results' => $formattedPosts,
-        'resultsCount' => $resultsTotal, 
+        'resultsCount' => $resultsTotal,
         'pageCount' => $pageCount,
         'pageNumber' => $pageNumber,
+        'viewType' => $viewType,
+
     ];
 
 
@@ -168,7 +183,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
 //Stage II - metadata
-function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting)
+function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting, $searchInput)
 {
 
     $results = [];
@@ -237,6 +252,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
 
             $productTitle = get_field('tour_name', $p);
+
             $productTypeDisplay = 'Private Tour';
             $productTypeCta = 'Tour';
 
@@ -276,6 +292,9 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         //CRUISES / LODGES -------------------------------------------------------
         if ($postType  == 'rfc_lodges' || $postType  == 'rfc_cruises') {
             $productTitle = get_the_title($p);
+
+
+
             $cruiseData = get_field('cruise_data', $p);
             $vesselCapacity = get_field('vessel_capacity', $p);
             $numberOfCabins = get_field('number_of_cabins', $p);
@@ -318,7 +337,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                     }
 
 
-                    if($charterFilter && $charterOnly == true) { //Charter Only + Charter Filter -- bypass availability
+                    if ($charterFilter && $charterOnly == true) { //Charter Only + Charter Filter -- bypass availability
                         $itineraries[] = (object) array(
                             'lengthInDays' => $lengthInDays,
                             'departureCount' => 1,
@@ -327,39 +346,39 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                     } else { //FIT
                         $departures = [];
                         $priceValues = [];
-    
+
                         if ($itinerary['Departures'] != null) {
                             foreach ($itinerary['Departures'] as $d) { //departure loop
-    
-    
+
+
                                 if ($datesArray) {
-    
+
                                     $match = false;
                                     foreach ($datesArray as $dateSelection) { //selection loop
-    
+
                                         $testdate = strtotime($d['DepartureDate']); // this will be converted to YYYY-MM-DD
                                         $selectedDate = strtotime($dateSelection);
-    
+
                                         if (date('Ym', $selectedDate) == date('Ym', $testdate)) { //test Ym (year + month)
                                             $match = true;
                                         }
                                     }
-    
+
                                     if (!$match) { //continue to next iteration of departure loop (date doesnt match any selection range)
                                         continue;
                                     }
                                 }
-    
-    
+
+
                                 if ($d['LowestPrice'] != 0) {
                                     $priceValues[] = $d['LowestPrice'];
                                 }
-    
+
                                 if ($d['HasPromo'] == true) {
                                     $promoAvailable = true;
                                 }
-    
-    
+
+
                                 $departures[] = (object) array(
                                     'departureDate' => $d['DepartureDate'],
                                     'lowestPrice' => $d['LowestPrice'], //lowest per cabin
@@ -372,23 +391,23 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                         } else {
                             continue; // no departure dates to begin with
                         }
-    
+
                         if (!$departures) {
                             continue; //no departures in this itinerary after date filtering
                         }
-    
+
                         $departureCount = 0;
                         if ($departures) {
                             $departureCount = count($departures);
                         }
-    
+
                         //lowest price for itinerary
                         $itineraryLowestPrice = 0;
                         if ($priceValues) {
                             $itineraryLowestPrice = min($priceValues);
                         }
-    
-    
+
+
                         $itineraries[] = (object) array(
                             'lengthInDays' => $lengthInDays,
                             //'departures' => $departures,
@@ -396,9 +415,6 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                             'lowestItineraryPrice' => $itineraryLowestPrice
                         );
                     }
-
-
-          
                 }
 
                 if (!$itineraries) {
@@ -479,8 +495,15 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         }
 
 
+        //Filter Product Titles
+        if ($searchInput != null) {
 
-        
+            if(!preg_match("/{$searchInput}/i", $productTitle)) {
+                continue;
+            }
+           
+        }
+
 
         $results[] = (object) array(
             'post' => $p,

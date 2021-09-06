@@ -2,6 +2,7 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
+       
         <symbol id="icon-bookmark" viewBox="0 0 20 20">
             <path d="M14 2v17l-4-4-4 4v-17c0-0.553 0.585-1.020 1-1h6c0.689-0.020 1 0.447 1 1z"></path>
         </symbol>
@@ -185,6 +186,24 @@
         <symbol id="icon-logo-facebook" viewBox="0 0 24 24">
             <g class="nc-icon-wrapper">
                 <path d="M24,12.072A12,12,0,1,0,10.125,23.926V15.541H7.078V12.072h3.047V9.428c0-3.007,1.792-4.669,4.532-4.669a18.611,18.611,0,0,1,2.687.234V7.947H15.83a1.734,1.734,0,0,0-1.947,1.49,1.71,1.71,0,0,0-.008.385v2.25H17.2l-.532,3.469h-2.8v8.385A12,12,0,0,0,24,12.072Z"/>
+            </g>
+        </symbol>
+        <symbol id="icon-grid-layout" viewBox="0 0 16 16">
+            <g class="nc-icon-wrapper">
+                <path fill="currentColor" d="M6,0H1C0.4,0,0,0.4,0,1v5c0,0.6,0.4,1,1,1h5c0.6,0,1-0.4,1-1V1C7,0.4,6.6,0,6,0z M5,5H2V2h3V5z" stroke="none"></path>
+                <path fill="currentColor" d="M15,0h-5C9.4,0,9,0.4,9,1v5c0,0.6,0.4,1,1,1h5c0.6,0,1-0.4,1-1V1C16,0.4,15.6,0,15,0z M14,5h-3V2h3V5z" stroke="none"></path>
+                <path fill="currentColor" d="M6,9H1c-0.6,0-1,0.4-1,1v5c0,0.6,0.4,1,1,1h5c0.6,0,1-0.4,1-1v-5C7,9.4,6.6,9,6,9z M5,14H2v-3h3V14z" stroke="none"></path>
+                <path fill="currentColor" d="M15,9h-5c-0.6,0-1,0.4-1,1v5c0,0.6,0.4,1,1,1h5c0.6,0,1-0.4,1-1v-5C16,9.4,15.6,9,15,9z M14,14h-3v-3h3V14z" stroke="none"></path>
+            </g>
+        </symbol>
+        <symbol id="icon-list-bullet" viewBox="0 0 16 16">
+            <g class="nc-icon-wrapper">
+                <circle cx="2" cy="2" r="2" stroke="none"></circle>
+                <circle cx="2" cy="8" r="2" stroke="none"></circle>
+                <circle cx="2" cy="14" r="2" stroke="none"></circle>
+                <rect x="6" y="1" fill="currentColor" width="10" height="2" stroke="none"></rect>
+                <rect x="6" y="7" fill="currentColor" width="10" height="2" stroke="none"></rect>
+                <rect x="6" y="13" fill="currentColor" width="10" height="2" stroke="none"></rect>
             </g>
         </symbol>
         <symbol id="icon-logo-instagram" viewBox="0 0 24 24">
