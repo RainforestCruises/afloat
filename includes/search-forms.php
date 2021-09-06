@@ -95,6 +95,7 @@ function search_filter_primary_search()
     //Sorting
     $sorting = $_POST['formSort'];
     $pageNumber = $_POST['formPageNumber'];
+    $viewType = $_POST['formViewType'];
 
 
     //--seach input (top level only)
@@ -144,7 +145,7 @@ function search_filter_primary_search()
 
 
 
-    $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId, $formMinLength, $formMaxLength, $formDates, $formSearchInput, $sorting, $pageNumber);
+    $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId, $formMinLength, $formMaxLength, $formDates, $formSearchInput, $sorting, $pageNumber, $viewType);
 
 
 

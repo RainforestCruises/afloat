@@ -110,6 +110,24 @@ jQuery(document).ready(function ($) {
     hasSearchInput = true;
   }
 
+  const formViewType = document.querySelector('#formViewType');
+  const selectGridView = document.querySelector('#view-grid-layout');
+  const selectListView = document.querySelector('#view-list-layout');
+
+
+  //View Type
+  selectGridView.addEventListener('click', () => {
+    formViewType.value = 'grid';
+    //$('#response').addClass('gridview');
+    reloadResults();
+  })
+  selectListView.addEventListener('click', () => {
+    formViewType.value = 'list';
+    //$('#response').removeClass('gridview');
+    reloadResults();
+  })
+
+
   const formDates = document.querySelector('#formDates');
   const formTravelStyles = document.querySelector('#formTravelStyles');
   const formDestinations = document.querySelector('#formDestinations');
@@ -555,8 +573,13 @@ jQuery(document).ready(function ($) {
 
     if (formSort.value != null) {
       params.set('sorting', formSort.value);
-
     }
+
+    if (formViewType.value != null) {
+      params.set('viewType', formViewType.value);
+    }
+
+    
 
     if (preservePage == true) { //for when page numbers are clicked, otherwise page will always be reset to 1
       if (formPageNumber.value != null) {
@@ -611,6 +634,14 @@ jQuery(document).ready(function ($) {
 
         var resultCount = $('#totalResultsDisplay').attr('value');
         var pageNumberDisplay = $('#pageNumberDisplay').attr('value');
+        var viewTypeDisplay = $('#viewTypeDisplay').attr('value');
+
+        if(viewTypeDisplay == 'grid'){
+          $('#response').addClass('gridview');
+        } else {
+          $('#response').removeClass('gridview');
+        }
+
 
         let pageDisplay = document.querySelector('#page-number'); //show page number if not on page 1
         if (pageNumberDisplay > 1) {

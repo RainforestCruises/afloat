@@ -105,6 +105,25 @@
             "ui": 1
         },
         {
+            "key": "field_61364b16ab2b0",
+            "label": "Grid View Default",
+            "name": "grid_view_default",
+            "type": "true_false",
+            "instructions": "Select to set grid view as the default view (instead of list view)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_6024307714ef7",
             "label": "Title Text",
             "name": "title_text",
@@ -456,5 +475,5 @@
     ],
     "active": true,
     "description": "Search - Page",
-    "modified": 1630001428
+    "modified": 1630948212
 }

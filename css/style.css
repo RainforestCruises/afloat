@@ -4930,6 +4930,18 @@ h5 {
     width: 100%;
     position: relative;
     z-index: 0; }
+    .search-results__grid.gridview {
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 2rem;
+      row-gap: 2rem; }
+      @media only screen and (max-width: 50em) {
+        .search-results__grid.gridview {
+          grid-template-columns: 1fr 1fr;
+          column-gap: 3rem; } }
+      @media only screen and (max-width: 37.5em) {
+        .search-results__grid.gridview {
+          grid-template-columns: 1fr;
+          row-gap: 3rem; } }
     .search-results__grid.loading .lds-ring {
       position: absolute;
       top: 12rem;
@@ -5639,6 +5651,77 @@ h5 {
           .search-result__detail__cta a {
             padding: 1.5rem;
             margin-top: 1rem; } }
+
+.search-result-gridview {
+  border-radius: 0.4rem;
+  transition: all 0.3s;
+  width: 100%;
+  position: relative; }
+  .search-result-gridview:link, .search-result-gridview:visited {
+    text-decoration: none;
+    color: #9ea0a4; }
+  .search-result-gridview:hover {
+    box-shadow: 0 0rem 1.5rem rgba(0, 0, 0, 0.2); }
+  .search-result-gridview__image-area {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+    .search-result-gridview__image-area img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: .4rem; }
+    .search-result-gridview__image-area .badge-solid {
+      position: absolute;
+      z-index: 10;
+      top: 1.2rem;
+      left: .5rem; }
+  .search-result-gridview__content-area {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10rem;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    z-index: 2;
+    border-bottom-right-radius: .4rem;
+    border-bottom-left-radius: .4rem;
+    display: flex;
+    padding: 1rem 1.5rem;
+    justify-content: flex-end;
+    flex-direction: column; }
+    .search-result-gridview__content-area__top {
+      font-size: 1rem;
+      letter-spacing: .1rem;
+      text-transform: uppercase;
+      color: #f8f8f8;
+      font-weight: 400; }
+    .search-result-gridview__content-area__bottom {
+      display: flex;
+      justify-content: space-between; }
+      .search-result-gridview__content-area__bottom__title {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        font-weight: 600;
+        color: #f8f8f8;
+        display: flex;
+        flex-direction: column;
+        padding-right: .5rem; }
+      .search-result-gridview__content-area__bottom__price {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        font-weight: 600;
+        color: #f8f8f8;
+        display: flex;
+        align-items: flex-end; }
+        .search-result-gridview__content-area__bottom__price span {
+          font-size: 1rem;
+          text-transform: uppercase;
+          color: #f8f8f8;
+          font-weight: 400;
+          margin-left: .4rem;
+          display: flex;
+          align-items: flex-end; }
 
 .search-no-results {
   width: 100%;

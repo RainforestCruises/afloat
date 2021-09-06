@@ -1,6 +1,6 @@
 <?php
 //Upper bounded list of products for search results
-function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray, $searchInput, $sorting, $pageNumber)
+function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray, $searchInput, $sorting, $pageNumber, $viewType)
 {
 
     $charterFilter = false;
@@ -139,9 +139,13 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
 
-
+    
 
     $resultsPerPage = 8;
+    if($viewType == 'grid'){
+        $resultsPerPage = 30;
+    }
+
     $resultsTotal = count($formattedPosts);
 
     $pageCount = floor($resultsTotal / $resultsPerPage);
@@ -168,6 +172,8 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
         'resultsCount' => $resultsTotal,
         'pageCount' => $pageCount,
         'pageNumber' => $pageNumber,
+        'viewType' => $viewType,
+
     ];
 
 

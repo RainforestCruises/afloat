@@ -5,6 +5,8 @@ $resultsObject = $args['resultsObject'];
 $resultCount = $args['resultCount'];
 $pageNumber = $args['pageNumber'];
 
+$viewType = $args['viewType']; //for icon active 
+
 ?>
 
 <div class="search-results">
@@ -44,7 +46,7 @@ $pageNumber = $args['pageNumber'];
         </div>
     </div>
 
-    <div class="search-results__grid" id="response">
+    <div class="search-results__grid <?php echo ($viewType == 'grid') ? 'gridview': '' ; ?>" id="response">
         <?php
         get_template_part('template-parts/content', 'search-results-content', $resultsObject);
         ?>

@@ -78,11 +78,18 @@ function afloat_responsive_image_lazy($image_id, $image_size, $sizes_array)
     }
 }
 
-function comma_separate_list($arr)
+function comma_separate_list($arr, $limit = 0)
 {
     $count = 0;
     $display = "";
+
+    $listCount = count($arr);
     foreach ($arr as $a) :
+
+        if($limit != 0 && $count >= $limit){
+            $display .= ' +' . ($listCount - $limit) . ' more';
+            break;
+        }
 
         $fieldText = get_field('navigation_title', $a);
         if ($count != 0) {
@@ -92,6 +99,8 @@ function comma_separate_list($arr)
         }
         $count++;
     endforeach;
+
+
     return $display;
 }
 
