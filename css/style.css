@@ -4896,8 +4896,33 @@ h5 {
       line-height: 2rem;
       font-weight: 700;
       color: #142838; }
-    .search-results__top-section__sort-area {
-      position: relative; }
+    .search-results__top-section__controls {
+      position: relative;
+      display: flex; }
+      .search-results__top-section__controls__view-options {
+        margin-right: 1.5rem;
+        padding-right: 1rem;
+        border-right: 1px solid #c2c6c9;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        @media only screen and (max-width: 50em) {
+          .search-results__top-section__controls__view-options {
+            display: none; } }
+        .search-results__top-section__controls__view-options button {
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
+          width: 2.8rem; }
+          .search-results__top-section__controls__view-options button svg {
+            height: 1.5rem;
+            width: 1.5rem;
+            color: #142838;
+            fill: #142838;
+            transition: all .2s; }
+          .search-results__top-section__controls__view-options button:hover svg {
+            fill: #305a7c;
+            color: #305a7c; }
   .search-results__grid {
     display: grid;
     row-gap: 3rem;
