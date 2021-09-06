@@ -668,7 +668,6 @@ jQuery(document).ready(function ($) {
         let noResultsClearButton = document.querySelector('#no-results-clear-button');
         if (noResultsClearButton != null) {
           noResultsClearButton.addEventListener('click', (e) => {
-            console.log('boom');
             clearFilters();
           })
         }

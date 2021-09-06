@@ -170,10 +170,10 @@ if ($results) :
                             endif; ?>
                     </div>
                     <div class="search-result-gridview__content-area__bottom">
-                        <div class="search-result-gridview__content-area__bottom__title">
+                        <h2 class="search-result-gridview__content-area__bottom__title">
                             <?php echo $result->productTitle; ?>
 
-                        </div>
+                        </h2>
                         <div class="search-result-gridview__content-area__bottom__price">
                             <?php echo "$" . number_format($result->lowestPrice, 0);  ?>
                             <span>

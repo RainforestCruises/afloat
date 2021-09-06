@@ -31,7 +31,10 @@ $searchInput = $args['searchInput'];
 //Build Filter Lists
 $experiencesArgs = array(
     'post_type' => 'rfc_experiences',
-    'posts_per_page' => -1
+    'posts_per_page' => -1,
+    'order' => 'ASC',
+    'orderby' => 'title',
+
 );
 
 $experiences = get_posts($experiencesArgs);
@@ -41,6 +44,8 @@ $isBucketList = false;
 if ($searchType == 'destination') {
     $destinations = get_field('locations', $destinationId); //locations
     $isBucketList = get_field('is_bucket_list', $destinationId); //to hide location filters
+
+    usort($destinations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
 }
 
 if ($searchType == 'region') {
@@ -51,12 +56,18 @@ if ($searchType == 'region') {
         "meta_value" => $regionId,
     );
     $destinations = get_posts($destinationsArgs);
+
+    usort($destinations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+
 }
 
 if ($searchType == 'top') {
     $destinationsArgs = array(
         'post_type' => 'rfc_destinations', //destinations
         'posts_per_page' => -1,
+        'orderby'   => 'meta_value',
+        'order' => 'ASC',
+        'meta_key' => 'navigation_title',
     );
     $destinations = get_posts($destinationsArgs);
 }
