@@ -6,6 +6,7 @@ $resultCount = $args['resultCount'];
 $pageNumber = $args['pageNumber'];
 
 $viewType = $args['viewType']; //for icon active 
+$charterFilter = $args['charterFilter']; //for icon active 
 
 ?>
 
@@ -13,6 +14,9 @@ $viewType = $args['viewType']; //for icon active
     <div class="search-results__top-section" id="search-results-top">
         <div class="search-results__top-section__result-count" id="response-count">
             Found <?php echo $resultCount; ?> <?php echo ($resultCount == 1) ? 'result' : 'results'; ?>
+            <span>
+                <?php echo (!$charterFilter) ? 'Prices are displayed as per person in double occupancy': 'Charter prices are shown as price per day' ; ?>
+            </span>
         </div>
 
         <div class="search-results__top-section__page-count" id="page-number">
@@ -22,12 +26,12 @@ $viewType = $args['viewType']; //for icon active
         <div class="search-results__top-section__controls" id="sort-control">
 
             <div class="search-results__top-section__controls__view-options">
-                <button id="view-grid-layout">
+                <button id="view-grid-layout" class="<?php echo ($viewType == 'grid') ? 'active': '' ; ?>">
                     <svg>
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-grid-layout"></use>
                     </svg>
                 </button>
-                <button id="view-list-layout">
+                <button id="view-list-layout" class="<?php echo ($viewType == 'list') ? 'active': '' ; ?>">
                     <svg >
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-list-bullet"></use>
                     </svg>

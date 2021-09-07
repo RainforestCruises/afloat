@@ -4,6 +4,8 @@ $resultsTotal = $args['resultsCount'];
 $pageCount = $args['pageCount'];
 $pageNumber = $args['pageNumber'];
 $viewType = $args['viewType'];
+$charterFilter = $args['charterFilter'];
+
 
 //if results
 if ($results) :
@@ -161,24 +163,38 @@ if ($results) :
                 <div class="search-result-gridview__image-area">
                     <img <?php afloat_responsive_image($result->productImageId, 'featured-medium', array('featured-medium')); ?>>
                 </div>
+
+
+
                 <div class="search-result-gridview__content-area">
-                    <div class="search-result-gridview__content-area__top">
+                    <div class="search-result-gridview__content-area__left">
+                   
+                        <div class="search-result-gridview__content-area__left__destinations">
                             <?php
                             $destinations = $result->destinations;
                             if ($destinations) :
-                                echo comma_separate_list($destinations, 2);
+                                echo comma_separate_list($destinations, 1);
                             endif; ?>
-                    </div>
-                    <div class="search-result-gridview__content-area__bottom">
-                        <h2 class="search-result-gridview__content-area__bottom__title">
+                        </div>
+                        <h2 class="search-result-gridview__content-area__left__title">
                             <?php echo $result->productTitle; ?>
-
                         </h2>
-                        <div class="search-result-gridview__content-area__bottom__price">
-                            <?php echo "$" . number_format($result->lowestPrice, 0);  ?>
-                            <span>
-                                USD
-                            </span>
+
+                    </div>
+
+                    <div class="search-result-gridview__content-area__right">
+                        <div class="search-result-gridview__content-area__right__length">
+                            <?php 
+                            if(!$charterFilter){
+                                echo $result->itineraryLengthDisplay; 
+                            } else {
+                                echo $result->vesselCapacityDisplay; 
+                            }               
+                            ?>             
+                        </div>
+                        
+                        <div class="search-result-gridview__content-area__right__price">
+                            <?php echo "$" . number_format($result->lowestPrice, 0);  ?>             
                         </div>
                     </div>
 
@@ -245,3 +261,4 @@ else :
 <div id="totalResultsDisplay" style="display: none;" value="<?php echo $resultsTotal ?>"> </div>
 <div id="pageNumberDisplay" style="display: none;" value="<?php echo $pageNumber ?>"> </div>
 <div id="viewTypeDisplay" style="display: none;" value="<?php echo $viewType ?>"> </div>
+<div id="charterFilter" style="display: none;" value="<?php echo $charterFilter ?>"> </div>

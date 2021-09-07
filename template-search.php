@@ -135,6 +135,15 @@ if (isset($_GET["travel_style"])) {
 
 
 
+$charterFilter = false;
+if (!$travelTypes == null) {
+
+    if ($travelTypes[0] == 'charter_cruises') {
+        $charterFilter = true;
+    }
+}
+
+
 //--Destinations
 $destinations = [];
 $destinationsString = "";
@@ -235,6 +244,7 @@ $args = array(
     'resultsObject' => $resultsObject,
     'resultCount' => $resultCount,
     'viewType' => $viewType,
+    'charterFilter' => $charterFilter,
 
 );
 

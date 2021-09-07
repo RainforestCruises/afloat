@@ -4890,7 +4890,13 @@ h5 {
       font-size: 1.6rem;
       line-height: 2rem;
       font-weight: 700;
-      color: #142838; }
+      color: #142838;
+      display: flex;
+      flex-direction: column; }
+      .search-results__top-section__result-count span {
+        font-size: 1.1rem;
+        color: #747474;
+        font-weight: 400; }
     .search-results__top-section__page-count {
       font-size: 1.6rem;
       line-height: 2rem;
@@ -4919,10 +4925,13 @@ h5 {
             width: 1.5rem;
             color: #142838;
             fill: #142838;
-            transition: all .2s; }
+            transition: all 0.2s; }
           .search-results__top-section__controls__view-options button:hover svg {
-            fill: #305a7c;
-            color: #305a7c; }
+            fill: #40739c;
+            color: #40739c; }
+          .search-results__top-section__controls__view-options button.active svg {
+            fill: #40739c !important;
+            color: #40739c !important; }
   .search-results__grid {
     display: grid;
     row-gap: 3rem;
@@ -4990,7 +4999,7 @@ h5 {
           font-size: 1.6rem;
           border: 1px solid transparent;
           color: #9ea0a4;
-          transition: all .3s;
+          transition: all 0.3s;
           position: relative; }
           .search-results__grid__pagination__pages-group__button:hover:not(.disabled) {
             background-color: #f8f8f8; }
@@ -5688,18 +5697,20 @@ h5 {
     border-bottom-left-radius: .4rem;
     display: flex;
     padding: 1rem 1.5rem;
-    justify-content: flex-end;
-    flex-direction: column; }
-    .search-result-gridview__content-area__top {
-      font-size: 1rem;
-      letter-spacing: .1rem;
-      text-transform: uppercase;
-      color: #f8f8f8;
-      font-weight: 400; }
-    .search-result-gridview__content-area__bottom {
+    justify-content: space-between;
+    align-content: flex-end; }
+    .search-result-gridview__content-area__left {
       display: flex;
-      justify-content: space-between; }
-      .search-result-gridview__content-area__bottom__title {
+      flex-direction: column;
+      justify-content: flex-end;
+      margin-right: 1rem; }
+      .search-result-gridview__content-area__left__destinations {
+        font-size: 1rem;
+        letter-spacing: .1rem;
+        text-transform: uppercase;
+        color: #f8f8f8;
+        font-weight: 400; }
+      .search-result-gridview__content-area__left__title {
         font-size: 1.4rem;
         line-height: 2rem;
         font-weight: 600;
@@ -5707,18 +5718,31 @@ h5 {
         display: flex;
         flex-direction: column;
         padding-right: .5rem; }
-      .search-result-gridview__content-area__bottom__price {
+    .search-result-gridview__content-area__right {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      justify-content: flex-end;
+      align-items: flex-end; }
+      .search-result-gridview__content-area__right__length {
+        font-size: 1rem;
+        letter-spacing: .1rem;
+        text-transform: uppercase;
+        color: #f8f8f8;
+        font-weight: 400;
+        white-space: nowrap; }
+      .search-result-gridview__content-area__right__price {
         font-size: 1.4rem;
         line-height: 2rem;
         font-weight: 600;
         color: #f8f8f8;
         display: flex;
         align-items: flex-end; }
-        .search-result-gridview__content-area__bottom__price span {
+        .search-result-gridview__content-area__right__price span {
           font-size: 1rem;
           text-transform: uppercase;
           color: #f8f8f8;
-          font-weight: 400;
+          font-weight: 600;
           margin-left: .4rem;
           display: flex;
           align-items: flex-end; }
@@ -5727,7 +5751,8 @@ h5 {
   width: 100%;
   text-align: center;
   padding: 2rem;
-  padding-top: 7rem; }
+  padding-top: 7rem;
+  grid-column: 1 / -1; }
   .search-no-results__maintext {
     font-size: 2rem;
     color: #142838;

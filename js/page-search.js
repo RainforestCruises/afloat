@@ -118,12 +118,14 @@ jQuery(document).ready(function ($) {
   //View Type
   selectGridView.addEventListener('click', () => {
     formViewType.value = 'grid';
-    //$('#response').addClass('gridview');
+    selectGridView.classList.add('active');
+    selectListView.classList.remove('active');
     reloadResults();
   })
   selectListView.addEventListener('click', () => {
     formViewType.value = 'list';
-    //$('#response').removeClass('gridview');
+    selectGridView.classList.remove('active');
+    selectListView.classList.add('active');
     reloadResults();
   })
 
@@ -220,6 +222,7 @@ jQuery(document).ready(function ($) {
       searchInputString = searchInput.value
       formSearchInput.value = searchInputString;
       reloadResults();
+      hideMobileFilters();
       mobileReload = false;
     })
 
@@ -635,6 +638,7 @@ jQuery(document).ready(function ($) {
         var resultCount = $('#totalResultsDisplay').attr('value');
         var pageNumberDisplay = $('#pageNumberDisplay').attr('value');
         var viewTypeDisplay = $('#viewTypeDisplay').attr('value');
+        var charterFilter = $('#charterFilter').attr('value');
 
         if(viewTypeDisplay == 'grid'){
           $('#response').addClass('gridview');
@@ -662,6 +666,15 @@ jQuery(document).ready(function ($) {
           resultCountDisplay = "Found " + resultCount + " results"
           showResultsButton.textContent = "See " + resultCount + " results";
         }
+
+        if(charterFilter == true){
+          resultCountDisplay += '<span>Charter prices are shown as price per day</span>';
+        } else {
+          resultCountDisplay += '<span>Prices are displayed as per person in double occupancy</span>';
+        }
+
+
+
         $('#response-count').html(resultCountDisplay);
 
 

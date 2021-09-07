@@ -135,7 +135,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
     $posts = get_posts($args); //Stage I posts
-    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting, $searchInput); //Stage II metadata
+    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting, $searchInput, $viewType); //Stage II metadata
 
 
 
@@ -173,7 +173,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
         'pageCount' => $pageCount,
         'pageNumber' => $pageNumber,
         'viewType' => $viewType,
-
+        'charterFilter' => $charterFilter,
     ];
 
 
@@ -183,7 +183,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
 //Stage II - metadata
-function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting, $searchInput)
+function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting, $searchInput, $viewType)
 {
 
     $results = [];
@@ -463,6 +463,10 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             if ($rangeFrom != $rangeTo) {
                 $itineraryLengthDisplay = $rangeFrom . " - " . $rangeTo . " Days";
             } else {
+                $itineraryLengthDisplay = $rangeFrom . " Days";
+            }
+
+            if($viewType == 'grid'){
                 $itineraryLengthDisplay = $rangeFrom . " Days";
             }
 
