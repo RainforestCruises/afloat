@@ -52,11 +52,16 @@ function search_filter_home_search()
         
     }
 
+    $pageLink = null;
 
+    if($destinationId == 'anywhere'){
+        $pageLink = get_field('top_level_search_page', 'option');
+    }else {
+        $destinationPost = get_post($destinationId);
+        $pageLink = get_field('default_search_link', $destinationPost);
+    }
 
-
-    $destinationPost = get_post($destinationId);
-    $pageLink = get_field('default_search_link', $destinationPost);
+    
 
     if ($pageLink != null) {
 

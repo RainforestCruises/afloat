@@ -399,8 +399,10 @@ jQuery(document).ready(function ($) {
 
     //search-button
     searchButton.addEventListener('click', (e) => {
+        
         let isActive = searchButton.classList.contains('active');
         if (!isActive) {
+            destinationInput.focus();
             e.preventDefault();
         } else {
             //submit action inherent in element

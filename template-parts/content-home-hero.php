@@ -14,7 +14,7 @@ $hero_subtitle = get_field('hero_subtitle');
 $hero_slider = get_field('hero_slider');
 $currentYear = date("Y");
 //$monthsArray = array(01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12);
-
+console_log($destinations);
 ?>
 
 <!--  Hero -->
@@ -85,6 +85,7 @@ $currentYear = date("Y");
                     </button>
 
                     <ul class="home-search__destination__list" id="destination-list">
+                        <li postid="anywhere" class="anywhere">Anywhere</li>
                         <?php foreach ($destinations as $d) : ?>
                             <li postid="<?php echo $d->ID ?>"><?php echo get_field('navigation_title', $d) ?></li>
                         <?php endforeach; ?>

@@ -45,7 +45,7 @@ if ($searchType == 'destination') {
     $destinations = get_field('locations', $destinationId); //locations
     $isBucketList = get_field('is_bucket_list', $destinationId); //to hide location filters
 
-    usort($destinations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+    usort($destinations, fn ($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
 }
 
 if ($searchType == 'region') {
@@ -57,8 +57,7 @@ if ($searchType == 'region') {
     );
     $destinations = get_posts($destinationsArgs);
 
-    usort($destinations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
-
+    usort($destinations, fn ($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
 }
 
 if ($searchType == 'top') {
@@ -188,6 +187,46 @@ if (get_field('itinerary_length_max') != null) {
         </div>
     </div>
 
+    <!-- Departure Date Filter -->
+    <div class="filter">
+        <div class="filter__heading" id="departure-filter-heading">
+            <h5 class="filter__heading__text">
+                Departure Date
+                <?php $filterCount = count($selectedDepartures); ?>
+                <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="departuresFilterCount">
+                    <?php echo $filterCount; ?>
+                </div>
+            </h5>
+            <svg>
+                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
+            </svg>
+        </div>
+        <div class="filter__content">
+            <!-- List  add expanded if selection-->
+            <ul class="filter__content__list  filter__content__list--fixedHeight" id="departure-filter-list">
+
+                <?php
+                $count = 1;
+                foreach ($months as $m) :
+                    $currentItemValue = $m->year . '-' . $m->monthNumber;
+                ?>
+                    <li class="filter__content__list__item">
+                        <div class="form-checkbox">
+                            <input class="checkbox departure-checkbox <?php echo ($count > 6) ? 'checkbox-expand-group' : ''; ?>" type="checkbox" id="departure-checkbox-<?php echo $count; ?>" value="<?php echo $currentItemValue; ?>" <?php echo ($selectedDepartures != null ? (in_array($currentItemValue, $selectedDepartures) ? 'checked' : '') : '') ?>>
+                            <label for="departure-checkbox-<?php echo $count; ?>"><?php echo $m->monthName . " " . $m->year; ?></label>
+                        </div>
+                    </li>
+                <?php $count++;
+                endforeach; ?>
+
+            </ul>
+            <div class="filter__content__show-more">
+                <button id="departure-show-more">Show More</button>
+            </div>
+            <!-- Extras here, button etc-->
+        </div>
+    </div>
+
     <!-- Destinations/Locations Filter -->
     <div class="filter">
         <div class="filter__heading">
@@ -226,46 +265,8 @@ if (get_field('itinerary_length_max') != null) {
         </div>
     </div>
 
-        <!-- Departure Date Filter -->
-        <div class="filter">
-        <div class="filter__heading" id="departure-filter-heading">
-            <h5 class="filter__heading__text">
-                Departure Date
-                <?php $filterCount = count($selectedDepartures); ?>
-                <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="departuresFilterCount">
-                    <?php echo $filterCount; ?>
-                </div>
-            </h5>
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
-            </svg>
-        </div>
-        <div class="filter__content">
-            <!-- List  add expanded if selection-->
-            <ul class="filter__content__list  filter__content__list--fixedHeight" id="departure-filter-list">
 
-                <?php
-                $count = 1;
-                foreach ($months as $m) :
-                    $currentItemValue = $m->year . '-' . $m->monthNumber;
-                ?>
-                    <li class="filter__content__list__item">
-                        <div class="form-checkbox">
-                            <input class="checkbox departure-checkbox <?php echo ($count > 6) ? 'checkbox-expand-group' : ''; ?>" type="checkbox" id="departure-checkbox-<?php echo $count; ?>" value="<?php echo $currentItemValue; ?>" <?php echo ($selectedDepartures != null ? (in_array($currentItemValue, $selectedDepartures) ? 'checked' : '') : '') ?>>
-                            <label for="departure-checkbox-<?php echo $count; ?>"><?php echo $m->monthName . " " . $m->year; ?></label>
-                        </div>
-                    </li>
-                <?php $count++;
-                endforeach; ?>
 
-            </ul>
-            <div class="filter__content__show-more">
-                <button id="departure-show-more">Show More</button>
-            </div>
-            <!-- Extras here, button etc-->
-        </div>
-    </div>
-    
     <!-- Experiences Filter -->
     <div class="filter">
         <div class="filter__heading">

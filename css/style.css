@@ -7295,6 +7295,11 @@ h5 {
         transition: background-color 0.3s;
         opacity: 1;
         justify-content: space-between; }
+        .home-search__destination__list li.anywhere {
+          border-bottom: 1px solid rgba(59, 59, 59, 0.5); }
+          @media only screen and (max-width: 62.5em) {
+            .home-search__destination__list li.anywhere {
+              border-bottom: none; } }
         .home-search__destination__list li span {
           font-size: 1rem;
           text-transform: uppercase;
@@ -7620,7 +7625,8 @@ h5 {
       transform: translateX(0.5rem);
       display: flex;
       justify-content: center;
-      align-items: center; }
+      align-items: center;
+      cursor: pointer; }
       .home-search__cta__button .lds-ring {
         display: none; }
       .home-search__cta__button span {
@@ -7644,8 +7650,7 @@ h5 {
         transition: all 0.3s;
         padding-left: 0.5rem;
         padding-right: 1.5rem;
-        transition-delay: 0.1s;
-        cursor: pointer; }
+        transition-delay: 0.1s; }
         .home-search__cta__button.active span {
           display: flex;
           animation: fadein 0.5s forwards;
