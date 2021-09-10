@@ -466,9 +466,9 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                 $itineraryLengthDisplay = $rangeFrom . " Days";
             }
 
-            if($viewType == 'grid'){
-                $itineraryLengthDisplay = $rangeFrom . " Days";
-            }
+            // if($viewType == 'grid'){
+            //     $itineraryLengthDisplay = $rangeFrom . " Days";
+            // }
 
             //Capacity Attributes Display
             if ($numberOfCabins) {

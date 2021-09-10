@@ -252,7 +252,7 @@ if (get_field('itinerary_length_max') != null) {
                 <?php
                 $count = 1;
                 foreach ($destinations as $d) : ?>
-                    <li class="filter__content__list__item">
+                    <li class="filter__content__list__item <?php echo (get_field('non_cruise_destination', $d) == true ? 'no-cruise': '') ?>">
                         <div class="form-checkbox">
                             <input class="checkbox destination-checkbox" type="checkbox" id="destination-checkbox-<?php echo $count; ?>" value="<?php echo $d->ID ?>" <?php echo ($selectedDestinations != null ? (in_array($d->ID, $selectedDestinations) ? 'checked' : '') : '') ?>>
                             <label for="destination-checkbox-<?php echo $count; ?>"><?php echo get_field('navigation_title', $d) ?></label>

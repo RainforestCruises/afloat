@@ -5665,12 +5665,13 @@ h5 {
   border-radius: 0.4rem;
   transition: all 0.3s;
   width: 100%;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .search-result-gridview:link, .search-result-gridview:visited {
     text-decoration: none;
     color: #9ea0a4; }
   .search-result-gridview:hover {
-    box-shadow: 0 0rem 1.5rem rgba(0, 0, 0, 0.2); }
+    box-shadow: 0 0rem 2rem rgba(0, 0, 0, 0.5); }
   .search-result-gridview__image-area {
     width: 100%;
     height: 100%;
@@ -5685,6 +5686,32 @@ h5 {
       z-index: 10;
       top: 1.2rem;
       left: .5rem; }
+  .search-result-gridview__destinations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: min-content;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+    padding: 1rem 1.5rem;
+    border-top-right-radius: .4rem;
+    border-top-left-radius: .4rem;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding-bottom: 2rem;
+    flex-wrap: wrap; }
+    .search-result-gridview__destinations li {
+      font-size: 1rem;
+      letter-spacing: .1rem;
+      text-transform: uppercase;
+      color: #f8f8f8;
+      font-weight: 400; }
+      .search-result-gridview__destinations li:not(:last-child) {
+        margin-right: 0.5rem;
+        position: relative; }
+        .search-result-gridview__destinations li:not(:last-child)::after {
+          content: " / "; }
   .search-result-gridview__content-area {
     position: absolute;
     bottom: 0;
@@ -5704,12 +5731,6 @@ h5 {
       flex-direction: column;
       justify-content: flex-end;
       margin-right: 1rem; }
-      .search-result-gridview__content-area__left__destinations {
-        font-size: 1rem;
-        letter-spacing: .1rem;
-        text-transform: uppercase;
-        color: #f8f8f8;
-        font-weight: 400; }
       .search-result-gridview__content-area__left__title {
         font-size: 1.4rem;
         line-height: 2rem;

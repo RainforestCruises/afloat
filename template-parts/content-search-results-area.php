@@ -15,7 +15,7 @@ $charterFilter = $args['charterFilter']; //for icon active
         <div class="search-results__top-section__result-count" id="response-count">
             Found <?php echo $resultCount; ?> <?php echo ($resultCount == 1) ? 'result' : 'results'; ?>
             <span>
-                <?php echo (!$charterFilter) ? 'Prices are displayed as per person in double occupancy': 'Charter prices are shown as price per day' ; ?>
+                <?php echo (!$charterFilter) ? 'Prices are displayed in USD per person in double occupancy': 'Charter prices are shown in USD price per day' ; ?>
             </span>
         </div>
 

@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.4',
+  'version' => '5.5.3',
   'title' => 'Destinations',
   'type' => 'rfc_destinations',
   'id' => '5fdbb28b974a8',
-  'updated' => 1611938300,
+  'updated' => 1631297248,
   'columns' => 
   array (
     'title' => 
@@ -19,6 +19,7 @@ return array (
       'edit' => 'off',
       'bulk_edit' => 'on',
       'search' => 'on',
+      'name' => 'title',
     ),
     '5fdbb2c07cd75' => 
     array (
@@ -35,6 +36,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdbb2c07cd75',
     ),
     '5fdbb2c07cd7a' => 
     array (
@@ -52,6 +54,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdbb2c07cd7a',
     ),
     '5fea3ae22edd2' => 
     array (
@@ -70,6 +73,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fea3ae22edd2',
     ),
     '5fe12a9d773a9' => 
     array (
@@ -88,6 +92,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fe12a9d773a9',
     ),
     '5fdbe00b3c529' => 
     array (
@@ -103,6 +108,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fdbe00b3c529',
     ),
     '60104960a82c1' => 
     array (
@@ -118,6 +124,23 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '60104960a82c1',
+    ),
+    '613b9ece8dd2f0' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Non Cruise Destination',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_613b9e4c6516e',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '613b9ece8dd2f0',
     ),
     '6011c0bb62e39' => 
     array (
@@ -135,6 +158,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '6011c0bb62e39',
     ),
     '5fe1247f20602' => 
     array (
@@ -151,6 +175,7 @@ return array (
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
+      'name' => '5fe1247f20602',
     ),
     'date' => 
     array (
@@ -166,6 +191,7 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'filter_format' => '',
+      'name' => 'date',
     ),
   ),
   'settings' => 

@@ -359,10 +359,26 @@ jQuery(document).ready(function ($) {
 
 
       formTravelStyles.value = travelStylesString;
-
+      checkNonCruiseDestinations();
       reloadResults();
     });
   })
+  
+  checkNonCruiseDestinations();
+  function checkNonCruiseDestinations() {
+    const nonCruiseCheckboxes = [...document.querySelectorAll('.no-cruise')];
+    if(formTravelStyles.value == 'rfc_cruises' || formTravelStyles.value == 'charter_cruises' ){
+      
+      nonCruiseCheckboxes.forEach(x => {
+        x.style.display = 'none';   
+        //would need to uncheck and remove ID from form/url
+      })
+    } else {
+      nonCruiseCheckboxes.forEach(x => {
+        x.style.display = 'block';    
+      })
+    }
+  }
 
   //Destination selections
   let destinationsString = formDestinations.value;
@@ -668,9 +684,9 @@ jQuery(document).ready(function ($) {
         }
 
         if(charterFilter == true){
-          resultCountDisplay += '<span>Charter prices are shown as price per day</span>';
+          resultCountDisplay += '<span>Charter prices are shown in USD price per day</span>';
         } else {
-          resultCountDisplay += '<span>Prices are displayed as per person in double occupancy</span>';
+          resultCountDisplay += '<span>Prices are displayed in USD per person in double occupancy</span>';
         }
 
 

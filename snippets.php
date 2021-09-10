@@ -1,3 +1,5 @@
-<svg>
-  <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
-</svg>
+<?php
+                            $destinations = $result->destinations;
+                            if ($destinations) :
+                                echo comma_separate_list($destinations, 1);
+                            endif; ?>

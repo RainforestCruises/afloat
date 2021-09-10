@@ -163,19 +163,23 @@ if ($results) :
                 <div class="search-result-gridview__image-area">
                     <img <?php afloat_responsive_image($result->productImageId, 'featured-medium', array('featured-medium')); ?>>
                 </div>
+                <ul class="search-result-gridview__destinations">
 
+                    <?php
+                    $destinations = $result->destinations;
+                    if ($destinations) :
+                        foreach ($destinations as $d) :
+                            echo '<li>'. get_field('navigation_title', $d) .'</li>';
+                        endforeach;
+                    endif; ?>
+          
+                </ul>
 
 
                 <div class="search-result-gridview__content-area">
                     <div class="search-result-gridview__content-area__left">
-                   
-                        <div class="search-result-gridview__content-area__left__destinations">
-                            <?php
-                            $destinations = $result->destinations;
-                            if ($destinations) :
-                                echo comma_separate_list($destinations, 1);
-                            endif; ?>
-                        </div>
+
+
                         <h2 class="search-result-gridview__content-area__left__title">
                             <?php echo $result->productTitle; ?>
                         </h2>
@@ -184,17 +188,17 @@ if ($results) :
 
                     <div class="search-result-gridview__content-area__right">
                         <div class="search-result-gridview__content-area__right__length">
-                            <?php 
-                            if(!$charterFilter){
-                                echo $result->itineraryLengthDisplay; 
+                            <?php
+                            if (!$charterFilter) {
+                                echo $result->itineraryLengthDisplay;
                             } else {
-                                echo $result->vesselCapacityDisplay; 
-                            }               
-                            ?>             
+                                echo $result->vesselCapacityDisplay;
+                            }
+                            ?>
                         </div>
-                        
+
                         <div class="search-result-gridview__content-area__right__price">
-                            <?php echo "$" . number_format($result->lowestPrice, 0);  ?>             
+                            <?php echo "$" . number_format($result->lowestPrice, 0);  ?>+
                         </div>
                     </div>
 
