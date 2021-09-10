@@ -45,7 +45,7 @@ if ($searchType == 'destination') {
     $destinations = get_field('locations', $destinationId); //locations
     $isBucketList = get_field('is_bucket_list', $destinationId); //to hide location filters
 
-    usort($destinations, fn ($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+    //usort($destinations, fn ($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
 }
 
 if ($searchType == 'region') {
@@ -57,7 +57,7 @@ if ($searchType == 'region') {
     );
     $destinations = get_posts($destinationsArgs);
 
-    usort($destinations, fn ($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+    //usort($destinations, fn ($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
 }
 
 if ($searchType == 'top') {
