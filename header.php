@@ -149,7 +149,7 @@ foreach ($menuitems as $m) {
 
                     </a>
                 <?php else : ?>
-                    <a class="nav-mobile__content-panel__button mobile-link" href="<?php echo get_home_url(); ?>/about">About</a>
+                    <a class="nav-mobile__content-panel__button mobile-link" href="<?php echo $toplevelItem->url ?>"><?php echo $toplevelItem->title ?></a>
 
                 <?php endif; ?>
             <?php endforeach; ?>
