@@ -558,6 +558,8 @@ endforeach;
                             $days = $itinerary['ItineraryDays'];
                             $dayImages = $itinerary['DayImageDTOs'];
                             $dayCount = 1;
+
+                            
                             if ($days) :
                                 usort($days, "sortDays");
                                 foreach ($days as $day) : ?>

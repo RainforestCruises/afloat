@@ -24,19 +24,23 @@ $intro_testimonials = get_field('intro_testimonials');
             </h2>
             <div class="home-intro__top__content__testimonials">
                 <?php if ($intro_testimonials) :
-                        //$i = $intro_testimonials[0];
-                        $i_image = $intro_testimonials[0]['avatar'];
-                        $i_snippet = $intro_testimonials[0]['snippet'];
+                    $i_image = $intro_testimonials[0]['avatar'];
+                    $i_snippet = $intro_testimonials[0]['snippet'];
                 ?>
-                        <div class="home-intro__top__content__testimonials__testimonial">
-                            <div class="home-intro__top__content__testimonials__testimonial__image">
-                                <img src="<?php echo esc_url($i_image['url']); ?>" alt="<?php echo get_post_meta($i_image['id'], '_wp_attachment_image_alt', TRUE) ?>">
-                            </div>
-                            <div class="home-intro__top__content__testimonials__testimonial__snippet">
-                                <?php echo $i_snippet; ?>
-                            </div>
+                    <div class="home-intro__top__content__testimonials__testimonial">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-quote"></use>
+                        </svg>
+                        <div class="home-intro__top__content__testimonials__testimonial__snippet">
+                            <?php echo $i_snippet; ?>
                         </div>
-              
+                        <div class="home-intro__top__content__testimonials__testimonial__name">
+                            - Jeremy Clubb, Founder
+                        </div>
+                        <img class="home-intro__top__content__testimonials__testimonial__image" src="<?php echo esc_url($i_image['url']); ?>" alt="<?php echo get_post_meta($i_image['id'], '_wp_attachment_image_alt', TRUE) ?>">
+
+                    </div>
+
                 <?php endif; ?>
             </div>
 
@@ -77,6 +81,6 @@ $intro_testimonials = get_field('intro_testimonials');
             </div>
         </div>
     </div>
-  
+
 
 </div>
