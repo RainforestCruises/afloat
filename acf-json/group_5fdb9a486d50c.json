@@ -56,7 +56,7 @@
             "label": "Hero Slider",
             "name": "hero_slider",
             "type": "repeater",
-            "instructions": "First slide Title text will display as link text instead of Title text. The first slide does not display a title.",
+            "instructions": "The first slide does not display a title. Slides that contain a link will generate a link: 'View {title} tours'. Slides with no link (for example, activities) will not render a link below the paragraph.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1225,5 +1225,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1625246754
+    "modified": 1631829790
 }

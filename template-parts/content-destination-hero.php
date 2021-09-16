@@ -168,13 +168,8 @@
                                   <div class="destination-hero__content__location__slider__item__cta">
 
                                       <a class="goto-button goto-button--hero goto-button--small hero-link" href="<?php echo $s['link']; ?>">
-
-                                          <?php if ($slideCount == 0) {
-                                                echo $s['title'];
-                                            } else {
-                                                echo 'Explore ' . $s['title'];
-                                            }
-                                            ?>
+                                            <?php echo 'View ' . $s['title'] . ' Tours'; ?>
+                                 
 
                                           <svg>
                                               <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
