@@ -3,7 +3,7 @@
     grid-template-columns: $page-container;
     position: relative;
     grid-column: 1 / -1;
-    margin-bottom: 6rem;
+    padding-bottom: 6rem;
 
     @media only screen and (max-width: $bp-small) {
         grid-template-columns: $page-container-small;

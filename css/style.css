@@ -1596,13 +1596,15 @@ h5 {
   width: 100%; }
 
 .destination-page__section-testimonials {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%; }
+
+.destination-page__section-faq {
+  padding-top: 4rem;
+  background-color: #f8f8f8; }
 
 .travel-guide-page {
   padding-top: 12rem;
@@ -2380,7 +2382,7 @@ h5 {
     line-height: 3.5rem;
     max-width: 40rem;
     text-align: center;
-    margin-bottom: 3rem; }
+    margin-top: 6rem; }
 
 .about-page {
   padding-top: 12rem;
@@ -6696,7 +6698,7 @@ h5 {
   .destination-guides__grid-container {
     max-width: 140rem;
     padding: 0 6rem;
-    margin-bottom: 4rem; }
+    margin-bottom: 6rem; }
     @media only screen and (max-width: 37.5em) {
       .destination-guides__grid-container {
         padding: 0 3rem; } }
@@ -6771,7 +6773,8 @@ h5 {
   position: relative;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  background-color: #f8f8f8; }
   .destination-testimonials__header {
     max-width: calc(112rem + 12rem);
     padding: 0 6rem; }
@@ -6783,7 +6786,7 @@ h5 {
     max-width: 114rem;
     position: relative;
     margin-top: 6rem;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
     padding: 0 9rem; }
     @media only screen and (max-width: 37.5em) {
       .destination-testimonials__slider {
@@ -6816,11 +6819,10 @@ h5 {
         width: 100%;
         margin-bottom: 2rem; } }
     .destination-testimonial__content__snippet {
-      font-size: 2.5rem;
-      line-height: 3.2rem;
-      font-weight: 700;
+      font-size: 2.2rem;
+      line-height: 2.8rem;
       color: #142838;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
       padding-right: 4rem; }
       @media only screen and (max-width: 62.5em) {
         .destination-testimonial__content__snippet {
@@ -6858,7 +6860,7 @@ h5 {
   grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
   position: relative;
   grid-column: 1 / -1;
-  margin-bottom: 6rem; }
+  padding-bottom: 6rem; }
   @media only screen and (max-width: 37.5em) {
     .destination-faq {
       grid-template-columns: [full-start] minmax(3rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(3rem, 1fr) [full-end]; } }

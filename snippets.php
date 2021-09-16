@@ -1,8 +1,36 @@
-<div class="home-intro__top__content__testimonials__testimonial">
-                            <div class="home-intro__top__content__testimonials__testimonial__image">
-                                <img src="<?php echo esc_url($i_image['url']); ?>" alt="<?php echo get_post_meta($i_image['id'], '_wp_attachment_image_alt', TRUE) ?>">
-                            </div>
-                            <div class="home-intro__top__content__testimonials__testimonial__snippet">
-                                <?php echo $i_snippet; ?>
-                            </div>
+<div class="destination-testimonials">
+    <h2 class="destination-testimonials__header page-divider">
+        Testimonials
+    </h2>
+    <div class="destination-testimonials__slider" id="testimonials-slider">
+        <?php
+        $testimonials = get_field('testimonials');
+        if ($testimonials) :
+            foreach ($testimonials as $testimonial) :
+                $t = $testimonial['testimonial'];
+                $t_person = $testimonial['person'];
+                $t_image = $testimonial['image'];
+        ?>
+                <!-- Slide -->
+                <!-- Testimonial -->
+                <div class="destination-testimonial">
+                    <div class="destination-testimonial__content">
+                        <div class="destination-testimonial__content__snippet">
+                            <?php echo $t ?>
                         </div>
+                        <div class="destination-testimonial__content__person">
+                            - <?php echo $t_person ?>
+                        </div>
+                    </div>
+
+                    <div class="destination-testimonial__image-area ">
+                        <img <?php afloat_responsive_image($t_image['id'], 'vertical-medium', array('vertical-medium')); ?> >
+                    </div>
+                </div>
+
+        <?php
+            endforeach;
+
+        endif; ?>
+    </div>
+</div>

@@ -61,7 +61,7 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
 
 </section>
 
-<div class="destination-testimonials u-margin-bottom-big u-margin-top-big">
+<div class="destination-testimonials">
     <h2 class="contact-page__testimonial-title">
         What Our Customers are Saying About Us
     </h2>

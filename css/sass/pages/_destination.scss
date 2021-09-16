@@ -31,8 +31,7 @@
     }
 
     &__section-testimonials {
-        margin-top: 4rem; 
-        margin-bottom: 4rem;
+  
         display: flex;
         justify-content: center;
         align-items: center;
@@ -41,7 +40,8 @@
     }
 
     &__section-faq {
-
+        padding-top: 4rem;
+        background-color: $color-grey-light-1;
     }
 }
 
