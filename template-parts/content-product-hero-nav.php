@@ -149,7 +149,7 @@ $images = get_field('highlight_gallery');
                 <!-- Starting Price / CTA -->
                 <div class="product-hero__bottom__content__info-group__info" id="page-title">
                     <?php if ($charter_view == false) : ?>
-                        <div class="product-hero__bottom__content__info-group__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span></div>
+                        <div class="product-hero__bottom__content__info-group__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span><span class="u-small-text"> / Person</span></div>
                     <?php else : ?>
                         <div class="product-hero__bottom__content__info-group__info__starting-price">Charter: <span><?php echo "$" . number_format($args['charter_daily_price'], 0); ?> </span> <span class="u-small-text"> / Day</span></div>
                     <?php endif; ?>

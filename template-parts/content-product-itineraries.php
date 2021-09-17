@@ -7,6 +7,7 @@ $years = $args['years'];
 $months = $args['months'];
 $monthNames = $args['monthNames'];
 
+console_log($cruise_data);
 
 $charter_view = false;
 $charter_only = false;
@@ -120,9 +121,9 @@ endforeach;
 
                             <!-- Map -->
                             <?php $itineraryImages = $itinerary['MapImageDTOs']; ?>
-                            <a class="itinerary-map-image" href="<?php echo $itineraryImages[0]['ImageUrl']; ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
+                            <a class="itinerary-map-image" href="<?php echo afloat_dfcloud_image($itineraryImages[0]['ImageUrl']); ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
                                 <?php if ($itineraryImages) : ?>
-                                    <img src="<?php echo $itineraryImages[0]['ImageUrl']; ?>" alt="itinerary map">
+                                    <img src="<?php echo afloat_dfcloud_image($itineraryImages[0]['ImageUrl']); ?>" alt="itinerary map">
 
                                 <?php endif ?>
                             </a>
@@ -585,13 +586,12 @@ endforeach;
                                                 <?php echo $day['Excerpt'] ?>
                                             </div>
                                         </div>
-
+    
                                         <!-- Side / Image -->
                                         <div class="product-itinerary-slide__bottom__days__item__side">
                                             <div class="product-itinerary-slide__bottom__days__item__side__image-area">
                                                 <?php if ($img != null) : ?>
-
-                                                    <img src="<?php echo $img['ImageUrl'] ?>" alt="<?php echo $img['AltText'] ?>">
+                                                    <img src="<?php echo afloat_dfcloud_image($img['ImageUrl']) ; ?>" alt="<?php echo $img['AltText'] ?>">
                                                 <?php endif; ?>
                                             </div>
                                             <div class="product-itinerary-slide__bottom__days__item__side__detail">

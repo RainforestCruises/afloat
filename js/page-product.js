@@ -1,6 +1,11 @@
 jQuery(document).ready(function ($) {
   const templateUrl = page_vars.templateUrl;
-
+  $('.product-cabins__cabin__image-area').flickity({
+    prevNextButtons: true,
+    pageDots: false,
+    fade: true,
+    lazyLoad: 2, //preload one over
+  })
 
 
   var currentYear = new Date().getFullYear();
@@ -393,6 +398,11 @@ jQuery(document).ready(function ($) {
 
 
 
+  //SLIDERS --------------------------------------------
+
+ 
+ 
+
 
 
   //Areas Slider (must select class for chained sliders)
@@ -469,10 +479,6 @@ jQuery(document).ready(function ($) {
 
 
 
-
-
-
-
   //Related Products Slider
   $('#related-slider').slick({
     infinite: true,
@@ -527,15 +533,6 @@ jQuery(document).ready(function ($) {
     ],
   });
 
-  // //Flickity
-  // var flickitySlider = new Flickity('#product-gallery', {
-  //   prevNextButtons: false,
-  //   pageDots: false,
-  //   cellAlign: 'left',
-  //   lazyLoad: 2,
-
-  // });
-
 
 
   //Magnific ---------------------------------------------------------------------------
@@ -577,63 +574,6 @@ jQuery(document).ready(function ($) {
   });
 
 
-
-  // //Tabs Nav Itinerary (3/4/5 day...)
-  // $('.product-itineraries__nav__list li').click(function () {
-  //   var tab_id = $(this).attr('data-tab');
-
-
-  //   $('.product-itineraries__nav__list__item').removeClass('current');
-  //   $('.product-itineraries__itinerary.tab-content').removeClass('current');
-
-  //   $(this).addClass('current');
-  //   $("#" + tab_id).addClass('current');
-  // })
-
-  // //Itinerary Page Arrows
-  // $('.product-itineraries__itinerary__map__btn').click(function () {
-  //   var tab_id = $(this).attr('data-tab');
-  //   console.log(tab_id)
-  //   $('.product-itineraries__itinerary.tab-content').removeClass('current');
-  //   $(".product-itineraries__nav__item").removeClass('current');
-  //   $("#" + tab_id + "-nav").addClass('current');
-  //   $("#" + tab_id).addClass('current');
-  // })
-
-
-  // //Inex Tabs (all itineraries)
-  // var inexTabList = document.querySelectorAll(".product-itineraries__itinerary__inclusions__tabs__list li");
-  // inexTabList.forEach(function (tab) {
-  //   tab.addEventListener('click', function () {
-  //     var tab_name = $(this).attr('name');
-
-  //     $('.product-itineraries__itinerary__inclusions__tabs__item').removeClass('current');
-  //     $('.product-itineraries__itinerary__inclusions__tab-pane.tab-content').removeClass('current');
-
-  //     var tabs = $('[name="' + tab_name + '"]'); //find all tabs (must be matching tab content class name)
-  //     tabs.addClass('current');
-  //     $("." + tab_name).addClass('current');
-  //   });
-  // });
-
-
-
-
-  // const items = document.querySelectorAll(".accordion button");
-
-  // function toggleAccordion() {
-  //   const itemToggle = this.getAttribute('aria-expanded');
-
-  //   for (i = 0; i < items.length; i++) {
-  //     items[i].setAttribute('aria-expanded', 'false');
-  //   }
-
-  //   if (itemToggle == 'false') {
-  //     this.setAttribute('aria-expanded', 'true');
-  //   }
-  // }
-
-  // items.forEach(item => item.addEventListener('click', toggleAccordion));
 
 
 

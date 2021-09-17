@@ -12,6 +12,11 @@ $cruise_data = $args['cruiseData'];
     <!-- Cabins -->
     <?php
     $cabins = $cruise_data['CabinDTOs'];
+
+    //Need to SORT cabin images, put main image first
+    //new array- $cabinImage['Main'] == true
+    
+
     $cabinCount = 0;
     if ($cabins) : ?>
 
@@ -28,14 +33,14 @@ $cruise_data = $args['cruiseData'];
                 <div class="product-cabins__cabin__image-area">
                     <!-- Image from DF -->
                     <?php $cabinImages = $cabins[$cabinCount]['ImageDTOs'];      
-                    foreach($cabinImages as $cabinImage) {
-                        $mainImage;
-                        if($cabinImage['Main'] == true){
-                            $mainImage = $cabinImage;
-                        }
-                    }         
+                    foreach($cabinImages as $cabinImage) :
+
+                        ?> 
+                            <img data-flickity-lazyload-src="<?php echo afloat_dfcloud_image($cabinImage['ImageUrl']); ?>" alt="<?php echo esc_html($cabinImage['AltText']); ?>">
+                        <?php
+                        endforeach;       
                     ?>
-                    <img src="<?php echo esc_html($mainImage['ImageUrl']); ?>" alt="<?php echo esc_html($mainImage['AltText']); ?>">
+                    
                 </div>
                 <div class="product-cabins__cabin__content">
                     <div class="product-cabins__cabin__content__title">

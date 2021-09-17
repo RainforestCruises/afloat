@@ -23,7 +23,6 @@ function afloat_responsive_image($image_id, $image_size, $sizes_array, $slickLaz
         $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE);
 
 
-        // = is_ssl() ? preg_replace( "^http:", "https:", $image_src ) : $image_src ;
 
 
         $image_srcset = '';
@@ -45,6 +44,30 @@ function afloat_responsive_image($image_id, $image_size, $sizes_array, $slickLaz
             echo 'loading="lazy" src="' . $image_src . '" srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . 'px) 100vw, ' . $max_width . 'px" alt="' . $image_alt . '"';
         }
     }
+}
+
+//For images from DF (Cruises / Lodges) - Cabins, D2D, Maps, apply cloudinary custom transformation for format/quality/crop
+function afloat_dfcloud_image($image_url)
+{
+
+    //check for res.cloudinary.com
+    if(strpos($image_url, 'res.cloudinary.com') == false){
+        return $image_url;
+    }
+
+    $string = $image_url;
+    $prefix = "/image/upload/";
+    $first = substr($string,0,strpos($string,'/image/upload/') + strlen($prefix));
+
+    $transformationString = 'f_auto,q_auto/c_fill,g_auto/';
+    $index = strpos($string, $prefix) + strlen($prefix);
+
+    $second = substr($string, $index);
+
+    $new_url = $first . $transformationString . $second;
+
+
+    return $new_url;
 }
 
 
@@ -86,7 +109,7 @@ function comma_separate_list($arr, $limit = 0)
     $listCount = count($arr);
     foreach ($arr as $a) :
 
-        if($limit != 0 && $count >= $limit){
+        if ($limit != 0 && $count >= $limit) {
             $display .= ' +' . ($listCount - $limit) . ' more';
             break;
         }
@@ -145,7 +168,7 @@ function structuredData($templateType)
 
             $returnString .= $initialItem;
 
-            
+
 
             $i = 1;
             foreach ($breadcrumb as $b) {
@@ -158,7 +181,7 @@ function structuredData($templateType)
                     $itemString = '{"@type": "ListItem", "position": ' . $count . ', "name": "' . $itemTitle . '" }';
                 }
 
-                if($i != count($breadcrumb)){ //add comma if not last
+                if ($i != count($breadcrumb)) { //add comma if not last
                     $itemString .= ',';
                 }
 
@@ -315,10 +338,11 @@ function structuredData($templateType)
 
 
 //FAQ json-ld
-function structuredDataFaq() {
+function structuredDataFaq()
+{
     $faqs = get_field('faqs');
 
-    
+
     $jsonStart = '<script type="application/ld+json">{ 
                 "@context": "https://schema.org",
                 "@type": "FAQPage",
@@ -327,7 +351,7 @@ function structuredDataFaq() {
 
     $jsonEnd = '] } </script>';
 
-    
+
 
     $returnString = '';
 
@@ -345,33 +369,33 @@ function structuredDataFaq() {
             $itemString = '{"@type": "Question", "name": "' . $itemQuestion . '", "acceptedAnswer": {"@type": "Answer", "text": "' . $itemAnswerNoQuote . '"}}';;
 
 
-            if($count != count($faqs)){ //add comma if not last
+            if ($count != count($faqs)) { //add comma if not last
                 $itemString .= ',';
             }
 
             $returnString .= $itemString;
             $count++;
-          
         }
         $returnString .= $jsonEnd;
     };
 
 
-    
+
     return $returnString;
 }
 
 
-function checkActiveHeader() {
+function checkActiveHeader()
+{
     $alwaysActiveHeader = false;
     $templateName = get_page_template_slug();
     $postTypeName = get_post_type();
 
-    if($templateName == 'template-about.php' || $templateName == 'template-generic.php' || $templateName == 'template-error404.php' || $templateName == 'template-contact.php' || $templateName == 'template-search.php' || $templateName == 'template-travel-guide.php'){
+    if ($templateName == 'template-about.php' || $templateName == 'template-generic.php' || $templateName == 'template-error404.php' || $templateName == 'template-contact.php' || $templateName == 'template-search.php' || $templateName == 'template-travel-guide.php') {
         $alwaysActiveHeader = true;
     }
 
-    if($postTypeName == 'rfc_travel_guides'){
+    if ($postTypeName == 'rfc_travel_guides') {
         $alwaysActiveHeader = true;
     }
 

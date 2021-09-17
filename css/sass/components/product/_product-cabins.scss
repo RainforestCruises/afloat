@@ -19,10 +19,11 @@
         width: 100%;
         display: flex;
         position: relative;
-        padding: 4rem 0;
+        margin: 4rem 0;
+        
 
         @media only screen and (max-width: $bp-small) {
-            padding: 3rem 0;
+            margin: 3rem 0;
         }
 
         align-items: center;
@@ -30,8 +31,8 @@
         &:nth-child(even) {
             .product-cabins__cabin__image-area {
                 order: 2;
-                padding-right: 0rem;
-                padding-left: 4rem;
+                margin-left: 4rem;
+                margin-right: 0rem;
             }
         }
 
@@ -41,33 +42,39 @@
             &:nth-child(even) {
                 .product-cabins__cabin__image-area {
                     order: -1;
-                    padding-right: 0rem;
-                    padding-left: 0rem;
-                    margin-bottom: 2rem;
+                    margin-left: 0rem;
+                    margin-right: 0rem;
                 }
             }
         }
 
         &__image-area {
             width: 50%;
-            padding-right: 4rem;
+            margin-right: 4rem;
+            margin-left: 0rem;
+
+            .flickity-button {
+                background: transparent;
+            }
+            .flickity-button-icon {
+                fill: white;
+            }
+            .flickity-prev-next-button {
+                width: 2.5rem;
+                height: 2.5rem;
+              }
 
             @media only screen and (max-width: $bp-medium) {
                 width: 100%;
-                margin-bottom: 2rem;
-                padding-right: 0rem;
-                padding-left: 0rem;
+                margin-left: 0rem;
+                margin-right: 0rem;
+                margin-bottom: 3rem;
             }
 
             img {
                 object-fit: contain;
                 width: 100%;
                 height: auto;
-                box-shadow: $shadow-medium-short;
-
-                @media only screen and (max-width: $bp-medium) {
-                    box-shadow: none;
-                }
             }
         }
 
@@ -150,11 +157,9 @@
                     margin-bottom: 1rem;
                 }
 
-                
                 & a {
                     &:link {
                         line-height: 1.3rem !important;
-
                     }
                 }
 
@@ -165,9 +170,6 @@
                     text-align: center;
                     align-items: center;
                     flex-direction: column;
-
-
-          
 
                     &:not(:last-child) {
                         margin-right: 4rem;
@@ -186,8 +188,6 @@
                         align-items: center;
                         height: 100%;
                         text-align: start;
-
-                   
 
                         &__icon {
                             margin-right: 1.5rem;
