@@ -13,8 +13,7 @@ $hero_title = get_field('hero_title');
 $hero_subtitle = get_field('hero_subtitle');
 $hero_slider = get_field('hero_slider');
 $currentYear = date("Y");
-//$monthsArray = array(01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12);
-console_log($destinations);
+
 ?>
 
 <!--  Hero -->
