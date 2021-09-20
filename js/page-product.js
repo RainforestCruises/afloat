@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
   const templateUrl = page_vars.templateUrl;
-  $('.product-cabins__cabin__image-area').flickity({
+  $('.product-cabins__cabin__image-area.dfproperty').flickity({
     prevNextButtons: true,
     pageDots: false,
     fade: true,

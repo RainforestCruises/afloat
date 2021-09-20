@@ -30,7 +30,7 @@ $cruise_data = $args['cruiseData'];
 
             ?>
             <div class="product-cabins__cabin ">
-                <div class="product-cabins__cabin__image-area">
+                <div class="product-cabins__cabin__image-area dfproperty">
                     <!-- Image from DF -->
                     <?php $cabinImages = $cabins[$cabinCount]['ImageDTOs'];      
                     foreach($cabinImages as $cabinImage) :
