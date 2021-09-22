@@ -211,6 +211,8 @@
         //margin-bottom: 1rem;
     }
 
+
+
     &__content {
         padding: 2rem;
         padding-top: 0rem;
@@ -389,6 +391,12 @@
                     }
                 }
             }
+        }
+
+        &__fine-print {
+            padding-top: 1rem;
+            font-size: 1.2rem;
+            
         }
     }
 }

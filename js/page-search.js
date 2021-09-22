@@ -363,19 +363,19 @@ jQuery(document).ready(function ($) {
       reloadResults();
     });
   })
-  
+
   checkNonCruiseDestinations();
   function checkNonCruiseDestinations() {
     const nonCruiseCheckboxes = [...document.querySelectorAll('.no-cruise')];
-    if(formTravelStyles.value == 'rfc_cruises' || formTravelStyles.value == 'charter_cruises' ){
-      
+    if (formTravelStyles.value == 'rfc_cruises' || formTravelStyles.value == 'charter_cruises') {
+
       nonCruiseCheckboxes.forEach(x => {
-        x.style.display = 'none';   
+        x.style.display = 'none';
         //would need to uncheck and remove ID from form/url
       })
     } else {
       nonCruiseCheckboxes.forEach(x => {
-        x.style.display = 'block';    
+        x.style.display = 'block';
       })
     }
   }
@@ -526,7 +526,7 @@ jQuery(document).ready(function ($) {
     if (hasSearchInput) {
       searchInput.value = "";
     }
-    
+
 
     reloadResults();
   }
@@ -598,23 +598,20 @@ jQuery(document).ready(function ($) {
       params.set('viewType', formViewType.value);
     }
 
-    
+
 
     if (preservePage == true) { //for when page numbers are clicked, otherwise page will always be reset to 1
       if (formPageNumber.value != null) {
         params.set('pageNumber', formPageNumber.value);
+
+      }
+
+      if (formPageNumber.value != 'all') {
+        $('body, html, .search-results').animate({ scrollTop: 0 }, "fast"); //paging scroll up
       }
     } else {
       formPageNumber.value = 1;
       params.set('pageNumber', formPageNumber.value);
-    }
-
-    //if search-results-top not visible
-    var topVisible = Utils.isElementInView($('#search-results-top'), false);
-    if (topVisible == false) {
-      if (formPageNumber.value != 'all') {
-        $('body, html, .search-results').animate({ scrollTop: 0 }, "fast"); //paging scroll up
-      }
     }
 
 
@@ -656,7 +653,7 @@ jQuery(document).ready(function ($) {
         var viewTypeDisplay = $('#viewTypeDisplay').attr('value');
         var charterFilter = $('#charterFilter').attr('value');
 
-        if(viewTypeDisplay == 'grid'){
+        if (viewTypeDisplay == 'grid') {
           $('#response').addClass('gridview');
         } else {
           $('#response').removeClass('gridview');
@@ -683,7 +680,7 @@ jQuery(document).ready(function ($) {
           showResultsButton.textContent = "See " + resultCount + " results";
         }
 
-        if(charterFilter == true){
+        if (charterFilter == true) {
           resultCountDisplay += '<span>Charter prices are shown in USD price per day</span>';
         } else {
           resultCountDisplay += '<span>Prices are displayed in USD per person in double occupancy</span>';

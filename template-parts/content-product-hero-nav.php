@@ -79,7 +79,7 @@ $images = get_field('highlight_gallery');
                             </li>
                         <?php endif; ?>
                         <li class="product-hero__top__content__nav__list__item <?php echo ($showOverview ? '' : 'current') ?>">
-                            <a href="#itineraries" class="product-hero__top__content__nav__list__item__link page-nav-template"><?php echo (get_post_type() == 'rfc_cruises') ? ('Itineraries') : ('Itinerary'); ?></a>
+                            <a href="#itineraries" class="product-hero__top__content__nav__list__item__link page-nav-template"><?php echo (get_post_type() != 'rfc_tours') ? ('Itineraries & Prices') : ('Itinerary & Prices'); ?></a>
                         </li>
                         <li class="product-hero__top__content__nav__list__item ">
                             <a href="#accommodations" class="product-hero__top__content__nav__list__item__link page-nav-template">Accommodations</a>

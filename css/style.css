@@ -5341,6 +5341,9 @@ h5 {
         cursor: default; }
         .filter__content__search-area__button.disabled svg {
           fill: #9ea0a4; }
+  .filter__content__fine-print {
+    padding-top: 1rem;
+    font-size: 1.2rem; }
 
 .clear-filters {
   display: none; }

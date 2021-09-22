@@ -362,7 +362,7 @@ foreach ($menuitems as $m) {
                             </li>
                         <?php endif; ?>
                         <li>
-                            <a href="#itineraries"><?php echo (get_post_type() == 'rfc_cruises') ? ('Itineraries') : ('Itinerary'); ?></a>
+                            <a href="#itineraries"><?php echo (get_post_type() != 'rfc_tours') ? ('Itineraries & Prices') : ('Itinerary & Prices'); ?></a>
                         </li>
                         <li>
                             <a href="#accommodations">Accommodations</a>
@@ -387,7 +387,7 @@ foreach ($menuitems as $m) {
                         </li>
                     <?php endif; ?>
                     <li class="nav-secondary-mobile__list__item">
-                        <a class="nav-secondary-mobile__list__item__link" href="#itineraries">Itineraries</a>
+                        <a class="nav-secondary-mobile__list__item__link" href="#itineraries"><?php echo (get_post_type() != 'rfc_tours') ? ('Itineraries & Prices') : ('Itinerary & Prices'); ?></a>
                     </li>
                     <li class="nav-secondary-mobile__list__item">
                         <a class="nav-secondary-mobile__list__item__link" href="#accommodations">Accommodations</a>
