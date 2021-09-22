@@ -614,6 +614,10 @@ jQuery(document).ready(function ($) {
       params.set('pageNumber', formPageNumber.value);
     }
 
+    if ($(window).width() < 1000 && formPageNumber.value != 'all') {
+      $('body, html, .search-results').animate({ scrollTop: 0 }, "fast"); //paging scroll up
+    }
+
 
 
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
