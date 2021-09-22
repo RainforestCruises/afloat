@@ -1,6 +1,6 @@
 <div class="home-testimonials">
-    <h2 class="home-testimonials__publications-title">
-        Testimonials
+    <h2 class="home-testimonials__title review-title ">
+        What Our Customers are Saying
     </h2>
     <div class="home-testimonials__testimonials">
         <div class="home-testimonials__testimonials__slider" id="testimonials-slider">
@@ -16,6 +16,9 @@
                     <!-- Testimonial -->
                     <div class="testimonial">
                         <div class="testimonial__content">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-quote"></use>
+                            </svg>
                             <div class="testimonial__content__snippet">
                                 <?php echo $t ?>
                             </div>

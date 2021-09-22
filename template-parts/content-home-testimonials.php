@@ -5,8 +5,8 @@ $testimonials = get_field('testimonials');
 ?>
 
 <div class="home-testimonials">
-    <h2 class="home-testimonials__publications-title">
-        As Featured In:
+    <h2 class="home-testimonials__title">
+        As Featured In
     </h2>
     <div class="home-testimonials__publications">
         <?php if ($publications) :
@@ -20,8 +20,8 @@ $testimonials = get_field('testimonials');
         <?php endforeach;
         endif; ?>
     </div>
-    <h2 class="home-testimonials__publications-title">
-        Traveler Reviews:
+    <h2 class="home-testimonials__title  ">
+        Traveler Reviews
     </h2>
     <div class="home-testimonials__testimonials">
         <div class="home-testimonials__testimonials__slider" id="main-testimonials">
@@ -35,6 +35,9 @@ $testimonials = get_field('testimonials');
                     <!-- Testimonial -->
                     <div class="testimonial">
                         <div class="testimonial__content">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-quote"></use>
+                            </svg>
                             <div class="testimonial__content__snippet">
                                 <?php echo $t_snippet ?>
                             </div>
@@ -42,18 +45,15 @@ $testimonials = get_field('testimonials');
                                 - <?php echo $t_person_name ?>
                             </div>
                         </div>
-        
-                        <div class="testimonial__image-area <?php echo ($t_count % 2 != 0) ? "" : "" ;?>">
+
+                        <div class="testimonial__image-area <?php echo ($t_count % 2 != 0) ? "" : ""; ?>">
                             <img <?php afloat_responsive_image($t_image['id'], 'vertical-small', array('vertical-small')); ?>>
                         </div>
                     </div>
 
-            <?php $t_count++; endforeach;
+            <?php $t_count++;
+                endforeach;
             endif; ?>
         </div>
-
-
-
-
     </div>
 </div>

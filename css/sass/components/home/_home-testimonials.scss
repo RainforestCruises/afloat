@@ -26,15 +26,30 @@
         z-index: 2;
     }
 
-    &__publications-title {
+    &__title {
         font-size: 1.6rem;
-        color: $color-white;
+        color: $color-grey-light-1a;
         text-transform: uppercase;
         letter-spacing: 0.3rem;
         margin: 1rem;
         margin-top: 8rem;
         z-index: 5;
-        font-weight: 400;
+        font-weight: 600;
+
+        &.review-title {
+            font-size: 3rem;
+            color: $color-grey-light-1a;
+            text-transform: none;
+            // letter-spacing: 0.3rem;
+            // margin: 1rem;
+            // margin-top: 8rem;
+            // z-index: 5;
+            font-family: $font-primary;
+            text-transform: none;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
     }
 
     &__publications {
@@ -124,7 +139,8 @@
     column-gap: 6rem;
     width: 100%;
     @include flexPadding;
-
+    padding-top: 3rem !important;
+    padding-bottom: 3rem;
 
 
     &__content {
@@ -133,19 +149,31 @@
         align-self: center;
         display: flex;
         flex-direction: column;
-
+        overflow: visible;
         @media only screen and (max-width: $bp-small) {
             width: 100%;
         }
 
+        position: relative;
+        & svg {
+            position: absolute;
+            top: -3rem;
+            left: -3rem;
+            height: 8rem;
+            width: 8rem;
+            fill: rgba( $color-grey-light-1a, 0.3);
+            transform: rotate(180deg) ;
+            z-index: -1;
+        }
+
         &__snippet {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-family: $font-secondary;
             letter-spacing: 0.1rem;
+            line-height: 3.8rem;
             //font-weight: 300;
 
             @media only screen and (max-width: $bp-large) {
-                font-size: 2rem;
                 align-self: center;
             }
 

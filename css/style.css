@@ -8224,15 +8224,24 @@ h5 {
     top: 0;
     left: 0;
     z-index: 2; }
-  .home-testimonials__publications-title {
+  .home-testimonials__title {
     font-size: 1.6rem;
-    color: #fff;
+    color: #e6e6e6;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
     margin: 1rem;
     margin-top: 8rem;
     z-index: 5;
-    font-weight: 400; }
+    font-weight: 600; }
+    .home-testimonials__title.review-title {
+      font-size: 3rem;
+      color: #e6e6e6;
+      text-transform: none;
+      font-family: "Metropolis", sans-serif;
+      text-transform: none;
+      font-weight: 600;
+      margin-bottom: 3rem;
+      text-align: center; }
   .home-testimonials__publications {
     max-width: 128rem;
     display: flex;
@@ -8297,7 +8306,9 @@ h5 {
   color: #fff;
   column-gap: 6rem;
   width: 100%;
-  padding: 0 6rem; }
+  padding: 0 6rem;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem; }
   @media only screen and (max-width: 37.5em) {
     .testimonial {
       padding: 0 3rem; } }
@@ -8305,17 +8316,28 @@ h5 {
     width: 60%;
     align-self: center;
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    overflow: visible;
+    position: relative; }
     @media only screen and (max-width: 37.5em) {
       .testimonial__content {
         width: 100%; } }
+    .testimonial__content svg {
+      position: absolute;
+      top: -3rem;
+      left: -3rem;
+      height: 8rem;
+      width: 8rem;
+      fill: rgba(230, 230, 230, 0.3);
+      transform: rotate(180deg);
+      z-index: -1; }
     .testimonial__content__snippet {
-      font-size: 2.5rem;
+      font-size: 1.8rem;
       font-family: "Playfair Display", serif;
-      letter-spacing: 0.1rem; }
+      letter-spacing: 0.1rem;
+      line-height: 3.8rem; }
       @media only screen and (max-width: 62.5em) {
         .testimonial__content__snippet {
-          font-size: 2rem;
           align-self: center; } }
       @media only screen and (max-width: 37.5em) {
         .testimonial__content__snippet {
