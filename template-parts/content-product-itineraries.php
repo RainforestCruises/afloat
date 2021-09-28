@@ -7,21 +7,17 @@ $years = $args['years'];
 $months = $args['months'];
 $monthNames = $args['monthNames'];
 
-console_log($cruise_data);
 
 $charter_view = false;
+$charter_available = false;
 $charter_only = false;
-
-
 if ($args['propertyType'] == 'Cruise') {
-    if ($args['charter_view'] == true) {
-        $charter_view = true;
-    }
-
-    if ($args['charter_only'] == true) {
-        $charter_only = true;
-    }
+    $charter_view = $args['charter_view'];
+    $charter_available = $args['charter_available'];
+    $charter_only = $args['charter_only'];
 }
+
+
 ?>
 
 
@@ -116,7 +112,14 @@ endforeach;
                                 <h3 class="product-itinerary-slide__top__map-area__title__text">
                                     <?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>
                                 </h3>
+                                <?php if ($charter_view) : ?>
+                                    <div class="product-itinerary-slide__top__map-area__title__badge-area">
+                                        <span>
+                                            Sample
+                                        </span>
+                                    </div>
 
+                                <?php endif ?>
                             </div>
 
                             <!-- Map -->
@@ -221,7 +224,7 @@ endforeach;
                                         <div class="product-itinerary-slide__top__side-info__content__widget">
                                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
                                                 <h5 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
-                                                    Prices
+                                                    Prices (USD)
 
                                                     <?php if ($display_policies || $display_special_note) : ?>
                                                         <svg class="price-notes">
@@ -420,6 +423,11 @@ endforeach;
                                             <?php endforeach; ?>
 
                                         </div>
+                                        <?php if ($charter_available) : ?>
+                                            <div class="product-itinerary-slide__top__side-info__content__fine-print">
+                                                Looking for a private charter? <a href="<?php echo get_permalink() . '?charter=true' ?>">Click here</a>
+                                            </div>
+                                        <?php endif; ?>
                                         <?php if (get_post_type() == 'rfc_lodges') : ?>
                                             <div class="product-itinerary-slide__top__side-info__content__widget">
                                                 <div class="charter-info-snippet">
@@ -492,6 +500,12 @@ endforeach;
 
                                             </div>
                                         </div>
+                                        <?php if (!$charter_only) : ?>
+                                            <div class="product-itinerary-slide__top__side-info__content__fine-print">
+                                                Looking for group cruises? <a href="<?php echo get_permalink() ?>">Click here</a>
+                                            </div>
+                                        <?php endif; ?>
+                                        
 
                                     <?php endif; ?>
                                 </div>
@@ -560,7 +574,7 @@ endforeach;
                             $dayImages = $itinerary['DayImageDTOs'];
                             $dayCount = 1;
 
-                            
+
                             if ($days) :
                                 usort($days, "sortDays");
                                 foreach ($days as $day) : ?>
@@ -586,12 +600,12 @@ endforeach;
                                                 <?php echo $day['Excerpt'] ?>
                                             </div>
                                         </div>
-    
+
                                         <!-- Side / Image -->
                                         <div class="product-itinerary-slide__bottom__days__item__side">
                                             <div class="product-itinerary-slide__bottom__days__item__side__image-area">
                                                 <?php if ($img != null) : ?>
-                                                    <img src="<?php echo afloat_dfcloud_image($img['ImageUrl']) ; ?>" alt="<?php echo $img['AltText'] ?>">
+                                                    <img src="<?php echo afloat_dfcloud_image($img['ImageUrl']); ?>" alt="<?php echo $img['AltText'] ?>">
                                                 <?php endif; ?>
                                             </div>
                                             <div class="product-itinerary-slide__bottom__days__item__side__detail">

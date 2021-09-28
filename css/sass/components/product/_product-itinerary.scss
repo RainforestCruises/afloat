@@ -288,8 +288,8 @@
         user-select: none;
 
         &.promo-date {
-            color: $color-supporting-light !important;
-            border-color: $color-supporting-light !important;
+            color: $color-green !important;
+            border-color: $color-green !important;
 
         }
 
@@ -464,15 +464,32 @@
                 margin-bottom: 2rem;
                 display: flex;
                 justify-content: space-between;
-
+                align-items: center;
+                margin-top: 1rem;
                 &__text {
                     color: $color-primary;
                     font-size: 2.2rem;
                     line-height: 2.7rem;
                     font-weight: 600;
                     letter-spacing: 0;
+              
+                }
 
-                  
+                &__badge-area {
+                    & span {
+                        color: $color-red;
+                        text-transform: uppercase;
+                        font-size: 1.1rem;
+                        letter-spacing: .3rem;
+                        line-height: 1.2rem;
+                        border: 2px solid currentColor;
+                        font-weight: 700;
+                        //background-color: $color-gold;
+                        border-radius: 4rem;
+                        padding: .75rem 1.5rem;
+                      
+                    
+                      }
                 }
             }
 
@@ -611,6 +628,8 @@
 
                         &__fine-print {
                             min-width: 18rem;
+
+                          
                         } 
 
                         &__colors {
@@ -644,7 +663,7 @@
                                 }
 
                                 &--promo {
-                                    color: $color-supporting-light;
+                                    color: $color-green;
                                 }
 
                               
@@ -690,7 +709,19 @@
                     font-size: 1.2rem;
                     color: $color-grey-1;
 
-                    //letter-spacing: 0.1rem;
+                    & a {
+                        text-decoration: none;
+                        color: $color-supporting;
+                        font-weight: 500;
+                        transition: all .3s;
+
+                        &:hover {
+                            color: $color-supporting-light;
+                        }
+                      
+                        
+                    }
+                    
                 }
 
                 &__inclusions-title {

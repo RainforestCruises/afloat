@@ -89,7 +89,7 @@
         position: relative;
         list-style: none;
         height: max-content;
-        
+
         flex-wrap: wrap;
 
         @media only screen and (max-width: $bp-large) {
@@ -146,6 +146,23 @@
           margin-bottom: 0rem;
         }
 
+        &__badge-area {
+          margin-bottom: 3rem;
+          & span {
+            color: $color-black;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 0.3rem;
+            line-height: 1.5rem;
+            border: 2px solid transparent;
+            font-weight: 600;
+            background-color: $color-gold;
+            border-radius: 4rem;
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 3rem;
+          }
+        }
+
         &__title {
           font-size: 6rem;
           font-weight: 300;
@@ -153,6 +170,7 @@
           display: block;
           align-self: end;
           line-height: 6.5rem;
+          // display: flex;
 
           @media only screen and (max-width: $bp-small) {
             font-size: 3.5rem;
@@ -451,12 +469,10 @@
         display: flex;
         flex-direction: column;
         width: 50%;
+
         @media only screen and (max-width: $bp-large) {
           width: 100%;
         }
-        // @media only screen and (max-width: $bp-small) {
-        //   height: 100%;
-        // }
 
         //Starting At / CTA
         &__info {
@@ -465,14 +481,16 @@
           justify-content: space-between;
           position: relative;
           padding: 2rem 0;
-
+      
+          flex-wrap: wrap;
           @media only screen and (max-width: $bp-large) {
             justify-content: center;
           }
 
           @media only screen and (max-width: $bp-small) {
-            flex-direction: column;
-            align-items: center;
+            //flex-direction: column;
+            justify-content: flex-start;
+            margin-left: 1rem;
           }
 
           &::after {
@@ -486,45 +504,90 @@
           }
 
           &__starting-price {
-            letter-spacing: 0.1rem;
-            color: $color-primary;
-            white-space: nowrap; //no line breaks
-            position: relative;
-            margin-right: 3rem;
-
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
             display: flex;
             align-items: center;
 
-            span {
-              display: flex;
-              align-items: flex-end;
-              line-height: 4rem;
-              color: $color-supporting-light;
-              padding-left: 1rem;
-              font-size: 3.5rem;
-              font-weight: 500;
-            }
+            position: relative;
 
             @media only screen and (max-width: $bp-small) {
-              margin-right: 0rem;
-              font-size: 1.5rem;
-              align-items: center;
-              & span {
-                font-size: 3rem;
+              flex-direction: column;
+              align-items: flex-start;
+              //margin-right: 4rem;
+            }
+
+            &__title-area {
+              font-weight: 700;
+              text-transform: uppercase;
+              color: $color-primary;
+              letter-spacing: 0.1rem;
+              padding-right: 2rem;
+              border-right: 1px solid $color-grey-light-2;
+
+              display: flex;
+              flex-direction: column;
+
+              @media only screen and (max-width: $bp-small) {
+                border-right: none;
+                padding-right: 0rem;
               }
+
+              &__tabs {
+                font-size: 1.1rem;
+                display: flex;
+
+                &__tab {
+                  padding-right: 0.5rem;
+
+                  &.switch-link {
+                    color: $color-grey-1;
+                    cursor: pointer;
+                    text-decoration: none;
+                    transition: color 0.2s;
+                    &:hover {
+                      color: $color-grey-light-2;
+                    }
+                  }
+                }
+              }
+
+              &__text {
+                font-size: 1.6rem;
+              }
+            }
+
+            &__amount {
+              color: $color-supporting-light;
+              padding-left: 2rem;
+              font-size: 3.5rem;
+              font-weight: 500;
+              letter-spacing: 0.1rem;
+
+              @media only screen and (max-width: $bp-small) {
+                padding-left: 0rem;
+              }
+            }
+
+            &__description {
+              position: absolute;
+              bottom: -1.3rem;
+              left: 0;
+              font-size: 1.1rem;
+              letter-spacing: .1rem;
+              text-align: start;
+              white-space: nowrap;
+              //display: none;
             }
           }
 
           &__cta {
             transform: scale(0.85);
-
+            margin-left: 2rem;
             @media only screen and (max-width: $bp-small) {
-              margin: 1rem 0;
+              //margin: 1rem 0;
+              position: absolute;
+              top: 1.5rem;
+              right: -0.5rem;
             }
-
           }
         }
 
@@ -534,7 +597,7 @@
           margin-bottom: 4rem;
           font-size: 1.4rem;
           letter-spacing: 0.1rem;
-          
+
           @media only screen and (max-width: $bp-large) {
             flex-wrap: wrap;
             justify-content: center;
@@ -559,9 +622,7 @@
             &.nomargin-attributes {
               @media only screen and (max-width: $bp-medium) {
                 margin-right: 0rem;
-
               }
-
             }
 
             &.experience-attributes {
@@ -713,8 +774,8 @@
       visibility: hidden;
 
       &.slick-initialized {
-        visibility:visible;
-    }
+        visibility: visible;
+      }
 
       .slick-slide {
         outline: none;
@@ -723,17 +784,14 @@
 
         transition: all 0.3s;
       }
- 
-      &__item {
 
+      &__item {
         position: relative;
 
         height: min-content; //slick determins h/w
         width: 100%;
 
         box-shadow: $shadow-medium-bottom;
-
-       
 
         & img {
           height: 100%;

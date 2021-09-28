@@ -10,11 +10,12 @@ if (get_post_type() == 'rfc_tours') {
 };
 
 $charter_view = false;
-
+$charter_available = false;
+$charter_only = false;
 if ($args['propertyType'] == 'Cruise') {
-    if ($args['charter_view'] == true) {
-        $charter_view = true;
-    }
+    $charter_view = $args['charter_view'];
+    $charter_available = $args['charter_available'];
+    $charter_only = $args['charter_only'];
 }
 
 
@@ -64,7 +65,18 @@ $images = get_field('highlight_gallery');
             <div>
                 <!-- H1 Title / Subtitle -->
                 <div class="product-hero__top__content__title-group">
-                    <h1 class="product-hero__top__content__title-group__title" id="template-nav-title"><?php echo $productTitle ?></h1>
+                    <?php if ($charter_view) : ?>
+                        <div class="product-hero__top__content__title-group__badge-area">
+                            <span>
+                                Private Charter
+                            </span>
+                        </div>
+                    <?php endif; ?>
+
+
+                    <h1 class="product-hero__top__content__title-group__title" id="template-nav-title">
+                        <?php echo $productTitle ?>
+                    </h1>
                     <div class="product-hero__top__content__title-group__subtitle"><?php echo get_field('top_snippet') ?></div>
                 </div>
 
@@ -84,16 +96,7 @@ $images = get_field('highlight_gallery');
                         <li class="product-hero__top__content__nav__list__item ">
                             <a href="#accommodations" class="product-hero__top__content__nav__list__item__link page-nav-template">Accommodations</a>
                         </li>
-                        <!-- <li class="product-hero__top__content__nav__list__item ">
-                        <a href="#prices" class="product-hero__top__content__nav__list__item__link page-nav-template">Prices</a>
-                    </li>
-                    <?php if (get_post_type() == 'rfc_cruises') { ?>
-                        <?php if (!$args['charter_view']) : ?>
-                            <li class="product-hero__top__content__nav__list__item tab-dates">
-                                <a href="#dates" class="product-hero__top__content__nav__list__item__link page-nav-template">Dates</a>
-                            </li>
-                    <?php endif;
-                    } ?> -->
+
                     </ul>
                 </nav>
 
@@ -130,7 +133,7 @@ $images = get_field('highlight_gallery');
                 <?php foreach ($images as $image) : ?>
                     <div class="product-hero__gallery__slick__item">
                         <a href="<?php echo esc_url($image['url']); ?>">
-                            <img <?php afloat_responsive_image($image['id'], 'square-small', array('square-small'), true); ?>>            
+                            <img <?php afloat_responsive_image($image['id'], 'square-small', array('square-small'), true); ?>>
                         </a>
                     </div>
                 <?php endforeach; ?>
@@ -149,9 +152,60 @@ $images = get_field('highlight_gallery');
                 <!-- Starting Price / CTA -->
                 <div class="product-hero__bottom__content__info-group__info" id="page-title">
                     <?php if ($charter_view == false) : ?>
-                        <div class="product-hero__bottom__content__info-group__info__starting-price">Starting at: <span><?php echo "$" . number_format($args['lowestPrice'], 0); ?></span><span class="u-small-text"> / Person</span></div>
+                        <div class="product-hero__bottom__content__info-group__info__starting-price">
+                            <div class="product-hero__bottom__content__info-group__info__starting-price__title-area">
+                                <?php if ($charter_available == true) : ?>
+
+                                    <div class="product-hero__bottom__content__info-group__info__starting-price__title-area__tabs">
+                                        <div class="product-hero__bottom__content__info-group__info__starting-price__title-area__tabs__tab">
+                                            Group
+                                        </div>
+                                        <a href="<?php echo get_permalink() . '?charter=true' ?>" class="product-hero__bottom__content__info-group__info__starting-price__title-area__tabs__tab switch-link">
+                                            / Charter
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="product-hero__bottom__content__info-group__info__starting-price__title-area__text">
+                                    Starting at:
+                                </div>
+                            </div>
+                            <div class="product-hero__bottom__content__info-group__info__starting-price__amount">
+                                <?php echo "$" . number_format($args['lowestPrice'], 0); ?>
+                                <span class="u-small-text"> / Person</span>
+                            </div>
+                            <div class="product-hero__bottom__content__info-group__info__starting-price__description">
+                                <?php if ($args['propertyType'] == 'Tour') {
+                                    echo '* Private guided tour with flexible dates';
+                                } ?>
+                                
+                            </div>
+                        </div>
+
                     <?php else : ?>
-                        <div class="product-hero__bottom__content__info-group__info__starting-price">Charter: <span><?php echo "$" . number_format($args['charter_daily_price'], 0); ?> </span> <span class="u-small-text"> / Day</span></div>
+                        <div class="product-hero__bottom__content__info-group__info__starting-price">
+                            <div class="product-hero__bottom__content__info-group__info__starting-price__title-area">
+                                <?php if ($charter_only != true) : ?>
+                                    <div class="product-hero__bottom__content__info-group__info__starting-price__title-area__tabs">
+                                        <div class="product-hero__bottom__content__info-group__info__starting-price__title-area__tabs__tab">
+                                            Charter
+                                        </div>
+                                        <a href="<?php echo get_permalink() ?>" class="product-hero__bottom__content__info-group__info__starting-price__title-area__tabs__tab switch-link">
+                                            / Group
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="product-hero__bottom__content__info-group__info__starting-price__title-area__text">
+                                    Starting at:
+                                </div>
+                            </div>
+                            <div class="product-hero__bottom__content__info-group__info__starting-price__amount">
+                                <?php echo "$" . number_format($args['charter_daily_price'], 0); ?>
+                                <span class="u-small-text"> / Day</span>
+                            </div>
+                            <div class="product-hero__bottom__content__info-group__info__starting-price__description">
+                                * Private charter cruise with flexible itineraries
+                            </div>
+                        </div>
                     <?php endif; ?>
                     <div class="product-hero__bottom__content__info-group__info__cta">
                         <button class="btn-cta-round" id="nav-page-cta">Inquire</button>
@@ -170,14 +224,19 @@ $images = get_field('highlight_gallery');
                                 </svg>
                             </div>
                             <div class="product-hero__bottom__content__info-group__attributes__item__data__text">
-                                <?php if ($charter_view == false) : ?>
-                                    <?php echo (get_post_type($p) == 'rfc_tours') ? get_field('length') . " Days / " . (get_field('length') - 1) . " Nights" : itineraryRange($args['cruiseData'], " - ") . " Days"; ?>
-                                <?php else :
+                                <?php if ($charter_view == false) :
+                                    echo (get_post_type($p) == 'rfc_tours') ? get_field('length') . " Days / " . (get_field('length') - 1) . " Nights" : itineraryRange($args['cruiseData'], " - ") . " Days";
+                                else :
                                     echo get_field('charter_min_days') . " Days +";
                                 endif; ?>
                                 <?php if ($itineraryCount > 0 && $charter_view == false) : ?>
                                     <div class="sub-attribute">
                                         <?php echo $itineraryCount ?> Itineraries
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($charter_view == true) : ?>
+                                    <div class="sub-attribute">
+                                        Flexible Length
                                     </div>
                                 <?php endif; ?>
                             </div>

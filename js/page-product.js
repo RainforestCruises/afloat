@@ -103,6 +103,7 @@ jQuery(document).ready(function ($) {
     swipeToSlide: false,
     centerMode: true,
     adaptiveHeight: true,
+    //initialSlide: 1,
 
   });
 
@@ -112,7 +113,7 @@ jQuery(document).ready(function ($) {
     if (slick.slideCount < 2) { //if one slide, remove padding for nav arrows
       $('.product-itineraries__nav__slider').css("padding-right", 0);
     }
-
+  
   }).slick({
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -120,6 +121,7 @@ jQuery(document).ready(function ($) {
     dots: false,
     //centerMode: true,
     focusOnSelect: true,
+    //initialSlide: 1,
     arrows: true,
     prevArrow: '<button class="product-itineraries__nav__slider__btn product-itineraries__nav__slider__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
     nextArrow: '<button class="product-itineraries__nav__slider__btn product-itineraries__nav__slider__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
@@ -148,7 +150,8 @@ jQuery(document).ready(function ($) {
     $('.side-info-panel[tab-type="dates"').hide();
   });
 
-
+  // $('#itineraries-slider-nav').slick('slickGoTo', 1);
+  // $('#itineraries-slider').slick('slickGoTo', 1);
 
   //Days slider
   $('.product-itinerary-slide__bottom__days').slick({

@@ -59,7 +59,7 @@ foreach ($departures as $departure) {
     </div>
 
     <div class="side-info-panel__departure-grid__grid__heading-title">
-        Price Range
+        Cabin Price Range 
     </div>
     <div class="side-info-panel__departure-grid__grid__heading-title">
     </div>

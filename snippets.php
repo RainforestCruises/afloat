@@ -1,0 +1,1 @@
+<div class="product-hero__bottom__content__info-group__info__starting-price">Charter: <span><?php echo "$" . number_format($args['charter_daily_price'], 0); ?> </span> <span class="u-small-text"> / Day</span></div>
