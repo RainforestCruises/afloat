@@ -224,7 +224,7 @@ endforeach;
                                         <div class="product-itinerary-slide__top__side-info__content__widget">
                                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
                                                 <h5 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
-                                                    Prices (USD)
+                                                    Prices Per Person (USD)
 
                                                     <?php if ($display_policies || $display_special_note) : ?>
                                                         <svg class="price-notes">
@@ -475,7 +475,7 @@ endforeach;
                                                 </div>
                                                 <div class="charter-pricing__overall__info-group">
                                                     <div class="charter-pricing__overall__info-group__title">
-                                                        Price Per Day
+                                                        Price Per Day (USD)
                                                         <?php if ($display_charter_policies) : ?>
                                                             <svg class="price-notes">
                                                                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-info-circle">

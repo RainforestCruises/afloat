@@ -211,7 +211,7 @@ function cruises_available_charter($destination)
 }
 
 //Cruises available region (experience templates)
-function cruises_available_region($region, $experience, $isCharter)
+function cruises_available_region($region, $experience, $isCharter, $isLodge = false)
 {
 
     //DESTINATIONS
@@ -244,19 +244,36 @@ function cruises_available_region($region, $experience, $isCharter)
     $count = 0;
 
     if ($isCharter == false) {
-        $postCriteria = array(
-            'posts_per_page' => -1,
-            'post_type' => 'rfc_cruises',
-            'meta_query' => array(
-                'relation' => 'AND',
-                $queryargs,
-                array(
-                    'key' => 'experiences', // name of custom field
-                    'value' => '"' . $experience->ID . '"',
-                    'compare' => 'LIKE'
+        if($isLodge == false) {
+            $postCriteria = array(
+                'posts_per_page' => -1,
+                'post_type' => 'rfc_cruises',
+                'meta_query' => array(
+                    'relation' => 'AND',
+                    $queryargs,
+                    array(
+                        'key' => 'experiences', // name of custom field
+                        'value' => '"' . $experience->ID . '"',
+                        'compare' => 'LIKE'
+                    )
                 )
-            )
-        );
+            );
+        } else {
+            $postCriteria = array(
+                'posts_per_page' => -1,
+                'post_type' => 'rfc_lodges',
+                'meta_query' => array(
+                    'relation' => 'AND',
+                    $queryargs,
+                    array(
+                        'key' => 'experiences', // name of custom field
+                        'value' => '"' . $experience->ID . '"',
+                        'compare' => 'LIKE'
+                    )
+                )
+            );
+        }
+        
     } else {
         $postCriteria = array(
             'posts_per_page' => -1,

@@ -59,7 +59,7 @@ foreach ($departures as $departure) {
     </div>
 
     <div class="side-info-panel__departure-grid__grid__heading-title">
-        Cabin Price Range 
+        Cabin Price Range
     </div>
     <div class="side-info-panel__departure-grid__grid__heading-title">
     </div>
@@ -97,9 +97,9 @@ foreach ($departures as $departure) {
             </div>
             <?php if ($result['HasPromo'] == true) : ?>
                 <div class="promo-div">Promo
-                <span class="tooltiptext"><?php echo $result['PromoName']; ?></span>
+                    <span class="tooltiptext"><?php echo $result['PromoName']; ?></span>
                 </div>
-                
+
             <?php endif; ?>
 
         </div>
@@ -115,12 +115,14 @@ foreach ($departures as $departure) {
         </div>
         <div class="side-info-panel__departure-grid__grid__cta">
             <button class="btn-cta-round btn-cta-round--small departure-cta-button" itineraryNights="<?php echo $selectedItinerary['LengthInNights'] ?>" departureDate="<?php echo $result['DepartureDate'] ?>">
-                Book
+                Inquire
             </button>
         </div>
     <?php endforeach; ?>
 </div>
-
+<div class="side-info-panel__departure-grid__note">
+    Prices are listed as per person in double occupancy
+</div>
 <?php if ($hasPromo) : ?>
     <div class="side-info-panel__departure-grid__note">
         Contact us for promotion details

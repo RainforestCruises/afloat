@@ -41,27 +41,59 @@ $count = 0;
                 </div>
                 <div class="experience-region__content__text__travel-types">
 
-                    <div class="experience-region__content__text__travel-types__group">
-                        <svg>
-                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
-                        </svg>
-
-                        <?php
-                        if (!$is_charter) : ?>
-                            <a href="<?php echo $r['explore_link'] . '?travel_style=rfc_cruises' ?>"><?php echo cruises_available_region($region_post, $experience, false) ?> Cruises Available</a>
-                        <?php else : ?>
-                            <a href="<?php echo $r['explore_link']  ?>"><?php echo cruises_available_region($region_post, null, true) ?> Cruises Available</a>
+                    <!-- Cruise Count -->
+                    <?php
+                    if (!$is_charter) :
+                        $cruisesAvailable = cruises_available_region($region_post, $experience, false);
+                        if ($cruisesAvailable > 0) : ?>
+                            <div class="experience-region__content__text__travel-types__group">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
+                                </svg>
+                                <a href="<?php echo $r['explore_link'] . '?travel_style=rfc_cruises' ?>"><?php echo $cruisesAvailable ?> <?php echo get_the_title($experience) ?> <?php echo ($cruisesAvailable == 1) ? 'Cruise' : 'Cruises'; ?> Available</a>
+                            </div>
                         <?php endif;
-                        ?>
+                    else :
+                        $chartersAvailable = cruises_available_region($region_post, null, true);
+                        if ($chartersAvailable > 0) : ?>
+                            <div class="experience-region__content__text__travel-types__group">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
+                                </svg>
+                                <a href="<?php echo $r['explore_link']  ?>"><?php echo $chartersAvailable ?> Charter <?php echo ($chartersAvailable == 1) ? 'Cruise' : 'Cruises'; ?> Available</a>
+                            </div>
+                    <?php
+                        endif;
+                    endif;
+                    ?>
 
-                    </div>
+
                     <?php if (!$is_charter) : ?>
-                        <div class="experience-region__content__text__travel-types__group">
-                            <svg>
-                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
-                            </svg>
-                            <a href="<?php echo $r['explore_link'] . '?travel_style=rfc_tours' ?>"><?php echo tours_available_region($region_post, $experience) ?> Tours Available</a>
-                        </div>
+
+                        <!-- Tour Count -->
+                        <?php
+                        $toursAvailable = tours_available_region($region_post, $experience);
+                        if ($toursAvailable > 0) : ?>
+                            <div class="experience-region__content__text__travel-types__group">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
+                                </svg>
+                                <a href="<?php echo $r['explore_link'] . '?travel_style=rfc_tours' ?>"><?php echo tours_available_region($region_post, $experience) ?> <?php echo get_the_title($experience) ?> <?php echo ($toursAvailable == 1) ? 'Tour' : 'Tours'; ?> Available</a>
+                            </div>
+                        <?php endif; ?>
+
+                        <!-- Lodge Count -->
+                        <?php
+                        $lodgesAvailable = cruises_available_region($region_post, $experience, false, true);
+                        if ($lodgesAvailable > 0) : ?>
+                            <div class="experience-region__content__text__travel-types__group">
+                                <svg>
+                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
+                                </svg>
+                                <a href="<?php echo $r['explore_link'] . '?travel_style=rfc_lodges' ?>"><?php echo cruises_available_region($region_post, $experience, false, true) ?> <?php echo get_the_title($experience) ?> <?php echo ($lodgesAvailable == 1) ? 'Lodge' : 'Lodges'; ?> Available</a>
+                            </div>
+                        <?php endif; ?>
+
                     <?php endif; ?>
                 </div>
                 <div class="experience-region__content__text__cta">
@@ -78,7 +110,7 @@ $count = 0;
             </div>
             <div class="experience-region__content__image">
                 <!-- responsive -->
-                <img <?php afloat_responsive_image($r['image']['id'], 'vertical-medium', array('vertical-medium')); ?> >
+                <img <?php afloat_responsive_image($r['image']['id'], 'vertical-medium', array('vertical-medium')); ?>>
 
             </div>
         </div>
@@ -94,7 +126,7 @@ $count = 0;
                     <!-- Tour Card -->
                     <a class="wide-slider-card" href="<?php echo $d['search_link'] ?>">
                         <div class="wide-slider-card__image">
-                            <img <?php afloat_responsive_image($cardImage['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?> >
+                            <img <?php afloat_responsive_image($cardImage['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?>>
                         </div>
 
 
@@ -115,9 +147,13 @@ $count = 0;
 
                                         <?php
                                         if (!$is_charter) :
-                                            echo tours_available($destinationPost, $experience) . ' Tours / ' . cruises_available_experience($destinationPost, $experience) . ' Cruises Available';
+                                            $toursAvailable = tours_available($destinationPost, $experience);
+                                            $cruisesAvailable = cruises_available_experience($destinationPost, $experience);
+
+                                            echo $toursAvailable . ' ' . ($toursAvailable == 1 ? 'Tour': 'Tours' ) . ' / ' . $cruisesAvailable . ' ' . ($cruisesAvailable == 1 ? 'Cruise': 'Cruises' ) . ' Available';
                                         else :
-                                            echo cruises_available_charter($destinationPost) . ' Cruises Available';
+                                            $charterAvailable = cruises_available_charter($destinationPost);
+                                            echo $charterAvailable . ' ' . ($charterAvailable == 1 ? 'Cruise': 'Cruises' ) . ' Available';
                                         endif;
                                         ?>
 
