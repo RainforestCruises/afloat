@@ -98,7 +98,7 @@ $highlights = get_field('highlights');
                     $price_packages = get_field('price_packages', $t);
 
                     $lowest = lowest_tour_price($price_packages, $currentYear);
-                    
+
 
                     ?>
                     <!-- Tour Card -->
@@ -203,19 +203,22 @@ $highlights = get_field('highlights');
                                     echo cruises_available_region($destination, null, true) . ' Cruises Available'; //destination is region in this case
                                 else :
 
-
-
+                                    $crusiesAvailable = cruises_available_region($destination, $experience, false);
+                                    $toursAvailable = tours_available_region($destination, $experience);
+                                    $totalAvailable = $crusiesAvailable + $toursAvailable;
                                     if ($include_cruises) {
-                                        //solo experience to include cruises in count
-                                        echo cruises_available_region($destination, $experience, false) . ' Cruises Available'; //destination is region in this case
+                                        echo $totalAvailable . ' Cruises Available'; //destination is region in this case
                                     } else {
-                                        echo tours_available_region($destination, $experience) . ' Tours Available'; //destination is region in this case
+                                        echo $totalAvailable . ' Tours Available'; //destination is region in this case
                                     }
 
 
                                 endif;
                             } else if ($destinationType == 'destination') {
-                                echo tours_available($destination, $experience) . ' Tours Available';
+                                $crusiesAvailable = cruises_available_experience($destination, $experience);
+                                $toursAvailable = tours_available($destination, $experience);
+                                $totalAvailable = $crusiesAvailable + $toursAvailable;
+                                echo $totalAvailable . ' Tours Available';
                             } ?>
                         </div>
                     </div>
