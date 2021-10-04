@@ -2830,19 +2830,14 @@ h5 {
           .product-hero__top__content__title-group {
             margin-bottom: 0rem; } }
         .product-hero__top__content__title-group__badge-area {
-          margin-bottom: 3rem; }
+          margin-bottom: 1rem; }
           .product-hero__top__content__title-group__badge-area span {
-            color: #1e1e1e;
+            color: #fff;
             text-transform: uppercase;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             letter-spacing: 0.3rem;
             line-height: 1.5rem;
-            border: 2px solid transparent;
-            font-weight: 600;
-            background-color: #d9a402;
-            border-radius: 4rem;
-            padding: 0.75rem 1.5rem;
-            margin-bottom: 3rem; }
+            font-weight: 600; }
         .product-hero__top__content__title-group__title {
           font-size: 6rem;
           font-weight: 300;
@@ -3659,8 +3654,7 @@ h5 {
       .product-itinerary-slide__top__map-area__title {
         margin-bottom: 2rem;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
         margin-top: 1rem; }
         .product-itinerary-slide__top__map-area__title__text {
           color: #142838;
@@ -3669,15 +3663,12 @@ h5 {
           font-weight: 600;
           letter-spacing: 0; }
         .product-itinerary-slide__top__map-area__title__badge-area span {
-          color: #de5c52;
+          color: #40739c;
           text-transform: uppercase;
-          font-size: 1.1rem;
-          letter-spacing: .3rem;
+          font-size: 1.4rem;
+          letter-spacing: .1rem;
           line-height: 1.2rem;
-          border: 2px solid currentColor;
-          font-weight: 700;
-          border-radius: 4rem;
-          padding: .75rem 1.5rem; }
+          font-weight: 700; }
       .product-itinerary-slide__top__map-area img {
         object-fit: contain;
         width: 100%;

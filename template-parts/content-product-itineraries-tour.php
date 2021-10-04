@@ -38,7 +38,7 @@ $img = get_field('map');
                 <div class="product-itinerary-slide__top__map-area">
                     <div class="product-itinerary-slide__top__map-area__title">
                         <div class="product-itinerary-slide__top__map-area__title__text">
-                            <?php echo get_field('length') ?> Day / <?php echo (get_field('length') - 1) ?> Night - <?php echo get_field('tour_name') ?>
+                            <?php echo get_field('length') ?> Day - <?php echo get_field('tour_name') ?>
                         </div>
                     </div>
                     <!-- Map -->

@@ -158,7 +158,7 @@ $images = get_field('highlight_gallery');
 
                                     <div class="product-hero__bottom__content__info-group__info__starting-price__title-area__tabs">
                                         <div class="product-hero__bottom__content__info-group__info__starting-price__title-area__tabs__tab">
-                                            Group
+                                            Cabins
                                         </div>
                                         <a href="<?php echo get_permalink() . '?charter=true' ?>" class="product-hero__bottom__content__info-group__info__starting-price__title-area__tabs__tab switch-link">
                                             / Charter
@@ -175,7 +175,11 @@ $images = get_field('highlight_gallery');
                             </div>
                             <div class="product-hero__bottom__content__info-group__info__starting-price__description">
                                 <?php if ($args['propertyType'] == 'Tour') {
-                                    echo '* Private guided tour with flexible dates';
+                                    echo 'Customizable private tour with flexible start date';
+                                } else if ($args['propertyType'] == 'Cruise') {
+                                    echo 'Shared, small group cruise based on DBL occupancy';
+                                } else if ($args['propertyType'] == 'Lodge') {
+                                    echo 'Lodge stay with flexible excursions and start date';
                                 } ?>
                                 
                             </div>
@@ -190,7 +194,7 @@ $images = get_field('highlight_gallery');
                                             Charter
                                         </div>
                                         <a href="<?php echo get_permalink() ?>" class="product-hero__bottom__content__info-group__info__starting-price__title-area__tabs__tab switch-link">
-                                            / Group
+                                            / Cabins
                                         </a>
                                     </div>
                                 <?php endif; ?>
@@ -203,7 +207,7 @@ $images = get_field('highlight_gallery');
                                 <span class="u-small-text"> / Day</span>
                             </div>
                             <div class="product-hero__bottom__content__info-group__info__starting-price__description">
-                                * Private charter cruise with flexible itineraries
+                            Exclusive, private cruise based on full occupancy
                             </div>
                         </div>
                     <?php endif; ?>

@@ -463,8 +463,9 @@
             &__title {
                 margin-bottom: 2rem;
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
+                // justify-content: space-between;
+                // align-items: center;
+                flex-direction: column;
                 margin-top: 1rem;
                 &__text {
                     color: $color-primary;
@@ -477,16 +478,16 @@
 
                 &__badge-area {
                     & span {
-                        color: $color-red;
+                        color: $color-supporting-light;
                         text-transform: uppercase;
-                        font-size: 1.1rem;
-                        letter-spacing: .3rem;
+                        font-size: 1.4rem;
+                        letter-spacing: .1rem;
                         line-height: 1.2rem;
-                        border: 2px solid currentColor;
+                        //border: 2px solid currentColor;
                         font-weight: 700;
                         //background-color: $color-gold;
-                        border-radius: 4rem;
-                        padding: .75rem 1.5rem;
+                        //border-radius: 4rem;
+                        //padding: .75rem 1.5rem;
                       
                     
                       }

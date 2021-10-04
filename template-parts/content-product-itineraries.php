@@ -110,12 +110,12 @@ endforeach;
                         <div class="product-itinerary-slide__top__map-area">
                             <div class="product-itinerary-slide__top__map-area__title">
                                 <h3 class="product-itinerary-slide__top__map-area__title__text">
-                                    <?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>
+                                    <?php echo $itinerary['LengthInDays'] ?> Day - <?php echo $itinerary['Name'] ?>
                                 </h3>
-                                <?php if ($charter_view) : ?>
+                                <?php if ($charter_view && $charter_only) : ?>
                                     <div class="product-itinerary-slide__top__map-area__title__badge-area">
                                         <span>
-                                            Sample
+                                            Sample Itinerary
                                         </span>
                                     </div>
 
@@ -278,7 +278,7 @@ endforeach;
 
                                                             <div class="price-grid__grid__title">
                                                                 <div class="price-grid__grid__title__text">
-                                                                    Cabin Type
+                                                                    <?php echo ($args['propertyType'] == 'Lodge') ? 'Room' : 'Cabin' ;?> Type
                                                                 </div>
                                                             </div>
                                                             <div class="price-grid__grid__title right">
