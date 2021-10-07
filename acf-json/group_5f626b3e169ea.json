@@ -777,6 +777,38 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_615f65c1bb8d0",
+            "label": "Accommodations Label",
+            "name": "accommodations_label",
+            "type": "radio",
+            "instructions": "Display text",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fe358c867f5d",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "lodges": "Lodges",
+                "resorts": "Resorts"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_5ffe1029decc7",
             "label": "Accommodations Title Subtext",
             "name": "accommodations_title_subtext",
@@ -1331,5 +1363,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1631829757
+    "modified": 1633642024
 }

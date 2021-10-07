@@ -135,13 +135,13 @@ endforeach;
                         <!-- Side Info Area -->
                         <aside class="product-itinerary-slide__top__side-info">
                             <div class="product-itinerary-slide__top__side-info__tabs">
-                                <h4 class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">Overview</h4>
+                                <h4 class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="rates"> <?php echo ($args['propertyType'] == 'Lodge' || $charter_view == true) ? 'Rates' : 'Dates & Rates'; ?> </h4>
                                 <h4 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">Inclusions</h4>
                                 <h4 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</h4>
                             </div>
 
                             <!-- Overview-->
-                            <div class="product-itinerary-slide__top__side-info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">
+                            <div class="product-itinerary-slide__top__side-info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="rates">
                                 <div class="side-info-panel" itinerary-tab="<?php echo $count; ?>" tab-type="all">
                                     <!-- Dates -->
                                     <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) : ?>
@@ -425,7 +425,7 @@ endforeach;
                                         </div>
                                         <?php if ($charter_available) : ?>
                                             <div class="product-itinerary-slide__top__side-info__content__fine-print">
-                                                Looking for a private charter? <a href="<?php echo get_permalink() . '?charter=true' ?>">Click here</a>
+                                                Exclusive, private charters of <?php echo get_the_title(); ?> are also available. <a href="<?php echo get_permalink() . '?charter=true' ?>">Click here for details</a>
                                             </div>
                                         <?php endif; ?>
                                         <?php if (get_post_type() == 'rfc_lodges') : ?>
@@ -502,7 +502,7 @@ endforeach;
                                         </div>
                                         <?php if (!$charter_only) : ?>
                                             <div class="product-itinerary-slide__top__side-info__content__fine-print">
-                                                Looking for group cruises? <a href="<?php echo get_permalink() ?>">Click here</a>
+                                                Shared, small group cruises on <?php echo get_the_title(); ?> are also available. <a href="<?php echo get_permalink() ?>">Click here for details.</a>
                                             </div>
                                         <?php endif; ?>
                                         

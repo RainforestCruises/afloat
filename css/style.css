@@ -3705,8 +3705,8 @@ h5 {
           margin-bottom: 0; }
           @media only screen and (max-width: 37.5em) {
             .product-itinerary-slide__top__side-info__tabs__item {
-              font-size: 1.3rem;
-              letter-spacing: 0.1rem;
+              font-size: 1.2rem;
+              letter-spacing: 0rem;
               padding: 1rem 0.5rem; } }
           .product-itinerary-slide__top__side-info__tabs__item:hover {
             color: #305a7c; }
@@ -4003,6 +4003,11 @@ h5 {
     .charter-pricing__overall {
       display: flex;
       justify-content: space-around;
+      flex-wrap: wrap; } }
+  @media only screen and (max-width: 37.5em) {
+    .charter-pricing__overall {
+      display: flex;
+      justify-content: flex-start;
       flex-wrap: wrap; } }
   .charter-pricing__overall__info-group {
     margin-bottom: 2rem;

@@ -539,8 +539,8 @@
 
                     @media only screen and (max-width: $bp-small) {
                         //super small screen
-                        font-size: 1.3rem;
-                        letter-spacing: 0.1rem;
+                        font-size: 1.2rem;
+                        letter-spacing: 0rem;
                         padding: 1rem 0.5rem;
                     }
 
@@ -983,7 +983,14 @@
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
+        } 
+
+        @media only screen and (max-width: $bp-small) {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
         }
+
 
 
         &__info-group {

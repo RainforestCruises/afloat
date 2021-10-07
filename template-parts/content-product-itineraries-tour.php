@@ -53,13 +53,13 @@ $img = get_field('map');
                 <?php $count = 0; ?>
                 <aside class="product-itinerary-slide__top__side-info">
                     <div class="product-itinerary-slide__top__side-info__tabs">
-                        <h4 class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">Overview</h4>
+                        <h4 class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="rates">Rates</h4>
                         <h4 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">Inclusions</h4>
                         <h4 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</h4>
                     </div>
 
                     <!-- Overview-->
-                    <div class="product-itinerary-slide__top__side-info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="overview">
+                    <div class="product-itinerary-slide__top__side-info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="rates">
 
                         <!-- Prices -->
                         <div class="product-itinerary-slide__top__side-info__content__widget">
