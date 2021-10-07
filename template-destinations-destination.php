@@ -71,8 +71,25 @@ $cruiseCriteria = array(
 );
 $cruises = get_posts($cruiseCriteria);
 
+//Lodges -- sort doesnt unclude null
+$lodgeCriteria = array(
+    'posts_per_page' => -1,
+    'post_type' => 'rfc_lodges',
+    'meta_key' => 'search_rank',
+    'orderby' => 'meta_value_num',
+    'order' => 'DESC',
+    'meta_query' => array(
+        array(
+            'key' => 'destinations', // name of custom field
+            'value' => '"' . $destination->ID . '"',
+            'compare' => 'LIKE'
+        )
+    )
+);
+$lodges = get_posts($lodgeCriteria);
 
 
+$accommodationDisplayText = get_field('accommodations_label');
 
 $args = array(
     'destination' => $destination,
@@ -82,6 +99,8 @@ $args = array(
     'tours' => $tours,
     'tour_experiences' => $tour_experiences,
     'cruises' => $cruises,
+    'lodges' => $lodges,
+    'accommodationDisplayText' => $accommodationDisplayText,
     'sliderContent' => $sliderContent,
     'title' => $title,
     'destinationType' => $destinationType,
@@ -112,8 +131,9 @@ $args = array(
         </section>
     <?php } ?>
 
-    <!-- Accommodations -->
+    
     <?php if (get_field('hide_accommodations') == false) { ?>
+        <!-- Accommodations -->
         <section class="destination-page__section-accommodations" id="accommodation">
             <?php
             get_template_part('template-parts/content', 'destination-accommodations', $args);

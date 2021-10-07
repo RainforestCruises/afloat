@@ -311,92 +311,6 @@
             ]
         },
         {
-            "key": "field_5ff34508ed26b",
-            "label": "Locations List (deprecated)",
-            "name": "locations_list",
-            "type": "repeater",
-            "instructions": "List of locations to appear below the fold, right of the intro. Conventionally ordered alphabetically",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_5ff34547ed26c",
-                    "label": "Location",
-                    "name": "location",
-                    "type": "post_object",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "rfc_locations"
-                    ],
-                    "taxonomy": "",
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "return_format": "",
-                    "ui": 1
-                }
-            ]
-        },
-        {
-            "key": "field_5ff345a9ed26e",
-            "label": "Activities List (deprecated)",
-            "name": "activities_list",
-            "type": "repeater",
-            "instructions": "List of activities to appear below the fold, right of the intro",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_5ff345a9ed26f",
-                    "label": "Activity",
-                    "name": "activity",
-                    "type": "post_object",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "rfc_activities"
-                    ],
-                    "taxonomy": "",
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "return_format": "object",
-                    "ui": 1
-                }
-            ]
-        },
-        {
             "key": "field_5fc52eadbd0fa",
             "label": "Background Map",
             "name": "background_map",
@@ -798,8 +712,8 @@
                 "id": ""
             },
             "choices": {
-                "lodges": "Lodges",
-                "resorts": "Resorts"
+                "Lodges": "Lodges",
+                "Resorts": "Resorts"
             },
             "allow_null": 0,
             "other_choice": 0,
@@ -834,147 +748,6 @@
             "toolbar": "full",
             "media_upload": 0,
             "delay": 0
-        },
-        {
-            "key": "field_5fce842ca3ff7",
-            "label": "Cruises Image",
-            "name": "cruises_image",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5fe358c867f5d",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_5fd0064fdc891",
-            "label": "Cruises Snippet",
-            "name": "cruises_snippet",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5fe358c867f5d",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 5,
-            "new_lines": ""
-        },
-        {
-            "key": "field_60afef784de13",
-            "label": "Cruise Accommodation Search Link",
-            "name": "cruise_accommodation_search_link",
-            "type": "page_link",
-            "instructions": "Link to search page - Destination + Cruises",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "page"
-            ],
-            "taxonomy": [
-                "category:search"
-            ],
-            "allow_null": 0,
-            "allow_archives": 0,
-            "multiple": 0
-        },
-        {
-            "key": "field_5fce8465a3ff8",
-            "label": "Lodges Image",
-            "name": "lodges_image",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5fe358c867f5d",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_5fd006a6dc892",
-            "label": "Lodges Snippet",
-            "name": "lodges_snippet",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5fe358c867f5d",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 5,
-            "new_lines": ""
         },
         {
             "key": "field_60afefab4de14",
@@ -1363,5 +1136,5 @@
     ],
     "active": true,
     "description": "Destination (Destination) - Page",
-    "modified": 1633642024
+    "modified": 1633647517
 }

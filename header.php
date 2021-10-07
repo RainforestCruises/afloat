@@ -405,6 +405,13 @@ foreach ($menuitems as $m) {
             $navTitle = "";
             $destinationType = "";
 
+            $accommodationDisplayText = 'Lodges';
+
+            if(is_page_template('template-destinations-destination.php')){
+                $accommodationDisplayText = get_field('accommodations_label');
+            }
+
+
             if (is_page_template('template-destinations-region.php')) :
                 $r = get_field('region_post');
                 $navTitle = get_field('navigation_title', $r);
@@ -462,12 +469,12 @@ foreach ($menuitems as $m) {
                                 $hide_accommodations = get_field('hide_accommodations');
                                 if (!$hide_accommodations) { ?>
                                     <li>
-                                        <a href="#accommodation">Accommodation</a>
+                                        <a href="#accommodation"><?php echo $accommodationDisplayText ?></a>
                                     </li>
                                 <?php }
                             } else { ?>
                                 <li>
-                                    <a href="#accommodation">Accommodation</a>
+                                    <a href="#accommodation"><?php echo $accommodationDisplayText ?></a>
                                 </li>
                             <?php } ?>
 
@@ -528,12 +535,12 @@ foreach ($menuitems as $m) {
                             $hide_accommodations = get_field('hide_accommodations');
                             if (!$hide_accommodations) { ?>
                                 <li class="nav-secondary-mobile__list__item">
-                                    <a href="#accommodation" class="nav-secondary-mobile__list__item__link">Accommodation</a>
+                                    <a href="#accommodation" class="nav-secondary-mobile__list__item__link"><?php echo $accommodationDisplayText ?></a>
                                 </li>
                             <?php }
                         } else { ?>
                             <li class="nav-secondary-mobile__list__item">
-                                <a href="#accommodation" class="nav-secondary-mobile__list__item__link">Accommodation</a>
+                                <a href="#accommodation" class="nav-secondary-mobile__list__item__link"><?php echo $accommodationDisplayText ?></a>
                             </li>
                         <?php } ?>
 

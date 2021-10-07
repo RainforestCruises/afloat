@@ -4,37 +4,42 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
 {
 
     $prices = [];
-    $itineraries = $cruise_data['Itineraries'];
-    if (count($itineraries) > 0) {
+    $lowestPrice = 0;
+    if (array_key_exists('Itineraries', $cruise_data)) {
+        $itineraries = $cruise_data['Itineraries'];
 
-        foreach ($itineraries as $i) {
-            if ($i['LengthInDays'] >= $fromLength) {
-                $rateYears = $i['RateYears'];
-                foreach ($rateYears as $r) {
-                    if ($r['Year'] >= $fromYear) {
-                        $rates = $r['Rates'];
-                        $rateValues = [];
-                        foreach ($rates as $rate) {
-                            if ($rate['WebAmount'] > 0) {
-                                $rateValues[] = $rate['WebAmount'];
+        if (count($itineraries) > 0) {
+    
+            foreach ($itineraries as $i) {
+                if ($i['LengthInDays'] >= $fromLength) {
+                    $rateYears = $i['RateYears'];
+                    foreach ($rateYears as $r) {
+                        if ($r['Year'] >= $fromYear) {
+                            $rates = $r['Rates'];
+                            $rateValues = [];
+                            foreach ($rates as $rate) {
+                                if ($rate['WebAmount'] > 0) {
+                                    $rateValues[] = $rate['WebAmount'];
+                                }
                             }
-                        }
-                        if ($rateValues) {
-                            $prices[] = min($rateValues);
+                            if ($rateValues) {
+                                $prices[] = min($rateValues);
+                            }
                         }
                     }
                 }
             }
-        }
-
-        if (count($prices) > 0) {
-            $lowestPrice = min($prices);
+    
+            if (count($prices) > 0) {
+                $lowestPrice = min($prices);
+            } else {
+                $lowestPrice = 0;
+            }
         } else {
             $lowestPrice = 0;
         }
-    } else {
-        $lowestPrice = 0;
     }
+   
 
 
     return $lowestPrice;
@@ -42,27 +47,39 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
 
 
 //Range (From x Days to x Days)
-function itineraryRange($cruise_data, $separator)
+function itineraryRange($cruise_data, $separator, $onlyMin = false)
 {
-    $itineraries = $cruise_data['Itineraries'];
-    $itineraryValues  = [];
-
-    if (count($itineraries) > 0) {
-        foreach ($itineraries as $i) {
-            $itineraryValues[] = $i['LengthInDays'];
-        }
-
-        $rangeFrom = min($itineraryValues);
-        $rangeTo = max($itineraryValues);
-        $returnString = "";
-        if ($rangeFrom != $rangeTo) {
-            $returnString = $rangeFrom . $separator . $rangeTo;
+    $returnString = "";
+    if (array_key_exists('Itineraries', $cruise_data)) {
+        $itineraries = $cruise_data['Itineraries'];
+        $itineraryValues  = [];
+        
+    
+        if (count($itineraries) > 0) {
+            foreach ($itineraries as $i) {
+                $itineraryValues[] = $i['LengthInDays'];
+            }
+    
+            $rangeFrom = min($itineraryValues);
+            $rangeTo = max($itineraryValues);
+    
+    
+            if (!$onlyMin) {
+                if ($rangeFrom != $rangeTo) {
+                    $returnString = $rangeFrom . $separator . $rangeTo;
+                } else {
+                    $returnString = $rangeFrom;
+                }
+            } else {
+                $returnString = $rangeFrom;
+            }
         } else {
-            $returnString = $rangeFrom;
+            $returnString = "N/A";
         }
-    } else {
-        $returnString = "N/A";
     }
+    
+
+
 
 
     return $returnString;
@@ -244,7 +261,7 @@ function cruises_available_region($region, $experience, $isCharter, $isLodge = f
     $count = 0;
 
     if ($isCharter == false) {
-        if($isLodge == false) {
+        if ($isLodge == false) {
             $postCriteria = array(
                 'posts_per_page' => -1,
                 'post_type' => 'rfc_cruises',
@@ -273,7 +290,6 @@ function cruises_available_region($region, $experience, $isCharter, $isLodge = f
                 )
             );
         }
-        
     } else {
         $postCriteria = array(
             'posts_per_page' => -1,

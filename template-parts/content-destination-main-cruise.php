@@ -98,20 +98,29 @@ $cruise_experiences = get_field('cruise_experiences');
                             <?php if ($featured_image) : ?>
                                 <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?>>
                             <?php endif; ?>
-                            <?php if ($charter_only) : ?>
-                                <div class="product-card__image-area__badge-area">
-                                    <div class="product-card__image-area__badge-area__badge">
-                                        Charter
-                                    </div>
-                                </div>
-                            <?php endif; ?>
+                          
                         </div>
+                        <ul class="product-card__destinations">
+                            <?php
+                            $destinations = $c->destinations;
+                            if ($destinations) :
+                                foreach ($destinations as $d) :
+                                    echo '<li>' . get_field('navigation_title', $d) . '</li>';
+                                endforeach;
+                            endif; ?>
+                        </ul>
                         <div class="product-card__bottom">
                             <div class="product-card__bottom__title-group">
                                 <h3 class="product-card__bottom__title-group__product-name">
                                     <?php echo get_the_title($c) ?>
                                 </h3>
-
+                                <?php if ($charter_only) : ?>
+                                <div class="product-card__bottom__title-group__badge-area">
+                                    <div class="product-card__bottom__title-group__badge-area__badge">
+                                        Charter
+                                    </div>
+                                </div>
+                            <?php endif; ?>
                             </div>
                             <div class="product-card__bottom__text">
                                 <?php echo get_field('top_snippet', $c) ?>
@@ -219,7 +228,7 @@ $cruise_experiences = get_field('cruise_experiences');
                 <a class="category-card" href="<?php echo $search_link ?>">
                     <div class="category-card__image">
                         <?php if ($background_image) : ?>
-                            <img <?php afloat_responsive_image($background_image['id'], 'pill-large', array('pill-large', 'pill-small')); ?> >
+                            <img <?php afloat_responsive_image($background_image['id'], 'pill-large', array('pill-large', 'pill-small')); ?>>
                         <?php endif; ?>
                     </div>
 

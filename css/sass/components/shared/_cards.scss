@@ -178,6 +178,7 @@
 
     display: flex;
     flex-direction: column;
+    position: relative;
 
     &__image-area {
         height: min-content;
@@ -191,26 +192,38 @@
             border-top-right-radius: 0.5rem;
         }
 
-        &__badge-area {
-            position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            z-index: 10;
+        
+    }
 
-            &__badge {
-                white-space: nowrap;
-                font-size: 1.3rem; 
-                text-transform: uppercase;
-                letter-spacing: 0.2rem;
-                display: inline-block;
-                color: $color-primary;
-                background-color: $color-white;
-                padding: 0.4rem 1.2rem;
-                padding-top: 0.7rem;
-                border-radius: 3rem;
-                font-weight: 700;
-                width: max-content;
-                height: max-content;
+    &__destinations {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: min-content;
+        background-image: linear-gradient(to bottom, rgba(black, 0.5), transparent);
+        padding: 1.5rem;
+        border-top-right-radius: .4rem;
+        border-top-left-radius: .4rem;
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        padding-bottom: 2rem;
+        flex-wrap: wrap;
+
+        & li {
+            font-size: 1.2rem;
+            letter-spacing: .2rem;
+            text-transform: uppercase;
+            color: $color-grey-light-1;
+            font-weight: 400;
+
+            &:not(:last-child) {
+                margin-right: 0.5rem;
+                position: relative;
+                &::after {
+                    content: " / ";
+                }
             }
         }
     }
@@ -228,7 +241,8 @@
             margin-top: .5rem;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            //flex-wrap: wrap;
             
             &__product-name {
                 letter-spacing: 0;
@@ -237,6 +251,27 @@
                 font-weight: 700;
                 color: $color-primary;
                 margin-bottom: 0.5rem;
+            }
+
+            &__badge-area {
+                margin-left: .5rem;
+    
+                &__badge {
+                    white-space: nowrap;
+                    font-size: 1.2rem; 
+                    text-transform: uppercase;
+                    letter-spacing: 0.2rem;
+                    display: inline-block;
+                    color: $color-white;
+                    background-color: $color-primary;
+                    padding: 0.3rem 1.3rem;
+                    padding-top: 0.5rem;
+                    border-radius: 3rem;
+                    font-weight: 700;
+                    width: max-content;
+                    height: max-content;
+                    transform: translateY(-.5rem);
+                }
             }
         }
 

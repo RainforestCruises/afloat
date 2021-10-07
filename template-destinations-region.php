@@ -81,7 +81,16 @@ $cruiseCriteria = array(
 );
 $cruises = get_posts($cruiseCriteria);
 
-
+//Lodges
+$lodgeCriteria = array(
+    'posts_per_page' => -1,
+    'post_type' => 'rfc_lodges',
+    'meta_key' => 'search_rank',
+    'orderby' => 'meta_value_num',
+    'order' => 'DESC',
+    'meta_query' => $queryargs
+);
+$lodges = get_posts($lodgeCriteria);
 
 
 
@@ -100,9 +109,12 @@ $args = array(
     'tours' => $tours,
     'tour_experiences' => $tour_experiences,
     'cruises' => $cruises,
+    'lodges' => $lodges,
+    'accommodationDisplayText' => 'Lodges',
     'sliderContent' => $sliderContent,
     'title' => $title,
     'destinationType' => $destinationType,
+    
 
 );
 
