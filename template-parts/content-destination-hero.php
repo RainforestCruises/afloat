@@ -10,6 +10,10 @@
 
     if($destinationType == 'destination')
         $accommodationsDisplayText = get_field('accommodations_label');
+
+        if($accommodationDisplayText == null) {
+            $accommodationDisplayText = 'Lodges';
+        }
     ?>
 
 
