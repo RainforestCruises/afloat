@@ -1,6 +1,6 @@
 <?php
 //Get lowest price (Price From)
-function lowest_property_price($cruise_data, $fromLength, $fromYear)
+function lowest_property_price($cruise_data, $fromLength, $fromYear, $currentYearOnly = false)
 {
 
     $prices = [];
@@ -11,23 +11,45 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear)
         if (count($itineraries) > 0) {
     
             foreach ($itineraries as $i) {
+                // needs to check If lodge and Is Sample then skip
+
                 if ($i['LengthInDays'] >= $fromLength) {
                     $rateYears = $i['RateYears'];
                     foreach ($rateYears as $r) {
-                        if ($r['Year'] >= $fromYear) {
-                            $rates = $r['Rates'];
-                            $rateValues = [];
-                            foreach ($rates as $rate) {
-                                if ($rate['WebAmount'] > 0) {
-                                    $rateValues[] = $rate['WebAmount'];
+
+                        //Include sliding range of years
+                          if($currentYearOnly == false){
+                            if ($r['Year'] >= $fromYear) {
+                                $rates = $r['Rates'];
+                                $rateValues = [];
+                                foreach ($rates as $rate) {
+                                    if ($rate['WebAmount'] > 0) {
+                                        $rateValues[] = $rate['WebAmount'];
+                                    }
+                                }
+                                if ($rateValues) {
+                                    $prices[] = min($rateValues);
                                 }
                             }
-                            if ($rateValues) {
-                                $prices[] = min($rateValues);
+                            
+                        } else { //Shown in product header
+                            if ($r['Year'] == date("Y")) {
+                                $rates = $r['Rates'];
+                                $rateValues = [];
+                                foreach ($rates as $rate) {
+                                    if ($rate['WebAmount'] > 0) {
+                                        $rateValues[] = $rate['WebAmount'];
+                                    }
+                                }
+                                if ($rateValues) {
+                                    $prices[] = min($rateValues);
+                                }
                             }
                         }
+                        
                     }
                 }
+                
             }
     
             if (count($prices) > 0) {

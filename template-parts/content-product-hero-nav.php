@@ -170,7 +170,10 @@ $images = get_field('highlight_gallery');
                                 </div>
                             </div>
                             <div class="product-hero__bottom__content__info-group__info__starting-price__amount">
-                                <?php echo "$" . number_format($args['lowestPrice'], 0); ?>
+                                <?php 
+                                $lowestPrice = lowest_property_price($args['cruiseData'], 0, date("Y"), true);
+                                
+                                echo "$" . number_format($lowestPrice, 0); ?>
                                 <span class="u-small-text"> / Person</span>
                             </div>
                             <div class="product-hero__bottom__content__info-group__info__starting-price__description">

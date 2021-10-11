@@ -170,7 +170,7 @@
             font-size: 1.8rem;
             font-family: $font-secondary;
             letter-spacing: 0.1rem;
-            line-height: 3.8rem;
+            line-height: 3.5rem;
             //font-weight: 300;
 
             @media only screen and (max-width: $bp-large) {
@@ -180,6 +180,7 @@
     
             @media only screen and (max-width: $bp-small) {
                 width: 90%;
+                line-height: 2.8rem;
             }
 
         }

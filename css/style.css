@@ -8397,13 +8397,14 @@ h5 {
       font-size: 1.8rem;
       font-family: "Playfair Display", serif;
       letter-spacing: 0.1rem;
-      line-height: 3.8rem; }
+      line-height: 3.5rem; }
       @media only screen and (max-width: 62.5em) {
         .testimonial__content__snippet {
           align-self: center; } }
       @media only screen and (max-width: 37.5em) {
         .testimonial__content__snippet {
-          width: 90%; } }
+          width: 90%;
+          line-height: 2.8rem; } }
     .testimonial__content__person {
       margin-top: 2rem;
       margin-right: 8rem;
@@ -10382,7 +10383,8 @@ h5 {
         align-items: center;
         margin-right: 4rem;
         color: currentColor;
-        text-decoration: none; }
+        text-decoration: none;
+        width: 17rem; }
         @media only screen and (max-width: 50em) {
           .header__main__right__phone-desktop {
             margin-right: 2rem; } }
