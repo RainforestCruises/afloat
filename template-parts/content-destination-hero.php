@@ -6,11 +6,10 @@
 
     $destinationType = $args['destinationType'];
 
-    $accommodationsDisplayText = 'Lodges';
+    $accommodationDisplayText = 'Lodges';
 
     if($destinationType == 'destination')
-        $accommodationsDisplayText = get_field('accommodations_label');
-
+        $accommodationDisplayText = get_field('accommodations_label');
         if($accommodationDisplayText == null) {
             $accommodationDisplayText = 'Lodges';
         }
@@ -95,12 +94,12 @@
                                 $hide_accommodations = get_field('hide_accommodations');
                                 if (!$hide_accommodations) { ?>
                                   <li class="destination-hero__content__page-nav__list__item">
-                                      <a href="#accommodation" class="destination-hero__content__page-nav__list__item__link page-nav-template"><?php echo $accommodationsDisplayText ?></a>
+                                      <a href="#accommodation" class="destination-hero__content__page-nav__list__item__link page-nav-template"><?php echo $accommodationDisplayText ?></a>
                                   </li>
                               <?php }
                             } else { ?>
                               <li class="destination-hero__content__page-nav__list__item">
-                                  <a href="#accommodation" class="destination-hero__content__page-nav__list__item__link page-nav-template"><?php echo $accommodationsDisplayText ?></a>
+                                  <a href="#accommodation" class="destination-hero__content__page-nav__list__item__link page-nav-template"><?php echo $accommodationDisplayText ?></a>
                               </li>
                           <?php } ?>
 
