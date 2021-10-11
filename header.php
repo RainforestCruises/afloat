@@ -409,6 +409,10 @@ foreach ($menuitems as $m) {
 
             if(is_page_template('template-destinations-destination.php')){
                 $accommodationDisplayText = get_field('accommodations_label');
+
+                if($accommodationDisplayText == null) {
+                    $accommodationDisplayText = 'Lodges';
+                }
             }
 
 

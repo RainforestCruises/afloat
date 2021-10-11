@@ -90,6 +90,9 @@ $lodges = get_posts($lodgeCriteria);
 
 
 $accommodationDisplayText = get_field('accommodations_label');
+if($accommodationDisplayText == null) {
+    $accommodationDisplayText = 'Lodges';
+}
 
 $args = array(
     'destination' => $destination,
