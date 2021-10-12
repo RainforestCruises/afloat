@@ -39,17 +39,17 @@ $currentYear = date("Y");
                         <?php if ($featured_image) : ?>
                             <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?>>
                         <?php endif; ?>
-
+                        <ul class="product-card__image-area__destinations">
+                            <?php
+                            $destinations = $lodge->destinations;
+                            if ($destinations) :
+                                foreach ($destinations as $d) :
+                                    echo '<li>' . get_field('navigation_title', $d) . '</li>';
+                                endforeach;
+                            endif; ?>
+                        </ul>
                     </div>
-                    <ul class="product-card__destinations">
-                        <?php
-                        $destinations = $lodge->destinations;
-                        if ($destinations) :
-                            foreach ($destinations as $d) :
-                                echo '<li>' . get_field('navigation_title', $d) . '</li>';
-                            endforeach;
-                        endif; ?>
-                    </ul>
+
                     <div class="product-card__bottom">
                         <div class="product-card__bottom__title-group">
                             <h3 class="product-card__bottom__title-group__product-name">
@@ -85,12 +85,11 @@ $currentYear = date("Y");
         </div>
     </div>
     <?php
-    if (count($lodges) > 3) :
-        $allLodgesLink = get_field('lodge_accommodation_search_link');
+    $allLodgesLink = get_field('lodge_accommodation_search_link');
     ?>
 
-        <div class="destination-secondary__btn ">
-            <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $allLodgesLink; ?>">View All <?php echo $args['accommodationDisplayText'] ?></a>
-        </div>
-    <?php endif; ?>
+    <div class="destination-secondary__btn ">
+        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $allLodgesLink; ?>">View All <?php echo $args['accommodationDisplayText'] ?></a>
+    </div>
+
 </div>

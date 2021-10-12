@@ -27,10 +27,10 @@ while (have_posts()) :
   $months = array("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC");
   $monthNames = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 
-  console_log($cruise_data);
+  $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, true);
 
   $args = array(
-    'lowestPrice' => $cruise_data['LowestPrice'],
+    'lowestPrice' => $lowestPrice,
     'cruiseData' => $cruise_data,
     'propertyType' => 'Lodge',
     'currentYear' => $currentYear,

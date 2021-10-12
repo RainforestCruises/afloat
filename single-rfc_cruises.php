@@ -49,9 +49,8 @@ while (have_posts()) :
     $charter_view = true;
   }
 
+  $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, true);
 
-
-  $lowestPrice = lowest_property_price($cruise_data, 0, 2021);
 
   $args = array(
     'lowestPrice' => $lowestPrice,

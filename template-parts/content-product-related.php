@@ -69,7 +69,6 @@ $posts = get_posts($queryArgs);
                     if (!$isCharterOnly) {
                         $link = $link . "?charter=true";
                     };
-                    
                 }
 
 
@@ -78,6 +77,7 @@ $posts = get_posts($queryArgs);
                 $relatedItemDestinations = get_field('destinations', $p);
                 $top_snippet = get_field('top_snippet', $p);
                 $currentYear = date('Y');
+                $propertyDestinations  = get_field('destinations', $p);
                 if (get_post_type($p) == 'rfc_tours') {
 
                     $tour_length = get_field('length', $p);
@@ -91,16 +91,23 @@ $posts = get_posts($queryArgs);
             ?>
 
                 <!-- Card -->
-                <a class="product-card" href="<?php echo $link; ; ?>">
+                <a class="product-card" href="<?php echo $link;; ?>">
                     <div class="product-card__image-area">
                         <?php if ($featured_image) : ?>
                             <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?>>
                         <?php endif; ?>
+                        <ul class="product-card__image-area__destinations">
+                            <?php
+                            
+                            if ($propertyDestinations) :
+                                foreach ($propertyDestinations as $d) :
+                                    echo '<li>' . get_field('navigation_title', $d) . '</li>';
+                                endforeach;
+                            endif; ?>
+                        </ul>
                         <?php if ($charterView) : ?>
-                            <div class="product-card__image-area__badge-area">
-                                <div class="product-card__image-area__badge-area__badge">
-                                    Charter
-                                </div>
+                            <div class="product-card__image-area__charter-text">
+                                    Private Charter
                             </div>
                         <?php endif; ?>
                     </div>
