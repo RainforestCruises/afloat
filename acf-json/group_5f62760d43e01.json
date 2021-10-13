@@ -2197,6 +2197,33 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_61670fe8af725",
+            "label": "Charter Header Text Override",
+            "name": "charter_header_text_override",
+            "type": "text",
+            "instructions": "50 character limit. If not blank, will replace the default text of \"Exclusive, private cruise based on full occupancy\"",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602bf565511a0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 50
+        },
+        {
             "key": "field_602bf590511a1",
             "label": "Charter Daily Price",
             "name": "charter_daily_price",
@@ -2401,5 +2428,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Cruise - CPT",
-    "modified": 1633965999
+    "modified": 1634144397
 }

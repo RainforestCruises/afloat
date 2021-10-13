@@ -208,7 +208,10 @@ $images = get_field('highlight_gallery');
                                 <span class="u-small-text"> / Day</span>
                             </div>
                             <div class="product-hero__bottom__content__info-group__info__starting-price__description">
-                            Exclusive, private cruise based on full occupancy
+                                <?php $overrideText =  get_field('charter_header_text_override'); 
+                                echo ($overrideText == '') ? 'Exclusive, private cruise based on full occupancy': $overrideText ;
+                                ?>
+                            
                             </div>
                         </div>
                     <?php endif; ?>
