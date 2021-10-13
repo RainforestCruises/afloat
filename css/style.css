@@ -3035,7 +3035,7 @@ h5 {
               text-transform: uppercase;
               color: #142838;
               letter-spacing: 0.1rem;
-              padding-right: 2rem;
+              padding-right: 1.3rem;
               border-right: 1px solid #c2c6c9;
               display: flex;
               flex-direction: column; }
@@ -3059,8 +3059,8 @@ h5 {
                 font-size: 1.6rem; }
             .product-hero__bottom__content__info-group__info__starting-price__amount {
               color: #40739c;
-              padding-left: 2rem;
-              font-size: 3.5rem;
+              padding-left: 1.3rem;
+              font-size: 3.2rem;
               font-weight: 500;
               letter-spacing: 0.1rem; }
               @media only screen and (max-width: 37.5em) {
@@ -3076,7 +3076,7 @@ h5 {
               white-space: nowrap; }
           .product-hero__bottom__content__info-group__info__cta {
             transform: scale(0.85);
-            margin-left: 2rem; }
+            margin-left: 1.5rem; }
             @media only screen and (max-width: 37.5em) {
               .product-hero__bottom__content__info-group__info__cta {
                 position: absolute;
