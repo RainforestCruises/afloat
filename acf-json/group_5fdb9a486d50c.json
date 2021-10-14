@@ -626,13 +626,40 @@
             "endpoint": 0
         },
         {
+            "key": "field_616871ce72d00",
+            "label": "Hide Accommodations",
+            "name": "hide_accommodations",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5ffe1d4791482",
             "label": "Accommodations Title Subtext",
             "name": "accommodations_title_subtext",
             "type": "wysiwyg",
             "instructions": "Snippet under the title",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_616871ce72d00",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -651,7 +678,15 @@
             "type": "page_link",
             "instructions": "Select search page - Region + Lodge (Travel Type)",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_616871ce72d00",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1031,5 +1066,5 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1633647582
+    "modified": 1634235132
 }

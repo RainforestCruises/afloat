@@ -469,7 +469,7 @@ foreach ($menuitems as $m) {
                                 </li>
                             <?php } ?>
 
-                            <?php if ($destinationType == 'destination') {
+                            <?php if ($destinationType == 'destination' || $destinationType == 'region') {
                                 $hide_accommodations = get_field('hide_accommodations');
                                 if (!$hide_accommodations) { ?>
                                     <li>
@@ -535,7 +535,7 @@ foreach ($menuitems as $m) {
                             </li>
                         <?php } ?>
 
-                        <?php if ($destinationType == 'destination') {
+                        <?php if ($destinationType == 'destination' || $destinationType == 'region') {
                             $hide_accommodations = get_field('hide_accommodations');
                             if (!$hide_accommodations) { ?>
                                 <li class="nav-secondary-mobile__list__item">

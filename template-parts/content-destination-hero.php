@@ -90,7 +90,7 @@
                           <?php } ?>
 
 
-                          <?php if ($destinationType == 'destination') {
+                          <?php if ($destinationType == 'destination'  || $destinationType == 'region') {
                                 $hide_accommodations = get_field('hide_accommodations');
                                 if (!$hide_accommodations) { ?>
                                   <li class="destination-hero__content__page-nav__list__item">
