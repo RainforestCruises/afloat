@@ -330,7 +330,7 @@ foreach ($menuitems as $m) {
 
             if (get_post_type() == 'rfc_tours') :
                 $productTitle = get_field('tour_name');
-                $showOverview  = false;
+                $showOverview  = get_field('show_overview');
             else :
                 $productTitle = get_the_title();
             endif;

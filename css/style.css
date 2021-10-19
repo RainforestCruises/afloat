@@ -3360,7 +3360,7 @@ h5 {
       text-transform: uppercase;
       text-align: center;
       font-size: 1.3rem;
-      color: #9ea0a4;
+      color: #305a7c;
       font-weight: 700;
       width: 100%;
       letter-spacing: 0.1rem; }
@@ -3376,6 +3376,8 @@ h5 {
           border: 1px solid #e6e6e6;
           border-bottom: 1px solid white;
           z-index: 20; }
+          .product-itineraries__nav__slider .slick-current .product-itineraries__nav__slider__item span {
+            background-color: #305a7c; }
         .product-itineraries__nav__slider .slick-current .product-itineraries__nav__slider__item__counter {
           display: inline; }
       .product-itineraries__nav__slider .slick-slide {
@@ -3393,6 +3395,15 @@ h5 {
         cursor: pointer; }
         .product-itineraries__nav__slider__item:hover {
           color: #305a7c !important; }
+          .product-itineraries__nav__slider__item:hover span {
+            background-color: #305a7c; }
+        .product-itineraries__nav__slider__item span {
+          font-size: 1.2rem;
+          border-radius: 4rem;
+          padding: .4rem .7rem;
+          background-color: #9ea0a4;
+          color: #fff;
+          transition: all 0.3s; }
       .product-itineraries__nav__slider__btn {
         height: 100%;
         width: 6rem;
@@ -3611,6 +3622,14 @@ h5 {
     .price-grid__grid__single-price {
       text-align: right; }
 
+.season-panel__range-text {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid #e6e6e6;
+  color: #142838;
+  font-size: 1.3rem;
+  letter-spacing: .1rem; }
+
 .inclusions-area {
   margin-top: 2rem;
   position: relative; }
@@ -3815,7 +3834,8 @@ h5 {
                 margin-right: 0.6rem; }
         .product-itinerary-slide__top__side-info__content__fine-print {
           font-size: 1.2rem;
-          color: #9ea0a4; }
+          color: #9ea0a4;
+          margin-bottom: 1rem; }
           .product-itinerary-slide__top__side-info__content__fine-print a {
             text-decoration: none;
             color: #305a7c;

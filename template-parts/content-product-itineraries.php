@@ -74,7 +74,16 @@ endforeach;
                 endif;
             ?>
                 <div class="product-itineraries__nav__slider__item">
+
                     <?php echo $item['LengthInDays'] ?>-Day
+                    <?php
+                    $TagText = $item['TagText'];
+                    if ($TagText != null) : ?>
+                        <span>
+                            <?php echo $TagText ?>
+                        </span>
+                    <?php endif;
+                    ?>
                 </div>
             <?php
                 $count++;
@@ -140,7 +149,7 @@ endforeach;
                                 <h4 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</h4>
                             </div>
 
-                            <!-- Overview-->
+                            <!-- Dates and Rates -->
                             <div class="product-itinerary-slide__top__side-info__content current" itinerary-tab="<?php echo $count; ?>" tab-type="rates">
                                 <div class="side-info-panel" itinerary-tab="<?php echo $count; ?>" tab-type="all">
                                     <!-- Dates -->
@@ -221,7 +230,7 @@ endforeach;
                                         $display_policies = get_field('display_policies');
                                         $display_special_note = get_field('display_special_note');
                                     ?>
-                                        <div class="product-itinerary-slide__top__side-info__content__widget">
+                                        <div class="product-itinerary-slide__top__side-info__content__widget" style="margin-bottom: 0rem;">
                                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
                                                 <h5 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
                                                     Prices Per Person (USD)
@@ -278,7 +287,7 @@ endforeach;
 
                                                             <div class="price-grid__grid__title">
                                                                 <div class="price-grid__grid__title__text">
-                                                                    <?php echo ($args['propertyType'] == 'Lodge') ? 'Room' : 'Cabin' ;?> Type
+                                                                    <?php echo ($args['propertyType'] == 'Lodge') ? 'Room' : 'Cabin'; ?> Type
                                                                 </div>
                                                             </div>
                                                             <div class="price-grid__grid__title right">
@@ -365,6 +374,11 @@ endforeach;
                                                                 <?php endforeach; ?>
 
                                                             </div>
+                                                            <?php if ($itinerary['HighSeasonText'] != null) : ?>
+                                                                <div class="season-panel__range-text">
+                                                                    High Season: <?php echo $itinerary['HighSeasonText']; ?>
+                                                                </div>
+                                                            <?php endif; ?>
                                                         </div>
                                                     <?php endif; ?>
 
@@ -415,6 +429,11 @@ endforeach;
                                                                 <?php endforeach; ?>
 
                                                             </div>
+                                                            <?php if ($itinerary['LowSeasonText'] != null) : ?>
+                                                                <div class="season-panel__range-text">
+                                                                Low Season: <?php echo $itinerary['LowSeasonText']; ?>
+                                                                </div>
+                                                            <?php endif; ?>
                                                         </div>
                                                     <?php endif; ?>
 
@@ -505,7 +524,7 @@ endforeach;
                                                 Shared, small group cruises on <?php echo get_the_title(); ?> are also available. <a href="<?php echo get_permalink() ?>">Click here for details.</a>
                                             </div>
                                         <?php endif; ?>
-                                        
+
 
                                     <?php endif; ?>
                                 </div>

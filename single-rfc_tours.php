@@ -58,6 +58,19 @@ while (have_posts()) :
       ?>
     </section>
 
+    <?php
+    $show_overview = get_field('show_overview');
+    if ($show_overview) : ?>
+      <!-- Overview Content -->
+      <section class="product-page__section-overview" id="overview">
+        <?php
+        get_template_part('template-parts/content', 'product-overview', $args);
+        ?>
+      </section>
+    <?php endif;
+    ?>
+
+
     <!-- Itineraries Content -->
     <section class="product-page__section-itineraries" id="itineraries">
       <?php

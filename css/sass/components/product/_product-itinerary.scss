@@ -19,7 +19,7 @@
             text-transform: uppercase;
             text-align: center;
             font-size: 1.3rem;
-            color: $color-grey-1;
+            color: $color-supporting;
             font-weight: 700;
             width: 100%;
             //margin-bottom: 0.5rem;
@@ -49,6 +49,10 @@
                     border: 1px solid $color-grey-light-1a;
                     border-bottom: 1px solid white;
                     z-index: 20;
+
+                    & span {
+                        background-color: $color-supporting;
+                    }
                 }
 
                 & .product-itineraries__nav__slider__item__counter {
@@ -73,7 +77,19 @@
                 cursor: pointer;
                 &:hover {
                     color: $color-supporting !important;
+                    & span {
+                        background-color: $color-supporting;
+                    }
                 }
+
+                & span {
+                    font-size: 1.2rem;
+                    border-radius: 4rem;
+                    padding: .4rem .7rem;
+                    background-color: $color-grey-1;
+                    color: $color-white;
+                    transition: all 0.3s;
+                } 
             }
 
             &__btn {
@@ -398,6 +414,15 @@
     }
 }
 
+.season-panel__range-text {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid $color-grey-light-1a;
+    color: $color-primary;
+    font-size: 1.3rem;
+    letter-spacing: .1rem;
+}
+
 .inclusions-area {
     margin-top: 2rem;
     position: relative;
@@ -709,7 +734,7 @@
                 &__fine-print {
                     font-size: 1.2rem;
                     color: $color-grey-1;
-
+                    margin-bottom: 1rem;
                     & a {
                         text-decoration: none;
                         color: $color-supporting;
