@@ -96,6 +96,18 @@
                     }
                 }
 
+                //display: flex;
+                //flex-direction: column;
+
+                &__cabin-count {
+                    font-size: 1.1rem;
+                    color: $color-primary;
+                    letter-spacing: .2rem;
+                    text-transform: uppercase;
+                    font-weight: 600;
+
+                }
+
                 & h4 {
                     position: relative;
                     margin-bottom: 1.5rem;

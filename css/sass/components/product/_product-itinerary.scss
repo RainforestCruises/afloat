@@ -75,6 +75,7 @@
                 transition: all 0.3s;
                 text-align: center;
                 cursor: pointer;
+                white-space: nowrap;
                 &:hover {
                     color: $color-supporting !important;
                     & span {

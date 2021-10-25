@@ -22,9 +22,39 @@ $cruise_data = $args['cruiseData'];
 
         <?php foreach ($cabins as $cabin) : ?>
             <?php
-            $occupancy = $cabins[$cabinCount]['PrimaryOccupancy'];
+
+            //Occupancy Display
+            $primaryOccupancy = $cabins[$cabinCount]['PrimaryOccupancy'];
+            $secondaryOccupancy = 0;
             if ($cabins[$cabinCount]['SecondaryEnabled'] == true) {
-                $occupancy = $occupancy + $cabins[$cabinCount]['SecondaryOccupancy'];
+                $secondaryOccupancy = $cabins[$cabinCount]['SecondaryOccupancy'];
+            }
+            $totalOccupancy = $primaryOccupancy + $secondaryOccupancy;
+            $occupancyDisplay = '';
+            if($totalOccupancy != $primaryOccupancy){
+                $occupancyDisplay = $primaryOccupancy . ' - ' . $totalOccupancy;
+            }else {
+                $occupancyDisplay = $primaryOccupancy;
+            }
+
+            if (array_key_exists('CabinCapacityLabel', $cabins[$cabinCount])) {
+
+                if($cabins[$cabinCount]['CabinCapacityLabel'] != null){
+                    $occupancyDisplay = $cabins[$cabinCount]['CabinCapacityLabel'];
+                }
+            }
+            
+            $cabinCountLabel = null;
+            if (array_key_exists('CabinCountLabel', $cabins[$cabinCount])) {
+               
+                if($cabins[$cabinCount]['CabinCountLabel'] != null){
+                    if($cabins[$cabinCount]['CabinCountLabel'] == 1){
+                        $cabinCountLabel = $cabins[$cabinCount]['CabinCountLabel'] . ' Cabin';
+                    } else {
+                        $cabinCountLabel = $cabins[$cabinCount]['CabinCountLabel'] . ' Cabins';
+                    }
+                    
+                }
             }
 
 
@@ -44,6 +74,11 @@ $cruise_data = $args['cruiseData'];
                 </div>
                 <div class="product-cabins__cabin__content">
                     <div class="product-cabins__cabin__content__title">
+                        <?php if ($cabinCountLabel != null) : ?>
+                        <div class="product-cabins__cabin__content__title__cabin-count">
+                            <?php echo ($cabinCountLabel); ?>
+                        </div>
+                        <?php endif; ?>
                         <h4><?php echo ($cabins[$cabinCount]['Name']); ?></h4>
                     </div>
                     <div class="product-cabins__cabin__content__feature-grid">
@@ -51,7 +86,7 @@ $cruise_data = $args['cruiseData'];
                             <div class="product-cabins__cabin__content__feature-item__title">
                                 Guests
                             </div>
-                            <span><?php echo $occupancy; ?></span>
+                            <span><?php echo $occupancyDisplay; ?></span>
                         </div>
                         <div class="product-cabins__cabin__content__feature-item">
                             <div class="product-cabins__cabin__content__feature-item__title">

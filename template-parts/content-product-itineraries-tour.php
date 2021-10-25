@@ -65,7 +65,7 @@ $img = get_field('map');
                         <div class="product-itinerary-slide__top__side-info__content__widget">
                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section u-margin-bottom-small">
                                 <h5 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
-                                    Prices Per Person (USD)
+                                    Prices (USD)
                                     <?php 
                                     $display_policies = get_field('display_policies');
                                     $display_special_note = get_field('display_special_note');

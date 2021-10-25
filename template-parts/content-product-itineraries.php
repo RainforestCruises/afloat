@@ -233,7 +233,7 @@ endforeach;
                                         <div class="product-itinerary-slide__top__side-info__content__widget" style="margin-bottom: 0rem;">
                                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
                                                 <h5 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
-                                                    Prices Per Person (USD)
+                                                    Prices (USD)
 
                                                     <?php if ($display_policies || $display_special_note) : ?>
                                                         <svg class="price-notes">
