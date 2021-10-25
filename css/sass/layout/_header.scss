@@ -94,13 +94,13 @@
 
         &__logo-area {
             width: min-content;
-
             z-index: 5;
             position: relative;
             display: flex;
 
             justify-content: flex-end;
             transform: translateY(2px); //small vertical adjustment
+
 
             @media only screen and (max-width: $bp-medium) {
                 justify-self: center;
@@ -110,6 +110,7 @@
             &__logo {
                 width: min-content;
                 margin: 0 4rem;
+                width: 17rem; //to prevent CLS
 
                 @media only screen and (max-width: $bp-small) {
                     margin: 0 2rem;
