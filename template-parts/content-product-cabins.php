@@ -46,7 +46,7 @@ $cruise_data = $args['cruiseData'];
             
             $cabinCountLabel = null;
             if (array_key_exists('CabinCountLabel', $cabins[$cabinCount])) {
-               
+                //check if lodge ? 
                 if($cabins[$cabinCount]['CabinCountLabel'] != null){
                     if($cabins[$cabinCount]['CabinCountLabel'] == 1){
                         $cabinCountLabel = $cabins[$cabinCount]['CabinCountLabel'] . ' Cabin';

@@ -8,7 +8,7 @@
 
     $accommodationDisplayText = 'Lodges';
 
-    if($destinationType == 'destination')
+    if($destinationType == 'destination' || $destinationType == 'region')
         $accommodationDisplayText = get_field('accommodations_label');
         if($accommodationDisplayText == null) {
             $accommodationDisplayText = 'Lodges';
