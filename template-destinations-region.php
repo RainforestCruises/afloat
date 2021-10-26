@@ -99,7 +99,10 @@ $lodges = get_posts($lodgeCriteria);
 $title = $region->post_title;
 
 
-
+$accommodationDisplayText = get_field('accommodations_label');
+if($accommodationDisplayText == null) {
+    $accommodationDisplayText = 'Lodges';
+}
 
 $args = array(
     'destination' => $region, //exception - all template parts expect destination
@@ -110,7 +113,7 @@ $args = array(
     'tour_experiences' => $tour_experiences,
     'cruises' => $cruises,
     'lodges' => $lodges,
-    'accommodationDisplayText' => 'Lodges',
+    'accommodationDisplayText' => $accommodationDisplayText,
     'sliderContent' => $sliderContent,
     'title' => $title,
     'destinationType' => $destinationType,
