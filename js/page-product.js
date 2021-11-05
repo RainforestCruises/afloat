@@ -122,9 +122,9 @@ jQuery(document).ready(function ($) {
     asNavFor: '#itineraries-slider',
     dots: false,
     //centerMode: true,
-    initialSlide: 1,
+  
     focusOnSelect: true,
-    infinite: true,
+    
     arrows: true,
     prevArrow: '<button class="product-itineraries__nav__slider__btn product-itineraries__nav__slider__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
     nextArrow: '<button class="product-itineraries__nav__slider__btn product-itineraries__nav__slider__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',

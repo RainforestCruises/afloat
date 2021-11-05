@@ -212,6 +212,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         $featuredImage = get_field('featured_image', $p); //need specific image size  - 600x500
         $productImageId = '';
         $charterOnly = get_field('charter_only', $p);
+        //$charterAvailable = get_field('charter_available', $p);
 
         if ($featuredImage) {
             $productImageId = $featuredImage['id'];
@@ -468,9 +469,6 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                 $itineraryLengthDisplay = $rangeFrom . " Days";
             }
 
-            // if($viewType == 'grid'){
-            //     $itineraryLengthDisplay = $rangeFrom . " Days";
-            // }
 
             //Capacity Attributes Display
             if ($numberOfCabins) {
@@ -481,26 +479,42 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             }
         }
 
-        $productLowestPrice = 0;
-        $priceText = "Starting from";
-        $postUrl = get_permalink($p);
 
-        if ($charterFilter == true) {
-            if(array_key_exists("LowestCharterPrice", $cruiseData)) {
-                $productLowestPrice = $cruiseData['LowestCharterPrice'];
-              }
-            $priceText = "Price per day";
-            $promoAvailable = false;
-            $itineraryLengthDisplay = get_field('charter_min_days', $p) . " Days +";
-            $itineraryCountDisplay = "";
-            $postUrl = $postUrl . '?charter=true';
-        } else {
-            $productLowestPriceValues = [];
+        $postUrl = get_permalink($p);
+        $productLowestPrice = 0;
+        $productLowestCharterPrice = 0;
+        $priceText = "Per Person";
+        $priceTextCharter = "Price per day";
+        $itineraryLengthDisplayCharter = get_field('charter_min_days', $p) . " Days +";
+        $postUrlCharter = $postUrl . '?charter=true';
+
+        
+
+
+        if(array_key_exists("LowestCharterPrice", $cruiseData)) {
+            $productLowestCharterPrice = $cruiseData['LowestCharterPrice']; //change to be length sensitive
+        }
+
+        $productLowestPriceValues = [];
             foreach ($itineraries as $itinerary) {
                 $productLowestPriceValues[] = $itinerary->lowestItineraryPrice;
             }
             $productLowestPrice = min($productLowestPriceValues);
-        }
+
+        // if ($charterFilter == true) {
+
+        //     //$priceText = "Price per day"; //duplicate these for charter
+        //     //$promoAvailable = false;
+        //     //$itineraryLengthDisplay = get_field('charter_min_days', $p) . " Days +";
+        //     //$itineraryCountDisplay = "";
+        //     //$postUrl = $postUrl . '?charter=true';
+        // } else {
+        //     $productLowestPriceValues = [];
+        //     foreach ($itineraries as $itinerary) {
+        //         $productLowestPriceValues[] = $itinerary->lowestItineraryPrice;
+        //     }
+        //     $productLowestPrice = min($productLowestPriceValues);
+        // }
 
 
         //Filter Product Titles
@@ -527,10 +541,14 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             'experiences' => get_field('experiences', $p),
             'priceText' => $priceText,
             'lowestPrice' => $productLowestPrice,
+            'lowestCharterPrice' => $productLowestCharterPrice,
             'itineraryLengthDisplay' => $itineraryLengthDisplay,
+            'itineraryLengthDisplayCharter' => $itineraryLengthDisplayCharter,
+
             'itineraryCountDisplay' => $itineraryCountDisplay,
             'promoAvailable' => $promoAvailable,
             'charterOnly' => $charterOnly,
+            'charterAvailable' => $charterAvailable,
             'vesselCapacity' => $vesselCapacity,
             'vesselCapacityDisplay' => $vesselCapacityDisplay,
             'numberOfCabins' => $numberOfCabins,

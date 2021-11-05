@@ -6,7 +6,7 @@ $pageNumber = $args['pageNumber'];
 $viewType = $args['viewType'];
 $charterFilter = $args['charterFilter'];
 
-
+console_log($results);
 //if results
 if ($results) :
     if ($viewType != 'grid') : //list view
@@ -86,70 +86,158 @@ if ($results) :
 
                 </div>
                 <div class="search-result__detail">
-                    <div class="search-result__detail__info">
-                        <div class="search-result__detail__info__price-from">
-                            <div class="search-result__detail__info__price-from__text">
-                                <?php echo $result->priceText; ?>
+                    <?php if ($result->postType == 'rfc_cruises') : ?>
+                        <div class="search-result__detail__header">
+                            <div class="search-result__detail__header__tab fit-tab current">
+                                Cabins
                             </div>
-                            <div class="search-result__detail__info__price-from__price">
-                                <?php echo "$" . number_format($result->lowestPrice, 0);  ?>
-                                <span>
-                                    USD
-                                </span>
+                            <div class="search-result__detail__header__tab charter-tab">
+                                / Charter
                             </div>
                         </div>
-                        <div class="search-result__detail__info__attributes">
+                    <?php else : ?>
+                        <div class="search-result__detail__header">
+                            Starting From
+                        </div>
 
-                            <!-- Length -->
-                            <div class="search-result__detail__info__attributes__item">
-                                <div class="search-result__detail__info__attributes__item__data">
-                                    <div class="search-result__detail__info__attributes__item__data__icon">
-                                        <svg>
-                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="search-result__detail__info__attributes__item__data__text">
-                                        <?php echo $result->itineraryLengthDisplay; ?>
-                                        <div class="sub-attribute">
-                                            <?php echo $result->itineraryCountDisplay; ?>
-                                        </div>
-                                    </div>
+                    <?php endif; ?>
+                    <!-- FIT Panel -->
+                    <div class="search-result__detail__panel fit-tab current">
+                        <div class="search-result__detail__panel__info">
+                            <div class="search-result__detail__panel__info__price-from">
 
+                                <div class="search-result__detail__panel__info__price-from__price">
+                                    <?php echo "$" . number_format($result->lowestPrice, 0);  ?>
+                                    <span>
+                                        USD
+                                    </span>
+                                </div>
+                                <div class="search-result__detail__panel__info__price-from__text">
+                                    Per Person
                                 </div>
                             </div>
+                            <div class="search-result__detail__panel__info__attributes">
 
-
-
-                            <!-- Capacity -->
-                            <?php if ($result->postType != 'rfc_tours') : ?>
-                                <div class="search-result__detail__info__attributes__item">
-                                    <div class="search-result__detail__info__attributes__item__data">
-                                        <div class="search-result__detail__info__attributes__item__data__icon">
+                                <!-- Length -->
+                                <div class="search-result__detail__panel__info__attributes__item">
+                                    <div class="search-result__detail__panel__info__attributes__item__data">
+                                        <div class="search-result__detail__panel__info__attributes__item__data__icon">
                                             <svg>
-                                                <?php if ($result->postType == 'rfc_cruises') : ?>
-                                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-boat-front"></use>
-                                                <?php elseif ($result->postType == 'rfc_lodges') : ?>
-                                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-bed-23"></use>
-                                                <?php endif; ?>
+                                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
                                             </svg>
                                         </div>
-                                        <div class="search-result__detail__info__attributes__item__data__text">
-                                            <?php echo $result->vesselCapacityDisplay; ?>
+                                        <div class="search-result__detail__panel__info__attributes__item__data__text">
+                                            <?php echo $result->itineraryLengthDisplay; ?>
                                             <div class="sub-attribute">
-                                                <?php echo $result->numberOfCabinsDisplay; ?>
+                                                <?php echo $result->itineraryCountDisplay; ?>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+                                <!-- Capacity -->
+                                <?php if ($result->postType != 'rfc_tours') : ?>
+                                    <div class="search-result__detail__panel__info__attributes__item">
+                                        <div class="search-result__detail__panel__info__attributes__item__data">
+                                            <div class="search-result__detail__panel__info__attributes__item__data__icon">
+                                                <svg>
+                                                    <?php if ($result->postType == 'rfc_cruises') : ?>
+                                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-boat-front"></use>
+                                                    <?php elseif ($result->postType == 'rfc_lodges') : ?>
+                                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-bed-23"></use>
+                                                    <?php endif; ?>
+                                                </svg>
+                                            </div>
+                                            <div class="search-result__detail__panel__info__attributes__item__data__text">
+                                                <?php echo $result->vesselCapacityDisplay; ?>
+                                                <div class="sub-attribute">
+                                                    <?php echo $result->numberOfCabinsDisplay; ?>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                <?php endif; ?>
+                            </div>
+
+                        </div>
+                        <div class="search-result__detail__panel__cta">
+                            <a href="<?php echo $result->postUrl;  ?>" class="btn-cta-round btn-cta-round--small">
+                                View <?php echo $result->productTypeCta; ?>
+                            </a>
+                        </div>
+                    </div>
+                    <?php if ($result->postType == 'rfc_cruises') : ?>
+                        <!-- Charter Panel -->
+                        <div class="search-result__detail__panel charter-tab">
+                            <div class="search-result__detail__panel__info">
+                                <div class="search-result__detail__panel__info__price-from">
+
+                                    <div class="search-result__detail__panel__info__price-from__price">
+                                        <?php echo "$" . number_format($result->lowestCharterPrice, 0);  ?>
+                                        <span>
+                                            USD
+                                        </span>
+                                    </div>
+                                    <div class="search-result__detail__panel__info__price-from__text">
+                                        Per Day
+                                    </div>
                                 </div>
-                            <?php endif; ?>
+                                <div class="search-result__detail__panel__info__attributes">
+
+                                    <!-- Length -->
+                                    <div class="search-result__detail__panel__info__attributes__item">
+                                        <div class="search-result__detail__panel__info__attributes__item__data">
+                                            <div class="search-result__detail__panel__info__attributes__item__data__icon">
+                                                <svg>
+                                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="search-result__detail__panel__info__attributes__item__data__text">
+                                                <?php echo $result->itineraryLengthDisplayCharter; ?>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- Capacity -->
+                                    <?php if ($result->postType != 'rfc_tours') : ?>
+                                        <div class="search-result__detail__panel__info__attributes__item">
+                                            <div class="search-result__detail__panel__info__attributes__item__data">
+                                                <div class="search-result__detail__panel__info__attributes__item__data__icon">
+                                                    <svg>
+                                                        <?php if ($result->postType == 'rfc_cruises') : ?>
+                                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-boat-front"></use>
+                                                        <?php elseif ($result->postType == 'rfc_lodges') : ?>
+                                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-bed-23"></use>
+                                                        <?php endif; ?>
+                                                    </svg>
+                                                </div>
+                                                <div class="search-result__detail__panel__info__attributes__item__data__text">
+                                                    <?php echo $result->vesselCapacityDisplay; ?>
+                                                    <div class="sub-attribute">
+                                                        <?php echo $result->numberOfCabinsDisplay; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+                            </div>
+                            <div class="search-result__detail__panel__cta">
+                                <a href="<?php echo $result->postUrl . '?charter=true';  ?>" class="btn-cta-round btn-cta-round--small">
+                                    View Charter
+                                </a>
+                            </div>
                         </div>
 
-                    </div>
-                    <div class="search-result__detail__cta">
-                        <a href="<?php echo $result->postUrl;  ?>" class="btn-cta-round btn-cta-round--small">
-                            View <?php echo $result->productTypeCta; ?>
-                        </a>
-                    </div>
+                    <?php endif; ?>
 
                 </div>
 
@@ -169,10 +257,10 @@ if ($results) :
                     $destinations = $result->destinations;
                     if ($destinations) :
                         foreach ($destinations as $d) :
-                            echo '<li>'. get_field('navigation_title', $d) .'</li>';
+                            echo '<li>' . get_field('navigation_title', $d) . '</li>';
                         endforeach;
                     endif; ?>
-          
+
                 </ul>
 
 

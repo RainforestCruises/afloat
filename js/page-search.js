@@ -691,6 +691,31 @@ jQuery(document).ready(function ($) {
         }
 
 
+        //SERP Tabs
+        const tabArray = [...document.querySelectorAll('.search-result__detail__header__tab')];
+        tabArray.forEach(item => {
+          item.addEventListener('click', (e) => {
+
+            var thisTabArray = $(item).parent().find('.search-result__detail__header__tab');
+            $(thisTabArray).removeClass('current');
+
+            var panels = $(item).parent().parent().find('.search-result__detail__panel');
+            panels.removeClass('current');
+
+            if (item.classList.contains('fit-tab')) {
+              panels[0].classList.add('current');
+              thisTabArray[0].classList.add('current');
+
+            } else {
+              panels[1].classList.add('current');
+              thisTabArray[1].classList.add('current');
+
+            }
+  
+
+          })
+        })
+
 
         $('#response-count').html(resultCountDisplay);
 
@@ -744,6 +769,37 @@ jQuery(document).ready(function ($) {
     });
   }
 
+
+
+  //SERP Tabs
+  const tabArray = [...document.querySelectorAll('.search-result__detail__header__tab')];
+  tabArray.forEach(item => {
+    item.addEventListener('click', (e) => {
+
+      var thisTabArray = $(item).parent().find('.search-result__detail__header__tab');
+      $(thisTabArray).removeClass('current');
+
+      var panels = $(item).parent().parent().find('.search-result__detail__panel');
+      panels.removeClass('current');
+
+      if (item.classList.contains('fit-tab')) {
+        panels[0].classList.add('current');
+        thisTabArray[0].classList.add('current');
+
+      } else {
+        panels[1].classList.add('current');
+        thisTabArray[1].classList.add('current');
+
+      }
+      //Pre Title Text Change - charter
+      //Promo badge hide - charter
+      //handle charter only and charter unavailable boats
+
+      //calculate min price based on itinerary length charter
+      //optimize lowest price algorithm FIT
+
+    })
+  })
 
 
   //pagination js
