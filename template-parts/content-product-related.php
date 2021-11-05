@@ -43,6 +43,9 @@ $posts = get_posts($queryArgs);
 
             <?php
             foreach ($posts as $p) :
+                $featured_image = get_field('featured_image', $p);
+                $cruise_data = get_field('cruise_data', $p);
+
                 $charterView = false;
                 $isCharterOnly = false;
                 $hasCharterAvailable = false;
@@ -54,7 +57,12 @@ $posts = get_posts($queryArgs);
                     $isCharterOnly = get_field('charter_only', $p);
                     $hasCharterAvailable = get_field('charter_available', $p);
                     $charter_min_days = get_field('charter_min_days', $p);
-                    $charter_daily_price = get_field('charter_daily_price', $p);
+
+                  
+                    if (array_key_exists("LowestCharterPrice", $cruise_data)) {
+                        $charter_daily_price = $cruise_data['LowestCharterPrice'];
+                    }
+                 
                 }
 
                 if (!$charterView) {
@@ -72,8 +80,7 @@ $posts = get_posts($queryArgs);
                 }
 
 
-                $featured_image = get_field('featured_image', $p);
-                $cruise_data = get_field('cruise_data', $p);
+                
                 $relatedItemDestinations = get_field('destinations', $p);
                 $top_snippet = get_field('top_snippet', $p);
                 $currentYear = date('Y');
@@ -98,7 +105,7 @@ $posts = get_posts($queryArgs);
                         <?php endif; ?>
                         <ul class="product-card__image-area__destinations">
                             <?php
-                            
+
                             if ($propertyDestinations) :
                                 foreach ($propertyDestinations as $d) :
                                     echo '<li>' . get_field('navigation_title', $d) . '</li>';
@@ -107,7 +114,7 @@ $posts = get_posts($queryArgs);
                         </ul>
                         <?php if ($charterView) : ?>
                             <div class="product-card__image-area__charter-text">
-                                    Private Charter
+                                Private Charter
                             </div>
                         <?php endif; ?>
                     </div>
@@ -144,6 +151,8 @@ $posts = get_posts($queryArgs);
                             <div class="product-card__bottom__info__price-group">
 
                                 <?php if ($charterView) : ?>
+
+                               
                                     <div class="product-card__bottom__info__price-group__from">Day</div>
                                     <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($charter_daily_price);  ?> <span>USD</span></div>
 

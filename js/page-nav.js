@@ -66,6 +66,8 @@ jQuery(document).ready(function ($) {
         var id = $(this).attr('href');
         changePosition(id)
         event.preventDefault();
+
+
     })
 
     // Animate Change Position
@@ -75,6 +77,7 @@ jQuery(document).ready(function ($) {
             $('.header').addClass('preventExpand');
         }
 
+      
 
         $('.nav-secondary-mobile').removeClass('active'); //if mobile open - close menu / button
         $("#nav-secondary-button").removeClass('active');
@@ -128,7 +131,7 @@ jQuery(document).ready(function ($) {
     const navSecondaryButton = document.querySelector('#nav-secondary-button')
 
     document.addEventListener('click', evt => {
-        
+
         const isMenuClick = navSecondaryMobileList.contains(evt.target);
         const isButtonClick = navSecondaryButton.contains(evt.target);
         const isOpen = navSecondaryMobile.classList.contains('active');

@@ -486,7 +486,9 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         $postUrl = get_permalink($p);
 
         if ($charterFilter == true) {
-            $productLowestPrice = get_field('charter_daily_price', $p);
+            if(array_key_exists("LowestCharterPrice", $cruiseData)) {
+                $productLowestPrice = $cruiseData['LowestCharterPrice'];
+              }
             $priceText = "Price per day";
             $promoAvailable = false;
             $itineraryLengthDisplay = get_field('charter_min_days', $p) . " Days +";

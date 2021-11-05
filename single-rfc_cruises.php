@@ -30,9 +30,13 @@ while (have_posts()) :
 
   $charter_only = get_field('charter_only');
   $charter_available = get_field('charter_available');
+  $charter_daily_price = 0;
+
+  if(array_key_exists("LowestCharterPrice", $cruise_data)) {
+    $charter_daily_price = $cruise_data['LowestCharterPrice'];
+  }
 
 
-  $charter_daily_price = get_field('charter_daily_price');
   $vessel_capacity = get_field('vessel_capacity');
   $charter_min_days = get_field('charter_min_days');
 
@@ -51,7 +55,7 @@ while (have_posts()) :
 
   $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, true);
 
-
+  console_log($cruise_data);
   $args = array(
     'lowestPrice' => $lowestPrice,
     'cruiseData' => $cruise_data,

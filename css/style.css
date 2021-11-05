@@ -3382,6 +3382,8 @@ h5 {
           display: inline; }
       .product-itineraries__nav__slider .slick-slide {
         outline: none; }
+      .product-itineraries__nav__slider .slick-track {
+        transform: translate3d(0, 0, 0); }
       .product-itineraries__nav__slider__item {
         padding: 1rem 2rem;
         font-size: 1.5rem;
@@ -3562,6 +3564,29 @@ h5 {
       color: #de5c52;
       border-color: #de5c52;
       cursor: not-allowed; }
+    .date-grid__item--tba {
+      color: #305a7c;
+      border-color: #305a7c;
+      cursor: pointer;
+      position: relative; }
+      .date-grid__item--tba:hover .tooltiptext {
+        visibility: visible; }
+      .date-grid__item--tba .tooltiptext {
+        visibility: hidden;
+        width: 8rem;
+        background-color: #f8f8f8;
+        border: 1px solid #c2c6c9;
+        color: #142838;
+        text-align: center;
+        border-radius: 6px;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        /* Position the tooltip */
+        position: absolute;
+        top: -2rem;
+        right: -5rem;
+        z-index: 1; }
 
 .price-grid {
   display: flex;

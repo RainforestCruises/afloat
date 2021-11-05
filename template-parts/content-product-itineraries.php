@@ -185,9 +185,14 @@ endforeach;
                                                                 <?php echo $departureMonth['MonthNameShort']; ?>
                                                             </li>
                                                         <?php } else { ?>
-                                                            <?php if ($departureMonth['HasDepartures'] == false) { ?>
+                                                            <?php if ($departureMonth['HasDepartures'] == false && $departureMonth['IsTBA'] == false) { ?>
                                                                 <li class="date-grid__item date-grid__item--sold-out " itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
                                                                     <?php echo $departureMonth['MonthNameShort']; ?>
+                                                                </li>
+                                                            <?php } else if ($departureMonth['HasDepartures'] == false && $departureMonth['IsTBA'] == true){ ?>
+                                                                <li class="date-grid__item date-grid__item--tba " itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
+                                                                    <?php echo $departureMonth['MonthNameShort']; ?>
+                                                                    <span class="tooltiptext">Dates TBA</span>
                                                                 </li>
                                                             <?php } else { ?>
                                                                 <li class="date-grid__item date-grid__item--available <?php echo ($departureMonth['HasPromos'] == true ? "promo-date" : ""); ?>" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
@@ -374,11 +379,14 @@ endforeach;
                                                                 <?php endforeach; ?>
 
                                                             </div>
-                                                            <?php if ($itinerary['HighSeasonText'] != null) : ?>
-                                                                <div class="season-panel__range-text">
-                                                                    High Season: <?php echo $itinerary['HighSeasonText']; ?>
-                                                                </div>
-                                                            <?php endif; ?>
+                                                            <?php
+                                                            if (array_key_exists("HighSeasonText", $rateYear)) :
+                                                                if ($rateYear['HighSeasonText'] != null) : ?>
+                                                                    <div class="season-panel__range-text">
+                                                                        High Season: <?php echo $rateYear['HighSeasonText']; ?>
+                                                                    </div>
+                                                            <?php endif;
+                                                            endif; ?>
                                                         </div>
                                                     <?php endif; ?>
 
@@ -429,11 +437,14 @@ endforeach;
                                                                 <?php endforeach; ?>
 
                                                             </div>
-                                                            <?php if ($itinerary['LowSeasonText'] != null) : ?>
-                                                                <div class="season-panel__range-text">
-                                                                Low Season: <?php echo $itinerary['LowSeasonText']; ?>
-                                                                </div>
-                                                            <?php endif; ?>
+                                                            <?php
+                                                            if (array_key_exists("LowSeasonText", $rateYear)) :
+                                                                if ($rateYear['LowSeasonText'] != null) : ?>
+                                                                    <div class="season-panel__range-text">
+                                                                        Low Season: <?php echo $rateYear['LowSeasonText']; ?>
+                                                                    </div>
+                                                            <?php endif;
+                                                            endif; ?>
                                                         </div>
                                                     <?php endif; ?>
 
@@ -503,7 +514,14 @@ endforeach;
                                                         <?php endif; ?>
                                                     </div>
                                                     <div class="charter-pricing__overall__info-group__data">
-                                                        <?php echo "$ " . number_format($charter_daily_price, 0);  ?>
+                                                        <?php
+
+                                                        if (array_key_exists("CharterAmount", $itinerary)) {
+                                                            echo "$ " . number_format($itinerary['CharterAmount'], 0);
+                                                        } else {
+                                                            echo 'TBA'; //not updated from DF
+                                                        }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -512,7 +530,19 @@ endforeach;
                                         <!-- SNIPPET -->
                                         <div class="product-itinerary-slide__top__side-info__content__widget" style="margin-bottom: 0rem">
                                             <div class="charter-info-snippet">
-                                                <?php echo $charter_snippet ?>
+                                                <?php
+                                                if (array_key_exists("CharterSnippet", $itinerary)) {
+                                                    if ($itinerary['CharterSnippet'] != '') {
+                                                        echo $itinerary['CharterSnippet'];
+                                                    } else {
+                                                        echo $charter_snippet;
+                                                    }
+                                                } else {
+                                                    echo $charter_snippet;
+                                                }
+
+                                                ?>
+
                                                 <p>
                                                     <?php echo get_field('charter_note', 'options'); ?>
                                                 </p>

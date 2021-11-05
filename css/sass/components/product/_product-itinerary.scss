@@ -64,6 +64,10 @@
                 outline: none;
             }
 
+            & .slick-track {
+                transform: translate3d(0, 0, 0) ;
+            } 
+
             &__item {
                 padding: 1rem 2rem;
                 font-size: 1.5rem;
@@ -320,6 +324,36 @@
             color: $color-red;
             border-color: $color-red;
             cursor: not-allowed;
+        } 
+
+        &--tba {
+            color: $color-supporting;
+            border-color: $color-supporting;
+            cursor: pointer;
+            position: relative;
+            &:hover .tooltiptext {
+                visibility: visible;
+            }
+        
+            & .tooltiptext {
+                //box-sizing: border-box;
+                visibility: hidden;
+                width: 8rem;
+                //max-width: 15rem;
+                background-color: $color-grey-light-1;
+                border: 1px solid $color-grey-light-2;
+                color: $color-primary;
+                text-align: center;
+                border-radius: 6px;
+                padding: .5rem 1rem;
+                font-size: 1rem;
+                font-weight: 600;
+                /* Position the tooltip */
+                position: absolute;
+                top: -2rem;
+                right: -5rem;
+                z-index: 1;
+            }
         }
     }
 }

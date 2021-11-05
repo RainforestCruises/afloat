@@ -93,6 +93,9 @@ jQuery(document).ready(function ($) {
   })
 
   //Main Itinerery
+
+
+
   $('#itineraries-slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -103,7 +106,7 @@ jQuery(document).ready(function ($) {
     swipeToSlide: false,
     centerMode: true,
     adaptiveHeight: true,
-    //initialSlide: 1,
+   
 
   });
 
@@ -113,15 +116,15 @@ jQuery(document).ready(function ($) {
     if (slick.slideCount < 2) { //if one slide, remove padding for nav arrows
       $('.product-itineraries__nav__slider').css("padding-right", 0);
     }
-  
   }).slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     asNavFor: '#itineraries-slider',
     dots: false,
     //centerMode: true,
+    initialSlide: 1,
     focusOnSelect: true,
-    //initialSlide: 1,
+    infinite: true,
     arrows: true,
     prevArrow: '<button class="product-itineraries__nav__slider__btn product-itineraries__nav__slider__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
     nextArrow: '<button class="product-itineraries__nav__slider__btn product-itineraries__nav__slider__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
@@ -150,8 +153,22 @@ jQuery(document).ready(function ($) {
     $('.side-info-panel[tab-type="dates"').hide();
   });
 
-  // $('#itineraries-slider-nav').slick('slickGoTo', 1);
-  // $('#itineraries-slider').slick('slickGoTo', 1);
+
+  ////---------Slider bug, nav init slide
+
+  // var urlString = window.location.href;
+  // var url = new URL(urlString);
+  // var itinerarySlideFromUrl = url.searchParams.get("i");
+  // var gotoSlide = 0;
+  // var initialSlideLoad = true;
+  // if (itinerarySlideFromUrl != null) {
+  //   gotoSlide = itinerarySlideFromUrl;
+  //   $('#itineraries-slider-nav').slick('slickGoTo', itinerarySlideFromUrl);
+     
+  // }
+
+ 
+
 
   //Days slider
   $('.product-itinerary-slide__bottom__days').slick({
@@ -327,27 +344,29 @@ jQuery(document).ready(function ($) {
   //Itinerary Year Select on Side Details - Show Hide Date / Price Grids for selected year
   $('.itinerary-year-select').on('change', function () {
     var year = $(this).val();
-    var tab_id = $(this).attr('data-tab');
+    //var tab_id = $(this).attr('data-tab');
+    $('.itinerary-year-select').val(year).trigger('change.select2'); //set value without triggering change
 
-    $('.date-grid[data-tab="' + tab_id + '"]').hide();
-    $('.date-grid__' + year + '[data-tab="' + tab_id + '"]').show();
+    $('.date-grid').hide();
+    $('.date-grid__' + year).show();
 
-    $('.price-grid[data-tab="' + tab_id + '"]').hide();
-    $('.price-grid__' + year + '[data-tab="' + tab_id + '"]').show();
+    $('.price-grid').hide();
+    $('.price-grid__' + year).show();
 
   });
 
   //season-select
   $('.season-select').on('change', function () {
     var season = $(this).val();
-    var tab_id = $(this).attr('itinerary-tab');
-    // console.log(year);
-    $('.season-panel[itinerary-tab="' + tab_id + '"]').hide();
-    $('.season-panel[data-tab="' + season + '"][itinerary-tab="' + tab_id + '"]').show();
+    //var tab_id = $(this).attr('itinerary-tab');
+    $('.season-select').val(season).trigger('change.select2'); //set value without triggering change
+
+    $('.season-panel').hide();
+    $('.season-panel[data-tab="' + season + '"]').show();
   });
 
 
-  $('.itinerary-year-select').val(currentYear).trigger("change");
+  //$('.itinerary-year-select').val(currentYear).trigger("change");
 
   //Dates --------------------------------------
   //Controls
@@ -404,8 +423,8 @@ jQuery(document).ready(function ($) {
 
   //SLIDERS --------------------------------------------
 
- 
- 
+
+
 
 
 
