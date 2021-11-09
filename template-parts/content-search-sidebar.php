@@ -179,7 +179,7 @@ if (get_field('itinerary_length_max') != null) {
                 <li class="filter__content__list__item filter__content__list__item--divider">
                     <div class="form-checkbox">
                         <input class="checkbox travel-style-checkbox" type="checkbox" id="charterCheckbox" value="charter_cruises" <?php echo (in_array('charter_cruises', $selectedTravelTypes) ? 'checked' : '') ?>>
-                        <label for="charterCheckbox" tabindex="4">Charter Cruises</label>
+                        <label for="charterCheckbox" tabindex="4">Private Charters</label>
                     </div>
                 </li>
             </ul>

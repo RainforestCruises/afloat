@@ -93,6 +93,15 @@
                     letter-spacing: 0.2rem;
                     margin-bottom: 0.3rem;
                     color: $color-grey-2;
+                    
+
+                    & span {
+                        display: none; 
+
+                        &.current {
+                            display: block;
+                        }
+                    }
                 }
             }
             &__snippet {
@@ -152,7 +161,8 @@
             font-size: 1.1rem;
             font-weight: 700;
             text-transform: uppercase;
-            color: $color-grey-1;
+            //color: $color-grey-1;
+            color: $color-primary;
             letter-spacing: 0.1rem;
             padding-bottom: .5rem;
             margin-bottom: .7rem;
@@ -170,13 +180,17 @@
                 padding-right: 0.5rem;
                 transition: color 0.2s;
                 cursor: pointer;
-                
+                color: $color-grey-1;
                 &.current {
                     cursor: default;
-                    color: $color-primary;
+                    color: $color-primary !important;
                     &:hover {
-                        color: $color-primary;
+                        color: $color-primary !important;
                     }
+                }
+
+                &.charter-tab {
+                    color: $color-grey-1;
                 }
 
                 &:hover {
@@ -198,9 +212,7 @@
             &__info {
                 @media only screen and (max-width: $bp-medium) {
                     display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-bottom: 1rem;
+                    flex-direction: column;
                     padding-top: 1.5rem;
                     border-top: 1px solid $color-grey-light-1a;
                 }
@@ -209,13 +221,11 @@
                     padding-bottom: .5rem;
 
                     @media only screen and (max-width: $bp-medium) {
-                        order: 2;
-                        margin-left: 3rem;
-                        margin-right: 4rem;
+                        order: 0;
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
-                        padding-bottom: 0;
+                        padding-bottom: 1rem;
                     }
 
                     &__text {
@@ -230,6 +240,11 @@
                         font-weight: 700;
                         color: $color-primary;
 
+                        @media only screen and (max-width: $bp-medium) {
+                            font-size: 2.8rem;
+                            line-height: 3.4rem;
+                        }
+
                         & span {
                             font-size: 1.3rem;
                             text-transform: uppercase;
@@ -242,6 +257,11 @@
                 &__attributes {
                     height: 100%;
 
+                    @media only screen and (max-width: $bp-medium) {
+                        display: flex;           
+                    }
+
+
                     &__item {
                         position: relative;
 
@@ -251,8 +271,13 @@
                         flex-direction: column;
                         height: 3.8rem;
 
+                        
+
                         &:not(:last-child) {
                             margin-bottom: 1.5rem;
+                            @media only screen and (max-width: $bp-medium) {
+                                margin-right: 3rem;          
+                            }
                         }
 
                         &__data {
@@ -305,8 +330,10 @@
                 display: flex;
                 justify-content: center;
                 padding-top: 1.5rem;
-                
-                //font-size: 1rem;
+                @media only screen and (max-width: $bp-medium) {
+                    padding-top: .5rem;
+          
+                }
 
                 & a {
                     width: 100%;
@@ -414,7 +441,6 @@
         display: flex;
         padding: 1rem 1.5rem;
         justify-content: space-between;
-        // flex-direction: column;
         align-content: flex-end;
 
         &__left {
@@ -423,13 +449,14 @@
             justify-content: flex-end;
             margin-right: 1rem;
 
-            // &__destinations {
-            //     font-size: 1rem;
-            //     letter-spacing: .1rem;
-            //     text-transform: uppercase;
-            //     color: $color-grey-light-1;
-            //     font-weight: 400;
-            // }
+            &__charter-title {
+                font-size: 1rem;
+                letter-spacing: 0.1rem;
+                text-transform: uppercase;
+                color: $color-grey-light-1;
+                font-weight: 400;
+                white-space: nowrap;
+            }
 
             &__title {
                 font-size: 1.4rem;

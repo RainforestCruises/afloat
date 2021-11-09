@@ -27,7 +27,8 @@ if ($results) :
                         </div>
                         <div class="search-result__content__top__title-group">
                             <div class="search-result__content__top__title-group__subtitle">
-                                <?php echo $result->productTypeDisplay ?>
+                                <span class="subtitle-fit <?php echo ($charterFilter == false) ? 'current' : ''; ?>"><?php echo $result->productTypeDisplay ?></span>
+                                <span class="subtitle-charter <?php echo ($charterFilter == true) ? 'current' : ''; ?>">Private Charter</span>
                             </div>
                             <h2 class="search-result__content__top__title-group__title">
                                 <?php echo $result->productTitle ?>
@@ -88,12 +89,25 @@ if ($results) :
                 <div class="search-result__detail">
                     <?php if ($result->postType == 'rfc_cruises') : ?>
                         <div class="search-result__detail__header">
-                            <div class="search-result__detail__header__tab fit-tab current">
-                                Cabins
-                            </div>
-                            <div class="search-result__detail__header__tab charter-tab">
-                                / Charter
-                            </div>
+                            <?php if ($result->charterOnly == true) : ?>
+
+                                <div class="search-result__detail__header__tab fit-tab current">
+                                    Charter From
+                                </div>
+
+                            <?php else : ?>
+
+                                <div class="search-result__detail__header__tab fit-tab <?php echo ($charterFilter == false) ? 'current' : ''; ?>">
+                                    Cabins <?php echo ($result->charterAvailable == false) ? 'From' : ''; ?>
+                                </div>
+                                <?php if ($result->charterAvailable == true) : ?>
+                                    <div class="search-result__detail__header__tab charter-tab <?php echo ($charterFilter == true) ? 'current' : ''; ?>">
+                                        / Charter
+                                    </div>
+                                <?php endif; ?>
+
+                            <?php endif; ?>
+
                         </div>
                     <?php else : ?>
                         <div class="search-result__detail__header">
@@ -102,87 +116,19 @@ if ($results) :
 
                     <?php endif; ?>
                     <!-- FIT Panel -->
-                    <div class="search-result__detail__panel fit-tab current">
-                        <div class="search-result__detail__panel__info">
-                            <div class="search-result__detail__panel__info__price-from">
-
-                                <div class="search-result__detail__panel__info__price-from__price">
-                                    <?php echo "$" . number_format($result->lowestPrice, 0);  ?>
-                                    <span>
-                                        USD
-                                    </span>
-                                </div>
-                                <div class="search-result__detail__panel__info__price-from__text">
-                                    Per Person
-                                </div>
-                            </div>
-                            <div class="search-result__detail__panel__info__attributes">
-
-                                <!-- Length -->
-                                <div class="search-result__detail__panel__info__attributes__item">
-                                    <div class="search-result__detail__panel__info__attributes__item__data">
-                                        <div class="search-result__detail__panel__info__attributes__item__data__icon">
-                                            <svg>
-                                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
-                                            </svg>
-                                        </div>
-                                        <div class="search-result__detail__panel__info__attributes__item__data__text">
-                                            <?php echo $result->itineraryLengthDisplay; ?>
-                                            <div class="sub-attribute">
-                                                <?php echo $result->itineraryCountDisplay; ?>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-
-                                <!-- Capacity -->
-                                <?php if ($result->postType != 'rfc_tours') : ?>
-                                    <div class="search-result__detail__panel__info__attributes__item">
-                                        <div class="search-result__detail__panel__info__attributes__item__data">
-                                            <div class="search-result__detail__panel__info__attributes__item__data__icon">
-                                                <svg>
-                                                    <?php if ($result->postType == 'rfc_cruises') : ?>
-                                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-boat-front"></use>
-                                                    <?php elseif ($result->postType == 'rfc_lodges') : ?>
-                                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-bed-23"></use>
-                                                    <?php endif; ?>
-                                                </svg>
-                                            </div>
-                                            <div class="search-result__detail__panel__info__attributes__item__data__text">
-                                                <?php echo $result->vesselCapacityDisplay; ?>
-                                                <div class="sub-attribute">
-                                                    <?php echo $result->numberOfCabinsDisplay; ?>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-
-                        </div>
-                        <div class="search-result__detail__panel__cta">
-                            <a href="<?php echo $result->postUrl;  ?>" class="btn-cta-round btn-cta-round--small">
-                                View <?php echo $result->productTypeCta; ?>
-                            </a>
-                        </div>
-                    </div>
-                    <?php if ($result->postType == 'rfc_cruises') : ?>
-                        <!-- Charter Panel -->
-                        <div class="search-result__detail__panel charter-tab">
+                    <?php if ($result->charterOnly == false) : ?>
+                        <div class="search-result__detail__panel fit-tab <?php echo ($charterFilter == false) ? 'current' : ''; ?>">
                             <div class="search-result__detail__panel__info">
                                 <div class="search-result__detail__panel__info__price-from">
 
                                     <div class="search-result__detail__panel__info__price-from__price">
-                                        <?php echo "$" . number_format($result->lowestCharterPrice, 0);  ?>
+                                        <?php echo "$" . number_format($result->lowestPrice, 0);  ?>
                                         <span>
                                             USD
                                         </span>
                                     </div>
                                     <div class="search-result__detail__panel__info__price-from__text">
-                                        Per Day
+                                        Per Person
                                     </div>
                                 </div>
                                 <div class="search-result__detail__panel__info__attributes">
@@ -196,8 +142,10 @@ if ($results) :
                                                 </svg>
                                             </div>
                                             <div class="search-result__detail__panel__info__attributes__item__data__text">
-                                                <?php echo $result->itineraryLengthDisplayCharter; ?>
-
+                                                <?php echo $result->itineraryLengthDisplay; ?>
+                                                <div class="sub-attribute">
+                                                    <?php echo $result->itineraryCountDisplay; ?>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -231,7 +179,78 @@ if ($results) :
 
                             </div>
                             <div class="search-result__detail__panel__cta">
-                                <a href="<?php echo $result->postUrl . '?charter=true';  ?>" class="btn-cta-round btn-cta-round--small">
+                                <a href="<?php echo $result->postUrl;  ?>" class="btn-cta-round btn-cta-round--small">
+                                    View <?php echo $result->productTypeCta; ?>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ($result->postType == 'rfc_cruises') : ?>
+                        <!-- Charter Panel -->
+                        <div class="search-result__detail__panel charter-tab <?php echo ($result->charterOnly == true || $charterFilter == true) ? 'current' : ''; ?>">
+                            <div class="search-result__detail__panel__info">
+                                <div class="search-result__detail__panel__info__price-from">
+
+                                    <div class="search-result__detail__panel__info__price-from__price">
+                                        <?php echo "$" . number_format($result->lowestCharterPrice, 0);  ?>
+                                        <span>
+                                            USD
+                                        </span>
+                                    </div>
+                                    <div class="search-result__detail__panel__info__price-from__text">
+                                        Per Day
+                                    </div>
+                                </div>
+                                <div class="search-result__detail__panel__info__attributes">
+
+                                    <!-- Length -->
+                                    <div class="search-result__detail__panel__info__attributes__item">
+                                        <div class="search-result__detail__panel__info__attributes__item__data">
+                                            <div class="search-result__detail__panel__info__attributes__item__data__icon">
+                                                <svg>
+                                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="search-result__detail__panel__info__attributes__item__data__text">
+                                                <?php echo $result->itineraryLengthDisplayCharter; ?>
+                                                <div class="sub-attribute">
+                                                    Flexible
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- Capacity -->
+                                    <?php if ($result->postType != 'rfc_tours') : ?>
+                                        <div class="search-result__detail__panel__info__attributes__item">
+                                            <div class="search-result__detail__panel__info__attributes__item__data">
+                                                <div class="search-result__detail__panel__info__attributes__item__data__icon">
+                                                    <svg>
+                                                        <?php if ($result->postType == 'rfc_cruises') : ?>
+                                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-boat-front"></use>
+                                                        <?php elseif ($result->postType == 'rfc_lodges') : ?>
+                                                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-bed-23"></use>
+                                                        <?php endif; ?>
+                                                    </svg>
+                                                </div>
+                                                <div class="search-result__detail__panel__info__attributes__item__data__text">
+                                                    <?php echo $result->vesselCapacityDisplay; ?>
+                                                    <div class="sub-attribute">
+                                                        <?php echo $result->numberOfCabinsDisplay; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+                            </div>
+                            <div class="search-result__detail__panel__cta">
+                                <a href="<?php echo ($result->charterOnly == true) ? $result->postUrl : $result->postUrl . '?charter=true';  ?>" class="btn-cta-round btn-cta-round--small">
                                     View Charter
                                 </a>
                             </div>
@@ -268,6 +287,12 @@ if ($results) :
                     <div class="search-result-gridview__content-area__left">
 
 
+                        <div class="search-result-gridview__content-area__left__charter-title">
+                            <?php echo ($charterFilter) ? 'Private Charter' : $result->productTypeDisplay;  ?>
+
+                        </div>
+
+
                         <h2 class="search-result-gridview__content-area__left__title">
                             <?php echo $result->productTitle; ?>
                         </h2>
@@ -277,16 +302,23 @@ if ($results) :
                     <div class="search-result-gridview__content-area__right">
                         <div class="search-result-gridview__content-area__right__length">
                             <?php
-                            if (!$charterFilter) {
+                            if (!$charterFilter && !$result->charterOnly) :
                                 echo $result->itineraryLengthDisplay;
-                            } else {
+                            else :
                                 echo $result->vesselCapacityDisplay;
-                            }
+                            endif;
                             ?>
                         </div>
 
                         <div class="search-result-gridview__content-area__right__price">
-                            <?php echo "$" . number_format($result->lowestPrice, 0);  ?>+
+                            <?php
+                            if (!$charterFilter && !$result->charterOnly) :
+                                echo "$" . number_format($result->lowestPrice, 0) . '+';
+                            else :
+                                echo "$" . number_format($result->lowestCharterPrice, 0) . '+';
+                            endif;
+                            ?>
+
                         </div>
                     </div>
 

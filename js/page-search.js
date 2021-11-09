@@ -687,7 +687,7 @@ jQuery(document).ready(function ($) {
         if (charterFilter == true) {
           resultCountDisplay += '<span>Charter prices are shown in USD price per day</span>';
         } else {
-          resultCountDisplay += '<span>Prices are displayed in USD per person in double occupancy</span>';
+          resultCountDisplay += '<span>Prices are displayed in USD per person in double occupancy or charter per day</span>';
         }
 
 
@@ -702,14 +702,18 @@ jQuery(document).ready(function ($) {
             var panels = $(item).parent().parent().find('.search-result__detail__panel');
             panels.removeClass('current');
 
+            var subtitles = $(item).parent().parent().parent().find('.search-result__content__top__title-group__subtitle span');
+            subtitles.removeClass('current');
+      
             if (item.classList.contains('fit-tab')) {
               panels[0].classList.add('current');
               thisTabArray[0].classList.add('current');
-
+              subtitles[0].classList.add('current')
+      
             } else {
               panels[1].classList.add('current');
               thisTabArray[1].classList.add('current');
-
+              subtitles[1].classList.add('current')
             }
   
 
@@ -782,14 +786,18 @@ jQuery(document).ready(function ($) {
       var panels = $(item).parent().parent().find('.search-result__detail__panel');
       panels.removeClass('current');
 
+      var subtitles = $(item).parent().parent().parent().find('.search-result__content__top__title-group__subtitle span');
+      subtitles.removeClass('current');
+
       if (item.classList.contains('fit-tab')) {
         panels[0].classList.add('current');
         thisTabArray[0].classList.add('current');
+        subtitles[0].classList.add('current')
 
       } else {
         panels[1].classList.add('current');
         thisTabArray[1].classList.add('current');
-
+        subtitles[1].classList.add('current')
       }
       //Pre Title Text Change - charter
       //Promo badge hide - charter

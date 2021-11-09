@@ -308,19 +308,16 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                     $charterOnly = get_field('charter_only', $p);
                 }
 
-
-                if ($charterFilter == false) { //FIT - filter out charter only if not searching charter
-                    if ($charterOnly == true) {
-                        continue;
-                    }
-
+                if($charterOnly == true){
+                    $productTypeDisplay = 'Private Charter';
+                } else {
                     $cruiseType = get_field('cruise_type', $p);
                     $productTypeDisplay = $cruiseType . ' Cruise';
-                } else { //Charter -- filter out boats not available for charter if searching charter
-                    $productTypeDisplay = 'Private Charter';
-                    if ($charterAvailable != true) {
-                        continue;
-                    }
+                }
+
+
+                if ($charterFilter == true && $charterAvailable != true) {
+                    continue;
                 }
 
 
@@ -426,7 +423,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             } else { //LODGES
                 $productTypeDisplay = 'Lodge Stay';
                 $productTypeCta = 'Lodge';
-
+    
                 foreach ($cruiseData['Itineraries'] as $itinerary) {
                     $lowestItineraryPrice  = $itinerary['LowestPrice'];
                     $lengthInDays = $itinerary['LengthInDays'];
@@ -457,7 +454,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
             //--Length
             $itineraryValues = [];
-            foreach ($itineraries as $i) {
+            foreach ($itineraries as $i) { 
                 $itineraryValues[] = $i->lengthInDays;
             }
             $rangeFrom = min($itineraryValues);

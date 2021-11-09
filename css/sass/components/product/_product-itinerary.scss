@@ -329,6 +329,7 @@
         &--tba {
             color: $color-supporting;
             border-color: $color-supporting;
+            background-color: $color-grey-light-1a;
             cursor: pointer;
             position: relative;
             &:hover .tooltiptext {

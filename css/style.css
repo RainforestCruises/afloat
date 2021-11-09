@@ -3567,6 +3567,7 @@ h5 {
     .date-grid__item--tba {
       color: #305a7c;
       border-color: #305a7c;
+      background-color: #e6e6e6;
       cursor: pointer;
       position: relative; }
       .date-grid__item--tba:hover .tooltiptext {
@@ -5662,6 +5663,10 @@ h5 {
           letter-spacing: 0.2rem;
           margin-bottom: 0.3rem;
           color: #919598; }
+          .search-result__content__top__title-group__subtitle span {
+            display: none; }
+            .search-result__content__top__title-group__subtitle span.current {
+              display: block; }
       .search-result__content__top__snippet {
         font-size: 1.2rem;
         line-height: 1.6rem; }
@@ -5693,7 +5698,7 @@ h5 {
       font-size: 1.1rem;
       font-weight: 700;
       text-transform: uppercase;
-      color: #9ea0a4;
+      color: #142838;
       letter-spacing: 0.1rem;
       padding-bottom: .5rem;
       margin-bottom: .7rem;
@@ -5708,12 +5713,15 @@ h5 {
       .search-result__detail__header__tab {
         padding-right: 0.5rem;
         transition: color 0.2s;
-        cursor: pointer; }
+        cursor: pointer;
+        color: #9ea0a4; }
         .search-result__detail__header__tab.current {
           cursor: default;
-          color: #142838; }
+          color: #142838 !important; }
           .search-result__detail__header__tab.current:hover {
-            color: #142838; }
+            color: #142838 !important; }
+        .search-result__detail__header__tab.charter-tab {
+          color: #9ea0a4; }
         .search-result__detail__header__tab:hover {
           color: #c2c6c9; }
     .search-result__detail__panel {
@@ -5726,22 +5734,18 @@ h5 {
       @media only screen and (max-width: 50em) {
         .search-result__detail__panel__info {
           display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 1rem;
+          flex-direction: column;
           padding-top: 1.5rem;
           border-top: 1px solid #e6e6e6; } }
       .search-result__detail__panel__info__price-from {
         padding-bottom: .5rem; }
         @media only screen and (max-width: 50em) {
           .search-result__detail__panel__info__price-from {
-            order: 2;
-            margin-left: 3rem;
-            margin-right: 4rem;
+            order: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-bottom: 0; } }
+            padding-bottom: 1rem; } }
         .search-result__detail__panel__info__price-from__text {
           font-size: 1.1rem;
           line-height: 1.1rem;
@@ -5751,6 +5755,10 @@ h5 {
           line-height: 2.8rem;
           font-weight: 700;
           color: #142838; }
+          @media only screen and (max-width: 50em) {
+            .search-result__detail__panel__info__price-from__price {
+              font-size: 2.8rem;
+              line-height: 3.4rem; } }
           .search-result__detail__panel__info__price-from__price span {
             font-size: 1.3rem;
             text-transform: uppercase;
@@ -5758,6 +5766,9 @@ h5 {
             font-weight: 600; }
       .search-result__detail__panel__info__attributes {
         height: 100%; }
+        @media only screen and (max-width: 50em) {
+          .search-result__detail__panel__info__attributes {
+            display: flex; } }
         .search-result__detail__panel__info__attributes__item {
           position: relative;
           display: flex;
@@ -5766,6 +5777,9 @@ h5 {
           height: 3.8rem; }
           .search-result__detail__panel__info__attributes__item:not(:last-child) {
             margin-bottom: 1.5rem; }
+            @media only screen and (max-width: 50em) {
+              .search-result__detail__panel__info__attributes__item:not(:last-child) {
+                margin-right: 3rem; } }
           .search-result__detail__panel__info__attributes__item__data {
             color: #142838;
             display: flex;
@@ -5802,6 +5816,9 @@ h5 {
         display: flex;
         justify-content: center;
         padding-top: 1.5rem; }
+        @media only screen and (max-width: 50em) {
+          .search-result__detail__panel__cta {
+            padding-top: .5rem; } }
         .search-result__detail__panel__cta a {
           width: 100%;
           text-align: center;
@@ -5881,6 +5898,13 @@ h5 {
       flex-direction: column;
       justify-content: flex-end;
       margin-right: 1rem; }
+      .search-result-gridview__content-area__left__charter-title {
+        font-size: 1rem;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+        color: #f8f8f8;
+        font-weight: 400;
+        white-space: nowrap; }
       .search-result-gridview__content-area__left__title {
         font-size: 1.4rem;
         line-height: 2rem;
