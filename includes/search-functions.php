@@ -307,93 +307,98 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                 $itineraryPriceValues = [];
                 $itineraryPriceValuesCharter = [];
 
+                if (array_key_exists("Itineraries", $cruiseData)){
+                    foreach ($cruiseData['Itineraries'] as $itinerary) {
 
-                foreach ($cruiseData['Itineraries'] as $itinerary) {
-
-                    $lengthInDays = $itinerary['LengthInDays'];
-
-                    if ($minLength != null) {
-                        if (($lengthInDays >= $minLength && $lengthInDays <= $maxLength) == false) {
-                            continue; // skip to next itinerary if not in range
+                        $lengthInDays = $itinerary['LengthInDays'];
+    
+                        if ($minLength != null) {
+                            if (($lengthInDays >= $minLength && $lengthInDays <= $maxLength) == false) {
+                                continue; // skip to next itinerary if not in range
+                            }
                         }
-                    }
-
-                    //if (array_key_exists("CharterAmount", $itinerary)) {
-                    $itineraryPriceValuesCharter[] = $itinerary['CharterAmount'];
-                    //}
-
-
-
-                    if ($charterFilter && $charterOnly == true) {
-                        
-                        $itineraryCount = 1; //Charter Only + Charter Filter -- bypass availability
-                    } else { //FIT
-
-                        if ($charterOnly == false) {
-                            if ($itinerary['Departures'] != null) {
-
-                                if ($datesArray) {
-
-                                    //check date selection for availability
-                                    $match = false;
-                                    foreach ($datesArray as $dateSelection) {
-                                        $ds = explode("-", $dateSelection);
-                                        $dYear = $ds[0];
-                                        $dMonth = $ds[1];
-
-                                        foreach ($itinerary['DepartureYears'] as $dy) {
-
-                                            if ($dy['Year'] == $dYear) {
-
-                                                $departureMonths = $dy['DepartureMonths'];
-                                                foreach ($departureMonths as $dm) {
-
-                                                    if ($dm['Month'] == $dMonth && $dm['HasDepartures'] == true) {
-                                                        $match = true;
-
-                                                        if ($dm['HasPromos'] == true) {
-                                                            $promoAvailable = true;
+    
+                        //if (array_key_exists("CharterAmount", $itinerary)) {
+                        $itineraryPriceValuesCharter[] = $itinerary['CharterAmount'];
+                        //}
+    
+    
+    
+                        if ($charterFilter && $charterOnly == true) {
+                            
+                            $itineraryCount = 1; //Charter Only + Charter Filter -- bypass availability
+                        } else { //FIT
+    
+                            if ($charterOnly == false) {
+                                if ($itinerary['Departures'] != null) {
+    
+                                    if ($datesArray) {
+    
+                                        //check date selection for availability
+                                        $match = false;
+                                        foreach ($datesArray as $dateSelection) {
+                                            $ds = explode("-", $dateSelection);
+                                            $dYear = $ds[0];
+                                            $dMonth = $ds[1];
+    
+                                            foreach ($itinerary['DepartureYears'] as $dy) {
+    
+                                                if ($dy['Year'] == $dYear) {
+    
+                                                    $departureMonths = $dy['DepartureMonths'];
+                                                    foreach ($departureMonths as $dm) {
+    
+                                                        if ($dm['Month'] == $dMonth && $dm['HasDepartures'] == true) {
+                                                            $match = true;
+    
+                                                            if ($dm['HasPromos'] == true) {
+                                                                $promoAvailable = true;
+                                                            }
                                                         }
                                                     }
                                                 }
                                             }
                                         }
-                                    }
-
-                                    if (!$match) { //continue to next iteration of departure loop (date doesnt match any selection range)
-                                        continue;
-                                    }
-                                } else {
-
-                                    //check for promos in all Departure Months
-                                    foreach ($itinerary['DepartureYears'] as $dy) {
-                                        $departureMonths = $dy['DepartureMonths'];
-                                        foreach ($departureMonths as $dm) {
-
-                                            if ($dm['HasDepartures'] == true && $dm['HasPromos'] == true) {
-                                                $promoAvailable = true;
+    
+                                        if (!$match) { //continue to next iteration of departure loop (date doesnt match any selection range)
+                                            continue;
+                                        }
+                                    } else {
+    
+                                        //check for promos in all Departure Months
+                                        foreach ($itinerary['DepartureYears'] as $dy) {
+                                            $departureMonths = $dy['DepartureMonths'];
+                                            foreach ($departureMonths as $dm) {
+    
+                                                if ($dm['HasDepartures'] == true && $dm['HasPromos'] == true) {
+                                                    $promoAvailable = true;
+                                                }
                                             }
                                         }
                                     }
+    
+    
+                                    $itineraryLengthValues[] = $itinerary['LengthInDays'];
+                                    $itineraryCount += 1;
+                                    $itineraryPriceValues[] = $itinerary['LowestPrice'];
+                                } else {
+    
+                                    continue; // no departure dates to begin with
                                 }
-
-
-                                $itineraryLengthValues[] = $itinerary['LengthInDays'];
-                                $itineraryCount += 1;
-                                $itineraryPriceValues[] = $itinerary['LowestPrice'];
                             } else {
-
-                                continue; // no departure dates to begin with
+                                $itineraryCount = 1;
                             }
-                        } else {
-                            $itineraryCount = 1;
                         }
                     }
                 }
+               
 
 
                 //Price / Length - Charter
-                $productLowestCharterPrice = min($itineraryPriceValuesCharter);
+                if(count($itineraryPriceValuesCharter) > 0){
+                    $productLowestCharterPrice = min($itineraryPriceValuesCharter);
+                }
+                
                 $itineraryLengthDisplayCharter = get_field('charter_min_days', $p) . " Days +";
             } else { //LODGES
                 $productTypeDisplay = 'Lodge Stay';
@@ -402,20 +407,22 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                 $itineraryCount = 0;
                 $itineraryLengthValues = [];
                 $itineraryPriceValues = [];
-
-                foreach ($cruiseData['Itineraries'] as $itinerary) {
-                    $lengthInDays = $itinerary['LengthInDays'];
-
-                    if ($minLength != null) {
-                        if (($lengthInDays >= $minLength && $lengthInDays <= $maxLength) == false) {
-                            continue; // skip to next
+                if (array_key_exists("Itineraries", $cruiseData)){
+                    foreach ($cruiseData['Itineraries'] as $itinerary) {
+                        $lengthInDays = $itinerary['LengthInDays'];
+    
+                        if ($minLength != null) {
+                            if (($lengthInDays >= $minLength && $lengthInDays <= $maxLength) == false) {
+                                continue; // skip to next
+                            }
                         }
+    
+                        $itineraryLengthValues[] = $itinerary['LengthInDays'];
+                        $itineraryCount += 1;
+                        $itineraryPriceValues[] = $itinerary['LowestPrice'];
                     }
-
-                    $itineraryLengthValues[] = $itinerary['LengthInDays'];
-                    $itineraryCount += 1;
-                    $itineraryPriceValues[] = $itinerary['LowestPrice'];
                 }
+                
             }
 
 

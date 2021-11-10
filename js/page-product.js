@@ -27,32 +27,37 @@ jQuery(document).ready(function ($) {
 
 
   //Price Notes Modal
-
   var priceNotesModal = document.getElementById("page-modal");
+  var notificationModal = document.getElementById("notification-modal");
 
   const priceNoteButtons = [...document.querySelectorAll('.price-notes')];
   priceNoteButtons.forEach(item => {
     item.addEventListener('click', () => {
-      console.log('price note button click');
       body.addClass('no-scroll');
       priceNotesModal.classList.add('active');
     });
   })
 
-  $('.close-button').on('click', () => {
+  $('.close-button, #notification-close-cta').on('click', () => {
     priceNotesModal.classList.remove('active');
+    notificationModal.classList.remove('active');
     modal.style.display = "none";
     body.removeClass('no-scroll');
 
   });
 
-  window.onclick = function (event) {
-    if (event.target == modal) { //trigger by background click
+  window.onclick = function (event) { //trigger by background click
+    if (event.target == modal) { 
       modal.style.display = "none";
       body.removeClass('no-scroll');
     }
-    if (event.target == priceNotesModal) { //trigger by background click
+    if (event.target == priceNotesModal) { 
       priceNotesModal.classList.remove('active');
+      body.removeClass('no-scroll');
+    }
+
+    if (event.target == notificationModal) { 
+      notificationModal.classList.remove('active');
       body.removeClass('no-scroll');
     }
   }
@@ -92,10 +97,43 @@ jQuery(document).ready(function ($) {
     });
   })
 
-  //Main Itinerery
+  //ITINERARY SLIDERS
+  //Days slider
+  $('.product-itinerary-slide__bottom__days').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    fade: true,
+    focusOnSelect: true,
+    arrows: true,
+    dots: true,
+    swipe: true,
+    draggable: false,
+    swipeToSlide: true,
+    prevArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
+    nextArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
+    customPaging: function (slider, i) {
+      return '<a class="dot">' + (i + 1) + '</a>';
+    },
 
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          dots: false
+        }
+      }
+    ]
+  })
+    .on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+      $('#itineraries-slider').slick("setOption", '', '', true);
+      var currentCounter = $(this).next();
 
+      var i = (currentSlide ? currentSlide : 0) + 1;
+      currentCounter.text(i + ' / ' + slick.slideCount);
+    });
 
+  //Itinerary Content
   $('#itineraries-slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -106,10 +144,9 @@ jQuery(document).ready(function ($) {
     swipeToSlide: false,
     centerMode: true,
     adaptiveHeight: true,
-   
-
   });
 
+  //Itinerary Content Nav
   $('#itineraries-slider-nav').on('init', function (event, slick) {
     var counterDiv = $('#itineraries-slider-counter');
     counterDiv.text('1 / ' + slick.slideCount); //set count div
@@ -121,10 +158,9 @@ jQuery(document).ready(function ($) {
     slidesToScroll: 1,
     asNavFor: '#itineraries-slider',
     dots: false,
-    //centerMode: true,
-  
+
     focusOnSelect: true,
-    
+
     arrows: true,
     prevArrow: '<button class="product-itineraries__nav__slider__btn product-itineraries__nav__slider__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
     nextArrow: '<button class="product-itineraries__nav__slider__btn product-itineraries__nav__slider__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
@@ -164,49 +200,10 @@ jQuery(document).ready(function ($) {
   // if (itinerarySlideFromUrl != null) {
   //   gotoSlide = itinerarySlideFromUrl;
   //   $('#itineraries-slider-nav').slick('slickGoTo', itinerarySlideFromUrl);
-     
+
   // }
 
- 
 
-
-  //Days slider
-  $('.product-itinerary-slide__bottom__days').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    adaptiveHeight: true,
-    fade: true,
-    focusOnSelect: true,
-    arrows: true,
-    dots: true,
-    swipe: true,
-    draggable: false,
-    swipeToSlide: true,
-    prevArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
-    nextArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
-    customPaging: function (slider, i) {
-      return '<a class="dot">' + (i + 1) + '</a>';
-    },
-
-    responsive: [
-      {
-        breakpoint: 800,
-        settings: {
-          dots: false
-        }
-      }
-    ]
-
-
-
-  })
-    .on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-      $('#itineraries-slider').slick("setOption", '', '', true);
-      var currentCounter = $(this).next();
-
-      var i = (currentSlide ? currentSlide : 0) + 1;
-      currentCounter.text(i + ' / ' + slick.slideCount);
-    });
 
 
 

@@ -786,6 +786,10 @@ h5 {
     font-size: 1.2rem;
     padding: 0.75rem 1.5rem;
     letter-spacing: 0.2rem; }
+  .btn-cta-round--medium {
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+    letter-spacing: 0.2rem; }
 
 .btn-rect {
   background-color: #305a7c;
@@ -3694,6 +3698,9 @@ h5 {
       width: 100%;
       max-width: 50rem;
       margin-bottom: 2rem; }
+      @media only screen and (max-width: 62.5em) {
+        .product-itinerary-slide__top__map-area {
+          max-width: 40rem; } }
       @media only screen and (max-width: 50em) {
         .product-itinerary-slide__top__map-area {
           max-width: 100%; } }
@@ -4062,7 +4069,8 @@ h5 {
     font-size: 1.5rem;
     letter-spacing: .1rem;
     color: #142838;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    white-space: nowrap; }
     @media only screen and (max-width: 50em) {
       .charter-pricing__overall__info-group {
         width: max-content; } }
@@ -10247,6 +10255,25 @@ h5 {
     flex-direction: column;
     align-items: center;
     position: relative; }
+    .contact__wrapper__header {
+      font-size: 4rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #142838; }
+    .contact__wrapper__message {
+      padding: 0 3rem; }
+      @media only screen and (max-width: 37.5em) {
+        .contact__wrapper__message {
+          padding: 0 1rem; } }
+      .contact__wrapper__message ul {
+        font-size: 1.6rem;
+        margin-left: 2rem;
+        margin-bottom: 2rem; }
+    .contact__wrapper__cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem; }
     .contact__wrapper__intro {
       margin-bottom: 3rem;
       display: flex;

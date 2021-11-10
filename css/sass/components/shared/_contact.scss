@@ -15,6 +15,36 @@
         flex-direction: column;
         align-items: center;
         position: relative;
+
+        &__header {
+            font-size: 4rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: $color-primary;
+        }
+        &__message {
+            padding: 0 3rem;
+
+            @media only screen and (max-width: $bp-small) {
+                padding: 0 1rem;
+
+            }
+
+            & ul {
+                font-size: 1.6rem;
+                margin-left: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+        &__cta {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+
+        }
+
+
         &__intro {
             margin-bottom: 3rem;
             display: flex;

@@ -32,7 +32,7 @@ while (have_posts()) :
   $charter_available = get_field('charter_available');
   $charter_daily_price = 0;
 
-  if(array_key_exists("LowestCharterPrice", $cruise_data)) {
+  if (array_key_exists("LowestCharterPrice", $cruise_data)) {
     $charter_daily_price = $cruise_data['LowestCharterPrice'];
   }
 
@@ -161,6 +161,14 @@ while (have_posts()) :
   <!-- Prices Extra -->
   <?php
   get_template_part('template-parts/content', 'product-prices-extra', $args);
+  ?>
+
+  <!-- Notification Message-->
+  <?php
+  $show_notification = get_field('show_notification');
+  if ($show_notification) :
+    get_template_part('template-parts/content', 'product-notification', $args);
+  endif;
   ?>
 
 

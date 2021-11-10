@@ -192,7 +192,7 @@ endforeach;
                                                             <?php } else if ($departureMonth['HasDepartures'] == false && $departureMonth['IsTBA'] == true){ ?>
                                                                 <li class="date-grid__item date-grid__item--tba " itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
                                                                     <?php echo $departureMonth['MonthNameShort']; ?>
-                                                                    <span class="tooltiptext">Dates TBA</span>
+                                                                    <span class="tooltiptext">Dates TBD</span>
                                                                 </li>
                                                             <?php } else { ?>
                                                                 <li class="date-grid__item date-grid__item--available <?php echo ($departureMonth['HasPromos'] == true ? "promo-date" : ""); ?>" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
@@ -522,6 +522,10 @@ endforeach;
                                                             echo 'TBA'; //not updated from DF
                                                         }
                                                         ?>
+
+                                                        <div>
+                                                            <?php echo Date('Y'); ?> Price
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

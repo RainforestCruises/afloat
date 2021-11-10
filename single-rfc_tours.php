@@ -134,6 +134,12 @@ get_template_part('template-parts/content', 'shared-contact-modal', $args);
 <?php
 get_template_part('template-parts/content', 'product-prices-extra', $args);
 ?>
-
+<!-- Notification Message-->
+<?php
+$show_notification = get_field('show_notification');
+if ($show_notification) :
+  get_template_part('template-parts/content', 'product-notification', $args);
+endif;
+?>
 
 <?php get_footer() ?>

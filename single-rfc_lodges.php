@@ -103,23 +103,31 @@ while (have_posts()) :
     </section>
 
 
-  </ma>
+    </ma>
 
 
 
-<?php
+  <?php
 endwhile;
-?>
+  ?>
 
-<!-- Contact Modal -->
-<?php
-get_template_part('template-parts/content', 'shared-contact-modal', $args);
-?>
+  <!-- Contact Modal -->
+  <?php
+  get_template_part('template-parts/content', 'shared-contact-modal', $args);
+  ?>
 
-<!-- Prices Extra -->
-<?php
-get_template_part('template-parts/content', 'product-prices-extra', $args);
-?>
+  <!-- Prices Extra -->
+  <?php
+  get_template_part('template-parts/content', 'product-prices-extra', $args);
+  ?>
 
-<!-- #site-wrapper end-->
-<?php get_footer() ?>
+  <!-- Notification Message-->
+  <?php
+  $show_notification = get_field('show_notification');
+  if ($show_notification) :
+    get_template_part('template-parts/content', 'product-notification', $args);
+  endif;
+  ?>
+
+  <!-- #site-wrapper end-->
+  <?php get_footer() ?>

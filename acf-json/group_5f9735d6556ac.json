@@ -202,6 +202,52 @@
             "endpoint": 0
         },
         {
+            "key": "field_618c2c5d184c4",
+            "label": "Show Notification",
+            "name": "show_notification",
+            "type": "true_false",
+            "instructions": "Check to display a notification message on page load",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_618c2c75184c5",
+            "label": "Notification Message",
+            "name": "notification_message",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_618c2c5d184c4",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_60aeb24208df7",
             "label": "Search Rank",
             "name": "search_rank",
@@ -1642,5 +1688,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Tour - CPT",
-    "modified": 1634683751
+    "modified": 1636576421
 }
