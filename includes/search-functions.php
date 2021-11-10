@@ -306,7 +306,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                 $itineraryLengthValues = [];
                 $itineraryPriceValues = [];
                 $itineraryPriceValuesCharter = [];
-        
+
 
                 foreach ($cruiseData['Itineraries'] as $itinerary) {
 
@@ -325,65 +325,68 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
 
                     if ($charterFilter && $charterOnly == true) {
-                        //Charter Only + Charter Filter -- bypass availability
-                        $itineraryCount = 1;
+                        
+                        $itineraryCount = 1; //Charter Only + Charter Filter -- bypass availability
                     } else { //FIT
 
-                        if ($itinerary['Departures'] != null) {
+                        if ($charterOnly == false) {
+                            if ($itinerary['Departures'] != null) {
 
-                            if ($datesArray) {
+                                if ($datesArray) {
 
-                                //check date selection for availability
-                                $match = false;
-                                foreach ($datesArray as $dateSelection) {
-                                    $ds = explode("-", $dateSelection);
-                                    $dYear = $ds[0];
-                                    $dMonth = $ds[1];
+                                    //check date selection for availability
+                                    $match = false;
+                                    foreach ($datesArray as $dateSelection) {
+                                        $ds = explode("-", $dateSelection);
+                                        $dYear = $ds[0];
+                                        $dMonth = $ds[1];
 
-                                    foreach ($itinerary['DepartureYears'] as $dy) {
+                                        foreach ($itinerary['DepartureYears'] as $dy) {
 
-                                        if ($dy['Year'] == $dYear) {
+                                            if ($dy['Year'] == $dYear) {
 
-                                            $departureMonths = $dy['DepartureMonths'];
-                                            foreach ($departureMonths as $dm) {
+                                                $departureMonths = $dy['DepartureMonths'];
+                                                foreach ($departureMonths as $dm) {
 
-                                                if ($dm['Month'] == $dMonth && $dm['HasDepartures'] == true) {
-                                                    $match = true;
+                                                    if ($dm['Month'] == $dMonth && $dm['HasDepartures'] == true) {
+                                                        $match = true;
 
-                                                    if ($dm['HasPromos'] == true) {
-                                                        $promoAvailable = true;
+                                                        if ($dm['HasPromos'] == true) {
+                                                            $promoAvailable = true;
+                                                        }
                                                     }
                                                 }
                                             }
                                         }
                                     }
-                                }
 
-                                if (!$match) { //continue to next iteration of departure loop (date doesnt match any selection range)
-                                    continue;
-                                }
-                            } else {
+                                    if (!$match) { //continue to next iteration of departure loop (date doesnt match any selection range)
+                                        continue;
+                                    }
+                                } else {
 
-                                //check for promos in all Departure Months
-                                foreach ($itinerary['DepartureYears'] as $dy) {
-                                    $departureMonths = $dy['DepartureMonths'];
-                                    foreach ($departureMonths as $dm) {
+                                    //check for promos in all Departure Months
+                                    foreach ($itinerary['DepartureYears'] as $dy) {
+                                        $departureMonths = $dy['DepartureMonths'];
+                                        foreach ($departureMonths as $dm) {
 
-                                        if ($dm['HasDepartures'] == true && $dm['HasPromos'] == true) {
-                                            $promoAvailable = true;
+                                            if ($dm['HasDepartures'] == true && $dm['HasPromos'] == true) {
+                                                $promoAvailable = true;
+                                            }
                                         }
                                     }
                                 }
 
+
+                                $itineraryLengthValues[] = $itinerary['LengthInDays'];
+                                $itineraryCount += 1;
+                                $itineraryPriceValues[] = $itinerary['LowestPrice'];
+                            } else {
+
+                                continue; // no departure dates to begin with
                             }
-
-
-                            $itineraryLengthValues[] = $itinerary['LengthInDays'];
-                            $itineraryCount += 1;
-                            $itineraryPriceValues[] = $itinerary['LowestPrice'];
                         } else {
-
-                            continue; // no departure dates to begin with
+                            $itineraryCount = 1;
                         }
                     }
                 }
@@ -392,7 +395,6 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                 //Price / Length - Charter
                 $productLowestCharterPrice = min($itineraryPriceValuesCharter);
                 $itineraryLengthDisplayCharter = get_field('charter_min_days', $p) . " Days +";
-
             } else { //LODGES
                 $productTypeDisplay = 'Lodge Stay';
                 $productTypeCta = 'Lodge';
@@ -427,22 +429,22 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
 
             //Lowest Price
-            if(count($itineraryPriceValues) > 0){
+            if (count($itineraryPriceValues) > 0) {
                 $productLowestPrice = min($itineraryPriceValues);
             }
-            
+
             //Itinerary Length Display (Cruise /Lodge)
-            if(count($itineraryLengthValues) > 0){
+            if (count($itineraryLengthValues) > 0) {
                 $rangeFrom = min($itineraryLengthValues);
                 $rangeTo = max($itineraryLengthValues);
-    
+
                 if ($rangeFrom != $rangeTo) {
                     $itineraryLengthDisplay = $rangeFrom . " - " . $rangeTo . " Days";
                 } else {
                     $itineraryLengthDisplay = $rangeFrom . " Days";
                 }
             }
-            
+
 
 
             //Capacity Attributes Display -- (Cruise /Lodge)
@@ -494,19 +496,18 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
     }
 
     if ($sorting == 'high') {
-        if($charterFilter == true){
-            usort($results, "sortPriceHighCharter"); 
+        if ($charterFilter == true) {
+            usort($results, "sortPriceHighCharter");
         } else {
-            usort($results, "sortPriceHigh"); 
+            usort($results, "sortPriceHigh");
         }
-        
     }
 
     if ($sorting == 'low') {
-        if($charterFilter == true){
-            usort($results, "sortPriceLowCharter"); 
+        if ($charterFilter == true) {
+            usort($results, "sortPriceLowCharter");
         } else {
-            usort($results, "sortPriceLow"); 
+            usort($results, "sortPriceLow");
         }
     }
 
