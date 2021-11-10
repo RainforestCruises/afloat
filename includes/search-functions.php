@@ -187,32 +187,40 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 {
 
     $results = [];
-    $startYear = date('Y'); //change to be minimim start year if dates selected --> this is for determining lowest price
-    if ($datesArray) {
-        //find start year
 
-        $yearsInSelection = [];
-        foreach ($datesArray as $a) {
-            $date = DateTime::createFromFormat("Y-m", $a);
-            $yearValue = $date->format("Y");
-            $yearsInSelection[] = $yearValue;
-        }
-        $startYear = min($yearsInSelection);
-    }
+    // $startYear = date('Y'); //change to be minimim start year if dates selected --> this is for determining lowest price
+    // if ($datesArray) {
+    //     //find start year
+
+    //     $yearsInSelection = [];
+    //     foreach ($datesArray as $a) {
+    //         $date = DateTime::createFromFormat("Y-m", $a);
+    //         $yearValue = $date->format("Y");
+    //         $yearsInSelection[] = $yearValue;
+    //     }
+    //     $startYear = min($yearsInSelection);
+    // }
 
     //loop through posts (travel type, experience, destinations --> already filtered)
     foreach ($posts as $p) {
 
         $postType = get_post_type($p);
-        $productTitle = "";
+
+        $productTitle = ($postType  == 'rfc_tours') ? get_field('tour_name', $p) : get_the_title($p);
+
+        if ($searchInput != null) {
+            if (!preg_match("/{$searchInput}/i", $productTitle)) {
+                continue;
+            }
+        }
+
+
         $productTypeDisplay = "";
         $productTypeCta = "";
         $searchRank = intval(get_field('search_rank', $p) ?? 1);
         $snippet = get_field('top_snippet', $p);
         $featuredImage = get_field('featured_image', $p); //need specific image size  - 600x500
         $productImageId = '';
-        $charterOnly = get_field('charter_only', $p);
-        //$charterAvailable = get_field('charter_available', $p);
 
         if ($featuredImage) {
             $productImageId = $featuredImage['id'];
@@ -222,10 +230,10 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         $vesselCapacity = 0;
         $numberOfCabins = 0;
 
-        $itineraries = [];
-
         $itineraryCountDisplay = "";
         $itineraryLengthDisplay = "";
+        $itineraryLengthDisplayCharter = "";
+
         $vesselCapacityDisplay = "";
         $numberOfCabinsDisplay = "";
 
@@ -234,6 +242,11 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         $charterAvailable = false;
         $charterOnly = false;
 
+        $productLowestPrice = 0;
+        $productLowestCharterPrice = 0;
+
+        $postUrl = get_permalink($p);
+
 
 
         //TOURS ---------------------------------------
@@ -241,191 +254,154 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
             $lengthInDays = get_field('length', $p);
 
-            //length filter
+            //Length filter
             if ($minLength != null) {
                 if (($lengthInDays >= $minLength && $lengthInDays <= $maxLength) == false) {
                     continue; // skip to next if not in range
                 }
             }
 
+            $productTypeCta = 'Tour';
+            $productTypeDisplay = 'Private Tour';
+
+
+            //Price / Length -- (no itinerary count on tours)
+            $pricePackages = get_field('price_packages', $p);
+            $productLowestPrice = lowest_tour_price($pricePackages, date('Y')); //current year only for consistency
 
             $itineraryLengthDisplay = $lengthInDays . " Days";
-
-
-            $productTitle = get_field('tour_name', $p);
-
-            $productTypeDisplay = 'Private Tour';
-            $productTypeCta = 'Tour';
-
-            $pricePackages = get_field('price_packages', $p);
-            $prices = [];
-            $priceValues = [];
-
-            for ($x = 0; $x <= 1; $x++) { //loop twice
-                $year = $startYear + $x;
-
-                $lowestPrice = lowest_tour_price($pricePackages, $year);
-                $prices[] = (object) array(
-                    'year' => $year,
-                    'lowestPrice' => $lowestPrice, //lowest per price package
-                );
-
-                if ($lowestPrice != 0) {
-                    $priceValues[] = $lowestPrice;
-                }
-            }
-
-            //lowest price for itinerary
-            if ($priceValues) {
-                $itineraryLowestPrice = min($priceValues);
-            }
-
-
-
-            $itineraries[] = (object) array(
-                'lengthInDays' => $lengthInDays,
-                'prices' => $prices, //lowest per price package -- Break down yearly (year array in tour is similar to departure dates array for cruises)
-                'lowestItineraryPrice' => $itineraryLowestPrice
-            );
         };
 
 
         //CRUISES / LODGES -------------------------------------------------------
         if ($postType  == 'rfc_lodges' || $postType  == 'rfc_cruises') {
-            $productTitle = get_the_title($p);
-
 
 
             $cruiseData = get_field('cruise_data', $p);
-            $vesselCapacity = get_field('vessel_capacity', $p);
-            $numberOfCabins = get_field('number_of_cabins', $p);
+
 
             if ($postType  == 'rfc_cruises') { //CRUISES 
                 $productTypeCta = 'Cruise';
-                $charterAvailable = get_field('charter_available', $p);
 
+
+                //Charter Filters
+                $charterAvailable = get_field('charter_available', $p);
                 if ($charterAvailable) {
                     $charterOnly = get_field('charter_only', $p);
                 }
-
-                if($charterOnly == true){
-                    $productTypeDisplay = 'Private Charter';
-                } else {
-                    $cruiseType = get_field('cruise_type', $p);
-                    $productTypeDisplay = $cruiseType . ' Cruise';
-                }
-
-
                 if ($charterFilter == true && $charterAvailable != true) {
                     continue;
                 }
 
+                //Product Type Display
+                if ($charterOnly == true) {
+                    $productTypeDisplay = 'Private Charter';
+                } else {
+                    $cruiseType = get_field('cruise_type', $p); //River Cruise / Coastal Cruise
+                    $productTypeDisplay = $cruiseType . ' Cruise';
+                }
 
-                //Cruise Itineraries
-                if (array_key_exists('Itineraries', $cruiseData)) {
-                    foreach ($cruiseData['Itineraries'] as $itinerary) {
+                //Price / Length
+                $itineraryCount = 0;
+                $itineraryLengthValues = [];
+                $itineraryPriceValues = [];
+                $itineraryPriceValuesCharter = [];
+        
 
-                        $lengthInDays = $itinerary['LengthInDays'];
-    
-                        if ($minLength != null) {
-                            if (($lengthInDays >= $minLength && $lengthInDays <= $maxLength) == false) {
-                                continue; // skip to next itinerary if not in range
-                            }
+                foreach ($cruiseData['Itineraries'] as $itinerary) {
+
+                    $lengthInDays = $itinerary['LengthInDays'];
+
+                    if ($minLength != null) {
+                        if (($lengthInDays >= $minLength && $lengthInDays <= $maxLength) == false) {
+                            continue; // skip to next itinerary if not in range
                         }
-    
-    
-                        if ($charterFilter && $charterOnly == true) { //Charter Only + Charter Filter -- bypass availability
-                            $itineraries[] = (object) array(
-                                'lengthInDays' => $lengthInDays,
-                                'departureCount' => 1,
-                                'lowestItineraryPrice' => 0
-                            );
-                        } else { //FIT
-                            $departures = [];
-                            $priceValues = [];
-    
-                            if ($itinerary['Departures'] != null) {
-                                foreach ($itinerary['Departures'] as $d) { //departure loop
-    
-    
-                                    if ($datesArray) {
-    
-                                        $match = false;
-                                        foreach ($datesArray as $dateSelection) { //selection loop
-    
-                                            $testdate = strtotime($d['DepartureDate']); // this will be converted to YYYY-MM-DD
-                                            $selectedDate = strtotime($dateSelection);
-    
-                                            if (date('Ym', $selectedDate) == date('Ym', $testdate)) { //test Ym (year + month)
-                                                $match = true;
+                    }
+
+                    //if (array_key_exists("CharterAmount", $itinerary)) {
+                    $itineraryPriceValuesCharter[] = $itinerary['CharterAmount'];
+                    //}
+
+
+
+                    if ($charterFilter && $charterOnly == true) {
+                        //Charter Only + Charter Filter -- bypass availability
+                        $itineraryCount = 1;
+                    } else { //FIT
+
+                        if ($itinerary['Departures'] != null) {
+
+                            if ($datesArray) {
+
+                                //check date selection for availability
+                                $match = false;
+                                foreach ($datesArray as $dateSelection) {
+                                    $ds = explode("-", $dateSelection);
+                                    $dYear = $ds[0];
+                                    $dMonth = $ds[1];
+
+                                    foreach ($itinerary['DepartureYears'] as $dy) {
+
+                                        if ($dy['Year'] == $dYear) {
+
+                                            $departureMonths = $dy['DepartureMonths'];
+                                            foreach ($departureMonths as $dm) {
+
+                                                if ($dm['Month'] == $dMonth && $dm['HasDepartures'] == true) {
+                                                    $match = true;
+
+                                                    if ($dm['HasPromos'] == true) {
+                                                        $promoAvailable = true;
+                                                    }
+                                                }
                                             }
                                         }
-    
-                                        if (!$match) { //continue to next iteration of departure loop (date doesnt match any selection range)
-                                            continue;
-                                        }
                                     }
-    
-    
-                                    if ($d['LowestPrice'] != 0) {
-                                        $priceValues[] = $d['LowestPrice'];
-                                    }
-    
-                                    if ($d['HasPromo'] == true) {
-                                        $promoAvailable = true;
-                                    }
-    
-    
-                                    $departures[] = (object) array(
-                                        'departureDate' => $d['DepartureDate'],
-                                        'lowestPrice' => $d['LowestPrice'], //lowest per cabin
-                                        'hasPromo' => $d['HasPromo'],
-                                        'isHighSeason' => $d['IsHighSeason'],
-                                        'isLowSeason' => $d['IsLowSeason'],
-                                        'promoName' => $d['PromoName'],
-                                    );
+                                }
+
+                                if (!$match) { //continue to next iteration of departure loop (date doesnt match any selection range)
+                                    continue;
                                 }
                             } else {
-                                continue; // no departure dates to begin with
+
+                                //check for promos in all Departure Months
+                                foreach ($itinerary['DepartureYears'] as $dy) {
+                                    $departureMonths = $dy['DepartureMonths'];
+                                    foreach ($departureMonths as $dm) {
+
+                                        if ($dm['HasDepartures'] == true && $dm['HasPromos'] == true) {
+                                            $promoAvailable = true;
+                                        }
+                                    }
+                                }
+
                             }
-    
-                            if (!$departures) {
-                                continue; //no departures in this itinerary after date filtering
-                            }
-    
-                            $departureCount = 0;
-                            if ($departures) {
-                                $departureCount = count($departures);
-                            }
-    
-                            //lowest price for itinerary
-                            $itineraryLowestPrice = 0;
-                            if ($priceValues) {
-                                $itineraryLowestPrice = min($priceValues);
-                            }
-    
-    
-                            $itineraries[] = (object) array(
-                                'lengthInDays' => $lengthInDays,
-                                //'departures' => $departures,
-                                'departureCount' => $departureCount,
-                                'lowestItineraryPrice' => $itineraryLowestPrice
-                            );
+
+
+                            $itineraryLengthValues[] = $itinerary['LengthInDays'];
+                            $itineraryCount += 1;
+                            $itineraryPriceValues[] = $itinerary['LowestPrice'];
+                        } else {
+
+                            continue; // no departure dates to begin with
                         }
                     }
                 }
-               
 
 
-                if (!$itineraries) {
-                    continue;
-                }
+                //Price / Length - Charter
+                $productLowestCharterPrice = min($itineraryPriceValuesCharter);
+                $itineraryLengthDisplayCharter = get_field('charter_min_days', $p) . " Days +";
+
             } else { //LODGES
                 $productTypeDisplay = 'Lodge Stay';
                 $productTypeCta = 'Lodge';
-    
+
+                $itineraryCount = 0;
+                $itineraryLengthValues = [];
+                $itineraryPriceValues = [];
+
                 foreach ($cruiseData['Itineraries'] as $itinerary) {
-                    $lowestItineraryPrice  = $itinerary['LowestPrice'];
                     $lengthInDays = $itinerary['LengthInDays'];
 
                     if ($minLength != null) {
@@ -434,40 +410,45 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                         }
                     }
 
-                    $itineraries[] = (object) array(
-                        'lengthInDays' => $itinerary['LengthInDays'],
-                        'lowestItineraryPrice' => $lowestItineraryPrice,
-                    );
-                }
-                if (!$itineraries) {
-                    continue;
+                    $itineraryLengthValues[] = $itinerary['LengthInDays'];
+                    $itineraryCount += 1;
+                    $itineraryPriceValues[] = $itinerary['LowestPrice'];
                 }
             }
 
-            //Itinerary Attributes Display
-            //--Count
-            if (count($itineraries) > 1) {
-                $itineraryCountDisplay = count($itineraries) . " Itineraries";
-            } else {
-                $itineraryCountDisplay = count($itineraries) . " Itinerary";
+
+
+            if ($itineraryCount == 0) {
+                continue;
             }
 
-            //--Length
-            $itineraryValues = [];
-            foreach ($itineraries as $i) { 
-                $itineraryValues[] = $i->lengthInDays;
+            //Itinerary Count Display (Cruise /Lodge)
+            $itineraryCountDisplay = $itineraryCount . (($itineraryCount > 1) ? " Itineraries" : " Itinerary");
+
+
+            //Lowest Price
+            if(count($itineraryPriceValues) > 0){
+                $productLowestPrice = min($itineraryPriceValues);
             }
-            $rangeFrom = min($itineraryValues);
-            $rangeTo = max($itineraryValues);
-
-            if ($rangeFrom != $rangeTo) {
-                $itineraryLengthDisplay = $rangeFrom . " - " . $rangeTo . " Days";
-            } else {
-                $itineraryLengthDisplay = $rangeFrom . " Days";
+            
+            //Itinerary Length Display (Cruise /Lodge)
+            if(count($itineraryLengthValues) > 0){
+                $rangeFrom = min($itineraryLengthValues);
+                $rangeTo = max($itineraryLengthValues);
+    
+                if ($rangeFrom != $rangeTo) {
+                    $itineraryLengthDisplay = $rangeFrom . " - " . $rangeTo . " Days";
+                } else {
+                    $itineraryLengthDisplay = $rangeFrom . " Days";
+                }
             }
+            
 
 
-            //Capacity Attributes Display
+            //Capacity Attributes Display -- (Cruise /Lodge)
+            $vesselCapacity = get_field('vessel_capacity', $p);
+            $numberOfCabins = get_field('number_of_cabins', $p);
+
             if ($numberOfCabins) {
                 $numberOfCabinsDisplay = $numberOfCabins . " Cabins";
             }
@@ -476,51 +457,6 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             }
         }
 
-
-        $postUrl = get_permalink($p);
-        $productLowestPrice = 0;
-        $productLowestCharterPrice = 0;
-        $priceText = "Per Person";
-        $priceTextCharter = "Price per day";
-        $itineraryLengthDisplayCharter = get_field('charter_min_days', $p) . " Days +";
-        $postUrlCharter = $postUrl . '?charter=true';
-
-        
-
-
-        if(array_key_exists("LowestCharterPrice", $cruiseData)) {
-            $productLowestCharterPrice = $cruiseData['LowestCharterPrice']; //change to be length sensitive
-        }
-
-        $productLowestPriceValues = [];
-            foreach ($itineraries as $itinerary) {
-                $productLowestPriceValues[] = $itinerary->lowestItineraryPrice;
-            }
-            $productLowestPrice = min($productLowestPriceValues);
-
-        // if ($charterFilter == true) {
-
-        //     //$priceText = "Price per day"; //duplicate these for charter
-        //     //$promoAvailable = false;
-        //     //$itineraryLengthDisplay = get_field('charter_min_days', $p) . " Days +";
-        //     //$itineraryCountDisplay = "";
-        //     //$postUrl = $postUrl . '?charter=true';
-        // } else {
-        //     $productLowestPriceValues = [];
-        //     foreach ($itineraries as $itinerary) {
-        //         $productLowestPriceValues[] = $itinerary->lowestItineraryPrice;
-        //     }
-        //     $productLowestPrice = min($productLowestPriceValues);
-        // }
-
-
-        //Filter Product Titles
-        if ($searchInput != null) {
-
-            if (!preg_match("/{$searchInput}/i", $productTitle)) {
-                continue;
-            }
-        }
 
 
         $results[] = (object) array(
@@ -532,11 +468,9 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             'productTitle' => $productTitle,
             'productImageId' => $productImageId, //need image ID and then get custom size -- return URL here
             'snippet' => $snippet,
-            'itineraries' => $itineraries,
             'destinations' => get_field('destinations', $p),
             'locations' => get_field('locations', $p),
             'experiences' => get_field('experiences', $p),
-            'priceText' => $priceText,
             'lowestPrice' => $productLowestPrice,
             'lowestCharterPrice' => $productLowestCharterPrice,
             'itineraryLengthDisplay' => $itineraryLengthDisplay,
@@ -560,11 +494,20 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
     }
 
     if ($sorting == 'high') {
-        usort($results, "sortPriceHigh"); //sort by search rank score
+        if($charterFilter == true){
+            usort($results, "sortPriceHighCharter"); 
+        } else {
+            usort($results, "sortPriceHigh"); 
+        }
+        
     }
 
     if ($sorting == 'low') {
-        usort($results, "sortPriceLow"); //sort by search rank score
+        if($charterFilter == true){
+            usort($results, "sortPriceLowCharter"); 
+        } else {
+            usort($results, "sortPriceLow"); 
+        }
     }
 
 
@@ -572,6 +515,9 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 }
 
 
+
+//SORTING -----------------------
+//Rank
 function sortRank($a, $b)
 {
     if (is_object($a) && is_object($b)) {
@@ -579,6 +525,8 @@ function sortRank($a, $b)
     }
 }
 
+//Price
+//FIT
 function sortPriceHigh($a, $b)
 {
     if (is_object($a) && is_object($b)) {
@@ -590,5 +538,20 @@ function sortPriceLow($a, $b)
 {
     if (is_object($a) && is_object($b)) {
         return $a->lowestPrice - $b->lowestPrice;
+    }
+}
+
+//Charter
+function sortPriceHighCharter($a, $b)
+{
+    if (is_object($a) && is_object($b)) {
+        return $b->lowestCharterPrice - $a->lowestCharterPrice;
+    }
+}
+
+function sortPriceLowCharter($a, $b)
+{
+    if (is_object($a) && is_object($b)) {
+        return $a->lowestCharterPrice - $b->lowestCharterPrice;
     }
 }
