@@ -85,7 +85,10 @@ $cruise_experiences = get_field('cruise_experiences');
                     $cruise_data = get_field('cruise_data', $c);
                     $charter_only = get_field('charter_only', $c);
                     $charter_min_days = get_field('charter_min_days', $c);
-                    $charter_daily_price = get_field('charter_daily_price', $c);
+
+                    if (array_key_exists("LowestCharterPrice", $cruise_data)) {
+                        $charter_daily_price = $cruise_data['LowestCharterPrice'];
+                    }
 
                     $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear);
                     ?>
