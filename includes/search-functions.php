@@ -317,7 +317,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                                 continue; // skip to next itinerary if not in range
                             }
                         }
-                        console_log($itinerary);
+                        
                         if($itinerary['CharterAmount'] > 0 ){
                             $itineraryPriceValuesCharter[] = $itinerary['CharterAmount'];
                         }

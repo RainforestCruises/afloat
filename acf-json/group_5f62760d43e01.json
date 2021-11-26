@@ -2271,7 +2271,7 @@
         },
         {
             "key": "field_602bf590511a1",
-            "label": "Charter Daily Price",
+            "label": "Charter Daily Price (deprecated)",
             "name": "charter_daily_price",
             "type": "number",
             "instructions": "Price per day to charter the vessel",
@@ -2359,7 +2359,7 @@
             "label": "Charter Snippet",
             "name": "charter_snippet",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "Text that will display as default for all itineraries. To override individual itinerary text in charter view, edit the content in DF.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -2474,5 +2474,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Cruise - CPT",
-    "modified": 1636574321
+    "modified": 1637947619
 }
