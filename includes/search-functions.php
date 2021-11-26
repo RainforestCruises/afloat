@@ -438,9 +438,13 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
             //Lowest Price
             if (count($itineraryPriceValues) > 0) {
-                $productLowestPrice = min($itineraryPriceValues);
-            }
 
+                $productLowestPrice = min($itineraryPriceValues);        
+            }
+            if($charterOnly == true){
+                $productLowestPrice = $productLowestCharterPrice;
+            } 
+            
             //Itinerary Length Display (Cruise /Lodge)
             if (count($itineraryLengthValues) > 0) {
                 $rangeFrom = min($itineraryLengthValues);
