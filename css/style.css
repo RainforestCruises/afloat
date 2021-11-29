@@ -4113,6 +4113,10 @@ h5 {
   font-size: 1.6rem;
   border-top: 1px solid #e6e6e6;
   padding-top: 2.5rem; }
+  .charter-info-snippet p {
+    margin-bottom: 1.5rem; }
+  .charter-info-snippet ul, .charter-info-snippet ol {
+    padding-left: 3rem; }
 
 .charter-info-box {
   text-align: center;

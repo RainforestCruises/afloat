@@ -13,8 +13,6 @@ $cruise_data = $args['cruiseData'];
     <?php
     $cabins = $cruise_data['CabinDTOs'];
 
-    //Need to SORT cabin images, put main image first
-    //new array- $cabinImage['Main'] == true
     
 
     $cabinCount = 0;
@@ -46,7 +44,7 @@ $cruise_data = $args['cruiseData'];
             
             $cabinCountLabel = null;
             if (array_key_exists('CabinCountLabel', $cabins[$cabinCount])) {
-                //check if lodge ? 
+                //check if lodge for naming? 
                 if($cabins[$cabinCount]['CabinCountLabel'] != null){
                     if($cabins[$cabinCount]['CabinCountLabel'] == 1){
                         $cabinCountLabel = $cabins[$cabinCount]['CabinCountLabel'] . ' Cabin';
@@ -56,8 +54,6 @@ $cruise_data = $args['cruiseData'];
                     
                 }
             }
-
-
             ?>
             <div class="product-cabins__cabin ">
                 <div class="product-cabins__cabin__image-area dfproperty">
