@@ -536,7 +536,7 @@ endforeach;
                                             <div class="charter-info-snippet">
                                                 <?php
                                                 if (array_key_exists("CharterSnippet", $itinerary)) {
-                                                    if ($itinerary['CharterSnippet'] != '') {
+                                                    if (strip_tags($itinerary['CharterSnippet']) != '') {
                                                         echo $itinerary['CharterSnippet'];
                                                     } else {
                                                         echo $charter_snippet;
