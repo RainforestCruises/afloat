@@ -39,10 +39,16 @@ jQuery(document).ready(function ($) {
   })
 
   $('.close-button, #notification-close-cta').on('click', () => {
-    priceNotesModal.classList.remove('active');
-    notificationModal.classList.remove('active');
     modal.style.display = "none";
     body.removeClass('no-scroll');
+    if(priceNotesModal) {
+      priceNotesModal.classList.remove('active');
+    }
+    if(notificationModal){
+      notificationModal.classList.remove('active');
+    }
+    
+    
 
   });
 
