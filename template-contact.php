@@ -53,7 +53,15 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
 
             <!-- Form -->
             <div class="contact__wrapper__form">
-            <?php wpforms_display($primary_contact_form_id); ?>
+            <?php 
+            
+                //Check if WpForms is active
+                if (is_plugin_active('wpforms/wpforms.php')) {
+                    wpforms_display($primary_contact_form_id);
+                } else {
+                    echo 'Forms Plugin Missing';
+                }
+                ?>
 
             </div>
         </div>

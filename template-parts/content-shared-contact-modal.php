@@ -26,7 +26,16 @@ if(get_post_type() == 'rfc_cruises' || get_post_type() == 'rfc_lodges' || get_po
             </div>
 
             <div class="contact__wrapper__form">
-                <?php wpforms_display($primary_contact_form_id); ?>
+                <?php 
+                
+
+                if (is_plugin_active('wpforms/wpforms.php')) {
+                    wpforms_display($primary_contact_form_id);
+                } else {
+                    echo 'Forms Plugin Missing';
+                }
+                
+                ?>
             </div>
         </div>
     </div>

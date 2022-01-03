@@ -24,7 +24,7 @@
 
 
 <!-- Newsletter Modal -->
-<?php 
+<?php
 $newsletter_form_id = get_field('newsletter_form_id', 'options');
 ?>
 <div class="popup" id="newsletterModal">
@@ -36,14 +36,23 @@ $newsletter_form_id = get_field('newsletter_form_id', 'options');
                 <div class="contact__wrapper__intro__title">
                     Join Our Newsletter
                 </div>
-       
+
                 <div class="contact__wrapper__intro__introtext">
                     Please fill in the form beneath and you’ll be added to our newsletter.
                 </div>
             </div>
 
             <div class="contact__wrapper__form">
-                <?php wpforms_display($newsletter_form_id); ?>
+                <?php
+
+                //Check if WpForms is active
+                if (is_plugin_active('wpforms/wpforms.php')) {
+                    wpforms_display($newsletter_form_id);
+                } else {
+                    echo 'Forms Plugin Missing';
+                }
+
+                ?>
             </div>
         </div>
     </div>

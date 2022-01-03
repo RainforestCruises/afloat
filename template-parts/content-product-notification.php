@@ -5,7 +5,7 @@ $notification_message = get_field('notification_message');
 ?>
 
 
-<?php echo $notification_message; ?>
+
 
 <div class="popup active" id="notification-modal">
     <div class="contact">
