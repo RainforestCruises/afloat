@@ -27,7 +27,11 @@
 @import "pages/generic";
 @import "pages/test";
 @import "pages/404";
+@import "pages/deals";
 
+//deals
+@import "components/deals/deals-hero";
+@import "components/deals/deals-best";
 
 //product
 @import "components/product/product-hero";

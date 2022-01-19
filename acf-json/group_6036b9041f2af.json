@@ -42,6 +42,29 @@
             "multiple": 0
         },
         {
+            "key": "field_61e04e86405d7",
+            "label": "Top Level Deals Page",
+            "name": "top_level_deals_page",
+            "type": "page_link",
+            "instructions": "Select the page link for all deals",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:top-level"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
+        },
+        {
             "key": "field_6036b9f46b524",
             "label": "Phone Number",
             "name": "phone_number",
@@ -579,5 +602,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631133895
+    "modified": 1642090152
 }

@@ -1,0 +1,25 @@
+.deals-page {
+    padding-top: 12rem;
+
+    &__section-hero {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__section-best {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 3rem;
+    }
+
+    &__section-main {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+
+

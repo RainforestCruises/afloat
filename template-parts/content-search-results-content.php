@@ -11,6 +11,11 @@ console_log($results);
 if ($results) :
     if ($viewType != 'grid') : //list view
         foreach ($results as $result) :
+
+            if ($result->promoAvailable == true) :
+                //GET PROMOS
+                //Render a popup
+            endif;
 ?>
             <div class="search-result">
                 <a href="<?php echo $result->postUrl;  ?>" class="search-result__image-area">

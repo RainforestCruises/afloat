@@ -67,8 +67,18 @@
   transition: all 0.2s;
   outline: none;
   white-space: nowrap;
+  text-decoration: none;
   &:hover {
     background-color: $color-supporting;
+  }
+
+  &--white {
+    background-color: $color-white;
+
+    color: $color-primary;
+    &:hover {
+      background-color: $color-grey-light-1a;
+    }
   }
 
   &--small {
@@ -697,6 +707,10 @@
 
   &--dark {
     color: $color-primary;
+    transition: color .3s;
+    &:hover {
+      color: $color-supporting-light;
+    }
   }
 
   &--hero {

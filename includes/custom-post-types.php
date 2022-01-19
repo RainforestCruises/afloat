@@ -1,6 +1,53 @@
 <?php 
 
 
+
+// Custom Post Type - Deals
+function create_post_type_rfc_deals()
+{
+    register_post_type(
+        'rfc_deals',
+        array(
+            'labels' => array(
+                'name' => __('Deals'),
+                'singular_name' => __('Deal'),
+            ),
+            'public' => true,
+            'rewrite' => array('slug' => 'deals'),
+            'supports' => array(
+                'title'
+            )
+
+        )
+    );
+}
+add_action('init', 'create_post_type_rfc_deals');
+
+
+
+// Custom Post Type - Deal Categories
+function create_post_type_rfc_deal_categories()
+{
+    register_post_type(
+        'rfc_deal_categories',
+        array(
+            'labels' => array(
+                'name' => __('Deal Categories'),
+                'singular_name' => __('Deal Category'),
+            ),
+            'public' => true,
+            'rewrite' => array('slug' => 'deal-category'),
+            'supports' => array(
+                'title',
+            )
+
+        )
+    );
+}
+add_action('init', 'create_post_type_rfc_deal_categories');
+
+
+
 // Custom Post Type - Travel Guides
 function create_post_type_rfc_travel_guides()
 {
@@ -24,7 +71,7 @@ add_action('init', 'create_post_type_rfc_travel_guides');
 
 
 
-// Custom Post Type - Travel Guides
+// Custom Post Type - Travel Guide Categories
 function create_post_type_rfc_guide_categories()
 {
     register_post_type(
