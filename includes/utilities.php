@@ -48,25 +48,40 @@ function afloat_responsive_image($image_id, $image_size, $sizes_array, $slickLaz
     }
 }
 
-
+//CLD 3.0
 function afloat_responsive_image2($image_id, $image_size)
+{
+    if ($image_id != '') {
+
+        $image_src = wp_get_attachment_image_url($image_id, $image_size);
+        $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE);
+        $image_attributes = wp_get_attachment_image_src($image_id, $image_size);
+
+        echo 'height="' . $image_attributes[2] . '" width="' . $image_attributes[1] . '" src="' . $image_src . '" alt="' . $image_alt . '"';
+    }
+}
+//lazy loading for flickity
+function afloat_responsive_image3($image_id, $image_size)
 {
 
     // check the image ID is not blank
     if ($image_id != '') {
 
-        // set the default src image size
         $image_src = wp_get_attachment_image_url($image_id, $image_size);
         $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE);
-
         $image_attributes = wp_get_attachment_image_src($image_id, $image_size);
 
-        echo 'height="' . $image_attributes[2] . '" width="' . $image_attributes[1] . '" src="' . $image_src . '" alt="' . $image_alt . '"';
+        // generate the markup for the responsive image
+        //echo 'height="' . $image_attributes[2] . '" width="' . $image_attributes[1] . '" src="' . $image_src . '" alt="' . $image_alt . '"';
+        //echo ' src="' . $image_src . '"  alt="' . $image_alt . '"';
 
-      
+        echo ' src="' . $image_src . '" alt="' . $image_alt . '"';
 
-    }
+
+    } 
 }
+
+
 
 //For images from DF (Cruises / Lodges) - Cabins, D2D, Maps, apply cloudinary custom transformation for format/quality/crop
 function afloat_dfcloud_image($image_url)

@@ -57,13 +57,13 @@
                     z-index: 0;
 
                     
-                    opacity: 0;
-                    transition: opacity 1s;
+                    // opacity: 0;
+                    // transition: opacity 1s;
 
-                    &.flickity-lazyloaded,
-                    &.flickity-lazyerror {
-                        opacity: 1;
-                    }
+                    // &.flickity-lazyloaded,
+                    // &.flickity-lazyerror {
+                    //     opacity: 1;
+                    // }
                 }
             }
         }

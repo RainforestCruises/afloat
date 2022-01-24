@@ -6225,11 +6225,7 @@ h5 {
           object-fit: cover;
           height: 100%;
           width: 100%;
-          z-index: 0;
-          opacity: 0;
-          transition: opacity 1s; }
-          .destination-hero__bg-slider__slide__image-area img.flickity-lazyloaded, .destination-hero__bg-slider__slide__image-area img.flickity-lazyerror {
-            opacity: 1; }
+          z-index: 0; }
     .destination-hero__bg-slider:after {
       content: "";
       height: 100%;
@@ -7352,7 +7348,7 @@ h5 {
           font-weight: 300;
           letter-spacing: 0.2rem;
           color: rgba(255, 255, 255, 0.85);
-          opacity: 0;
+          opacity: 1;
           transition: all 1s;
           transform: translateX(5rem); }
           @media only screen and (max-width: 62.5em) {
@@ -8355,7 +8351,8 @@ h5 {
     .home-destinations__destinations-area__slider {
       max-width: 120rem;
       width: 100%;
-      margin: 0 6rem; }
+      margin: 0 6rem;
+      max-height: 80vh; }
       .home-destinations__destinations-area__slider .slick-track {
         display: flex !important; }
       .home-destinations__destinations-area__slider .slick-slide {
