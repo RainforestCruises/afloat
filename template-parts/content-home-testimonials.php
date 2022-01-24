@@ -47,7 +47,7 @@ $testimonials = get_field('testimonials');
                         </div>
 
                         <div class="testimonial__image-area <?php echo ($t_count % 2 != 0) ? "" : ""; ?>">
-                            <img <?php afloat_responsive_image($t_image['id'], 'vertical-small', array('vertical-small')); ?>>
+                            <img <?php afloat_responsive_image2($t_image['id'], 'vertical-small'); ?>>
                         </div>
                     </div>
 

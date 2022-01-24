@@ -11,7 +11,7 @@ $intro_testimonials = get_field('intro_testimonials');
 <div class="home-intro">
     <div class="home-intro__top">
         <div class="home-intro__top__image-area">
-            <img <?php afloat_responsive_image($intro_image['id'], 'vertical-medium', array('vertical-medium')); ?> class="home-intro__top__img">
+            <img <?php afloat_responsive_image2($intro_image['id'], 'vertical-medium'); ?> class="home-intro__top__img">
 
         </div>
 
