@@ -25,10 +25,12 @@
             if ($areaImages) : ?>
                 <?php foreach ($areaImages as $areaImage) : ?>
                     <div class="product-areas__slider__item">
-                        <img <?php afloat_responsive_image($areaImage['id'], 'featured-large', array('featured-large', 'featured-medium'), true); ?>>
+                        <img <?php afloat_responsive_image($areaImage['id'], 'featured-large', array('featured-large', 'featured-medium')); ?>>
 
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
     </div>
+
+    

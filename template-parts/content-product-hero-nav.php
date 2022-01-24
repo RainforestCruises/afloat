@@ -75,7 +75,14 @@ $images = get_field('highlight_gallery');
 
 
                     <h1 class="product-hero__top__content__title-group__title" id="template-nav-title">
-                        <?php echo $productTitle ?>
+                        <div>
+                            <?php echo $productTitle ?>
+                        </div>
+                        <?php if ($args['hasDeals'] == true) : ?>
+                            <button class="btn-cta-round btn-cta-round--small btn-cta-round--green" style="height: 2.5rem;">
+                                PROMO
+                            </button>
+                        <?php endif; ?>
                     </h1>
                     <div class="product-hero__top__content__title-group__subtitle"><?php echo get_field('top_snippet') ?></div>
                 </div>
@@ -170,7 +177,7 @@ $images = get_field('highlight_gallery');
                                 </div>
                             </div>
                             <div class="product-hero__bottom__content__info-group__info__starting-price__amount">
-                                <?php                                 
+                                <?php
                                 echo "$" . number_format($args['lowestPrice'], 0); ?>
                                 <span class="u-small-text"> / Person</span>
                             </div>
@@ -182,7 +189,7 @@ $images = get_field('highlight_gallery');
                                 } else if ($args['propertyType'] == 'Lodge') {
                                     echo 'Lodge stay with flexible excursions and start date';
                                 } ?>
-                                
+
                             </div>
                         </div>
 
@@ -208,10 +215,10 @@ $images = get_field('highlight_gallery');
                                 <span class="u-small-text"> / Day</span>
                             </div>
                             <div class="product-hero__bottom__content__info-group__info__starting-price__description">
-                                <?php $overrideText =  get_field('charter_header_text_override'); 
-                                echo ($overrideText == '') ? 'Exclusive, private cruise based on full occupancy': $overrideText ;
+                                <?php $overrideText =  get_field('charter_header_text_override');
+                                echo ($overrideText == '') ? 'Exclusive, private cruise based on full occupancy' : $overrideText;
                                 ?>
-                            
+
                             </div>
                         </div>
                     <?php endif; ?>

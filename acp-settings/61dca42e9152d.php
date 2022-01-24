@@ -5,7 +5,7 @@ return array (
   'title' => 'Deals',
   'type' => 'rfc_deals',
   'id' => '61dca42e9152d',
-  'updated' => 1642117551,
+  'updated' => 1642792989,
   'columns' => 
   array (
     'title' => 
@@ -200,20 +200,38 @@ return array (
       'filter_label' => '',
       'name' => '61dca3e7d020c4',
     ),
-    '61dcab3f9020c4' => 
+    '61e9e65e06a7f0' => 
     array (
-      'type' => 'column-postid',
-      'label' => 'ID',
+      'type' => 'column-acf_field',
+      'label' => 'Value Rating',
       'width' => '',
       'width_unit' => '%',
-      'before' => '',
-      'after' => '',
+      'field' => 'field_61e9e50cbfa39',
+      'number_format' => '',
       'export' => 'off',
       'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
-      'name' => '61dcab3f9020c4',
+      'name' => '61e9e65e06a7f0',
+    ),
+    '61e9e66a6147b0' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Is Active',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_61e9e5cfbfa3b',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '61e9e66a6147b0',
     ),
     'date' => 
     array (

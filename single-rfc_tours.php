@@ -32,6 +32,28 @@ while (have_posts()) :
   $lowestYear = initial_price_year($price_packages);
 
 
+  //Deals
+  $dealArgs = array(
+    'post_type' => 'rfc_deals',
+    'posts_per_page' => -1,
+    'meta_key' => 'value_rating',
+    'orderby' => 'meta_value_num',
+    'order' => 'DESC',
+  );
+  $dealArgs['meta_query'][] = array(
+    'key'     => 'products',
+    'value'   => '"' . get_the_ID() . '"',
+    'compare' => 'LIKE'
+  );
+  $dealArgs['meta_query'][] = array(
+    'key'     => 'is_active',
+    'value'   => true,
+    'compare' => '='
+  );
+  $dealPosts = get_posts($dealArgs);
+  $hasDeals = (count($dealPosts) > 0) ? true : false;
+  console_log($dealPosts);
+
 
   $args = array(
     'lowestPrice' => $lowestPrice,
@@ -42,6 +64,8 @@ while (have_posts()) :
     'months' => $months,
     'monthNames' => $monthNames,
     'charter_view' => false,
+    'hasDeals' => $hasDeals,
+    'dealPosts' => $dealPosts
 
   );
 

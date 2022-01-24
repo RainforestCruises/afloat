@@ -509,7 +509,7 @@ p {
     border-radius: 2.5rem;
     border: 1px solid currentColor; }
   .badge--small {
-    padding: 0.75rem 1.15rem;
+    padding: 0.75rem 1rem;
     font-size: 1.2rem; }
   .badge--dark {
     color: #142838; }
@@ -788,6 +788,11 @@ h5 {
     color: #142838; }
     .btn-cta-round--white:hover {
       background-color: #e6e6e6; }
+  .btn-cta-round--green {
+    background-color: #00a84b;
+    color: #fff; }
+    .btn-cta-round--green:hover {
+      background-color: rgba(0, 168, 75, 0.8); }
   .btn-cta-round--small {
     font-size: 1.2rem;
     padding: 0.75rem 1.5rem;
@@ -2972,7 +2977,9 @@ h5 {
           .product-hero__top__content__title-group {
             margin-bottom: 0rem; } }
         .product-hero__top__content__title-group__badge-area {
-          margin-bottom: 1rem; }
+          margin-bottom: 1rem;
+          display: flex;
+          flex-direction: column; }
           .product-hero__top__content__title-group__badge-area span {
             color: #fff;
             text-transform: uppercase;
@@ -2984,9 +2991,22 @@ h5 {
           font-size: 6rem;
           font-weight: 300;
           letter-spacing: 0.3rem;
-          display: block;
+          display: flex;
           align-self: end;
-          line-height: 6.5rem; }
+          line-height: 6.5rem;
+          position: relative;
+          align-items: flex-end; }
+          .product-hero__top__content__title-group__title .btn-cta-round {
+            margin-bottom: 1.4rem;
+            margin-left: 1.5rem; }
+          @media only screen and (max-width: 62.5em) {
+            .product-hero__top__content__title-group__title {
+              flex-direction: column;
+              align-items: center; }
+              .product-hero__top__content__title-group__title .btn-cta-round {
+                margin-bottom: 1rem;
+                margin-top: 1rem;
+                margin-left: 0rem; } }
           @media only screen and (max-width: 37.5em) {
             .product-hero__top__content__title-group__title {
               font-size: 3.5rem;
@@ -4782,9 +4802,11 @@ h5 {
     margin-top: .3rem; }
     .product-areas__slider .slick-slide {
       padding: 2rem .3rem;
-      outline: none; }
+      outline: none;
+      height: 35rem; }
     .product-areas__slider__item img {
       min-height: 35rem;
+      height: auto;
       width: 100%;
       object-fit: cover;
       background-position: center;

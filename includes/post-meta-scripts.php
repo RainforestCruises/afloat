@@ -66,10 +66,10 @@ function my_acf_save_post($post_id)
 function refresh_cruise_info($propertyId, $post_id)
 {
     //LOCAL TEST
-    $url = 'http://localhost:63665/api/wpproperties/';
+    //$url = 'http://localhost:63665/api/wpproperties/';
 
     //DF WEB
-    //$url = 'https://departurefinder.azurewebsites.net/api/wpproperties/';
+    $url = 'https://departurefinder.azurewebsites.net/api/wpproperties/';
     $url .= $propertyId;
 
     $request = wp_remote_get($url);

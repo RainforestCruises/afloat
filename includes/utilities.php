@@ -41,8 +41,31 @@ function afloat_responsive_image($image_id, $image_size, $sizes_array, $slickLaz
         if ($slickLazy == true) {
             echo 'data-lazy="' . $image_src . '"  alt="' . $image_alt . '"';
         } else {
-            echo 'loading="lazy" src="' . $image_src . '" srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . 'px) 100vw, ' . $max_width . 'px" alt="' . $image_alt . '"';
+            //echo 'loading="lazy" src="' . $image_src . '" srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . 'px) 100vw, ' . $max_width . 'px" alt="' . $image_alt . '"';
+            //echo 'src="' . $image_src . '" alt="' . $image_alt . '"';
+
         }
+    }
+}
+
+
+function afloat_responsive_image2($image_id, $image_size)
+{
+
+    // check the image ID is not blank
+    if ($image_id != '') {
+
+        // set the default src image size
+        $image_src = wp_get_attachment_image_url($image_id, $image_size);
+        $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE);
+
+        $image_attributes = wp_get_attachment_image_src($image_id, $image_size);
+        //$image_attributes[0] . ' ' . $image_attributes[1] . 'w,';
+
+        echo 'test src="' . $image_src . '" alt="' . $image_alt . '"';
+
+      
+
     }
 }
 
@@ -96,6 +119,8 @@ function afloat_responsive_image_lazy($image_id, $image_size, $sizes_array)
 
         // generate the markup for the responsive image
         echo ' data-flickity-lazyload-src="' . $image_src . '" data-flickity-lazyload-srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . 'px) 100vw, ' . $max_width . 'px" alt="' . $image_alt . '"';
+        //echo ' src="' . $image_src . '"  alt="' . $image_alt . '"';
+
     } else {
         //add pending image
     }
