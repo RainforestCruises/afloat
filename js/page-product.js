@@ -1,14 +1,7 @@
 jQuery(document).ready(function ($) {
   const templateUrl = page_vars.templateUrl;
-  $('.product-cabins__cabin__image-area.dfproperty').flickity({
-    prevNextButtons: true,
-    pageDots: false,
-    fade: true,
-    lazyLoad: 2, //preload one over
-  })
-
-
   var currentYear = new Date().getFullYear();
+
 
   //Contact
   var body = $('body');
@@ -19,11 +12,7 @@ jQuery(document).ready(function ($) {
     body.addClass('no-scroll');
     modal.style.display = "flex";
     departureFormText.style.display = "none";
-
   });
-
-
-
 
 
   //Price Notes Modal
@@ -41,35 +30,32 @@ jQuery(document).ready(function ($) {
   $('.close-button, #notification-close-cta').on('click', () => {
     modal.style.display = "none";
     body.removeClass('no-scroll');
-    if(priceNotesModal) {
+    if (priceNotesModal) {
       priceNotesModal.classList.remove('active');
     }
-    if(notificationModal){
+    if (notificationModal) {
       notificationModal.classList.remove('active');
     }
-    
-    
-
   });
 
   window.onclick = function (event) { //trigger by background click
-    if (event.target == modal) { 
+    if (event.target == modal) {
       modal.style.display = "none";
       body.removeClass('no-scroll');
     }
-    if (event.target == priceNotesModal) { 
+    if (event.target == priceNotesModal) {
       priceNotesModal.classList.remove('active');
       body.removeClass('no-scroll');
     }
 
-    if (event.target == notificationModal) { 
+    if (event.target == notificationModal) {
       notificationModal.classList.remove('active');
       body.removeClass('no-scroll');
     }
   }
 
 
-  //Side Info Tabs - Overview / Inclusions / Exclusions
+  //Itinerary Info Tabs - Overview / Inclusions / Exclusions
   const tabArray = [...document.querySelectorAll('.product-itinerary-slide__top__side-info__tabs__item')];
   tabArray.forEach(item => {
     item.addEventListener('click', () => {
@@ -103,43 +89,9 @@ jQuery(document).ready(function ($) {
     });
   })
 
-  //ITINERARY SLIDERS
-  //Days slider
-  $('.product-itinerary-slide__bottom__days').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    adaptiveHeight: true,
-    fade: true,
-    focusOnSelect: true,
-    arrows: true,
-    dots: true,
-    swipe: true,
-    draggable: false,
-    swipeToSlide: true,
-    prevArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
-    nextArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
-    customPaging: function (slider, i) {
-      return '<a class="dot">' + (i + 1) + '</a>';
-    },
 
-    responsive: [
-      {
-        breakpoint: 800,
-        settings: {
-          dots: false
-        }
-      }
-    ]
-  })
-    .on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-      $('#itineraries-slider').slick("setOption", '', '', true);
-      var currentCounter = $(this).next();
 
-      var i = (currentSlide ? currentSlide : 0) + 1;
-      currentCounter.text(i + ' / ' + slick.slideCount);
-    });
-
-  //Itinerary Content
+  //Itinerary Slider
   $('#itineraries-slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -152,7 +104,7 @@ jQuery(document).ready(function ($) {
     adaptiveHeight: true,
   });
 
-  //Itinerary Content Nav
+  //Itinerary Slider Nav
   $('#itineraries-slider-nav').on('init', function (event, slick) {
     var counterDiv = $('#itineraries-slider-counter');
     counterDiv.text('1 / ' + slick.slideCount); //set count div
@@ -188,6 +140,11 @@ jQuery(document).ready(function ($) {
     ]
   }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
     var counterDiv = $('#itineraries-slider-counter');
+    
+  
+    const params = new URLSearchParams(location.search);
+    params.set('i', currentSlide);
+    window.history.replaceState({}, '', `${location.pathname}?${params}#itineraries`);
 
     var i = (currentSlide ? currentSlide : 0) + 1;
     counterDiv.text(i + ' / ' + slick.slideCount);
@@ -196,19 +153,54 @@ jQuery(document).ready(function ($) {
   });
 
 
-  ////---------Slider bug, nav init slide
+  //Days slider
+  $('.product-itinerary-slide__bottom__days').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    fade: true,
+    focusOnSelect: true,
+    arrows: true,
+    dots: true,
+    swipe: true,
+    draggable: false,
+    swipeToSlide: true,
+    prevArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
+    nextArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
+    customPaging: function (slider, i) {
+      return '<a class="dot">' + (i + 1) + '</a>';
+    },
 
-  // var urlString = window.location.href;
-  // var url = new URL(urlString);
-  // var itinerarySlideFromUrl = url.searchParams.get("i");
-  // var gotoSlide = 0;
-  // var initialSlideLoad = true;
-  // if (itinerarySlideFromUrl != null) {
-  //   gotoSlide = itinerarySlideFromUrl;
-  //   $('#itineraries-slider-nav').slick('slickGoTo', itinerarySlideFromUrl);
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          dots: false
+        }
+      }
+    ]
+  })
+    .on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+      $('#itineraries-slider').slick("setOption", '', '', true);
+      var currentCounter = $(this).next();
 
-  // }
+      var i = (currentSlide ? currentSlide : 0) + 1;
+      currentCounter.text(i + ' / ' + slick.slideCount);
+    });
 
+
+  //Go to specific itinerary slide (starts at 0) -- BUG on back button
+  //BIG FIX -- use pageshow: will not fire if using back/reloading
+  window.addEventListener('pageshow', function () {
+    var urlString = window.location.href;
+    var url = new URL(urlString);
+    var itinerarySlideFromUrl = url.searchParams.get("i");
+    console.log('pageshow')
+    if (itinerarySlideFromUrl != null) {
+      $('#itineraries-slider-nav').slick('slickGoTo', itinerarySlideFromUrl)      
+    }
+    
+  })
 
 
 
@@ -242,43 +234,9 @@ jQuery(document).ready(function ($) {
   });
 
 
-  //Hotels Slider (must initialize before tab nav functions for position init)
-  $('#hotels-slider').slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    dots: false,
-    arrows: true,
-    prevArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--left product-hotels__slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-    nextArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--right product-hotels__slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
-    responsive: [
-      {
-        breakpoint: 1000,
-        settings: {
-          slidesToShow: 3,
 
 
-        }
-      },
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          arrows: false,
-          centerMode: true
-        }
-      },
-    ]
-  });
-
-
-  //date-grid__item
+  //Date Grid
   const dateGridItems = [...document.querySelectorAll('.date-grid__item--available')];
   dateGridItems.forEach(item => {
     item.addEventListener('click', () => {
@@ -319,9 +277,6 @@ jQuery(document).ready(function ($) {
     });
   })
 
-
-
-
   //Date and Price Grid Time Config
   //display Itinerary Side Info for current year only
   $('.date-grid').hide();
@@ -337,7 +292,6 @@ jQuery(document).ready(function ($) {
     minimumResultsForSearch: -1
   });
 
-  //Itineraries --------------------------------
   //Price / Availability
   $('.itinerary-year-select').select2({
     width: '100%',
@@ -369,14 +323,7 @@ jQuery(document).ready(function ($) {
   });
 
 
-  //$('.itinerary-year-select').val(currentYear).trigger("change");
-
-  //Dates --------------------------------------
-  //Controls
-  //departure-expand
-
-
-  //SEARCH FUNCTION
+  //Cruise Date Search
   function reloadResults() {
     var searchForm = $('#search-form'); //get form
     $.ajax({
@@ -398,9 +345,8 @@ jQuery(document).ready(function ($) {
             var modal = document.getElementById("contactModal");
             var body = $('body');
 
-            var departureFormText = document.getElementById("contactModalDeparture");
+            var departureFormText = document.getElementById("contactModalDeparture"); //Inqure form
             departureFormText.style.display = "block";
-
 
             modal.style.display = "flex";
             body.addClass('no-scroll');
@@ -423,13 +369,41 @@ jQuery(document).ready(function ($) {
   }
 
 
+  //SLIDERS ---------------------------
+  //Flickity - Cabins images
+  $('.product-cabins__cabin__image-area.dfproperty').flickity({
+    prevNextButtons: true,
+    pageDots: false,
+    fade: true,
+    lazyLoad: 2, //preload one over
+  })
 
-  //SLIDERS --------------------------------------------
+
+  //Slick Sliders --------------------------------------------
+  //Product gallery, social area, Reviews, Related,
+
+  //Product Gallery
+  $('#product-gallery').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    lazyLoad: 'ondemand',
+    initialSlide: 0,
+    focusOnSelect: true,
+    arrows: true,
+    prevArrow: '<button class="btn-circle btn-circle--small btn-circle--noborder btn-circle--left product-hero__gallery__slick__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+    nextArrow: '<button class="btn-circle btn-circle--small btn-circle--noborder btn-circle--right product-hero__gallery__slick__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+    responsive: [
+      {
+        breakpoint: 1375,
+        settings: {
+          slidesToShow: 2,
 
 
-
-
-
+        }
+      }
+    ],
+  });
 
   //Areas Slider (must select class for chained sliders)
   $('.product-areas__slider').slick({
@@ -503,8 +477,6 @@ jQuery(document).ready(function ($) {
     ]
   });
 
-
-
   //Related Products Slider
   $('#related-slider').slick({
     infinite: true,
@@ -535,33 +507,47 @@ jQuery(document).ready(function ($) {
     ]
   });
 
-  //Product Gallery
-  $('#product-gallery').slick({
-    infinite: true,
-    slidesToShow: 3,
+
+  //Hotels Slider (Tours) (must initialize before tab nav functions for position init)
+  $('#hotels-slider').slick({
+    slidesToShow: 4,
     slidesToScroll: 1,
-    lazyLoad: 'ondemand',
-    initialSlide: 0,
-    //variableWidth: true,
-    focusOnSelect: true,
+    dots: false,
     arrows: true,
-    prevArrow: '<button class="btn-circle btn-circle--small btn-circle--noborder btn-circle--left product-hero__gallery__slick__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
-    nextArrow: '<button class="btn-circle btn-circle--small btn-circle--noborder btn-circle--right product-hero__gallery__slick__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+    prevArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--left product-hotels__slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+    nextArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--right product-hotels__slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
     responsive: [
       {
-        breakpoint: 1375,
+        breakpoint: 1000,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
 
 
         }
-      }
-    ],
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+          centerMode: true
+        }
+      },
+    ]
   });
 
 
 
-  //Magnific ---------------------------------------------------------------------------
+
+  //Magnific Popups ---------------------------------------------------------------------------
+  //Product Gallery, Itinerary Maps, Deckplans
   //Gallery
   $('#product-gallery').magnificPopup({
     delegate: '.slick-slide:not(.slick-cloned) .product-hero__gallery__slick__item a',
@@ -589,7 +575,6 @@ jQuery(document).ready(function ($) {
     }).magnificPopup('open');
   });
 
-
   //Itinerary Map
   $('.itinerary-map-image').magnificPopup({
     type: 'image',
@@ -598,11 +583,6 @@ jQuery(document).ready(function ($) {
   $('#deckplan-image').magnificPopup({
     type: 'image',
   });
-
-
-
-
-
 
 
 });

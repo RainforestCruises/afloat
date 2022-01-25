@@ -3,11 +3,13 @@
 
 jQuery(document).ready(function ($) {
 
+  //Set Header Style
   var opaqueNavAlways = false;
   if(header_vars.alwaysActiveHeader == true){
     opaqueNavAlways = true;
   } 
  
+  //Scroll to Top on Reload
   if (history.scrollRestoration) {
     history.scrollRestoration = 'manual';
 } else {
@@ -32,21 +34,23 @@ jQuery(document).ready(function ($) {
   const navMobile = document.querySelector('.nav-mobile');
 
 
-  //HEADER --------------
-  fixNav();
-  //Header Main -- Scroll
-  window.addEventListener('scroll', fixNav);
-  function fixNav() {
+  //Navbar ----------
 
+  //Scroll listener
+  applyNavStyle();
+  window.addEventListener('scroll', applyNavStyle);
+  
+
+  //Set active / small-nav classes 
+  function applyNavStyle() {    
+    
     let megaActive = megaMenu.classList.contains('active');
-
     //small nav
     if (window.scrollY == 0) {
       headerMain.classList.remove('small-nav');
     } else {
       headerMain.classList.add('small-nav');
     }
-
     //active (non-transparent)
     if (!opaqueNavAlways && !megaActive) {
       if (window.scrollY > 300) {
@@ -54,15 +58,12 @@ jQuery(document).ready(function ($) {
       } else {
         headerMain.classList.remove('active');
       }
-
     }
-
   }
 
 
-  //Header Main -- Hover
-  //Make navbar white on hover - add class: active
-
+  //Hover
+  //Make navbar white, add class: active
   $('.header__main').hover(
     function () {
       let isMobile = false;
@@ -94,33 +95,16 @@ jQuery(document).ready(function ($) {
   )
 
 
-  //Mouse Leave - remove mega / active
-  $(document).mouseleave(function () {
-
-    megaMenu.classList.remove('active');
-    megaMenuOverlay.classList.remove('active');
-    $('.nav-secondary').removeClass('mega-hide');
-
-    let menuActive = navMobile.classList.contains('nav-mobile--active');
-
-    if (window.scrollY == 0 && !opaqueNavAlways && !menuActive) {
-      headerMain.classList.remove('active');
-    }
-  });
-
-  //MEGA MENU -------------------------
-
+  //MEGA MENU ----------
   //Hover behavior
   $('.nav-mega').hover(
     function () {//on hover over
-
+      //Nada
     },
     function () {//on hover out
       megaMenu.classList.remove('active');
       megaMenuOverlay.classList.remove('active');
-
       $('.nav-secondary').removeClass('mega-hide');
-
       if (window.scrollY == 0 && !opaqueNavAlways) {
         headerMain.classList.remove('active');
       }
@@ -128,7 +112,8 @@ jQuery(document).ready(function ($) {
 
   )
 
-  //Header Main Nav Link - Hover - Expand Mega Menu
+  //NAV LINKS ----------
+  //Main Nav Link (with mega class) - Hover 
   $('.header__main__nav__list__item__link.mega').hover(
     function () {
       var navelement = this.getAttribute("navelement");
@@ -160,13 +145,11 @@ jQuery(document).ready(function ($) {
       }
     }
   );
-
-  //Header Main Nav Link - Hover - No Mega Menu
+  //Main Nav Link (with no-mega class)- Hover 
   $('.header__main__nav__list__item__link.no-mega').hover(
     function () {
       megaMenu.classList.remove('active');
       megaMenuOverlay.classList.remove('active');
-
       headerMain.classList.add('active');
       $('.nav-secondary').removeClass('mega-hide');
     },
@@ -174,20 +157,30 @@ jQuery(document).ready(function ($) {
 
 
 
+    //Mouse Leave Browser - remove mega / active
+    $(document).mouseleave(function () {
+      megaMenu.classList.remove('active');
+      megaMenuOverlay.classList.remove('active');
+      $('.nav-secondary').removeClass('mega-hide');
+      let menuActive = navMobile.classList.contains('nav-mobile--active');
+      if (window.scrollY == 0 && !opaqueNavAlways && !menuActive) {
+        headerMain.classList.remove('active');
+      }
+    });
+
+
+
   //MOBILE MENU -----------------------------------------
   //Burger-- open
   burgerButton.addEventListener('click', evt => {
-
     navMobile.classList.add('nav-mobile--active');
     burgerButtonClose.classList.add('active');
     document.body.classList.add('lock-scroll');
     bodyDiv.classList.add('overlay');
   });
 
-
   //Burger-- close
   burgerButtonClose.addEventListener('click', evt => {
-
     closeMobile();
   });
 
@@ -200,7 +193,6 @@ jQuery(document).ready(function ($) {
     $('.nav-mobile__content-panel').removeClass('slide-out-left');
     $('.nav-mobile__content-panel').removeClass('slide-center');
 
-
     if (window.scrollY == 0) {
       if (opaqueNavAlways == false) {
         headerMain.classList.remove('active');
@@ -209,7 +201,7 @@ jQuery(document).ready(function ($) {
   }
 
 
-  //New Mobile Menu
+  //Mobile Menu
   const mobileButtons = [...document.querySelectorAll('.nav-mobile__content-panel__button')];
   mobileButtons.forEach(item => {
     item.addEventListener('click', () => {
@@ -240,26 +232,16 @@ jQuery(document).ready(function ($) {
   })
 
 
-  //CLICK AWAY
+  //Click Away -- close modal
   document.addEventListener('click', evt => {
-
     const isMobileMenu = navMobile.contains(evt.target);
     const isBurgerOpen = burgerButton.contains(evt.target);
-
     let navActive = navMobile.classList.contains('nav-mobile--active');
-
 
     if (!isBurgerOpen && navActive && !isMobileMenu) {
       closeMobile();
     }
-
-
   });
-
-
-
-
-
 
 
 
@@ -277,21 +259,12 @@ jQuery(document).ready(function ($) {
 
 
 
-
-
-
-
-
-
-
-  //EXTRAS -----------------------------------------------------------------
-  //Hidden Nav
+  //TEMPLATE SPECIFIC EXTRAS -----------------------------------------------------------------
+  //SERP
   const searchFilterBar = document.getElementById('search-filter-bar'); //for search template
 
   //Resize Window - Close menus
   $(window).resize(function () {
-
-
 
     if ($(window).width() > 1000) {
       navMobile.classList.remove('nav-mobile--active');
@@ -305,12 +278,11 @@ jQuery(document).ready(function ($) {
   });
 
 
-
+  //Another scroll listener for SERP
   var c;
   var currentScrollTop = 0;
 
   $(window).scroll(function () {
-
     let preventNavExpand = headerDiv.classList.contains('preventExpand'); //added and removed with delay from page nav
 
     let megaActive = megaMenu.classList.contains('active');

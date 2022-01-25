@@ -3499,7 +3499,7 @@ h5 {
       height: 8rem;
       width: 100%;
       position: absolute;
-      top: calc(-100% + 3rem);
+      top: calc(-100% + 1.5rem);
       left: 0;
       background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff); }
     .product-overview__fade.expand::after {
@@ -3517,7 +3517,7 @@ h5 {
       padding: 0 3rem; } }
   .product-itineraries__nav {
     width: 100%;
-    position: relative; }
+    z-index: 3; }
     .product-itineraries__nav__counter {
       text-transform: uppercase;
       text-align: center;
@@ -3535,15 +3535,21 @@ h5 {
       .product-itineraries__nav__slider .slick-current {
         color: #305a7c !important; }
         .product-itineraries__nav__slider .slick-current .product-itineraries__nav__slider__item {
-          border: 1px solid #e6e6e6;
           border-bottom: 1px solid white;
-          z-index: 20; }
+          z-index: 20;
+          transform: translateY(0rem); }
           .product-itineraries__nav__slider .slick-current .product-itineraries__nav__slider__item span {
             background-color: #305a7c; }
         .product-itineraries__nav__slider .slick-current .product-itineraries__nav__slider__item__counter {
           display: inline; }
       .product-itineraries__nav__slider .slick-slide {
         outline: none; }
+        @media only screen and (min-width: 37.5em) {
+          .product-itineraries__nav__slider .slick-slide:nth-of-type(3) .product-itineraries__nav__slider__item {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            border-right: 3px solid #e6e6e6; } }
       .product-itineraries__nav__slider .slick-track {
         transform: translate3d(0, 0, 0); }
       .product-itineraries__nav__slider__item {
@@ -3552,8 +3558,8 @@ h5 {
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
-        border: 1px solid white;
-        border-bottom: 1px solid #e6e6e6;
+        border: 1px solid #e6e6e6;
+        transform: translateY(0.5rem);
         transition: all 0.3s;
         text-align: center;
         cursor: pointer;
@@ -3602,6 +3608,7 @@ h5 {
           right: 0rem;
           z-index: 8; }
   .product-itineraries__content {
+    z-index: 2;
     border: 1px solid #e6e6e6; }
 
 .side-info-panel__top {

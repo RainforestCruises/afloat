@@ -1,11 +1,13 @@
 jQuery(document).ready(function ($) {
 
-    //on load
-    var identifier = window.location.hash;
-    if ($(identifier).length) {
-        changePosition(identifier);
-    }
 
+    //scroll to position if there is an anchor tag (must wait for page content to load)
+    window.addEventListener('load', function () {     
+        var identifier = window.location.hash;
+        if ($(identifier).length) {
+            changePosition(identifier);
+        }
+    })
 
     //On Scroll Listener
     window.onscroll = function () { scrollCheck() };
@@ -77,10 +79,13 @@ jQuery(document).ready(function ($) {
             $('.header').addClass('preventExpand');
         }
 
-      
+
 
         $('.nav-secondary-mobile').removeClass('active'); //if mobile open - close menu / button
         $("#nav-secondary-button").removeClass('active');
+
+        //var testDiv = document.getElementById(id)
+        // var target = testDiv.offsetTop;
 
         var target = $(id).offset().top;
         var isScrollUp = $('.header').hasClass('scrollUp');
@@ -105,6 +110,7 @@ jQuery(document).ready(function ($) {
         $('html, body').animate({ scrollTop: target }, 500);
         setTimeout(setScrollStatus, 600)
         window.location.hash = id;
+       
     }
 
     function setScrollStatus() {
