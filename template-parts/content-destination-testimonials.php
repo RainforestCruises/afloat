@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="testimonial__image-area ">
-                            <img <?php afloat_responsive_image($t_image['id'], 'vertical-medium', array('vertical-medium')); ?>>
+                            <img <?php afloat_responsive_image3($t_image['id'], 'vertical-medium'); ?>>
                         </div>
                     </div>
 

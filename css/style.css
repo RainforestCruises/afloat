@@ -9852,7 +9852,9 @@ h5 {
         letter-spacing: 0.2rem;
         text-transform: uppercase;
         color: #f8f8f8;
-        font-weight: 400; }
+        font-weight: 400;
+        display: inline-block;
+        width: max-content; }
         .product-card__image-area__destinations li:not(:last-child) {
           margin-right: 0.5rem;
           position: relative; }
@@ -10080,18 +10082,19 @@ h5 {
 
 .category-card {
   min-width: 30rem;
-  min-height: 15rem;
+  min-height: 20rem;
   background-color: gainsboro;
   border-radius: 0.5rem;
-  display: grid !important;
   margin: 1rem 1.5rem;
   flex: 1 0 33%;
-  /* explanation below */
-  text-decoration: none; }
+  text-decoration: none;
+  position: relative; }
   .category-card__image {
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
-    position: relative; }
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%; }
     .category-card__image img {
       border-radius: 0.5rem;
       object-fit: cover;
@@ -10100,8 +10103,8 @@ h5 {
       z-index: 0; }
   .category-card__content {
     padding: 1rem 2rem;
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
+    height: 100%;
+    width: 100%;
     z-index: 2;
     text-align: center;
     color: #fff;

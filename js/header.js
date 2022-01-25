@@ -1,12 +1,21 @@
 
+
+
 jQuery(document).ready(function ($) {
 
   var opaqueNavAlways = false;
   if(header_vars.alwaysActiveHeader == true){
     opaqueNavAlways = true;
   } 
-
-
+ 
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+} else {
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+    }
+}
+  
 
 
   //Variables

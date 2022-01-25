@@ -232,6 +232,8 @@
                 text-transform: uppercase;
                 color: $color-grey-light-1;
                 font-weight: 400;
+                display: inline-block; //line spacing wierd -- too much on iphone 
+                width: max-content;
 
                 &:not(:last-child) {
                     margin-right: 0.5rem;
@@ -541,19 +543,23 @@
 
 .category-card {
     min-width: 30rem;
-    min-height: 15rem;
+    min-height: 20rem;
     background-color: gainsboro;
     border-radius: 0.5rem;
-    display: grid !important;
     margin: 1rem 1.5rem;
-    flex: 1 0 33%; /* explanation below */
+    flex: 1 0 33%; 
 
     text-decoration: none;
+    position: relative;
 
     &__image {
-        grid-column: 1 / -1;
-        grid-row: 1 / -1;
-        position: relative;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
         & img {
             border-radius: 0.5rem;
 
@@ -566,8 +572,8 @@
 
     &__content {
         padding: 1rem 2rem;
-        grid-column: 1 / -1;
-        grid-row: 1 / -1;
+        height: 100%;
+        width: 100%;
         z-index: 2;
         text-align: center;
 
