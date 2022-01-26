@@ -101,7 +101,7 @@ $posts = get_posts($queryArgs);
                 <a class="product-card" href="<?php echo $link;; ?>">
                     <div class="product-card__image-area">
                         <?php if ($featured_image) : ?>
-                            <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?>>
+                            <img <?php afloat_image_markup($featured_image['id'], 'featured-medium'); ?>>
                         <?php endif; ?>
                         <ul class="product-card__image-area__destinations">
                             <?php

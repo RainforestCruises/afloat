@@ -18,7 +18,7 @@ $featured_image = get_field('featured_image');
         <aside class="product-overview__content__side-detail">
             <div class="product-overview__content__side-detail__image-area">
                 <?php if ($featured_image) : ?>
-                    <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?>>
+                    <img <?php afloat_image_markup($featured_image['id'], 'featured-medium'); ?>>
                 <?php endif; ?>
             </div>
             <!-- Highlights -->
