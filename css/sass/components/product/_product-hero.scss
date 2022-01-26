@@ -805,7 +805,7 @@
       &__item {
         position: relative;
 
-        height: min-content; //slick determins h/w
+        height: min-content; //slick + image asset determins h/w
         width: 100%;
 
         box-shadow: $shadow-medium-bottom;

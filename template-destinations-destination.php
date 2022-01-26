@@ -32,6 +32,15 @@ $sliderContent = get_field('hero_slider');
 //Title (Destination)
 $title = $destination->post_title;
 
+
+
+
+
+
+
+
+$sliderLimit = 12;
+
 //TOURS
 $tourCriteria = array(
     'posts_per_page' => -1,
@@ -47,16 +56,11 @@ $tourCriteria = array(
         )
     )
 );
-
-
-
-
-
 $tours = get_posts($tourCriteria);
 
 //CRUISES -- sort doesnt unclude null
 $cruiseCriteria = array(
-    'posts_per_page' => -1,
+    'posts_per_page' => $sliderLimit,
     'post_type' => 'rfc_cruises',
     'meta_key' => 'search_rank',
     'orderby' => 'meta_value_num',
@@ -71,9 +75,11 @@ $cruiseCriteria = array(
 );
 $cruises = get_posts($cruiseCriteria);
 
+
+
 //Lodges -- sort doesnt unclude null
 $lodgeCriteria = array(
-    'posts_per_page' => -1,
+    'posts_per_page' => $sliderLimit,
     'post_type' => 'rfc_lodges',
     'meta_key' => 'search_rank',
     'orderby' => 'meta_value_num',

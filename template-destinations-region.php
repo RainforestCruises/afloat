@@ -59,6 +59,8 @@ foreach ($destinationIds as $d) {
     );
 }
 
+
+$sliderLimit = 12;
 //TOURS
 $tourCriteria = array(
     'posts_per_page' => -1,
@@ -72,7 +74,7 @@ $tours = get_posts($tourCriteria);
 
 //CRUISES
 $cruiseCriteria = array(
-    'posts_per_page' => -1,
+    'posts_per_page' => $sliderLimit,
     'post_type' => 'rfc_cruises',
     'meta_key' => 'search_rank',
     'orderby' => 'meta_value_num',
@@ -83,7 +85,7 @@ $cruises = get_posts($cruiseCriteria);
 
 //Lodges
 $lodgeCriteria = array(
-    'posts_per_page' => -1,
+    'posts_per_page' => $sliderLimit,
     'post_type' => 'rfc_lodges',
     'meta_key' => 'search_rank',
     'orderby' => 'meta_value_num',

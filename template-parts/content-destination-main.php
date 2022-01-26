@@ -75,14 +75,15 @@ $highlights = get_field('highlights');
 
         <?php
         $filteredTours = [];
+        $tourCount = 0;
         foreach ($tours as $t) {
             $best_selling = ($destinationType != 'region') ? get_field('best_selling', $t) : get_field('best_selling_regional', $t);
-            if ($best_selling) {
+            if ($best_selling && $tourCount <= 12) {
                 $filteredTours[] = $t;
+                $tourCount++;
             }
         }
 
-        console_log($filteredTours);
         ?>
 
         <div class="destination-main__packages__best-selling">

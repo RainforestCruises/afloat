@@ -197,7 +197,7 @@ jQuery(document).ready(function ($) {
 
 
   //Go to specific itinerary slide (starts at 0) -- BUG on back button
-  //BIG FIX -- use pageshow: will not fire if using back/reloading
+  //FIX -- use pageshow: will not fire if using back/reloading
   window.addEventListener('pageshow', function () {
     var urlString = window.location.href;
     var url = new URL(urlString);

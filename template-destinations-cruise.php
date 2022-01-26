@@ -28,10 +28,10 @@ $tour_experiences = get_field('tour_experiences');
 $sliderContent = get_field('hero_slider');
 $title = $destination->post_title;
 
-
+$sliderLimit = 12;
 //TOURS
 $tourCriteria = array(
-    'posts_per_page' => -1,
+    'posts_per_page' => -1, //must be all to filter best selling
     'post_type' => 'rfc_tours',
     'meta_key' => 'search_rank',
     'orderby' => 'meta_value_num',
@@ -48,7 +48,7 @@ $tours = get_posts($tourCriteria);
 
 //CRUISES
 $cruiseCriteria = array(
-    'posts_per_page' => -1,
+    'posts_per_page' => $sliderLimit,
     'post_type' => 'rfc_cruises',
     'meta_key' => 'search_rank',
     'orderby' => 'meta_value_num',
