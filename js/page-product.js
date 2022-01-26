@@ -138,13 +138,20 @@ jQuery(document).ready(function ($) {
         }
       }
     ]
+  }).on('click', function (event, slick, currentSlide, nextSlide) {
+    //location.hash = '#itineraries'
   }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
     var counterDiv = $('#itineraries-slider-counter');
-    
-  
     const params = new URLSearchParams(location.search);
     params.set('i', currentSlide);
-    window.history.replaceState({}, '', `${location.pathname}?${params}#itineraries`);
+
+    var anchor = window.location.hash;
+    if(anchor == ''){
+      window.history.replaceState({}, '', `${location.pathname}?${params}#itineraries`);
+    } else {
+      window.history.replaceState({}, '', `${location.pathname}?${params}${anchor}`);
+    }
+    
 
     var i = (currentSlide ? currentSlide : 0) + 1;
     counterDiv.text(i + ' / ' + slick.slideCount);
@@ -195,11 +202,13 @@ jQuery(document).ready(function ($) {
     var urlString = window.location.href;
     var url = new URL(urlString);
     var itinerarySlideFromUrl = url.searchParams.get("i");
+    
+
     console.log('pageshow')
     if (itinerarySlideFromUrl != null) {
       $('#itineraries-slider-nav').slick('slickGoTo', itinerarySlideFromUrl)      
     }
-    
+
   })
 
 

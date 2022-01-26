@@ -156,12 +156,6 @@ jQuery(document).ready(function ($) {
 
 
 
-
-
-
-
-
-
     //resize window -- remove collapse menu over 1000
     $(window).resize(function () {
         if ($(window).width() > 600) {
