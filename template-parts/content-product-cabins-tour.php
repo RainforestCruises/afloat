@@ -137,7 +137,7 @@ $hotels = get_field('hotels');
 
                     </div>
                     <div class="card-square__image-area">
-                        <img <?php afloat_responsive_image($featured_image['id'], 'square-medium', array('square-medium', 'square-small')); ?> alt="">
+                        <img <?php afloat_image_markup($featured_image['id'], 'square-medium'); ?> alt="">
 
                     </div>
 

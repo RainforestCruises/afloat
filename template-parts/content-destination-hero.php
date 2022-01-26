@@ -25,7 +25,7 @@
               <div class="destination-hero__bg-slider__slide">
                   <?php if ($sliderImage) : ?>
                       <div class="destination-hero__bg-slider__slide__image-area">
-                          <img <?php afloat_responsive_image3($sliderImage['id'], 'full-hero-large'); ?> >
+                          <img <?php afloat_image_markup($sliderImage['id'], 'full-hero-large'); ?> >
 
                       </div>
                   <?php endif; ?>

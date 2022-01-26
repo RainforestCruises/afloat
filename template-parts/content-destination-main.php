@@ -176,7 +176,7 @@ $highlights = get_field('highlights');
                 <a class="category-card" href="<?php echo $search_link ?>">
                     <div class="category-card__image">
                         <?php if ($background_image) : ?>
-                            <img <?php afloat_responsive_image3($background_image['id'], 'pill-large'); ?>>
+                            <img <?php afloat_image_markup($background_image['id'], 'pill-large'); ?>>
                         <?php endif; ?>
                     </div>
 

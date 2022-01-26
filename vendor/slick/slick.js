@@ -1585,6 +1585,7 @@
             if (_.options.fade === true) {
                 if (rangeStart > 0) rangeStart--;
                 if (rangeEnd <= _.slideCount) rangeEnd++;
+                //if (rangeEnd <= _.slideCount) rangeEnd--;  <--- apparently this fixes lazyload + fade
             }
         }
 

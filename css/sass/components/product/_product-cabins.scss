@@ -514,7 +514,6 @@
     width: 100%;
     display: flex;
     position: relative;
-    //padding-bottom: 2rem;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -522,8 +521,8 @@
     &__slider {
         width: 100%;
         max-width: 140rem;
-
         z-index: 10;
+
 
         //side padding
         padding: 0 9rem; //extra +3 for buttons

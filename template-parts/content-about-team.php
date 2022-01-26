@@ -21,7 +21,7 @@ $headerText = get_field('team_header');
                 <div class="team-card">
                     <div class="team-card__image-area">
                         <?php $image =  $member['image'] ?>
-                        <img <?php afloat_responsive_image2($image['id'], 'square-small'); ?> >
+                        <img <?php afloat_image_markup($image['id'], 'square-small'); ?> >
 
                     </div>
                     <div class="team-card__content">

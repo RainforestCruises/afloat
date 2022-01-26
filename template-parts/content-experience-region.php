@@ -109,8 +109,9 @@ $count = 0;
                 </div>
             </div>
             <div class="experience-region__content__image">
+
                 <!-- responsive -->
-                <img <?php afloat_responsive_image2($r['image']['id'], 'vertical-medium'); ?>>
+                <img <?php afloat_image_markup($r['image']['id'], 'vertical-medium'); ?>>
 
             </div>
         </div>

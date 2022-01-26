@@ -42,7 +42,7 @@ $featured_cruise_subtext = get_field('featured_title_subtext');
                             </div>
                         </div>
                         <a href="<?php echo $cruise_page ?>" class="home-featured-item__image-area">
-                        <img  <?php afloat_responsive_image2($c_image['id'], 'featured-square'); ?>>
+                        <img  <?php afloat_image_markup($c_image['id'], 'featured-square'); ?>>
 
                         </a>
                     </div>

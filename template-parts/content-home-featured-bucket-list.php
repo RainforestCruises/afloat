@@ -43,7 +43,7 @@ $featured_bucket_list_title_subtext = get_field('featured_second_title_subtext')
                             </div>
                         </div>
                         <a href="<?php echo $b_page ?>" class="home-featured-item__image-area home-featured-item__image-area--inverse">
-                            <img <?php afloat_responsive_image2($b_image['id'], 'featured-square'); ?>>
+                            <img <?php afloat_image_markup($b_image['id'], 'featured-square'); ?>>
                         </a>
                     </div>
 
