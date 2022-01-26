@@ -22,7 +22,7 @@ $highlights = get_field('highlights');
     <!-- Map Background -->
     <div class="destination-main__bg">
         <?php if ($background_map) : ?>
-            <img <?php afloat_responsive_image($background_map['id'], 'bg-portrait', array('bg-portrait')); ?> alt="">
+            <img <?php afloat_image_markup($background_map['id'], 'bg-portrait'); ?>>
         <?php endif; ?>
     </div>
 
@@ -106,7 +106,7 @@ $highlights = get_field('highlights');
                     <a class="wide-slider-card" href="<?php echo get_permalink($t); ?>">
                         <?php if ($hero_image) : ?>
                             <div class="wide-slider-card__image">
-                                <img <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?>>
+                                <img <?php afloat_image_markup($hero_image['id'], 'wide-slider-medium'); ?>>
                             </div>
                         <?php endif; ?>
 

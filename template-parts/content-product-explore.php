@@ -25,7 +25,7 @@
             if ($areaImages) : ?>
                 <?php foreach ($areaImages as $areaImage) : ?>
                     <div class="product-areas__slider__item">
-                        <img <?php afloat_responsive_image($areaImage['id'], 'featured-large', array('featured-large', 'featured-medium')); ?>>
+                        <img <?php afloat_image_markup($areaImage['id'], 'featured-large'); ?>>
 
                     </div>
                 <?php endforeach; ?>

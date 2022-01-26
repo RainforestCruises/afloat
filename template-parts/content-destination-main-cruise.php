@@ -99,7 +99,7 @@ $cruise_experiences = get_field('cruise_experiences');
                     <a class="product-card" href="<?php echo get_permalink($c); ?>">
                         <div class="product-card__image-area">
                             <?php if ($featured_image) : ?>
-                                <img <?php afloat_responsive_image($featured_image['id'], 'featured-medium', array('featured-medium')); ?>>
+                                <img <?php afloat_image_markup($featured_image['id'], 'featured-medium'); ?>>
                             <?php endif; ?>
                             <ul class="product-card__image-area__destinations">
                                 <?php
@@ -188,7 +188,7 @@ $cruise_experiences = get_field('cruise_experiences');
             ?>
                     <a class="category-card" href="<?php echo $link ?>">
                         <div class="category-card__image">
-                            <img <?php afloat_responsive_image($background_image['id'], 'pill-large', array('pill-large', 'pill-small')); ?>>
+                            <img <?php afloat_image_markup($background_image['id'], 'pill-large'); ?>>
                         </div>
 
                         <div class="category-card__content">
@@ -229,7 +229,7 @@ $cruise_experiences = get_field('cruise_experiences');
                 <a class="category-card" href="<?php echo $search_link ?>">
                     <div class="category-card__image">
                         <?php if ($background_image) : ?>
-                            <img <?php afloat_responsive_image($background_image['id'], 'pill-large', array('pill-large', 'pill-small')); ?>>
+                            <img <?php afloat_image_markup($background_image['id'], 'pill-large'); ?>>
                         <?php endif; ?>
                     </div>
 

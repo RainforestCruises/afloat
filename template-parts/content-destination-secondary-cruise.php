@@ -36,7 +36,7 @@ $tour_experiences = get_field('tour_experiences');
                         <a class="wide-slider-card" href="<?php echo get_permalink($t); ?>">
                             <?php if ($hero_image) { ?>
                                 <div class="wide-slider-card__image">
-                                    <img <?php afloat_responsive_image($hero_image['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?>>
+                                    <img <?php afloat_image_markup($hero_image['id'], 'wide-slider-medium'); ?>>
 
                                 </div>
                             <?php } ?>

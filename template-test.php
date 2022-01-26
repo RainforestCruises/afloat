@@ -33,7 +33,7 @@ $slider = get_field('hero');
                 
                     <div class="test-hero__bg__slide" >
                         <?php if ($sliderImage) : ?>                             
-                            <img <?php afloat_responsive_image_lazy($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?> alt="">
+                            <img <?php afloat_image_markup($sliderImage['id'], 'full-hero-large'); ?> alt="">
                         <?php endif; ?>
                     </div>
 

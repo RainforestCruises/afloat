@@ -29,7 +29,7 @@ $hotels = get_field('hotels');
             <!-- Product Card -->
             <div class="product-cabins__cabin ">
                 <div class="product-cabins__cabin__image-area">
-                    <img <?php afloat_responsive_image($featured_image['id'], 'featured-large', array('featured-large', 'featured-medium', 'featured-small')); ?>>
+                    <img <?php afloat_image_markup($featured_image['id'], 'featured-large'); ?>>
                 </div>
                 <div class="product-cabins__cabin__content">
                     <div class="product-cabins__cabin__content__title ">

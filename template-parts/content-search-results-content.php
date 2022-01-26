@@ -19,7 +19,7 @@ if ($results) :
 ?>
             <div class="search-result">
                 <a href="<?php echo $result->postUrl;  ?>" class="search-result__image-area">
-                    <img <?php afloat_responsive_image($result->productImageId, 'featured-medium', array('featured-medium')); ?>>
+                    <img <?php afloat_image_markup($result->productImageId, 'featured-medium'); ?>>
                 </a>
                 <div class="search-result__content">
                     <div class="search-result__content__top">
@@ -273,7 +273,7 @@ if ($results) :
         ?>
             <a href="<?php echo $result->postUrl;  ?>" class="search-result-gridview">
                 <div class="search-result-gridview__image-area">
-                    <img <?php afloat_responsive_image($result->productImageId, 'featured-medium', array('featured-medium')); ?>>
+                    <img <?php afloat_image_markup($result->productImageId, 'featured-medium'); ?>>
                 </div>
                 <ul class="search-result-gridview__destinations">
 

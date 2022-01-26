@@ -96,7 +96,7 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
                     </div>
 
                     <div class="destination-testimonial__image-area ">
-                        <img <?php afloat_responsive_image($t_image['id'], 'vertical-medium', array('vertical-medium')); ?>>
+                        <img <?php afloat_image_markup($t_image['id'], 'vertical-medium'); ?>>
                     </div>
                 </div>
 

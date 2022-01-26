@@ -267,7 +267,7 @@ $img = get_field('map');
                                 <div class="product-itinerary-slide__bottom__days__item__side">
                                     <div class="product-itinerary-slide__bottom__days__item__side__image-area">
                                         <?php if ($img != null) : ?>
-                                            <img <?php afloat_responsive_image($img['id'], 'featured-large', array('featured-large', 'featured-small')); ?>>
+                                            <img <?php afloat_image_markup($img['id'], 'featured-large'); ?>>
                                         <?php endif; ?>
                                     </div>
                                     <div class="product-itinerary-slide__bottom__days__item__side__detail">

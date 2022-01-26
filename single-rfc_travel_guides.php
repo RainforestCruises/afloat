@@ -115,7 +115,7 @@ while (have_posts()) :
       </div>
       <div class="travel-guide__image">
         <?php if ($image) : ?>
-          <img <?php afloat_responsive_image($image['ID'], 'featured-largest', array('featured-small', 'featured-medium', 'featured-large', 'featured-largest')); ?> alt="">
+          <img <?php afloat_image_markup($image['ID'], 'featured-largest'); ?> alt="">
         <?php endif; ?>
       </div>
 
@@ -155,7 +155,7 @@ while (have_posts()) :
           ?>
               <!-- Item -->
               <div class="travel-guide-related__slider-area__slider__item">
-                <img <?php afloat_responsive_image($imageId, 'featured-medium', array('featured-medium', 'featured-small')); ?> class="travel-guide-related__slider-area__slider__item__image">
+                <img <?php afloat_image_markup($imageId, 'featured-medium'); ?> class="travel-guide-related__slider-area__slider__item__image">
                 <div class="travel-guide-related__slider-area__slider__item__content">
                   <a class="travel-guide-related__slider-area__slider__item__content__title" href="<?php echo the_permalink(); ?>">
                     <h3>

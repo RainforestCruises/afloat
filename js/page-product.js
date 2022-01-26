@@ -492,7 +492,7 @@ jQuery(document).ready(function ($) {
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    lazyLoad: 'ondemand',
+    
     arrows: true,
     dots: false,
     prevArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--left product-related__slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',

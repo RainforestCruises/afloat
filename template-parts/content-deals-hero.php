@@ -19,7 +19,7 @@
         <!-- Card 1 -->
         <a class="deal-card" href="<?php echo $cardLink ?>">
             <div class="deal-card__image">
-                <img <?php afloat_responsive_image($cardImage, 'featured-large', array('featured-large', 'featured-medium')); ?>>
+                <img <?php afloat_image_markup($cardImage, 'featured-large'); ?>>
             </div>
             <div class="deal-card__content">
                 <div class="deal-card__content__title">
@@ -42,7 +42,7 @@
         <!-- Card 2 -->
         <a class="deal-card" href="<?php echo $cardLink ?>">
             <div class="deal-card__image">
-                <img <?php afloat_responsive_image($cardImage, 'featured-large', array('featured-large', 'featured-medium')); ?>>
+                <img <?php afloat_image_markup($cardImage, 'featured-large'); ?>>
             </div>
             <div class="deal-card__content">
                 <div class="deal-card__content__title">
@@ -64,7 +64,7 @@
         <!-- Card 3 -->
         <a class="deal-card" href="<?php echo $cardLink ?>">
             <div class="deal-card__image">
-                <img <?php afloat_responsive_image($cardImage, 'featured-large', array('featured-large', 'featured-medium')); ?>>
+                <img <?php afloat_image_markup($cardImage, 'featured-large'); ?>>
             </div>
             <div class="deal-card__content">
                 <div class="deal-card__content__title">
@@ -91,7 +91,7 @@
         <!-- Feature-->
         <a class="deal-card deal-card--wide" href="<?php echo $cardLink ?>">
             <div class="deal-card__image">
-                <img <?php afloat_responsive_image($cardImage, 'pill-large', array('pill-large', 'pill-small')); ?>>
+                <img <?php afloat_image_markup($cardImage, 'pill-large'); ?>>
             </div>
             <div class="deal-card__content">
                 <div class="deal-card__content__title">

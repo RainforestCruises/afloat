@@ -38,7 +38,7 @@ $badges = get_field('badges');
             <div class="about-corporate__grey__content__badge-area">
                 <?php foreach ($badges as $badge) : ?>
 
-                    <img <?php afloat_responsive_image($badge['id'], 'square-small', array('square-small')); ?> >
+                    <img <?php afloat_image_markup($badge['id'], 'square-small'); ?> >
 
                 <?php endforeach; ?>
             </div>
@@ -48,7 +48,7 @@ $badges = get_field('badges');
 
     <div class="about-corporate__image-area">
         <?php $background_image = get_field('background_image'); ?>
-        <img <?php afloat_responsive_image($background_image['id'], 'full-hero-small', array('full-hero-small')); ?> >
+        <img <?php afloat_image_markup($background_image['id'], 'full-hero-small'); ?> >
 
     </div>
 

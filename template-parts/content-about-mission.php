@@ -15,14 +15,14 @@
         ?>
 
         <div class="about-mission__imagery__main-image">
-            <img <?php afloat_responsive_image($collage_image_1['id'], 'featured-large', array('featured-large', 'featured-small')); ?> >
+            <img <?php afloat_image_markup($collage_image_1['id'], 'featured-large'); ?> >
             <h2 class="about-mission__imagery__main-image__tagline">
                 <?php echo get_field('collage_tagline') ?>
 
             </h2>
         </div>
         <div class="about-mission__imagery__secondary-image">
-            <img <?php afloat_responsive_image($collage_image_2['id'], 'square-medium', array('square-medium')); ?> >
+            <img <?php afloat_image_markup($collage_image_2['id'], 'square-medium'); ?> >
 
         </div>
 

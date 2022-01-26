@@ -184,7 +184,7 @@ $posts = get_posts($args); //Stage I posts
 
                     <div class="guide-item <?php echo $isoClasses ?>">
                         <div class="guide-item__image-area">
-                            <img <?php afloat_responsive_image($imageID, 'featured-medium', array('featured-small', 'featured-medium')); ?>>
+                            <img <?php afloat_image_markup($imageID, 'featured-medium'); ?>>
                         </div>
                         <div class="guide-item__bottom">
                             <ul class="guide-item__bottom__category">

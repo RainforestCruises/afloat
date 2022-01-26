@@ -127,7 +127,7 @@ $count = 0;
                     <!-- Tour Card -->
                     <a class="wide-slider-card" href="<?php echo $d['search_link'] ?>">
                         <div class="wide-slider-card__image">
-                            <img <?php afloat_responsive_image($cardImage['id'], 'wide-slider-medium', array('wide-slider-medium', 'wide-slider-small')); ?>>
+                            <img <?php afloat_image_markup($cardImage['id'], 'wide-slider-medium'); ?>>
                         </div>
 
 

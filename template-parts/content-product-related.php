@@ -32,6 +32,8 @@ if ($destinations) {
 
 
 $posts = get_posts($queryArgs);
+$resultCount = 0;
+
 ?>
 
 <div class="product-related">
@@ -58,11 +60,10 @@ $posts = get_posts($queryArgs);
                     $hasCharterAvailable = get_field('charter_available', $p);
                     $charter_min_days = get_field('charter_min_days', $p);
 
-                  
+
                     if (array_key_exists("LowestCharterPrice", $cruise_data)) {
                         $charter_daily_price = $cruise_data['LowestCharterPrice'];
                     }
-                 
                 }
 
                 if (!$charterView) {
@@ -80,7 +81,7 @@ $posts = get_posts($queryArgs);
                 }
 
 
-                
+
                 $relatedItemDestinations = get_field('destinations', $p);
                 $top_snippet = get_field('top_snippet', $p);
                 $currentYear = date('Y');
@@ -95,82 +96,84 @@ $posts = get_posts($queryArgs);
 
                     $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear);
                 }
+                if ($resultCount <= 12) :
             ?>
 
-                <!-- Card -->
-                <a class="product-card" href="<?php echo $link;; ?>">
-                    <div class="product-card__image-area">
-                        <?php if ($featured_image) : ?>
-                            <img <?php afloat_image_markup($featured_image['id'], 'featured-medium'); ?>>
-                        <?php endif; ?>
-                        <ul class="product-card__image-area__destinations">
-                            <?php
+                    <!-- Card -->
+                    <a class="product-card" href="<?php echo $link;; ?>">
+                        <div class="product-card__image-area">
+                            <?php if ($featured_image) : ?>
+                                <img <?php afloat_image_markup($featured_image['id'], 'featured-medium'); ?>>
+                            <?php endif; ?>
+                            <ul class="product-card__image-area__destinations">
+                                <?php
 
-                            if ($propertyDestinations) :
-                                foreach ($propertyDestinations as $d) :
-                                    echo '<li>' . get_field('navigation_title', $d) . '</li>';
-                                endforeach;
-                            endif; ?>
-                        </ul>
-                        <?php if ($charterView) : ?>
-                            <div class="product-card__image-area__charter-text">
-                                Private Charter
+                                if ($propertyDestinations) :
+                                    foreach ($propertyDestinations as $d) :
+                                        echo '<li>' . get_field('navigation_title', $d) . '</li>';
+                                    endforeach;
+                                endif; ?>
+                            </ul>
+                            <?php if ($charterView) : ?>
+                                <div class="product-card__image-area__charter-text">
+                                    Private Charter
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="product-card__bottom">
+
+                            <div class="product-card__bottom__title-group">
+                                <h3 class="product-card__bottom__title-group__product-name">
+                                    <?php echo (get_post_type($p) == 'rfc_tours') ? get_field('tour_name', $p) : get_the_title($p) ?>
+                                </h3>
+
                             </div>
-                        <?php endif; ?>
-                    </div>
-                    <div class="product-card__bottom">
-
-                        <div class="product-card__bottom__title-group">
-                            <h3 class="product-card__bottom__title-group__product-name">
-                                <?php echo (get_post_type($p) == 'rfc_tours') ? get_field('tour_name', $p) : get_the_title($p) ?>
-                            </h3>
-
-                        </div>
 
 
-                        <div class="product-card__bottom__text">
-                            <?php echo $top_snippet ?>
-                        </div>
+                            <div class="product-card__bottom__text">
+                                <?php echo $top_snippet ?>
+                            </div>
 
-                        <div class="product-card__bottom__info">
+                            <div class="product-card__bottom__info">
 
 
-                            <div class="product-card__bottom__info__length-group">
-                                <svg>
-                                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
-                                </svg>
-                                <div class="product-card__bottom__info__length-group__length">
-                                    <?php if ($charterView) :
-                                        echo $charter_min_days . ' Days +';
-                                    else :
-                                        echo (get_post_type($p) == 'rfc_tours') ? $tour_length  . " Days" : itineraryRange($cruise_data, " - ") . " Days";
-                                    endif; ?>
+                                <div class="product-card__bottom__info__length-group">
+                                    <svg>
+                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>
+                                    </svg>
+                                    <div class="product-card__bottom__info__length-group__length">
+                                        <?php if ($charterView) :
+                                            echo $charter_min_days . ' Days +';
+                                        else :
+                                            echo (get_post_type($p) == 'rfc_tours') ? $tour_length  . " Days" : itineraryRange($cruise_data, " - ") . " Days";
+                                        endif; ?>
+
+                                    </div>
+                                </div>
+                                <div class="product-card__bottom__info__price-group">
+
+                                    <?php if ($charterView) : ?>
+
+
+                                        <div class="product-card__bottom__info__price-group__from">Day</div>
+                                        <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($charter_daily_price);  ?> <span>USD</span></div>
+
+                                    <?php else : ?>
+                                        <div class="product-card__bottom__info__price-group__from">From</div>
+                                        <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($lowestPrice); ?> <span>USD</span></div>
+                                    <?php endif; ?>
 
                                 </div>
-                            </div>
-                            <div class="product-card__bottom__info__price-group">
 
-                                <?php if ($charterView) : ?>
-
-                               
-                                    <div class="product-card__bottom__info__price-group__from">Day</div>
-                                    <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($charter_daily_price);  ?> <span>USD</span></div>
-
-                                <?php else : ?>
-                                    <div class="product-card__bottom__info__price-group__from">From</div>
-                                    <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($lowestPrice); ?> <span>USD</span></div>
-                                <?php endif; ?>
 
                             </div>
-
-
                         </div>
-                    </div>
-                </a>
+                    </a>
 
             <?php
+                    $resultCount++;
+                endif;
             endforeach;
-
             ?>
         </div>
     <?php endif; ?>

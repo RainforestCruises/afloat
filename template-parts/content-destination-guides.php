@@ -30,7 +30,7 @@ $travel_guide_posts = get_field('travel_guide_posts');
             ?>
             <!-- Make link here -->
                     <a href="<?php echo get_permalink($travel_guide); ?>" class="destination-guides__grid-container__grid__item">
-                        <img <?php afloat_responsive_image($img['id'], 'featured-medium', array('featured-medium', 'featured-small')); ?>>
+                        <img <?php afloat_image_markup($img['id'], 'featured-medium'); ?>>
 
                         <div class="destination-guides__grid-container__grid__item__content">
                             <div class="destination-guides__grid-container__grid__item__content__category">
