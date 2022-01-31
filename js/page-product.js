@@ -1,24 +1,36 @@
 jQuery(document).ready(function ($) {
   const templateUrl = page_vars.templateUrl;
   var currentYear = new Date().getFullYear();
-
-
-  //Contact
   var body = $('body');
-  var modal = document.getElementById("contactModal");
-  var departureFormText = document.getElementById("contactModalDeparture");
 
+
+  //MODALS ---------------------
+  //Contact Modal (generic)
+  var contactModal = document.getElementById("contactModal");
+  var departureFormText = document.getElementById("contactModalDepartureText");
+
+  var dealsModal = document.getElementById("dealsModal");
+
+
+//Deals Slider
+  $('.deal-modal-cta-button').on('click', () => { 
+    dealsModal.classList.add('active');  
+    $('#deals-slider')[0].slick.setPosition()
+  });
+
+  //Activate contact modal (generic)
   $('#nav-secondary-cta, #nav-page-cta').on('click', () => {
     body.addClass('no-scroll');
-    modal.style.display = "flex";
-    departureFormText.style.display = "none";
+    contactModal.style.display = "flex";
+    departureFormText.style.display = "none"; //not departure specific
   });
 
 
   //Price Notes Modal
   var priceNotesModal = document.getElementById("page-modal");
-  var notificationModal = document.getElementById("notification-modal");
 
+
+  //Activare Price Notes
   const priceNoteButtons = [...document.querySelectorAll('.price-notes')];
   priceNoteButtons.forEach(item => {
     item.addEventListener('click', () => {
@@ -27,8 +39,13 @@ jQuery(document).ready(function ($) {
     });
   })
 
+  //Notification Modal (doesnt need open)
+  var notificationModal = document.getElementById("notification-modal");
+
+  //Close modals
+  //Buttons
   $('.close-button, #notification-close-cta').on('click', () => {
-    modal.style.display = "none";
+    contactModal.style.display = "none";
     body.removeClass('no-scroll');
     if (priceNotesModal) {
       priceNotesModal.classList.remove('active');
@@ -38,23 +55,31 @@ jQuery(document).ready(function ($) {
     }
   });
 
+
+  //Background Click
   window.onclick = function (event) { //trigger by background click
-    if (event.target == modal) {
-      modal.style.display = "none";
+    if (event.target == contactModal) {
+      contactModal.style.display = "none";
       body.removeClass('no-scroll');
     }
     if (event.target == priceNotesModal) {
       priceNotesModal.classList.remove('active');
       body.removeClass('no-scroll');
     }
-
     if (event.target == notificationModal) {
       notificationModal.classList.remove('active');
+      body.removeClass('no-scroll');
+    }
+
+    if (event.target == dealsModal) {
+      dealsModal.classList.remove('active');
       body.removeClass('no-scroll');
     }
   }
 
 
+
+  //ITINERARIES --------------------------------
   //Itinerary Info Tabs - Overview / Inclusions / Exclusions
   const tabArray = [...document.querySelectorAll('.product-itinerary-slide__top__side-info__tabs__item')];
   tabArray.forEach(item => {
@@ -88,8 +113,6 @@ jQuery(document).ready(function ($) {
 
     });
   })
-
-
 
   //Itinerary Slider
   $('#itineraries-slider').slick({
@@ -142,16 +165,16 @@ jQuery(document).ready(function ($) {
     //location.hash = '#itineraries'
   }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
     var counterDiv = $('#itineraries-slider-counter');
-    const params = new URLSearchParams(location.search);
-    params.set('i', currentSlide);
-
-    var anchor = window.location.hash;
-    if(anchor == ''){
-      window.history.replaceState({}, '', `${location.pathname}?${params}#itineraries`);
-    } else {
-      window.history.replaceState({}, '', `${location.pathname}?${params}${anchor}`);
-    }
     
+    // const params = new URLSearchParams(location.search);
+    // params.set('i', currentSlide);
+    // var anchor = window.location.hash;
+    // if (anchor == '') {
+    //   window.history.replaceState({}, '', `${location.pathname}?${params}#itineraries`);
+    // } else {
+    //   window.history.replaceState({}, '', `${location.pathname}?${params}${anchor}`);
+    // }
+
 
     var i = (currentSlide ? currentSlide : 0) + 1;
     counterDiv.text(i + ' / ' + slick.slideCount);
@@ -202,11 +225,11 @@ jQuery(document).ready(function ($) {
     var urlString = window.location.href;
     var url = new URL(urlString);
     var itinerarySlideFromUrl = url.searchParams.get("i");
-    
+
 
     console.log('pageshow')
     if (itinerarySlideFromUrl != null) {
-      $('#itineraries-slider-nav').slick('slickGoTo', itinerarySlideFromUrl)      
+      $('#itineraries-slider-nav').slick('slickGoTo', itinerarySlideFromUrl)
     }
 
   })
@@ -348,17 +371,16 @@ jQuery(document).ready(function ($) {
 
         const buttonArray = [...document.querySelectorAll('.departure-cta-button')];
 
-        //add click event handler to each LI
+        //add click event handler to each Inquire Button
         buttonArray.forEach(item => {
           item.addEventListener('click', () => {
-            var modal = document.getElementById("contactModal");
             var body = $('body');
+            var contactModal = document.getElementById("contactModal");
+            var departureFormText = document.getElementById("contactModalDepartureText"); //Departure Specific inqure form
 
-            var departureFormText = document.getElementById("contactModalDeparture"); //Inqure form
-            departureFormText.style.display = "block";
-
-            modal.style.display = "flex";
             body.addClass('no-scroll');
+            contactModal.style.display = "flex";
+            departureFormText.style.display = "block"; //Show departure date div
 
             var departureDate = item.getAttribute('departureDate');
             var itineraryNights = item.getAttribute('itineraryNights');
@@ -492,7 +514,7 @@ jQuery(document).ready(function ($) {
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    
+
     arrows: true,
     dots: false,
     prevArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--left product-related__slider__btn--left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
@@ -553,6 +575,26 @@ jQuery(document).ready(function ($) {
   });
 
 
+  $('#deals-slider').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    prevArrow: '<button class="btn-circle btn-white btn-circle--left btn-circle--large deals-slider__btn-left"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-left"></use></svg></button>',
+    nextArrow: '<button class="btn-circle btn-white btn-circle--right btn-circle--large deals-slider__btn-right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
+    responsive: [
+
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+          centerMode: true
+        }
+      },
+    ]
+  
+  });
 
 
   //Magnific Popups ---------------------------------------------------------------------------

@@ -41,7 +41,7 @@ if ($destination_type == 'rfc_destinations') {
         )
 
     );
-    console_log('dest');
+    
 };
 
 if ($destination_type == 'rfc_regions') {
@@ -112,22 +112,6 @@ $posts = get_posts($args); //Stage I posts
 
 <main class="travel-guide-landing-page">
 
-    <!-- Intro -->
-    <section class="travel-guide-landing-page__header">
-
-        <div class="travel-guide-landing-page__header__image-area">
-            <?php if ($image) : ?>
-                <img <?php afloat_image_markup($image['ID'], 'pill-large'); ?> alt="">
-            <?php endif; ?>
-        </div>
-
-        <div class="travel-guide-landing-page__header__icon-area">
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-04"></use>
-            </svg>
-        </div>
-        <!-- <input type="text" placeholder="Search Guide..." id="quicksearch"> -->
-    </section>
 
     <!-- Content -->
     <section class="travel-guide-landing-page__content">

@@ -79,8 +79,8 @@ $images = get_field('highlight_gallery');
                             <?php echo $productTitle ?>
                         </div>
                         <?php if ($args['hasDeals'] == true) : ?>
-                            <button class="btn-cta-round btn-cta-round--small btn-cta-round--green" style="height: 2.5rem;">
-                                PROMO
+                            <button class="btn-cta-round btn-cta-round--small btn-cta-round--green deal-modal-cta-button" style="height: 2.5rem;">
+                                Deals
                             </button>
                         <?php endif; ?>
                     </h1>

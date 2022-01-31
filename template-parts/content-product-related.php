@@ -107,7 +107,6 @@ $resultCount = 0;
                             <?php endif; ?>
                             <ul class="product-card__image-area__destinations">
                                 <?php
-
                                 if ($propertyDestinations) :
                                     foreach ($propertyDestinations as $d) :
                                         echo '<li>' . get_field('navigation_title', $d) . '</li>';
@@ -121,22 +120,15 @@ $resultCount = 0;
                             <?php endif; ?>
                         </div>
                         <div class="product-card__bottom">
-
                             <div class="product-card__bottom__title-group">
                                 <h3 class="product-card__bottom__title-group__product-name">
                                     <?php echo (get_post_type($p) == 'rfc_tours') ? get_field('tour_name', $p) : get_the_title($p) ?>
                                 </h3>
-
                             </div>
-
-
                             <div class="product-card__bottom__text">
                                 <?php echo $top_snippet ?>
                             </div>
-
                             <div class="product-card__bottom__info">
-
-
                                 <div class="product-card__bottom__info__length-group">
                                     <svg>
                                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-m-time"></use>

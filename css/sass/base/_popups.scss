@@ -113,42 +113,38 @@
     }
 }
 
-
 //Contact Forms
 .popup {
     position: fixed;
-    background-color: rgba($color-black, .8);
+    background-color: rgba($color-black, 0.8);
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    // width: 100%;
-    // height: 100%;
+
     display: none;
     overflow: auto;
     z-index: 999999;
-    //margin: 0 auto;
-    
+
     justify-content: center;
-    padding: 3rem 0 ;
+    align-items: center;
+    padding: 6rem 0;
 
-    animation: fadein .2s;
-    //animation-timing-function: ease-out;
-
-
+    animation: fadein 0.2s;
 
     &.active {
         display: flex;
     }
-   
 }
 
-
 .modal-content {
-    width: 100%;
     max-width: 110rem;
     height: min-content;
-    @include flexPadding;
+    width: 100%;
+
+    &--wide {
+        max-width: 142rem;
+    }
 
     &__wrapper {
         padding: 4rem;
@@ -160,10 +156,20 @@
         align-items: center;
         position: relative;
 
+        &.transparent {
+            padding: 0rem;
+            background-color: transparent;
+            border: none;
+         
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
         @media only screen and (max-width: $bp-small) {
             padding: 3rem 2rem;
         }
-
 
         &__close-button {
             position: absolute;
@@ -176,6 +182,3 @@
         }
     }
 }
-
-
-

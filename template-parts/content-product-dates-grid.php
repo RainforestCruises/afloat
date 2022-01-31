@@ -96,7 +96,7 @@ foreach ($departures as $departure) {
                 ?>
             </div>
             <?php if ($result['HasPromo'] == true) : ?>
-                <div class="promo-div">Promo
+                <div class="promo-div">Deal
                     <span class="tooltiptext"><?php echo $result['PromoName']; ?></span>
                 </div>
 
@@ -125,7 +125,7 @@ foreach ($departures as $departure) {
 </div>
 <?php if ($hasPromo) : ?>
     <div class="side-info-panel__departure-grid__note">
-        Contact us for promotion details
+        Contact us for details
     </div>
 
 <?php endif; ?>

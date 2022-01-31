@@ -3,7 +3,7 @@
     width: 100%;
     max-width: $page-width-narrow;
     height: min-content;
-    @include flexPadding;
+    //@include flexPadding;
 
     &__wrapper { 
         padding: 6rem 2rem;
@@ -110,7 +110,7 @@
 
         &__close-button {
             position: absolute;
-            top: 3rem;
+            //top: 3rem;
             right: 3rem;
 
             @media only screen and (max-width: $bp-small) {

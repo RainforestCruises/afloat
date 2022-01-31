@@ -26,7 +26,7 @@ if ($results) :
                         <div class="search-result__content__top__badge-area">
                             <?php if ($result->promoAvailable == true) : ?>
                                 <div class="badge-solid badge-solid--small badge-solid--green">
-                                    PROMO
+                                    Deal
                                 </div>
                             <?php endif; ?>
                         </div>

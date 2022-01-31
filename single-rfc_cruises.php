@@ -81,7 +81,7 @@ while (have_posts()) :
 
   $dealPosts = get_posts($dealArgs);
   $hasDeals = (count($dealPosts) > 0) ? true : false;
-  if($charter_view == true) {
+  if ($charter_view == true) {
     $hasDeals = false;
   }
   console_log($dealPosts);
@@ -189,6 +189,15 @@ while (have_posts()) :
     <input type="hidden" name="productId" value="<?php echo get_the_ID() ?>">
 
   </form>
+
+
+  
+  <!-- Deals Modal -->
+  <?php
+  if ($hasDeals == true) {
+    get_template_part('template-parts/content', 'product-deals-modal', $args);
+  }
+  ?>
 
   <!-- Contact Modal -->
   <?php

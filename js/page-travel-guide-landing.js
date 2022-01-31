@@ -1,4 +1,5 @@
 jQuery(document).ready(function ($) {
+    //TRAVEL GUIDES / DEALS -- LANDING PAGES
 
     // quick search regex
     var qsRegex;

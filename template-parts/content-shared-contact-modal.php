@@ -17,7 +17,7 @@ if(get_post_type() == 'rfc_cruises' || get_post_type() == 'rfc_lodges' || get_po
                 <div class="contact__wrapper__intro__title">
                     Interested in <?php echo $isProduct ? "the " : "" ?> <?php echo (get_post_type() == 'rfc_tours') ? get_field("tour_name") .  " Tour" :  get_the_title(); ?>?
                 </div>
-                <div class="contact__wrapper__intro__departure" id="contactModalDeparture">
+                <div class="contact__wrapper__intro__departure" id="contactModalDepartureText">
                     
                 </div>
                 <div class="contact__wrapper__intro__introtext">

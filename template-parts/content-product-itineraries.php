@@ -6,7 +6,7 @@ $currentMonth = $args['currentMonth'];
 $years = $args['years'];
 $months = $args['months'];
 $monthNames = $args['monthNames'];
-
+$hasDeals = $args['hasDeals'];
 
 $charter_view = false;
 $charter_available = false;
@@ -189,7 +189,7 @@ endforeach;
                                                                 <li class="date-grid__item date-grid__item--sold-out " itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
                                                                     <?php echo $departureMonth['MonthNameShort']; ?>
                                                                 </li>
-                                                            <?php } else if ($departureMonth['HasDepartures'] == false && $departureMonth['IsTBA'] == true){ ?>
+                                                            <?php } else if ($departureMonth['HasDepartures'] == false && $departureMonth['IsTBA'] == true) { ?>
                                                                 <li class="date-grid__item date-grid__item--tba " itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
                                                                     <?php echo $departureMonth['MonthNameShort']; ?>
                                                                     <span class="tooltiptext">Dates TBD</span>
@@ -214,7 +214,7 @@ endforeach;
                                                 <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors">
 
                                                     <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors__item product-itinerary-slide__top__side-info__content__widget__legend__colors__item--promo ">
-                                                        Promo
+                                                        Deal
                                                     </div>
                                                     <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors__item product-itinerary-slide__top__side-info__content__widget__legend__colors__item--available ">
                                                         Available
@@ -223,9 +223,15 @@ endforeach;
                                                         Sold Out
                                                     </div>
                                                 </div>
-
-
                                             </div>
+                                            <?php if ($hasDeals == true) : ?>
+                                                <div class="product-itinerary-slide__top__side-info__content__widget__deals-button">
+                                                    <button class="btn-cta-round btn-cta-round--small btn-cta-round--green deal-modal-cta-button" style="height: 2.5rem;">
+                                                        View Deals
+                                                    </button>
+                                                </div>
+                                            <?php endif; ?>
+
                                         </div>
                                     <?php endif; ?>
 

@@ -660,7 +660,7 @@
                 &__widget {
                     position: relative;
                     padding-bottom: 2rem;
-                    margin-bottom: 2rem;
+                    margin-bottom: 0rem;
                     position: relative;
 
                     &__top-section {
@@ -756,6 +756,15 @@
                                     }
                                 }
                             }
+                        }
+                    }
+
+                    &__deals-button {
+                        margin-top: 1rem;
+                        @media only screen and (max-width: $bp-small) {
+                            display: flex;
+                            justify-content: center;
+
                         }
                     }
 

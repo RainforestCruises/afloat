@@ -42,7 +42,7 @@
             "label": "Description",
             "name": "description",
             "type": "wysiwyg",
-            "instructions": "Short description of the conditions",
+            "instructions": "Short description of the conditions -- 360 character max",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -330,5 +330,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Deal - CPT",
-    "modified": 1642792973
+    "modified": 1643316812
 }
