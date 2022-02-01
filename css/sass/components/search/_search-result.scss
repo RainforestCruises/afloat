@@ -73,6 +73,46 @@
                 position: absolute;
                 top: -0.3rem;
                 right: 0;
+                & .badge-solid {
+                    cursor: pointer;
+                }
+                &:hover {
+                    .deal-popover {
+                        visibility: visible;
+                        
+                    }
+                    
+                }
+              
+            }
+
+            & .deal-popover {
+                width: max-content;
+                max-width: 30rem;
+                visibility: hidden;
+                position: absolute;
+                top: 1.8rem;
+                right: 2.8rem;
+                background-color: $color-white;
+                border: 1px solid $color-grey-light-2;
+                border-radius: .4rem;
+                padding: .5rem 1.5rem;
+                font-size: 1.4rem;
+                box-shadow: $shadow-medium-bottom;
+                color: $color-primary;
+                text-transform: none;
+                letter-spacing: 0;
+                cursor: default;
+              
+            
+
+                & div:not(:last-child) {
+                    margin-bottom: .5rem;
+                    padding-bottom: .5rem;
+                    border-bottom: 1px solid $color-grey-light-1a;
+                }
+                
+
             }
 
             &__title-group {

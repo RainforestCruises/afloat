@@ -524,7 +524,8 @@ p {
   display: inline;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  border-radius: 8rem; }
+  border-radius: 8rem;
+  position: relative; }
   .badge-solid--red {
     background-color: #de5c52; }
   .badge-solid--green {
@@ -5826,6 +5827,31 @@ h5 {
         position: absolute;
         top: -0.3rem;
         right: 0; }
+        .search-result__content__top__badge-area .badge-solid {
+          cursor: pointer; }
+        .search-result__content__top__badge-area:hover .deal-popover {
+          visibility: visible; }
+      .search-result__content__top .deal-popover {
+        width: max-content;
+        max-width: 30rem;
+        visibility: hidden;
+        position: absolute;
+        top: 1.8rem;
+        right: 2.8rem;
+        background-color: #fff;
+        border: 1px solid #c2c6c9;
+        border-radius: .4rem;
+        padding: .5rem 1.5rem;
+        font-size: 1.4rem;
+        box-shadow: 0 2rem 2rem -1rem rgba(0, 0, 0, 0.25);
+        color: #142838;
+        text-transform: none;
+        letter-spacing: 0;
+        cursor: default; }
+        .search-result__content__top .deal-popover div:not(:last-child) {
+          margin-bottom: .5rem;
+          padding-bottom: .5rem;
+          border-bottom: 1px solid #e6e6e6; }
       .search-result__content__top__title-group {
         padding-bottom: 1rem; }
         .search-result__content__top__title-group__title {

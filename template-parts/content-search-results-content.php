@@ -5,17 +5,16 @@ $pageCount = $args['pageCount'];
 $pageNumber = $args['pageNumber'];
 $viewType = $args['viewType'];
 $charterFilter = $args['charterFilter'];
-
 console_log($results);
 //if results
 if ($results) :
     if ($viewType != 'grid') : //list view
         foreach ($results as $result) :
 
-            if ($result->promoAvailable == true) :
-                //GET PROMOS
-                //Render a popup
-            endif;
+            $dealPosts = [];
+            if ($result->dealAvailable == true) {
+                $dealPosts = $result->dealPosts;
+            }
 ?>
             <div class="search-result">
                 <a href="<?php echo $result->postUrl;  ?>" class="search-result__image-area">
@@ -23,13 +22,19 @@ if ($results) :
                 </a>
                 <div class="search-result__content">
                     <div class="search-result__content__top">
-                        <div class="search-result__content__top__badge-area">
-                            <?php if ($result->promoAvailable == true) : ?>
+                        <?php if ($result->dealAvailable == true) : ?>
+                            <div class="search-result__content__top__badge-area">
                                 <div class="badge-solid badge-solid--small badge-solid--green">
                                     Deal
+                                    <div class="deal-popover">
+                                        <?php foreach ($dealPosts as $d) {
+                                            echo '<div>' . get_field('navigation_title', $d) . '</div>';
+                                        } ?>
+                                    </div>
                                 </div>
-                            <?php endif; ?>
-                        </div>
+                            </div>
+
+                        <?php endif; ?>
                         <div class="search-result__content__top__title-group">
                             <div class="search-result__content__top__title-group__subtitle">
                                 <span class="subtitle-fit <?php echo ($charterFilter == false) ? 'current' : ''; ?>"><?php echo $result->productTypeDisplay ?></span>

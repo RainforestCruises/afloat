@@ -148,7 +148,13 @@ while (have_posts()) :
 <?php
 endwhile;
 ?>
-
+  <!-- Deals Modal -->
+  <?php
+  if ($hasDeals == true) {
+    get_template_part('template-parts/content', 'product-deals-modal', $args);
+  }
+  ?>
+  
 <!-- Contact Modal -->
 <?php
 get_template_part('template-parts/content', 'shared-contact-modal', $args);

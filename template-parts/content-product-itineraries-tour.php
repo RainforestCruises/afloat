@@ -6,7 +6,7 @@ $currentMonth = $args['currentMonth'];
 $years = $args['years'];
 $months = $args['months'];
 $monthNames = $args['monthNames'];
-
+$hasDeals = $args['hasDeals'];
 //$itineraries = get_field('itineraries');
 
 $days = [];
@@ -66,7 +66,7 @@ $img = get_field('map');
                             <div class="product-itinerary-slide__top__side-info__content__widget__top-section u-margin-bottom-small">
                                 <h5 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
                                     Prices (USD)
-                                    <?php 
+                                    <?php
                                     $display_policies = get_field('display_policies');
                                     $display_special_note = get_field('display_special_note');
                                     if ($display_policies || $display_special_note) : ?>
@@ -150,7 +150,13 @@ $img = get_field('map');
                                 </div>
                             <?php $yearCount++;
                             } ?>
-
+                            <?php if ($hasDeals == true) : ?>
+                                <div class="product-itinerary-slide__top__side-info__content__widget__deals-button tour-lodge" >
+                                    <button class="btn-cta-round btn-cta-round--small btn-cta-round--green deal-modal-cta-button" style="height: 2.5rem;">
+                                        View Deals
+                                    </button>
+                                </div>
+                            <?php endif; ?>
                         </div>
 
 

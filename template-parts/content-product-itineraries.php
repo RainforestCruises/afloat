@@ -465,6 +465,13 @@ endforeach;
                                             </div>
                                         <?php endif; ?>
                                         <?php if (get_post_type() == 'rfc_lodges') : ?>
+                                            <?php if ($hasDeals == true) : ?>
+                                                <div class="product-itinerary-slide__top__side-info__content__widget__deals-button u-margin-bottom-medium">
+                                                    <button class="btn-cta-round btn-cta-round--small btn-cta-round--green deal-modal-cta-button" style="height: 2.5rem;">
+                                                        View Deals
+                                                    </button>
+                                                </div>
+                                            <?php endif; ?>
                                             <div class="product-itinerary-slide__top__side-info__content__widget">
                                                 <div class="charter-info-snippet">
                                                     <?php echo get_field('itinerary_snippet'); ?>
