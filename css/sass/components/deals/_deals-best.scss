@@ -1,42 +1,176 @@
 .deals-best {
-    max-width: $page-width;
+    width: 100%;
     padding: 0 6rem;
-    @media only screen and (max-width: $bp-small) {
-        padding: 0 3rem;
+    @media only screen and (max-width: $bp-medium) {
+        padding: 0;
     }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     &__title {
         font-size: 3.5rem;
         color: $color-primary;
         letter-spacing: 0.2rem;
         font-weight: 600;
-        //margin-top: 2rem;
         line-height: 6rem;
         text-align: center;
-
-        
+        line-height: 4rem;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
     }
 
-    &__subtext {
-        font-size: 1.6rem;
-        margin: 2rem 0;
-        text-align: center;
+    &__slider {
+        width: 100%;
+        //max-width: 140rem;
 
+        z-index: 10;
 
-    }
-
-    &__row {
-        display: flex;
-
+        //side padding
+        padding: 0 9rem; //extra +3 for buttons
         @media only screen and (max-width: $bp-medium) {
-            flex-direction: column;
+            padding: 0rem;
         }
 
-      
+        //max 6?
+        .slick-dots {
+            max-width: 35rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .slick-slide {
+            margin: 1.5rem;
+            margin-bottom: 4rem;
+            box-shadow: $shadow-medium-bottom;
+            min-width: 0;
+
+            @media only screen and (max-width: $bp-small) {
+                margin-bottom: 3rem;
+                margin: .5rem;
+            }
+        }
+
+        .deal-slide {
+
+   
+            border-bottom-left-radius: 0.4rem;
+            border-bottom-right-radius: 0.4rem;
+            background-color: $color-white;
+
+
+
+            display: flex;
+            flex-direction: column;
+
+
+            &__image-area {
+                height: 25rem;
+
+                @media only screen and (max-width: $bp-medium) {
+                    height: 35rem;
+                }
+                @media only screen and (max-width: $bp-small) {
+                    height: 25rem;
+                }
+
+                & img {
+                    border-top-left-radius: 0.4rem;
+                    border-top-right-radius: 0.4rem;
+
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            &__bottom {
+                display: flex;
+                flex-direction: column;
+
+                padding: 2rem 3rem;
+
+                &__category {
+                    text-transform: uppercase;
+                    color: $color-gold;
+                    font-size: 1.4rem;
+                    letter-spacing: 0.2rem;
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin: 1rem 0;
+                    list-style: none;
+
+                    & li {
+                        white-space: nowrap;
+                        margin-right: 1rem;
+                        position: relative;
+
+                        &:not(:last-child) {
+                            &::after {
+                                content: ", ";
+                                position: absolute;
+                                right: -0.4rem;
+                            }
+                        }
+                    }
+                }
+
+                &__title {
+                    color: $color-primary;
+                    &:link,
+                    &:visited {
+                        text-decoration: none;
+                        color: $color-primary;
+                        &:hover {
+                            color: $color-supporting-light;
+                        }
+                    }
+
+                    & h2 {
+                        font-size: 3rem;
+                        font-weight: 500;
+                        letter-spacing: 0.1rem;
+                        line-height: 4rem;
+
+                        margin: 0.5rem 0;
+
+                        transition: all 0.2s;
+                    }
+                }
+
+                &__snippet {
+                    font-size: 1.6rem;
+                    padding: 1rem 0;
+                    padding-bottom: 2rem;
+                }
+
+                &__cta {
+                    &--multiple {
+                        display: flex;
+                        flex-wrap: wrap;
+                        border-top: 1px solid $color-grey-light-2;
+                        position: relative;
+                        margin-top: 2rem;
+                        & span {
+                            position: absolute;
+                            top: -2rem;
+                            font-size: 1.2rem;
+                            color: $color-primary;
+                            letter-spacing: 0.1rem;
+                        }
+
+                        & a {
+                            padding-right: 2rem;
+                            padding-bottom: 0.5rem;
+                            &:not(:last-child) {
+                                &::after {
+                                    content: ", ";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-
-    
 }
-
-
-

@@ -5,7 +5,7 @@ return array (
   'title' => 'Deals',
   'type' => 'rfc_deals',
   'id' => '61dca42e9152d',
-  'updated' => 1642792989,
+  'updated' => 1643831732,
   'columns' => 
   array (
     'title' => 
@@ -183,6 +183,22 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '61dca405c8f5c4',
+    ),
+    '61fae1a394fdf4' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Is Charter Deal',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_61fae150cc4f9',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '61fae1a394fdf4',
     ),
     '61dca3e7d020c4' => 
     array (

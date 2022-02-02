@@ -56,34 +56,12 @@ while (have_posts()) :
   $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, true);
 
 
+ 
+  //Get Deals
+  $dealPosts = listDealsForProduct(get_post(), $charter_view);
 
-  //Deals
-  $dealArgs = array(
-    'post_type' => 'rfc_deals',
-    'posts_per_page' => -1,
-    'meta_key' => 'value_rating',
-    'orderby' => 'meta_value_num',
-    'order' => 'DESC',
-  );
-  $dealArgs['meta_query'][] = array(
-    'key'     => 'products',
-    'value'   => '"' . get_the_ID() . '"',
-    'compare' => 'LIKE'
-  );
-  $dealArgs['meta_query'][] = array(
-    'key'     => 'is_active',
-    'value'   => true,
-    'compare' => '='
-  );
-
-  // //Check Charter -- BUG: cannot filter true/false correctly
-
-
-  $dealPosts = get_posts($dealArgs);
   $hasDeals = (count($dealPosts) > 0) ? true : false;
-  if ($charter_view == true) {
-    $hasDeals = false;
-  }
+
   console_log($dealPosts);
 
 

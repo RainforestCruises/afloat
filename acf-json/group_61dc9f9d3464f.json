@@ -180,6 +180,25 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_61fae150cc4f9",
+            "label": "Is Charter Deal",
+            "name": "is_charter_deal",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_61e05fceebdd7",
             "label": "SERP Link",
             "name": "serp_link",
@@ -330,5 +349,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Deal - CPT",
-    "modified": 1643316812
+    "modified": 1643831679
 }

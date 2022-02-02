@@ -56,11 +56,8 @@
         height: 35rem;
         width: 40%;
 
-        // @media only screen and (max-width: $bp-medium) {
-        //     height: 24rem;
-        // }
-
         @media only screen and (max-width: $bp-small) {
+            height: 25rem; 
             width: 100%;
         }
 

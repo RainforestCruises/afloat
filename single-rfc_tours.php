@@ -10,8 +10,9 @@ wp_localize_script(
     'templateUrl' =>  $templateUrl
   )
 );
-
 ?>
+
+
 <?php
 while (have_posts()) :
   the_post();
@@ -24,33 +25,12 @@ while (have_posts()) :
   $monthNames = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 
 
-
-
   $price_packages = get_field('price_packages');
   $lowestPrice = lowest_tour_price($price_packages, $currentYear);
-
   $lowestYear = initial_price_year($price_packages);
 
 
-  //Deals
-  $dealArgs = array(
-    'post_type' => 'rfc_deals',
-    'posts_per_page' => -1,
-    'meta_key' => 'value_rating',
-    'orderby' => 'meta_value_num',
-    'order' => 'DESC',
-  );
-  $dealArgs['meta_query'][] = array(
-    'key'     => 'products',
-    'value'   => '"' . get_the_ID() . '"',
-    'compare' => 'LIKE'
-  );
-  $dealArgs['meta_query'][] = array(
-    'key'     => 'is_active',
-    'value'   => true,
-    'compare' => '='
-  );
-  $dealPosts = get_posts($dealArgs);
+  $dealPosts = listDealsForProduct(get_post(), false);
   $hasDeals = (count($dealPosts) > 0) ? true : false;
   console_log($dealPosts);
 

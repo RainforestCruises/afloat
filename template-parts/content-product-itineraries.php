@@ -543,9 +543,16 @@ endforeach;
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <?php if ($hasDeals == true) : ?>
+                                            <div class="product-itinerary-slide__top__side-info__content__widget__deals-button" style="transform: translateY(-2rem);">
+                                                <button class="btn-cta-round btn-cta-round--small btn-cta-round--green deal-modal-cta-button" style="height: 2.5rem;">
+                                                    View Deals
+                                                </button>
+                                            </div>
+                                        <?php endif; ?>
                                         <!-- SNIPPET -->
                                         <div class="product-itinerary-slide__top__side-info__content__widget" style="margin-bottom: 0rem">
+                                        
                                             <div class="charter-info-snippet">
                                                 <?php
                                                 if (array_key_exists("CharterSnippet", $itinerary)) {

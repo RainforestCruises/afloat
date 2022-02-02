@@ -9,7 +9,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear, $currentYea
         $itineraries = $cruise_data['Itineraries'];
 
         if (count($itineraries) > 0) {
-    
+
             foreach ($itineraries as $i) {
                 // needs to check If lodge and Is Sample then skip
 
@@ -18,7 +18,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear, $currentYea
                     foreach ($rateYears as $r) {
 
                         //Include sliding range of years
-                          if($currentYearOnly == false){
+                        if ($currentYearOnly == false) {
                             if ($r['Year'] >= $fromYear) {
                                 $rates = $r['Rates'];
                                 $rateValues = [];
@@ -31,7 +31,6 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear, $currentYea
                                     $prices[] = min($rateValues);
                                 }
                             }
-                            
                         } else { //Shown in product header
                             if ($r['Year'] == date("Y")) {
                                 $rates = $r['Rates'];
@@ -46,12 +45,10 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear, $currentYea
                                 }
                             }
                         }
-                        
                     }
                 }
-                
             }
-    
+
             if (count($prices) > 0) {
                 $lowestPrice = min($prices);
             } else {
@@ -61,7 +58,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear, $currentYea
             $lowestPrice = 0;
         }
     }
-   
+
 
 
     return $lowestPrice;
@@ -75,17 +72,17 @@ function itineraryRange($cruise_data, $separator, $onlyMin = false)
     if (array_key_exists('Itineraries', $cruise_data)) {
         $itineraries = $cruise_data['Itineraries'];
         $itineraryValues  = [];
-        
-    
+
+
         if (count($itineraries) > 0) {
             foreach ($itineraries as $i) {
                 $itineraryValues[] = $i['LengthInDays'];
             }
-    
+
             $rangeFrom = min($itineraryValues);
             $rangeTo = max($itineraryValues);
-    
-    
+
+
             if (!$onlyMin) {
                 if ($rangeFrom != $rangeTo) {
                     $returnString = $rangeFrom . $separator . $rangeTo;
@@ -99,7 +96,7 @@ function itineraryRange($cruise_data, $separator, $onlyMin = false)
             $returnString = "N/A";
         }
     }
-    
+
 
 
 
@@ -334,14 +331,7 @@ function cruises_available_region($region, $experience, $isCharter, $isLodge = f
 }
 
 
-
-
-
-
-
-
-
-
+//Deprecated
 function check_if_promo($cruise_data, $startDate, $endDate, $lengthMin, $lengthMax)
 {
     //filter itineraries if selection
@@ -370,31 +360,44 @@ function check_if_promo($cruise_data, $startDate, $endDate, $lengthMin, $lengthM
     return $hasPromo;
 }
 
+//Works for cruise / lodge / tour
+function listDealsForProduct($post, $charterView = false)
+{
 
-function listDealsForProduct($post) {
+    //Deals
+    $dealArgs = array(
+        'post_type' => 'rfc_deals',
+        'posts_per_page' => -1,
+        'meta_key' => 'value_rating',
+        'orderby' => 'meta_value_num',
+        'order' => 'DESC',
+    );
+    $dealArgs['meta_query'][] = array(
+        'key'     => 'products',
+        'value'   => '"' . $post->ID . '"',
+        'compare' => 'LIKE'
+    );
+    $dealArgs['meta_query'][] = array(
+        'key'     => 'is_active',
+        'value'   => true,
+        'compare' => '='
+    );
 
-  //Deals
-  $dealArgs = array(
-    'post_type' => 'rfc_deals',
-    'posts_per_page' => -1,
-    'meta_key' => 'value_rating',
-    'orderby' => 'meta_value_num',
-    'order' => 'DESC',
-  );
-  $dealArgs['meta_query'][] = array(
-    'key'     => 'products',
-    'value'   => '"' . $post->ID . '"',
-    'compare' => 'LIKE'
-  );
-  $dealArgs['meta_query'][] = array(
-    'key'     => 'is_active',
-    'value'   => true,
-    'compare' => '='
-  );
-
-  // //Check Charter -- BUG: cannot filter true/false correctly
+    //Filter for charter deals
+    if ($charterView == true) {
+        $dealArgs['meta_query'][] = array(
+            'key'     => 'is_charter_deal',
+            'value'   => '1'
+        );
+    } else {
+        $dealArgs['meta_query'][] = array(
+            'key'     => 'is_charter_deal',
+            'value'     => '0',
+	 
+        );
+    }
 
 
-  $dealPosts = get_posts($dealArgs);
-  return $dealPosts;
+    $dealPosts = get_posts($dealArgs);
+    return $dealPosts;
 }

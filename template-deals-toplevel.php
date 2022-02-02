@@ -1,6 +1,14 @@
 <?php
 /*Template Name: Deals - Top Level*/
-//wp_enqueue_script('page-deals', get_template_directory_uri() . '/js/page-deals.js', array('jquery'), false, true);
+wp_enqueue_script('page-deals-toplevel', get_template_directory_uri() . '/js/page-deals-toplevel.js', array('jquery'), false, true);
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+    'page-deals-toplevel',
+    'page_vars',
+    array(
+        'templateUrl' =>  $templateUrl
+    )
+);
 ?>
 
 <?php
@@ -19,6 +27,15 @@ $categories = get_posts(array(
     'order' => 'ASC',
 ));
 
+
+
+$selectedDeals = get_field('selected_deals');
+console_log($selectedDeals);
+
+$args = array(
+    'deals' => $selectedDeals,
+);
+
 ?>
 
 <main class="deals-page">
@@ -31,7 +48,13 @@ $categories = get_posts(array(
     </section>
     <section class="deals-page__section-best">
         <?php
-        get_template_part('template-parts/content', 'deals-best');
+        get_template_part('template-parts/content', 'deals-best', $args);
+        ?>
+    </section>
+    <!-- Newsletter -->
+    <section class="experience-page__section-newsletter">
+        <?php
+        get_template_part('template-parts/content', 'shared-newsletter');
         ?>
     </section>
 

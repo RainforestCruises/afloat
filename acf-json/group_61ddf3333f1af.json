@@ -333,6 +333,31 @@
                     "multiple": 0
                 }
             ]
+        },
+        {
+            "key": "field_61faa7f718a4d",
+            "label": "Selected Deals",
+            "name": "selected_deals",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_deals"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
         }
     ],
     "location": [
@@ -352,5 +377,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Deals - Page (Top Level)",
-    "modified": 1642093334
+    "modified": 1643817011
 }

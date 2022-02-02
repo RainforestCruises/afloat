@@ -1,7 +1,14 @@
 <section class="newsletter">
     <div class="newsletter__content">
         <h2 class="newsletter__content__title">
-            <?php echo get_field('newsletter_title', 'options'); ?>
+            <?php 
+            if(is_page_template('template-deals-toplevel.php')){
+                echo 'Find Out About Great Deals'; 
+            } else {
+                echo get_field('newsletter_title', 'options'); 
+            }
+            
+            ?>
         </h2>
         <div class="newsletter__content__text">
             <?php echo get_field('newsletter_snippet', 'options'); ?>

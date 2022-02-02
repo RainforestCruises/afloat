@@ -59,7 +59,7 @@ $experience = get_field('experience_post');
 
 
 
-</ma>
+</main>
 
 <?php get_footer(); ?>
 
