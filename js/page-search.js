@@ -705,15 +705,20 @@ jQuery(document).ready(function ($) {
             var subtitles = $(item).parent().parent().parent().find('.search-result__content__top__title-group__subtitle span');
             subtitles.removeClass('current');
       
+            var badges = $(item).parent().parent().parent().find('.dealbadge');
+            badges.removeClass('current');
+      
             if (item.classList.contains('fit-tab')) {
               panels[0].classList.add('current');
               thisTabArray[0].classList.add('current');
-              subtitles[0].classList.add('current')
+              subtitles[0].classList.add('current');
+              badges[0].classList.add('current');
       
             } else {
               panels[1].classList.add('current');
               thisTabArray[1].classList.add('current');
-              subtitles[1].classList.add('current')
+              subtitles[1].classList.add('current');
+              badges[1].classList.add('current');
             }
   
 
@@ -789,15 +794,20 @@ jQuery(document).ready(function ($) {
       var subtitles = $(item).parent().parent().parent().find('.search-result__content__top__title-group__subtitle span');
       subtitles.removeClass('current');
 
+      var badges = $(item).parent().parent().parent().find('.dealbadge');
+      badges.removeClass('current');
+
       if (item.classList.contains('fit-tab')) {
         panels[0].classList.add('current');
         thisTabArray[0].classList.add('current');
-        subtitles[0].classList.add('current')
+        subtitles[0].classList.add('current');
+        badges[0].classList.add('current');
 
       } else {
         panels[1].classList.add('current');
         thisTabArray[1].classList.add('current');
-        subtitles[1].classList.add('current')
+        subtitles[1].classList.add('current');
+        badges[1].classList.add('current');
       }
       //Pre Title Text Change - charter
       //Promo badge hide - charter

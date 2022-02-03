@@ -225,8 +225,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         $vesselCapacityDisplay = "";
         $numberOfCabinsDisplay = "";
 
-        $dealAvailable = false;
-        $dealPosts = [];
+ 
 
 
         $charterAvailable = false;
@@ -448,9 +447,18 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
 
         //check if has promos
+        $dealAvailable = false;
+        $dealPosts = [];
         $dealPosts = listDealsForProduct($p);
-        if (count(listDealsForProduct($p)) > 0) {
+        if (count($dealPosts) > 0) {
             $dealAvailable = true;
+        }
+
+        $charterDealAvailable = false;
+        $charterDealPosts = [];
+        $charterDealPosts = listDealsForProduct($p, true);
+        if (count($charterDealPosts) > 0) {
+            $charterDealAvailable = true;
         }
 
         $results[] = (object) array(
@@ -473,6 +481,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             'itineraryCountDisplay' => $itineraryCountDisplay,
             'dealAvailable' => $dealAvailable,
             'dealPosts' => $dealPosts,
+            'charterDealAvailable' => $charterDealAvailable,
+            'charterDealPosts' => $charterDealPosts,
             'charterOnly' => $charterOnly,
             'charterAvailable' => $charterAvailable,
             'vesselCapacity' => $vesselCapacity,

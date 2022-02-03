@@ -15,6 +15,10 @@ if ($results) :
             if ($result->dealAvailable == true) {
                 $dealPosts = $result->dealPosts;
             }
+            $charterDealPosts = [];
+            if ($result->charterDealAvailable == true) {
+                $charterDealPosts = $result->charterDealPosts;
+            }
 ?>
             <div class="search-result">
                 <a href="<?php echo $result->postUrl;  ?>" class="search-result__image-area">
@@ -22,9 +26,10 @@ if ($results) :
                 </a>
                 <div class="search-result__content">
                     <div class="search-result__content__top">
-                        <?php if ($result->dealAvailable == true) : ?>
-                            <div class="search-result__content__top__badge-area">
-                                <div class="badge-solid badge-solid--small badge-solid--green">
+
+                        <div class="search-result__content__top__badge-area">
+                            <?php if ($result->dealAvailable == true) : ?>
+                                <div class="badge-solid badge-solid--small badge-solid--green dealbadge dealbadge-fit current">
                                     Deal
                                     <div class="deal-popover">
                                         <?php foreach ($dealPosts as $d) {
@@ -32,9 +37,20 @@ if ($results) :
                                         } ?>
                                     </div>
                                 </div>
-                            </div>
+                            <?php endif; ?>
+                            <?php if ($result->charterDealAvailable == true) : ?>
+                                <div class="badge-solid badge-solid--small badge-solid--green dealbadge dealbadge-charter">
+                                    Deal
+                                    <div class="deal-popover">
+                                        <?php foreach ($charterDealPosts as $d) {
+                                            echo '<div>' . get_field('navigation_title', $d) . '</div>';
+                                        } ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        </div>
 
-                        <?php endif; ?>
+
                         <div class="search-result__content__top__title-group">
                             <div class="search-result__content__top__title-group__subtitle">
                                 <span class="subtitle-fit <?php echo ($charterFilter == false) ? 'current' : ''; ?>"><?php echo $result->productTypeDisplay ?></span>
@@ -275,6 +291,16 @@ if ($results) :
         <?php endforeach;
     else : //grid view
         foreach ($results as $result) :
+
+            $dealPosts = [];
+            if ($result->dealAvailable == true) {
+                $dealPosts = $result->dealPosts;
+            }
+            $charterDealPosts = [];
+            if ($result->charterDealAvailable == true) {
+                $charterDealPosts = $result->charterDealPosts;
+            }
+
         ?>
             <a href="<?php echo $result->postUrl;  ?>" class="search-result-gridview">
                 <div class="search-result-gridview__image-area">
@@ -294,12 +320,24 @@ if ($results) :
 
 
                 <div class="search-result-gridview__content-area">
+             
                     <div class="search-result-gridview__content-area__left">
+                    <?php
+                    if (!$charterFilter && !$result->charterOnly && $result->dealAvailable == true) : ?>
+                        <div class="badge-solid badge-solid--small badge-solid--green dealbadge dealbadge-fit current">
+                            Deal
 
+                        </div>
+                    <?php elseif ($result->charterDealAvailable == true) : ?>
+                        <div class="badge-solid badge-solid--small badge-solid--green dealbadge dealbadge-charter current">
+                            Deal
 
+                        </div>
+                    <?php
+                    endif;
+                    ?>
                         <div class="search-result-gridview__content-area__left__charter-title">
                             <?php echo ($charterFilter) ? 'Private Charter' : $result->productTypeDisplay;  ?>
-
                         </div>
 
 

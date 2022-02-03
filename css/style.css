@@ -5935,8 +5935,12 @@ h5 {
         top: -0.3rem;
         right: 0; }
         .search-result__content__top__badge-area .badge-solid {
-          cursor: pointer; }
+          cursor: pointer;
+          display: none; }
+          .search-result__content__top__badge-area .badge-solid.current {
+            display: inline; }
         .search-result__content__top__badge-area:hover .deal-popover {
+          font-weight: 800;
           visibility: visible; }
       .search-result__content__top .deal-popover {
         width: max-content;
@@ -6159,11 +6163,6 @@ h5 {
       height: 100%;
       object-fit: cover;
       border-radius: 0.4rem; }
-    .search-result-gridview__image-area .badge-solid {
-      position: absolute;
-      z-index: 10;
-      top: 1.2rem;
-      left: 0.5rem; }
   .search-result-gridview__destinations {
     position: absolute;
     top: 0;
@@ -6208,7 +6207,13 @@ h5 {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      margin-right: 1rem; }
+      margin-right: 1rem;
+      position: relative; }
+      .search-result-gridview__content-area__left .badge-solid {
+        width: min-content;
+        transform: scale(0.7) translateX(-1.5rem);
+        margin-left: 0;
+        font-size: 1.4rem; }
       .search-result-gridview__content-area__left__charter-title {
         font-size: 1rem;
         letter-spacing: 0.1rem;
@@ -6229,7 +6234,8 @@ h5 {
       flex-direction: column;
       text-align: right;
       justify-content: flex-end;
-      align-items: flex-end; }
+      align-items: flex-end;
+      position: relative; }
       .search-result-gridview__content-area__right__length {
         font-size: 1rem;
         letter-spacing: 0.1rem;

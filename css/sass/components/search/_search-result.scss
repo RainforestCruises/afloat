@@ -74,10 +74,19 @@
                 top: -0.3rem;
                 right: 0;
                 & .badge-solid {
-                    cursor: pointer;
+                    // color: $color-green;
+                    // outline: 2px solid currentColor;
+                    // background-color: $color-white ;
+                    // font-weight: 800;
+                    cursor: pointer; 
+                    display: none;
+                    &.current {
+                        display: inline;
+                    }
                 }
                 &:hover {
                     .deal-popover {
+                        font-weight: 800;
                         visibility: visible;
                         
                     }
@@ -408,10 +417,6 @@
     &:hover {
         box-shadow: $shadow-short-around;
 
-        // & img {
-        //     transition: all .3s;
-        //     transform: scale(1.05);
-        // }
     }
 
     &__image-area {
@@ -426,12 +431,7 @@
             border-radius: 0.4rem;
         }
 
-        & .badge-solid {
-            position: absolute;
-            z-index: 10;
-            top: 1.2rem;
-            left: 0.5rem;
-        }
+
     }
 
     &__destinations {
@@ -488,6 +488,15 @@
             flex-direction: column;
             justify-content: flex-end;
             margin-right: 1rem;
+            position: relative;
+
+            & .badge-solid {
+
+                width: min-content;
+                transform: scale(.7) translateX(-1.5rem);
+                margin-left: 0;
+                font-size: 1.4rem;
+            }
 
             &__charter-title {
                 font-size: 1rem;
@@ -516,6 +525,10 @@
             text-align: right;
             justify-content: flex-end;
             align-items: flex-end;
+            position: relative;
+
+    
+
             &__length {
                 font-size: 1rem;
                 letter-spacing: 0.1rem;
