@@ -19,6 +19,25 @@
             "endpoint": 0
         },
         {
+            "key": "field_61e9e5cfbfa3b",
+            "label": "Is Active",
+            "name": "is_active",
+            "type": "true_false",
+            "instructions": "Inactive promos will not be displayed anywhere on the site",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_61dc9f9d53590",
             "label": "Navigation Title",
             "name": "navigation_title",
@@ -100,44 +119,6 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_61dca09f34c1b",
-            "label": "Is Exclusive",
-            "name": "is_exclusive",
-            "type": "true_false",
-            "instructions": "Check if this is only offered by Rainforest Cruises",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_61e9e5cfbfa3b",
-            "label": "Is Active",
-            "name": "is_active",
-            "type": "true_false",
-            "instructions": "Inactive promos will not be displayed anywhere on the site",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
         },
         {
             "key": "field_61e9e71eea6b1",
@@ -228,6 +209,44 @@
             "allow_null": 0,
             "allow_archives": 0,
             "multiple": 0
+        },
+        {
+            "key": "field_61dca09f34c1b",
+            "label": "Is Exclusive",
+            "name": "is_exclusive",
+            "type": "true_false",
+            "instructions": "Check if this is only offered by Rainforest Cruises",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_61fc30c9ca2e1",
+            "label": "Is Selected Dates Only",
+            "name": "is_selected_dates_only",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_61dc9f9d62140",
@@ -349,5 +368,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Deal - CPT",
-    "modified": 1643831679
+    "modified": 1643917569
 }

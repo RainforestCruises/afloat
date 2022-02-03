@@ -110,8 +110,10 @@
 
         &__close-button {
             position: absolute;
-            //top: 3rem;
+            top: 3rem;
             right: 3rem;
+
+    
 
             @media only screen and (max-width: $bp-small) {
                 top: 2rem;

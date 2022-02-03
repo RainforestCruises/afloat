@@ -574,8 +574,12 @@ jQuery(document).ready(function ($) {
     ]
   });
 
+//deals-indicator
+  $('#deals-slider').on('init', function (event, slick) {
+    var dealCounter = $('#deals-indicator');
+    dealCounter.text('1 / ' + slick.slideCount); //set count div
 
-  $('#deals-slider').slick({
+  }).slick({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -594,7 +598,21 @@ jQuery(document).ready(function ($) {
       },
     ]
   
+  }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
+    var dealCounter = $('#deals-indicator');
+
+
+    var i = (currentSlide ? currentSlide : 0) + 1;
+    dealCounter.text(i + ' / ' + slick.slideCount);
+   
   });
+
+
+
+
+
+
+
 
 
   //Magnific Popups ---------------------------------------------------------------------------

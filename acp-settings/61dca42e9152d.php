@@ -5,7 +5,7 @@ return array (
   'title' => 'Deals',
   'type' => 'rfc_deals',
   'id' => '61dca42e9152d',
-  'updated' => 1643831732,
+  'updated' => 1643917708,
   'columns' => 
   array (
     'title' => 
@@ -37,23 +37,6 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '61dca3f7b374bc',
-    ),
-    '61dca7841d70a4' => 
-    array (
-      'type' => 'column-acf_field',
-      'label' => 'Description',
-      'width' => '',
-      'width_unit' => '%',
-      'field' => 'field_61dca7348a395',
-      'excerpt_length' => '20',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'on',
-      'editable_type' => 'textarea',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-      'name' => '61dca7841d70a4',
     ),
     '61e07c39ced918' => 
     array (
@@ -215,6 +198,22 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '61dca3e7d020c4',
+    ),
+    '61fc313f07ae14' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Is Selected Dates Only',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_61fc30c9ca2e1',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '61fc313f07ae14',
     ),
     '61e9e65e06a7f0' => 
     array (

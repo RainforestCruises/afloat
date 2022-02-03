@@ -773,32 +773,11 @@
     display: flex;
     flex-direction: column;
 
-    // &--horizontal {
-    //     display: flex !important;
-    //     flex-direction: row;  
-    //     width: 100%;
-    //     .guide-item__image-area {
-    //         width: 40%;
-    //         @media only screen and (max-width: $bp-medium) {
-    //             height: 26rem;
-    //             width: 100%;
-    //         }
-    //     }
-    //     .guide-item__bottom {
-    //         width: 60%;
-    //         @media only screen and (max-width: $bp-medium) {
-    //             width: 100%;
-    //         }
-    //     }
-
-    //     @media only screen and (max-width: $bp-medium) {
-    //         flex-direction: column;  
-    //         max-width: 42rem;
-    //     }
-    // }
 
     &__image-area {
         height: 35rem;
+        position: relative;
+
 
         @media only screen and (max-width: $bp-small) {
             height: 26rem;
@@ -811,6 +790,25 @@
             object-fit: cover;
             height: 100%;
             width: 100%;
+        }
+
+        
+        & .exclusiveDeal {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            z-index: 10;
+            width: max-content;
+            background: $color-white;
+            color: $color-primary;
+            border-radius: 4rem;  
+            font-size: 1.2rem;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: .2rem;
+            padding: .5rem 1.5rem;
+            margin-right: 2rem;
         }
     }
     &__bottom {

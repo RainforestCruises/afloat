@@ -856,12 +856,16 @@ h5 {
   .btn-outline--blue {
     color: #40739c; }
     .btn-outline--blue::after {
-      border: 1px solid #40739c; }
+      border: 2px solid #40739c; }
+  .btn-outline--green {
+    color: #00a84b; }
+    .btn-outline--green::after {
+      border: 2px solid #00a84b; }
   .btn-outline--disabled {
     cursor: default;
     color: #919598; }
     .btn-outline--disabled::after {
-      border: 1px solid #919598; }
+      border: 2px solid #919598; }
     .btn-outline--disabled:hover::after {
       height: 100%;
       width: 100%; }
@@ -5148,6 +5152,27 @@ h5 {
                 font-size: 1.4rem;
                 font-weight: 600; }
 
+.deals-indicator {
+  position: absolute;
+  top: -10rem;
+  font-size: 1.6rem;
+  letter-spacing: .2rem;
+  color: #142838;
+  margin-bottom: 5rem;
+  padding: 1rem 3rem;
+  border-radius: 4rem;
+  background: #f8f8f8;
+  font-weight: 700;
+  opacity: .9;
+  display: none; }
+  .deals-indicator.active {
+    display: inline; }
+  @media only screen and (max-width: 37.5em) {
+    .deals-indicator {
+      top: -6rem;
+      font-size: 1.2rem;
+      padding: .5rem 1.5rem; } }
+
 .deals-slider {
   width: 100%; }
   .deals-slider__btn-left {
@@ -5180,7 +5205,23 @@ h5 {
       flex-direction: column; } }
   .deal-item__image-area {
     height: 35rem;
-    width: 40%; }
+    width: 40%;
+    position: relative; }
+    .deal-item__image-area .exclusiveDeal {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      z-index: 10;
+      width: max-content;
+      background: #fff;
+      color: #142838;
+      border-radius: 4rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .2rem;
+      padding: .5rem 1.5rem;
+      margin-right: 2rem; }
     @media only screen and (max-width: 37.5em) {
       .deal-item__image-area {
         height: 25rem;
@@ -5198,6 +5239,19 @@ h5 {
     @media only screen and (max-width: 37.5em) {
       .deal-item__bottom {
         width: 100%; } }
+    .deal-item__bottom__badge-area {
+      display: flex;
+      margin-right: 2rem;
+      justify-content: flex-end;
+      flex-grow: 1;
+      align-items: flex-end; }
+      .deal-item__bottom__badge-area .selectedDates {
+        width: max-content;
+        color: #142838;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .2rem; }
     .deal-item__bottom__title {
       color: #142838; }
       .deal-item__bottom__title:link, .deal-item__bottom__title:visited {
@@ -10401,7 +10455,8 @@ h5 {
       margin-bottom: 3rem;
       width: 85%; } }
   .guide-item__image-area {
-    height: 35rem; }
+    height: 35rem;
+    position: relative; }
     @media only screen and (max-width: 37.5em) {
       .guide-item__image-area {
         height: 26rem; } }
@@ -10411,6 +10466,21 @@ h5 {
       object-fit: cover;
       height: 100%;
       width: 100%; }
+    .guide-item__image-area .exclusiveDeal {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      z-index: 10;
+      width: max-content;
+      background: #fff;
+      color: #142838;
+      border-radius: 4rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .2rem;
+      padding: .5rem 1.5rem;
+      margin-right: 2rem; }
   .guide-item__bottom {
     display: flex;
     flex-direction: column;
@@ -10710,6 +10780,7 @@ h5 {
       max-width: 60rem; }
     .contact__wrapper__close-button {
       position: absolute;
+      top: 3rem;
       right: 3rem; }
       @media only screen and (max-width: 37.5em) {
         .contact__wrapper__close-button {

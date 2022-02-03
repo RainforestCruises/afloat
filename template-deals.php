@@ -153,6 +153,9 @@ $posts = get_posts($args); //Stage I posts
                 foreach ($posts as $p) :
                     $featured_image = get_field('featured_image', $p);
                     $applicable_to = get_field('applicable_to', $p);
+                    $is_selected_dates_only = get_field('is_selected_dates_only', $p);
+                    $is_exclusive = get_field('is_exclusive', $p);
+
 
                     $imageID = '';
                     if ($featured_image) {
@@ -184,6 +187,11 @@ $posts = get_posts($args); //Stage I posts
 
                     <div class="guide-item <?php echo $isoClasses ?>">
                         <div class="guide-item__image-area">
+                            <?php if ($is_exclusive) : ?>
+                                <span class="exclusiveDeal">
+                                    Exclusive Deal
+                                </span>
+                            <?php endif; ?>
                             <img <?php afloat_image_markup($imageID, 'featured-medium'); ?>>
                         </div>
                         <div class="guide-item__bottom">
@@ -199,7 +207,7 @@ $posts = get_posts($args); //Stage I posts
                                 <?php endforeach;
                                 endif;  ?>
                             </ul>
-                            <div class="guide-item__bottom__title" >
+                            <div class="guide-item__bottom__title">
                                 <h2>
                                     <?php echo get_field('navigation_title', $p); ?>
                                 </h2>
@@ -208,9 +216,9 @@ $posts = get_posts($args); //Stage I posts
                             <div class="guide-item__bottom__snippet">
                                 <?php echo get_field('description', $p); ?>
                             </div>
-                            <?php if ($applicable_to == 'broadCategory') : 
+                            <?php if ($applicable_to == 'broadCategory') :
                                 $serp_link = get_field('serp_link', $p);
-                                ?>
+                            ?>
                                 <div class="guide-item__bottom__cta">
                                     <a class="goto-button goto-button--dark" href="<?php echo $serp_link ?>">
                                         View All
@@ -223,7 +231,7 @@ $posts = get_posts($args); //Stage I posts
                                 $travelProducts = get_field('products', $p);
 
                             ?>
-                               
+
                                 <div class="guide-item__bottom__cta guide-item__bottom__cta--multiple">
                                     <span>Available On: </span>
                                     <?php foreach ($travelProducts as $product) : ?>

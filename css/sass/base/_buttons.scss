@@ -174,7 +174,14 @@
   &--blue {
     color: $color-supporting-light;
     &::after {
-      border: 1px solid $color-supporting-light;
+      border: 2px solid $color-supporting-light;
+    }
+  }
+
+  &--green {
+    color: $color-green;
+    &::after {
+      border: 2px solid $color-green;
     }
   }
 
@@ -182,7 +189,7 @@
     cursor: default;
     color: $color-grey-2;
     &::after {
-      border: 1px solid $color-grey-2;
+      border: 2px solid $color-grey-2;
     }
 
     &:hover::after {
