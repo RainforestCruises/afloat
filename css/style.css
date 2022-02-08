@@ -6414,7 +6414,10 @@ h5 {
     .destination-hero__bg-slider__slide {
       height: 100%;
       width: 100%;
-      opacity: 1; }
+      opacity: 1;
+      transition: opacity 1s; }
+      .destination-hero__bg-slider__slide.is-selected {
+        opacity: 1; }
       .destination-hero__bg-slider__slide__image-area {
         height: 100%;
         width: 100%; }
@@ -6424,7 +6427,11 @@ h5 {
           object-fit: cover;
           height: 100%;
           width: 100%;
-          z-index: 0; }
+          z-index: 0;
+          opacity: 0;
+          transition: opacity 1s; }
+          .destination-hero__bg-slider__slide__image-area img.flickity-lazyloaded, .destination-hero__bg-slider__slide__image-area img.flickity-lazyerror {
+            opacity: 1; }
     .destination-hero__bg-slider:after {
       content: "";
       height: 100%;
@@ -7516,9 +7523,6 @@ h5 {
       height: 100% !important; }
     .home-hero__bg .flickity-viewport {
       height: 100% !important; }
-    .home-hero__bg .slick-slide.slick-current .home-hero__bg__slide__image-area__location {
-      opacity: 1;
-      transform: translateX(0); }
     .home-hero__bg__slide {
       height: 100%;
       width: 100%; }
@@ -7532,7 +7536,14 @@ h5 {
           object-fit: cover;
           height: 100%;
           width: 100%;
-          z-index: 0; }
+          z-index: 0;
+          opacity: 0;
+          transition: opacity 1s; }
+          .home-hero__bg__slide__image-area img.flickity-lazyloaded, .home-hero__bg__slide__image-area img.flickity-lazyerror {
+            opacity: 1; }
+            .home-hero__bg__slide__image-area img.flickity-lazyloaded + div, .home-hero__bg__slide__image-area img.flickity-lazyerror + div {
+              opacity: 1;
+              transform: translateX(0); }
         .home-hero__bg__slide__image-area__location {
           position: absolute;
           top: 92%;

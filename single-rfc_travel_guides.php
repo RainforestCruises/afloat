@@ -115,7 +115,7 @@ while (have_posts()) :
       </div>
       <div class="travel-guide__image">
         <?php if ($image) : ?>
-          <img <?php afloat_image_markup($image['ID'], 'featured-largest'); ?> alt="">
+          <img <?php afloat_image_markup($image['ID'], 'featured-largest', array('featured-largest', 'featured-large')); ?>>
         <?php endif; ?>
       </div>
 

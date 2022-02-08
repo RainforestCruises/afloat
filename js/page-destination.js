@@ -67,7 +67,7 @@ jQuery(document).ready(function ($) {
         prevNextButtons: false,
         pageDots: false,
         fade: true,
-        lazyLoad: false,
+        lazyLoad: true,
         selectedAttraction: 0.01,
         friction: 0.15
         // options

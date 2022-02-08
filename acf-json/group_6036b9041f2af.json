@@ -583,6 +583,41 @@
             "min": "",
             "max": "",
             "step": ""
+        },
+        {
+            "key": "field_6202a58cea80e",
+            "label": "Techincal",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6202a59dea80f",
+            "label": "Generate Custom Image Markup",
+            "name": "generate_custom_image_markup",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -602,5 +637,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1642090152
+    "modified": 1644340763
 }

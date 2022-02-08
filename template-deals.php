@@ -130,7 +130,7 @@ $posts = get_posts($args); //Stage I posts
         </div>
 
         <div class="travel-guide-landing-page__content__search-area">
-            <input type="text" placeholder="Search Guide..." id="quicksearch">
+            <input type="text" placeholder="Search Deals..." id="quicksearch">
         </div>
         <div class="travel-guide-landing-page__content__categories filters-button-group">
             <button data-filter="*" class="filter-button filter-button-all selected">

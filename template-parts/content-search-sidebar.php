@@ -45,8 +45,11 @@ if ($searchType == 'destination') {
     $destinations = get_field('locations', $destinationId); //locations
     $isBucketList = get_field('is_bucket_list', $destinationId); //to hide location filters
 
-    //usort($destinations, fn ($a, $b) => strcmp($a->navigation_title, $b->navigation_title));
+    usort($destinations, fn ($a, $b) => strcmp($a->navigation_title, $b->navigation_title)); //sort locations
+   
+  
 }
+
 
 if ($searchType == 'region') {
     $destinationsArgs = array(

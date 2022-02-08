@@ -13,16 +13,49 @@ function console_log($data)
 
 //IMAGES ------------------------
 //CLD 3.0
-function afloat_image_markup($image_id, $image_size)
+function afloat_image_markup($image_id, $image_size, $sizes_array = [], $flickity = false)
 {
+
+
     if ($image_id != '') {
+        $customEnabled = get_field('generate_custom_image_markup', 'option');
 
-        $image_src = wp_get_attachment_image_url($image_id, $image_size);
-        $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE);
-        $image_attributes = wp_get_attachment_image_src($image_id, $image_size);
-        
+        if ($customEnabled == false) {
+            //CLOUDINARY v3 --
+            //specify h/w, generare src only, add class='size-imagesize'
+            $image_src = wp_get_attachment_image_url($image_id, $image_size);
+            $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE);
+            $image_attributes = wp_get_attachment_image_src($image_id, $image_size);
+            echo 'height="' . $image_attributes[2] . '" width="' . $image_attributes[1] . '" src="' . $image_src . '" alt="' . $image_alt . '" class="size-' . $image_size . '"';
+        } 
+        else {
+            //Cloudinary v2.6 (and everything else)
+            //omit h/w, generate src and srcset
 
-        echo 'height="' . $image_attributes[2] . '" width="' . $image_attributes[1] . '" src="' . $image_src . '" alt="' . $image_alt . '" class="size-' . $image_size . '"';
+            // set the default src image size
+            $image_src = wp_get_attachment_image_url($image_id, $image_size);
+            $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE);
+
+
+            $image_srcset = '';
+            $max_width = 0;
+            foreach ($sizes_array as $s) {
+                $image_attributes = wp_get_attachment_image_src($image_id, $s);
+                $image_srcset = $image_srcset . $image_attributes[0] . ' ' . $image_attributes[1] . 'w,';
+
+                if ($image_attributes[1] > $max_width) {
+                    $max_width = $image_attributes[1];
+                }
+            }
+
+            if($flickity == false){
+                echo 'src="' . $image_src . '" srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . 'px) 100vw, ' . $max_width . 'px" alt="' . $image_alt . '"';
+            }else {
+                //special markup for flickity slider with lazy loading
+                echo ' data-flickity-lazyload-src="' . $image_src . '" data-flickity-lazyload-srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . 'px) 100vw, ' . $max_width . 'px" alt="' . $image_alt . '"';
+            }
+
+        }
     } else {
         'no-image-id';
     }
@@ -33,13 +66,13 @@ function afloat_dfcloud_image($image_url)
 {
 
     //check for res.cloudinary.com
-    if(strpos($image_url, 'res.cloudinary.com') == false){
+    if (strpos($image_url, 'res.cloudinary.com') == false) {
         return $image_url;
     }
 
     $string = $image_url;
     $prefix = "/image/upload/";
-    $first = substr($string,0,strpos($string,'/image/upload/') + strlen($prefix));
+    $first = substr($string, 0, strpos($string, '/image/upload/') + strlen($prefix));
 
     $transformationString = 'f_auto,q_auto/c_fill,g_auto/';
     $index = strpos($string, $prefix) + strlen($prefix);
@@ -61,10 +94,7 @@ function afloat_responsive_image($image_id, $image_size, $sizes_array, $slickLaz
 
         // set the default src image size
         $image_src = wp_get_attachment_image_url($image_id, $image_size);
-
         $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE);
-
-
 
 
         $image_srcset = '';

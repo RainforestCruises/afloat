@@ -353,7 +353,7 @@ if ($results) :
                             if (!$charterFilter && !$result->charterOnly) :
                                 echo $result->itineraryLengthDisplay;
                             else :
-                                echo $result->vesselCapacityDisplay;
+                                echo $result->vesselCapacityDisplay; //fix for translate
                             endif;
                             ?>
                         </div>

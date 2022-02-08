@@ -34,7 +34,7 @@ $images = get_field('highlight_gallery');
     <!-- Top Section -->
     <div class="product-hero__top">
         <div class="product-hero__top__bg" id="top">
-            <img <?php afloat_image_markup($hero_image['id'], 'full-hero-large'); ?>>
+            <img <?php afloat_image_markup($hero_image['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?>>
 
         </div>
 

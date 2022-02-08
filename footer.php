@@ -108,7 +108,7 @@ $menu_group = [];
         <img src="<?php echo $logo_vertical['url']; ?>" alt="<?php echo get_bloginfo( 'name' ) ?>" />
     </div>
     <div class="footer__copyright">
-        &#169; 2021 Rainforest Cruises. All rights reserved.
+        &#169; <?php echo date('Y') ?> Rainforest Cruises. All rights reserved.
     </div>
 </footer>
 <?php wp_footer(); ?>
