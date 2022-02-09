@@ -18,7 +18,7 @@ function afloat_image_markup($image_id, $image_size, $sizes_array = [], $flickit
 
 
     if ($image_id != '') {
-        $customEnabled = get_field('generate_custom_image_markup', 'option');
+        $customEnabled = true; //easier way to control image markup .. set to false to test CLS v3 (must change hero sliders - home/destination - flickity sliders lazy loading)
 
         if ($customEnabled == false) {
             //CLOUDINARY v3 --
