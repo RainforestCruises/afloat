@@ -229,6 +229,8 @@ jQuery(document).ready(function ($) {
 
     console.log('pageshow')
     if (itinerarySlideFromUrl != null) {
+      itinerarySlideFromUrl = Number.parseInt(itinerarySlideFromUrl) - 1;
+      console.log(itinerarySlideFromUrl);
       $('#itineraries-slider-nav').slick('slickGoTo', itinerarySlideFromUrl)
     }
 
