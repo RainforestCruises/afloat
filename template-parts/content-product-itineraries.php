@@ -11,7 +11,7 @@ $hasDeals = $args['hasDeals'];
 $charter_view = false;
 $charter_available = false;
 $charter_only = false;
-if ($args['propertyType'] == 'Cruise') {
+if ($args['productType'] == 'Cruise') {
     $charter_view = $args['charter_view'];
     $charter_available = $args['charter_available'];
     $charter_only = $args['charter_only'];
@@ -33,7 +33,7 @@ foreach ($cruise_data['Itineraries'] as $item) :
         continue;
     endif;
 
-    if ($args['propertyType'] == 'Lodge' && $item['IsSample'] == false) :
+    if ($args['productType'] == 'Lodge' && $item['IsSample'] == false) :
 
         $totalCount++;
         continue; //skip non sample itineraries for charter only vessels
@@ -67,7 +67,7 @@ endforeach;
                     continue;
                 endif;
 
-                if ($args['propertyType'] == 'Lodge' && $item['IsSample'] == false) :
+                if ($args['productType'] == 'Lodge' && $item['IsSample'] == false) :
                     //skip non sample itineraries
                     //$count++;
                     continue;
@@ -103,7 +103,7 @@ endforeach;
                     continue; //skip non sample itineraries for charter only vessels
                 endif;
 
-                if ($args['propertyType'] == 'Lodge' && $itinerary['IsSample'] == false) :
+                if ($args['productType'] == 'Lodge' && $itinerary['IsSample'] == false) :
                     continue; //skip non sample itineraries for lodges
                 endif;
 
@@ -144,7 +144,7 @@ endforeach;
                         <!-- Side Info Area -->
                         <aside class="product-itinerary-slide__top__side-info">
                             <div class="product-itinerary-slide__top__side-info__tabs">
-                                <h4 class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="rates"> <?php echo ($args['propertyType'] == 'Lodge' || $charter_view == true) ? 'Rates' : 'Dates & Rates'; ?> </h4>
+                                <h4 class="product-itinerary-slide__top__side-info__tabs__item current" itinerary-tab="<?php echo $count; ?>" tab-type="rates"> <?php echo ($args['productType'] == 'Lodge' || $charter_view == true) ? 'Rates' : 'Dates & Rates'; ?> </h4>
                                 <h4 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="inclusions">Inclusions</h4>
                                 <h4 class="product-itinerary-slide__top__side-info__tabs__item" itinerary-tab="<?php echo $count; ?>" tab-type="exclusions">Exclusions</h4>
                             </div>
@@ -298,7 +298,7 @@ endforeach;
 
                                                             <div class="price-grid__grid__title">
                                                                 <div class="price-grid__grid__title__text">
-                                                                    <?php echo ($args['propertyType'] == 'Lodge') ? 'Room' : 'Cabin'; ?> Type
+                                                                    <?php echo ($args['productType'] == 'Lodge') ? 'Room' : 'Cabin'; ?> Type
                                                                 </div>
                                                             </div>
                                                             <div class="price-grid__grid__title right">

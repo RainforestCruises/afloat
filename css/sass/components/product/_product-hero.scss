@@ -249,7 +249,7 @@
 
       &__nav {
         user-select: none;
-        width: 50%;
+        width: 60%;
 
         @media only screen and (max-width: $bp-large) {
           display: none;
@@ -597,8 +597,10 @@
           }
 
           &__cta {
-            transform: scale(0.85);
-            margin-left: 1.5rem;
+            //transform: scale(0.75);
+            margin-left: 1rem;
+
+       
             @media only screen and (max-width: $bp-small) {
               //margin: 1rem 0;
               position: absolute;
@@ -771,7 +773,7 @@
     bottom: 0rem;
     right: 0;
     z-index: 12;
-    width: calc(50% - 6rem);
+    width: calc(50% - 6rem); //minus 6rem because there is a total of 12rem margin on bottom
 
     @media only screen and (max-width: $bp-large) {
       display: none;

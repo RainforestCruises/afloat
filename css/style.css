@@ -315,7 +315,8 @@ p {
   letter-spacing: 0.2rem;
   font-weight: 500;
   text-align: center;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  text-transform: capitalize; }
   .page-divider--padding {
     padding: 0 6rem; }
     @media only screen and (max-width: 37.5em) {
@@ -800,7 +801,7 @@ h5 {
     letter-spacing: 0.2rem; }
   .btn-cta-round--medium {
     font-size: 1.3rem;
-    padding: 1rem 2rem;
+    padding: 1.4rem 2.4rem;
     letter-spacing: 0.2rem; }
 
 .btn-rect {
@@ -3089,7 +3090,7 @@ h5 {
               font-weight: 400; } }
       .product-hero__top__content__nav {
         user-select: none;
-        width: 50%; }
+        width: 60%; }
         @media only screen and (max-width: 62.5em) {
           .product-hero__top__content__nav {
             display: none; } }
@@ -3273,8 +3274,7 @@ h5 {
               text-align: start;
               white-space: nowrap; }
           .product-hero__bottom__content__info-group__info__cta {
-            transform: scale(0.85);
-            margin-left: 1.5rem; }
+            margin-left: 1rem; }
             @media only screen and (max-width: 37.5em) {
               .product-hero__bottom__content__info-group__info__cta {
                 position: absolute;
@@ -4412,6 +4412,7 @@ h5 {
           letter-spacing: 0.2rem;
           font-weight: 600;
           font-size: 2.5rem;
+          text-transform: capitalize;
           color: #142838;
           display: inline-block; }
           @media only screen and (max-width: 37.5em) {

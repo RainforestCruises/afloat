@@ -38,7 +38,7 @@ while (have_posts()) :
   $args = array(
     'lowestPrice' => $lowestPrice,
     'cruiseData' => $cruise_data,
-    'propertyType' => 'Lodge',
+    'productType' => 'Lodge',
     'currentYear' => $currentYear,
     'currentMonth' => $currentMonth,
     'years' => $years,
@@ -57,7 +57,7 @@ while (have_posts()) :
     <!-- Hero -->
     <section class="product-page__section-hero" id="top">
       <?php
-      get_template_part('template-parts/content', 'product-hero-nav', $args);
+      get_template_part('template-parts/content', 'product-hero', $args);
       ?>
     </section>
 

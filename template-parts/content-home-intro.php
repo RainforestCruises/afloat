@@ -12,7 +12,7 @@ $intro_testimonials = get_field('intro_testimonials');
     <div class="home-intro__top">
         <div class="home-intro__top__image-area">
             <img <?php afloat_image_markup($intro_image['id'], 'vertical-medium'); ?> class="home-intro__top__img">
-
+            
         </div>
 
         <div class="home-intro__top__content">
@@ -56,6 +56,7 @@ $intro_testimonials = get_field('intro_testimonials');
             </h3>
             <div class="home-intro__bottom__feature__snippet">
                 <?php echo get_field('first_snippet'); ?>
+                
             </div>
         </div>
         <div class="home-intro__bottom__feature">

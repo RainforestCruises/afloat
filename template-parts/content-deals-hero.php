@@ -1,11 +1,10 @@
 <div class="deals-hero">
     <h1 class="deals-hero__title">
-        Cruise Deals
+        <?php echo get_field('page_title_text') ?>
     </h1>
 
     <div class="deals-hero__subtext">
-        Don’t let these savings sail without you! Find onboard spending deals, limited-time sales, and more, turning your dream escape into a riveting reality.
-
+        <?php echo get_field('intro_snippet') ?>
     </div>
 
     <!-- Triple Row -->

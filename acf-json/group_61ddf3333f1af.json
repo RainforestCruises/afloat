@@ -3,6 +3,44 @@
     "title": "Deals Page Top Level",
     "fields": [
         {
+            "key": "field_620a9457c8088",
+            "label": "Page Title Text",
+            "name": "page_title_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_620a9495c8089",
+            "label": "Intro Snippet",
+            "name": "intro_snippet",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_61ddf33d65b50",
             "label": "First Item",
             "name": "first_item",
@@ -377,5 +415,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Deals - Page (Top Level)",
-    "modified": 1643817011
+    "show_in_rest": 0,
+    "modified": 1644860600
 }

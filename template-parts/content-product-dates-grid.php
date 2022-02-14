@@ -73,7 +73,7 @@ foreach ($departures as $departure) {
 
     ?>
 
-        <div class="side-info-panel__departure-grid__grid__date">
+        <div class="side-info-panel__departure-grid__grid__date" data-no-translation>
             <div>
                 <?php echo date("M j", $departureStartDate); ?> &mdash; &nbsp;
             </div>

@@ -12,7 +12,7 @@ if (get_post_type() == 'rfc_tours') {
 $charter_view = false;
 $charter_available = false;
 $charter_only = false;
-if ($args['propertyType'] == 'Cruise') {
+if ($args['productType'] == 'Cruise') {
     $charter_view = $args['charter_view'];
     $charter_available = $args['charter_available'];
     $charter_only = $args['charter_only'];
@@ -107,7 +107,7 @@ $images = get_field('highlight_gallery');
                     </ul>
                 </nav>
 
-                <!-- CTA -->
+                <!-- Mobile scroll down CTA -->
                 <div class="product-hero__top__content__cta">
                     <button class="btn-circle btn-circle--small btn-white btn-circle--down" id="down-arrow-button" href="<?php echo (get_post_type() != 'rfc_tours') ? '#overview' : '#itineraries'; ?>">
                         <svg class="btn-circle--arrow-main">
@@ -120,7 +120,7 @@ $images = get_field('highlight_gallery');
             </div>
 
 
-            <!-- Expand Gallery -->
+            <!-- Mobile - Expand Gallery Button-->
             <?php if ($images) : ?>
                 <div class="product-hero__top__content__gallery-expand" id="gallery-expand-button">
                     Photos
@@ -182,11 +182,11 @@ $images = get_field('highlight_gallery');
                                 <span class="u-small-text"> / Person</span>
                             </div>
                             <div class="product-hero__bottom__content__info-group__info__starting-price__description">
-                                <?php if ($args['propertyType'] == 'Tour') {
+                                <?php if ($args['productType'] == 'Tour') {
                                     echo 'Customizable private tour with flexible start date';
-                                } else if ($args['propertyType'] == 'Cruise') {
+                                } else if ($args['productType'] == 'Cruise') {
                                     echo 'Shared, small group cruise based on DBL occupancy';
-                                } else if ($args['propertyType'] == 'Lodge') {
+                                } else if ($args['productType'] == 'Lodge') {
                                     echo 'Lodge stay with flexible excursions and start date';
                                 } ?>
 
@@ -223,7 +223,7 @@ $images = get_field('highlight_gallery');
                         </div>
                     <?php endif; ?>
                     <div class="product-hero__bottom__content__info-group__info__cta">
-                        <button class="btn-cta-round" id="nav-page-cta">Inquire</button>
+                        <button class="btn-cta-round  btn-cta-round--medium " id="nav-page-cta">Inquire</button>
                     </div>
                 </div>
 

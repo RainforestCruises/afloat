@@ -38,7 +38,7 @@ $resultCount = 0;
 
 <div class="product-related">
     <h2 class="page-divider page-divider--padding u-margin-bottom-medium u-margin-top-small">
-        Related <?php echo get_post_type() == 'rfc_cruises' ? "Cruises" : "Tours"; ?>
+        Related <?php echo $args['productType'] . 's'; ?>
     </h2>
     <?php if ($posts) : ?>
         <div class="product-related__slider" id="related-slider">
