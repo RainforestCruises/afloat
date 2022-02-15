@@ -172,11 +172,13 @@ jQuery(document).ready(function ($) {
 
   //MOBILE MENU -----------------------------------------
   //Burger-- open
+  const languageSwitcher = document.querySelector('.mobile-language-switch');
   burgerButton.addEventListener('click', evt => {
     navMobile.classList.add('nav-mobile--active');
     burgerButtonClose.classList.add('active');
     document.body.classList.add('lock-scroll');
     bodyDiv.classList.add('overlay');
+    languageSwitcher.style.display = 'flex';
   });
 
   //Burger-- close
@@ -200,6 +202,8 @@ jQuery(document).ready(function ($) {
     }
   }
 
+ 
+  
 
   //Mobile Menu
   const mobileButtons = [...document.querySelectorAll('.nav-mobile__content-panel__button')];
@@ -212,14 +216,15 @@ jQuery(document).ready(function ($) {
 
       var isBackButton = $(item).hasClass('back-link');
       var isPhoneButton = $(item).hasClass('phone');
-
+      languageSwitcher.style.display = 'flex'; //fix this
       if (isBackButton) {
         $(topPanel).removeClass('slide-out-left');
+        
         $(item).parent().removeClass('slide-center');
       } else if (isPhoneButton) {
           //do nothing
       } else {
-
+        languageSwitcher.style.display = 'none';
         if (!item.classList.contains("mobile-link")) {
           topPanel.classList.add('slide-out-left');
           $(subPanel).addClass('slide-center');

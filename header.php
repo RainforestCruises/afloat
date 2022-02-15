@@ -132,11 +132,25 @@ foreach ($menuitems as $m) {
     <!-- Mobile Menu -->
     <nav class="nav-mobile">
 
+        <!-- Language Switch -->
+        <?php if (is_plugin_active('translatepress-multilingual/index.php')) : ?>
+            <div class="mobile-language-switch">
+                <svg>
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_translate_24px"></use>
+                </svg>
+                <span class="mobile-language-switch__trp">
+                    <?php echo do_shortcode("[language-switcher]"); ?>
+                </span>
+            </div>
+        <?php endif; ?>
+
+
         <div class="burger-button close" id="burger-menu-close">
             <span class="burger-button__bar "></span>
         </div>
         <!-- Top level Menu -->
         <div class="nav-mobile__content-panel nav-mobile__content-panel--top" menuid="top">
+
             <?php foreach ($menu_toplevel as $toplevelItem) : ?>
                 <?php if ($toplevelItem->object != 'page') : ?>
                     <a class="nav-mobile__content-panel__button nav-mobile__content-panel__button--forward" menuLinkTo="<?php echo $toplevelItem->ID ?>">
@@ -153,12 +167,16 @@ foreach ($menuitems as $m) {
 
                 <?php endif; ?>
             <?php endforeach; ?>
-
+            <a class="nav-mobile__content-panel__button mobile-link divider" href="<?php echo get_field('top_level_search_page', 'option'); ?>">Search</a>
             <a class="nav-mobile__content-panel__button mobile-link divider" href="<?php echo get_home_url(); ?>/contact">Contact</a>
+
 
             <a class="nav-mobile__content-panel__button mobile-link phone" href="tel:<?php echo get_field('phone_number_numeric', 'options'); ?>">
                 <?php echo get_field('phone_number', 'options'); ?>
+
             </a>
+
+
         </div>
 
 
@@ -201,7 +219,6 @@ foreach ($menuitems as $m) {
         <?php endforeach; ?>
 
         <!-- Level 3 -->
-
         <?php foreach ($menu_destination_groups as $destination_group) : ?>
             <div class="nav-mobile__content-panel nav-mobile__content-panel--sub" menuId="<?php echo $destination_group['id'] ?>">
                 <a class="nav-mobile__content-panel__button back-link" menuLinkTo="<?php echo $destination_group['parentId'] ?>">
@@ -239,6 +256,8 @@ foreach ($menuitems as $m) {
 
         <!-- Top Level Nav -->
         <div class="header__main <?php echo ($alwaysActiveHeader == true) ? 'active' : ''; ?>">
+
+            <!-- Logo -->
             <div class="header__main__logo-area">
                 <a href="<?php echo get_home_url(); ?>" class="header__main__logo-area__logo">
                     <?php
@@ -249,7 +268,7 @@ foreach ($menuitems as $m) {
                     <img src="<?php echo $image_url ?>" alt="<?php echo get_bloginfo('name') ?>" />
                 </a>
             </div>
-
+            <!-- Main Nav -->
             <nav class="header__main__nav">
                 <div class="header__main__nav__list">
                     <?php
@@ -266,24 +285,60 @@ foreach ($menuitems as $m) {
                     <?php endforeach; ?>
                 </div>
             </nav>
+            <!-- Right Side -->
             <div class="header__main__right">
-            
+
+                <!-- Search Button -->
+                <?php if (!is_page_template('template-search.php')) : ?>
+                    <div class="header__main__right__search">
+                        <a class="nav-search-button" href="<?php echo get_field('top_level_search_page', 'option'); ?>">
+                            Search
+                        </a>
+                    </div>
+                <?php endif; ?>
+                <!-- Contact Mail -->
                 <a href="<?php echo get_home_url(); ?>/contact" class="header__main__right__contact-link">
                     <svg>
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_mail_outline_24px"></use>
                     </svg>
-                    <span>
-                        Contact
-                    </span>
+
                 </a>
-                <div class="header__main__right__phone-desktop">
+                <!-- Contact Phone -->
+                <div class="header__main__right__phone-desktop divider-left">
                     <svg>
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-phone-call"></use>
                     </svg>
-                    <span>
-                        <?php echo get_field('phone_number', 'options'); ?>
+                    <span class="phone-popover">
+
+                        <div class="phone-popover__container">
+                            <div class="phone-popover__container__arrow"></div>
+                            <div class="phone-popover__container__content">
+                                <div class="phone-popover__container__content__header">
+                                    Give Us a Call
+                                </div>
+                                <div class="phone-popover__container__content__number">
+                                    <?php echo get_field('phone_number', 'options'); ?>
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </span>
+
                 </div>
+                <!-- Language Switch -->
+                <?php if (is_plugin_active('translatepress-multilingual/index.php')) : ?>
+                    <div class="header__main__right__language divider-left">
+                        <svg>
+                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_translate_24px"></use>
+                        </svg>
+                        <span>
+
+                            <?php echo do_shortcode("[language-switcher]"); ?>
+                        </span>
+                    </div>
+                <?php endif; ?>
                 <!-- Burger Menu -->
                 <div class="burger-button" id="burger-menu">
                     <span class="burger-button__bar "></span>
@@ -408,10 +463,10 @@ foreach ($menuitems as $m) {
 
             $accommodationDisplayText = 'Lodges';
 
-            if(is_page_template('template-destinations-destination.php') || is_page_template('template-destinations-region.php')){
+            if (is_page_template('template-destinations-destination.php') || is_page_template('template-destinations-region.php')) {
                 $accommodationDisplayText = get_field('accommodations_label');
 
-                if($accommodationDisplayText == null) {
+                if ($accommodationDisplayText == null) {
                     $accommodationDisplayText = 'Lodges';
                 }
             }
