@@ -12,9 +12,9 @@ jQuery(document).ready(function ($) {
   var dealsModal = document.getElementById("dealsModal");
 
 
-//Deals Slider
-  $('.deal-modal-cta-button').on('click', () => { 
-    dealsModal.classList.add('active');  
+  //Deals Slider
+  $('.deal-modal-cta-button').on('click', () => {
+    dealsModal.classList.add('active');
     $('#deals-slider')[0].slick.setPosition()
   });
 
@@ -114,6 +114,40 @@ jQuery(document).ready(function ($) {
     });
   })
 
+  //Days slider (must initialize first - for height)
+  $('.product-itinerary-slide__bottom__days').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    fade: true,
+    focusOnSelect: true,
+    arrows: true,
+    dots: true,
+    swipe: true,
+    draggable: false,
+    swipeToSlide: true,
+    prevArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
+    nextArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
+    customPaging: function (slider, i) {
+      return '<a class="dot">' + (i + 1) + '</a>';
+    },
+
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          dots: false
+        }
+      }
+    ]
+  }).on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+    $('#itineraries-slider').slick("setOption", '', '', true);
+    var currentCounter = $(this).next();
+
+    var i = (currentSlide ? currentSlide : 0) + 1;
+    currentCounter.text(i + ' / ' + slick.slideCount);
+  });
+
   //Itinerary Slider
   $('#itineraries-slider').slick({
     slidesToShow: 1,
@@ -162,10 +196,9 @@ jQuery(document).ready(function ($) {
       }
     ]
   }).on('click', function (event, slick, currentSlide, nextSlide) {
-    //location.hash = '#itineraries'
   }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
     var counterDiv = $('#itineraries-slider-counter');
-    
+
     // const params = new URLSearchParams(location.search);
     // params.set('i', currentSlide);
     // var anchor = window.location.hash;
@@ -183,40 +216,7 @@ jQuery(document).ready(function ($) {
   });
 
 
-  //Days slider
-  $('.product-itinerary-slide__bottom__days').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    adaptiveHeight: true,
-    fade: true,
-    focusOnSelect: true,
-    arrows: true,
-    dots: true,
-    swipe: true,
-    draggable: false,
-    swipeToSlide: true,
-    prevArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
-    nextArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
-    customPaging: function (slider, i) {
-      return '<a class="dot">' + (i + 1) + '</a>';
-    },
 
-    responsive: [
-      {
-        breakpoint: 800,
-        settings: {
-          dots: false
-        }
-      }
-    ]
-  })
-    .on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-      $('#itineraries-slider').slick("setOption", '', '', true);
-      var currentCounter = $(this).next();
-
-      var i = (currentSlide ? currentSlide : 0) + 1;
-      currentCounter.text(i + ' / ' + slick.slideCount);
-    });
 
 
   //Go to specific itinerary slide (starts at 0) -- BUG on back button
@@ -576,7 +576,7 @@ jQuery(document).ready(function ($) {
     ]
   });
 
-//deals-indicator
+  //deals-indicator
   $('#deals-slider').on('init', function (event, slick) {
     var dealCounter = $('#deals-indicator');
     dealCounter.text('1 / ' + slick.slideCount); //set count div
@@ -599,14 +599,14 @@ jQuery(document).ready(function ($) {
         }
       },
     ]
-  
+
   }).on('afterChange', function (event, slick, currentSlide, nextSlide) {
     var dealCounter = $('#deals-indicator');
 
 
     var i = (currentSlide ? currentSlide : 0) + 1;
     dealCounter.text(i + ' / ' + slick.slideCount);
-   
+
   });
 
 

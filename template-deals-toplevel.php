@@ -28,12 +28,13 @@ $categories = get_posts(array(
 ));
 
 
-
 $selectedDeals = get_field('selected_deals');
-console_log($selectedDeals);
+$selectedDestinations = get_field('destinations');
+
 
 $args = array(
     'deals' => $selectedDeals,
+    'destinations' => $selectedDestinations,
 );
 
 ?>
@@ -46,11 +47,24 @@ $args = array(
         get_template_part('template-parts/content', 'deals-hero');
         ?>
     </section>
-    <section class="deals-page__section-best">
+
+    <section class="deals-page__section-featured">
         <?php
-        get_template_part('template-parts/content', 'deals-best', $args);
+        get_template_part('template-parts/content', 'deals-featured', $args);
         ?>
     </section>
+
+    <section class="deals-page__section-destinations">
+        <?php
+        get_template_part('template-parts/content', 'deals-destinations', $args);
+        ?>
+    </section>
+
+    <div class="svg-divider">
+        <svg>
+            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
+        </svg>
+    </div>
     <!-- Newsletter -->
     <section class="experience-page__section-newsletter">
         <?php

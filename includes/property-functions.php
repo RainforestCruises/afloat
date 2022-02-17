@@ -331,6 +331,7 @@ function cruises_available_region($region, $experience, $isCharter, $isLodge = f
 }
 
 
+
 //Deprecated
 function check_if_promo($cruise_data, $startDate, $endDate, $lengthMin, $lengthMax)
 {
@@ -393,11 +394,50 @@ function listDealsForProduct($post, $charterView = false)
         $dealArgs['meta_query'][] = array(
             'key'     => 'is_charter_deal',
             'value'     => '0',
-	 
+
         );
     }
 
 
     $dealPosts = get_posts($dealArgs);
     return $dealPosts;
+}
+
+
+
+//Cruises available region (experience templates)
+function deals_available($regionOrDestinationPost)
+{
+
+  
+    $dealArgs = array(
+        'post_type' => 'rfc_deals',
+        'posts_per_page' => -1,
+    );
+
+    $dealArgs['meta_query'][] = array(
+        'key'     => 'is_active',
+        'value'   => true,
+        'compare' => '='
+    );
+
+
+    $postType = get_post_type($regionOrDestinationPost);
+    if ($postType == 'rfc_regions') {
+        $dealArgs['meta_query'][] = array(
+            'key'     => 'regions',
+            'value'   => '"' . $regionOrDestinationPost->ID . '"',
+            'compare' => 'LIKE'
+        );
+    } else {
+        $dealArgs['meta_query'][] = array(
+            'key'     => 'destinations',
+            'value'   => '"' . $regionOrDestinationPost->ID . '"',
+            'compare' => 'LIKE'
+        );
+    }
+   
+    $dealPosts = get_posts($dealArgs);
+    $count = count($dealPosts);
+    return $count;
 }

@@ -138,6 +138,14 @@
         border-bottom: 1px solid $color-grey-light-1a;
     }
 
+    & label {
+        text-transform: capitalize;
+    }
+
+    & .irs {
+        text-transform: capitalize;
+    }
+
     &--clear {
         display: none;
         justify-content: center;
@@ -167,7 +175,7 @@
             position: relative;
             letter-spacing: 0;
             margin-bottom: 0;
-
+            text-transform: capitalize;
             &__count {
                 position: absolute;
                 right: -3rem;
@@ -192,7 +200,7 @@
         }
 
         & svg {
-            transform: rotate(0);
+            transform: rotate(180deg) translateY(3px);
             height: 2rem;
             width: 2rem;
             color: $color-primary;
@@ -201,7 +209,7 @@
 
         &.closed {
             & svg {
-                transform: rotate(180deg);
+                transform: rotate(0deg);
                 height: 2rem;
                 width: 2rem;
                 color: $color-primary;

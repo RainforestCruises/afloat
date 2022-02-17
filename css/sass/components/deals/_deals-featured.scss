@@ -1,5 +1,6 @@
-.deals-best {
+.deals-featured {
     width: 100%;
+
     padding: 0 6rem;
     @media only screen and (max-width: $bp-medium) {
         padding: 0;
@@ -11,7 +12,7 @@
 
     &__title {
         font-size: 3.5rem;
-        color: $color-primary;
+        color: $color-primary; 
         letter-spacing: 0.2rem;
         font-weight: 600;
         line-height: 6rem;
@@ -19,11 +20,12 @@
         line-height: 4rem;
         margin-bottom: 3rem;
         margin-top: 2rem;
+        padding: 0 1rem;
     }
 
     &__slider {
         width: 100%;
-        //max-width: 140rem;
+        max-width: 160rem;
 
         z-index: 10;
 

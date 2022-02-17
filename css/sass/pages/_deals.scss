@@ -7,7 +7,7 @@
         flex-direction: column;
     }
 
-    &__section-best {
+    &__section-featured {
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -29,11 +29,19 @@
         }
     }
 
-    &__section-main {
+    &__section-destinations {
         display: flex;
         align-items: center;
         flex-direction: column;
+        margin-top: 6rem;
+        
+        position: relative;
+
+
+
+        
     }
+
 }
 
 

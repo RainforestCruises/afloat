@@ -1,6 +1,7 @@
 .search-intro {
     grid-column: center-start / center-end;
     padding: 2rem 0;
+    padding-bottom: 1.5rem;
 
     &__breadcrumb {
       display: flex;
@@ -9,6 +10,7 @@
       font-weight: 500;
       flex-wrap: wrap;
       margin-bottom: .5rem;
+      text-transform: capitalize;
       & li {
         display: inline-block;
         color: $color-grey-1; 
@@ -54,13 +56,13 @@
         height: 3rem;
         width: 3rem;
         fill: $color-grey-1;
-        transform: rotate(90deg);
+        transform: rotate(-90deg);
         transition: all .3s;
       }
 
       &--collapsed {
         & svg {  
-          transform: rotate(-90deg);
+          transform: rotate(90deg);
         }
       }
     }

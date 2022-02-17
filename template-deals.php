@@ -11,17 +11,22 @@ get_header();
 
 $landing_page_type = get_field('landing_page_type');
 
+if($landing_page_type == 'rfc_deal_categories') {
+    $breadcrumbLink = get_field('top_level_deals_page', 'options');
+    $breadcrumbText = 'All Deals';
+
+} else {
+    $breadcrumbLink = get_field('breadcrumb_parent_link');
+    $breadcrumbText =  get_field('breadcrumb_parent_text');
+
+}
+
 
 $destination = get_field('destination');
 $region = get_field('region');
 $deal_category = get_field('deal_category');
-
 $intro_snippet = get_field('intro_snippet');
-
-
 $pageTitle = get_the_title();
-
-
 $categories = [];
 
 //all related posts
@@ -114,7 +119,7 @@ $posts = get_posts($args); //Stage I posts
                 <a href="<?php echo home_url() ?>">Home</a>
             </li>
             <li>
-                <a href="<?php echo get_field('top_level_deals_page', 'options') ?>">All Deals</a>
+                <a href="<?php echo $breadcrumbLink; ?>"> <?php echo $breadcrumbText; ?></a>
             </li>
 
             <li>

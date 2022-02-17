@@ -474,7 +474,14 @@ endforeach;
                                             <?php endif; ?>
                                             <div class="product-itinerary-slide__top__side-info__content__widget">
                                                 <div class="charter-info-snippet">
-                                                    <?php echo get_field('itinerary_snippet'); ?>
+                                                    <?php
+                                                     if (strip_tags($itinerary['Summary']) != '') {
+                                                        echo $itinerary['Summary'];
+                                                    } else {
+                                                        echo get_field('itinerary_snippet');
+                                                    }
+
+                                                    ?>
                                                     <p>
                                                         <?php echo get_field('lodge_note', 'options'); ?>
                                                     </p>
@@ -552,7 +559,7 @@ endforeach;
                                         <?php endif; ?>
                                         <!-- SNIPPET -->
                                         <div class="product-itinerary-slide__top__side-info__content__widget" style="margin-bottom: 0rem">
-                                        
+
                                             <div class="charter-info-snippet">
                                                 <?php
                                                 if (array_key_exists("CharterSnippet", $itinerary)) {
@@ -702,6 +709,8 @@ endforeach;
                                         </div>
 
                                     </div>
+
+
                             <?php
                                     $dayCount++;
                                 endforeach;

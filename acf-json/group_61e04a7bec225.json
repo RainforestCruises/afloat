@@ -28,6 +28,64 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_620e95beb7f50",
+            "label": "Breadcrumb Parent Link",
+            "name": "breadcrumb_parent_link",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61e04aa0ce081",
+                        "operator": "!=",
+                        "value": "rfc_deal_categories"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:destinations"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
+        },
+        {
+            "key": "field_620e96ca8483b",
+            "label": "Breadcrumb Parent Text",
+            "name": "breadcrumb_parent_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61e04aa0ce081",
+                        "operator": "!=",
+                        "value": "rfc_deal_categories"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_61e04b1fce082",
             "label": "Destination",
             "name": "destination",
@@ -154,5 +212,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Deals - Page (Landing Pages)",
-    "modified": 1643816771
+    "show_in_rest": 0,
+    "modified": 1645123295
 }

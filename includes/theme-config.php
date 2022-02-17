@@ -74,7 +74,10 @@ function afloat_images_sizes_add($sizes)
     return $newsizes;
 }
 
-//Rank Math
+//Rank Math -----------
+//Variable Additions
+
+//Add this-- 2022/23
 add_action( 'rank_math/vars/register_extra_replacements', function(){
     rank_math_register_var_replacement(
             'seo_years',
@@ -84,13 +87,15 @@ add_action( 'rank_math/vars/register_extra_replacements', function(){
                     'variable'    => 'seo_years',
                     'example'     => date("Y") . "/" . date('y', strtotime('+1 year')),
             ],
-            'shortcode_var_name_call_back'
+            'shortcode_rankmath_years'
             );
 });
 
-function shortcode_var_name_call_back(){
+function shortcode_rankmath_years(){
 	return date("Y") . "/" . date('y', strtotime('+1 year')); /* FIELD FROM OPTIONS PAGE */
 }
+
+
 
 
 /**

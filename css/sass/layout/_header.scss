@@ -540,10 +540,13 @@
     overflow-x: hidden;
 
     
+    // & .search-button {
+    //     color: $color-gold !important;
+    //     width: max-content !important;
+    //     padding: .8rem 1.5rem;
+    //     margin-right: 1.5rem;
+    // }
 
-
-
-    
 
     &--active {
         display: grid;
@@ -555,13 +558,15 @@
         }
 
         & .mobile-language-switch {
+            animation: fadein 0.2s both;
+            animation-delay: 0.25s;
             position: absolute;
             bottom: 16rem;
             right: 4rem;
             display: flex;
             align-items: center;
             font-size: 1.5rem;
-            color: $color-gold;
+            color: $color-gold; 
             z-index: 9999999;
 
             & svg {
@@ -673,13 +678,21 @@
                 animation-delay: 0.2s;
             }
 
-            & .nav-mobile__content-panel__phone {
-                animation-name: example;
-                animation-duration: 0.4s;
-                animation-timing-function: ease-out;
-                animation-fill-mode: both;
+            & a:nth-child(6) {
                 animation-delay: 0.25s;
             }
+
+            & a:nth-child(7) {
+                animation-delay: 0.3s;
+            }
+
+            // & .nav-mobile__content-panel__phone {
+            //     animation-name: example;
+            //     animation-duration: 0.4s;
+            //     animation-timing-function: ease-out;
+            //     animation-fill-mode: both;
+            //     animation-delay: 0.25s;
+            // }
         }
 
         &--sub {
@@ -1054,6 +1067,7 @@
                         width: 2.5rem;
                         fill: $color-primary;
                         transition: all 0.2s;
+                        transform: rotate(90deg);
                         opacity: 1;
                     }
                     border-right: 1px solid $color-grey-light-2;
@@ -1071,7 +1085,7 @@
 
                 &.active {
                     svg {
-                        transform: rotate(90deg);
+                        transform: rotate(-90deg);
                         opacity: 1;
                     }
                 }

@@ -9,11 +9,11 @@ $posts = $args['deals'];
 
 
 
-<div class="deals-best">
-    <h2 class="deals-best__title">
-        Don't Miss These Exclusive Deals
+<div class="deals-featured">
+    <h2 class="deals-featured__title">
+        <?php echo get_field('featured_slider_title') ?>
     </h2>
-    <div class="deals-best__slider" id="main-slider">
+    <div class="deals-featured__slider" id="featured-slider">
             <?php
             if ($posts) :
 
