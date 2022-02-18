@@ -316,9 +316,9 @@ foreach ($menuitems as $m) {
                                 <div class="phone-popover__container__content__header">
                                     Give Us a Call
                                 </div>
-                                <div class="phone-popover__container__content__number">
+                                <a class="phone-popover__container__content__number" href="tel:<?php echo get_field('phone_number_numeric', 'options'); ?>">
                                     <?php echo get_field('phone_number', 'options'); ?>
-                                </div>
+                                </a>
 
                             </div>
 

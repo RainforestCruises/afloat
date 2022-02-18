@@ -213,9 +213,9 @@ $posts = get_posts($args); //Stage I posts
                                 endif;  ?>
                             </ul>
                             <div class="guide-item__bottom__title">
-                                <h2>
+                                <h3>
                                     <?php echo get_field('navigation_title', $p); ?>
-                                </h2>
+                                </h3>
 
                             </div>
                             <div class="guide-item__bottom__snippet">
@@ -240,7 +240,7 @@ $posts = get_posts($args); //Stage I posts
                                 <div class="guide-item__bottom__cta guide-item__bottom__cta--multiple">
                                     <span>Available On: </span>
                                     <?php foreach ($travelProducts as $product) : ?>
-                                        <a class="goto-button goto-button--dark" href="<?php echo the_permalink($product) ?>">
+                                        <a  href="<?php echo the_permalink($product) ?>">
                                             <?php echo get_the_title($product); ?>
                                         </a>
                                     <?php endforeach; ?>
@@ -257,6 +257,18 @@ $posts = get_posts($args); //Stage I posts
         </div>
     </section>
 
+    <div class="svg-divider">
+        <svg>
+            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-compass-2"></use>
+        </svg>
+    </div>
+
+    <!-- Newsletter -->
+    <section class="experience-page__section-newsletter">
+        <?php
+        get_template_part('template-parts/content', 'shared-newsletter');
+        ?>
+    </section>
 
 </main>
 

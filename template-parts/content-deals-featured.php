@@ -58,9 +58,9 @@ $posts = $args['deals'];
                                 endif;  ?>
                             </ul>
                             <div class="deal-slide__bottom__title">
-                                <h2>
+                                <h3>
                                     <?php echo get_field('navigation_title', $p); ?>
-                                </h2>
+                                </h3>
 
                             </div>
                             <div class="deal-slide__bottom__snippet">
@@ -85,7 +85,7 @@ $posts = $args['deals'];
                                 <div class="deal-slide__bottom__cta deal-slide__bottom__cta--multiple">
                                     <span>Available On: </span>
                                     <?php foreach ($travelProducts as $product) : ?>
-                                        <a class="goto-button goto-button--dark" href="<?php echo the_permalink($product) ?>">
+                                        <a  href="<?php echo the_permalink($product) ?>">
                                             <?php echo get_the_title($product); ?>
                                         </a>
                                     <?php endforeach; ?>

@@ -52,7 +52,7 @@ jQuery(document).ready(function ($) {
     nextArrow: '<button class="btn-circle btn-circle--small btn-dark btn-circle--right product-hotels__slider__btn--right"><svg class="btn-circle--arrow-main"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg><svg class="btn-circle--arrow-animate"><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-chevron-right"></use></svg></button>',
     responsive: [
       {
-        breakpoint: 1400,
+        breakpoint: 1500,
         settings: {
           slidesToShow: 4,
 
@@ -60,7 +60,7 @@ jQuery(document).ready(function ($) {
         }
       },
       {
-        breakpoint: 1000,
+        breakpoint: 1200,
         settings: {
           slidesToShow: 3,
 

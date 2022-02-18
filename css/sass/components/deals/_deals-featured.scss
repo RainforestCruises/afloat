@@ -128,7 +128,7 @@
                         }
                     }
 
-                    & h2 {
+                    & h3 {
                         font-size: 3rem;
                         font-weight: 500;
                         letter-spacing: 0.1rem;
@@ -153,6 +153,7 @@
                         border-top: 1px solid $color-grey-light-2;
                         position: relative;
                         margin-top: 2rem;
+                        padding-top: 1rem;
                         & span {
                             position: absolute;
                             top: -2rem;
@@ -162,12 +163,25 @@
                         }
 
                         & a {
-                            padding-right: 2rem;
-                            padding-bottom: 0.5rem;
-                            &:not(:last-child) {
-                                &::after {
-                                    content: ", ";
-                                }
+                            color: $color-primary;
+                            background-color: $color-grey-light-1a;
+                            padding: .5rem 1rem;
+                            border: none;
+                            margin: .5rem 1rem;
+                            margin-left: 0rem;
+                            letter-spacing: 0.1rem;
+                            cursor: pointer;
+                            border-radius: 4rem;
+                            font-size: 1.2rem;
+                           
+                            text-transform: uppercase;
+                            font-weight: 700;
+                            position: relative;
+                            text-decoration: none;
+                            white-space: nowrap;
+                            transition: all .2s;
+                            &:hover {
+                                background-color: $color-grey-light-2;
                             }
                         }
                     }

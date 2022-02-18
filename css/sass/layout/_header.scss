@@ -330,8 +330,8 @@
                     visibility: hidden;
                     position: absolute;
                     top: 5rem;
-                    left: 50%;
-                    transform: translateX(-50%);
+                    left: 80%;
+                    transform: translateX(-80%);
                     background-color: $color-white;
                     border: 1px solid $color-grey-light-1a;
                     border-radius: 0.4rem;
@@ -344,14 +344,14 @@
 
                     &__container {
                         position: relative;
-
+ 
                         &__arrow {
                             height: 16px;
                             width: 16px;
 
                             background-color: #fff;
                             position: absolute;
-                            right: 42%;
+                            right: 18%;
                             //top: -.6rem;
                             //transform: translateX(50%);
 
@@ -562,7 +562,7 @@
             animation-delay: 0.25s;
             position: absolute;
             bottom: 16rem;
-            right: 4rem;
+            right: 2rem;
             display: flex;
             align-items: center;
             font-size: 1.5rem;
@@ -634,7 +634,7 @@
         transform: translateX(0%);
         transition: all 0.4s;
 
-        padding-top: 7rem;
+        padding-top: 1rem;
         position: relative;
 
 
@@ -686,13 +686,7 @@
                 animation-delay: 0.3s;
             }
 
-            // & .nav-mobile__content-panel__phone {
-            //     animation-name: example;
-            //     animation-duration: 0.4s;
-            //     animation-timing-function: ease-out;
-            //     animation-fill-mode: both;
-            //     animation-delay: 0.25s;
-            // }
+
         }
 
         &--sub {
@@ -1289,7 +1283,7 @@
     &.close {
         position: absolute;
         top: 0;
-        right: 18rem;
+        right: 20rem;
         z-index: 999999999;
 
         & .burger-button__bar {

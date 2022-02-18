@@ -2881,7 +2881,7 @@ h5 {
             color: #142838; }
             .deals-featured__slider .deal-slide__bottom__title:link:hover, .deals-featured__slider .deal-slide__bottom__title:visited:hover {
               color: #40739c; }
-          .deals-featured__slider .deal-slide__bottom__title h2 {
+          .deals-featured__slider .deal-slide__bottom__title h3 {
             font-size: 3rem;
             font-weight: 500;
             letter-spacing: 0.1rem;
@@ -2897,7 +2897,8 @@ h5 {
           flex-wrap: wrap;
           border-top: 1px solid #c2c6c9;
           position: relative;
-          margin-top: 2rem; }
+          margin-top: 2rem;
+          padding-top: 1rem; }
           .deals-featured__slider .deal-slide__bottom__cta--multiple span {
             position: absolute;
             top: -2rem;
@@ -2905,10 +2906,24 @@ h5 {
             color: #142838;
             letter-spacing: 0.1rem; }
           .deals-featured__slider .deal-slide__bottom__cta--multiple a {
-            padding-right: 2rem;
-            padding-bottom: 0.5rem; }
-            .deals-featured__slider .deal-slide__bottom__cta--multiple a:not(:last-child)::after {
-              content: ", "; }
+            color: #142838;
+            background-color: #e6e6e6;
+            padding: .5rem 1rem;
+            border: none;
+            margin: .5rem 1rem;
+            margin-left: 0rem;
+            letter-spacing: 0.1rem;
+            cursor: pointer;
+            border-radius: 4rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            position: relative;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all .2s; }
+            .deals-featured__slider .deal-slide__bottom__cta--multiple a:hover {
+              background-color: #c2c6c9; }
 
 .deals-destinations {
   width: 100%;
@@ -10556,8 +10571,8 @@ h5 {
       font-size: 1.2rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: .2rem;
-      padding: .5rem 1.5rem;
+      letter-spacing: 0.2rem;
+      padding: 0.5rem 1.5rem;
       margin-right: 2rem; }
   .guide-item__bottom {
     display: flex;
@@ -10587,7 +10602,7 @@ h5 {
         color: #142838; }
         .guide-item__bottom__title:link:hover, .guide-item__bottom__title:visited:hover {
           color: #40739c; }
-      .guide-item__bottom__title h2 {
+      .guide-item__bottom__title h3 {
         font-size: 3rem;
         font-weight: 500;
         letter-spacing: 0.1rem;
@@ -10603,18 +10618,33 @@ h5 {
       flex-wrap: wrap;
       border-top: 1px solid #c2c6c9;
       position: relative;
-      margin-top: 2rem; }
+      margin-top: 2rem;
+      padding-top: 1rem; }
       .guide-item__bottom__cta--multiple span {
         position: absolute;
         top: -2rem;
         font-size: 1.2rem;
         color: #142838;
-        letter-spacing: .1rem; }
+        letter-spacing: 0.1rem; }
       .guide-item__bottom__cta--multiple a {
-        padding-right: 2rem;
-        padding-bottom: .5rem; }
-        .guide-item__bottom__cta--multiple a:not(:last-child)::after {
-          content: ', '; }
+        color: #142838;
+        background-color: #e6e6e6;
+        padding: .5rem 1rem;
+        border: none;
+        margin: .5rem 1rem;
+        margin-left: 0rem;
+        letter-spacing: 0.1rem;
+        cursor: pointer;
+        border-radius: 4rem;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        position: relative;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: all .2s; }
+        .guide-item__bottom__cta--multiple a:hover {
+          background-color: #c2c6c9; }
 
 .lds-dual-ring {
   display: inline-block;
@@ -11137,8 +11167,8 @@ h5 {
           visibility: hidden;
           position: absolute;
           top: 5rem;
-          left: 50%;
-          transform: translateX(-50%);
+          left: 80%;
+          transform: translateX(-80%);
           background-color: #fff;
           border: 1px solid #e6e6e6;
           border-radius: 0.4rem;
@@ -11153,7 +11183,7 @@ h5 {
               width: 16px;
               background-color: #fff;
               position: absolute;
-              right: 42%;
+              right: 18%;
               /* Border */
               border-left: 1px solid #e6e6e6;
               border-top: 1px solid #e6e6e6;
@@ -11288,7 +11318,7 @@ h5 {
       animation-delay: 0.25s;
       position: absolute;
       bottom: 16rem;
-      right: 4rem;
+      right: 2rem;
       display: flex;
       align-items: center;
       font-size: 1.5rem;
@@ -11335,7 +11365,7 @@ h5 {
     z-index: 20;
     transform: translateX(0%);
     transition: all 0.4s;
-    padding-top: 7rem;
+    padding-top: 1rem;
     position: relative; }
     .nav-mobile__content-panel.slide-out-left {
       transform: translateX(-100%); }
@@ -11775,7 +11805,7 @@ h5 {
   .burger-button.close {
     position: absolute;
     top: 0;
-    right: 18rem;
+    right: 20rem;
     z-index: 999999999; }
     .burger-button.close .burger-button__bar {
       visibility: hidden; }

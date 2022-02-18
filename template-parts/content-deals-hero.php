@@ -22,9 +22,9 @@
                 <img <?php afloat_image_markup($cardImage, 'featured-large'); ?>>
             </div>
             <div class="deal-card__content">
-                <div class="deal-card__content__title">
+                <h2 class="deal-card__content__title">
                     <?php echo $cardTitle ?>
-                </div>
+                </h2>
                 <div class="deal-card__content__cta">
                     <button class="btn-cta-round btn-cta-round--white btn-cta-round--medium">
                         View Deals
@@ -45,9 +45,9 @@
                 <img <?php afloat_image_markup($cardImage, 'featured-large'); ?>>
             </div>
             <div class="deal-card__content">
-                <div class="deal-card__content__title">
+                <h2 class="deal-card__content__title">
                     <?php echo $cardTitle ?>
-                </div>
+                </h2>
                 <div class="deal-card__content__cta">
                     <button class="btn-cta-round btn-cta-round--white btn-cta-round--medium">
                         View Deals
@@ -67,9 +67,9 @@
                 <img <?php afloat_image_markup($cardImage, 'featured-large'); ?>>
             </div>
             <div class="deal-card__content">
-                <div class="deal-card__content__title">
+                <h2 class="deal-card__content__title">
                     <?php echo $cardTitle ?>
-                </div>
+                </h2>
                 <div class="deal-card__content__cta">
                     <button class="btn-cta-round btn-cta-round--white btn-cta-round--medium">
                         View Deals
@@ -94,9 +94,9 @@
                 <img <?php afloat_image_markup($cardImage, 'pill-large'); ?>>
             </div>
             <div class="deal-card__content">
-                <div class="deal-card__content__title">
+                <h2 class="deal-card__content__title">
                     <?php echo $cardTitle ?>
-                </div>
+                </h2>
                 <div class="deal-card__content__cta">
                     <button class="btn-cta-round btn-cta-round--white btn-cta-round--medium">
                         View Deals
@@ -121,9 +121,9 @@
                 <img <?php afloat_image_markup($cardImage, 'featured-large'); ?>>
             </div>
             <div class="deal-card__content">
-                <div class="deal-card__content__title">
+                <h2 class="deal-card__content__title">
                     <?php echo $cardTitle ?>
-                </div>
+                </h2>
                 <div class="deal-card__content__cta">
                     <button class="btn-cta-round btn-cta-round--white btn-cta-round--medium">
                         View Deals
@@ -144,9 +144,9 @@
                 <img <?php afloat_image_markup($cardImage, 'featured-large'); ?>>
             </div>
             <div class="deal-card__content">
-                <div class="deal-card__content__title">
+                <h2 class="deal-card__content__title">
                     <?php echo $cardTitle ?>
-                </div>
+                </h2>
                 <div class="deal-card__content__cta">
                     <button class="btn-cta-round btn-cta-round--white btn-cta-round--medium">
                         View Deals
@@ -166,9 +166,9 @@
                 <img <?php afloat_image_markup($cardImage, 'featured-large'); ?>>
             </div>
             <div class="deal-card__content">
-                <div class="deal-card__content__title">
+                <h2 class="deal-card__content__title">
                     <?php echo $cardTitle ?>
-                </div>
+                </h2>
                 <div class="deal-card__content__cta">
                     <button class="btn-cta-round btn-cta-round--white btn-cta-round--medium">
                         View Deals
@@ -193,9 +193,9 @@
                 <img <?php afloat_image_markup($cardImage, 'pill-large'); ?>>
             </div>
             <div class="deal-card__content">
-                <div class="deal-card__content__title">
+                <h2 class="deal-card__content__title">
                     <?php echo $cardTitle ?>
-                </div>
+                </h2>
                 <div class="deal-card__content__cta">
                     <button class="btn-cta-round btn-cta-round--white btn-cta-round--medium">
                         View Deals
