@@ -178,7 +178,9 @@ jQuery(document).ready(function ($) {
     burgerButtonClose.classList.add('active');
     document.body.classList.add('lock-scroll');
     bodyDiv.classList.add('overlay');
-    languageSwitcher.style.display = 'flex';
+    if (languageSwitcher != null){
+      languageSwitcher.style.display = 'flex'; //fix this
+    }
   });
 
   //Burger-- close
@@ -216,7 +218,10 @@ jQuery(document).ready(function ($) {
 
       var isBackButton = $(item).hasClass('back-link');
       var isPhoneButton = $(item).hasClass('phone');
-      languageSwitcher.style.display = 'flex'; //fix this
+      if (languageSwitcher != null){
+        languageSwitcher.style.display = 'flex'; //fix this
+      }
+      
       if (isBackButton) {
         $(topPanel).removeClass('slide-out-left');
         
@@ -224,7 +229,9 @@ jQuery(document).ready(function ($) {
       } else if (isPhoneButton) {
           //do nothing
       } else {
-        languageSwitcher.style.display = 'none';
+        if (languageSwitcher != null){
+          languageSwitcher.style.display = 'none'; //fix this
+        }
         if (!item.classList.contains("mobile-link")) {
           topPanel.classList.add('slide-out-left');
           $(subPanel).addClass('slide-center');
