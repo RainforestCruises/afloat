@@ -65,7 +65,7 @@ $newsletter_snippet = get_field('newsletter_snippet');
     ?>
   </section>
 
-  <!-- Testimonials -->
+  <!-- Newsletter -->
   <section class="home-page__section-newsletter">
     <?php
     get_template_part('template-parts/content', 'shared-newsletter');

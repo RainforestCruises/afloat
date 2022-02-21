@@ -63,7 +63,7 @@ if ($landing_page_type == 'rfc_deal_categories') {
         'value'   => '0'
     );
     $cruiseDestinations = get_posts($cruiseDestinationsArgs);
-  
+
 
     $categories = array_merge($regions, $cruiseDestinations);
 };
@@ -278,7 +278,7 @@ $posts = get_posts($args); //Stage I posts
             ?>
         </div>
         <div class="travel-guide-landing-page__content__no-results" id="no-results-message">
-            There are no deals for this category.
+        No deals available. Please select another category.
         </div>
     </section>
 
@@ -289,7 +289,7 @@ $posts = get_posts($args); //Stage I posts
     </div>
 
     <!-- Newsletter -->
-    <section class="experience-page__section-newsletter">
+    <section class="home-page__section-newsletter">
         <?php
         get_template_part('template-parts/content', 'shared-newsletter');
         ?>

@@ -2094,7 +2094,6 @@ h5 {
   width: 100%;
   align-items: center;
   position: relative;
-  z-index: 0;
   padding-top: 14rem; }
   @media only screen and (max-width: 62.5em) {
     .travel-guide-landing-page {
@@ -2818,7 +2817,7 @@ h5 {
     padding: 0 1rem; }
   .deals-featured__slider {
     width: 100%;
-    max-width: 160rem;
+    max-width: 140rem;
     z-index: 10;
     padding: 0 9rem; }
     @media only screen and (max-width: 50em) {
@@ -2952,7 +2951,7 @@ h5 {
     margin-top: 0rem; }
   .deals-destinations__slider {
     width: 100%;
-    max-width: 160rem;
+    max-width: 140rem;
     z-index: 10;
     padding: 0 9rem; }
     @media only screen and (max-width: 37.5em) {

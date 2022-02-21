@@ -26,14 +26,14 @@ $destinations = $args['destinations'];
                 <a href="<?php echo $d['page_link'] ?>" class="card-square">
                     <div class="card-square__title-group">
                         <div class="card-square__title-group__level">
-                            <?php  echo deals_available($destinationPost);?> Deals
+                            
                         </div>
                         <div>
                             <h4 class="card-square__title-group__name">
                                 <?php echo  $slideTitle ?>
                             </h4>
                             <div class="card-square__title-group__subtext">
-                                <?php echo get_field('navigation_title', $hotelCity) ?>
+                            <?php  echo deals_available($destinationPost);?> Deals
                             </div>
                         </div>
 

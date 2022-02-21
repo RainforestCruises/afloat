@@ -5,19 +5,19 @@ jQuery(document).ready(function ($) {
 
   //Set Header Style
   var opaqueNavAlways = false;
-  if(header_vars.alwaysActiveHeader == true){
+  if (header_vars.alwaysActiveHeader == true) {
     opaqueNavAlways = true;
-  } 
- 
+  }
+
   //Scroll to Top on Reload
   if (history.scrollRestoration) {
     history.scrollRestoration = 'manual';
-} else {
+  } else {
     window.onbeforeunload = function () {
-        window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
     }
-}
-  
+  }
+
 
 
   //Variables
@@ -39,11 +39,11 @@ jQuery(document).ready(function ($) {
   //Scroll listener
   applyNavStyle();
   window.addEventListener('scroll', applyNavStyle);
-  
+
 
   //Set active / small-nav classes 
-  function applyNavStyle() {    
-    
+  function applyNavStyle() {
+
     let megaActive = megaMenu.classList.contains('active');
     //small nav
     if (window.scrollY == 0) {
@@ -157,16 +157,16 @@ jQuery(document).ready(function ($) {
 
 
 
-    //Mouse Leave Browser - remove mega / active
-    $(document).mouseleave(function () {
-      megaMenu.classList.remove('active');
-      megaMenuOverlay.classList.remove('active');
-      $('.nav-secondary').removeClass('mega-hide');
-      let menuActive = navMobile.classList.contains('nav-mobile--active');
-      if (window.scrollY == 0 && !opaqueNavAlways && !menuActive) {
-        headerMain.classList.remove('active');
-      }
-    });
+  //Mouse Leave Browser - remove mega / active
+  $(document).mouseleave(function () {
+    megaMenu.classList.remove('active');
+    megaMenuOverlay.classList.remove('active');
+    $('.nav-secondary').removeClass('mega-hide');
+    let menuActive = navMobile.classList.contains('nav-mobile--active');
+    if (window.scrollY == 0 && !opaqueNavAlways && !menuActive) {
+      headerMain.classList.remove('active');
+    }
+  });
 
 
 
@@ -178,7 +178,7 @@ jQuery(document).ready(function ($) {
     burgerButtonClose.classList.add('active');
     document.body.classList.add('lock-scroll');
     bodyDiv.classList.add('overlay');
-    if (languageSwitcher != null){
+    if (languageSwitcher != null) {
       languageSwitcher.style.display = 'flex'; //fix this
     }
   });
@@ -204,8 +204,8 @@ jQuery(document).ready(function ($) {
     }
   }
 
- 
-  
+
+
 
   //Mobile Menu
   const mobileButtons = [...document.querySelectorAll('.nav-mobile__content-panel__button')];
@@ -218,18 +218,18 @@ jQuery(document).ready(function ($) {
 
       var isBackButton = $(item).hasClass('back-link');
       var isPhoneButton = $(item).hasClass('phone');
-      if (languageSwitcher != null){
+      if (languageSwitcher != null) {
         languageSwitcher.style.display = 'flex'; //fix this
       }
-      
+
       if (isBackButton) {
         $(topPanel).removeClass('slide-out-left');
-        
+
         $(item).parent().removeClass('slide-center');
       } else if (isPhoneButton) {
-          //do nothing
+        //do nothing
       } else {
-        if (languageSwitcher != null){
+        if (languageSwitcher != null) {
           languageSwitcher.style.display = 'none'; //fix this
         }
         if (!item.classList.contains("mobile-link")) {
@@ -268,6 +268,39 @@ jQuery(document).ready(function ($) {
   );
 
 
+
+  //Newsletter
+  $('.close-button').on('click', () => {
+    $('.popup').removeClass('active');
+    body.classList.remove('no-scroll');
+  });
+
+  document.addEventListener('click', evt => {
+    const contactForm = document.querySelector('.contact');
+    const popup = document.querySelector('.popup');
+    const button = document.querySelector('#newsletterButton');
+
+    const isContact = contactForm.contains(evt.target);
+    const isButton = button.contains(evt.target);
+    const isActive = popup.classList.contains('active');
+    if (isActive) {
+      if (!isContact && !isButton) {
+        $('.popup').toggleClass('active');
+        body.classList.remove('no-scroll');
+      }
+    }
+
+  });
+
+  $('#newsletterButton').on('click', () => {
+    $('.popup').addClass('active');
+    body.classList.add('no-scroll');
+  });
+
+  $('.form-general').on('submit', function () {
+    $('.contact__wrapper__intro__title').text('Thank You');
+    $('.contact__wrapper__intro__introtext').hide();
+  });
 
 
 
