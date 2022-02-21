@@ -11,14 +11,12 @@ get_header();
 
 $landing_page_type = get_field('landing_page_type');
 
-if($landing_page_type == 'rfc_deal_categories') {
+if ($landing_page_type == 'rfc_deal_categories') {
     $breadcrumbLink = get_field('top_level_deals_page', 'options');
     $breadcrumbText = 'All Deals';
-
 } else {
     $breadcrumbLink = get_field('breadcrumb_parent_link');
     $breadcrumbText =  get_field('breadcrumb_parent_text');
-
 }
 
 
@@ -29,7 +27,7 @@ $intro_snippet = get_field('intro_snippet');
 $pageTitle = get_the_title();
 $categories = [];
 
-//all related posts
+//If Deal Category Type
 if ($landing_page_type == 'rfc_deal_categories') {
     $args = array(
         'posts_per_page' => -1,
@@ -44,12 +42,30 @@ if ($landing_page_type == 'rfc_deal_categories') {
 
     );
 
-    $categories = get_posts(array(
+    $regions = get_posts(array(
         'post_type' => 'rfc_regions',
         'posts_per_page' => -1,
         'orderby' => 'title',
         'order' => 'ASC',
     ));
+
+
+    //Cruise Destinations -- (if not displaying, must check and uncheck destination 'non-cruise-destination' field)
+    $cruiseDestinationsArgs = array(
+        'post_type' => 'rfc_destinations',
+        'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
+    );
+
+    $cruiseDestinationsArgs['meta_query'][] = array(
+        'key'     => 'non_cruise_destination',
+        'value'   => '0'
+    );
+    $cruiseDestinations = get_posts($cruiseDestinationsArgs);
+  
+
+    $categories = array_merge($regions, $cruiseDestinations);
 };
 
 if ($landing_page_type == 'rfc_destinations') {
@@ -170,19 +186,25 @@ $posts = get_posts($args); //Stage I posts
 
                     $guideCategories = [];
                     if ($landing_page_type == 'rfc_deal_categories') {
-                        $guideCategories = get_field('regions', $p);
+                        $guideRegions = get_field('regions', $p);
+                        $guideDestinations = get_field('destinations', $p);
+
+                        $guideTagCategories = array_merge($guideDestinations, $guideRegions); //isoTags
+                        $guideCategories = $guideRegions;
                     }
                     if ($landing_page_type == 'rfc_regions') {
                         $guideCategories = get_field('destinations', $p);
+                        $guideTagCategories =  $guideCategories;
                     }
                     if ($landing_page_type == 'rfc_destinations') {
                         $guideCategories = get_field('categories', $p);
+                        $guideTagCategories =  $guideCategories;
                     }
 
 
                     $isoClasses = '';
-                    if ($guideCategories) {
-                        foreach ($guideCategories as $c) {
+                    if ($guideTagCategories) {
+                        foreach ($guideTagCategories as $c) {
                             $isoClasses = $isoClasses . ' ' . $c->post_name;
                         };
                     };
@@ -240,7 +262,7 @@ $posts = get_posts($args); //Stage I posts
                                 <div class="guide-item__bottom__cta guide-item__bottom__cta--multiple">
                                     <span>Available On: </span>
                                     <?php foreach ($travelProducts as $product) : ?>
-                                        <a  href="<?php echo the_permalink($product) ?>">
+                                        <a href="<?php echo the_permalink($product) ?>">
                                             <?php echo get_the_title($product); ?>
                                         </a>
                                     <?php endforeach; ?>
@@ -254,6 +276,9 @@ $posts = get_posts($args); //Stage I posts
                 endforeach;
             endif;
             ?>
+        </div>
+        <div class="travel-guide-landing-page__content__no-results" id="no-results-message">
+            There are no deals for this category.
         </div>
     </section>
 

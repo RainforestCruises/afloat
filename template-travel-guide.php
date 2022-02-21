@@ -192,9 +192,10 @@ $posts = get_posts($args); //Stage I posts
                                 endif;  ?>
                             </ul>
                             <a class="guide-item__bottom__title" href="<?php echo the_permalink($p) ?>">
-                                <h2>
+                            
+                                <h3>
                                     <?php echo get_field('navigation_title', $p); ?>
-                                </h2>
+                                </h3>
 
                             </a>
                             <div class="guide-item__bottom__snippet">

@@ -28,7 +28,7 @@ $categories = get_posts(array(
 ));
 
 
-$selectedDeals = get_field('selected_deals');
+$selectedDeals = get_field('featured_deals');
 $selectedDestinations = get_field('destinations');
 
 

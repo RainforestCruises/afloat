@@ -44,7 +44,7 @@
             transform: translateX(-50%);
         }
 
-        .slick-slide {
+        .slick-slide { 
             margin: 1rem;
             //margin-bottom: 4rem;
             box-shadow: $shadow-short-bottom;
@@ -52,6 +52,10 @@
 
             @media only screen and (max-width: $bp-small) {
                 margin: .5rem;
+            }
+
+            & .card-square {
+                margin-top: 1.5rem !important;
             }
         }
 

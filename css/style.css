@@ -2276,6 +2276,10 @@ h5 {
       margin-bottom: 12rem;
       width: 100%;
       margin-top: 2rem; }
+    .travel-guide-landing-page__content__no-results {
+      display: none;
+      font-size: 2rem;
+      margin-bottom: 12rem; }
 
 .experience-page__section-hero {
   background-color: #1d2225; }
@@ -2723,7 +2727,7 @@ h5 {
     position: relative; }
 
 .deals-hero {
-  max-width: calc(112rem + 12rem);
+  max-width: 132rem;
   padding: 0 6rem; }
   @media only screen and (max-width: 37.5em) {
     .deals-hero {
@@ -2965,6 +2969,8 @@ h5 {
       @media only screen and (max-width: 37.5em) {
         .deals-destinations__slider .slick-slide {
           margin: .5rem; } }
+      .deals-destinations__slider .slick-slide .card-square {
+        margin-top: 1.5rem !important; }
     .deals-destinations__slider__btn--left {
       transform: translateY(-50%);
       position: absolute;

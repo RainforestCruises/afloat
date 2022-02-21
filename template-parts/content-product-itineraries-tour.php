@@ -193,7 +193,7 @@ $img = get_field('map');
                             </div>
                         <?php endif; ?>
                         <div class="product-itinerary-slide__top__side-info__content__fine-print">
-                            Availability on request
+                                This customizable tour can start on any date, subject to availability.
                         </div>
                     </div>
 

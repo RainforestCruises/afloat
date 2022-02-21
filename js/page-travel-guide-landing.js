@@ -27,11 +27,26 @@ jQuery(document).ready(function ($) {
         $('#quicksearch').val('');
         qsRegex = '';
         resultsGrid.isotope();
+     
+
+        //check count
+        //console.log($('#results').isotope().filteredItems.count);
+
+        var iso = resultsGrid.data('isotope');
+        var filterCount = iso.filteredItems.length;
+    
+
+        if (filterCount > 0) {
+            $('#no-results-message').hide();
+        } else {
+            $('#no-results-message').show();
+        }
 
         $('.filter-button').removeClass('selected');
         $(this).addClass('selected');
     
     });
+
 
 
 
@@ -42,6 +57,8 @@ jQuery(document).ready(function ($) {
 
         $('.filter-button').removeClass('selected');
         $('.filter-button-all').addClass('selected');
+
+        $('#no-results-message').hide();
 
         resultsGrid.isotope();
     }));
