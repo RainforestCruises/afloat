@@ -552,6 +552,29 @@
             "multiple": 0
         },
         {
+            "key": "field_62151114ad7d3",
+            "label": "Deal Page Link",
+            "name": "deal_page_link",
+            "type": "page_link",
+            "instructions": "Link to deal landing page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:deals"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
+        },
+        {
             "key": "field_5ffe1c509147c",
             "label": "Cruises Section",
             "name": "",
@@ -1098,5 +1121,6 @@
     ],
     "active": true,
     "description": "Destination (Region) - Page",
-    "modified": 1635270315
+    "show_in_rest": 0,
+    "modified": 1645547826
 }

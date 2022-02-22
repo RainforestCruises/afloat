@@ -2758,6 +2758,9 @@ h5 {
   width: 100%;
   min-height: 35rem;
   height: min-content; }
+  @media only screen and (max-width: 50em) {
+    .deal-card {
+      margin: 1rem 0rem; } }
   .deal-card__image {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
@@ -11370,7 +11373,7 @@ h5 {
     z-index: 20;
     transform: translateX(0%);
     transition: all 0.4s;
-    padding-top: 1rem;
+    padding-top: 4rem;
     position: relative; }
     .nav-mobile__content-panel.slide-out-left {
       transform: translateX(-100%); }

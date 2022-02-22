@@ -245,5 +245,9 @@ $highlights = get_field('highlights');
         endif;
         ?>
         <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $tour_search_link; ?>">View All Tours</a>
+        <?php $deal_page_link = get_field('deal_page_link');
+        if ($deal_page_link != '') : ?>
+            <a class="btn-outline btn-outline--green btn-outline--small" href="<?php echo get_field('deal_page_link'); ?>">View Deals</a>
+        <?php endif; ?>
     </div>
 </div>
