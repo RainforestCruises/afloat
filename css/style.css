@@ -795,6 +795,10 @@ h5 {
     color: #fff; }
     .btn-cta-round--green:hover {
       background-color: rgba(0, 168, 75, 0.8); }
+  .btn-cta-round--xsmall {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.2rem; }
   .btn-cta-round--small {
     font-size: 1.2rem;
     padding: 0.75rem 1.5rem;
@@ -1393,6 +1397,10 @@ h5 {
   align-items: center;
   padding: 6rem 0;
   animation: fadein 0.2s; }
+  @media only screen and (max-width: 50em) {
+    .popup {
+      padding: 3rem 0;
+      align-items: flex-start; } }
   .popup.active {
     display: flex; }
 
@@ -3817,6 +3825,9 @@ h5 {
       display: flex;
       justify-content: flex-end;
       font-weight: 600; }
+      .side-info-panel__departure-grid__grid__cta svg {
+        height: 2rem;
+        width: 2rem; }
   .side-info-panel__departure-grid__note {
     margin-top: 2rem;
     font-size: 1.2rem; }

@@ -114,8 +114,10 @@ foreach ($departures as $departure) {
 
         </div>
         <div class="side-info-panel__departure-grid__grid__cta">
-            <button class="btn-cta-round btn-cta-round--small departure-cta-button" itineraryNights="<?php echo $selectedItinerary['LengthInNights'] ?>" departureDate="<?php echo $result['DepartureDate'] ?>">
-                Inquire
+            <button class="btn-cta-round btn-cta-round--xsmall departure-cta-button" itineraryNights="<?php echo $selectedItinerary['LengthInNights'] ?>" departureDate="<?php echo $result['DepartureDate'] ?>">
+                <svg>
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_mail_outline_24px"></use>
+                </svg>
             </button>
         </div>
     <?php endforeach; ?>

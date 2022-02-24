@@ -130,6 +130,11 @@
     align-items: center;
     padding: 6rem 0;
 
+    @media only screen and (max-width: $bp-medium) {
+        padding: 3rem 0;
+        align-items: flex-start;
+    }
+
     animation: fadein 0.2s;
 
     &.active {

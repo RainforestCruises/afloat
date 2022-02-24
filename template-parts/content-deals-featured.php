@@ -83,7 +83,7 @@ $posts = $args['deals'];
                             ?>
 
                                 <div class="deal-slide__bottom__cta deal-slide__bottom__cta--multiple">
-                                    <span>Available On: </span>
+                                    <span>Applicable To: </span>
                                     <?php foreach ($travelProducts as $product) : ?>
                                         <a  href="<?php echo the_permalink($product) ?>">
                                             <?php echo get_the_title($product); ?>

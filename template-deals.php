@@ -27,11 +27,15 @@ $intro_snippet = get_field('intro_snippet');
 $pageTitle = get_the_title();
 $categories = [];
 
-//If Deal Category Type
+//If Deal Category Page Type
 if ($landing_page_type == 'rfc_deal_categories') {
+    //Deal Posts
     $args = array(
         'posts_per_page' => -1,
         'post_type' => 'rfc_deals',
+        'meta_key' => 'value_rating',
+        'orderby' => 'meta_value_num',
+        'order' => 'DESC',
         'meta_query' => array(
             array(
                 'key' => 'categories', // name of custom field
@@ -39,9 +43,9 @@ if ($landing_page_type == 'rfc_deal_categories') {
                 'compare' => 'LIKE'
             )
         )
-
     );
 
+    //For Filters (regions + cruise destinations)
     $regions = get_posts(array(
         'post_type' => 'rfc_regions',
         'posts_per_page' => -1,
@@ -63,15 +67,17 @@ if ($landing_page_type == 'rfc_deal_categories') {
         'value'   => '0'
     );
     $cruiseDestinations = get_posts($cruiseDestinationsArgs);
-
-
     $categories = array_merge($regions, $cruiseDestinations);
 };
 
+//If Destniation Page Type
 if ($landing_page_type == 'rfc_destinations') {
     $args = array(
         'posts_per_page' => -1,
         'post_type' => 'rfc_deals',
+        'meta_key' => 'value_rating',
+        'orderby' => 'meta_value_num',
+        'order' => 'DESC',
         'meta_query' => array(
             array(
                 'key' => 'destinations', // name of custom field
@@ -89,10 +95,14 @@ if ($landing_page_type == 'rfc_destinations') {
     ));
 };
 
+//If Region Page Type
 if ($landing_page_type == 'rfc_regions') {
     $args = array(
         'posts_per_page' => -1,
         'post_type' => 'rfc_deals',
+        'meta_key' => 'value_rating',
+        'orderby' => 'meta_value_num',
+        'order' => 'DESC',
         'meta_query' => array(
             array(
                 'key' => 'regions', // name of custom field
@@ -260,7 +270,7 @@ $posts = get_posts($args); //Stage I posts
                             ?>
 
                                 <div class="guide-item__bottom__cta guide-item__bottom__cta--multiple">
-                                    <span>Available On: </span>
+                                    <span>Applicable To: </span>
                                     <?php foreach ($travelProducts as $product) : ?>
                                         <a href="<?php echo the_permalink($product) ?>">
                                             <?php echo get_the_title($product); ?>

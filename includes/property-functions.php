@@ -405,7 +405,7 @@ function listDealsForProduct($post, $charterView = false)
 
 
 
-//Cruises available region (experience templates)
+//Count of Deals available in region or destination
 function deals_available($regionOrDestinationPost)
 {
 
