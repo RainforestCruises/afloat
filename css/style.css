@@ -2733,6 +2733,60 @@ h5 {
     margin-top: 6rem;
     position: relative; }
 
+.reviews-page {
+  padding-top: 12rem; }
+  .reviews-page__section-hero {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2rem; }
+  .reviews-page__section-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    padding-top: 3rem;
+    position: relative; }
+    .reviews-page__section-content::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(img/bg/topo-1.png);
+      opacity: 0.35;
+      top: 0;
+      left: 0;
+      z-index: -3; }
+
+.reviews-hero {
+  max-width: 132rem;
+  padding: 0 6rem; }
+  @media only screen and (max-width: 37.5em) {
+    .reviews-hero {
+      padding: 0 3rem; } }
+  .reviews-hero__title {
+    font-size: 5rem;
+    color: #142838;
+    letter-spacing: 0.2rem;
+    font-weight: 500;
+    line-height: 6rem;
+    text-align: center; }
+  .reviews-hero__subtext {
+    font-size: 1.6rem;
+    margin: 2rem 0;
+    text-align: center; }
+
+.reviews-content {
+  width: 100%;
+  max-width: 132rem;
+  padding: 0 6rem;
+  font-size: 1.6rem;
+  padding-bottom: 12rem; }
+  @media only screen and (max-width: 50em) {
+    .reviews-content {
+      padding: 0 3rem;
+      max-width: 100%; } }
+
 .deals-hero {
   max-width: 132rem;
   padding: 0 6rem; }
@@ -11014,22 +11068,25 @@ h5 {
           color: #40739c; }
       .header__main.active .header__main__right {
         color: #142838; }
-        .header__main.active .header__main__right .header__main__right__contact-link:hover,
-        .header__main.active .header__main__right .header__main__right__phone-desktop:hover {
-          transition: color 0.3s;
+        .header__main.active .header__main__right__search {
+          color: #142838; }
+          .header__main.active .header__main__right__search .nav-search-button {
+            color: #142838; }
+            .header__main.active .header__main__right__search .nav-search-button::after {
+              border: 1px solid rgba(20, 40, 56, 0.6); }
+        .header__main.active .header__main__right__contact-link:link, .header__main.active .header__main__right__contact-link:visited {
+          color: #142838; }
+        .header__main.active .header__main__right__contact-link:hover {
           color: #40739c; }
+        .header__main.active .header__main__right__language .trp-language-switcher {
+          cursor: pointer;
+          color: #142838; }
+          .header__main.active .header__main__right__language .trp-language-switcher > div > a {
+            color: #142838; }
       .header__main.active .burger-button::after {
         background-color: rgba(20, 40, 56, 0.3); }
       .header__main.active .burger-button__bar {
         background-color: #142838; }
-      .header__main.active .trp-language-switcher {
-        color: #142838;
-        transition: color 0.3s; }
-        .header__main.active .trp-language-switcher:hover {
-          color: #142838;
-          transition: color 0.3s; }
-      .header__main.active .nav-search-button::after {
-        border: 1px solid rgba(20, 40, 56, 0.9); }
     .header__main.small-nav {
       height: 7rem; }
     .header__main__logo-area {
@@ -11091,7 +11148,8 @@ h5 {
       margin-right: 4rem;
       display: flex;
       height: 100%;
-      align-items: center; }
+      align-items: center;
+      color: #e6e6e6; }
       @media only screen and (max-width: 62.5em) {
         .header__main__right {
           margin-right: 0rem; } }
@@ -11106,55 +11164,62 @@ h5 {
           top: 50%;
           transform: translateY(-50%);
           background-color: rgba(194, 198, 201, 0.5); }
-      @media only screen and (max-width: 62.5em) {
-        .header__main__right__search {
-          display: none; } }
-      .header__main__right__search .nav-search-button {
-        color: currentColor;
-        background-color: transparent;
-        padding: 1.2rem 2.5rem;
-        border: none;
-        margin: 1rem;
-        letter-spacing: 0.2rem;
-        cursor: pointer;
-        outline: none;
-        font-family: "Metropolis", sans-serif;
-        position: relative;
-        text-decoration: none;
-        white-space: nowrap;
-        line-height: 1.3rem; }
-        .header__main__right__search .nav-search-button::after {
-          content: "";
-          transition: all 0.15s;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translateX(-50%) translateY(-50%);
-          height: 100%;
-          width: 100%;
-          border-radius: 2.5rem;
-          border: 1px solid rgba(194, 198, 201, 0.6); }
-        .header__main__right__search .nav-search-button:hover::after {
-          height: 95%;
-          width: 95%; }
+      .header__main__right__search {
+        color: #e6e6e6; }
+        @media only screen and (max-width: 62.5em) {
+          .header__main__right__search {
+            display: none; } }
+        .header__main__right__search .nav-search-button {
+          transition: color .3s;
+          color: #e6e6e6;
+          background-color: transparent;
+          padding: 1.2rem 2.5rem;
+          border: none;
+          margin: 1rem;
+          letter-spacing: 0.2rem;
+          cursor: pointer;
+          outline: none;
+          font-family: "Metropolis", sans-serif;
+          position: relative;
+          text-decoration: none;
+          white-space: nowrap;
+          line-height: 1.3rem; }
+          .header__main__right__search .nav-search-button::after {
+            content: "";
+            transition: all 0.15s;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            height: 100%;
+            width: 100%;
+            border-radius: 2.5rem;
+            border: 1px solid rgba(194, 198, 201, 0.6); }
+          .header__main__right__search .nav-search-button:hover::after {
+            height: 95%;
+            width: 95%; }
       .header__main__right__contact-link {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 5rem;
         height: 3rem;
-        color: currentColor;
         text-decoration: none;
-        cursor: pointer; }
+        cursor: pointer;
+        transition: color .3s; }
+        .header__main__right__contact-link:link, .header__main__right__contact-link:visited {
+          color: #e6e6e6; }
+          .header__main__right__contact-link:link svg, .header__main__right__contact-link:visited svg {
+            transform: translateY(-1px);
+            stroke-width: 4;
+            height: 2rem;
+            width: 2rem;
+            color: currentColor; }
+        .header__main__right__contact-link:hover {
+          color: #4381b3; }
         @media only screen and (max-width: 62.5em) {
           .header__main__right__contact-link {
             display: none; } }
-        .header__main__right__contact-link svg {
-          transform: translateY(-1px);
-          stroke-width: 4;
-          height: 2rem;
-          width: 2rem;
-          color: currentColor; }
         .header__main__right__contact-link span {
           margin-left: 1rem; }
       .header__main__right__phone-desktop {
@@ -11238,7 +11303,8 @@ h5 {
           color: currentColor; }
         .header__main__right__language .trp-language-switcher {
           cursor: pointer;
-          color: #fff; }
+          color: #fff;
+          transition: color .3s; }
           .header__main__right__language .trp-language-switcher > div {
             border: 1px solid transparent;
             background-color: transparent;
@@ -11246,8 +11312,9 @@ h5 {
             width: min-content !important;
             padding: 0.3rem; }
             .header__main__right__language .trp-language-switcher > div > a {
+              transition: color .3s;
               display: inline-block;
-              color: currentColor;
+              color: #fff;
               text-decoration: none;
               padding: 0.3rem 0.6rem; }
             .header__main__right__language .trp-language-switcher > div a.trp-ls-shortcode-disabled-language {

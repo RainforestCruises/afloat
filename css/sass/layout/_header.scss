@@ -53,6 +53,7 @@
         &.active {
             background-color: $color-nav; //make background opaque
             border-bottom: 1px solid rgba($color-grey-light-2, 0.9);
+            
 
             & .header__main__logo-area__logo {
                 & img {
@@ -72,14 +73,47 @@
                 }
             }
 
-            & .header__main__right {
-                color: $color-primary;
 
-                & .header__main__right__contact-link,
-                .header__main__right__phone-desktop {
+
+            & .header__main__right {
+                //currentColor doesnt work in this case -- must be specific
+                 color: $color-primary;
+
+                &__search {
+                    color: $color-primary;
+
+                    & .nav-search-button {
+                        color: $color-primary;
+
+                        &::after{
+                            border: 1px solid rgba($color-primary, 0.6);
+                        }
+                    }
+                }
+
+                &__contact-link {
+
+                    &:link,
+                    &:visited {
+                        color: $color-primary;
+    
+                    }
                     &:hover {
-                        transition: color 0.3s;
                         color: $color-supporting-light;
+                    }
+                }
+
+                &__language {
+                    & .trp-language-switcher {
+                        cursor: pointer;
+                        color: $color-primary;
+    
+                        & > div {
+                            & > a {            
+                                color: $color-primary;                 
+                            }           
+                        }
+       
                     }
                 }
             }
@@ -94,21 +128,7 @@
                 }
             }
 
-            & .trp-language-switcher {
-                color: $color-primary;
-                transition: color 0.3s;
-
-                &:hover {
-                    color: $color-primary;
-                    transition: color 0.3s;
-                }
-            }
-
-            & .nav-search-button {
-                &::after {
-                    border: 1px solid rgba($color-primary, 0.9);
-                }
-            }
+         
         }
 
         &.small-nav {
@@ -201,6 +221,7 @@
             display: flex;
             height: 100%;
             align-items: center;
+            color: $color-grey-light-1a;
 
             @media only screen and (max-width: $bp-large) {
                 margin-right: 0rem;
@@ -222,12 +243,15 @@
             }
 
             &__search {
+                color: $color-grey-light-1a;
+
                 @media only screen and (max-width: $bp-large) {
                     display: none;
                 }
 
                 & .nav-search-button {
-                    color: currentColor;
+                    transition: color .3s;
+                    color: $color-grey-light-1a;
                     background-color: transparent;
                     padding: 1.2rem 2.5rem;
                     border: none;
@@ -235,10 +259,8 @@
                     letter-spacing: 0.2rem;
                     cursor: pointer;
                     outline: none;
-                    //font-size: 1.5rem;
                     font-family: $font-primary;
-                    //text-transform: uppercase;
-                    //font-weight: 700;
+
                     position: relative;
                     text-decoration: none;
                     white-space: nowrap;
@@ -268,22 +290,28 @@
                 align-items: center;
                 justify-content: center;
                 width: 5rem;
-                height: 3rem;
-
-                color: currentColor;
+                height: 3rem;         
                 text-decoration: none;
                 cursor: pointer;
+                transition: color .3s;
+                &:link,
+                &:visited {
+                    color: $color-grey-light-1a;
+                    & svg {
+                        transform: translateY(-1px);
+                        stroke-width: 4;
+                        height: 2rem;
+                        width: 2rem;
+                        color: currentColor;
+                    }
+                }
+
+                &:hover {
+                    color: $color-supporting-light-2;
+                }
 
                 @media only screen and (max-width: $bp-large) {
                     display: none;
-                }
-
-                & svg {
-                    transform: translateY(-1px);
-                    stroke-width: 4;
-                    height: 2rem;
-                    width: 2rem;
-                    color: currentColor;
                 }
 
                 & span {
@@ -381,18 +409,7 @@
                         }
                     }
 
-                    // &:before {
-                    //     position: absolute;
-                    //     z-index: -1;
-                    //     content: "";
-                    //     right: calc(50% - 10px);
-                    //     top: -8px;
-                    //     border-style: solid;
-                    //     border-width: 0 10px 10px 10px;
-                    //     border-color: transparent transparent #bfbfbf transparent;
-                    //     transition-duration: 0.3s;
-                    //     transition-property: transform;
-                    // }
+    
                 }
             }
 
@@ -415,6 +432,7 @@
                 & .trp-language-switcher {
                     cursor: pointer;
                     color: $color-white;
+                    transition: color .3s;
 
                     & > div {
                         border: 1px solid transparent;
@@ -423,9 +441,9 @@
                         width: min-content !important;
                         padding: 0.3rem;
                         & > a {
-                            //width: 3rem;
+                            transition: color .3s;
                             display: inline-block;
-                            color: currentColor;
+                            color: $color-white;
                             text-decoration: none;
                             padding: 0.3rem 0.6rem;
                         }
@@ -448,7 +466,6 @@
                 display: none;
 
                 color: currentColor;
-                //border-left: 1px solid $color-grey-light-2;
                 cursor: pointer;
                 position: relative;
                 z-index: 900;
@@ -531,7 +548,6 @@
 
     height: 100vh;
     width: 28rem;
-    //min-height: -webkit-fill-available;
 
     position: fixed;
     z-index: 9999999;
@@ -540,12 +556,7 @@
     overflow-x: hidden;
 
     
-    // & .search-button {
-    //     color: $color-gold !important;
-    //     width: max-content !important;
-    //     padding: .8rem 1.5rem;
-    //     margin-right: 1.5rem;
-    // }
+
 
 
     &--active {

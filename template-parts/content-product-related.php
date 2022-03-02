@@ -29,9 +29,22 @@ if ($destinations) {
 }
 
 
-
-
 $posts = get_posts($queryArgs);
+
+
+// if(count($posts) == 0){
+//     $queryArgs2 = array(
+//         'post_type' => get_post_type(),
+//         'posts_per_page' => -1,
+//         'post__not_in' => array($post->ID),
+//         'meta_key' => 'search_rank',
+//         'orderby' => 'meta_value_num',
+//         'order' => 'DESC',
+//     );
+
+//     $regions = get_field('regions');
+// }
+// console_log($posts);
 $resultCount = 0;
 
 ?>

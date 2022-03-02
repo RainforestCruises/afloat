@@ -203,17 +203,17 @@ function cruises_available_experience($destination, $experience)
     );
 
 
-    $count = 0;
     $cruisePosts = get_posts($postCriteria);
+    $count = count($cruisePosts);
 
-    //filter out charter only
-    foreach ($cruisePosts as $c) {
-        $charterOnly = get_field('charter_only', $c);
-        if ($charterOnly == false) {
+    // //filter out charter only
+    // foreach ($cruisePosts as $c) {
+    //     $charterOnly = get_field('charter_only', $c);
+    //     if ($charterOnly == false) {
 
-            $count++;
-        }
-    }
+    //         $count++;
+    //     }
+    // }
 
 
     return $count;
