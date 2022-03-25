@@ -1394,12 +1394,11 @@ h5 {
   overflow: auto;
   z-index: 999999;
   justify-content: center;
-  align-items: center;
-  padding: 6rem 0;
+  align-items: flex-start;
+  padding: 3rem 0;
   animation: fadein 0.2s; }
   @media only screen and (max-width: 50em) {
     .popup {
-      padding: 3rem 0;
       align-items: flex-start; } }
   .popup.active {
     display: flex; }

@@ -13,10 +13,10 @@ get_header();
 
 
         <div class="reviews-hero">
-            <h1 class="deals-hero__title">
+            <h1 class="reviews-hero__title">
                 <?php echo get_field('page_title_text') ?>
             </h1>
-            <div class="deals-hero__subtext">
+            <div class="reviews-hero__subtext">
                 <?php echo get_field('intro_snippet') ?>
             </div>            
         </div>
