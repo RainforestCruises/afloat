@@ -6,6 +6,7 @@ $deck_plan = get_field('deck_plan');
 $features = get_field('features');
 $show_equipment = get_field('show_equipment');
 $equipment = get_field('equipment');
+$hide_equipment_fineprint = get_field('hide_equipment_fineprint');
 
 ?>
 
@@ -567,7 +568,10 @@ $equipment = get_field('equipment');
             <!-- End Equipment -->
 
             <div class="product-technical__content__columns__fineprint">
-                ** Use of certain equipment at additional cost, ask for details
+                <?php 
+             
+                echo ($hide_equipment_fineprint) ? "" : "** Use of certain equipment at additional cost, ask for details" ; 
+                ?> 
             </div>
         </div>
 
