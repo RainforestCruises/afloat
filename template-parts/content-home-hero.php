@@ -8,7 +8,7 @@ $queryArgs = array(
 );
 
 $destinations = get_posts($queryArgs);
-$hero_image = get_field('hero_image');
+
 $hero_title = get_field('hero_title');
 $hero_subtitle = get_field('hero_subtitle');
 $hero_slider = get_field('hero_slider');

@@ -19,30 +19,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_6019afdfbed7a",
-            "label": "Hero Image",
-            "name": "hero_image",
-            "type": "image",
-            "instructions": "Above the fold 1920 x 1080",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": 1920,
-            "min_height": 1080,
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_60cfd9cc94f7e",
             "label": "Hero Slider",
             "name": "hero_slider",
@@ -1090,5 +1066,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Home Page",
-    "modified": 1626717271
+    "show_in_rest": 0,
+    "modified": 1651769797
 }

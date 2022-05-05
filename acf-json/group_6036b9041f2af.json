@@ -605,7 +605,7 @@
             "label": "Generate Custom Image Markup",
             "name": "generate_custom_image_markup",
             "type": "true_false",
-            "instructions": "",
+            "instructions": "Use Afloat custom image markup for Cloudinary v2.6 compatibility",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -625,6 +625,25 @@
             "name": "is_arctic",
             "type": "true_false",
             "instructions": "Activate arctic mode",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_6273f955d9849",
+            "label": "Show Translate Nav",
+            "name": "show_translate_nav",
+            "type": "true_false",
+            "instructions": "Renders the translation dropdown in the navbar. Default is hidden",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -657,5 +676,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1644860826
+    "modified": 1651767899
 }

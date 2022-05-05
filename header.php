@@ -50,7 +50,7 @@ $menu_name = 'main_menu';
 $locations = get_nav_menu_locations();
 $menu = wp_get_nav_menu_object($locations[$menu_name]);
 $menuitems = wp_get_nav_menu_items($menu->term_id);
-
+$show_translate_nav = get_field('show_translate_nav', 'options');
 
 $menu_toplevel = [];
 $menu_destination_groups = [];
@@ -133,7 +133,7 @@ foreach ($menuitems as $m) {
     <nav class="nav-mobile">
 
         <!-- Language Switch -->
-        <?php if (is_plugin_active('translatepress-multilingual/index.php')) : ?>
+        <?php if (is_plugin_active('translatepress-multilingual/index.php') && $show_translate_nav == true) : ?>
             <div class="mobile-language-switch">
                 <svg>
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_translate_24px"></use>
@@ -328,7 +328,8 @@ foreach ($menuitems as $m) {
 
                 </div>
                 <!-- Language Switch -->
-                <?php if (is_plugin_active('translatepress-multilingual/index.php')) : ?>
+                <?php 
+                if (is_plugin_active('translatepress-multilingual/index.php') && $show_translate_nav == true) : ?>
                     <div class="header__main__right__language divider-left">
                         <svg>
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_translate_24px"></use>
