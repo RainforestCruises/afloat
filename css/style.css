@@ -7098,7 +7098,7 @@ h5 {
         width: 70%; }
         @media only screen and (max-width: 50em) {
           .destination-main__intro__description__text {
-            line-height: 2rem;
+            line-height: 3rem;
             text-align: center;
             width: 100%; } }
       .destination-main__intro__description__highlights-title {
