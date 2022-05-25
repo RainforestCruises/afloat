@@ -409,6 +409,7 @@ jQuery(document).ready(function ($) {
     pageDots: false,
     fade: true,
     lazyLoad: 2, //preload one over
+    imagesLoaded: true,
   })
 
 

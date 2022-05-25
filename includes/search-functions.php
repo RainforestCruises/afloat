@@ -362,7 +362,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                                     continue; // no departure dates to begin with
                                 }
                             } else {
-                                $itineraryCount = 1;
+                                $itineraryCount = 1; //TODO: check intinerary['IsOngoing] make sure is included
                             }
                         }
                     }

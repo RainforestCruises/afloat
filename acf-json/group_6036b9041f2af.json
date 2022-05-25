@@ -436,6 +436,25 @@
             "new_lines": ""
         },
         {
+            "key": "field_628e42ae7f161",
+            "label": "Rolling Departures Note",
+            "name": "rolling_departures_note",
+            "type": "textarea",
+            "instructions": "Text for cruises with ongoing departures",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_608836b384741",
             "label": "Social Media",
             "name": "",
@@ -676,5 +695,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1651767899
+    "modified": 1653490403
 }

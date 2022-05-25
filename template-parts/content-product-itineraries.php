@@ -28,6 +28,7 @@ if ($args['productType'] == 'Cruise') {
 <?php //total count of all itineraries
 $totalCount = 0;
 foreach ($cruise_data['Itineraries'] as $item) :
+
     if ($charter_only == true && $item['IsSample'] == false) :
         $totalCount++;
         continue;
@@ -155,75 +156,91 @@ endforeach;
                                     <!-- Dates -->
                                     <?php if (get_post_type() == 'rfc_cruises' && $charter_view == false) : ?>
                                         <div class="product-itinerary-slide__top__side-info__content__widget noborder">
-                                            <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
-                                                <!-- Title -->
-                                                <h5 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
-                                                    Availability
-                                                </h5>
-                                                <!-- Select-Box -->
-                                                <div class="product-itinerary-slide__select-group">
-                                                    <label>
-                                                        Year:
-                                                    </label>
 
-                                                    <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
-                                                        <?php foreach ($years as $year) { ?>
-                                                            <option><?php echo $year ?></option>
-                                                        <?php } ?>
-                                                    </select>
+                                            <?php if ($itinerary['IsOngoing'] == false) : ?>
+                                                <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
+                                                    <!-- Title -->
+                                                    <h5 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
+                                                        Availability
+                                                    </h5>
+                                                    <!-- Select-Box -->
+                                                    <div class="product-itinerary-slide__select-group">
+                                                        <label>
+                                                            Year:
+                                                        </label>
+
+                                                        <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
+                                                            <?php foreach ($years as $year) { ?>
+                                                                <option><?php echo $year ?></option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- Date-Grid  -->
-                                            <?php $departureYears = $itinerary['DepartureYears']; ?>
-                                            <?php foreach ($departureYears as $departureYear) { ?>
+                                                <!-- Date-Grid  -->
+                                                <?php $departureYears = $itinerary['DepartureYears']; ?>
+                                                <?php foreach ($departureYears as $departureYear) { ?>
 
-                                                <ul class="date-grid date-grid__<?php echo $departureYear['Year'] ?>" data-tab="<?php echo $count; ?>">
-                                                    <!-- Check if before current year / month, then display as available or sold out (HasDepartures)-->
-                                                    <?php foreach ($departureYear['DepartureMonths'] as $departureMonth) { ?>
-                                                        <?php if (($departureMonth['Month'] < $currentMonth) && ($departureYear['Year'] == $currentYear)) { ?>
-                                                            <li class="date-grid__item" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
-                                                                <?php echo $departureMonth['MonthNameShort']; ?>
-                                                            </li>
-                                                        <?php } else { ?>
-                                                            <?php if ($departureMonth['HasDepartures'] == false && $departureMonth['IsTBA'] == false) { ?>
-                                                                <li class="date-grid__item date-grid__item--sold-out " itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
+                                                    <ul class="date-grid date-grid__<?php echo $departureYear['Year'] ?>" data-tab="<?php echo $count; ?>">
+                                                        <!-- Check if before current year / month, then display as available or sold out (HasDepartures)-->
+                                                        <?php foreach ($departureYear['DepartureMonths'] as $departureMonth) { ?>
+                                                            <?php if (($departureMonth['Month'] < $currentMonth) && ($departureYear['Year'] == $currentYear)) { ?>
+                                                                <li class="date-grid__item" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
                                                                     <?php echo $departureMonth['MonthNameShort']; ?>
-                                                                </li>
-                                                            <?php } else if ($departureMonth['HasDepartures'] == false && $departureMonth['IsTBA'] == true) { ?>
-                                                                <li class="date-grid__item date-grid__item--tba " itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
-                                                                    <?php echo $departureMonth['MonthNameShort']; ?>
-                                                                    <span class="tooltiptext">Dates TBD</span>
                                                                 </li>
                                                             <?php } else { ?>
-                                                                <li class="date-grid__item date-grid__item--available <?php echo ($departureMonth['HasPromos'] == true ? "promo-date" : ""); ?>" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
-                                                                    <?php echo $departureMonth['MonthNameShort']; ?>
+                                                                <?php if ($departureMonth['HasDepartures'] == false && $departureMonth['IsTBA'] == false) { ?>
+                                                                    <li class="date-grid__item date-grid__item--sold-out " itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
+                                                                        <?php echo $departureMonth['MonthNameShort']; ?>
+                                                                    </li>
+                                                                <?php } else if ($departureMonth['HasDepartures'] == false && $departureMonth['IsTBA'] == true) { ?>
+                                                                    <li class="date-grid__item date-grid__item--tba " itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
+                                                                        <?php echo $departureMonth['MonthNameShort']; ?>
+                                                                        <span class="tooltiptext">Dates TBD</span>
+                                                                    </li>
+                                                                <?php } else { ?>
+                                                                    <li class="date-grid__item date-grid__item--available <?php echo ($departureMonth['HasPromos'] == true ? "promo-date" : ""); ?>" itinerary-id="<?php echo $itinerary['Id']; ?>" itinerary-tab="<?php echo $count; ?>" departure-year="<?php echo $departureYear['Year'] ?>" departure-month="<?php echo $departureMonth['Month'] ?>">
+                                                                        <?php echo $departureMonth['MonthNameShort']; ?>
 
-                                                                </li>
+                                                                    </li>
+                                                                <?php } ?>
                                                             <?php } ?>
                                                         <?php } ?>
-                                                    <?php } ?>
-                                                </ul>
+                                                    </ul>
 
 
-                                            <?php } ?>
-                                            <div class="product-itinerary-slide__top__side-info__content__widget__legend">
-                                                <div class="product-itinerary-slide__top__side-info__content__widget__legend__fine-print">
-                                                    Select month to view departures
+                                                <?php } ?>
+                                                <div class="product-itinerary-slide__top__side-info__content__widget__legend">
+                                                    <div class="product-itinerary-slide__top__side-info__content__widget__legend__fine-print">
+                                                        Select month to view departures
+                                                    </div>
+
+                                                    <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors">
+
+                                                        <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors__item product-itinerary-slide__top__side-info__content__widget__legend__colors__item--promo ">
+                                                            Deal
+                                                        </div>
+                                                        <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors__item product-itinerary-slide__top__side-info__content__widget__legend__colors__item--available ">
+                                                            Available
+                                                        </div>
+                                                        <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors__item product-itinerary-slide__top__side-info__content__widget__legend__colors__item--sold-out">
+                                                            Sold Out
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                            <?php else : ?> <!-- Rolling Departures -->
+                                                <div class="product-itinerary-slide__top__side-info__content__widget__top-section">
+                                                    <!-- Title -->
+                                                    <h5 class="product-itinerary-slide__top__side-info__content__widget__top-section__title">
+                                                        Availability
+                                                    </h5>
 
-                                                <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors">
-
-                                                    <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors__item product-itinerary-slide__top__side-info__content__widget__legend__colors__item--promo ">
-                                                        Deal
-                                                    </div>
-                                                    <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors__item product-itinerary-slide__top__side-info__content__widget__legend__colors__item--available ">
-                                                        Available
-                                                    </div>
-                                                    <div class="product-itinerary-slide__top__side-info__content__widget__legend__colors__item product-itinerary-slide__top__side-info__content__widget__legend__colors__item--sold-out">
-                                                        Sold Out
-                                                    </div>
                                                 </div>
-                                            </div>
+                                                <!-- Rolling Departures Note -->
+                                                <div style="font-size: 1.6rem">
+                                                    <?php echo get_field('rolling_departures_note', 'options') ?>
+                                                </div>
+                                            <?php endif; ?>
+
                                             <?php if ($hasDeals == true) : ?>
                                                 <div class="product-itinerary-slide__top__side-info__content__widget__deals-button">
                                                     <button class="btn-cta-round btn-cta-round--small btn-cta-round--green deal-modal-cta-button" style="height: 2.5rem;">
@@ -475,7 +492,7 @@ endforeach;
                                             <div class="product-itinerary-slide__top__side-info__content__widget">
                                                 <div class="charter-info-snippet">
                                                     <?php
-                                                     if (strip_tags($itinerary['Summary']) != '') {
+                                                    if (strip_tags($itinerary['Summary']) != '') {
                                                         echo $itinerary['Summary'];
                                                     } else {
                                                         echo get_field('itinerary_snippet');
