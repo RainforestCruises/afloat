@@ -52,6 +52,6 @@
         get_template_part('template-parts/content', 'nav-rfc');
  
     else :
-        //Arctic Nav
+        get_template_part('template-parts/content', 'nav-arctic');
     endif;
     ?>

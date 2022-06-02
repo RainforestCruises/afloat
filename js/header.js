@@ -112,6 +112,29 @@ jQuery(document).ready(function ($) {
 
   )
 
+  //ARCTIC MENU LINKS
+  $('.nav-mega__nav-arctic__menu__list__item__link').click(
+    function (e) {
+      e.preventDefault();
+      var panelId = this.getAttribute("panel");
+      console.log(panelId);
+
+      var panelTarget = $(".nav-mega__nav-arctic__content-area__panel[panel='" + panelId + "']"); 
+      console.log(panelTarget);
+      
+
+      $('.nav-mega__nav-arctic__content-area__panel').removeClass('active');
+      $(panelTarget).addClass('active');
+
+      var allLinks = $(".nav-mega__nav-arctic__menu__list__item__link");
+      $(allLinks).removeClass('active');
+
+      var targetLink = $(".nav-mega__nav-arctic__menu__list__item__link[panel='" + panelId + "']");
+      $(targetLink).addClass('active');
+
+    },
+  );
+
   //NAV LINKS ----------
   //Main Nav Link (with mega class) - Hover 
   $('.header__main__nav__list__item__link.mega').hover(
@@ -124,20 +147,47 @@ jQuery(document).ready(function ($) {
       headerMain.classList.add('active');
       $('.nav-secondary').addClass('mega-hide');
 
+      //Arctic
+      var allPanels = $(".nav-mega__nav-arctic__content-area__panel");
+      var allLinks = $(".nav-mega__nav-arctic__menu__list__item__link");
+      $(allPanels).removeClass('active');
+      $(allLinks).removeClass('active');
+
+      var initialLinks = $(".nav-mega__nav-arctic__menu__list__item__link.initial");
+      var initialPanels = $(".nav-mega__nav-arctic__content-area__panel.initial");
+      $(initialPanels).addClass('active');
+      $(initialLinks).addClass('active');
+
+      //--
+
+
+
 
       if (navelement == "Destinations") {
         $('.nav-mega__nav--experiences').hide();
         $('.nav-mega__nav--destinations').show();
 
+        $('.nav-mega__nav-arctic--ships').hide();
+        $('.nav-mega__nav-arctic--destinations').show();
+
 
       } else if (navelement == "Experiences") {
         $('.nav-mega__nav--destinations').hide();
         $('.nav-mega__nav--experiences').show();
+
+        $('.nav-mega__nav-arctic--ships').hide();
+        $('.nav-mega__nav-arctic--destinations').hide();
       }
-      else {
+
+      else if (navelement == "Ships") {
         $('.nav-mega__nav--destinations').hide();
-        $('.nav-mega__nav--experiences').show();
+        $('.nav-mega__nav--experiences').hide();
+
+        $('.nav-mega__nav-arctic--ships').show();
+        $('.nav-mega__nav-arctic--destinations').hide();
       }
+
+
     }, function () {
       var megaActive = megaMenu.classList.contains('active');
       if (window.scrollY == 0 && !opaqueNavAlways && !megaActive) {

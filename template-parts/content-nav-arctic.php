@@ -1,5 +1,5 @@
 <?php
-$menu_name = 'main_menu';
+$menu_name = 'arctic_main_menu';
 $locations = get_nav_menu_locations();
 $menu = wp_get_nav_menu_object($locations[$menu_name]);
 $menuitems = wp_get_nav_menu_items($menu->term_id);
@@ -7,9 +7,10 @@ $show_translate_nav = get_field('show_translate_nav', 'options');
 
 $menu_toplevel = [];
 $menu_destinations = [];
-$menu_experiences = [];
+$menu_ships = [];
 
 $alwaysActiveHeader = checkActiveHeader(); //return true/false depending on if current template header bar should never be transparent
+
 
 foreach ($menuitems as $m) {
 
@@ -17,64 +18,63 @@ foreach ($menuitems as $m) {
     if ($m->menu_item_parent == 0) {
         $menu_toplevel[] = $m;
 
-
         //Destinations
-        if ($m->post_name == "destinations") {
-            //$menu_toplevel[] = $m;
+        if ($m->post_title == "Destinations") {
 
             $toplevel_ID = $m->ID;
             foreach ($menuitems as $mm) {
 
-                $destinationGroup_ID = $mm->ID;
+
                 if ($mm->menu_item_parent == $toplevel_ID) {
 
+                    $navigation_snippet = get_field('navigation_snippet', $mm->object_id);
+                    $navigation_image = get_field('navigation_image', $mm->object_id);
 
-                    //loop again to get this destination group
-                    $destinations = [];
-                    foreach ($menuitems as $mmm) {
-                        if ($mmm->menu_item_parent == $destinationGroup_ID) {
-                            $destination = array(
-                                'id' => $mmm->ID,
-                                'title' => $mmm->title,
-                                'url' => $mmm->url,
-
-                            );
-
-                            $destinations[] = $destination;
-                        }
-                    }
-
-                    $destinationGroup = array(
+                    $destination = array(
                         'id' => $mm->ID,
                         'title' => $mm->title,
                         'url' => $mm->url,
-                        'destinations' => $destinations,
                         'parentId' => $toplevel_ID,
-
+                        'navigation_snippet' => $navigation_snippet,
+                        'navigation_image' => $navigation_image,
                     );
 
-                    $menu_destination_groups[] = $destinationGroup;
+                    $menu_destinations[] = $destination;
                 }
             }
-        } else if ($m->post_name == "experiences") {
+        } else if ($m->post_title == "Ships") {
 
             $toplevel_ID = $m->ID;
             foreach ($menuitems as $mm) {
+
                 if ($mm->menu_item_parent == $toplevel_ID) {
 
+                    $navigation_snippet = get_field('top_snippet', $mm->object_id);
+                    $navigation_image = get_field('featured_image', $mm->object_id);
 
-                    $experience = array(
+                    $ship = array(
                         'id' => $mm->ID,
                         'title' => $mm->title,
-                        'url' => $mm->url
+                        'url' => $mm->url,
+                        'parentId' => $toplevel_ID,
+                        'navigation_snippet' => $navigation_snippet,
+                        'navigation_image' => $navigation_image,
                     );
 
-                    $menu_experiences[] = $experience;
+                    $menu_ships[] = $ship;
                 }
             }
         }
     }
 }
+
+console_log($menuitems);
+
+console_log($menu_destinations);
+console_log($menu_ships);
+
+
+
 ?>
 
 
@@ -142,56 +142,24 @@ foreach ($menuitems as $m) {
 
             </a>
 
+
+
             <?php if ($toplevelItem->title == 'Destinations') : ?>
-                <?php foreach ($menu_destination_groups as $destination_group) : ?>
-                    <a class="nav-mobile__content-panel__button nav-mobile__content-panel__button--forward" menuLinkTo="<?php echo $destination_group['id'] ?>">
-                        <svg>
-                            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
-                        </svg>
-                        <span>
-                            <?php echo $destination_group['title'] ?>
-                        </span>
-
+                <?php foreach ($menu_destinations as $destination) : ?>
+                    <a href="<?php echo $destination['url'] ?>" class="nav-mobile__content-panel__button mobile-link">
+                        <?php echo $destination['title'] ?>
                     </a>
                 <?php endforeach; ?>
             <?php endif ?>
 
-            <?php if ($toplevelItem->title == 'Experiences') : ?>
-                <?php foreach ($menu_experiences as $experience) : ?>
-                    <a href="<?php echo $experience['url'] ?>" class="nav-mobile__content-panel__button mobile-link">
-                        <?php echo $experience['title'] ?>
+            <?php if ($toplevelItem->title == 'Ships') : ?>
+                <?php foreach ($menu_ships as $ship) : ?>
+                    <a href="<?php echo $ship['url'] ?>" class="nav-mobile__content-panel__button mobile-link">
+                        <?php echo $ship['title'] ?>
                     </a>
                 <?php endforeach; ?>
             <?php endif ?>
 
-        </div>
-    <?php endforeach; ?>
-
-    <!-- Level 3 -->
-    <?php foreach ($menu_destination_groups as $destination_group) : ?>
-        <div class="nav-mobile__content-panel nav-mobile__content-panel--sub" menuId="<?php echo $destination_group['id'] ?>">
-            <a class="nav-mobile__content-panel__button back-link" menuLinkTo="<?php echo $destination_group['parentId'] ?>">
-                <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_left_36px"></use>
-                </svg>
-                <span>
-                    Back
-                </span>
-
-            </a>
-
-            <!-- Cruises -->
-
-
-            <?php $destinationsMenuArray = $destination_group['destinations']; ?>
-            <?php foreach ($destinationsMenuArray as $destinationMenuItem) : ?>
-                <a href="<?php echo $destinationMenuItem['url'] ?>" class="nav-mobile__content-panel__button mobile-link"><?php echo $destinationMenuItem['title'] ?></a>
-            <?php endforeach; ?>
-            <a href="<?php echo $destination_group['url'] ?>" class="nav-mobile__content-panel__button mobile-link divider">
-
-                View All
-
-            </a>
         </div>
     <?php endforeach; ?>
 
@@ -220,15 +188,12 @@ foreach ($menuitems as $m) {
         <!-- Main Nav -->
         <nav class="header__main__nav">
             <div class="header__main__nav__list">
-                <?php
-                foreach ($menu_toplevel as $toplevelItem) :
-                    $megaClass = ($toplevelItem->title == 'Destinations' || $toplevelItem->title == 'Experiences') ? 'mega' : 'no-mega';
-                ?>
+                <?php foreach ($menu_toplevel as $toplevelItem) : ?>
                     <li class="header__main__nav__list__item">
                         <?php if ($toplevelItem->object != 'page') : ?>
-                            <span class="header__main__nav__list__item__link <?php echo $megaClass ?>" navelement="<?php echo $toplevelItem->title ?>"><?php echo $toplevelItem->title ?></span>
+                            <span class="header__main__nav__list__item__link mega" navelement="<?php echo $toplevelItem->title ?>"><?php echo $toplevelItem->title ?></span>
                         <?php else : ?>
-                            <a class="header__main__nav__list__item__link <?php echo $megaClass ?>" href="<?php echo $toplevelItem->url ?>" navelement="<?php echo $toplevelItem->title ?>"><?php echo $toplevelItem->title ?></a>
+                            <a class="header__main__nav__list__item__link" href="<?php echo $toplevelItem->url ?>" navelement="<?php echo $toplevelItem->title ?>"><?php echo $toplevelItem->title ?></a>
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
@@ -301,25 +266,100 @@ foreach ($menuitems as $m) {
     <!-- Mega desktop -->
     <div class="nav-mega">
         <!-- Destinations -->
-        <div class="nav-mega__nav nav-mega__nav--destinations">
-            <?php foreach ($menu_destination_groups as $destination_group) : ?>
-                <div class="nav-mega__nav__sub-group">
-                    <a class="nav-mega__nav__sub-group__title" href="<?php echo $destination_group['url'] ?>"><?php echo $destination_group['title'] ?></a>
-                    <ul class="nav-mega__nav__sub-group__list">
-                        <?php $destinationsArray = $destination_group['destinations']; ?>
-                        <?php foreach ($destinationsArray as $destinationMenuItem) : ?>
-                            <li class="nav-mega__nav__sub-group__item">
-                                <a href="<?php echo $destinationMenuItem['url'] ?>" class="nav-mega__nav__sub-group__link"><?php echo $destinationMenuItem['title'] ?></a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
+        <div class="nav-mega__nav-arctic nav-mega__nav-arctic--destinations">
+            <div class="nav-mega__nav-arctic__menu">
+                <div class="nav-mega__nav-arctic__menu__title">
+                    Polar Destinations
                 </div>
-            <?php endforeach; ?>
+                <ul class="nav-mega__nav-arctic__menu__list">
+                    <?php  
+                    $panelCount = 0;
+                    foreach ($menu_destinations as $destination) : ?>
+
+                        <li class="nav-mega__nav-arctic__menu__list__item">
+                            <a href="<?php echo $destination['url'] ?>" panel="<?php echo $destination['id'] ?>" class="nav-mega__nav-arctic__menu__list__item__link <?php echo $panelCount == 0 ? 'initial' : ''; ?>"><?php echo $destination['title'] ?></a>
+                        </li>
+
+
+                    <?php $panelCount++; 
+                endforeach; ?>
+                </ul>
+            </div>
+            <div class="nav-mega__nav-arctic__content-area">
+                <?php $panelCount = 0;
+                foreach ($menu_destinations as $destination) : ?>
+                    <div class="nav-mega__nav-arctic__content-area__panel <?php echo $panelCount == 0 ? 'initial' : ''; ?>" panel="<?php echo $destination['id'] ?>">
+
+                        <div class="nav-mega__nav-arctic__content-area__panel__description">
+                            <div class="nav-mega__nav-arctic__content-area__panel__description__title">
+                                <?php echo $destination['title'] ?>
+                            </div>
+                            <div class="nav-mega__nav-arctic__content-area__panel__description__snippet">
+                                <?php echo $destination['navigation_snippet'] ?>
+                            </div>
+                            <div class="nav-mega__nav-arctic__content-area__panel__description__cta">
+                                <a class="btn-cta-round btn-cta-round--medium" href="<?php echo $destination['url'] ?>">
+                                    Explore <?php echo $destination['title'] ?>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="nav-mega__nav-arctic__content-area__panel__image-area">
+                            <img <?php afloat_image_markup($destination['navigation_image']['ID'], 'featured-square'); ?>>
+                        </div>
+
+                    </div>
+                <?php $panelCount++;  endforeach; ?>
+            </div>
         </div>
-        <div class="nav-mega__nav nav-mega__nav--experiences">
-            <?php foreach ($menu_experiences as $experiencesItem) : ?>
-                <a href="<?php echo $experiencesItem['url'] ?>" class="nav-mega__nav__link"><?php echo $experiencesItem['title'] ?></a>
-            <?php endforeach; ?>
+        <!-- Ships -->
+        <div class="nav-mega__nav nav-mega__nav-arctic--ships">
+            <div class="nav-mega__nav-arctic__menu">
+                <div class="nav-mega__nav-arctic__menu__title">
+                    Cruise Ships
+                </div>
+                <ul class="nav-mega__nav-arctic__menu__list">
+                    <?php $panelCount = 0;
+                     foreach ($menu_ships as $ship) : ?>
+
+                        <li class="nav-mega__nav-arctic__menu__list__item">
+                            <a href="<?php echo $ship['url'] ?>" panel="<?php echo $ship['id'] ?>" class="nav-mega__nav-arctic__menu__list__item__link <?php echo $panelCount == 0 ? 'initial' : ''; ?>"><?php echo $ship['title'] ?></a>
+                        </li>
+
+
+                    <?php $panelCount++; endforeach; ?>
+                </ul>
+            </div>
+            <div class="nav-mega__nav-arctic__content-area">
+                <?php 
+                $panelCount = 0;
+                foreach ($menu_ships as $ship) : 
+                    
+                    ?>
+                    <div class="nav-mega__nav-arctic__content-area__panel <?php echo $panelCount == 0 ? 'initial' : ''; ?>" panel="<?php echo $ship['id'] ?>">
+
+                        <div class="nav-mega__nav-arctic__content-area__panel__description">
+                            <div class="nav-mega__nav-arctic__content-area__panel__description__title">
+                                <?php echo $ship['title'] ?>
+                            </div>
+                            <div class="nav-mega__nav-arctic__content-area__panel__description__snippet">
+                                <?php echo $ship['navigation_snippet'] ?>
+                            </div>
+                            <div class="nav-mega__nav-arctic__content-area__panel__description__cta">
+                                <a class="btn-cta-round btn-cta-round--medium" href="<?php echo $ship['url'] ?>">
+                                    Explore <?php echo $ship['title'] ?>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="nav-mega__nav-arctic__content-area__panel__image-area ship" >
+                            <img <?php afloat_image_markup($ship['navigation_image']['ID'], 'featured-medium'); ?>>
+                        </div>
+
+                    </div>
+                <?php $panelCount++;
+            endforeach; ?>
+            </div>
         </div>
     </div>
 

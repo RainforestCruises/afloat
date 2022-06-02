@@ -6,7 +6,8 @@ function afloat_config()
     register_nav_menus(
         array(
             'main_menu' => 'Main Menu',
-            'footer_menu' => 'Footer Menu'
+            'footer_menu' => 'Footer Menu',
+            'arctic_main_menu' => 'Arctic Main Menu'
         )
     );
 

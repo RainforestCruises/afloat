@@ -11169,7 +11169,7 @@ h5 {
           .header__main__right__search {
             display: none; } }
         .header__main__right__search .nav-search-button {
-          transition: color .3s;
+          transition: color 0.3s;
           color: #e6e6e6;
           background-color: transparent;
           padding: 1.2rem 2.5rem;
@@ -11205,7 +11205,7 @@ h5 {
         height: 3rem;
         text-decoration: none;
         cursor: pointer;
-        transition: color .3s; }
+        transition: color 0.3s; }
         .header__main__right__contact-link:link, .header__main__right__contact-link:visited {
           color: #e6e6e6; }
           .header__main__right__contact-link:link svg, .header__main__right__contact-link:visited svg {
@@ -11303,7 +11303,7 @@ h5 {
         .header__main__right__language .trp-language-switcher {
           cursor: pointer;
           color: #fff;
-          transition: color .3s; }
+          transition: color 0.3s; }
           .header__main__right__language .trp-language-switcher > div {
             border: 1px solid transparent;
             background-color: transparent;
@@ -11311,7 +11311,7 @@ h5 {
             width: min-content !important;
             padding: 0.3rem; }
             .header__main__right__language .trp-language-switcher > div > a {
-              transition: color .3s;
+              transition: color 0.3s;
               display: inline-block;
               color: #fff;
               text-decoration: none;
@@ -11415,7 +11415,7 @@ h5 {
         height: 2.5rem;
         width: 2.5rem;
         color: currentColor;
-        padding-right: .2rem; }
+        padding-right: 0.2rem; }
       .nav-mobile--active .mobile-language-switch__trp .trp-language-switcher {
         cursor: pointer;
         color: currentColor; }
@@ -11632,6 +11632,84 @@ h5 {
           color: #747474; }
         .nav-mega__nav__sub-group__link:hover, .nav-mega__nav__sub-group__link:active {
           color: #40739c; }
+  .nav-mega__nav-arctic {
+    justify-self: center;
+    display: flex;
+    width: 100%;
+    max-width: 120rem;
+    color: #142838;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem; }
+    .nav-mega__nav-arctic__menu {
+      border-left: 1px solid #e6e6e6;
+      padding: 2rem 4rem;
+      padding-top: 0;
+      margin: 2rem 0;
+      width: 35rem; }
+      .nav-mega__nav-arctic__menu__title {
+        font-weight: 300;
+        font-size: 1.1rem;
+        padding-bottom: 1rem; }
+      .nav-mega__nav-arctic__menu__list {
+        list-style: none; }
+        .nav-mega__nav-arctic__menu__list__item {
+          padding-bottom: 1rem; }
+          .nav-mega__nav-arctic__menu__list__item__link {
+            text-decoration: none; }
+            .nav-mega__nav-arctic__menu__list__item__link:link, .nav-mega__nav-arctic__menu__list__item__link:visited {
+              color: #3b3b3b; }
+              .nav-mega__nav-arctic__menu__list__item__link:link svg, .nav-mega__nav-arctic__menu__list__item__link:visited svg {
+                transform: translateY(-1px);
+                stroke-width: 4;
+                height: 2rem;
+                width: 2rem;
+                color: currentColor; }
+            .nav-mega__nav-arctic__menu__list__item__link:hover {
+              color: #40739c; }
+            .nav-mega__nav-arctic__menu__list__item__link.active {
+              color: #40739c !important; }
+    .nav-mega__nav-arctic__content-area {
+      height: 100%;
+      width: 100%; }
+      .nav-mega__nav-arctic__content-area__panel {
+        display: none;
+        grid-template-columns: 50rem 1fr;
+        height: 100%;
+        width: 100%; }
+        .nav-mega__nav-arctic__content-area__panel.active {
+          display: grid; }
+        .nav-mega__nav-arctic__content-area__panel__description {
+          border-left: 1px solid #e6e6e6;
+          padding: 2rem 4rem;
+          padding-top: 0;
+          margin: 2rem 0; }
+          .nav-mega__nav-arctic__content-area__panel__description__title {
+            font-size: 1.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-bottom: 1rem; }
+          .nav-mega__nav-arctic__content-area__panel__description__snippet {
+            font-size: 1.6rem;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0rem;
+            margin-bottom: 3rem; }
+        .nav-mega__nav-arctic__content-area__panel__image-area {
+          border-left: 1px solid #e6e6e6;
+          padding: 2rem 4rem;
+          padding-top: 0;
+          margin-top: 2rem;
+          width: 100%; }
+          .nav-mega__nav-arctic__content-area__panel__image-area.ship {
+            border-left: none; }
+          .nav-mega__nav-arctic__content-area__panel__image-area img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px; }
 
 .nav-secondary {
   width: 100%;

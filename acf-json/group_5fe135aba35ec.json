@@ -1162,6 +1162,65 @@
                     "delay": 0
                 }
             ]
+        },
+        {
+            "key": "field_62979fddf450f",
+            "label": "Arctic",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_62979f4bf450e",
+            "label": "Navigation Snippet (Arctic)",
+            "name": "navigation_snippet",
+            "type": "textarea",
+            "instructions": "300 character max. Snippet which appears in the mega menu (arctic desktop navigation).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_6297a10d684bc",
+            "label": "Navigation Image (Arctic)",
+            "name": "navigation_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -1183,5 +1242,6 @@
     ],
     "active": true,
     "description": "Destination (Cruise) - Page",
-    "modified": 1643920763
+    "show_in_rest": 0,
+    "modified": 1654104387
 }
