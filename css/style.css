@@ -11519,29 +11519,31 @@ h5 {
         width: 2.5rem;
         color: currentColor;
         padding-right: 0.2rem; }
-      .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher {
-        cursor: pointer;
-        color: currentColor; }
-        .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div {
-          border: 1px solid transparent;
-          background-color: transparent;
-          background-image: none;
-          width: 5rem !important;
-          padding: 0.3rem; }
-          .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div > a {
-            display: inline-block;
-            color: currentColor;
-            text-decoration: none;
-            padding: 0.3rem 0.6rem; }
-            .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div > a:hover,
-            .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div > a :active {
-              background-color: transparent;
-              color: #fff; }
-          .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div a.trp-ls-shortcode-disabled-language {
-            cursor: pointer; }
-        .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher:hover > div {
-          border: 1px solid #747474;
-          background-color: transparent; }
+      .nav-mobile__content-panel .mobile-language-switch__trp {
+        width: 6rem !important; }
+        .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher {
+          cursor: pointer;
+          color: currentColor; }
+          .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div {
+            border: 1px solid transparent;
+            background-color: transparent;
+            background-image: none;
+            width: 5rem !important;
+            padding: 0.3rem; }
+            .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div > a {
+              display: inline-block;
+              color: currentColor;
+              text-decoration: none;
+              padding: 0.3rem 0.6rem; }
+              .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div > a:hover,
+              .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div > a :active {
+                background-color: transparent;
+                color: #fff; }
+            .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div a.trp-ls-shortcode-disabled-language {
+              cursor: pointer; }
+          .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher:hover > div {
+            border: 1px solid #747474;
+            background-color: transparent; }
 
 .nav-mega-overlay {
   position: fixed;
