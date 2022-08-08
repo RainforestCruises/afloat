@@ -81,17 +81,7 @@ foreach ($menuitems as $m) {
 <!-- Mobile Menu -->
 <nav class="nav-mobile">
 
-    <!-- Language Switch -->
-    <?php if (is_plugin_active('translatepress-multilingual/index.php') && $show_translate_nav == true) : ?>
-        <div class="mobile-language-switch">
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_translate_24px"></use>
-            </svg>
-            <span class="mobile-language-switch__trp">
-                <?php echo do_shortcode("[language-switcher]"); ?>
-            </span>
-        </div>
-    <?php endif; ?>
+
 
 
     <div class="burger-button close" id="burger-menu-close">
@@ -124,6 +114,18 @@ foreach ($menuitems as $m) {
             <?php echo get_field('phone_number', 'options'); ?>
 
         </a>
+
+        <!-- Language Switch -->
+        <?php if (is_plugin_active('translatepress-multilingual/index.php') && $show_translate_nav == true) : ?>
+            <div class="mobile-language-switch">
+                <svg>
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_translate_24px"></use>
+                </svg>
+                <span class="mobile-language-switch__trp">
+                    <?php echo do_shortcode("[language-switcher]"); ?>
+                </span>
+            </div>
+        <?php endif; ?>
 
 
     </div>

@@ -11398,47 +11398,6 @@ h5 {
     .nav-mobile--active .burger-button {
       animation: fadein 0.3s both;
       animation-delay: 0.2s; }
-    .nav-mobile--active .mobile-language-switch {
-      animation: fadein 0.2s both;
-      animation-delay: 0.25s;
-      position: absolute;
-      bottom: 16rem;
-      right: 2rem;
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
-      color: #d9a402;
-      z-index: 9999999; }
-      .nav-mobile--active .mobile-language-switch svg {
-        transform: translateY(-2px);
-        stroke-width: 4;
-        height: 2.5rem;
-        width: 2.5rem;
-        color: currentColor;
-        padding-right: 0.2rem; }
-      .nav-mobile--active .mobile-language-switch__trp .trp-language-switcher {
-        cursor: pointer;
-        color: currentColor; }
-        .nav-mobile--active .mobile-language-switch__trp .trp-language-switcher > div {
-          border: 1px solid transparent;
-          background-color: transparent;
-          background-image: none;
-          width: min-content !important;
-          padding: 0.3rem; }
-          .nav-mobile--active .mobile-language-switch__trp .trp-language-switcher > div > a {
-            display: inline-block;
-            color: currentColor;
-            text-decoration: none;
-            padding: 0.3rem 0.6rem; }
-            .nav-mobile--active .mobile-language-switch__trp .trp-language-switcher > div > a:hover,
-            .nav-mobile--active .mobile-language-switch__trp .trp-language-switcher > div > a :active {
-              background-color: transparent;
-              color: #fff; }
-          .nav-mobile--active .mobile-language-switch__trp .trp-language-switcher > div a.trp-ls-shortcode-disabled-language {
-            cursor: pointer; }
-        .nav-mobile--active .mobile-language-switch__trp .trp-language-switcher:hover > div {
-          border: 1px solid #747474;
-          background-color: transparent; }
   .nav-mobile__content-panel {
     grid-column: 1 / -1;
     grid-row: 1 / span 1;
@@ -11462,24 +11421,24 @@ h5 {
       animation-name: example;
       animation-duration: 0.3s;
       animation-timing-function: ease-out; }
-      .nav-mobile__content-panel--top a {
+      .nav-mobile__content-panel--top .nav-mobile__content-panel__button {
         animation-name: example;
         animation-duration: 0.4s;
         animation-timing-function: ease-out;
         animation-fill-mode: both; }
-      .nav-mobile__content-panel--top a:nth-child(1) {
+      .nav-mobile__content-panel--top .nav-mobile__content-panel__button:nth-child(1) {
         animation-delay: 0s; }
-      .nav-mobile__content-panel--top a:nth-child(2) {
+      .nav-mobile__content-panel--top .nav-mobile__content-panel__button:nth-child(2) {
         animation-delay: 0.05s; }
-      .nav-mobile__content-panel--top a:nth-child(3) {
+      .nav-mobile__content-panel--top .nav-mobile__content-panel__button:nth-child(3) {
         animation-delay: 0.1s; }
-      .nav-mobile__content-panel--top a:nth-child(4) {
+      .nav-mobile__content-panel--top .nav-mobile__content-panel__button:nth-child(4) {
         animation-delay: 0.15s; }
-      .nav-mobile__content-panel--top a:nth-child(5) {
+      .nav-mobile__content-panel--top .nav-mobile__content-panel__button:nth-child(5) {
         animation-delay: 0.2s; }
-      .nav-mobile__content-panel--top a:nth-child(6) {
+      .nav-mobile__content-panel--top .nav-mobile__content-panel__button:nth-child(6) {
         animation-delay: 0.25s; }
-      .nav-mobile__content-panel--top a:nth-child(7) {
+      .nav-mobile__content-panel--top .nav-mobile__content-panel__button:nth-child(7) {
         animation-delay: 0.3s; }
     .nav-mobile__content-panel--sub {
       z-index: 21;
@@ -11487,7 +11446,7 @@ h5 {
       grid-template-rows: min-content; }
       .nav-mobile__content-panel--sub.slide-center {
         transform: translateX(0%); }
-    .nav-mobile__content-panel a {
+    .nav-mobile__content-panel .nav-mobile__content-panel__button {
       color: #d9a402;
       font-size: 1.5rem;
       letter-spacing: 0.2rem;
@@ -11505,9 +11464,9 @@ h5 {
       padding: 1.5rem 2rem;
       padding-right: 5rem;
       text-align: right; }
-      .nav-mobile__content-panel a.divider {
+      .nav-mobile__content-panel .nav-mobile__content-panel__button.divider {
         padding-top: 6rem; }
-        .nav-mobile__content-panel a.divider::after {
+        .nav-mobile__content-panel .nav-mobile__content-panel__button.divider::after {
           content: "";
           position: absolute;
           height: 1px;
@@ -11515,36 +11474,74 @@ h5 {
           background-color: #747474;
           top: 2rem;
           right: 5rem; }
-      .nav-mobile__content-panel a:last-child {
+      .nav-mobile__content-panel .nav-mobile__content-panel__button:last-child {
         margin-bottom: 14rem; }
-      .nav-mobile__content-panel a svg {
+      .nav-mobile__content-panel .nav-mobile__content-panel__button svg {
         height: 2.5rem;
         width: 2.5rem;
         fill: #9ea0a4;
         position: absolute;
         top: 50%;
-        right: 1rem;
         transform: translateY(-55%); }
-      .nav-mobile__content-panel a.back-link {
+      .nav-mobile__content-panel .nav-mobile__content-panel__button.back-link {
         text-align: start;
         margin-bottom: 3rem;
         justify-content: flex-end; }
-        .nav-mobile__content-panel a.back-link svg {
+        .nav-mobile__content-panel .nav-mobile__content-panel__button.back-link svg {
           position: relative;
           margin-right: 1rem; }
-        .nav-mobile__content-panel a.back-link::after {
+        .nav-mobile__content-panel .nav-mobile__content-panel__button.back-link::after {
           content: "";
           position: absolute;
           height: 1px;
           width: 12rem;
           background-color: #747474;
           bottom: -1rem;
-          right: 5rem; }
-      .nav-mobile__content-panel a--forward svg {
-        right: 3rem; }
+          right: 6rem; }
+      .nav-mobile__content-panel .nav-mobile__content-panel__button--forward svg {
+        right: 2rem; }
         @media only screen and (max-width: 25em) {
-          .nav-mobile__content-panel a--forward svg {
-            right: 1.5rem; } }
+          .nav-mobile__content-panel .nav-mobile__content-panel__button--forward svg {
+            right: 1rem; } }
+    .nav-mobile__content-panel .mobile-language-switch {
+      position: absolute;
+      bottom: 15rem;
+      right: 4rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      color: #d9a402;
+      z-index: 9999999; }
+      .nav-mobile__content-panel .mobile-language-switch svg {
+        transform: translateY(-2px);
+        stroke-width: 4;
+        height: 2.5rem;
+        width: 2.5rem;
+        color: currentColor;
+        padding-right: 0.2rem; }
+      .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher {
+        cursor: pointer;
+        color: currentColor; }
+        .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div {
+          border: 1px solid transparent;
+          background-color: transparent;
+          background-image: none;
+          width: min-content !important;
+          padding: 0.3rem; }
+          .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div > a {
+            display: inline-block;
+            color: currentColor;
+            text-decoration: none;
+            padding: 0.3rem 0.6rem; }
+            .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div > a:hover,
+            .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div > a :active {
+              background-color: transparent;
+              color: #fff; }
+          .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher > div a.trp-ls-shortcode-disabled-language {
+            cursor: pointer; }
+        .nav-mobile__content-panel .mobile-language-switch__trp .trp-language-switcher:hover > div {
+          border: 1px solid #747474;
+          background-color: transparent; }
 
 .nav-mega-overlay {
   position: fixed;
