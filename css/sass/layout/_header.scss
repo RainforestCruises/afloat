@@ -744,12 +744,17 @@
                         background-color: transparent;
                         background-image: none;
                         width: 5rem !important;
-                        //padding: 0.3rem;
+                        padding: 0rem;
                         & > a {
                             //width: 3rem;
-                            display: inline-block;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                             color: currentColor;
                             text-decoration: none;
+                            width: 40px;
+                            height: 30px;
+
                             //padding: 0.3rem 0.6rem;
 
                             &:hover,
