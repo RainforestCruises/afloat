@@ -10958,6 +10958,13 @@ h5 {
     .contact__wrapper__form {
       width: 100%;
       max-width: 60rem; }
+    .contact__wrapper__outro {
+      font-size: 1.3rem; }
+      .contact__wrapper__outro a:link,
+      .contact__wrapper__outro a:visited {
+        color: #305a7c;
+        text-decoration: none;
+        font-weight: 600; }
     .contact__wrapper__close-button {
       position: absolute;
       top: 3rem;

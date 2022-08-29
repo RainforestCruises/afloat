@@ -8,9 +8,9 @@ wp_localize_script(
     'page-contact',
     'page_vars',
     array(
-      'templateUrl' =>  $templateUrl
+        'templateUrl' =>  $templateUrl
     )
-  );
+);
 ?>
 
 <?php
@@ -19,8 +19,10 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
 
 ?>
 
-<!-- Contact Page Container -->
+<!-- Contact -->
 <section class="contact-page">
+
+    <!-- Intro -->
     <div class="contact-page__intro">
         <h1 class="contact-page__intro__title">
             Plan Your Adventure Today.
@@ -53,8 +55,8 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
 
             <!-- Form -->
             <div class="contact__wrapper__form">
-            <?php 
-            
+                <?php
+
                 //Check if WpForms is active
                 if (is_plugin_active('wpforms/wpforms.php')) {
                     wpforms_display($primary_contact_form_id);
@@ -62,13 +64,19 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
                     echo 'Forms Plugin Missing';
                 }
                 ?>
+            </div>
 
+            <!-- Outro -->
+            <div class="contact__wrapper__outro">
+                You can also send us a message directly at <a href="mailto:cruise@rainforestcruises.com">cruise@rainforestcruises.com</a> 
             </div>
         </div>
     </div>
 
 </section>
 
+
+<!-- Testimonials -->
 <div class="destination-testimonials">
     <h2 class="contact-page__testimonial-title">
         What Our Customers are Saying About Us
@@ -76,7 +84,7 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
     <div class="destination-testimonials__slider" id="testimonials-slider">
         <?php
         $testimonials = get_field('testimonials', 'options');
-        
+
         if ($testimonials) :
             foreach ($testimonials as $testimonial) :
                 $t = $testimonial['snippet'];

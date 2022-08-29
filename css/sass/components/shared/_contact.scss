@@ -108,6 +108,17 @@
             max-width: 60rem;
         }
 
+        &__outro {
+            font-size: 1.3rem;
+
+            & a:link,
+            a:visited {
+                color: $color-supporting;
+                text-decoration: none;
+                font-weight: 600;
+            }
+        }
+
         &__close-button {
             position: absolute;
             top: 3rem;

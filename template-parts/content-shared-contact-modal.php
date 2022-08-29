@@ -37,6 +37,10 @@ if(get_post_type() == 'rfc_cruises' || get_post_type() == 'rfc_lodges' || get_po
                 
                 ?>
             </div>
+              <!-- Outro -->
+              <div class="contact__wrapper__outro">
+                You can also send us a message directly at <a href="mailto:cruise@rainforestcruises.com">cruise@rainforestcruises.com</a> 
+            </div>
         </div>
     </div>
 </div>
