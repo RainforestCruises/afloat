@@ -61,7 +61,9 @@ function create_post_type_rfc_travel_guides()
             'public' => true,
             'rewrite' => array('slug' => 'guides'),
             'supports' => array(
-                'title', 'editor'
+                'title', 
+                'editor'
+               
             )
 
         )
@@ -105,7 +107,7 @@ function create_post_type_rfc_cruises()
             'public' => true,
             'rewrite' => array('slug' => 'cruises'),
             'supports' => array(
-                'title',
+                'title'
             )
         )
     );
@@ -125,7 +127,7 @@ function create_post_type_rfc_tours()
             'public' => true,
             'rewrite' => array('slug' => 'tours'),
             'supports' => array(
-                'title',
+                'title'
             )
         )
     );
@@ -146,7 +148,7 @@ function create_post_type_rfc_lodges()
             'public' => true,
             'rewrite' => array('slug' => 'lodges'),
             'supports' => array(
-                'title',
+                'title'
             )
         )
     );

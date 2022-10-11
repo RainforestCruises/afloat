@@ -505,6 +505,9 @@ endforeach;
                                                 </div>
                                             </div>
                                             <div class="product-itinerary-slide__top__side-info__content__fine-print">
+                                                Lodge prices shown valid for <?php echo date("Y"); ?> only
+                                            </div>
+                                            <div class="product-itinerary-slide__top__side-info__content__fine-print">
                                                 Availability on request
                                             </div>
                                         <?php endif; ?>
