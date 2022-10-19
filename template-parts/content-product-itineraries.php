@@ -674,9 +674,13 @@ endforeach;
                             $dayImages = $itinerary['DayImageDTOs'];
                             $dayCount = 1;
 
-
+                                      
                             if ($days) :
-                                usort($days, "sortDays");
+                                //usort($days, "sortDays");
+                                $dayNumber = array_column($days, 'DayNumber');
+                                array_multisort($dayNumber, SORT_ASC, $days);
+
+
                                 foreach ($days as $day) : ?>
                                     <?php
                                     $img = null;

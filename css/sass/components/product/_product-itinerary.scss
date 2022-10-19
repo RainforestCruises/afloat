@@ -9,11 +9,10 @@
         padding: 0 3rem;
     }
 
-
     &__nav {
         width: 100%;
         //margin-top: 2rem;
-        
+
         z-index: 3;
         &__counter {
             text-transform: uppercase;
@@ -23,7 +22,7 @@
             font-weight: 700;
             width: 100%;
             //margin-bottom: 0.5rem;
-            letter-spacing: 0.1rem; 
+            letter-spacing: 0.1rem;
         }
 
         &__slider {
@@ -31,10 +30,8 @@
             list-style: none;
             color: $color-grey-1;
             padding-right: 12rem;
-           
+
             transform: translateY(1px);
-
-
 
             & .slick-current {
                 color: $color-supporting !important;
@@ -44,7 +41,7 @@
                     border-bottom: 1px solid white;
                     z-index: 20;
                     transform: translateY(0rem);
-                    
+
                     & span {
                         background-color: $color-supporting;
                     }
@@ -61,24 +58,20 @@
                 //wierd fix for the 3rd element - working
                 //anything above small size
                 @media only screen and (min-width: $bp-small) {
-                    &:nth-of-type(3){
-
+                    &:nth-of-type(3) {
                         & .product-itineraries__nav__slider__item {
                             box-sizing: border-box;
                             -moz-box-sizing: border-box;
                             -webkit-box-sizing: border-box;
                             border-right: 3px solid $color-grey-light-1a;
-                           
                         }
-                        
                     }
                 }
-                
             }
 
             & .slick-track {
-                transform: translate3d(0, 0, 0) ;
-            } 
+                transform: translate3d(0, 0, 0);
+            }
 
             &__item {
                 padding: 1rem 2rem;
@@ -88,7 +81,7 @@
                 letter-spacing: 0.2rem;
                 border: 1px solid $color-grey-light-1a;
                 //border-bottom: 1px solid $color-grey-light-1a;
-                transform: translateY(.5rem);
+                transform: translateY(0.5rem);
                 transition: all 0.3s;
                 text-align: center;
                 cursor: pointer;
@@ -100,16 +93,14 @@
                     }
                 }
 
-                
-
                 & span {
                     font-size: 1.2rem;
                     border-radius: 4rem;
-                    padding: .4rem .7rem;
+                    padding: 0.4rem 0.7rem;
                     background-color: $color-grey-1;
                     color: $color-white;
                     transition: all 0.3s;
-                } 
+                }
             }
 
             &__btn {
@@ -204,9 +195,6 @@
             width: 100%;
             grid-template-columns: repeat(4, minmax(max-content, 100%));
 
-           
-
-
             row-gap: 1.5rem;
             column-gap: 1.5rem;
 
@@ -242,14 +230,14 @@
                     margin-left: 1rem;
                     border-radius: 1.5rem;
                     border: 2px solid currentColor;
-                    padding: .1rem .8rem;
+                    padding: 0.1rem 0.8rem;
                     font-size: 1.2rem;
                     position: relative;
                     cursor: pointer;
                     &:hover .tooltiptext {
                         visibility: visible;
                     }
-                
+
                     & .tooltiptext {
                         //box-sizing: border-box;
                         visibility: hidden;
@@ -260,7 +248,7 @@
                         color: $color-primary;
                         text-align: center;
                         border-radius: 6px;
-                        padding: .5rem 1rem;
+                        padding: 0.5rem 1rem;
                         font-size: 1rem;
                         font-weight: 600;
                         /* Position the tooltip */
@@ -280,7 +268,6 @@
                 @media only screen and (max-width: $bp-small) {
                     flex-direction: column;
                 }
-              
             }
 
             &__price-range {
@@ -332,7 +319,6 @@
         &.promo-date {
             color: $color-green !important;
             border-color: $color-green !important;
-
         }
 
         &--available {
@@ -345,7 +331,7 @@
             color: $color-red;
             border-color: $color-red;
             cursor: not-allowed;
-        } 
+        }
 
         &--tba {
             color: $color-supporting;
@@ -356,7 +342,7 @@
             &:hover .tooltiptext {
                 visibility: visible;
             }
-        
+
             & .tooltiptext {
                 //box-sizing: border-box;
                 visibility: hidden;
@@ -367,7 +353,7 @@
                 color: $color-primary;
                 text-align: center;
                 border-radius: 6px;
-                padding: .5rem 1rem;
+                padding: 0.5rem 1rem;
                 font-size: 1rem;
                 font-weight: 600;
                 /* Position the tooltip */
@@ -477,7 +463,7 @@
     border-top: 1px solid $color-grey-light-1a;
     color: $color-primary;
     font-size: 1.3rem;
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
 }
 
 .inclusions-area {
@@ -499,8 +485,6 @@
         }
     }
 }
-
-
 
 .product-itinerary-slide {
     //height: 30rem;
@@ -558,7 +542,6 @@
                     line-height: 2.7rem;
                     font-weight: 600;
                     letter-spacing: 0;
-              
                 }
 
                 &__badge-area {
@@ -566,16 +549,14 @@
                         color: $color-supporting-light;
                         text-transform: uppercase;
                         font-size: 1.4rem;
-                        letter-spacing: .1rem;
+                        letter-spacing: 0.1rem;
                         line-height: 1.2rem;
                         //border: 2px solid currentColor;
                         font-weight: 700;
                         //background-color: $color-gold;
                         //border-radius: 4rem;
                         //padding: .75rem 1.5rem;
-                      
-                    
-                      }
+                    }
                 }
             }
 
@@ -615,7 +596,7 @@
                     letter-spacing: 0.1rem;
                     text-transform: uppercase;
                     font-weight: 700;
-                    color: $color-grey-1; 
+                    color: $color-grey-1;
                     padding: 1.5rem 1rem;
                     position: relative;
                     transition: color 0.2s;
@@ -681,7 +662,7 @@
                             text-transform: uppercase;
                             letter-spacing: 0.1rem;
                             margin-bottom: 0;
-                            
+
                             display: flex;
                             align-items: center;
                             & svg {
@@ -689,16 +670,14 @@
                                 height: 2rem;
                                 width: 2rem;
                                 fill: $color-primary;
-                                transition: all .2s;
+                                transition: all 0.2s;
                                 margin-left: 1.5rem;
-                                transform: translateY(-.2rem);
+                                transform: translateY(-0.2rem);
                                 &:hover {
                                     fill: $color-supporting-light;
                                 }
                             }
-                            
                         }
-                        
                     }
 
                     &__legend {
@@ -709,14 +688,11 @@
 
                         @media only screen and (max-width: $bp-small) {
                             margin-top: 2rem;
-
                         }
 
                         &__fine-print {
                             min-width: 18rem;
-
-                          
-                        } 
+                        }
 
                         &__colors {
                             display: flex;
@@ -752,7 +728,6 @@
                                     color: $color-green;
                                 }
 
-                              
                                 &--button {
                                     justify-self: end;
 
@@ -775,7 +750,6 @@
                         @media only screen and (max-width: $bp-small) {
                             display: flex;
                             justify-content: center;
-
                         }
                     }
 
@@ -814,15 +788,12 @@
                         text-decoration: none;
                         color: $color-supporting;
                         font-weight: 500;
-                        transition: all .3s;
+                        transition: all 0.3s;
 
                         &:hover {
                             color: $color-supporting-light;
                         }
-                      
-                        
                     }
-                    
                 }
 
                 &__inclusions-title {
@@ -905,6 +876,13 @@
 
         &__days {
             position: relative;
+
+            & .slick-dots {
+                & li {
+                    user-select: none;
+                }
+            }
+
             &__item {
                 display: flex !important;
 
@@ -922,7 +900,7 @@
                     &__title {
                         font-size: 2.2rem;
                         font-weight: 600;
-                        color: $color-primary; 
+                        color: $color-primary;
                         margin: 1rem 0;
                         letter-spacing: 0;
                     }
@@ -934,7 +912,8 @@
                             padding-right: 0rem;
                         }
 
-                        & ul, ol {
+                        & ul,
+                        ol {
                             margin-left: 3rem;
                             list-style: disc;
                             margin-bottom: 2rem;
@@ -1071,10 +1050,9 @@
 }
 
 .charter-pricing {
-
     &__overall {
         display: grid;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
         margin-top: 1rem;
         width: 100%;
         column-gap: 3rem;
@@ -1083,7 +1061,7 @@
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-        } 
+        }
 
         @media only screen and (max-width: $bp-small) {
             display: flex;
@@ -1091,21 +1069,18 @@
             flex-wrap: wrap;
         }
 
-
-
         &__info-group {
             margin-bottom: 2rem;
-    
-            font-weight: 700;   
+
+            font-weight: 700;
             font-size: 1.5rem;
-            letter-spacing: .1rem;
+            letter-spacing: 0.1rem;
             color: $color-primary;
             text-transform: uppercase;
             white-space: nowrap;
             @media only screen and (max-width: $bp-medium) {
                 width: max-content;
             }
-
 
             &__title {
                 display: flex;
@@ -1115,28 +1090,26 @@
                     height: 2rem;
                     width: 2rem;
                     fill: $color-primary;
-                    transition: all .2s;
+                    transition: all 0.2s;
                     margin-left: 1.5rem;
-                    transform: translateY(-.2rem);
+                    transform: translateY(-0.2rem);
                     &:hover {
                         fill: $color-supporting-light;
                     }
                 }
             }
-    
+
             &__data {
                 font-size: 2.4rem;
-    
-        
+
                 color: $color-supporting-light;
 
                 & div {
-                    transform: translateY(-.5rem);
+                    transform: translateY(-0.5rem);
                     font-size: 1.4rem;
                 }
             }
         }
-
     }
 
     &__estimates {
@@ -1170,10 +1143,10 @@
         margin-bottom: 1.5rem;
     }
 
-    & ul, ol {
+    & ul,
+    ol {
         padding-left: 3rem;
     }
-   
 }
 
 .charter-info-box {
