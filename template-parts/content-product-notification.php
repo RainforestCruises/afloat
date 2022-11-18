@@ -1,7 +1,8 @@
 <?php
-
+$notification_title = get_field('notification_title');
 $notification_message = get_field('notification_message');
 
+$notification_title = $notification_title == "" ? "Notice" : $notification_title;
 ?>
 
 
@@ -14,7 +15,7 @@ $notification_message = get_field('notification_message');
             </button>
 
             <div class="contact__wrapper__header">
-                Notice
+                <?php echo $notification_title; ?>
             </div>
             <div class="contact__wrapper__message">
                 <?php echo $notification_message; ?>

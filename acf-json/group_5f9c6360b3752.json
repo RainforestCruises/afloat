@@ -328,6 +328,33 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_6377b530f7599",
+            "label": "Notification Title",
+            "name": "notification_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_618c2bc98a826",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_618c2bdb8a827",
             "label": "Notification Message",
             "name": "notification_message",
@@ -2220,5 +2247,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Lodge - CPT",
-    "modified": 1636576266
+    "show_in_rest": 0,
+    "modified": 1668789574
 }

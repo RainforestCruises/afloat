@@ -55,18 +55,9 @@ while (have_posts()) :
 
   $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, true);
 
-
- 
   //Get Deals
   $dealPosts = listDealsForProduct(get_post(), $charter_view);
-
   $hasDeals = (count($dealPosts) > 0) ? true : false;
-
-  console_log($dealPosts);
-
-
-
-
 
 
   $args = array(

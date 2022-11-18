@@ -10176,6 +10176,20 @@ h5 {
   .product-card:link, .product-card:visited {
     text-decoration: none;
     color: #9ea0a4; }
+  .product-card__tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100; }
+    .product-card__tag .deal-tag {
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: .1rem;
+      background-color: #00a84b;
+      border-radius: 5rem;
+      color: #fff;
+      padding: .3rem 1rem;
+      z-index: 100; }
   .product-card__image-area {
     height: min-content;
     position: relative; }
@@ -10239,6 +10253,8 @@ h5 {
       justify-content: center;
       align-items: flex-start; }
       .product-card__bottom__title-group__product-name {
+        width: 100%;
+        text-align: center;
         letter-spacing: 0;
         font-size: 1.8rem;
         line-height: 2.2rem;
@@ -10367,6 +10383,9 @@ h5 {
         font-weight: 700;
         width: max-content;
         height: max-content; }
+        .wide-slider-card__content__tag-area__tag.deal-tag {
+          background-color: #00a84b;
+          color: #fff; }
         .wide-slider-card__content__tag-area__tag--length {
           color: #fff;
           background-color: #305a7c; }

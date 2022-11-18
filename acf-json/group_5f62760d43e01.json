@@ -328,6 +328,33 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_6377b44679584",
+            "label": "Notification Title",
+            "name": "notification_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_618c23e9ce2d2",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_618c241dce2d3",
             "label": "Notification Message",
             "name": "notification_message",
@@ -2494,5 +2521,5 @@
     "active": true,
     "description": "Cruise - CPT",
     "show_in_rest": 0,
-    "modified": 1649881170
+    "modified": 1668789349
 }

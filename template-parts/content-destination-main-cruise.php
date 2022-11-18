@@ -86,17 +86,24 @@ $cruise_experiences = get_field('cruise_experiences');
                     $charter_only = get_field('charter_only', $c);
                     $charter_min_days = get_field('charter_min_days', $c);
 
+                    $dealPosts = listDealsForProduct($c);
+                    $hasDeals = (count($dealPosts) > 0) ? true : false;
+
                     if (array_key_exists("LowestCharterPrice", $cruise_data)) {
                         $charter_daily_price = $cruise_data['LowestCharterPrice'];
                     }
 
                     $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear);
                     ?>
-                    <!-- Tour Card -->
-
-
 
                     <a class="product-card" href="<?php echo get_permalink($c); ?>">
+                        <?php if ($hasDeals) : ?>
+                            <div class="product-card__tag">
+                                <div class="deal-tag">
+                                    Deals
+                                </div>
+                            </div>
+                        <?php endif; ?>
                         <div class="product-card__image-area">
                             <?php if ($featured_image) : ?>
                                 <img <?php afloat_image_markup($featured_image['id'], 'featured-medium'); ?>>

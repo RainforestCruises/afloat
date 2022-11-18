@@ -676,7 +676,6 @@ endforeach;
 
                                       
                             if ($days) :
-                                //usort($days, "sortDays");
                                 $dayNumber = array_column($days, 'DayNumber');
                                 array_multisort($dayNumber, SORT_ASC, $days);
 
@@ -752,15 +751,3 @@ endforeach;
 </div>
 
 
-
-
-
-<!-- Sort by Day Number -->
-<?php
-function sortDays($a, $b)
-{
-    if (is_object($a) && is_object($b)) {
-        return strcmp($a->DayNumber, $b->DayNumber);
-    }
-}
-?>

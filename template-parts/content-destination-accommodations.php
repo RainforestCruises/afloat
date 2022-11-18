@@ -1,11 +1,6 @@
 <?php
 
-//$cruises_image = get_field('cruises_image');
-//$lodges_image = get_field('lodges_image');
-//$cruises_snippet = get_field('cruises_snippet');
-//$lodges_snippet = get_field('lodges_snippet');
 $title = $args['title'];
-
 $lodges = $args['lodges'];
 $currentYear = date("Y");
 
@@ -31,10 +26,20 @@ $currentYear = date("Y");
                 $featured_image = get_field('featured_image', $lodge);
                 $cruise_data = get_field('cruise_data', $lodge);
                 $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear);
+
+                $dealPosts = listDealsForProduct($lodge);
+                $hasDeals = (count($dealPosts) > 0) ? true : false;
                 ?>
                 <!-- Card -->
 
                 <a class="product-card" href="<?php echo get_permalink($lodge); ?>">
+                    <?php if ($hasDeals) : ?>
+                        <div class="product-card__tag">
+                            <div class="deal-tag">
+                                Deals
+                            </div>
+                        </div>
+                    <?php endif; ?>
                     <div class="product-card__image-area">
                         <?php if ($featured_image) : ?>
                             <img <?php afloat_image_markup($featured_image['id'], 'featured-medium'); ?>>

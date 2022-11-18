@@ -100,10 +100,13 @@ $highlights = get_field('highlights');
 
                     $lowest = lowest_tour_price($price_packages, $currentYear);
 
+                    $dealPosts = listDealsForProduct($t);
+                    $hasDeals = (count($dealPosts) > 0) ? true : false;
 
                     ?>
                     <!-- Tour Card -->
                     <a class="wide-slider-card" href="<?php echo get_permalink($t); ?>">
+
                         <?php if ($hero_image) : ?>
                             <div class="wide-slider-card__image">
                                 <img <?php afloat_image_markup($hero_image['id'], 'wide-slider-medium'); ?>>
@@ -115,7 +118,11 @@ $highlights = get_field('highlights');
                                 <div class="wide-slider-card__content__tag-area__tag">
                                     Best Seller
                                 </div>
-
+                                <?php if ($hasDeals) : ?>
+                                    <div class="wide-slider-card__content__tag-area__tag deal-tag">
+                                        Deals
+                                    </div>
+                                <?php endif; ?>
                             </div>
                             <div class="wide-slider-card__content__text-area">
                                 <div class="wide-slider-card__content__text-area__country">

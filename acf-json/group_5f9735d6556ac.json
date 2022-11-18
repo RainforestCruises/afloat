@@ -221,6 +221,33 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_6377b57581e4a",
+            "label": "Notification Title",
+            "name": "notification_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_618c2c5d184c4",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_618c2c75184c5",
             "label": "Notification Message",
             "name": "notification_message",
@@ -1688,5 +1715,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Tour - CPT",
-    "modified": 1636576421
+    "show_in_rest": 0,
+    "modified": 1668789645
 }
