@@ -93,7 +93,7 @@ $cruise_experiences = get_field('cruise_experiences');
                         $charter_daily_price = $cruise_data['LowestCharterPrice'];
                     }
 
-                    $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear);
+                    $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, true); //why is this differnnt in product hero?
                     ?>
 
                     <a class="product-card" href="<?php echo get_permalink($c); ?>">

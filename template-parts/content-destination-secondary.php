@@ -36,7 +36,7 @@ console_log($cruises);
                     $charter_daily_price = $cruise_data['LowestCharterPrice'];
                 }
 
-                $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear);
+                $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, true);
                 ?>
                 <!-- Card -->
 
