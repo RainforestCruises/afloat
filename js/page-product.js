@@ -257,9 +257,6 @@ jQuery(document).ready(function ($) {
     } else {
       $(e.target).text("Read More");
 
-
-      //var overviewContentDiv = $(".product-overview__content");
-
       var target = $(".product-overview__content").offset().top;
 
       $('html, body').animate({ scrollTop: target }, 0);
