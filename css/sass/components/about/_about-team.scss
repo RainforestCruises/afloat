@@ -45,7 +45,6 @@
     &__image-area {
         height: min-content;
         width: 100%;
-        //clip-path: polygon(75% 0, 100% 25%, 100% 100%, 25% 100%, 0 75%, 0% 0%);
 
         & img {
             height: 100%;
@@ -67,6 +66,15 @@
         &__position {
             font-size: 1.5rem;
             font-weight: 400;
+        }
+
+        &__phone {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: $color-primary;
+            &:hover {
+                color: $color-supporting;
+            }
         }
     }
 }

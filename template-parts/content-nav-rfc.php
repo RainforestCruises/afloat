@@ -112,7 +112,6 @@ foreach ($menuitems as $m) {
 
         <a class="nav-mobile__content-panel__button mobile-link phone" href="tel:<?php echo get_field('phone_number_numeric', 'options'); ?>">
             <?php echo get_field('phone_number', 'options'); ?>
-
         </a>
 
         <!-- Language Switch -->

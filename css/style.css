@@ -9874,6 +9874,12 @@ h5 {
   .team-card__content__position {
     font-size: 1.5rem;
     font-weight: 400; }
+  .team-card__content__phone {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #142838; }
+    .team-card__content__phone:hover {
+      color: #305a7c; }
 
 .about-partners {
   width: 100%;
