@@ -77,6 +77,7 @@
 
 
     <?php
+    wp_body_open();
     $is_arctic = get_field('is_arctic', 'options');
 
     if ($is_arctic != true) :

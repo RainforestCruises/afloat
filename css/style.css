@@ -198,6 +198,10 @@ input {
   -moz-appearance: none;
   appearance: none; }
 
+.mysticky-welcomebar-fixed-wrap {
+  min-height: 40px !important;
+  padding: 15px 50px !important; }
+
 .heading-1, .heading-2, .heading-3, .heading-4, .heading-5 {
   font-family: "Metropolis", sans-serif;
   font-weight: 400; }
@@ -11425,7 +11429,7 @@ h5 {
   height: 100vh;
   width: 28rem;
   position: fixed;
-  z-index: 9999999;
+  z-index: 999999999999999999999;
   top: 0;
   right: 0;
   overflow-x: hidden; }
