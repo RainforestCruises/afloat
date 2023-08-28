@@ -6,11 +6,11 @@
     $destinationType = $args['destinationType'];
     $accommodationDisplayText = 'Lodges';
 
-    if($destinationType == 'destination' || $destinationType == 'region')
+    if ($destinationType == 'destination' || $destinationType == 'region')
         $accommodationDisplayText = get_field('accommodations_label');
-        if($accommodationDisplayText == null) {
-            $accommodationDisplayText = 'Lodges';
-        }
+    if ($accommodationDisplayText == null) {
+        $accommodationDisplayText = 'Lodges';
+    }
     ?>
 
 
@@ -23,7 +23,7 @@
               <div class="destination-hero__bg-slider__slide">
                   <?php if ($sliderImage) : ?>
                       <div class="destination-hero__bg-slider__slide__image-area">
-                        <img <?php afloat_image_markup($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall'), true); ?>>
+                          <img <?php afloat_image_markup($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall'), true); ?>>
                       </div>
                   <?php endif; ?>
               </div>
@@ -101,17 +101,23 @@
                           <?php } ?>
 
 
-                      <?php } else if ($destinationType == 'cruise') { ?>
+                      <?php } else if ($destinationType == 'cruise') {
+                            $show_charters = get_field('show_charters');
+
+                        ?>
                           <li class="destination-hero__content__page-nav__list__item">
                               <a href="#cruises" class="destination-hero__content__page-nav__list__item__link page-nav-template">Cruises</a>
                           </li>
                           <li class="destination-hero__content__page-nav__list__item">
                               <a href="#packages" class="destination-hero__content__page-nav__list__item__link page-nav-template">Packages</a>
                           </li>
-                          <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#charters" class="destination-hero__content__page-nav__list__item__link page-nav-template">Private Charters</a>
-                          </li>
-                      <?php } ?>
+
+                          <?php if ($show_charters) { ?>
+                              <li class="destination-hero__content__page-nav__list__item">
+                                  <a href="#charters" class="destination-hero__content__page-nav__list__item__link page-nav-template">Private Charters</a>
+                              </li>
+                      <?php }
+                        } ?>
 
 
 
@@ -175,8 +181,8 @@
                                   <div class="destination-hero__content__location__slider__item__cta">
 
                                       <a class="goto-button goto-button--hero goto-button--small hero-link" href="<?php echo $s['link']; ?>">
-                                            <?php echo 'View ' . $s['title'] . ' Tours'; ?>
-                                 
+                                          <?php echo 'View ' . $s['title'] . ' Tours'; ?>
+
 
                                           <svg>
                                               <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-arrow-right"></use>
