@@ -4,11 +4,11 @@ wp_enqueue_script('page-nav', get_template_directory_uri() . '/js/page-nav.js', 
 wp_enqueue_script('page-destination', get_template_directory_uri() . '/js/page-destination.js', array('jquery'), false, true);
 $templateUrl = get_template_directory_uri();
 wp_localize_script(
-  'page-destination',
-  'page_vars',
-  array(
-    'templateUrl' =>  $templateUrl
-  )
+    'page-destination',
+    'page_vars',
+    array(
+        'templateUrl' =>  $templateUrl
+    )
 );
 ?>
 
@@ -20,6 +20,7 @@ get_header();
 $destinationType = 'cruise';
 
 $destination = get_field('destination_post');
+$show_charters = get_field('show_charters');
 
 $activities = get_field('activities_list');
 $locations = get_field('locations_list');
@@ -63,6 +64,15 @@ $cruiseCriteria = array(
 );
 $cruises = get_posts($cruiseCriteria);
 
+//CHARTERS
+$charters = [];
+foreach($cruises as $cruise){
+    $charter_available = get_field('charter_available', $cruise);
+    if($charter_available){
+        $charters[] = $cruise;
+    }
+}
+
 
 
 //Title (Destination)
@@ -73,14 +83,14 @@ $args = array(
     'destination' => $destination,
     'locations' => $locations,
     'activities' => $activities,
-
+    'charters' => $charters,
     'tours' => $tours,
     'tour_experiences' => $tour_experiences,
     'cruises' => $cruises,
     'sliderContent' => $sliderContent,
     'title' => $title,
     'destinationType' => $destinationType,
-
+    'show_charters' => $show_charters
 );
 
 ?>
@@ -94,7 +104,7 @@ $args = array(
     </section>
 
     <!-- Cruises -->
-    <section class="destination-page__section-main" >
+    <section class="destination-page__section-main">
         <?php
         get_template_part('template-parts/content', 'destination-main-cruise', $args);
         ?>
@@ -108,6 +118,14 @@ $args = array(
         ?>
     </section>
 
+    <?php if ($show_charters) : ?>
+        <!-- Private Charters -->
+        <section class="destination-page__section-secondary" id="charters">
+            <?php
+            get_template_part('template-parts/content', 'destination-charters', $args);
+            ?>
+        </section>
+    <?php endif; ?>
 
     <!-- Travel Guides -->
     <section class="destination-page__section-travel-guides" id="travel-guide">
@@ -116,14 +134,14 @@ $args = array(
         ?>
     </section>
 
-    
+
     <!-- Testimonials -->
     <?php if (get_field('show_testimonials') == true) { ?>
-    <section class="destination-page__section-testimonials" id="testimonials">
-        <?php
-        get_template_part('template-parts/content', 'destination-testimonials', $args);
-        ?>
-    </section>
+        <section class="destination-page__section-testimonials" id="testimonials">
+            <?php
+            get_template_part('template-parts/content', 'destination-testimonials', $args);
+            ?>
+        </section>
     <?php } ?>
 
     <!-- FAQ -->
@@ -141,4 +159,3 @@ get_template_part('template-parts/content', 'shared-contact-modal', $args);
 ?>
 
 <?php get_footer(); ?>
-

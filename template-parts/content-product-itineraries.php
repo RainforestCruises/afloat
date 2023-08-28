@@ -354,6 +354,14 @@ endforeach;
                                                             <?php endforeach; ?>
 
                                                         </div>
+                                                        <?php
+                                                            if (array_key_exists("RegularSeasonText", $rateYear)) :
+                                                                if ($rateYear['RegularSeasonText'] != null) : ?>
+                                                                    <div class="season-panel__range-text">
+                                                                        Regular Season: <?php echo $rateYear['RegularSeasonText']; ?>
+                                                                    </div>
+                                                            <?php endif;
+                                                            endif; ?>
                                                     </div>
 
                                                     <!-- High Season -->

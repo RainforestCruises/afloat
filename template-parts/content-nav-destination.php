@@ -79,14 +79,22 @@ endif; ?>
                     </li>
                 <?php } ?>
 
-            <?php } else if ($destinationType == 'cruise') { ?>
+            <?php } else if ($destinationType == 'cruise') {
+                $show_charters = get_field('show_charters');
+
+            ?>
                 <li>
                     <a href="#cruises">Cruises</a>
                 </li>
                 <li>
                     <a href="#packages">Packages</a>
                 </li>
-            <?php } ?>
+                <?php if ($show_charters) { ?>
+                    <li>
+                        <a href="#charters">Private Charters</a>
+                    </li>
+            <?php }
+            } ?>
 
             <li>
                 <a href="#travel-guide">Travel Guide</a>
@@ -152,7 +160,13 @@ endif; ?>
             <li class="nav-secondary-mobile__list__item">
                 <a href="#packages" class="nav-secondary-mobile__list__item__link">Packages</a>
             </li>
-        <?php } ?>
+            <?php if ($show_charters) { ?>
+
+                <li class="nav-secondary-mobile__list__item">
+                    <a href="#charters" class="nav-secondary-mobile__list__item__link">Private Charters</a>
+                </li>
+        <?php }
+        } ?>
 
         <li class="nav-secondary-mobile__list__item">
             <a href="#travel-guide" class="nav-secondary-mobile__list__item__link">Travel Guide</a>

@@ -101,6 +101,10 @@ foreach ($departures as $departure) {
                 </div>
 
             <?php endif; ?>
+            <?php if ($result['IsCharterOnly'] == true) : ?>
+                <div class="promo-div" style="color: #40739c">Charter Only</div>
+
+            <?php endif; ?>
 
         </div>
 

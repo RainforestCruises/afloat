@@ -29,7 +29,7 @@ if ($results) :
 
                         <div class="search-result__content__top__badge-area">
                             <?php if ($result->dealAvailable == true) : ?>
-                                <div class="badge-solid badge-solid--small badge-solid--green dealbadge dealbadge-fit current">
+                                <div class="badge-solid badge-solid--small badge-solid--green dealbadge dealbadge-fit <?php echo ($charterFilter == false) ? "current" : ""; ?>">
                                     Deal
                                     <div class="deal-popover">
                                         <?php foreach ($dealPosts as $d) {

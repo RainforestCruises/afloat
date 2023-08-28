@@ -20,6 +20,7 @@ $posts = $args['deals'];
                 foreach ($posts as $p) :
                     $featured_image = get_field('featured_image', $p);
                     $applicable_to = get_field('applicable_to', $p);
+                    $is_charter_deal = get_field('is_charter_deal', $p);
 
                     $imageID = '';
                     if ($featured_image) {
@@ -84,8 +85,14 @@ $posts = $args['deals'];
 
                                 <div class="deal-slide__bottom__cta deal-slide__bottom__cta--multiple">
                                     <span>Applicable To: </span>
-                                    <?php foreach ($travelProducts as $product) : ?>
-                                        <a  href="<?php echo the_permalink($product) ?>">
+                                    <?php foreach ($travelProducts as $product) : 
+                                        $productLink = get_post_permalink($product);
+                                        if($is_charter_deal){
+                                            $productLink .= "?charter=true";
+                                        }
+                                    
+                                        ?>
+                                        <a href="<?php echo $productLink; ?>">
                                             <?php echo get_the_title($product); ?>
                                         </a>
                                     <?php endforeach; ?>

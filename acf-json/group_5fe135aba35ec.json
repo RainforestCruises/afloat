@@ -820,6 +820,99 @@
             "multiple": 0
         },
         {
+            "key": "field_64ecd2f1dee69",
+            "label": "Private Charters Section",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_64ecd320dee6b",
+            "label": "Show Charters",
+            "name": "show_charters",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_64ecd300dee6a",
+            "label": "Charter Title Subtext",
+            "name": "charter_title_subtext",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64ecd320dee6b",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_64ecd33adee6c",
+            "label": "Charter Search Link",
+            "name": "charter_search_link",
+            "type": "page_link",
+            "instructions": "Search page - Destination + Charter (travel type)",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64ecd320dee6b",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [
+                "category:search"
+            ],
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
+        },
+        {
             "key": "field_5ffe1a120966e",
             "label": "Travel Guide",
             "name": "",
@@ -1243,5 +1336,5 @@
     "active": true,
     "description": "Destination (Cruise) - Page",
     "show_in_rest": 0,
-    "modified": 1654104387
+    "modified": 1693242243
 }

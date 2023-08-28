@@ -2,17 +2,9 @@
 $destination = $args['destination'];
 $title = $args['title'];
 
-$locations = $args['locations'];
-$activities = $args['activities'];
-
-$cruise_locations = get_field('cruise_countries');
 
 $cruises = $args['cruises'];
 $currentYear = date("Y");
-
-
-$currentYear = date("Y");
-$destinationType = $args['destinationType'];
 
 $background_map = get_field('background_map');
 $highlights = get_field('highlights');

@@ -186,6 +186,7 @@ $posts = get_posts($args); //Stage I posts
                     $applicable_to = get_field('applicable_to', $p);
                     $is_selected_dates_only = get_field('is_selected_dates_only', $p);
                     $is_exclusive = get_field('is_exclusive', $p);
+                    $is_charter_deal = get_field('is_charter_deal', $p);
 
 
                     $imageID = '';
@@ -271,8 +272,14 @@ $posts = get_posts($args); //Stage I posts
 
                                 <div class="guide-item__bottom__cta guide-item__bottom__cta--multiple">
                                     <span>Applicable To: </span>
-                                    <?php foreach ($travelProducts as $product) : ?>
-                                        <a href="<?php echo the_permalink($product) ?>">
+                                    <?php foreach ($travelProducts as $product) : 
+                                        $productLink = get_post_permalink($product);
+                                        if($is_charter_deal){
+                                            $productLink .= "?charter=true";
+                                        }
+                                    
+                                        ?>
+                                        <a href="<?php echo $productLink; ?>">
                                             <?php echo get_the_title($product); ?>
                                         </a>
                                     <?php endforeach; ?>

@@ -3,9 +3,7 @@
     $locations = $args['locations'];
     $sliderContent = $args['sliderContent'];
     $title = $args['title'];
-
     $destinationType = $args['destinationType'];
-
     $accommodationDisplayText = 'Lodges';
 
     if($destinationType == 'destination' || $destinationType == 'region')
@@ -26,8 +24,6 @@
                   <?php if ($sliderImage) : ?>
                       <div class="destination-hero__bg-slider__slide__image-area">
                         <img <?php afloat_image_markup($sliderImage['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall'), true); ?>>
-
-
                       </div>
                   <?php endif; ?>
               </div>
@@ -111,6 +107,9 @@
                           </li>
                           <li class="destination-hero__content__page-nav__list__item">
                               <a href="#packages" class="destination-hero__content__page-nav__list__item__link page-nav-template">Packages</a>
+                          </li>
+                          <li class="destination-hero__content__page-nav__list__item">
+                              <a href="#charters" class="destination-hero__content__page-nav__list__item__link page-nav-template">Private Charters</a>
                           </li>
                       <?php } ?>
 
