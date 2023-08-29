@@ -108,16 +108,15 @@
                           <li class="destination-hero__content__page-nav__list__item">
                               <a href="#cruises" class="destination-hero__content__page-nav__list__item__link page-nav-template">Cruises</a>
                           </li>
-                          <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#packages" class="destination-hero__content__page-nav__list__item__link page-nav-template">Packages</a>
-                          </li>
-
-                          <?php if ($show_charters) { ?>
+                          <?php if ($show_charters) : ?>
                               <li class="destination-hero__content__page-nav__list__item">
                                   <a href="#charters" class="destination-hero__content__page-nav__list__item__link page-nav-template">Private Charters</a>
                               </li>
-                      <?php }
-                        } ?>
+                          <?php endif; ?>
+                          <li class="destination-hero__content__page-nav__list__item">
+                              <a href="#packages" class="destination-hero__content__page-nav__list__item__link page-nav-template">Packages</a>
+                          </li>              
+                      <?php } ?>
 
 
 

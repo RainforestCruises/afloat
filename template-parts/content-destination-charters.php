@@ -94,9 +94,8 @@ console_log($charters);
                                 </div>
                             </div>
                             <div class="product-card__bottom__info__price-group">
-                                <div class="product-card__bottom__info__price-group__from">Day</div>
+                                <div class="product-card__bottom__info__price-group__from">Per Day</div>
                                 <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($charter_daily_price, 0);  ?> <span>USD</span></div>
-
                             </div>
                         </div>
                     </div>

@@ -86,15 +86,15 @@ endif; ?>
                 <li>
                     <a href="#cruises">Cruises</a>
                 </li>
-                <li>
-                    <a href="#packages">Packages</a>
-                </li>
-                <?php if ($show_charters) { ?>
+                <?php if ($show_charters) : ?>
                     <li>
                         <a href="#charters">Private Charters</a>
                     </li>
-            <?php }
-            } ?>
+                <?php endif; ?>
+                <li>
+                    <a href="#packages">Packages</a>
+                </li>
+            <?php } ?>
 
             <li>
                 <a href="#travel-guide">Travel Guide</a>
@@ -157,16 +157,16 @@ endif; ?>
             <li class="nav-secondary-mobile__list__item">
                 <a href="#cruises" class="nav-secondary-mobile__list__item__link">Cruises</a>
             </li>
-            <li class="nav-secondary-mobile__list__item">
-                <a href="#packages" class="nav-secondary-mobile__list__item__link">Packages</a>
-            </li>
-            <?php if ($show_charters) { ?>
-
+            <?php if ($show_charters) : ?>
                 <li class="nav-secondary-mobile__list__item">
                     <a href="#charters" class="nav-secondary-mobile__list__item__link">Private Charters</a>
                 </li>
-        <?php }
-        } ?>
+            <?php endif; ?>
+            <li class="nav-secondary-mobile__list__item">
+                <a href="#packages" class="nav-secondary-mobile__list__item__link">Packages</a>
+            </li>
+
+        <?php } ?>
 
         <li class="nav-secondary-mobile__list__item">
             <a href="#travel-guide" class="nav-secondary-mobile__list__item__link">Travel Guide</a>

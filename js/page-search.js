@@ -797,17 +797,28 @@ jQuery(document).ready(function ($) {
       var badges = $(item).parent().parent().parent().find('.dealbadge');
       badges.removeClass('current');
 
+      var badgeFit = $(item).parent().parent().parent().find('.dealbadge-fit');
+      var badgeCharter = $(item).parent().parent().parent().find('.dealbadge-charter');
+
+
       if (item.classList.contains('fit-tab')) {
         panels[0].classList.add('current');
         thisTabArray[0].classList.add('current');
         subtitles[0].classList.add('current');
-        badges[0].classList.add('current');
+        if(badgeFit){
+          badgeFit.addClass('current');
+        }
+        
 
       } else {
         panels[1].classList.add('current');
         thisTabArray[1].classList.add('current');
         subtitles[1].classList.add('current');
-        badges[1].classList.add('current');
+        console.log(badgeCharter);
+        if(badgeCharter){
+          badgeCharter.addClass('current');
+
+        }
       }
       //Pre Title Text Change - charter
       //Promo badge hide - charter

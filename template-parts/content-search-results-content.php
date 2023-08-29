@@ -39,7 +39,7 @@ if ($results) :
                                 </div>
                             <?php endif; ?>
                             <?php if ($result->charterDealAvailable == true) : ?>
-                                <div class="badge-solid badge-solid--small badge-solid--green dealbadge dealbadge-charter <?php echo ($result->charterOnly == true) ? "current" : ""; ?>">
+                                <div class="badge-solid badge-solid--small badge-solid--green dealbadge dealbadge-charter <?php echo ($charterFilter == true) ? "current" : ""; ?>">
                                     Deal
                                     <div class="deal-popover">
                                         <?php foreach ($charterDealPosts as $d) {

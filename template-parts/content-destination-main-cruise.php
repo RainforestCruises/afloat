@@ -1,7 +1,7 @@
 <?php
 $destination = $args['destination'];
 $title = $args['title'];
-
+$cruise_locations = get_field('cruise_countries');
 
 $cruises = $args['cruises'];
 $currentYear = date("Y");

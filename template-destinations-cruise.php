@@ -110,14 +110,6 @@ $args = array(
         ?>
     </section>
 
-
-    <!-- Tours-->
-    <section class="destination-page__section-secondary">
-        <?php
-        get_template_part('template-parts/content', 'destination-secondary-cruise', $args);
-        ?>
-    </section>
-
     <?php if ($show_charters) : ?>
         <!-- Private Charters -->
         <section class="destination-page__section-secondary" id="charters">
@@ -126,6 +118,15 @@ $args = array(
             ?>
         </section>
     <?php endif; ?>
+
+
+    <!-- Tours-->
+    <section class="destination-page__section-secondary">
+        <?php
+        get_template_part('template-parts/content', 'destination-secondary-cruise', $args);
+        ?>
+    </section>
+
 
     <!-- Travel Guides -->
     <section class="destination-page__section-travel-guides" id="travel-guide">
