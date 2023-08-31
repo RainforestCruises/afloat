@@ -5,6 +5,7 @@
     $title = $args['title'];
     $destinationType = $args['destinationType'];
     $accommodationDisplayText = 'Lodges';
+    $show_charters = get_field('show_charters');
 
     if ($destinationType == 'destination' || $destinationType == 'region')
         $accommodationDisplayText = get_field('accommodations_label');
@@ -75,12 +76,17 @@
 
                           <?php if ($destinationType == 'destination') {
                                 $hide_cruises = get_field('hide_cruises');
-                                if (!$hide_cruises) { ?>
+                                if (!$hide_cruises) : ?>
                                   <li class="destination-hero__content__page-nav__list__item">
                                       <a href="#cruises" class="destination-hero__content__page-nav__list__item__link page-nav-template">Cruises</a>
                                   </li>
-                              <?php }
-                            } else { ?>
+                              <?php endif; ?>
+                              <?php if ($show_charters) : ?>
+                                  <li class="destination-hero__content__page-nav__list__item">
+                                      <a href="#charters" class="destination-hero__content__page-nav__list__item__link page-nav-template">Private Charters</a>
+                                  </li>
+                              <?php endif; ?>
+                          <?php } else { ?>
                               <li class="destination-hero__content__page-nav__list__item">
                                   <a href="#cruises" class="destination-hero__content__page-nav__list__item__link page-nav-template">Cruises</a>
                               </li>
@@ -102,7 +108,6 @@
 
 
                       <?php } else if ($destinationType == 'cruise') {
-                            $show_charters = get_field('show_charters');
 
                         ?>
                           <li class="destination-hero__content__page-nav__list__item">
@@ -115,7 +120,7 @@
                           <?php endif; ?>
                           <li class="destination-hero__content__page-nav__list__item">
                               <a href="#packages" class="destination-hero__content__page-nav__list__item__link page-nav-template">Packages</a>
-                          </li>              
+                          </li>
                       <?php } ?>
 
 

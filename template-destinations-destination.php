@@ -32,6 +32,7 @@ $sliderContent = get_field('hero_slider');
 //Title (Destination)
 $title = $destination->post_title;
 
+$show_charters = get_field('show_charters');
 
 
 
@@ -75,6 +76,15 @@ $cruiseCriteria = array(
 );
 $cruises = get_posts($cruiseCriteria);
 
+//CHARTERS
+$charters = [];
+foreach($cruises as $cruise){
+    $charter_available = get_field('charter_available', $cruise);
+    if($charter_available){
+        $charters[] = $cruise;
+    }
+}
+
 
 
 //Lodges -- sort doesnt unclude null
@@ -104,6 +114,7 @@ $args = array(
     'destination' => $destination,
     'locations' => $locations,
     'activities' => $activities,
+    'charters' => $charters,
 
     'tours' => $tours,
     'tour_experiences' => $tour_experiences,
@@ -139,6 +150,15 @@ $args = array(
             ?>
         </section>
     <?php } ?>
+
+    <?php if ($show_charters) : ?>
+        <!-- Private Charters -->
+        <section class="destination-page__section-secondary" id="charters">
+            <?php
+            get_template_part('template-parts/content', 'destination-charters', $args);
+            ?>
+        </section>
+    <?php endif; ?>
 
     
     <?php if (get_field('hide_accommodations') == false) { ?>

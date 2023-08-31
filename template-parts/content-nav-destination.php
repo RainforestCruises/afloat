@@ -1,6 +1,7 @@
 <?php
 $navTitle = "";
 $destinationType = "";
+$show_charters = get_field('show_charters');
 
 $accommodationDisplayText = 'Lodges';
 
@@ -21,6 +22,7 @@ elseif (is_page_template('template-destinations-destination.php')) :
     $d = get_field('destination_post');
     $navTitle = get_field('navigation_title', $d);
     $destinationType = "destination";
+
 else :
     $d = get_field('destination_post');
     $navTitle = get_field('navigation_title', $d);
@@ -55,12 +57,17 @@ endif; ?>
                 </li>
                 <?php if ($destinationType == 'destination') {
                     $hide_cruises = get_field('hide_cruises');
-                    if (!$hide_cruises) { ?>
+                    if (!$hide_cruises) : ?>
                         <li>
                             <a href="#cruises">Cruises</a>
                         </li>
-                    <?php }
-                } else { ?>
+                    <?php endif;
+                    if ($show_charters) : ?>
+                        <li>
+                            <a href="#charters">Private Charters</a>
+                        </li>
+                    <?php endif; ?>
+                <?php } else { ?>
                     <li>
                         <a href="#cruises">Cruises</a>
                     </li>
@@ -79,10 +86,7 @@ endif; ?>
                     </li>
                 <?php } ?>
 
-            <?php } else if ($destinationType == 'cruise') {
-                $show_charters = get_field('show_charters');
-
-            ?>
+            <?php } else if ($destinationType == 'cruise') { ?>
                 <li>
                     <a href="#cruises">Cruises</a>
                 </li>
@@ -134,6 +138,11 @@ endif; ?>
                         <a href="#cruises" class="nav-secondary-mobile__list__item__link">Cruises</a>
                     </li>
                 <?php }
+                if ($show_charters) : ?>
+                    <li class="nav-secondary-mobile__list__item">
+                        <a href="#charters" class="nav-secondary-mobile__list__item__link">Private Charters</a>
+                    </li>
+                <?php endif;
             } else { ?>
                 <li class="nav-secondary-mobile__list__item">
                     <a href="#cruises" class="nav-secondary-mobile__list__item__link">Cruises</a>

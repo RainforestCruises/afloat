@@ -679,6 +679,95 @@
             "multiple": 0
         },
         {
+            "key": "field_64f0b68e44284",
+            "label": "Private Charters Section",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_64f0b6a244285",
+            "label": "Show Charters",
+            "name": "show_charters",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_64f0b6b244286",
+            "label": "Charter Title Subtext",
+            "name": "charter_title_subtext",
+            "type": "wysiwyg",
+            "instructions": "Snippet under the title",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64f0b6a244285",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_64f0b6e244287",
+            "label": "Charter Search Link",
+            "name": "charter_search_link",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64f0b6a244285",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "taxonomy": "",
+            "allow_null": 0,
+            "allow_archives": 0,
+            "multiple": 0
+        },
+        {
             "key": "field_5fd00616dc88f",
             "label": "Accommodations",
             "name": "",
@@ -1219,5 +1308,5 @@
     "active": true,
     "description": "Destination (Destination) - Page",
     "show_in_rest": 0,
-    "modified": 1654104710
+    "modified": 1693497585
 }
