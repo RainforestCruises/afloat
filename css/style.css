@@ -7767,12 +7767,16 @@ h5 {
         font-family: "Playfair Display", serif;
         letter-spacing: 0.2rem;
         font-weight: 300;
-        margin-bottom: 2.5rem; }
+        margin-bottom: 2.5rem;
+        position: relative; }
         @media only screen and (max-width: 37.5em) {
           .home-hero__content__title-group__title {
             font-size: 4rem;
             line-height: 4.5rem;
             letter-spacing: 0.1rem; } }
+        .home-hero__content__title-group__title .trademark {
+          font-size: 1.6rem;
+          line-height: 1.6rem; }
       .home-hero__content__title-group__subtitle {
         font-size: 2.5rem;
         font-weight: 400;

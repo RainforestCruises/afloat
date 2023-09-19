@@ -162,11 +162,16 @@
                 letter-spacing: 0.2rem;
                 font-weight: 300;
                 margin-bottom: 2.5rem;
-
+                position: relative;
                 @media only screen and (max-width: $bp-small) {
                     font-size: 4rem;
                     line-height: 4.5rem;
                     letter-spacing: 0.1rem;
+                }
+
+                & .trademark {
+                    font-size: 1.6rem;
+                    line-height: 1.6rem;
                 }
             }
 
