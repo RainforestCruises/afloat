@@ -44,9 +44,11 @@ jQuery(document).ready(function ($) {
   }
 
 
-  //move sort filter -- initial
+  // move sort filter -- initial
   if ($(window).width() < 1000) {
-    searchFilterBar.appendChild(searchSortControl)
+    searchFilterBar.appendChild(searchSortControl);
+    $(".search-intro__title").addClass('search-intro__title--collapsed'); //collapse intro on mobile
+    $(".search-intro__text").hide();
   }
   else {
     searchResultsTop.appendChild(searchSortControl)
@@ -187,6 +189,7 @@ jQuery(document).ready(function ($) {
   if (hasExpanded == true) {
     toggleDeparturesExpanded();
   }
+
 
 
   //Intro Snippet
