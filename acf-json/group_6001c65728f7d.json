@@ -109,7 +109,7 @@
             "key": "field_6019bad5aa9e6",
             "label": "Hero Title",
             "name": "hero_title",
-            "type": "text",
+            "type": "wysiwyg",
             "instructions": "Main tagline",
             "required": 0,
             "conditional_logic": 0,
@@ -119,10 +119,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_6019baf7aa9e7",
@@ -1067,5 +1067,5 @@
     "active": true,
     "description": "Home Page",
     "show_in_rest": 0,
-    "modified": 1651769797
+    "modified": 1695402040
 }

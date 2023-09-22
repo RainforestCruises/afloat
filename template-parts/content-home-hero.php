@@ -56,8 +56,7 @@ $currentYear = date("Y");
     <div class="home-hero__content">
         <div class="home-hero__content__title-group">
             <div class="home-hero__content__title-group__title">
-                <?php echo $hero_title ?>
-                <span class="trademark">&#8482;</span>
+                Artisans of Adventure <div class="trademark">Travel<span>TM</span></div>  
             </div>
             <h1 class="home-hero__content__title-group__subtitle">
                 <?php echo $hero_subtitle ?>

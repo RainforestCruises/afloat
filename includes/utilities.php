@@ -456,3 +456,11 @@ function checkActiveHeader()
 
     return $alwaysActiveHeader;
 }
+
+
+function removePtags($text)
+{
+    $formatted_text = str_replace(['<p>', '</p>'], '', $text);
+
+    return $formatted_text;
+}
