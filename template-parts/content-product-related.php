@@ -31,20 +31,6 @@ if ($destinations) {
 
 $posts = get_posts($queryArgs);
 
-
-// if(count($posts) == 0){
-//     $queryArgs2 = array(
-//         'post_type' => get_post_type(),
-//         'posts_per_page' => -1,
-//         'post__not_in' => array($post->ID),
-//         'meta_key' => 'search_rank',
-//         'orderby' => 'meta_value_num',
-//         'order' => 'DESC',
-//     );
-
-//     $regions = get_field('regions');
-// }
-// console_log($posts);
 $resultCount = 0;
 
 ?>
@@ -60,22 +46,28 @@ $resultCount = 0;
             foreach ($posts as $p) :
                 $featured_image = get_field('featured_image', $p);
                 $cruise_data = get_field('cruise_data', $p);
+                $prePriceText = "Per Day";
 
                 $charterView = false;
                 $isCharterOnly = false;
                 $hasCharterAvailable = false;
                 $charter_min_days = 0;
-                $charter_daily_price = 0;
+                $charter_price = 0;
                 $link = get_permalink($p);
                 if (get_post_type() == 'rfc_cruises') {
                     $charterView = $args['charter_view'];
                     $isCharterOnly = get_field('charter_only', $p);
                     $hasCharterAvailable = get_field('charter_available', $p);
                     $charter_min_days = get_field('charter_min_days', $p);
+                    $charter_display_full_price = get_field('charter_display_full_price', $p);
 
 
                     if (array_key_exists("LowestCharterPrice", $cruise_data)) {
-                        $charter_daily_price = $cruise_data['LowestCharterPrice'];
+                        $charter_price = $cruise_data['LowestCharterPrice'];
+                        if($charter_display_full_price == true){
+                            $charter_price = $charter_min_days * $charter_price;
+                            $prePriceText = "From";
+                        }
                     }
                 }
 
@@ -160,11 +152,11 @@ $resultCount = 0;
                                     <?php if ($charterView) : ?>
 
 
-                                        <div class="product-card__bottom__info__price-group__from">Day</div>
-                                        <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($charter_daily_price);  ?> <span>USD</span></div>
+                                        <div class="product-card__bottom__info__price-group__from"><?php echo $prePriceText ?></div>
+                                        <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($charter_price);  ?> <span>USD</span></div>
 
                                     <?php else : ?>
-                                        <div class="product-card__bottom__info__price-group__from">From</div>
+                                        <div class="product-card__bottom__info__price-group__from"><?php echo $prePriceText ?></div>
                                         <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($lowestPrice); ?> <span>USD</span></div>
                                     <?php endif; ?>
 

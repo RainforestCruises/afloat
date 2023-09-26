@@ -355,13 +355,13 @@ endforeach;
 
                                                         </div>
                                                         <?php
-                                                            if (array_key_exists("RegularSeasonText", $rateYear)) :
-                                                                if ($rateYear['RegularSeasonText'] != null) : ?>
-                                                                    <div class="season-panel__range-text">
-                                                                        Regular Season: <?php echo $rateYear['RegularSeasonText']; ?>
-                                                                    </div>
-                                                            <?php endif;
-                                                            endif; ?>
+                                                        if (array_key_exists("RegularSeasonText", $rateYear)) :
+                                                            if ($rateYear['RegularSeasonText'] != null) : ?>
+                                                                <div class="season-panel__range-text">
+                                                                    Regular Season: <?php echo $rateYear['RegularSeasonText']; ?>
+                                                                </div>
+                                                        <?php endif;
+                                                        endif; ?>
                                                     </div>
 
                                                     <!-- High Season -->
@@ -519,13 +519,13 @@ endforeach;
                                                 Availability on request
                                             </div>
                                         <?php endif; ?>
-                                    <?php else : ?>
-                                        <?php //charter
+                                    <?php else : //charter
                                         $vessel_capacity = get_field('vessel_capacity');
                                         $number_of_cabins = get_field('number_of_cabins');
                                         $display_charter_policies = get_field('display_charter_policies');
                                         $charter_daily_price = get_field('charter_daily_price');
                                         $charter_snippet = get_field('charter_snippet');
+                                        $charter_display_full_price = get_field('charter_display_full_price');
 
                                         $price_per_person = 0;
                                         if ($charter_daily_price > 0) {
@@ -535,31 +535,33 @@ endforeach;
                                         $nights = $itinerary['LengthInNights'];
                                         $price = $nights * $price_per_person;
 
-                                        ?>
+                                    ?>
 
                                         <!-- Info -->
                                         <div class="charter-pricing">
                                             <div class="charter-pricing__overall">
                                                 <div class="charter-pricing__overall__info-group">
                                                     <div class="charter-pricing__overall__info-group__title">
-                                                        Vessel Capacity
-                                                    </div>
-                                                    <div class="charter-pricing__overall__info-group__data">
-                                                        <?php echo $vessel_capacity ?> Guests
-                                                        <div>
-                                                            <?php echo $number_of_cabins ?> Cabins
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="charter-pricing__overall__info-group">
-                                                    <div class="charter-pricing__overall__info-group__title">
-                                                        Price Per Day (USD)
+                                                        <?php echo $itinerary['LengthInDays']  ?>-Day Total (USD)
                                                         <?php if ($display_charter_policies) : ?>
                                                             <svg class="price-notes">
                                                                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-info-circle">
                                                                 </use>
                                                             </svg>
                                                         <?php endif; ?>
+                                                    </div>
+                                                    <div class="charter-pricing__overall__info-group__data">
+                                                        <?php
+                                                        if (array_key_exists("CharterAmount", $itinerary)) {
+                                                            echo "$ " . number_format($itinerary['LengthInDays'] * $itinerary['CharterAmount'], 0);
+                                                        } else {
+                                                            echo 'TBA'; //not updated from DF
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                    <div class="charter-pricing__overall__info-group__title" style="margin-top: 2rem;">
+                                                        Price Per Day
+
                                                     </div>
                                                     <div class="charter-pricing__overall__info-group__data">
                                                         <?php
@@ -575,7 +577,20 @@ endforeach;
                                                             <?php echo Date('Y'); ?> Price
                                                         </div>
                                                     </div>
+
                                                 </div>
+                                                <div class="charter-pricing__overall__info-group">
+                                                    <div class="charter-pricing__overall__info-group__title">
+                                                        Vessel Capacity
+                                                    </div>
+                                                    <div class="charter-pricing__overall__info-group__data">
+                                                        <?php echo $vessel_capacity ?> Guests
+                                                        <div>
+                                                            <?php echo $number_of_cabins ?> Cabins
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                         <?php if ($hasDeals == true) : ?>
@@ -682,7 +697,7 @@ endforeach;
                             $dayImages = $itinerary['DayImageDTOs'];
                             $dayCount = 1;
 
-                                      
+
                             if ($days) :
                                 $dayNumber = array_column($days, 'DayNumber');
                                 array_multisort($dayNumber, SORT_ASC, $days);
@@ -757,5 +772,3 @@ endforeach;
     </div>
 
 </div>
-
-

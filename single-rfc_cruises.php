@@ -39,6 +39,7 @@ while (have_posts()) :
 
   $vessel_capacity = get_field('vessel_capacity');
   $charter_min_days = get_field('charter_min_days');
+  $charter_display_full_price = get_field('charter_display_full_price');
 
 
   //check URL for charter flag
@@ -72,6 +73,7 @@ while (have_posts()) :
     'charter_view' => $charter_view,
     'charter_available' => $charter_available,
     'charter_daily_price' => $charter_daily_price,
+    'charter_display_full_price' => $charter_display_full_price,
     'vessel_capacity' => $vessel_capacity,
     'charter_min_days' => $charter_min_days,
     'charter_only' => $charter_only,

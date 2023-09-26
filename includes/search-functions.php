@@ -221,6 +221,9 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         $itineraryCountDisplay = "";
         $itineraryLengthDisplay = "";
         $itineraryLengthDisplayCharter = "";
+        $itineraryLengthCharter = 0;
+
+        $itineraryCharterValues = []; // this would be the way to improve 
 
         $vesselCapacityDisplay = "";
         $numberOfCabinsDisplay = "";
@@ -230,7 +233,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
         $charterAvailable = false;
         $charterOnly = false;
-
+        $charterDisplayFullPrice = false;
         $productLowestPrice = 0;
         $productLowestCharterPrice = 0;
 
@@ -295,6 +298,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                 //Price / Length
                 $itineraryCount = 0;
                 $itineraryLengthValues = [];
+
                 $itineraryPriceValues = [];
                 $itineraryPriceValuesCharter = [];
 
@@ -314,6 +318,11 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                         }
 
 
+                        //new
+                        $itineraryCharterValues[] = (object) array(
+                            'length' => $lengthInDays,
+                            'price' => $itinerary['CharterAmount'],
+                        );
 
 
                         if ($charterFilter && $charterOnly == true) {
@@ -352,8 +361,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                                             continue;
                                         }
                                     }
-
-
+                                    
                                     $itineraryLengthValues[] = $itinerary['LengthInDays'];
                                     $itineraryCount += 1;
                                     $itineraryPriceValues[] = $itinerary['LowestPrice'];
@@ -368,14 +376,28 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                     }
                 }
 
-
+                $filteredItineraryCharterValues = [];
+                foreach($itineraryCharterValues as $icv){
+                    if($icv->length >= $minLength && $icv->length <= $maxLength){
+                        $filteredItineraryCharterValues[] = $icv;
+                    }
+                }
+                $shortestItinerary = array_reduce($filteredItineraryCharterValues, function($a, $b){
+                    return $a->length < $b->length ? $a : $b;
+                }, array_shift($filteredItineraryCharterValues));
 
                 //Price / Length - Charter
                 if (count($itineraryPriceValuesCharter) > 0) {
-                    $productLowestCharterPrice = min($itineraryPriceValuesCharter);
+                    $productLowestCharterPrice = $shortestItinerary->price;
                 }
+                $itineraryLengthCharter = get_field('charter_min_days', $p);
+                $charterDisplayFullPrice = get_field('charter_display_full_price', $p);
+                $itineraryLengthDisplayCharter =  $itineraryLengthCharter . " Days +";
+                if($charterDisplayFullPrice && $charterOnly == false) { // wont be accurate if charter only and display full price
+                    $itineraryLengthDisplayCharter =  min($itineraryLengthValues) . " Days +";
+                    $itineraryLengthCharter = min($itineraryLengthValues);
+                };
 
-                $itineraryLengthDisplayCharter = get_field('charter_min_days', $p) . " Days +";
             } else { //LODGES
                 $productTypeDisplay = 'Lodge Stay';
                 $productTypeCta = 'Lodge';
@@ -417,6 +439,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             }
             if ($charterOnly == true) {
                 $productLowestPrice = $productLowestCharterPrice;
+                
             }
 
             //Itinerary Length Display (Cruise /Lodge)
@@ -477,6 +500,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             'lowestCharterPrice' => $productLowestCharterPrice,
             'itineraryLengthDisplay' => $itineraryLengthDisplay,
             'itineraryLengthDisplayCharter' => $itineraryLengthDisplayCharter,
+            'itineraryLengthCharter' => $itineraryLengthCharter, 
+            'charterDisplayFullPrice' => $charterDisplayFullPrice,
 
             'itineraryCountDisplay' => $itineraryCountDisplay,
             'dealAvailable' => $dealAvailable,

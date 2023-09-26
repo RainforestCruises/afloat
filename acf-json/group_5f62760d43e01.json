@@ -2316,11 +2316,11 @@
             "maxlength": 50
         },
         {
-            "key": "field_602bf590511a1",
-            "label": "Charter Daily Price (deprecated)",
-            "name": "charter_daily_price",
-            "type": "number",
-            "instructions": "Price per day to charter the vessel",
+            "key": "field_6511c09d7b89f",
+            "label": "Charter Display Full Price",
+            "name": "charter_display_full_price",
+            "type": "true_false",
+            "instructions": "Check if this vessel should display charter prices as the total amount instead of per day",
             "required": 0,
             "conditional_logic": [
                 [
@@ -2336,13 +2336,11 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_602e90fcaa68f",
@@ -2501,6 +2499,35 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_602bf590511a1",
+            "label": "Charter Daily Price (deprecated)",
+            "name": "charter_daily_price",
+            "type": "number",
+            "instructions": "Price per day to charter the vessel",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602bf565511a0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
         }
     ],
     "location": [
@@ -2521,5 +2548,5 @@
     "active": true,
     "description": "Cruise - CPT",
     "show_in_rest": 0,
-    "modified": 1668789349
+    "modified": 1695662331
 }

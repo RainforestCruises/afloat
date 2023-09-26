@@ -12,10 +12,13 @@ if (get_post_type() == 'rfc_tours') {
 $charter_view = false;
 $charter_available = false;
 $charter_only = false;
+$charter_display_full_price = false;
 if ($args['productType'] == 'Cruise') {
     $charter_view = $args['charter_view'];
     $charter_available = $args['charter_available'];
     $charter_only = $args['charter_only'];
+    $charter_display_full_price = $args['charter_display_full_price'];
+
 }
 
 
@@ -211,8 +214,15 @@ $images = get_field('highlight_gallery');
                                 </div>
                             </div>
                             <div class="product-hero__bottom__content__info-group__info__starting-price__amount">
-                                <?php echo "$" . number_format($args['charter_daily_price'], 0); ?>
-                                <span class="u-small-text"> / Day</span>
+                                <?php 
+                                $heroPrice = $args['charter_daily_price'];
+                                if($charter_display_full_price){
+                                    $heroPrice = get_field('charter_min_days') * $args['charter_daily_price'];
+                                }
+                                echo "$" . number_format($heroPrice, 0); 
+                                
+                                ?>
+                                <span class="u-small-text"><?php echo $charter_display_full_price ? get_field('charter_min_days') . "-Day" : " / Day" ?></span>
                             </div>
                             <div class="product-hero__bottom__content__info-group__info__starting-price__description">
                                 <?php $overrideText =  get_field('charter_header_text_override');

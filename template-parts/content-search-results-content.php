@@ -212,20 +212,29 @@ if ($results) :
                         </div>
                     <?php endif; ?>
 
-                    <?php if ($result->postType == 'rfc_cruises') : ?>
+                    <?php if ($result->postType == 'rfc_cruises') : 
+                        $charterPrice = $result->lowestCharterPrice;
+                        $prePriceText = "Per Day";
+
+                        if($result->charterDisplayFullPrice){
+                            $charterPrice = $result->itineraryLengthCharter * $charterPrice;
+                            $prePriceText = "Entire Vessel";
+
+                        }
+                        ?>
                         <!-- Charter Panel -->
                         <div class="search-result__detail__panel charter-tab <?php echo ($result->charterOnly == true || $charterFilter == true) ? 'current' : ''; ?>">
                             <div class="search-result__detail__panel__info">
                                 <div class="search-result__detail__panel__info__price-from">
 
                                     <div class="search-result__detail__panel__info__price-from__price">
-                                        <?php echo "$" . number_format($result->lowestCharterPrice, 0);  ?>
+                                        <?php echo "$" . number_format($charterPrice, 0);  ?>
                                         <span>
                                             USD
                                         </span>
                                     </div>
                                     <div class="search-result__detail__panel__info__price-from__text">
-                                        Per Day
+                                        <?php echo $prePriceText ?>
                                     </div>
                                 </div>
                                 <div class="search-result__detail__panel__info__attributes">

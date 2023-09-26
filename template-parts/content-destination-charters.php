@@ -27,13 +27,18 @@ console_log($charters);
                 $featured_image = get_field('featured_image', $c);
                 $cruise_data = get_field('cruise_data', $c);
                 $charter_min_days = get_field('charter_min_days', $c);
+                $charter_display_full_price = get_field('charter_display_full_price', $c);
 
                 $dealPosts = listDealsForProduct($c, true);
                 $hasDeals = (count($dealPosts) > 0) ? true : false;
-
+                $prePriceText = "Per Day";
 
                 if (array_key_exists("LowestCharterPrice", $cruise_data)) {
-                    $charter_daily_price = $cruise_data['LowestCharterPrice'];
+                    $charter_price = $cruise_data['LowestCharterPrice'];
+                    if($charter_display_full_price == true){
+                        $charter_price = $charter_min_days * $charter_price;
+                        $prePriceText = "From";
+                    }
                 }
 
                 $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, true);
@@ -94,8 +99,8 @@ console_log($charters);
                                 </div>
                             </div>
                             <div class="product-card__bottom__info__price-group">
-                                <div class="product-card__bottom__info__price-group__from">Per Day</div>
-                                <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($charter_daily_price, 0);  ?> <span>USD</span></div>
+                                <div class="product-card__bottom__info__price-group__from"><?php echo $prePriceText;?></div>
+                                <div class="product-card__bottom__info__price-group__data"><?php echo "$" . number_format($charter_price, 0);  ?> <span>USD</span></div>
                             </div>
                         </div>
                     </div>
