@@ -382,6 +382,9 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                         $filteredItineraryCharterValues[] = $icv;
                     }
                 }
+
+                // FIX -- need to fing the lowest price of the filteredItineraryCharterValues;
+                // look at Fenides for example
                 $shortestItinerary = array_reduce($filteredItineraryCharterValues, function($a, $b){
                     return $a->length < $b->length ? $a : $b;
                 }, array_shift($filteredItineraryCharterValues));

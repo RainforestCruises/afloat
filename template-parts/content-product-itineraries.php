@@ -17,15 +17,7 @@ if ($args['productType'] == 'Cruise') {
     $charter_only = $args['charter_only'];
 }
 
-
-?>
-
-
-
-
-
-
-<?php //total count of all itineraries
+ //total count of all itineraries
 $totalCount = 0;
 foreach ($cruise_data['Itineraries'] as $item) :
 
