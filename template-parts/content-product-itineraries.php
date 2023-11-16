@@ -17,7 +17,7 @@ if ($args['productType'] == 'Cruise') {
     $charter_only = $args['charter_only'];
 }
 
- //total count of all itineraries
+//total count of all itineraries
 $totalCount = 0;
 foreach ($cruise_data['Itineraries'] as $item) :
 
@@ -263,21 +263,27 @@ endforeach;
                                                     <?php endif; ?>
                                                 </h5>
 
-                                                <!-- Select-Box -->
-                                                <div class="product-itinerary-slide__select-group">
+                                                <?php if (get_post_type() == 'rfc_lodges') : ?>
+                                                    <!-- Select-Box Years-->
+                                                    <div class="product-itinerary-slide__select-group">
+                                                        <label>
+                                                            Year:
+                                                        </label>
+                                                        <select class="itinerary-year-select" data-tab="<?php echo $count; ?>">
+                                                            <?php foreach ($years as $year) { ?>
+                                                                <option><?php echo $year ?></option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </div>
 
+                                                <?php endif; ?>
 
-                                                    <?php
-                                                    //just check first rate year for all seasons -- only defines what goes in dropdown
-                                                    $hasHighSeason =  $rateYears[0]['HasHighSeason'];
-                                                    $hasLowSeason =  $rateYears[0]['HasLowSeason'];
-                                                    $hasSeasons = false;
-                                                    if ($hasHighSeason || $hasLowSeason) {
-                                                        $hasSeasons = true;
-                                                    }
-                                                    ?>
-
-                                                    <?php if ($hasSeasons) : ?>
+                                                <?php
+                                                $hasHighSeason =  $rateYears[0]['HasHighSeason']; //just check first rate year for all seasons -- only defines what goes in dropdown
+                                                $hasLowSeason =  $rateYears[0]['HasLowSeason'];
+                                                if ($hasHighSeason || $hasLowSeason) : ?>
+                                                    <!-- Select-Box Season -->
+                                                    <div class="product-itinerary-slide__select-group">
                                                         <label>
                                                             Season:
                                                         </label>
@@ -290,16 +296,18 @@ endforeach;
                                                                 <option value="low">Low</option>
                                                             <?php endif; ?>
                                                         </select>
-                                                    <?php endif; ?>
-                                                </div>
+                                                    </div>
+                                                <?php endif; ?>
+
                                             </div>
                                             <!-- Price-Grid  -->
 
-                                            <?php foreach ($rateYears as $rateYear) : ?>
+                                            <?php foreach ($rateYears as $rateYear) :
+                                                $panelHasRates = count($rateYear['Rates']) > 0 ? true : false;
+                                            ?>
+
 
                                                 <div class="price-grid price-grid__<?php echo $rateYear['Year'] ?>" data-tab="<?php echo $count; ?>">
-
-
                                                     <!-- Regular Season -->
                                                     <div class="season-panel" itinerary-tab="<?php echo $count; ?>" data-tab="regular">
 
@@ -321,29 +329,43 @@ endforeach;
                                                                 </div>
                                                             </div>
 
-                                                            <?php $rateYears = $itinerary['RateYears']; ?>
-                                                            <?php foreach ($rateYear['Rates'] as $rate) : ?>
+
+                                                            <?php if ($panelHasRates) : ?>
+
+                                                                <?php foreach ($rateYear['Rates'] as $rate) : ?>
+                                                                    <div class="price-grid__grid__cabin-type">
+                                                                        <?php echo  $rate['Cabin'] ?>
+                                                                    </div>
+                                                                    <?php if ($rate['IsSingle'] == false) : ?>
+                                                                        <div class="price-grid__grid__double-price">
+                                                                            <?php echo priceFormat($rate['WebAmount']); ?>
+                                                                        </div>
+                                                                        <div class="price-grid__grid__single-price">
+                                                                            <?php echo priceFormat($rate['SingleWebAmount']); ?>
+                                                                        </div>
+                                                                    <?php else : ?>
+                                                                        <div class="price-grid__grid__double-price">
+                                                                            N/A
+                                                                        </div>
+                                                                        <div class="price-grid__grid__single-price">
+                                                                            <?php echo priceFormat($rate['WebAmount']); ?>
+                                                                        </div>
+                                                                    <?php endif; ?>
+                                                                <?php endforeach; ?>
+
+                                                            <?php else : ?>
                                                                 <div class="price-grid__grid__cabin-type">
-                                                                    <?php echo  $rate['Cabin'] ?>
+                                                                    Contact for <?php echo  $rateYear['Year'] ?> prices
                                                                 </div>
-                                                                <?php if ($rate['IsSingle'] == false) : ?>
-                                                                    <div class="price-grid__grid__double-price">
-                                                                        <?php echo priceFormat($rate['WebAmount']); ?>
-                                                                    </div>
-                                                                    <div class="price-grid__grid__single-price">
-                                                                        <?php echo priceFormat($rate['SingleWebAmount']); ?>
-                                                                    </div>
-                                                                <?php
-                                                                //if single cabin
-                                                                else : ?>
-                                                                    <div class="price-grid__grid__double-price">
-                                                                        N/A
-                                                                    </div>
-                                                                    <div class="price-grid__grid__single-price">
-                                                                        <?php echo priceFormat($rate['WebAmount']); ?>
-                                                                    </div>
-                                                                <?php endif; ?>
-                                                            <?php endforeach; ?>
+                                                                <div class="price-grid__grid__double-price">
+                                                                    TBD
+                                                                </div>
+                                                                <div class="price-grid__grid__single-price">
+                                                                    TBD
+                                                                </div>
+                                                            <?php endif; ?>
+
+
 
                                                         </div>
                                                         <?php
@@ -363,7 +385,7 @@ endforeach;
                                                             <div class="price-grid__grid">
                                                                 <div class="price-grid__grid__title">
                                                                     <div class="price-grid__grid__title__text">
-                                                                        Cabin Type
+                                                                    <?php echo ($args['productType'] == 'Lodge') ? 'Room' : 'Cabin'; ?> Type
                                                                     </div>
                                                                 </div>
                                                                 <div class="price-grid__grid__title right">
@@ -421,7 +443,7 @@ endforeach;
 
                                                                 <div class="price-grid__grid__title">
                                                                     <div class="price-grid__grid__title__text">
-                                                                        Cabin Type
+                                                                    <?php echo ($args['productType'] == 'Lodge') ? 'Room' : 'Cabin'; ?> Type
                                                                     </div>
                                                                 </div>
                                                                 <div class="price-grid__grid__title right">
@@ -504,9 +526,7 @@ endforeach;
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div class="product-itinerary-slide__top__side-info__content__fine-print">
-                                                Lodge prices shown valid for <?php echo date("Y"); ?> only
-                                            </div>
+
                                             <div class="product-itinerary-slide__top__side-info__content__fine-print">
                                                 Availability on request
                                             </div>

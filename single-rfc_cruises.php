@@ -19,7 +19,7 @@ while (have_posts()) :
 
 
   $cruise_data = get_field('cruise_data');
-
+  console_log($cruise_data);
   //Time Variables
   $currentYear = date("Y");
   $currentMonth = date("m");
@@ -162,7 +162,7 @@ while (have_posts()) :
   </form>
 
 
-  
+
   <!-- Deals Modal -->
   <?php
   if ($hasDeals == true) {

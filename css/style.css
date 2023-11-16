@@ -4032,7 +4032,9 @@ h5 {
     font-weight: 700;
     letter-spacing: 0.1rem;
     color: #142838;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+    margin-top: .5rem; }
     .product-itinerary-slide__select-group label {
       margin-right: 1rem; }
   .product-itinerary-slide__top {
@@ -4137,9 +4139,9 @@ h5 {
           .product-itinerary-slide__top__side-info__content__widget__top-section {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
             position: relative;
-            align-items: center;
-            height: 4rem; }
+            align-items: center; }
             .product-itinerary-slide__top__side-info__content__widget__top-section__title {
               font-size: 1.5rem;
               text-transform: uppercase;

@@ -501,8 +501,11 @@
         letter-spacing: 0.1rem;
         color: $color-primary;
         text-transform: uppercase;
+        margin-bottom: .5rem;
+        margin-top: .5rem;
         & label {
             margin-right: 1rem;
+            
         }
 
         & select {
@@ -652,10 +655,11 @@
                     &__top-section {
                         display: flex;
                         justify-content: space-between;
-
+                        flex-wrap: wrap;
                         position: relative;
                         align-items: center;
-                        height: 4rem;
+                        //height: 4rem;
+                        //margin-bottom: 1.5rem;
 
                         &__title {
                             font-size: 1.5rem;
