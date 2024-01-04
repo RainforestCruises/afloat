@@ -2336,7 +2336,7 @@ h5 {
     width: 100%;
     max-width: calc(112rem + 12rem);
     padding: 0 6rem;
-    margin-bottom: 6rem; }
+    margin-bottom: 4.5rem; }
     @media only screen and (max-width: 37.5em) {
       .contact-page__intro {
         padding: 0 3rem; } }
@@ -10994,7 +10994,7 @@ h5 {
         font-size: 1.6rem;
         text-align: center;
         max-width: 30rem;
-        margin-bottom: 3rem; }
+        margin-bottom: 1.5rem; }
       .contact__wrapper__intro__phone {
         font-size: 3rem;
         color: #142838;

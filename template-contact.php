@@ -46,7 +46,7 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
                     Give us a Call
                 </h2>
                 <div class="contact__wrapper__intro__subtitle">
-                    Speak with our trip specialists to book your next experience.
+                Speak with our specialists for free on
                 </div>
                 <div class="contact__wrapper__intro__phone">
                     +1 888-215-3555
