@@ -448,6 +448,12 @@ function checkActiveHeader()
 
     if ($templateName == 'template-reviews-toplevel.php' || $templateName == 'template-about.php' || $templateName == 'template-generic.php' || $templateName == 'template-deals.php' || $templateName == 'template-deals-toplevel.php' || $templateName == 'template-error404.php' || $templateName == 'template-contact.php' || $templateName == 'template-search.php' || $templateName == 'template-travel-guide.php') {
         $alwaysActiveHeader = true;
+        // if ($templateName == 'template-search.php'){
+        //     $enable_hero_content = get_field('enable_hero_content');
+        //     if($enable_hero_content){
+        //         $alwaysActiveHeader = false;
+        //     }
+        // }
     }
 
     if ($postTypeName == 'rfc_travel_guides') {

@@ -78,13 +78,5 @@
 
     <?php
     wp_body_open();
-    $is_arctic = get_field('is_arctic', 'options');
-
-    if ($is_arctic != true) :
-
-        get_template_part('template-parts/content', 'nav-rfc');
-
-    else :
-        get_template_part('template-parts/content', 'nav-arctic');
-    endif;
+    get_template_part('template-parts/content', 'nav-rfc');
     ?>

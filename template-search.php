@@ -6,16 +6,16 @@ wp_localize_script(
     'page-search',
     'page_vars',
     array(
-      'templateUrl' =>  $templateUrl
+        'templateUrl' =>  $templateUrl
     )
-  );
+);
 ?>
 
 <?php
 get_header();
 ?>
 
-<?php 
+<?php
 
 //Initial Search from Page Load
 
@@ -29,16 +29,16 @@ $destinationId = null;
 
 if ($searchType == 'region') {
     $region = get_field('region');
-    
+
     $regionId = $region->ID;
-} else if ($searchType == 'destination'){
+} else if ($searchType == 'destination') {
 
     $destination = get_field('destination');
     $region = get_field('region', $destination);
 
     $regionId = $region->ID;
     $destinationId = $destination->ID;
-} 
+}
 
 
 
@@ -71,7 +71,7 @@ if (isset($_GET["searchInput"]) && $_GET["searchInput"]) {
 $viewType = 'list';
 $gridDefault = get_field('grid_view_default');
 
-if($gridDefault == true){
+if ($gridDefault == true) {
     $viewType = 'grid';
 }
 
@@ -249,10 +249,21 @@ $args = array(
 );
 
 
+$enable_hero_content = get_field('enable_hero_content');
 
 ?>
 
-<main class="search-page">
+
+
+<main class="search-page <?php echo $enable_hero_content ? "search-page--hero" : "" ?>">
+
+
+    <?php if ($enable_hero_content) : 
+        get_template_part('template-parts/content', 'search-hero') ?>
+    <?php endif; ?>
+
+
+
     <section class="search-page__intro" id="search-page-intro">
         <?php
         get_template_part('template-parts/content', 'search-intro', $args);
@@ -296,8 +307,8 @@ $args = array(
 
     <!-- Direct to function within functions.php -->
     <input type="hidden" name="action" value="primarySearch">
-    <input type="hidden" name="formSearchInput" id="formSearchInput" value="<?php echo $searchInput ?>"> 
-    <input type="hidden" name="formViewType" id="formViewType" value="<?php echo $viewType ?>"> 
+    <input type="hidden" name="formSearchInput" id="formSearchInput" value="<?php echo $searchInput ?>">
+    <input type="hidden" name="formViewType" id="formViewType" value="<?php echo $viewType ?>">
 
 
     <input type="hidden" name="formDates" id="formDates" value="<?php echo $departuresString ?>">
@@ -318,4 +329,3 @@ $args = array(
 
 
 <?php get_footer(); ?>
-

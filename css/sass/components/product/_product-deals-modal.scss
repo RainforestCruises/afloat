@@ -76,7 +76,7 @@
    
 
     &__image-area {
-        height: 35rem;
+        min-height: 30rem;
         width: 40%;
         position: relative;
 
@@ -95,11 +95,10 @@
             text-transform: uppercase;
             letter-spacing: .2rem;
             padding: .5rem 1.5rem;
-            margin-right: 2rem;
+            margin-right: 2rem; 
         }
 
         @media only screen and (max-width: $bp-small) {
-            height: 25rem; 
             width: 100%;
         }
 

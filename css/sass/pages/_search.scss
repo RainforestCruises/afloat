@@ -10,6 +10,69 @@
   width: 100%;
   align-items: center;
 
+  &--hero {
+    & .experience-page__section-hero {
+      width: 100%;
+    }
+
+    & .experience-hero {
+      height: calc(100vh - 9rem);
+    }
+
+    & .search-page__content.sticky {
+      @media only screen and (max-width: $bp-large) {
+        margin-top: 0rem;
+      }
+    }
+
+    & .search-testimonials {
+      padding: 0 3rem;
+      padding-bottom: 6rem;
+      border-bottom: 1px solid $color-grey-light-1a;
+      margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+
+      &__title {
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+        color: $color-primary;
+      }
+      &__publications {
+        max-width: 128rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        z-index: 5;
+
+        @media only screen and (max-width: $bp-small) {
+          width: 80%;
+          flex-direction: column;
+          flex-wrap: nowrap;
+        }
+
+        &__logo-area {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          & img {
+            margin: 2rem 3rem;
+            object-fit: contain;
+            filter: invert(1);
+
+            @media only screen and (max-width: $bp-largest) {
+              transform: scale(0.75);
+              margin: 1rem 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
   &__intro {
     display: flex;
     flex-direction: column;
@@ -18,8 +81,6 @@
     max-width: $page-width;
     @include flexPadding;
   }
-
-  
 
   &__content {
     display: flex;
@@ -34,7 +95,6 @@
       @media only screen and (max-width: $bp-large) {
         margin-top: 7rem;
       }
-      
     }
   }
 
@@ -49,4 +109,3 @@
     background-color: $color-grey-light-1a;
   }
 }
-

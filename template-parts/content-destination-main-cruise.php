@@ -154,11 +154,7 @@ $cruise_experiences = get_field('cruise_experiences');
                         </div>
                     </a>
 
-
-                <?php endforeach; ?>
-
-
-
+              <?php endforeach; ?>
             </div>
         </div>
 
@@ -184,6 +180,7 @@ $cruise_experiences = get_field('cruise_experiences');
                     $location = $c['country'];
                     $background_image = $c['background_image'];
                     $link = $c['search_link'];
+                    $cruiseCount = cruises_available_location($location);
             ?>
                     <a class="category-card" href="<?php echo $link ?>">
                         <div class="category-card__image">
@@ -196,7 +193,11 @@ $cruise_experiences = get_field('cruise_experiences');
                             </h3>
                             <div class="category-card__content__availability">
                                 <?php
-                                echo cruises_available_location($location) . ' Cruises Available';
+                                if ($cruiseCount == 1) :
+                                    echo $cruiseCount . ' Cruise Available';
+                                else :
+                                    echo $cruiseCount . ' Cruises Available';
+                                endif;
                                 ?>
                             </div>
                         </div>
@@ -243,9 +244,11 @@ $cruise_experiences = get_field('cruise_experiences');
                         </h3>
                         <div class="category-card__content__availability">
                             <?php if ($is_charter) :
-                                echo cruises_available_charter($destination) . ' Cruises Available';
+                                $plurality = cruises_available_charter($destination) == 1 ? ' Cruise' : ' Cruises';
+                                echo cruises_available_charter($destination) . $plurality . ' Available';
                             else :
-                                echo cruises_available_experience($destination, $experience) . ' Cruises Available';
+                                $plurality = cruises_available_experience($destination, $experience) == 1 ? ' Cruise' : ' Cruises';
+                                echo cruises_available_experience($destination, $experience) . $plurality . '  Available';
                             endif; ?>
 
                         </div>

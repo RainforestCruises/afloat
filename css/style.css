@@ -1593,6 +1593,49 @@ h5 {
   @media only screen and (max-width: 62.5em) {
     .search-page {
       padding-top: 7rem; } }
+  .search-page--hero .experience-page__section-hero {
+    width: 100%; }
+  .search-page--hero .experience-hero {
+    height: calc(100vh - 9rem); }
+  @media only screen and (max-width: 62.5em) {
+    .search-page--hero .search-page__content.sticky {
+      margin-top: 0rem; } }
+  .search-page--hero .search-testimonials {
+    padding: 0 3rem;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; }
+    .search-page--hero .search-testimonials__title {
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+      color: #142838; }
+    .search-page--hero .search-testimonials__publications {
+      max-width: 128rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 5; }
+      @media only screen and (max-width: 37.5em) {
+        .search-page--hero .search-testimonials__publications {
+          width: 80%;
+          flex-direction: column;
+          flex-wrap: nowrap; } }
+      .search-page--hero .search-testimonials__publications__logo-area {
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .search-page--hero .search-testimonials__publications__logo-area img {
+          margin: 2rem 3rem;
+          object-fit: contain;
+          filter: invert(1); }
+          @media only screen and (max-width: 75em) {
+            .search-page--hero .search-testimonials__publications__logo-area img {
+              transform: scale(0.75);
+              margin: 1rem 1.5rem; } }
   .search-page__intro {
     display: flex;
     flex-direction: column;
@@ -5359,7 +5402,7 @@ h5 {
     .deal-item {
       flex-direction: column; } }
   .deal-item__image-area {
-    height: 35rem;
+    min-height: 30rem;
     width: 40%;
     position: relative; }
     .deal-item__image-area .exclusiveDeal {
@@ -5379,7 +5422,6 @@ h5 {
       margin-right: 2rem; }
     @media only screen and (max-width: 37.5em) {
       .deal-item__image-area {
-        height: 25rem;
         width: 100%; } }
     .deal-item__image-area img {
       object-fit: cover;

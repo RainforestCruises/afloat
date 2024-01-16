@@ -214,10 +214,13 @@ $highlights = get_field('highlights');
                                     $crusiesAvailable = cruises_available_region($destination, $experience, false);
                                     $toursAvailable = tours_available_region($destination, $experience);
                                     $totalAvailable = $crusiesAvailable + $toursAvailable;
+
                                     if ($include_cruises) {
-                                        echo $totalAvailable . ' Cruises Available'; //destination is region in this case
+                                        $plurality = $totalAvailable == 1 ? ' Cruise' : ' Cruises';
+                                        echo $totalAvailable . $plurality  . ' Available'; //destination is region in this case
                                     } else {
-                                        echo $totalAvailable . ' Tours Available'; //destination is region in this case
+                                        $plurality = $totalAvailable == 1 ? ' Tour' : ' Tours';
+                                        echo $totalAvailable . $plurality . ' Available'; //destination is region in this case
                                     }
 
 
@@ -226,7 +229,8 @@ $highlights = get_field('highlights');
                                 $crusiesAvailable = cruises_available_experience($destination, $experience);
                                 $toursAvailable = tours_available($destination, $experience);
                                 $totalAvailable = $crusiesAvailable + $toursAvailable;
-                                echo $totalAvailable . ' Tours Available';
+                                $plurality = $totalAvailable == 1 ? ' Tour' : ' Tours';
+                                echo $totalAvailable . $plurality . ' Available';
                             } ?>
                         </div>
                     </div>
