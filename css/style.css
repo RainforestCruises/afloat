@@ -2833,6 +2833,121 @@ h5 {
       padding: 0 3rem;
       max-width: 100%; } }
 
+.agency-page {
+  padding-top: 12rem; }
+  .agency-page__section-hero {
+    display: flex;
+    align-items: center;
+    flex-direction: column; }
+  .agency-page__section-partners {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 6rem;
+    padding-top: 3rem;
+    position: relative; }
+
+.agency-hero {
+  display: flex;
+  max-width: calc(112rem + 12rem);
+  padding: 0 6rem;
+  display: grid;
+  grid-template-columns: 40rem 1fr;
+  gap: 10rem;
+  width: 100%; }
+  @media only screen and (max-width: 37.5em) {
+    .agency-hero {
+      padding: 0 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .agency-hero {
+      grid-template-columns: 1fr;
+      gap: 3rem; } }
+  .agency-hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .agency-hero__content__title {
+      font-size: 5rem;
+      line-height: 5.8rem;
+      font-family: "Playfair Display", serif;
+      color: #142838;
+      margin-bottom: 4rem;
+      font-weight: 400; }
+      @media only screen and (max-width: 62.5em) {
+        .agency-hero__content__title {
+          font-size: 3.5rem;
+          line-height: 4.2rem; } }
+      @media only screen and (max-width: 50em) {
+        .agency-hero__content__title {
+          text-align: center; } }
+    .agency-hero__content__snippet {
+      font-size: 1.6rem;
+      margin-bottom: 5rem; }
+      @media only screen and (max-width: 50em) {
+        .agency-hero__content__snippet {
+          margin-bottom: 6rem;
+          text-align: center; } }
+  .agency-hero__image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: relative; }
+    @media only screen and (max-width: 62.5em) {
+      .agency-hero__image img {
+        max-height: 48rem; } }
+
+.agency-intro {
+  max-width: calc(112rem + 12rem);
+  padding: 0 6rem;
+  width: 100%;
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column; }
+  @media only screen and (max-width: 37.5em) {
+    .agency-intro {
+      padding: 0 3rem; } }
+  .agency-intro__title {
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 6rem;
+    color: #142838; }
+
+.agency-person {
+  max-width: calc(112rem + 12rem);
+  padding: 0 6rem;
+  width: 100%;
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column; }
+  @media only screen and (max-width: 37.5em) {
+    .agency-person {
+      padding: 0 3rem; } }
+  .agency-person__content {
+    display: grid;
+    grid-template-columns: 1fr 50rem;
+    gap: 10rem;
+    width: 100%; }
+    @media only screen and (max-width: 37.5em) {
+      .agency-person__content {
+        grid-template-columns: 1fr;
+        gap: 3rem; } }
+    .agency-person__content__text__title {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 3rem;
+      color: #142838; }
+    .agency-person__content__image-area img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: relative; }
+      @media only screen and (max-width: 62.5em) {
+        .agency-person__content__image-area img {
+          max-height: 48rem; } }
+
 .deals-hero {
   max-width: 132rem;
   padding: 0 6rem; }

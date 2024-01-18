@@ -446,7 +446,7 @@ function checkActiveHeader()
     $templateName = get_page_template_slug();
     $postTypeName = get_post_type();
 
-    if ($templateName == 'template-reviews-toplevel.php' || $templateName == 'template-about.php' || $templateName == 'template-generic.php' || $templateName == 'template-deals.php' || $templateName == 'template-deals-toplevel.php' || $templateName == 'template-error404.php' || $templateName == 'template-contact.php' || $templateName == 'template-search.php' || $templateName == 'template-travel-guide.php') {
+    if ($templateName == 'template-agency.php' || $templateName == 'template-reviews-toplevel.php' || $templateName == 'template-about.php' || $templateName == 'template-generic.php' || $templateName == 'template-deals.php' || $templateName == 'template-deals-toplevel.php' || $templateName == 'template-error404.php' || $templateName == 'template-contact.php' || $templateName == 'template-search.php' || $templateName == 'template-travel-guide.php') {
         $alwaysActiveHeader = true;
         // if ($templateName == 'template-search.php'){
         //     $enable_hero_content = get_field('enable_hero_content');
