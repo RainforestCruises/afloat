@@ -258,17 +258,20 @@ $enable_hero_content = get_field('enable_hero_content');
 <main class="search-page <?php echo $enable_hero_content ? "search-page--hero" : "" ?>">
 
 
-    <?php if ($enable_hero_content) : 
+    <?php if ($enable_hero_content) :
         get_template_part('template-parts/content', 'search-hero') ?>
     <?php endif; ?>
 
-
-
     <section class="search-page__intro" id="search-page-intro">
-        <?php
-        get_template_part('template-parts/content', 'search-intro', $args);
-        ?>
+
+
+
+        <?php if (!$enable_hero_content) :
+            get_template_part('template-parts/content', 'search-intro', $args);
+        endif; ?>
     </section>
+
+
 
     <div class="search-filter-bar" id="search-filter-bar">
         <button class="search-filter-bar__button search-button" id="search-filter-bar-button">

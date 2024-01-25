@@ -56,9 +56,10 @@
     $autoCopy = "<p>Looking for the best " . get_field('title_text')
         . "? Choose from the finest " . $travelTypeDisplayText . " available in " . $locationDisplayText . ", " . $conditionalDisplayText . "
         </p>";
-
-
     ?>
+
+
+
    <!-- Intro -->
    <div class="search-intro">
        <ol class="search-intro__breadcrumb">

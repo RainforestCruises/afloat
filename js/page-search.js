@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
   const downArrow = document.querySelector("#down-arrow-button");
   if(downArrow){
     downArrow.addEventListener("click", (event) => {
-      var target = $("#search-page-intro").offset().top;
+      var target = $("#about-section").offset().top;
       $("html, body").animate({ scrollTop: target }, 500);
       event.preventDefault();
     });

@@ -11,13 +11,20 @@ $menuitems = wp_get_nav_menu_items($menu->term_id);
 $menu_group = [];
 
 
-
 ?>
 
 
 
 
+<!-- Shared Prefooter Section -->
 
+
+<?php 
+if(get_page_template_slug() != 'template-home.php') {
+    get_template_part('template-parts/shared/content', 'shared-publications'); 
+};
+
+?>
 
 <!-- Footer -->
 <footer class="footer">
@@ -69,7 +76,7 @@ $menu_group = [];
             <a href="<?php echo get_home_url() . '/contact'; ?>" class="footer__explore__cta__button">
                 Send a Message
             </a>
-            
+
         </div>
         <div class="footer__explore__phone">
             <?php echo get_field('phone_number', 'options'); ?>
@@ -105,7 +112,7 @@ $menu_group = [];
     </div>
     <div class="footer__logo">
         <?php $logo_vertical = get_field('logo_vertical', 'options'); ?>
-        <img src="<?php echo $logo_vertical['url']; ?>" alt="<?php echo get_bloginfo( 'name' ) ?>" />
+        <img src="<?php echo $logo_vertical['url']; ?>" alt="<?php echo get_bloginfo('name') ?>" />
     </div>
     <div class="footer__copyright">
         &#169; <?php echo date('Y') ?> Rainforest Cruises. All rights reserved.

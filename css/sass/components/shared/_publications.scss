@@ -1,0 +1,49 @@
+
+.publications {
+    padding: 0 3rem;
+    padding-bottom: 4.5rem;
+    border-top: 1px solid $color-grey-light-1a;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+
+    &__title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+      color: $color-primary;
+    }
+    &__list {
+      max-width: 128rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 5;
+
+      @media only screen and (max-width: $bp-small) {
+        width: 80%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
+
+      &__logo-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & img {
+          margin: 2rem 3rem;
+          object-fit: contain;
+          filter: invert(1);
+
+          @media only screen and (max-width: $bp-largest) {
+            transform: scale(0.75);
+            margin: 1rem 1.5rem;
+          }
+        }
+      }
+    }
+  }

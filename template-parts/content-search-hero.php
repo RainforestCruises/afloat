@@ -4,7 +4,6 @@ $hero_image = get_field('hero_image');
 $hero_title = get_field('hero_title');
 $hero_snippet = get_field('hero_snippet');
 $features = get_field('features');
-$publications = get_field('publications', 'options');
 
 ?>
 
@@ -48,7 +47,7 @@ $publications = get_field('publications', 'options');
 
 </section>
 
-<section class="experience-page__section-intro">
+<section class="experience-page__section-intro" id="about-section">
     <!--  Intro -->
     <div class="experience-intro">
         <?php foreach ($features as $feature) : ?>
@@ -66,22 +65,6 @@ $publications = get_field('publications', 'options');
         <?php endforeach; ?>
 
     </div>
-    <div class="search-testimonials">
-    <h2 class="search-testimonials__title">
-        As Featured In
-    </h2>
-    <div class="search-testimonials__publications">
-        <?php if ($publications) :
-            foreach ($publications as $p) :
-                $p_image = $p['image'];
-        ?>
 
-                <div class="search-testimonials__publications__logo-area">
-                    <img src="<?php echo esc_url($p_image['url']); ?>" alt="<?php echo get_post_meta($p_image['id'], '_wp_attachment_image_alt', TRUE) ?>">
-                </div>
-        <?php endforeach;
-        endif; ?>
-    </div>
-    </div>
-   
+
 </section>
