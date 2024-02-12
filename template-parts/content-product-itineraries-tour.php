@@ -47,6 +47,9 @@ $img = get_field('map');
                             <img src="<?php echo $img['url']; ?>" alt="itinerary map">
                         <?php endif ?>
                     </a>
+                    <?php if (get_field('getting_there') != null) : ?>
+                        <button class="btn-outline btn-outline--dark  btn-outline--small getting-there-button">Getting There</button>
+                    <?php endif; ?>
                 </div>
 
                 <!-- Side Info Area -->
@@ -151,7 +154,7 @@ $img = get_field('map');
                             <?php $yearCount++;
                             } ?>
                             <?php if ($hasDeals == true) : ?>
-                                <div class="product-itinerary-slide__top__side-info__content__widget__deals-button tour-lodge" >
+                                <div class="product-itinerary-slide__top__side-info__content__widget__deals-button tour-lodge">
                                     <button class="btn-cta-round btn-cta-round--small btn-cta-round--green deal-modal-cta-button" style="height: 2.5rem;">
                                         View Deals
                                     </button>
@@ -193,7 +196,7 @@ $img = get_field('map');
                             </div>
                         <?php endif; ?>
                         <div class="product-itinerary-slide__top__side-info__content__fine-print">
-                                This customizable tour can start on any date, subject to availability.
+                            This customizable tour can start on any date, subject to availability.
                         </div>
                     </div>
 

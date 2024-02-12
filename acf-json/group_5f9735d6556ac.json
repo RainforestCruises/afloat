@@ -186,6 +186,25 @@
             "return_format": "object"
         },
         {
+            "key": "field_65ca4f1845337",
+            "label": "Getting There",
+            "name": "getting_there",
+            "type": "wysiwyg",
+            "instructions": "Instructions for reaching the destination, leave blank unless you want the button and popup to appear",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_5f9735d665aac",
             "label": "General Info",
             "name": "",
@@ -1716,5 +1735,5 @@
     "active": true,
     "description": "Tour - CPT",
     "show_in_rest": 0,
-    "modified": 1668789645
+    "modified": 1707757456
 }

@@ -128,13 +128,13 @@ while (have_posts()) :
 <?php
 endwhile;
 ?>
-  <!-- Deals Modal -->
-  <?php
-  if ($hasDeals == true) {
-    get_template_part('template-parts/content', 'product-deals-modal', $args);
-  }
-  ?>
-  
+<!-- Deals Modal -->
+<?php
+if ($hasDeals == true) {
+  get_template_part('template-parts/content', 'product-deals-modal', $args);
+}
+?>
+
 <!-- Contact Modal -->
 <?php
 get_template_part('template-parts/content', 'shared-contact-modal', $args);
@@ -144,6 +144,13 @@ get_template_part('template-parts/content', 'shared-contact-modal', $args);
 <?php
 get_template_part('template-parts/content', 'product-prices-extra', $args);
 ?>
+
+<!-- Getting There -->
+<?php
+get_template_part('template-parts/content', 'product-getting-there', $args);
+?>
+
+
 <!-- Notification Message-->
 <?php
 $show_notification = get_field('show_notification');

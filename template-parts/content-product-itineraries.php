@@ -129,9 +129,12 @@ endforeach;
                             <a class="itinerary-map-image" href="<?php echo afloat_dfcloud_image($itineraryImages[0]['ImageUrl']); ?>" title="<?php echo $itinerary['LengthInDays'] ?> Day / <?php echo $itinerary['LengthInNights'] ?> Night - <?php echo $itinerary['Name'] ?>">
                                 <?php if ($itineraryImages) : ?>
                                     <img src="<?php echo afloat_dfcloud_image($itineraryImages[0]['ImageUrl']); ?>" alt="itinerary map">
-
                                 <?php endif ?>
                             </a>
+                            <?php if (get_field('getting_there') != null) : ?>
+                                <button class="btn-outline btn-outline--dark  btn-outline--small getting-there-button">Getting There</button>
+                            <?php endif; ?>
+
                         </div>
 
                         <!-- Side Info Area -->
@@ -385,7 +388,7 @@ endforeach;
                                                             <div class="price-grid__grid">
                                                                 <div class="price-grid__grid__title">
                                                                     <div class="price-grid__grid__title__text">
-                                                                    <?php echo ($args['productType'] == 'Lodge') ? 'Room' : 'Cabin'; ?> Type
+                                                                        <?php echo ($args['productType'] == 'Lodge') ? 'Room' : 'Cabin'; ?> Type
                                                                     </div>
                                                                 </div>
                                                                 <div class="price-grid__grid__title right">
@@ -443,7 +446,7 @@ endforeach;
 
                                                                 <div class="price-grid__grid__title">
                                                                     <div class="price-grid__grid__title__text">
-                                                                    <?php echo ($args['productType'] == 'Lodge') ? 'Room' : 'Cabin'; ?> Type
+                                                                        <?php echo ($args['productType'] == 'Lodge') ? 'Room' : 'Cabin'; ?> Type
                                                                     </div>
                                                                 </div>
                                                                 <div class="price-grid__grid__title right">

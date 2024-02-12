@@ -11,11 +11,10 @@ wp_localize_script(
         'templateUrl' =>  $templateUrl
     )
 );
-?>
 
-<?php
 get_header();
 $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
+$agency_form_page = get_field('agency_form_page', 'options');
 
 ?>
 
@@ -29,6 +28,9 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
         </h1>
         <div class="contact-page__intro__subtitle">
             Call us on the number below to speak to one of our destination specialists, or alternatively please fill in the form beneath and we'll get back to you ASAP.
+        </div>
+        <div class="contact-page__intro__subtitle" style="margin-top: 1rem;">
+            If you are a travel agent, please use the form <a href="<?php echo $agency_form_page . '#contact-form' ?>">here</a>.
         </div>
     </div>
 
@@ -46,7 +48,7 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
                     Give us a Call
                 </h2>
                 <div class="contact__wrapper__intro__subtitle">
-                Speak with our specialists for free on
+                    Speak with our specialists for free on
                 </div>
                 <div class="contact__wrapper__intro__phone">
                     +1 888-215-3555
@@ -68,7 +70,7 @@ $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
 
             <!-- Outro -->
             <div class="contact__wrapper__outro">
-                You can also send us a message directly at <a href="mailto:cruise@rainforestcruises.com">cruise@rainforestcruises.com</a> 
+                You can also send us a message directly at <a href="mailto:cruise@rainforestcruises.com">cruise@rainforestcruises.com</a>
             </div>
         </div>
     </div>

@@ -180,6 +180,11 @@ while (have_posts()) :
   get_template_part('template-parts/content', 'product-prices-extra', $args);
   ?>
 
+  <!-- Getting There -->
+  <?php
+  get_template_part('template-parts/content', 'product-getting-there', $args);
+  ?>
+
   <!-- Notification Message-->
   <?php
   $show_notification = get_field('show_notification');

@@ -32,7 +32,7 @@ $agency_contact_form_id = get_field('agency_contact_form_id', 'options');
     <!-- Newsletter -->
 
     <!-- Contact -->
-    <section class="contact-page" style="padding-top: 4rem;">
+    <section class="contact-page" style="padding-top: 4rem;" id="contact-form">
 
         <!-- Intro -->
         <div class="contact-page__intro">
@@ -58,7 +58,7 @@ $agency_contact_form_id = get_field('agency_contact_form_id', 'options');
                         Our office hours are 9am - 5pm, Monday - Friday
                     </div>
                     <div class="contact__wrapper__intro__phone">
-                        +1 888-215-3555
+                        +1 786-673-8049
                     </div>
                 </div>
 
@@ -77,7 +77,7 @@ $agency_contact_form_id = get_field('agency_contact_form_id', 'options');
 
                 <!-- Outro -->
                 <div class="contact__wrapper__outro">
-                    You can also send us a message directly at <a href="mailto:cruise@rainforestcruises.com">cruise@rainforestcruises.com</a>
+                    You can also send us a message directly at <a href="mailto:b2b@rainforestcruises.com">b2b@rainforestcruises.com</a>
                 </div>
             </div>
         </div>

@@ -30,7 +30,7 @@ while (have_posts()) :
   $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, true);
 
 
-  
+
   $dealPosts = listDealsForProduct(get_post(), false);
   $hasDeals = (count($dealPosts) > 0) ? true : false;
   console_log($dealPosts);
@@ -118,9 +118,9 @@ while (have_posts()) :
   <?php
 endwhile;
   ?>
-  
-    <!-- Deals Modal -->
-    <?php
+
+  <!-- Deals Modal -->
+  <?php
   if ($hasDeals == true) {
     get_template_part('template-parts/content', 'product-deals-modal', $args);
   }
@@ -133,6 +133,11 @@ endwhile;
   <!-- Prices Extra -->
   <?php
   get_template_part('template-parts/content', 'product-prices-extra', $args);
+  ?>
+
+  <!-- Getting There -->
+  <?php
+  get_template_part('template-parts/content', 'product-getting-there', $args);
   ?>
 
   <!-- Notification Message-->

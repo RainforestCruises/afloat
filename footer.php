@@ -47,7 +47,7 @@ if(get_page_template_slug() != 'template-home.php') {
             </a>
             <a href="<?php echo get_field('twitter_link', 'options'); ?>" class="footer__first__social__link">
                 <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-logo-twitter"></use>
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-twitter-x"></use>
                 </svg>
             </a>
             <a href="<?php echo get_field('pinterest_link', 'options'); ?>" class="footer__first__social__link">
