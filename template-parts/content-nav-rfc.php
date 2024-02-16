@@ -4,6 +4,7 @@ $locations = get_nav_menu_locations();
 $menu = wp_get_nav_menu_object($locations[$menu_name]);
 $menuitems = wp_get_nav_menu_items($menu->term_id);
 $show_translate_nav = get_field('show_translate_nav', 'options');
+$top_level_agents_page = get_field('top_level_agents_page', 'options');
 
 $menu_toplevel = [];
 $menu_destination_groups = [];
@@ -81,9 +82,6 @@ foreach ($menuitems as $m) {
 <!-- Mobile Menu -->
 <nav class="nav-mobile">
 
-
-
-
     <div class="burger-button close" id="burger-menu-close">
         <span class="burger-button__bar "></span>
     </div>
@@ -113,6 +111,7 @@ foreach ($menuitems as $m) {
         <a class="nav-mobile__content-panel__button mobile-link phone" href="tel:<?php echo get_field('phone_number_numeric', 'options'); ?>">
             <?php echo get_field('phone_number', 'options'); ?>
         </a>
+        <a class="nav-mobile__content-panel__button mobile-link" href="<?php echo $top_level_agents_page; ?>">Agents</a>
 
         <!-- Language Switch -->
         <?php if (is_plugin_active('translatepress-multilingual/index.php') && $show_translate_nav == true) : ?>
@@ -128,7 +127,6 @@ foreach ($menuitems as $m) {
 
 
     </div>
-
 
     <!-- Level 2 -->
     <?php foreach ($menu_toplevel as $toplevelItem) : ?>
@@ -196,8 +194,6 @@ foreach ($menuitems as $m) {
         </div>
     <?php endforeach; ?>
 
-
-
 </nav>
 
 <!-- Desktop Header -->
@@ -251,7 +247,6 @@ foreach ($menuitems as $m) {
                 <svg>
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_mail_outline_24px"></use>
                 </svg>
-
             </a>
             <!-- Contact Phone -->
             <div class="header__main__right__phone-desktop divider-left">
@@ -259,7 +254,6 @@ foreach ($menuitems as $m) {
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-phone-call"></use>
                 </svg>
                 <span class="phone-popover">
-
                     <div class="phone-popover__container">
                         <div class="phone-popover__container__arrow"></div>
                         <div class="phone-popover__container__content">
@@ -269,13 +263,9 @@ foreach ($menuitems as $m) {
                             <a class="phone-popover__container__content__number" href="tel:<?php echo get_field('phone_number_numeric', 'options'); ?>">
                                 <?php echo get_field('phone_number', 'options'); ?>
                             </a>
-
                         </div>
-
                     </div>
-
                 </span>
-
             </div>
             <!-- Language Switch -->
             <?php
@@ -290,6 +280,11 @@ foreach ($menuitems as $m) {
                     </span>
                 </div>
             <?php endif; ?>
+            <div class="header__main__right__agents divider-left">
+                <a class="" href="<?php echo $top_level_agents_page; ?>">
+                    Agents
+                </a>
+            </div>
             <!-- Burger Menu -->
             <div class="burger-button" id="burger-menu">
                 <span class="burger-button__bar "></span>

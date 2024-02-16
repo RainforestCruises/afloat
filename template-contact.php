@@ -14,7 +14,7 @@ wp_localize_script(
 
 get_header();
 $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
-$agency_form_page = get_field('agency_form_page', 'options');
+$top_level_agents_page = get_field('top_level_agents_page', 'options');
 
 ?>
 
@@ -30,7 +30,7 @@ $agency_form_page = get_field('agency_form_page', 'options');
             Call us on the number below to speak to one of our destination specialists, or alternatively please fill in the form beneath and we'll get back to you ASAP.
         </div>
         <div class="contact-page__intro__subtitle" style="margin-top: 1rem;">
-            If you are a travel agent, please use the form <a href="<?php echo $agency_form_page . '#contact-form' ?>">here</a>.
+            If you are a travel agent, please use the form <a href="<?php echo $top_level_agents_page . '#contact-form' ?>">here</a>.
         </div>
     </div>
 
