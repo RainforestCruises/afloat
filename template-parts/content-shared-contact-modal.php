@@ -2,6 +2,7 @@
 <?php 
 $isProduct = false;
 $primary_contact_form_id = get_field('primary_contact_form_id', 'options');
+$top_level_agents_page = get_field('top_level_agents_page', 'options');
 
 if(get_post_type() == 'rfc_cruises' || get_post_type() == 'rfc_lodges' || get_post_type() == 'rfc_tours'){
     $isProduct = true;
@@ -23,6 +24,9 @@ if(get_post_type() == 'rfc_cruises' || get_post_type() == 'rfc_lodges' || get_po
                 <div class="contact__wrapper__intro__introtext">
                     Please fill in the form beneath and we’ll get back to you ASAP.
                 </div>
+                <div class="contact__wrapper__intro__introtext" style="margin-top: 1rem;">
+            If you are a travel agent, please use the form <a href="<?php echo $top_level_agents_page . '#contact-form' ?>">here</a>.
+        </div>
             </div>
 
             <div class="contact__wrapper__form">
