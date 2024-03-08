@@ -18,7 +18,6 @@ if ($args['productType'] == 'Cruise') {
     $charter_available = $args['charter_available'];
     $charter_only = $args['charter_only'];
     $charter_display_full_price = $args['charter_display_full_price'];
-
 }
 
 
@@ -29,6 +28,8 @@ if (get_post_type() != 'rfc_tours') {
 }
 
 
+$has_video = get_field('has_video');
+$vimeo_link = get_field('vimeo_link');
 $images = get_field('highlight_gallery');
 ?>
 
@@ -66,6 +67,25 @@ $images = get_field('highlight_gallery');
 
             </ol>
             <div>
+                <?php if ($has_video) : ?>
+                    <div class="product-hero__top__content__video-cta">
+                        <!-- Play Video Button -->
+                        <button class="video-play-button">
+                            <div class="video-play-button__icon-area">
+                                <div class="video-play-button__icon-area__inner">
+                                    <svg>
+                                        <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-button-play"></use>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="video-play-button__text">
+                                Watch The Video
+                            </div>
+                        </button>
+                    </div>
+                <?php endif; ?>
+
                 <!-- H1 Title / Subtitle -->
                 <div class="product-hero__top__content__title-group">
                     <?php if ($charter_view) : ?>
@@ -214,13 +234,13 @@ $images = get_field('highlight_gallery');
                                 </div>
                             </div>
                             <div class="product-hero__bottom__content__info-group__info__starting-price__amount">
-                                <?php 
+                                <?php
                                 $heroPrice = $args['charter_daily_price'];
-                                if($charter_display_full_price){
+                                if ($charter_display_full_price) {
                                     $heroPrice = get_field('charter_min_days') * $args['charter_daily_price'];
                                 }
-                                echo "$" . number_format($heroPrice, 0); 
-                                
+                                echo "$" . number_format($heroPrice, 0);
+
                                 ?>
                                 <span class="u-small-text"><?php echo $charter_display_full_price ? get_field('charter_min_days') . "-Day" : " / Day" ?></span>
                             </div>

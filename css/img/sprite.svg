@@ -2,7 +2,12 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-       
+        <symbol id="icon-button-play" viewBox="0 0 12 12">
+            <title>button play</title>
+            <g class="nc-icon-wrapper">
+                <path d="M11.741,5.562l-10-5.5a.5.5,0,0,0-.5.008A.5.5,0,0,0,1,.5v11a.5.5,0,0,0,.246.43A.491.491,0,0,0,1.5,12a.5.5,0,0,0,.241-.062l10-5.5a.5.5,0,0,0,0-.876Z" fill="currentColor" stroke="none"></path>
+            </g>
+        </symbol>
         <symbol id="icon-bookmark" viewBox="0 0 20 20">
             <path d="M14 2v17l-4-4-4 4v-17c0-0.553 0.585-1.020 1-1h6c0.689-0.020 1 0.447 1 1z"></path>
         </symbol>

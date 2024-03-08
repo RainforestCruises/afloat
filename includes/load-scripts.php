@@ -33,6 +33,7 @@ function load_scripts()
     wp_enqueue_script('isotope', get_template_directory_uri() . '/vendor/isotope/isotope.pkgd.min.js', array('jquery'), false, true);
     wp_enqueue_script('odometer', get_template_directory_uri() . '/vendor/odometer/odometer.min.js', array('jquery'), false, true);
     wp_enqueue_script('moment',  get_template_directory_uri() . '/vendor/moment/moment.min.js', array('jquery'), false, true);
+    wp_enqueue_script('vimeo', get_template_directory_uri() . '/vendor/vimeo/player.js', array(), false, true);
 
 
 

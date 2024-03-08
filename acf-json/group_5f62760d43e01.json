@@ -572,6 +572,52 @@
             "mime_types": ""
         },
         {
+            "key": "field_65eb2fd3f7069",
+            "label": "Has Video",
+            "name": "has_video",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_65eb2f9ae153e",
+            "label": "Vimeo Link",
+            "name": "vimeo_link",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65eb2fd3f7069",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5f6b863fe1d13",
             "label": "Highlight Gallery",
             "name": "highlight_gallery",
@@ -2567,5 +2613,5 @@
     "active": true,
     "description": "Cruise - CPT",
     "show_in_rest": 0,
-    "modified": 1707754886
+    "modified": 1709914028
 }

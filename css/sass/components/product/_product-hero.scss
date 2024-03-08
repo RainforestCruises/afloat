@@ -134,6 +134,18 @@
         }
       }
 
+      &__video-cta{
+        margin-bottom: 3rem;
+        display: flex;
+        @media only screen and (max-width: $bp-large) {
+          justify-content: center;
+
+        }
+        @media only screen and (max-width: $bp-small) {
+          margin-bottom: 0rem;
+        }
+      }
+
       &__title-group {
         width: 50%;
        
@@ -835,5 +847,89 @@
         }
       }
     }
+  }
+}
+
+
+
+.video-play-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  height: 7rem;
+  width: max-content;
+  border: none;
+  font-family: $font-primary;
+  cursor: pointer;
+  &:hover {
+      & .video-play-button__icon-area__inner {
+          transition: all 0.2s;
+          transform: scale(0.95);
+          background-color: rgba($color-white, 1);
+
+      }
+  }
+
+  &__icon-area {
+      margin-right: 1rem;
+
+      @media only screen and (max-width: $bp-medium) {
+          margin-right: 0;
+          margin-bottom: 1.5rem;
+      }
+
+      opacity: 0.7;
+      background-color: rgba($color-white, 0.3);
+      border-radius: 50%;
+      height: 7rem;
+      width: 7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &__inner {
+          border-radius: 50%;
+          background-color: rgba($color-white, .9);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 5rem;
+          width: 5rem;
+          & svg {
+              height: 1rem;
+              width: 1rem;
+              z-index: 5;
+              color: $color-primary;
+          }
+
+          box-shadow: 0 0 0 0 rgb(255, 255, 255);
+          animation: pulse 8s infinite;
+      }
+  }
+
+  &__text {
+      color: $color-white;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-weight: 600;
+
+      @media only screen and (max-width: $bp-large) {
+          display: none;
+      } 
+  }
+}
+
+@keyframes pulse {
+  20% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+
+  40% {
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
 }

@@ -35,14 +35,13 @@ jQuery(document).ready(function ($) {
 
   // Getting There Modal
   var gettingThereModal = document.getElementById("getting-there-modal");
-  const gettingThereButtons = [...document.querySelectorAll(".getting-there-button")]
+  const gettingThereButtons = [...document.querySelectorAll(".getting-there-button")];
   gettingThereButtons.forEach((item) => {
     item.addEventListener("click", () => {
       body.addClass("no-scroll");
       gettingThereModal.classList.add("active");
     });
   });
-
 
   //Notification Modal (doesnt need open)
   var notificationModal = document.getElementById("notification-modal");
@@ -620,4 +619,36 @@ jQuery(document).ready(function ($) {
   $("#deckplan-image").magnificPopup({
     type: "image",
   });
+
+  //video
+  var iframe = document.getElementById("modal-video-iframe");
+  const vimeoPlayer = new Vimeo.Player(iframe);
+
+  // video modal
+  const videoModal = document.querySelector("#videoModal");
+  const videoPlayButton = document.querySelector(".video-play-button");
+
+  if (vimeoPlayer) {
+    // -- open / play
+    videoPlayButton.addEventListener("click", () => {
+      videoModal.style.display = "flex";
+      body.addClass("no-scroll");
+      console.log('play');
+      vimeoPlayer.play();
+    });
+
+
+    // -- stop playing
+    const stopVideoSections = [...document.querySelectorAll(".stop-video")];
+    stopVideoSections.forEach((section) => {
+      section.addEventListener("click", () => {
+        vimeoPlayer.pause();
+      });
+    });
+  }
+
+  videoModal.onclick = function (event) {
+   videoModal.style.display = "none";
+   body.removeClass("no-scroll");
+  };
 });
