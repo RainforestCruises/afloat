@@ -42,7 +42,9 @@ endforeach;
     <h2 class="page-divider">
         Itineraries & Prices
     </h2>
-
+    <p style="font-size: 12px; text-align: center">
+    All itineraries are subject to change due to seasonal weather conditions (and resultant variations in river and tributary water levels) affecting accessibility to locations. Thus navigation routes, times and excursions may need to be modified at the cruise captain’s or your guide's discretion. 
+    </p>
 
 
     <!-- Itinerary Slider Nav -->

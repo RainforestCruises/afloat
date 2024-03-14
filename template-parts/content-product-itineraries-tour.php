@@ -21,7 +21,9 @@ $img = get_field('map');
     <h2 class="page-divider u-margin-bottom-medium">
         Itinerary & Prices
     </h2>
-
+    <p style="font-size: 12px; text-align: center">
+    All itineraries are subject to change due to seasonal weather conditions (and resultant variations in river and tributary water levels) affecting accessibility to locations. Thus navigation routes, times and excursions may need to be modified at the cruise captain’s or your guide's discretion. 
+    </p>
 
 
     <!-- New -->
