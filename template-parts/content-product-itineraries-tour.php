@@ -18,7 +18,7 @@ $img = get_field('map');
 
 <div class="product-itineraries">
 
-    <h2 class="page-divider u-margin-bottom-medium">
+    <h2 class="page-divider u-margin-bottom-small">
         Itinerary & Prices
     </h2>
     <p style="font-size: 12px; text-align: center">
