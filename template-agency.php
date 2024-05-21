@@ -55,10 +55,12 @@ $agency_contact_form_id = get_field('agency_contact_form_id', 'options');
                         Give us a Call
                     </h2>
                     <div class="contact__wrapper__intro__subtitle">
-                        Our office hours are 9am - 5pm (UTC - 5), Monday - Friday
+                        Our office hours are 6am - 6pm (UTC - 5), Monday - Friday
                     </div>
                     <div class="contact__wrapper__intro__phone">
-                        +1 888-215-3555
+                        +1 888-215-3555 
+                        <div style="font-size: 1.4rem;">(option 3)</div>
+                        
                     </div>
                 </div>
 
