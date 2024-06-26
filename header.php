@@ -28,13 +28,13 @@
     // Note: use WP Featured Image for Serps and Guide Landing Pages
     if ($og_featured_image) : ?>
 
-    <meta property="og:image" content="<?php echo $og_featured_image['url']; ?>" />
-    <meta property="og:image:secure_url" content="<?php echo $og_featured_image['url']; ?>" />
-    <meta property="og:width" content="<?php echo $og_featured_image['width']; ?>" />
-    <meta property="og:height" content="<?php echo $og_featured_image['height']; ?>" />
-    <meta property="og:alt" content="<?php echo $og_featured_image['alt']; ?>" />
-    <meta property="og:type" content="image/jpeg" />
-    <meta name="twitter:image" content="<?php echo $og_featured_image['url']; ?>" />
+        <meta property="og:image" content="<?php echo $og_featured_image['url']; ?>" />
+        <meta property="og:image:secure_url" content="<?php echo $og_featured_image['url']; ?>" />
+        <meta property="og:width" content="<?php echo $og_featured_image['width']; ?>" />
+        <meta property="og:height" content="<?php echo $og_featured_image['height']; ?>" />
+        <meta property="og:alt" content="<?php echo $og_featured_image['alt']; ?>" />
+        <meta property="og:type" content="image/jpeg" />
+        <meta name="twitter:image" content="<?php echo $og_featured_image['url']; ?>" />
 
     <?php endif; ?>
 
@@ -69,7 +69,46 @@
 
     ?>
 
-    <!-- Load Head / Style Sheets -->
+    <!-- CookieYes GCM -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("consent", "default", {
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+            analytics_storage: "denied",
+            functionality_storage: "denied",
+            personalization_storage: "denied",
+            security_storage: "granted",
+            wait_for_update: 2000,
+        });
+        gtag("set", "ads_data_redaction", true);
+        gtag("set", "url_passthrough", true);
+    </script>
+    
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TNRS8NQ');
+    </script>
+    <!-- End Google Tag Manager -->
+
+
     <?php wp_head(); ?>
 </head>
 
