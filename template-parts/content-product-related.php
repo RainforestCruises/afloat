@@ -92,6 +92,7 @@ $resultCount = 0;
                 $currentYear = date('Y');
                 $propertyDestinations  = get_field('destinations', $p);
                 if (get_post_type($p) == 'rfc_tours') {
+                    $prePriceText = "From ";
 
                     $tour_length = get_field('length', $p);
                     $price_packages = get_field('price_packages', $p);
@@ -150,8 +151,6 @@ $resultCount = 0;
                                 <div class="product-card__bottom__info__price-group">
 
                                     <?php if ($charterView) : ?>
-
-
                                         <div class="product-card__bottom__info__price-group__from"><?php echo $prePriceText ?></div>
                                         <div class="product-card__bottom__info__price-group__data"><?php echo priceFormat($charter_price);  ?> <span>USD</span></div>
 
