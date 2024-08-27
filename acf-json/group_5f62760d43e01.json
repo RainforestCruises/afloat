@@ -2023,6 +2023,52 @@
             "endpoint": 0
         },
         {
+            "key": "field_66cdf63f4c2a9",
+            "label": "Display Fine Print",
+            "name": "display_fine_print",
+            "type": "true_false",
+            "instructions": "If checked, will display a small print under the cabin prices. Will apply on all itineraries",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Select True to display fine print",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_66cdf6a44c2aa",
+            "label": "Fine Print Content",
+            "name": "fine_print_content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_66cdf63f4c2a9",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_5f77564d03e8c",
             "label": "Display Special Note",
             "name": "display_special_note",
@@ -2613,5 +2659,5 @@
     "active": true,
     "description": "Cruise - CPT",
     "show_in_rest": 0,
-    "modified": 1709914028
+    "modified": 1724774092
 }

@@ -11,10 +11,13 @@ $hasDeals = $args['hasDeals'];
 $charter_view = false;
 $charter_available = false;
 $charter_only = false;
+$display_fine_print = false;
 if ($args['productType'] == 'Cruise') {
     $charter_view = $args['charter_view'];
     $charter_available = $args['charter_available'];
     $charter_only = $args['charter_only'];
+    $display_fine_print = get_field('display_fine_print');
+
 }
 
 //total count of all itineraries
@@ -503,6 +506,11 @@ endforeach;
                                             <?php endforeach; ?>
 
                                         </div>
+                                        <?php if ($display_fine_print) : ?>
+                                            <div class="product-itinerary-slide__top__side-info__content__fine-print">
+                                                <?php echo removePtags(get_field('fine_print_content')); ?>
+                                            </div>
+                                        <?php endif; ?>
                                         <?php if ($charter_available) : ?>
                                             <div class="product-itinerary-slide__top__side-info__content__fine-print">
                                                 Exclusive, private charters of <?php echo get_the_title(); ?> are also available. <a href="<?php echo get_permalink() . '?charter=true' ?>">Click here for details</a>
