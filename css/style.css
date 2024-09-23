@@ -3213,6 +3213,13 @@ h5 {
         height: 100%;
         width: 100%;
         z-index: 1; }
+      .product-hero__top__bg .hero-feature-image {
+        display: none; }
+      @media only screen and (max-width: 37.5em) {
+        .product-hero__top__bg .hero-bg-image {
+          display: none; }
+        .product-hero__top__bg .hero-feature-image {
+          display: block; } }
       .product-hero__top__bg::after {
         position: absolute;
         content: "";

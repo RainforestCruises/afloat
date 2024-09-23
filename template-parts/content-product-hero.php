@@ -1,5 +1,7 @@
 <?php
 $hero_image = get_field('hero_image');
+$featured_image = get_field('featured_image');
+
 $productTitle = get_the_title();
 $breadcrumb = get_field('breadcrumb');
 
@@ -38,7 +40,8 @@ $images = get_field('highlight_gallery');
     <!-- Top Section -->
     <div class="product-hero__top">
         <div class="product-hero__top__bg" id="top">
-            <img <?php afloat_image_markup($hero_image['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?>>
+            <img class="hero-bg-image" <?php afloat_image_markup($hero_image['id'], 'full-hero-large', array('full-hero-large', 'full-hero-medium', 'full-hero-small', 'full-hero-xsmall')); ?>>
+            <img class="hero-feature-image" <?php afloat_image_markup($featured_image['id'], 'featured-medium', array('featured-medium', 'featured-small')); ?>>
 
         </div>
 
