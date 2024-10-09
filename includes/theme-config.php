@@ -224,3 +224,24 @@ function sleep (time) {
 </script>
     <?php
 }
+
+
+// Honeypot
+function forms_custom_honeypot( $honeypot, $fields, $entry, $form_data ) {
+    $honeypot_class = 'verification-field';
+    $honey_field = false;
+
+    foreach( $form_data['fields'] as $form_field ) {
+        if( false !== strpos( $form_field['css'], $honeypot_class ) ) {
+            $honey_field = absint( $form_field['id'] );
+        }
+    }
+
+    if( !empty( $entry['fields'][$honey_field] ) ) {
+        $honeypot = 'Custom honeypot';
+    }
+
+    return $honeypot;
+
+}
+add_filter( 'wpforms_process_honeypot', 'forms_custom_honeypot', 10, 4 );
