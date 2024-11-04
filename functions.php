@@ -10,6 +10,7 @@ require_once(__DIR__ . '/includes/tour-functions.php');
 require_once(__DIR__ . '/includes/property-functions.php');
 require_once(__DIR__ . '/includes/search-forms.php');
 require_once(__DIR__ . '/includes/search-functions.php');
+require_once(__DIR__ . '/includes/custom-shortcodes.php');
 
 
 

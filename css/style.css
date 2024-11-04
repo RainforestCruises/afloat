@@ -2119,6 +2119,70 @@ h5 {
   color: #9ea0a4;
   transform: translateY(-2rem); }
 
+.custom-review {
+  padding: 2rem 3rem;
+  padding-right: 4.5rem;
+  border-radius: 1rem;
+  background-color: #142838;
+  width: 100%;
+  max-width: 100%;
+  gap: 4rem;
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-family: "Metropolis", sans-serif;
+  flex-direction: row !important;
+  color: #e6e6e6 !important; }
+  @media only screen and (max-width: 37.5em) {
+    .custom-review {
+      flex-direction: column !important;
+      text-align: center !important;
+      gap: 2rem; } }
+  .custom-review__person {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .custom-review__person__avatar {
+      width: 8rem !important;
+      height: 8rem !important;
+      border-radius: 50% !important;
+      margin: 0 !important; }
+    .custom-review__person__name {
+      font-size: 2rem !important;
+      font-weight: 700 !important;
+      width: max-content !important; }
+    .custom-review__person__title {
+      font-size: 1.4rem !important;
+      width: max-content !important; }
+  .custom-review__quote {
+    font-size: 2rem !important;
+    position: relative;
+    color: #fff !important;
+    font-style: italic; }
+    .custom-review__quote__start-quote {
+      position: absolute;
+      top: -1rem;
+      left: -3rem;
+      z-index: 1; }
+      @media only screen and (max-width: 37.5em) {
+        .custom-review__quote__start-quote {
+          left: -2rem; } }
+      .custom-review__quote__start-quote svg {
+        fill: #c2c6c9;
+        height: 3rem;
+        width: 3rem;
+        transform: rotate(180deg); }
+    .custom-review__quote__end-quote {
+      position: absolute;
+      bottom: -2rem;
+      right: -3.5rem;
+      z-index: 1; }
+      .custom-review__quote__end-quote svg {
+        fill: #c2c6c9;
+        height: 3rem;
+        width: 3rem; }
+
 .travel-guide-landing-page {
   display: flex;
   flex-direction: column;
