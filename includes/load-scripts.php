@@ -35,6 +35,7 @@ function load_scripts()
     wp_enqueue_script('moment',  get_template_directory_uri() . '/vendor/moment/moment.min.js', array('jquery'), false, true);
     wp_enqueue_script('vimeo', get_template_directory_uri() . '/vendor/vimeo/player.js', array(), false, true);
 
+    wp_enqueue_script('reviews', 'https://reviewsonmywebsite.com/js/v2/embed.js?id=7bf8acda5d5930b1a9db343a4ec1b31c', array('jquery'), false, true);
 
 
     wp_enqueue_script('utility', get_template_directory_uri() . '/js/utilities.js', array('jquery'), false, true);
