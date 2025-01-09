@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.5.3',
+  'version' => '5.6.4',
   'title' => 'Deals',
   'type' => 'rfc_deals',
   'id' => '61dca42e9152d',
-  'updated' => 1643917708,
+  'updated' => 1736437356,
   'columns' => 
   array (
     'title' => 
@@ -232,6 +232,24 @@ return array (
       'filter_label' => '',
       'name' => '61e9e65e06a7f0',
     ),
+    '677feb79249ba4' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Expiration Date',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_677fea694d2b2',
+      'date_format' => 'acf',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'filter_format' => '',
+      'name' => '677feb79249ba4',
+    ),
     '61e9e66a6147b0' => 
     array (
       'type' => 'column-acf_field',
@@ -247,22 +265,6 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '61e9e66a6147b0',
-    ),
-    'date' => 
-    array (
-      'type' => 'date',
-      'label' => 'Date',
-      'width' => '',
-      'width_unit' => '%',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'off',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-      'filter_format' => '',
-      'name' => 'date',
     ),
   ),
   'settings' => 

@@ -38,6 +38,23 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_677fea694d2b2",
+            "label": "Expiration Date",
+            "name": "expiration_date",
+            "type": "date_picker",
+            "instructions": "This will hide deals after a certain date",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "return_format": "d\/m\/Y",
+            "first_day": 1
+        },
+        {
             "key": "field_61dc9f9d53590",
             "label": "Navigation Title",
             "name": "navigation_title",
@@ -368,5 +385,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Deal - CPT",
-    "modified": 1643917569
+    "show_in_rest": 0,
+    "modified": 1736436418
 }

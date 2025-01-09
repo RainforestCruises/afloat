@@ -364,6 +364,7 @@ function check_if_promo($cruise_data, $startDate, $endDate, $lengthMin, $lengthM
 //Works for cruise / lodge / tour
 function listDealsForProduct($post, $charterView = false)
 {
+    $current_timestamp = current_time('timestamp');
 
     //Deals
     $dealArgs = array(
@@ -394,13 +395,33 @@ function listDealsForProduct($post, $charterView = false)
         $dealArgs['meta_query'][] = array(
             'key'     => 'is_charter_deal',
             'value'     => '0',
-
         );
     }
 
 
     $dealPosts = get_posts($dealArgs);
-    return $dealPosts;
+    $validDeals = array();
+
+    // Filter deals based on expiration date
+    foreach ($dealPosts as $deal) {
+        $expiration_date = get_field('expiration_date', $deal->ID);
+
+        // If no expiration date is set, include the deal
+        if (empty($expiration_date)) {
+            $validDeals[] = $deal;
+            continue;
+        }
+
+        // Convert d/m/Y date to timestamp
+        $expiration_timestamp = DateTime::createFromFormat('d/m/Y', $expiration_date)->getTimestamp();
+
+        // Include deal if expiration date is in the future
+        if ($expiration_timestamp >= $current_timestamp) {
+            $validDeals[] = $deal;
+        }
+    }
+
+    return $validDeals;
 }
 
 
@@ -409,7 +430,7 @@ function listDealsForProduct($post, $charterView = false)
 function deals_available($regionOrDestinationPost)
 {
 
-  
+
     $dealArgs = array(
         'post_type' => 'rfc_deals',
         'posts_per_page' => -1,
@@ -436,7 +457,7 @@ function deals_available($regionOrDestinationPost)
             'compare' => 'LIKE'
         );
     }
-   
+
     $dealPosts = get_posts($dealArgs);
     $count = count($dealPosts);
     return $count;

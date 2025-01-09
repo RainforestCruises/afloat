@@ -85,9 +85,6 @@ while (have_posts()) :
 
   $has_video = get_field('has_video');
   $vimeo_link = get_field('vimeo_link');
-
-
-
 ?>
 
   <!-- Product Page Container -->

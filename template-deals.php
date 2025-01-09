@@ -1,13 +1,7 @@
 <?php
 /*Template Name: Deals - Landing Page*/
 wp_enqueue_script('page-travel-guide-landing', get_template_directory_uri() . '/js/page-travel-guide-landing.js', array('jquery'), false, true);
-?>
-
-<?php
 get_header();
-?>
-
-<?php
 
 $landing_page_type = get_field('landing_page_type');
 
@@ -26,6 +20,8 @@ $deal_category = get_field('deal_category');
 $intro_snippet = get_field('intro_snippet');
 $pageTitle = get_the_title();
 $categories = [];
+$current_timestamp = current_time('timestamp');
+
 
 //If Deal Category Page Type
 if ($landing_page_type == 'rfc_deal_categories') {
@@ -129,8 +125,27 @@ if ($landing_page_type == 'rfc_regions') {
 
 
 
-$posts = get_posts($args); //Stage I posts
+$dealPosts  = get_posts($args); //Stage I posts
+$validDeals = array();
 
+// Filter deals based on expiration date
+foreach ($dealPosts as $deal) {
+    $expiration_date = get_field('expiration_date', $deal->ID);
+
+    // If no expiration date is set, include the deal
+    if (empty($expiration_date)) {
+        $validDeals[] = $deal;
+        continue;
+    }
+
+    // Convert d/m/Y date to timestamp
+    $expiration_timestamp = DateTime::createFromFormat('d/m/Y', $expiration_date)->getTimestamp();
+
+    // Include deal if expiration date is in the future
+    if ($expiration_timestamp >= $current_timestamp) {
+        $validDeals[] = $deal;
+    }
+}
 
 
 ?>
@@ -179,9 +194,9 @@ $posts = get_posts($args); //Stage I posts
 
             <?php
 
-            if ($posts) :
+            if ($validDeals) :
 
-                foreach ($posts as $p) :
+                foreach ($validDeals as $p) :
                     $featured_image = get_field('featured_image', $p);
                     $applicable_to = get_field('applicable_to', $p);
                     $is_selected_dates_only = get_field('is_selected_dates_only', $p);
@@ -272,13 +287,13 @@ $posts = get_posts($args); //Stage I posts
 
                                 <div class="guide-item__bottom__cta guide-item__bottom__cta--multiple">
                                     <span>Applicable To: </span>
-                                    <?php foreach ($travelProducts as $product) : 
+                                    <?php foreach ($travelProducts as $product) :
                                         $productLink = get_post_permalink($product);
-                                        if($is_charter_deal){
+                                        if ($is_charter_deal) {
                                             $productLink .= "?charter=true";
                                         }
-                                    
-                                        ?>
+
+                                    ?>
                                         <a href="<?php echo $productLink; ?>">
                                             <?php echo get_the_title($product); ?>
                                         </a>
@@ -295,7 +310,7 @@ $posts = get_posts($args); //Stage I posts
             ?>
         </div>
         <div class="travel-guide-landing-page__content__no-results" id="no-results-message">
-        No deals available. Please select another category.
+            No deals available. Please select another category.
         </div>
     </section>
 
