@@ -38,13 +38,13 @@ jQuery(document).ready(function ($) {
 
   //video
   var iframe = document.getElementById("modal-video-iframe");
-  const vimeoPlayer = new Vimeo.Player(iframe);
+  if (iframe) {
+    const vimeoPlayer = new Vimeo.Player(iframe);
 
-  // video modal
-  const videoModal = document.querySelector("#videoModal");
-  const videoPlayButton = document.querySelector(".video-play-button");
+    // video modal
+    const videoModal = document.querySelector("#videoModal");
+    const videoPlayButton = document.querySelector(".video-play-button");
 
-  if (vimeoPlayer) {
     // -- open / play
     videoPlayButton.addEventListener("click", () => {
       videoModal.style.display = "flex";
@@ -60,12 +60,14 @@ jQuery(document).ready(function ($) {
         vimeoPlayer.pause();
       });
     });
+
+    videoModal.onclick = function (event) {
+      videoModal.style.display = "none";
+      $body.removeClass("no-scroll");
+    };
   }
 
-  videoModal.onclick = function (event) {
-    videoModal.style.display = "none";
-    $body.removeClass("no-scroll");
-  };
+
 
   //Flickity
   var flickitySlider = new Flickity(".destination-hero__bg-slider", {
