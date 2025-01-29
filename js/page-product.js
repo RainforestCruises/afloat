@@ -622,8 +622,10 @@ jQuery(document).ready(function ($) {
 
   //video
   var iframe = document.getElementById("modal-video-iframe");
-  const vimeoPlayer = new Vimeo.Player(iframe);
-
+  const vimeoPlayer = new Vimeo.Player(iframe, {
+    autoplay: true,
+    muted: true  // Videos with sound must be muted to autoplay
+});
   // video modal
   const videoModal = document.querySelector("#videoModal");
   const videoPlayButton = document.querySelector(".video-play-button");

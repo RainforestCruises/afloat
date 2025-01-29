@@ -29,6 +29,10 @@ $tour_experiences = get_field('tour_experiences');
 $sliderContent = get_field('hero_slider');
 $title = $destination->post_title;
 
+
+$has_video = get_field('has_video');
+$vimeo_link = get_field('vimeo_link');
+
 $sliderLimit = 12;
 //TOURS
 $tourCriteria = array(
@@ -151,6 +155,27 @@ $args = array(
         get_template_part('template-parts/content', 'destination-faq', $args);
         ?>
     </section>
+
+    <?php if ($has_video) : ?>
+        <!-- Video Modal -->
+        <div class="modal modal--video stop-video" id="videoModal">
+            <div class="modal__video">
+
+                <!-- Top Section -->
+                <div class="modal__video__top">
+
+                </div>
+
+                <!-- Main -->
+                <div class="modal__video__main">
+                    <div style="padding:56.25% 0 0 0;position:relative;">
+                        <iframe id="modal-video-iframe" src="<?php echo get_field('vimeo_link') ?>" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Antarctica Cruises"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    <?php endif ?>
 
 </main>
 

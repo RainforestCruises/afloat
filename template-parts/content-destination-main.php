@@ -13,7 +13,8 @@ $destinationType = $args['destinationType'];
 
 $background_map = get_field('background_map');
 $highlights = get_field('highlights');
-
+$has_video = get_field('has_video');
+$vimeo_link = get_field('vimeo_link');
 
 ?>
 
@@ -34,7 +35,14 @@ $highlights = get_field('highlights');
                 <?php echo get_field('intro_title') ?>
             </h2>
             <div class="destination-main__intro__description__text">
-                <?php echo get_field('intro_text') ?>
+                <div class="destination-main__intro__description__text__content">
+                    <?php echo get_field('intro_text') ?>
+                </div>
+                <?php if ($has_video) : ?>
+                    <div class="destination-main__intro__description__text__play">
+                        <button class="btn-outline btn-outline--dark video-play-button" style="margin: none">Watch Video</button>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <?php if ($highlights) : ?>

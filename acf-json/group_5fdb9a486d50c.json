@@ -292,6 +292,52 @@
             "mime_types": ""
         },
         {
+            "key": "field_679a681dd1290",
+            "label": "Has Video",
+            "name": "has_video",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_679a680dd128f",
+            "label": "Vimeo Link",
+            "name": "vimeo_link",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_679a681dd1290",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5ffe1c349147b",
             "label": "Tour Packages Section",
             "name": "",
@@ -1122,5 +1168,5 @@
     "active": true,
     "description": "Destination (Region) - Page",
     "show_in_rest": 0,
-    "modified": 1645547826
+    "modified": 1738172485
 }

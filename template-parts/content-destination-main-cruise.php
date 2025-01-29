@@ -10,7 +10,8 @@ $background_map = get_field('background_map');
 $highlights = get_field('highlights');
 
 $cruise_experiences = get_field('cruise_experiences');
-
+$has_video = get_field('has_video');
+$vimeo_link = get_field('vimeo_link');
 ?>
 
 <div class="destination-main">
@@ -27,7 +28,14 @@ $cruise_experiences = get_field('cruise_experiences');
                 <?php echo get_field('intro_title') ?>
             </h2>
             <div class="destination-main__intro__description__text">
-                <?php echo get_field('intro_text') ?>
+                <div class="destination-main__intro__description__text__content">
+                    <?php echo get_field('intro_text') ?>
+                </div>
+                <?php if ($has_video) : ?>
+                    <div class="destination-main__intro__description__text__play">
+                        <button class="btn-outline btn-outline--dark video-play-button" style="margin: none">Watch Video</button>
+                    </div>
+                <?php endif; ?>
             </div>
             <?php if ($highlights) : ?>
                 <h3 class="destination-main__intro__description__highlights-title">

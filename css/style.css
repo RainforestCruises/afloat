@@ -7397,18 +7397,31 @@ h5 {
             font-size: 2.8rem;
             line-height: 3.5rem; } }
       .destination-main__intro__description__text {
-        line-height: 3.2rem;
-        margin-bottom: 5rem;
-        width: 70%; }
+        display: grid;
+        grid-template-columns: 70% 1fr;
+        gap: 2rem; }
         @media only screen and (max-width: 50em) {
           .destination-main__intro__description__text {
-            line-height: 3rem;
-            text-align: center;
-            width: 100%; } }
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem; } }
+        .destination-main__intro__description__text__content {
+          line-height: 3.2rem;
+          margin-bottom: 5rem; }
+          @media only screen and (max-width: 50em) {
+            .destination-main__intro__description__text__content {
+              line-height: 3rem;
+              text-align: center;
+              width: 100%;
+              margin-bottom: 0; } }
+        .destination-main__intro__description__text__play {
+          display: flex;
+          align-items: start;
+          justify-content: center; }
       .destination-main__intro__description__highlights-title {
         font-size: 1.4rem;
         text-transform: uppercase;
-        letter-spacing: .2rem;
+        letter-spacing: 0.2rem;
         font-weight: 600;
         color: #142838;
         margin-bottom: 2rem; }
