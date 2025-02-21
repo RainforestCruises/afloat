@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.5.1',
+  'version' => '5.6.4',
   'title' => 'Travel Guides',
   'type' => 'rfc_travel_guides',
   'id' => '5feced60af61d',
-  'updated' => 1621891238,
+  'updated' => 1740157067,
   'columns' => 
   array (
     'title' => 
@@ -146,6 +146,22 @@ return array (
       'filter_label' => '',
       'name' => '60708eb0970a3c',
     ),
+    '67b8b078fc28f4' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Is Featured',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_67b8afe836466',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '67b8b078fc28f4',
+    ),
     '5feced9f1658c' => 
     array (
       'type' => 'column-acf_field',
@@ -171,15 +187,8 @@ return array (
       'label' => 'Importance',
       'width' => '',
       'width_unit' => '%',
-      'field' => 'field_6001e185ac7ea',
-      'number_format' => '',
+      'field' => 'field_65a972cd6d3fd',
       'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'on',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
       'name' => '60708ec7a45a1c',
     ),
     '5feced9f1658e' => 

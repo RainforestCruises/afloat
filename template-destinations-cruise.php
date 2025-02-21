@@ -33,7 +33,7 @@ $title = $destination->post_title;
 $has_video = get_field('has_video');
 $vimeo_link = get_field('vimeo_link');
 
-$sliderLimit = 12;
+$sliderLimit = 36;
 //TOURS
 $tourCriteria = array(
     'posts_per_page' => -1, //must be all to filter best selling

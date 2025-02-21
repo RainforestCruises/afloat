@@ -41,7 +41,7 @@ $vimeo_link = get_field('vimeo_link');
 
 
 
-$sliderLimit = 12;
+$sliderLimit = 36;
 
 //TOURS
 $tourCriteria = array(

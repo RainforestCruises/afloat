@@ -60,7 +60,7 @@ foreach ($destinationIds as $d) {
 }
 
 
-$sliderLimit = 12;
+$sliderLimit = 36;
 //TOURS
 $tourCriteria = array(
     'posts_per_page' => -1,

@@ -1,22 +1,26 @@
 <?php
 /*Template Name: Travel Guide*/
 wp_enqueue_script('page-travel-guide-landing', get_template_directory_uri() . '/js/page-travel-guide-landing.js', array('jquery'), false, true);
-?>
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+    'page-travel-guide-landing',
+    'page_vars',
+    array(
+        'templateUrl' =>  $templateUrl
+    )
+);
 
-<?php
 get_header();
-?>
 
-<?php
 $destination = get_field('destination');
 $region = get_field('region');
 $location = get_field('location');
-
 $image = get_field('image');
 $intro_snippet = get_field('intro_snippet');
+$featured_snippet = get_field('featured_snippet');
+$show_featured = get_field('show_featured');
 
 $destination_type = get_field('destination_type');
-
 $pageTitle = get_the_title();
 
 $categories = get_posts(array(
@@ -27,7 +31,6 @@ $categories = get_posts(array(
 ));
 
 //all related posts
-
 if ($destination_type == 'rfc_destinations') {
     $args = array(
         'posts_per_page' => -1,
@@ -39,10 +42,9 @@ if ($destination_type == 'rfc_destinations') {
                 'compare' => 'LIKE'
             )
         )
-
     );
-    
 };
+
 
 if ($destination_type == 'rfc_regions') {
     $args = array(
@@ -60,14 +62,7 @@ if ($destination_type == 'rfc_regions') {
                 'compare' => 'LIKE'
             )
         )
-
     );
-
-
-
-    //get all posts from child destinations also here
-    console_log('region');
-    console_log($region->ID);
 }
 
 
@@ -85,12 +80,24 @@ if ($destination_type == 'rfc_locations') {
     );
 };
 
+$posts = get_posts($args); // regular posts
+
+$featured_args = $args; // Copy the existing args that match your destination type
+
+// Add the is_featured condition to the meta_query
+$featured_args['meta_query'][] = array(
+    'key' => 'is_featured',
+    'value' => '1', // or true depending on how your ACF field stores boolean values
+    'compare' => '='
+);
+
+// Get the featured posts
+$featured_posts = get_posts($featured_args);
 
 
 //breadcrumbs
 //destination / region
 $breadcrumbDestinationPage  = get_field('breadcrumb_destination_page');
-
 $breadcrumbDestinationURL = get_permalink($breadcrumbDestinationPage);
 
 $templateType = get_page_template_slug($breadcrumbDestinationPage->ID);
@@ -103,10 +110,6 @@ if ($templateType == 'template-destinations-region.php') {
     $regionPost = get_field('region_post', $breadcrumbDestinationPage);
     $breadcrumbDestinationText  = get_field('navigation_title', $regionPost);
 }
-
-
-$posts = get_posts($args); //Stage I posts
-
 
 ?>
 
@@ -123,22 +126,26 @@ $posts = get_posts($args); //Stage I posts
             <li>
                 <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
             </li>
-
             <li>
                 <?php echo get_the_title(); ?>
             </li>
         </ol>
+
+
+        <!-- Titles -->
         <h1 class="travel-guide-landing-page__content__title">
             <?php echo $pageTitle ?>
         </h1>
-       
         <div class="travel-guide-landing-page__content__subtext">
             <?php echo $intro_snippet ?>
         </div>
 
+        <!-- Search -->
         <div class="travel-guide-landing-page__content__search-area">
             <input type="text" placeholder="Search Guide..." id="quicksearch">
         </div>
+
+        <!-- Categories -->
         <div class="travel-guide-landing-page__content__categories filters-button-group">
             <button data-filter="*" class="filter-button filter-button-all selected">
                 All
@@ -148,13 +155,11 @@ $posts = get_posts($args); //Stage I posts
                     <?php echo get_the_title($c) ?>
                 </button>
             <?php endforeach; ?>
-
         </div>
 
+        <!-- Guids -->
         <div class="travel-guide-landing-page__content__results" id="results">
-
             <?php
-
             if ($posts) :
 
                 foreach ($posts as $p) :
@@ -192,7 +197,7 @@ $posts = get_posts($args); //Stage I posts
                                 endif;  ?>
                             </ul>
                             <a class="guide-item__bottom__title" href="<?php echo the_permalink($p) ?>">
-                            
+
                                 <h3>
                                     <?php echo get_field('navigation_title', $p); ?>
                                 </h3>
@@ -221,7 +226,7 @@ $posts = get_posts($args); //Stage I posts
             ?>
         </div>
         <div class="travel-guide-landing-page__content__no-results" id="no-results-message">
-        No travel guides available. Please select another category.
+            No travel guides available. Please select another category.
         </div>
     </section>
 

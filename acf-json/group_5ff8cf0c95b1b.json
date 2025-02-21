@@ -183,6 +183,52 @@
             "toolbar": "full",
             "media_upload": 0,
             "delay": 0
+        },
+        {
+            "key": "field_67b8b75c23444",
+            "label": "Show Featured",
+            "name": "show_featured",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_67b8b73e23443",
+            "label": "Featured Snippet",
+            "name": "featured_snippet",
+            "type": "wysiwyg",
+            "instructions": "Short text under title area for featured posts",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_67b8b75c23444",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         }
     ],
     "location": [
@@ -202,5 +248,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide Landing - Page",
-    "modified": 1625071653
+    "show_in_rest": 0,
+    "modified": 1740158865
 }

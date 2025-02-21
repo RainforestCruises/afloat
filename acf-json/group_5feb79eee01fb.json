@@ -208,6 +208,25 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_67b8afe836466",
+            "label": "Is Featured",
+            "name": "is_featured",
+            "type": "true_false",
+            "instructions": "Check to make eligible to appear in the featured slider on the top level guide page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -227,5 +246,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Travel Guide - CPT",
-    "modified": 1622221524
+    "show_in_rest": 0,
+    "modified": 1740156942
 }
