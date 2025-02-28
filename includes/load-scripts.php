@@ -36,7 +36,9 @@ function load_scripts()
     wp_enqueue_script('vimeo', get_template_directory_uri() . '/vendor/vimeo/player.js', array(), false, true);
 
     wp_enqueue_script('reviews', 'https://reviewsonmywebsite.com/js/v2/embed.js?id=7bf8acda5d5930b1a9db343a4ec1b31c', array('jquery'), false, true);
+    wp_enqueue_script('reviews-new', 'https://reviewsonmywebsite.com/js/v2/embed.js?id=8ed8fd45a2fd062872f56952886c1ec5', array('jquery'), false, true);
 
+    
 
     wp_enqueue_script('utility', get_template_directory_uri() . '/js/utilities.js', array('jquery'), false, true);
     wp_enqueue_script('header', get_template_directory_uri() . '/js/header.js', array('jquery'), false, true);
