@@ -2338,6 +2338,16 @@ h5 {
       @media only screen and (max-width: 37.5em) {
         .travel-guide-landing-page__content__subtext {
           padding: 0 3rem; } }
+    .travel-guide-landing-page__content__featured {
+      max-width: calc(112rem + 12rem);
+      padding: 0 6rem;
+      margin: 0 3rem;
+      margin-bottom: 4rem; }
+      .travel-guide-landing-page__content__featured h2 {
+        font-size: 3rem;
+        color: #142838;
+        letter-spacing: 0.2rem;
+        font-weight: 500; }
     .travel-guide-landing-page__content__categories {
       margin: 2rem 0;
       display: flex;
@@ -2374,6 +2384,10 @@ h5 {
       display: none;
       font-size: 2rem;
       margin-bottom: 12rem; }
+  .travel-guide-landing-page .destination-main::before {
+    display: none; }
+  .travel-guide-landing-page .destination-main__packages__header {
+    margin-bottom: 2rem; }
 
 .experience-page__section-hero {
   background-color: #1d2225; }
@@ -10956,6 +10970,21 @@ h5 {
       letter-spacing: 0.3rem;
       font-weight: 300;
       color: #fff; }
+
+.guide-featured-item {
+  position: relative; }
+  .guide-featured-item__image-area {
+    z-index: 1; }
+  .guide-featured-item__title {
+    z-index: 5;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 1rem; }
 
 .guide-item {
   margin: 3rem;

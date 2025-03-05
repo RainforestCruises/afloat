@@ -207,6 +207,19 @@
             }
         }
 
+        &__featured {
+            max-width: $page-width;
+            padding: 0 6rem;
+            margin: 0 3rem;
+            margin-bottom: 4rem;
+            & h2 {
+                font-size: 3rem;
+                color: $color-primary;
+                letter-spacing: 0.2rem;
+                font-weight: 500;
+            }
+        }
+
         &__categories {
             margin: 2rem 0;
             display: flex;
@@ -257,6 +270,17 @@
             margin-bottom: 12rem;
         }
     }
+
+    & .destination-main::before {
+        display: none;
+        
+    }
+
+    & .destination-main__packages__header {
+        margin-bottom: 2rem;
+    }
+    
 }
+
 
  

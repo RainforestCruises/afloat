@@ -71,13 +71,9 @@ $vimeo_link = get_field('vimeo_link');
             </div>
         </div>
 
-
-
         <!-- Best Selling - use secondary slider-->
         <div class="destination-secondary__best-selling">
             <div class="destination-secondary__best-selling__slider" id="secondary-slider">
-
-
                 <?php foreach ($cruises as $c) : ?>
                     <?php
                     $featured_image = get_field('featured_image', $c);
@@ -85,7 +81,6 @@ $vimeo_link = get_field('vimeo_link');
                     $cruise_data = get_field('cruise_data', $c);
                     $charter_only = get_field('charter_only', $c);
                     $charter_min_days = get_field('charter_min_days', $c);
-
                     $dealPosts = listDealsForProduct($c);
                     $hasDeals = (count($dealPosts) > 0) ? true : false;
 

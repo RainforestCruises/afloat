@@ -778,6 +778,26 @@
     }
 }
 
+.guide-featured-item {
+    position: relative;
+    &__image-area {
+        z-index: 1;
+
+    }
+    &__title {
+        z-index: 5;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 700;
+        padding: 1rem;
+    }
+}
+
 .guide-item {
     margin: 3rem;
     margin-bottom: 6rem;

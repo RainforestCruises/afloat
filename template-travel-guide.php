@@ -113,6 +113,8 @@ if ($templateType == 'template-destinations-region.php') {
 
 ?>
 
+
+
 <main class="travel-guide-landing-page">
 
 
@@ -140,6 +142,80 @@ if ($templateType == 'template-destinations-region.php') {
             <?php echo $intro_snippet ?>
         </div>
 
+    </section>
+    <!-- Featured -->
+    <?php if ($featured_posts) : ?>
+        <div class="destination-main" style="margin-bottom: 0;">
+            <div class="destination-main__packages" id="cruises">
+                <div class="destination-main__packages__header">
+                    <h2 class="destination-main__packages__header__title page-divider">
+                        Featured
+                    </h2>
+                </div>
+
+                <!-- Best Selling - use secondary slider-->
+                <div class="destination-secondary__best-selling">
+                    <div class="destination-secondary__best-selling__slider" id="featured-slider">
+                        <?php
+                        foreach ($featured_posts as $p) :
+                            $featured_image = get_field('featured_image', $p);
+                            $imageID = '';
+                            if ($featured_image) {
+                                $imageID = $featured_image['ID'];
+                            }
+                            $guideCategories = get_field('categories', $p);
+
+
+                        ?>
+                            <a class="product-card" href="<?php echo get_permalink($p); ?>">
+
+                                <div class="product-card__image-area">
+                                    <img <?php afloat_image_markup($imageID, 'featured-medium'); ?>>
+
+                                    <ul class="product-card__image-area__destinations">
+                                        <?php if ($guideCategories) :
+                                            foreach ($guideCategories as $c) : ?>
+                                                <li>
+                                                    <?php
+                                                    $catTitle = get_the_title($c);
+                                                    echo trim($catTitle);
+                                                    ?>
+                                                </li>
+                                        <?php endforeach;
+                                        endif;  ?>
+                                    </ul>
+
+                                </div>
+
+                                <div class="product-card__bottom">
+                                    <div class="product-card__bottom__title-group">
+                                        <h3 class="product-card__bottom__title-group__product-name">
+                                            <?php echo get_field('navigation_title', $p); ?>
+                                        </h3>
+                                    </div>
+                                    <div style="font-size: 1.4rem; padding: 2rem 1rem">
+                                        <?php
+                                        echo get_the_excerpt($p);
+                                        ?>
+                                    </div>
+
+                                </div>
+                            </a>
+
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <div class="destination-main__packages__header">
+                    <h2 class="destination-main__packages__header__title page-divider">
+                        All Guides
+                    </h2>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+    <section class="travel-guide-landing-page__content">
+
         <!-- Search -->
         <div class="travel-guide-landing-page__content__search-area">
             <input type="text" placeholder="Search Guide..." id="quicksearch">
@@ -157,7 +233,7 @@ if ($templateType == 'template-destinations-region.php') {
             <?php endforeach; ?>
         </div>
 
-        <!-- Guids -->
+        <!-- Guides -->
         <div class="travel-guide-landing-page__content__results" id="results">
             <?php
             if ($posts) :
