@@ -116,6 +116,8 @@ if(get_page_template_slug() != 'template-home.php') {
     </div>
     <div class="footer__copyright">
         &#169; <?php echo date('Y') ?> Rainforest Cruises. All rights reserved.
+        <div><small>Licensed Florida Seller Of Travel #ST38603</small></div>
+        <div><small>IATAN Accredited Agency #1071645</small></div>
     </div>
 </footer>
 <?php wp_footer(); ?>

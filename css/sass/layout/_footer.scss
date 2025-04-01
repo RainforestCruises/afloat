@@ -10,7 +10,7 @@
     color: $color-white;
     font-size: 1.6rem; 
     position: relative;
-
+ 
 
 
     @media only screen and (max-width: $bp-medium) {
@@ -265,8 +265,9 @@
         grid-row: 4 / span 1;
         grid-column: col-start 5 / center-end;
         display: flex;
-        justify-content: flex-end;
-        align-items: center;
+        flex-direction: column;
+        justify-content:center;
+        align-items: flex-end;
 
         letter-spacing: 0.1rem;
         font-size: 1.5rem;
