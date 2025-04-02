@@ -1,6 +1,15 @@
 <?php
 /*Template Name: Deals - Landing Page*/
 wp_enqueue_script('page-travel-guide-landing', get_template_directory_uri() . '/js/page-travel-guide-landing.js', array('jquery'), false, true);
+$templateUrl = get_template_directory_uri();
+wp_localize_script(
+    'page-travel-guide-landing',
+    'page_vars',
+    array(
+        'templateUrl' =>  $templateUrl
+    )
+);
+
 get_header();
 
 $landing_page_type = get_field('landing_page_type');
