@@ -12652,7 +12652,8 @@ h5 {
         grid-row: 6 / span 1;
         grid-column: center-start / center-end;
         margin: 1rem 0;
-        text-align: center; } }
+        text-align: center;
+        align-items: center; } }
 
 .page-nav {
   justify-content: space-between;
