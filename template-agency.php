@@ -16,11 +16,6 @@ $agency_contact_form_id = get_field('agency_contact_form_id', 'options');
         ?>
     </section>
 
-    <section class="agency-page__section-partners">
-        <?php
-        get_template_part('template-parts/agency/content', 'agency-partners');
-        ?>
-    </section>
 
     <div class="svg-divider">
         <svg>
