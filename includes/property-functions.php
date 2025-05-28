@@ -23,7 +23,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear, $currentYea
                                 $rates = $r['Rates'];
                                 $rateValues = [];
                                 foreach ($rates as $rate) {
-                                    if ($rate['WebAmount'] > 0) {
+                                    if ($rate['WebAmount'] > 0 && $rate['IsSingle'] == false) {
                                         $rateValues[] = $rate['WebAmount'];
                                     }
                                 }
@@ -36,7 +36,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear, $currentYea
                                 $rates = $r['Rates'];
                                 $rateValues = [];
                                 foreach ($rates as $rate) {
-                                    if ($rate['WebAmount'] > 0) {
+                                    if ($rate['WebAmount'] > 0 && $rate['IsSingle'] == false) {
                                         $rateValues[] = $rate['WebAmount'];
                                     }
                                 }
