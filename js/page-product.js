@@ -7,8 +7,12 @@ jQuery(document).ready(function ($) {
   //Contact Modal (generic)
   var contactModal = document.getElementById("contactModal");
   var departureFormText = document.getElementById("contactModalDepartureText");
-
   var dealsModal = document.getElementById("dealsModal");
+
+  var estimatedTravelDates = document.querySelector(".estimated-travel-dates");
+  if (estimatedTravelDates) {
+    estimatedTravelDates.style.display = "none"; 
+  }
 
   //Deals Slider
   $(".deal-modal-cta-button").on("click", () => {
@@ -344,7 +348,7 @@ jQuery(document).ready(function ($) {
     $('.season-panel[data-tab="' + season + '"]').show();
   });
 
-  //Cruise Date Search
+  // cruise Date Search
   function reloadResults() {
     var searchForm = $("#search-form"); //get form
     $.ajax({
@@ -624,8 +628,8 @@ jQuery(document).ready(function ($) {
   var iframe = document.getElementById("modal-video-iframe");
   const vimeoPlayer = new Vimeo.Player(iframe, {
     autoplay: true,
-    muted: true  // Videos with sound must be muted to autoplay
-});
+    muted: true, // Videos with sound must be muted to autoplay
+  });
   // video modal
   const videoModal = document.querySelector("#videoModal");
   const videoPlayButton = document.querySelector(".video-play-button");
@@ -635,10 +639,9 @@ jQuery(document).ready(function ($) {
     videoPlayButton.addEventListener("click", () => {
       videoModal.style.display = "flex";
       body.addClass("no-scroll");
-      console.log('play');
+      console.log("play");
       vimeoPlayer.play();
     });
-
 
     // -- stop playing
     const stopVideoSections = [...document.querySelectorAll(".stop-video")];
@@ -650,7 +653,7 @@ jQuery(document).ready(function ($) {
   }
 
   videoModal.onclick = function (event) {
-   videoModal.style.display = "none";
-   body.removeClass("no-scroll");
+    videoModal.style.display = "none";
+    body.removeClass("no-scroll");
   };
 });

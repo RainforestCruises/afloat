@@ -331,7 +331,10 @@ jQuery(document).ready(function ($) {
     const button = document.querySelector('#newsletterButton');
 
     const isContact = contactForm.contains(evt.target);
-    const isButton = button.contains(evt.target);
+    let isButton = false;
+    if(button){
+      isButton = button.contains(evt.target);
+    }
     const isActive = popup.classList.contains('active');
     if (isActive) {
       if (!isContact && !isButton) {
