@@ -17,7 +17,6 @@ if ($args['productType'] == 'Cruise') {
     $charter_available = $args['charter_available'];
     $charter_only = $args['charter_only'];
     $display_fine_print = get_field('display_fine_print');
-
 }
 
 //total count of all itineraries
@@ -46,7 +45,7 @@ endforeach;
         Itineraries & Prices
     </h2>
     <p style="font-size: 12px; text-align: center">
-    All itineraries are subject to change due to seasonal weather conditions (and resultant variations in river and tributary water levels) affecting accessibility to locations. Thus navigation routes, times and excursions may need to be modified at the cruise captain’s or your guide's discretion. 
+        All itineraries are subject to change due to seasonal weather conditions (and resultant variations in river and tributary water levels) affecting accessibility to locations. Thus navigation routes, times and excursions may need to be modified at the cruise captain’s or your guide's discretion.
     </p>
 
 
@@ -61,13 +60,16 @@ endforeach;
 
                 if ($charter_only == true && $item['IsSample'] == false) :
                     //skip non sample itineraries
-                    //$count++;
+                    continue;
+                endif;
+
+                if ($charter_view == false && $item['IsCharterOnly'] == true) :
+                    //skip charter only itineraries
                     continue;
                 endif;
 
                 if ($args['productType'] == 'Lodge' && $item['IsSample'] == false) :
                     //skip non sample itineraries
-                    //$count++;
                     continue;
                 endif;
             ?>
@@ -99,6 +101,11 @@ endforeach;
             foreach ($cruise_data['Itineraries'] as $itinerary) :
                 if ($charter_only == true && $itinerary['IsSample'] == false) :
                     continue; //skip non sample itineraries for charter only vessels
+                endif;
+
+                if ($charter_view == false && $item['IsCharterOnly'] == true) :
+                    //skip charter only itineraries
+                    continue;
                 endif;
 
                 if ($args['productType'] == 'Lodge' && $itinerary['IsSample'] == false) :

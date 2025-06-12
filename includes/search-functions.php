@@ -228,9 +228,6 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         $vesselCapacityDisplay = "";
         $numberOfCabinsDisplay = "";
 
- 
-
-
         $charterAvailable = false;
         $charterOnly = false;
         $charterDisplayFullPrice = false;
@@ -238,9 +235,6 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
         $productLowestCharterPrice = 0;
 
         $postUrl = get_permalink($p);
-
-
-
 
 
         //TOURS ---------------------------------------
@@ -361,10 +355,12 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                                             continue;
                                         }
                                     }
-                                    
-                                    $itineraryLengthValues[] = $itinerary['LengthInDays'];
-                                    $itineraryCount += 1;
-                                    $itineraryPriceValues[] = $itinerary['LowestPrice'];
+
+                                    if (!$itinerary['IsCharterOnly']) {
+                                        $itineraryLengthValues[] = $itinerary['LengthInDays'];
+                                        $itineraryCount += 1;
+                                        $itineraryPriceValues[] = $itinerary['LowestPrice'];
+                                    }
                                 } else {
 
                                     continue; // no departure dates to begin with
@@ -377,15 +373,15 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                 }
 
                 $filteredItineraryCharterValues = [];
-                foreach($itineraryCharterValues as $icv){
-                    if($icv->length >= $minLength && $icv->length <= $maxLength){
+                foreach ($itineraryCharterValues as $icv) {
+                    if ($icv->length >= $minLength && $icv->length <= $maxLength) {
                         $filteredItineraryCharterValues[] = $icv;
                     }
                 }
 
                 // FIX -- need to fing the lowest price of the filteredItineraryCharterValues;
                 // look at Fenides for example
-                $shortestItinerary = array_reduce($filteredItineraryCharterValues, function($a, $b){
+                $shortestItinerary = array_reduce($filteredItineraryCharterValues, function ($a, $b) {
                     return $a->length < $b->length ? $a : $b;
                 }, array_shift($filteredItineraryCharterValues));
 
@@ -393,14 +389,14 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                 if (count($itineraryPriceValuesCharter) > 0) {
                     $productLowestCharterPrice = $shortestItinerary->price;
                 }
+
                 $itineraryLengthCharter = get_field('charter_min_days', $p);
                 $charterDisplayFullPrice = get_field('charter_display_full_price', $p);
                 $itineraryLengthDisplayCharter =  $itineraryLengthCharter . " Days +";
-                if($charterDisplayFullPrice && $charterOnly == false) { // wont be accurate if charter only and display full price
+                if ($charterDisplayFullPrice && $charterOnly == false) { // wont be accurate if charter only and display full price
                     $itineraryLengthDisplayCharter =  min($itineraryLengthValues) . " Days +";
                     $itineraryLengthCharter = min($itineraryLengthValues);
                 };
-
             } else { //LODGES
                 $productTypeDisplay = 'Lodge Stay';
                 $productTypeCta = 'Lodge';
@@ -442,7 +438,6 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             }
             if ($charterOnly == true) {
                 $productLowestPrice = $productLowestCharterPrice;
-                
             }
 
             //Itinerary Length Display (Cruise /Lodge)
@@ -503,7 +498,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             'lowestCharterPrice' => $productLowestCharterPrice,
             'itineraryLengthDisplay' => $itineraryLengthDisplay,
             'itineraryLengthDisplayCharter' => $itineraryLengthDisplayCharter,
-            'itineraryLengthCharter' => $itineraryLengthCharter, 
+            'itineraryLengthCharter' => $itineraryLengthCharter,
             'charterDisplayFullPrice' => $charterDisplayFullPrice,
 
             'itineraryCountDisplay' => $itineraryCountDisplay,

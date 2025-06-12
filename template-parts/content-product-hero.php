@@ -26,7 +26,12 @@ if ($args['productType'] == 'Cruise') {
 $itineraryCount = 0;
 
 if (get_post_type() != 'rfc_tours') {
-    $itineraryCount = count($args['cruiseData']['Itineraries']);
+
+    foreach ($args['cruiseData']['Itineraries'] as $i) {
+        if ($i['IsCharterOnly'] == false) {
+            $itineraryCount++;
+        }
+    }
 }
 
 

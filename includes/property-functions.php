@@ -76,7 +76,9 @@ function itineraryRange($cruise_data, $separator, $onlyMin = false)
 
         if (count($itineraries) > 0) {
             foreach ($itineraries as $i) {
-                $itineraryValues[] = $i['LengthInDays'];
+                if ($i['IsCharterOnly'] == false) {
+                    $itineraryValues[] = $i['LengthInDays'];
+                }
             }
 
             $rangeFrom = min($itineraryValues);
