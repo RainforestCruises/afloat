@@ -103,7 +103,7 @@ endforeach;
                     continue; //skip non sample itineraries for charter only vessels
                 endif;
 
-                if ($charter_view == false && $item['IsCharterOnly'] == true) :
+                if ($charter_view == false && $itinerary['IsCharterOnly'] == true) :
                     //skip charter only itineraries
                     continue;
                 endif;
