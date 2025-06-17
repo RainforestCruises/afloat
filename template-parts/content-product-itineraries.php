@@ -63,6 +63,11 @@ endforeach;
                     continue;
                 endif;
 
+                if ($charter_view == true && $item['IsSample'] == false) :
+                    //skip non sample itineraries
+                    continue;
+                endif;
+
                 if ($charter_view == false && $item['IsCharterOnly'] == true) :
                     //skip charter only itineraries
                     continue;
@@ -101,6 +106,11 @@ endforeach;
             foreach ($cruise_data['Itineraries'] as $itinerary) :
                 if ($charter_only == true && $itinerary['IsSample'] == false) :
                     continue; //skip non sample itineraries for charter only vessels
+                endif;
+
+                if ($charter_view == true && $itinerary['IsSample'] == false) :
+                    //skip non sample itineraries
+                    continue;
                 endif;
 
                 if ($charter_view == false && $itinerary['IsCharterOnly'] == true) :
