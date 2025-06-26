@@ -470,3 +470,27 @@ function removePtags($text)
 
     return $formatted_text;
 }
+
+
+// Table Of Contents Generator
+function generateIndex($html)
+{
+    preg_match_all('/<h([1-6])([^>]*)>(.*?)<\/h[1-6]>/i', $html, $matches, PREG_SET_ORDER);
+    $index = "<ul>";
+    $prev = 2;
+    foreach ($matches as $match) {
+        $curr = $match[1];
+        $attributes = $match[2];
+        $text = strip_tags($match[3]);
+        $slug = strtolower(str_replace("--", "-", preg_replace('/[^\da-z&]/i', '-', str_replace('&amp', 'and', $text))));
+        $anchor = '<div name="' . $slug . '" class="toc-link">' . $text . '</div>';
+        $replacement = "<h{$curr}{$attributes}>{$anchor}</h{$curr}>";
+        $html = str_replace($match[0], $replacement, $html);
+        $prev <= $curr ?: $index .= str_repeat('</ul>', ($prev - $curr));
+        $prev >= $curr ?: $index .= "<ul>";
+        $index .= '<li><a href="#' . $slug . '" class="toc-link">' . $text . '</a></li>';
+        $prev = $curr;
+    }
+    $index .= "</ul>";
+    return ["html" => $html, "index" => $index];
+}

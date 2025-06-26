@@ -1695,6 +1695,29 @@ h5 {
   @media only screen and (max-width: 37.5em) {
     .travel-guide {
       padding: 0 3rem; } }
+  .travel-guide__toc {
+    width: 100%;
+    max-width: 80rem;
+    padding-bottom: 3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e6e6e6; }
+    .travel-guide__toc__header {
+      font-size: 1.8rem;
+      color: #142838;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e6e6e6; }
+    .travel-guide__toc ul {
+      margin-left: 2rem;
+      font-size: 1.4rem;
+      color: #142838;
+      font-weight: 600; }
+      .travel-guide__toc ul a {
+        color: #142838;
+        text-decoration: none; }
+        .travel-guide__toc ul a:hover {
+          color: #305a7c; }
   .travel-guide__category {
     font-size: 1.6rem;
     letter-spacing: 0.2rem;
@@ -1708,7 +1731,7 @@ h5 {
     line-height: 5.8rem;
     color: #142838;
     font-weight: 500;
-    letter-spacing: .2rem;
+    letter-spacing: 0.2rem;
     text-align: center;
     margin-bottom: 1rem; }
     @media only screen and (max-width: 37.5em) {
@@ -1794,7 +1817,8 @@ h5 {
       max-width: 80rem;
       align-self: center;
       font-size: 1.6rem; }
-    .travel-guide__content ul, .travel-guide__content ol {
+    .travel-guide__content ul,
+    .travel-guide__content ol {
       max-width: 80rem;
       align-self: center;
       font-size: 1.6rem;
@@ -2182,6 +2206,78 @@ h5 {
         fill: #c2c6c9;
         height: 3rem;
         width: 3rem; }
+
+.guide-menu-area {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  pointer-events: none;
+  position: fixed;
+  bottom: 0rem;
+  left: 0rem;
+  z-index: 50;
+  display: none; }
+  .guide-menu-area.active {
+    display: flex;
+    animation: fadein 0.4s; }
+  .guide-menu-area__content {
+    width: 100%;
+    padding: 0 6rem;
+    max-width: calc(112rem + 12rem);
+    padding-bottom: 2rem !important; }
+    @media only screen and (max-width: 50em) {
+      .guide-menu-area__content {
+        padding: 0 3rem; } }
+
+.guide-menu {
+  position: relative;
+  pointer-events: all; }
+  .guide-menu__button {
+    color: #142838;
+    font-size: 1.4rem;
+    background-color: #fff;
+    font-weight: 600;
+    border-radius: 4rem;
+    padding: 1rem 2.5rem;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    border: 1px solid #142838;
+    box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: relative; }
+    .guide-menu__button svg {
+      color: currentColor;
+      height: 2rem;
+      width: 2rem;
+      margin-right: 1.5rem; }
+    .guide-menu__button:hover {
+      transition: all 0.2s;
+      background-color: #e6e6e6; }
+  .guide-menu__menu {
+    display: none;
+    background-color: #fff;
+    padding: 2rem 3rem;
+    border: 1px solid #142838;
+    border-radius: 1rem; }
+    .guide-menu__menu.active {
+      display: flex;
+      position: absolute;
+      left: 0;
+      bottom: calc(-100% + 9.5rem); }
+    .guide-menu__menu ul {
+      margin-left: 2rem;
+      font-size: 1.4rem;
+      color: #142838;
+      font-weight: 600; }
+      .guide-menu__menu ul a {
+        color: #142838;
+        text-decoration: none; }
+        .guide-menu__menu ul a:hover {
+          color: #305a7c; }
 
 .travel-guide-landing-page {
   display: flex;

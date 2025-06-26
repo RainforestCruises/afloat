@@ -9,9 +9,16 @@ wp_localize_script(
     'templateUrl' =>  $templateUrl
   )
 );
-?>
 
-<?php
+wp_enqueue_script('page-toc', get_template_directory_uri() . '/js/page-toc.js', array('jquery'), false, true);
+
+
+$query = get_post(get_the_ID());
+$content = apply_filters('the_content', $query->post_content);
+$toc = generateIndex($content)['index'];
+
+
+
 while (have_posts()) :
   the_post();
   $image  = get_field('featured_image');
@@ -119,11 +126,17 @@ while (have_posts()) :
         <?php endif; ?>
       </div>
 
-
+      <div class="travel-guide__toc">
+        <div class="travel-guide__toc__header">
+          Jump to Section
+        </div>
+        <?php echo $toc; ?>
+      </div>
 
 
       <div class="travel-guide__content drop-cap-1a">
-        <?php echo the_content(); ?>
+        <?php echo generateIndex($content)['html']; ?>
+
       </div>
 
       <div class="travel-guide__disclaimer">
@@ -149,7 +162,7 @@ while (have_posts()) :
             while ($travelGuidePosts->have_posts()) : $travelGuidePosts->the_post();
               $post_featured_image = get_field('featured_image');
               $imageId = "";
-              if($post_featured_image){
+              if ($post_featured_image) {
                 $imageId = $post_featured_image['id'];
               }
           ?>
@@ -159,9 +172,9 @@ while (have_posts()) :
                 <div class="travel-guide-related__slider-area__slider__item__content">
                   <a class="travel-guide-related__slider-area__slider__item__content__title" href="<?php echo the_permalink(); ?>">
                     <h3>
-                    <?php echo the_title(); ?>
+                      <?php echo the_title(); ?>
                     </h3>
-                    
+
                   </a>
                   <div class="travel-guide-related__slider-area__slider__item__content__text">
                     <?php echo the_excerpt(); ?>
@@ -194,6 +207,27 @@ while (have_posts()) :
     ?>
 
   </div>
+
+
+  <section class="guide-menu-area">
+    <div class="guide-menu-area__content">
+
+        <div class="guide-menu">
+            <div class="guide-menu__button">
+                <svg>
+                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-plus"></use>
+                </svg>
+                Sections
+            </div>
+            <div class="guide-menu__menu">
+                <?php echo $toc; ?>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 <?php
 endwhile;
