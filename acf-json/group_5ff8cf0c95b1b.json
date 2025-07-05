@@ -18,7 +18,8 @@
             "choices": {
                 "rfc_destinations": "Destination",
                 "rfc_regions": "Region",
-                "rfc_locations": "Location"
+                "rfc_locations": "Location",
+                "rfc_top": "Top Level"
             },
             "allow_null": 0,
             "other_choice": 0,
@@ -249,5 +250,5 @@
     "active": true,
     "description": "Travel Guide Landing - Page",
     "show_in_rest": 0,
-    "modified": 1740158865
+    "modified": 1751713761
 }

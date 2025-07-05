@@ -80,6 +80,13 @@ if ($destination_type == 'rfc_locations') {
     );
 };
 
+if ($destination_type == 'rfc_top') {
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_travel_guides'      
+    );
+};
+
 $posts = get_posts($args); // regular posts
 
 $featured_args = $args; // Copy the existing args that match your destination type
@@ -125,9 +132,11 @@ if ($templateType == 'template-destinations-region.php') {
             <li>
                 <a href="<?php echo home_url() ?>">Home</a>
             </li>
+            <?php if($destination_type != 'rfc_top') : ?>
             <li>
                 <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
             </li>
+            <?php endif; ?>
             <li>
                 <?php echo get_the_title(); ?>
             </li>
