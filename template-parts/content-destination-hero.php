@@ -6,6 +6,7 @@
     $destinationType = $args['destinationType'];
     $accommodationDisplayText = 'Lodges';
     $show_charters = get_field('show_charters');
+    $show_tours = get_field('show_tours');
 
     if ($destinationType == 'destination' || $destinationType == 'region')
         $accommodationDisplayText = get_field('accommodations_label');
@@ -118,9 +119,11 @@
                                   <a href="#charters" class="destination-hero__content__page-nav__list__item__link page-nav-template">Private Charters</a>
                               </li>
                           <?php endif; ?>
+                          <?php if ($show_tours) : ?>
                           <li class="destination-hero__content__page-nav__list__item">
                               <a href="#packages" class="destination-hero__content__page-nav__list__item__link page-nav-template">Packages</a>
                           </li>
+                          <?php endif; ?>
                       <?php } ?>
 
 

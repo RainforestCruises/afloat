@@ -2,6 +2,7 @@
 $navTitle = "";
 $destinationType = "";
 $show_charters = get_field('show_charters');
+$show_tours = get_field('show_tours');
 
 $accommodationDisplayText = 'Lodges';
 
@@ -95,9 +96,12 @@ endif; ?>
                         <a href="#charters">Private Charters</a>
                     </li>
                 <?php endif; ?>
-                <li>
-                    <a href="#packages">Packages</a>
-                </li>
+                <?php if ($show_tours) : ?>
+                    <li>
+                        <a href="#packages">Packages</a>
+                    </li>
+                <?php endif; ?>
+
             <?php } ?>
 
             <li>
@@ -171,10 +175,11 @@ endif; ?>
                     <a href="#charters" class="nav-secondary-mobile__list__item__link">Private Charters</a>
                 </li>
             <?php endif; ?>
-            <li class="nav-secondary-mobile__list__item">
-                <a href="#packages" class="nav-secondary-mobile__list__item__link">Packages</a>
-            </li>
-
+            <?php if ($show_tours) : ?>
+                <li class="nav-secondary-mobile__list__item">
+                    <a href="#packages" class="nav-secondary-mobile__list__item__link">Packages</a>
+                </li>
+            <?php endif; ?>
         <?php } ?>
 
         <li class="nav-secondary-mobile__list__item">

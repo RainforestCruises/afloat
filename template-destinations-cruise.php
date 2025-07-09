@@ -21,6 +21,7 @@ $destinationType = 'cruise';
 
 $destination = get_field('destination_post');
 $show_charters = get_field('show_charters');
+$show_tours = get_field('show_tours');
 
 $activities = get_field('activities_list');
 $locations = get_field('locations_list');
@@ -70,9 +71,9 @@ $cruises = get_posts($cruiseCriteria);
 
 //CHARTERS
 $charters = [];
-foreach($cruises as $cruise){
+foreach ($cruises as $cruise) {
     $charter_available = get_field('charter_available', $cruise);
-    if($charter_available){
+    if ($charter_available) {
         $charters[] = $cruise;
     }
 }
@@ -94,7 +95,9 @@ $args = array(
     'sliderContent' => $sliderContent,
     'title' => $title,
     'destinationType' => $destinationType,
-    'show_charters' => $show_charters
+    'show_charters' => $show_charters,
+    'show_tours' => $show_tours
+
 );
 
 ?>
@@ -123,14 +126,15 @@ $args = array(
         </section>
     <?php endif; ?>
 
+    <?php if ($show_tours) : ?>
 
-    <!-- Tours-->
-    <section class="destination-page__section-secondary">
-        <?php
-        get_template_part('template-parts/content', 'destination-secondary-cruise', $args);
-        ?>
-    </section>
-
+        <!-- Tours-->
+        <section class="destination-page__section-secondary">
+            <?php
+            get_template_part('template-parts/content', 'destination-secondary-cruise', $args);
+            ?>
+        </section>
+    <?php endif; ?>
 
     <!-- Travel Guides -->
     <section class="destination-page__section-travel-guides" id="travel-guide">
