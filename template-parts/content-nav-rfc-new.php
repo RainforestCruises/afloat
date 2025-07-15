@@ -1,8 +1,6 @@
 <?php
 $menu_name = 'main_menu';
 $locations = get_nav_menu_locations();
-// $menu = wp_get_nav_menu_object($locations[$menu_name]);
-// $menuitems = wp_get_nav_menu_items($menu->term_id);
 $show_translate_nav = get_field('show_translate_nav', 'options');
 $top_level_agents_page = get_field('top_level_agents_page', 'options');
 
@@ -17,8 +15,6 @@ $top_level_cruises_page = get_field('top_level_cruises_page', 'options');
 $top_level_packages_page = get_field('top_level_packages_page', 'options');
 
 $alwaysActiveHeader = checkActiveHeader(); //return true/false depending on if current template header bar should never be transparent
-
-console_log($nav_cruises);
 ?>
 
 
@@ -105,6 +101,7 @@ console_log($nav_cruises);
                 </span>
             </a>
         <?php endforeach; ?>
+        <a href="<?php echo $top_level_cruises_page ?>" class="nav-mobile__content-panel__button mobile-link divider">View All</a>
     </div>
 
     <!-- Packages -->
@@ -130,6 +127,8 @@ console_log($nav_cruises);
                 </span>
             </a>
         <?php endforeach; ?>
+        <a href="<?php echo $top_level_packages_page ?>" class="nav-mobile__content-panel__button mobile-link divider">View All</a>
+
     </div>
 
     <!-- Experiences -->
@@ -152,6 +151,9 @@ console_log($nav_cruises);
         <?php endforeach; ?>
     </div>
     <!-- End Level 2 -->
+
+
+
 
 
     <!-- Level 3 -->
@@ -313,7 +315,7 @@ console_log($nav_cruises);
         <!-- Cruises -->
         <div class="nav-mega__nav nav-mega__nav--cruises">
 
-            <div class="nav-mega__nav__main"  style="margin-top: 3rem;">
+            <div class="nav-mega__nav__main" style="margin-top: 3rem;">
                 <?php foreach ($nav_cruises as $nav_cruise) :
                     $region = $nav_cruise['region']; // page
                     $region_display = $nav_cruise['region_display'];
@@ -368,9 +370,9 @@ console_log($nav_cruises);
                 <?php endforeach; ?>
 
             </div>
-                  <div class="nav-mega__nav__all">
-                    <a class="btn-outline btn-outline--dark  btn-outline--xsmall" href="<?php echo $top_level_packages_page ?>">View All Packages</a>
-                </div>
+            <div class="nav-mega__nav__all">
+                <a class="btn-outline btn-outline--dark  btn-outline--xsmall" href="<?php echo $top_level_packages_page ?>">View All Packages</a>
+            </div>
 
         </div>
         <div class="nav-mega__nav nav-mega__nav--experiences">
