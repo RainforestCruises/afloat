@@ -117,5 +117,5 @@
 
     <?php
     wp_body_open();
-    get_template_part('template-parts/content', 'nav-rfc');
+    get_template_part('template-parts/content', 'nav-rfc-new');
     ?>

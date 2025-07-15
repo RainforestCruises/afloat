@@ -494,3 +494,33 @@ function generateIndex($html)
     $index .= "</ul>";
     return ["html" => $html, "index" => $index];
 }
+
+
+function slugify($text, $separator = '-', $maxLength = 100) {
+    // Convert to lowercase
+    $text = strtolower($text);
+    
+    // Replace accented characters with their ASCII equivalents
+    $text = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $text);
+    
+    // Remove any remaining non-alphanumeric characters except spaces and hyphens
+    $text = preg_replace('/[^a-z0-9\s\-]/', '', $text);
+    
+    // Replace multiple spaces or hyphens with single separator
+    $text = preg_replace('/[\s\-]+/', $separator, $text);
+    
+    // Trim separators from beginning and end
+    $text = trim($text, $separator);
+    
+    // Limit length if specified
+    if ($maxLength > 0 && strlen($text) > $maxLength) {
+        $text = substr($text, 0, $maxLength);
+        // Make sure we don't cut off in the middle of a word
+        $lastSeparator = strrpos($text, $separator);
+        if ($lastSeparator !== false) {
+            $text = substr($text, 0, $lastSeparator);
+        }
+    }
+    
+    return $text;
+}

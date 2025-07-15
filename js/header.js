@@ -131,37 +131,18 @@ jQuery(document).ready(function ($) {
       headerMain.classList.add("active");
       $(".nav-secondary").addClass("mega-hide");
 
-      //Arctic
-      var allPanels = $(".nav-mega__nav-arctic__content-area__panel");
-      var allLinks = $(".nav-mega__nav-arctic__menu__list__item__link");
-      $(allPanels).removeClass("active");
-      $(allLinks).removeClass("active");
-
-      var initialLinks = $(".nav-mega__nav-arctic__menu__list__item__link.initial");
-      var initialPanels = $(".nav-mega__nav-arctic__content-area__panel.initial");
-      $(initialPanels).addClass("active");
-      $(initialLinks).addClass("active");
-
-      //--
-
-      if (navelement == "Destinations") {
+      if (navelement == "cruises") {
         $(".nav-mega__nav--experiences").hide();
-        $(".nav-mega__nav--destinations").show();
-
-        $(".nav-mega__nav-arctic--ships").hide();
-        $(".nav-mega__nav-arctic--destinations").show();
-      } else if (navelement == "Experiences") {
-        $(".nav-mega__nav--destinations").hide();
+        $(".nav-mega__nav--packages").hide();
+        $(".nav-mega__nav--cruises").show();
+      } else if (navelement == "packages") {
+        $(".nav-mega__nav--cruises").hide();
+        $(".nav-mega__nav--experiences").hide();
+        $(".nav-mega__nav--packages").show();
+      } else if (navelement == "experiences") {
+        $(".nav-mega__nav--cruises").hide();
+        $(".nav-mega__nav--packages").hide();
         $(".nav-mega__nav--experiences").show();
-
-        $(".nav-mega__nav-arctic--ships").hide();
-        $(".nav-mega__nav-arctic--destinations").hide();
-      } else if (navelement == "Ships") {
-        $(".nav-mega__nav--destinations").hide();
-        $(".nav-mega__nav--experiences").hide();
-
-        $(".nav-mega__nav-arctic--ships").show();
-        $(".nav-mega__nav-arctic--destinations").hide();
       }
     },
     function () {
