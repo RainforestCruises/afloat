@@ -176,12 +176,8 @@ foreach ($menuitems as $m) {
                 <span>
                     Back
                 </span>
-
             </a>
-
             <!-- Cruises -->
-
-
             <?php $destinationsMenuArray = $destination_group['destinations']; ?>
             <?php foreach ($destinationsMenuArray as $destinationMenuItem) : ?>
                 <a href="<?php echo $destinationMenuItem['url'] ?>" class="nav-mobile__content-panel__button mobile-link"><?php echo $destinationMenuItem['title'] ?></a>

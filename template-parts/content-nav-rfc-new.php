@@ -13,6 +13,8 @@ $nav_experiences = get_field('experiences', 'options');
 $top_level_deals_page = get_field('top_level_deals_page', 'options');
 $top_level_guides_page = get_field('top_level_guides_page', 'options');
 $top_level_about_page = get_field('top_level_about_page', 'options');
+$top_level_cruises_page = get_field('top_level_cruises_page', 'options');
+$top_level_packages_page = get_field('top_level_packages_page', 'options');
 
 $alwaysActiveHeader = checkActiveHeader(); //return true/false depending on if current template header bar should never be transparent
 
@@ -173,7 +175,7 @@ console_log($nav_cruises);
                 $destination_display = $nav_destination['destination_display'];
                 $is_sub = $nav_destination['is_sub'];
             ?>
-                <a href="<?php echo $destination ?>" class="nav-mobile__content-panel__button mobile-link"><?php echo $destination_display ?></a>
+                <a href="<?php echo $destination ?>" class="nav-mobile__content-panel__button mobile-link"><?php echo $destination_display ?> <?php echo $is_sub ? " - " : "" ?></a>
             <?php endforeach; ?>
             <a href="<?php echo $region ?>" class="nav-mobile__content-panel__button mobile-link divider">View All</a>
         </div>
@@ -217,7 +219,6 @@ console_log($nav_cruises);
 
     <!-- Top Level Nav -->
     <div class="header__main <?php echo ($alwaysActiveHeader == true) ? 'active' : ''; ?>">
-
         <!-- Logo -->
         <div class="header__main__logo-area">
             <a href="<?php echo get_home_url(); ?>" class="header__main__logo-area__logo">
@@ -307,63 +308,82 @@ console_log($nav_cruises);
         </div>
     </div>
 
-
     <!-- Mega desktop -->
     <div class="nav-mega">
         <!-- Cruises -->
         <div class="nav-mega__nav nav-mega__nav--cruises">
-            <?php foreach ($nav_cruises as $nav_cruise) :
-                $region = $nav_cruise['region']; // page
-                $region_display = $nav_cruise['region_display'];
-                $nav_destinations = $nav_cruise['destinations'];
-            ?>
-                <div class="nav-mega__nav__sub-group">
-                    <a class="nav-mega__nav__sub-group__title" href="<?php echo $region ?>"><?php echo $region_display ?></a>
-                    <ul class="nav-mega__nav__sub-group__list">
 
-                        <?php foreach ($nav_destinations as $nav_destination) :
-                            $destination = $nav_destination['destination']; // page
-                            $destination_display = $nav_destination['destination_display'];
-                            $is_sub = $nav_destination['is_sub'];
-                        ?>
-                            <li class="nav-mega__nav__sub-group__item">
-                                <a href="<?php echo $destination ?>" class="nav-mega__nav__sub-group__link"><?php echo $destination_display ?></a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            <?php endforeach; ?>
+            <div class="nav-mega__nav__main"  style="margin-top: 3rem;">
+                <?php foreach ($nav_cruises as $nav_cruise) :
+                    $region = $nav_cruise['region']; // page
+                    $region_display = $nav_cruise['region_display'];
+                    $nav_destinations = $nav_cruise['destinations'];
+                ?>
+                    <div class="nav-mega__nav__main__sub-group">
+                        <a class="nav-mega__nav__main__sub-group__title" href="<?php echo $region ?>"><?php echo $region_display ?></a>
+                        <ul class="nav-mega__nav__main__sub-group__list">
+
+                            <?php foreach ($nav_destinations as $nav_destination) :
+                                $destination = $nav_destination['destination']; // page
+                                $destination_display = $nav_destination['destination_display'];
+                                $is_sub = $nav_destination['is_sub'];
+                            ?>
+                                <li class="nav-mega__nav__main__sub-group__item">
+                                    <a href="<?php echo $destination ?>" class="nav-mega__nav__main__sub-group__link"><?php echo $is_sub ? " - " : "" ?><?php echo $destination_display ?></a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+            <div class="nav-mega__nav__all">
+                <a class="btn-outline btn-outline--dark  btn-outline--xsmall" href="<?php echo $top_level_cruises_page ?>">View All Cruises</a>
+            </div>
+
         </div>
         <!-- Packages -->
         <div class="nav-mega__nav nav-mega__nav--packages">
-            <?php foreach ($nav_packages as $nav_package) :
-                $package = $nav_package['category']; // page
-                $package_display = $nav_package['category_display'];
-                $package_items = $nav_package['category_items'];
-            ?>
-                <div class="nav-mega__nav__sub-group">
-                    <a class="nav-mega__nav__sub-group__title" href="<?php echo $package ?>"><?php echo $package_display ?></a>
-                    <ul class="nav-mega__nav__sub-group__list">
 
-                        <?php foreach ($package_items as $package_item) :
-                            $item = $package_item['item']; // page
-                            $item_display = $package_item['item_display'];
-                        ?>
-                            <li class="nav-mega__nav__sub-group__item">
-                                <a href="<?php echo $item ?>" class="nav-mega__nav__sub-group__link"><?php echo $item_display ?></a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
+            <div class="nav-mega__nav__main" style="margin-top: 3rem;">
+                <?php foreach ($nav_packages as $nav_package) :
+                    $package = $nav_package['category']; // page
+                    $package_display = $nav_package['category_display'];
+                    $package_items = $nav_package['category_items'];
+                ?>
+                    <div class="nav-mega__nav__main__sub-group">
+                        <a class="nav-mega__nav__main__sub-group__title" href="<?php echo $package ?>"><?php echo $package_display ?></a>
+                        <ul class="nav-mega__nav__main__sub-group__list">
+
+                            <?php foreach ($package_items as $package_item) :
+                                $item = $package_item['item']; // page
+                                $item_display = $package_item['item_display'];
+                            ?>
+                                <li class="nav-mega__nav__main__sub-group__item">
+                                    <a href="<?php echo $item ?>" class="nav-mega__nav__main__sub-group__link"><?php echo $item_display ?></a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endforeach; ?>
+
+            </div>
+                  <div class="nav-mega__nav__all">
+                    <a class="btn-outline btn-outline--dark  btn-outline--xsmall" href="<?php echo $top_level_packages_page ?>">View All Packages</a>
                 </div>
-            <?php endforeach; ?>
+
         </div>
         <div class="nav-mega__nav nav-mega__nav--experiences">
-            <?php foreach ($nav_experiences as $nav_experience) :
-                $experience = $nav_experience['experience'];
-                $experience_display = $nav_experience['experience_display'];
-            ?>
-                <a href="<?php echo $experience ?>" class="nav-mega__nav__link"><?php echo $experience_display ?></a>
-            <?php endforeach; ?>
+            <div class="nav-mega__nav__main">
+                <?php foreach ($nav_experiences as $nav_experience) :
+                    $experience = $nav_experience['experience'];
+                    $experience_display = $nav_experience['experience_display'];
+                ?>
+                    <a href="<?php echo $experience ?>" class="nav-mega__nav__link"><?php echo $experience_display ?></a>
+                <?php endforeach; ?>
+
+            </div>
+
         </div>
     </div>
 
