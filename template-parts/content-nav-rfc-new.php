@@ -248,7 +248,7 @@ $alwaysActiveHeader = checkActiveHeader(); //return true/false depending on if c
                     <a class="header__main__nav__list__item__link no-mega" href="<?php echo $top_level_deals_page ?>">Deals</a>
                 </li>
                 <li class="header__main__nav__list__item">
-                    <a class="header__main__nav__list__item__link no-mega" href="<?php echo $top_level_guide_page ?>">Guide</a>
+                    <a class="header__main__nav__list__item__link no-mega" href="<?php echo $top_level_guides_page ?>">Guide</a>
                 </li>
                 <li class="header__main__nav__list__item">
                     <a class="header__main__nav__list__item__link no-mega" href="<?php echo $top_level_about_page ?>">About</a>

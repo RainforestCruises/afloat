@@ -83,8 +83,15 @@ if ($destination_type == 'rfc_locations') {
 if ($destination_type == 'rfc_top') {
     $args = array(
         'posts_per_page' => -1,
-        'post_type' => 'rfc_travel_guides'      
+        'post_type' => 'rfc_travel_guides'
     );
+
+    $categories = get_posts(array(
+        'post_type' => 'rfc_destinations',
+        'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
+    ));
 };
 
 $posts = get_posts($args); // regular posts
@@ -132,10 +139,10 @@ if ($templateType == 'template-destinations-region.php') {
             <li>
                 <a href="<?php echo home_url() ?>">Home</a>
             </li>
-            <?php if($destination_type != 'rfc_top') : ?>
-            <li>
-                <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
-            </li>
+            <?php if ($destination_type != 'rfc_top') : ?>
+                <li>
+                    <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
+                </li>
             <?php endif; ?>
             <li>
                 <?php echo get_the_title(); ?>
@@ -253,7 +260,9 @@ if ($templateType == 'template-destinations-region.php') {
                     if ($featured_image) {
                         $imageID = $featured_image['ID'];
                     }
-                    $guideCategories = get_field('categories', $p);
+                    $guideCategories = ($destination_type == 'rfc_top') ? get_field('destinations', $p) : get_field('categories', $p);
+
+
                     $isoClasses = '';
                     if ($guideCategories) {
                         foreach ($guideCategories as $c) {
