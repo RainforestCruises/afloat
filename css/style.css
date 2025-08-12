@@ -3002,6 +3002,13 @@ h5 {
     padding-top: 3rem;
     position: relative; }
 
+.bio-page {
+  padding-top: 9rem; }
+  .bio-page__section-hero {
+    display: flex;
+    align-items: center;
+    flex-direction: column; }
+
 .agency-hero {
   display: flex;
   max-width: calc(112rem + 12rem);
@@ -3102,6 +3109,260 @@ h5 {
       @media only screen and (max-width: 62.5em) {
         .agency-person__content__image-area img {
           max-height: 48rem; } }
+
+.bio-hero {
+  display: flex;
+  max-width: calc(112rem + 12rem);
+  padding: 0 6rem;
+  display: grid;
+  grid-template-columns: 1fr 40rem;
+  gap: 10rem;
+  width: 100%; }
+  @media only screen and (max-width: 37.5em) {
+    .bio-hero {
+      padding: 0 3rem; } }
+  @media only screen and (max-width: 50em) {
+    .bio-hero {
+      grid-template-columns: 1fr;
+      gap: 3rem; } }
+  .bio-hero__content {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    align-content: center;
+    gap: 2rem; }
+    .bio-hero__content__title-group {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 2rem;
+      align-items: center; }
+      .bio-hero__content__title-group__avatar img {
+        height: 10rem;
+        width: 10rem;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+        margin-bottom: 2rem; }
+      .bio-hero__content__title-group__text {
+        color: #142838; }
+        .bio-hero__content__title-group__text__name {
+          font-size: 3.2rem;
+          line-height: 3.8rem;
+          font-weight: 600;
+          font-family: "Playfair Display", serif;
+          margin-bottom: 0.5rem; }
+        .bio-hero__content__title-group__text__position {
+          font-size: 1.6rem;
+          line-height: 2rem;
+          margin-bottom: 1.5rem;
+          font-weight: 400;
+          letter-spacing: .2rem; }
+    .bio-hero__content__introduction {
+      font-size: 1.6rem;
+      margin-bottom: 3rem; }
+    .bio-hero__content__attribute {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 1rem;
+      align-items: center;
+      font-size: 1.6rem;
+      color: #a06f3c;
+      margin-bottom: 0.5rem;
+      font-weight: 600; }
+      .bio-hero__content__attribute a {
+        text-decoration: none;
+        color: #a06f3c; }
+        .bio-hero__content__attribute a:hover {
+          color: #142838; }
+      .bio-hero__content__attribute svg {
+        height: 2rem;
+        width: 2rem;
+        fill: currentColor; }
+
+.bio-destination {
+  background-color: #f6f4f0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 6rem 0; }
+  .bio-destination__content {
+    width: 100%;
+    max-width: calc(112rem + 12rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    padding: 0 6rem; }
+    @media only screen and (max-width: 37.5em) {
+      .bio-destination__content {
+        padding: 0 3rem; } }
+    @media only screen and (max-width: 50em) {
+      .bio-destination__content {
+        grid-template-columns: 1fr; } }
+
+.bio-place__image {
+  margin-bottom: 2rem; }
+  .bio-place__image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem; }
+
+.bio-place__title {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  color: #142838; }
+
+.bio-place__name {
+  font-size: 4rem;
+  line-height: 4rem;
+  color: #142838;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 2rem; }
+
+.bio-place__description {
+  margin-bottom: 1.5rem; }
+
+.bio-place__link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.6rem;
+  color: #a06f3c;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-decoration: none; }
+  .bio-place__link:hover {
+    color: #142838; }
+  .bio-place__link svg {
+    height: 2rem;
+    width: 2rem;
+    margin-left: 0.5rem;
+    fill: currentColor; }
+
+.bio-reviews {
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10rem 0; }
+  .bio-reviews .slick-dots {
+    position: relative; }
+  .bio-reviews__title {
+    max-width: calc(112rem + 12rem);
+    padding: 0 6rem;
+    color: #142838;
+    font-size: 3rem; }
+    @media only screen and (max-width: 37.5em) {
+      .bio-reviews__title {
+        padding: 0 3rem; } }
+  .bio-reviews__testimonials {
+    padding: 0 6rem;
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+    @media only screen and (max-width: 37.5em) {
+      .bio-reviews__testimonials {
+        padding: 0 3rem; } }
+    .bio-reviews__testimonials__slider {
+      width: 100%;
+      max-width: 114rem;
+      position: relative;
+      display: block;
+      margin-top: 6rem;
+      margin-bottom: 6rem;
+      padding: 0 9rem; }
+      @media only screen and (max-width: 37.5em) {
+        .bio-reviews__testimonials__slider {
+          padding: 0rem;
+          margin-top: 3rem; } }
+
+.bio-testimonial {
+  position: relative;
+  overflow: visible; }
+  .bio-testimonial__quote {
+    height: 9rem;
+    width: 9rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    fill: #f8f8f8; }
+  .bio-testimonial__snippet {
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+    color: #142838;
+    margin-bottom: 2.5rem; }
+  .bio-testimonial__person {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2.5rem; }
+  .bio-testimonial__stars {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem; }
+    .bio-testimonial__stars svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      fill: #142838; }
+
+.bio-tips {
+  display: flex;
+  padding: 0 6rem;
+  width: 100%;
+  justify-content: center; }
+  @media only screen and (max-width: 37.5em) {
+    .bio-tips {
+      padding: 0 3rem; } }
+  .bio-tips__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    padding: 9rem 0;
+    max-width: calc(112rem + 12rem); }
+    .bio-tips__content__title {
+      color: #142838;
+      font-size: 3rem;
+      text-align: center; }
+    .bio-tips__content__tips {
+      font-size: 1.6rem;
+      margin-bottom: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 6rem; }
+      @media only screen and (max-width: 50em) {
+        .bio-tips__content__tips {
+          grid-template-columns: 1fr 1fr; } }
+      @media only screen and (max-width: 37.5em) {
+        .bio-tips__content__tips {
+          grid-template-columns: 1fr; } }
+
+.bio-tip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 20rem;
+  gap: 2rem; }
+  .bio-tip__icon svg {
+    width: 4.5rem;
+    height: 4.5rem;
+    fill: #142838; }
+  .bio-tip__description {
+    text-align: center; }
+
+.bio-articles__title {
+  font-family: "Metropolis", sans-serif !important;
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: 0; }
 
 .deals-hero {
   max-width: 132rem;

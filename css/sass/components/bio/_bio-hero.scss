@@ -1,0 +1,84 @@
+.bio-hero {
+  display: flex;
+  max-width: $page-width;
+  @include flexPadding;
+  display: grid;
+  grid-template-columns: 1fr 40rem;
+  gap: 10rem;
+  width: 100%;
+  @media only screen and (max-width: $bp-medium ) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  &__content {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    align-content: center;
+    gap: 2rem;
+
+    &__title-group {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 2rem;
+      align-items: center;
+
+      &__avatar {
+        & img {
+          height: 10rem;
+          width: 10rem;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 50%;
+          margin-bottom: 2rem;
+        }
+      }
+      &__text {
+        color: $color-primary;
+        &__name {
+          font-size: 3.2rem;
+          line-height: 3.8rem;
+          font-weight: 600;
+          font-family: $font-secondary;
+          margin-bottom: 0.5rem;
+        }
+        &__position {
+          font-size: 1.6rem;
+          line-height: 2rem;
+          margin-bottom: 1.5rem;
+          font-weight: 400;
+          letter-spacing: .2rem;
+        }
+      }
+    }
+
+    &__introduction {
+      font-size: 1.6rem;
+      margin-bottom: 3rem;
+    }
+
+    &__attribute {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 1rem;
+      align-items: center;
+      font-size: 1.6rem;
+      color: $color-khaki;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      & a {
+        text-decoration: none;
+        color: $color-khaki;
+        &:hover { 
+          color: $color-primary;
+        }
+      }
+      & svg {
+        height: 2rem;
+        width: 2rem;
+        fill: currentColor;
+      }
+
+      
+    }
+  }
+}

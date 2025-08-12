@@ -30,9 +30,17 @@
 @import "pages/deals";
 @import "pages/reviews";
 @import "pages/agency";
+@import "pages/bio";
 
 //agency
 @import "components/agency/agency-hero";
+
+//bio
+@import "components/bio/bio-hero";
+@import "components/bio/bio-destination";
+@import "components/bio/bio-reviews";
+@import "components/bio/bio-tips";
+@import "components/bio/bio-articles";
 
 //deals
 @import "components/deals/deals-hero";
