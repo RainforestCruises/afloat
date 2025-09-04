@@ -19,21 +19,25 @@ $destinations = $args['destinations'];
                 $destinationPost = $d['destination'];
                 $slideTitle = get_field('navigation_title', $destinationPost);
                 $image = $d['image'];
+                $dealCount = deals_available($destinationPost);
+                if ($dealCount == 0) {
+                    continue;
+                }
             ?>
-                
+
 
 
                 <a href="<?php echo $d['page_link'] ?>" class="card-square">
                     <div class="card-square__title-group">
                         <div class="card-square__title-group__level">
-                            
+
                         </div>
                         <div>
                             <h4 class="card-square__title-group__name">
                                 <?php echo  $slideTitle ?>
                             </h4>
                             <div class="card-square__title-group__subtext">
-                            <?php  echo deals_available($destinationPost);?> Deals
+                                <?php echo $dealCount; ?> Deals
                             </div>
                         </div>
 
@@ -46,7 +50,7 @@ $destinations = $args['destinations'];
                 </a>
 
 
-                 
+
 
         <?php endforeach;
         endif; ?>
