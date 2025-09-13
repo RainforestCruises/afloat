@@ -3177,6 +3177,8 @@ h5 {
         height: 2rem;
         width: 2rem;
         fill: currentColor; }
+  .bio-hero__image {
+    padding-top: 3rem; }
 
 .bio-destination {
   background-color: #f6f4f0;
@@ -3363,6 +3365,34 @@ h5 {
   font-weight: 700;
   font-size: 3rem;
   letter-spacing: 0; }
+
+.bio-introduction {
+  display: flex;
+  padding: 0 6rem;
+  width: 100%;
+  justify-content: center;
+  padding: 6rem 0; }
+  @media only screen and (max-width: 37.5em) {
+    .bio-introduction {
+      padding: 0 3rem; } }
+  .bio-introduction__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    padding: 9rem 0;
+    max-width: calc(112rem + 12rem);
+    padding: 0 6rem; }
+    @media only screen and (max-width: 37.5em) {
+      .bio-introduction__content {
+        padding: 0 3rem; } }
+    .bio-introduction__content__title {
+      color: #142838;
+      font-size: 3rem;
+      text-align: center;
+      font-weight: 700; }
 
 .deals-hero {
   max-width: 132rem;

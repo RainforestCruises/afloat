@@ -24,6 +24,11 @@ wp_localize_script(
         get_template_part('template-parts/bio/content', 'bio-hero');
         ?>
     </section>
+    <section class="bio-page__section-introduction">
+        <?php
+        get_template_part('template-parts/bio/content', 'bio-introduction');
+        ?>
+    </section>
     <section class="bio-page__section-destination">
         <?php
         get_template_part('template-parts/bio/content', 'bio-destination');
