@@ -3338,7 +3338,7 @@ h5 {
       font-size: 1.6rem;
       margin-bottom: 3rem;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 6rem; }
       @media only screen and (max-width: 50em) {
         .bio-tips__content__tips {
