@@ -3424,6 +3424,11 @@ h5 {
     @media only screen and (max-width: 37.5em) {
       .bio-schedule__content {
         padding: 0 3rem; } }
+    @media only screen and (max-width: 50em) {
+      .bio-schedule__content {
+        grid-template-columns: 1fr;
+        gap: 6rem;
+        padding: 9rem 0; } }
     .bio-schedule__content__main {
       display: flex;
       align-items: center;
@@ -3458,6 +3463,9 @@ h5 {
       align-items: center;
       justify-content: center;
       width: 32rem; }
+      @media only screen and (max-width: 50em) {
+        .bio-schedule__content__avatar {
+          width: 100%; } }
       .bio-schedule__content__avatar img {
         height: 30rem;
         width: 30rem;
