@@ -8,6 +8,8 @@ $agent_introduction = get_field('agent_introduction');
 $agent_location = get_field('agent_location');
 $agent_email = get_field('agent_email');
 $top_level_about_page = get_field('top_level_about_page', 'options');
+$agent_phone_display = get_field('agent_phone_display');
+$agent_phone_number = get_field('agent_phone_number');
 
 
 ?>
@@ -51,11 +53,17 @@ $top_level_about_page = get_field('top_level_about_page', 'options');
                 </svg>
                 <?php echo $agent_location ?>
             </div>
-            <div class="bio-hero__content__attribute" style="margin-bottom: 4rem;">
+            <div class="bio-hero__content__attribute" >
                 <svg>
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-envelope-o"></use>
                 </svg>
                 <a href="mailto:<?php echo $agent_email ?>"><?php echo $agent_email ?></a>
+
+            </div>
+            <div class="bio-hero__content__attribute" style="margin-bottom: 4rem;">
+                <a href="tel:<?php echo get_field('agent_phone_number'); ?>">
+                    <?php echo get_field('agent_phone_display'); ?>
+                </a>
 
             </div>
 

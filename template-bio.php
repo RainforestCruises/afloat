@@ -34,24 +34,20 @@ wp_localize_script(
         get_template_part('template-parts/bio/content', 'bio-destination');
         ?>
     </section>
-    <section class="bio-page__section-reviews">
-        <?php
-        get_template_part('template-parts/bio/content', 'bio-reviews');
-        ?>
-    </section>
+
     <section class="bio-page__section-destination">
         <?php
         get_template_part('template-parts/bio/content', 'bio-destination-part2');
         ?>
     </section>
-    <section class="bio-page__section-tips">
+    <section class="bio-page__section-reviews">
         <?php
-        get_template_part('template-parts/bio/content', 'bio-tips');
+        get_template_part('template-parts/bio/content', 'bio-reviews');
         ?>
     </section>
-    <section class="bio-page__section-articles">
+    <section class="bio-page__section-schedule">
         <?php
-        get_template_part('template-parts/bio/content', 'bio-articles');
+        get_template_part('template-parts/bio/content', 'bio-schedule');
         ?>
     </section>
 </main>
