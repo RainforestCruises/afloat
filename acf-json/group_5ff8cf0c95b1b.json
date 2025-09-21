@@ -19,7 +19,8 @@
                 "rfc_destinations": "Destination",
                 "rfc_regions": "Region",
                 "rfc_locations": "Location",
-                "rfc_top": "Top Level"
+                "rfc_top": "Top Level",
+                "rfc_author": "Author"
             },
             "allow_null": 0,
             "other_choice": 0,
@@ -119,13 +120,51 @@
             "ui": 1
         },
         {
+            "key": "field_68cd91392b691",
+            "label": "Author",
+            "name": "author",
+            "type": "post_object",
+            "instructions": "Select the author post",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6001f5a1132c1",
+                        "operator": "==",
+                        "value": "rfc_author"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_authors"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
             "key": "field_5ff8d1157ea4e",
             "label": "Image",
             "name": "image",
             "type": "image",
             "instructions": "1100 x 350 min",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6001f5a1132c1",
+                        "operator": "!=",
+                        "value": "rfc_author"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -149,7 +188,15 @@
             "type": "post_object",
             "instructions": "Destination Landing Page",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6001f5a1132c1",
+                        "operator": "!=",
+                        "value": "rfc_author"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -250,5 +297,5 @@
     "active": true,
     "description": "Travel Guide Landing - Page",
     "show_in_rest": 0,
-    "modified": 1751713761
+    "modified": 1758316952
 }

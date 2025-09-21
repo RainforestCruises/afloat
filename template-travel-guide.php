@@ -13,6 +13,8 @@ wp_localize_script(
 get_header();
 
 $destination = get_field('destination');
+$author = get_field('author');
+
 $region = get_field('region');
 $location = get_field('location');
 $image = get_field('image');
@@ -44,6 +46,22 @@ if ($destination_type == 'rfc_destinations') {
         )
     );
 };
+
+//all related posts
+if ($destination_type == 'rfc_author') {
+    $args = array(
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_travel_guides',
+        'meta_query' => array(
+            array(
+                'key' => 'author',
+                'value' => $author->ID,
+                'compare' => '='
+            )
+        )
+    );
+};
+
 
 
 if ($destination_type == 'rfc_regions') {
@@ -95,7 +113,7 @@ if ($destination_type == 'rfc_top') {
 };
 
 $posts = get_posts($args); // regular posts
-
+console_log($posts);
 $featured_args = $args; // Copy the existing args that match your destination type
 
 // Add the is_featured condition to the meta_query
@@ -139,7 +157,7 @@ if ($templateType == 'template-destinations-region.php') {
             <li>
                 <a href="<?php echo home_url() ?>">Home</a>
             </li>
-            <?php if ($destination_type != 'rfc_top') : ?>
+            <?php if ($destination_type != 'rfc_top' && $destination_type != 'rfc_author') : ?>
                 <li>
                     <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
                 </li>
@@ -154,6 +172,36 @@ if ($templateType == 'template-destinations-region.php') {
         <h1 class="travel-guide-landing-page__content__title">
             <?php echo $pageTitle ?>
         </h1>
+        <?php if ($destination_type == 'rfc_author' && $author != null) :
+            $authorImage = get_field('image', $author);
+            $authorWebsite = get_field('website', $author);
+            $authorTwitter = get_field('twitter', $author);
+        ?>
+            <div class="travel-guide-landing-page__content__author">
+                <div class="travel-guide-landing-page__content__author__avatar">
+                    <img src="<?php echo $authorImage['url']; ?>" alt="<?php echo $authorImage['alt']; ?>">
+                </div>
+                <div class="travel-guide-landing-page__content__author__links">
+                    <?php if ($authorWebsite) : ?>
+                        <a class="travel-guide-landing-page__content__author__links__social" href="<?php echo $authorWebsite; ?>" target="_blank" rel="noopener">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-globe"></use>
+                            </svg>
+                            <?php echo $authorWebsite; ?>
+                        </a>
+                    <?php endif; ?>
+                    <?php if ($authorTwitter) : ?>
+                        <a class="travel-guide-landing-page__content__author__links__social" href="<?php echo 'https://x.com/' . $authorTwitter; ?>" target="_blank" rel="noopener">
+                            <svg>
+                                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-twitter-x"></use>
+                            </svg>
+                            @<?php echo $authorTwitter; ?>
+                        </a>
+                    <?php endif; ?>
+                </div>
+
+            </div>
+        <?php endif; ?>
         <div class="travel-guide-landing-page__content__subtext">
             <?php echo $intro_snippet ?>
         </div>

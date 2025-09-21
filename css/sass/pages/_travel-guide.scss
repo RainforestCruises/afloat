@@ -155,116 +155,6 @@
     }
   }
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem;
-    hyphens: auto;
-    & p:not(.wp-caption-text):first-of-type {
-      font-size: 2.5rem;
-      text-align: center;
-      position: relative;
-      line-height: 3.2rem;
-      &::after {
-        content: "";
-        position: absolute;
-        height: 1px;
-        width: 60%;
-        background-color: $color-grey-light-1a;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      //padding: 5rem 0;
-      padding: 4rem 0;
-      padding-top: 2rem;
-      margin-bottom: 4rem;
-
-      @media only screen and (max-width: $bp-small) {
-        padding-top: 1rem;
-        padding-bottom: 4rem;
-        margin-bottom: 4rem;
-        font-size: 2rem;
-      }
-    }
-
-    & p:not(:first-child) {
-      max-width: 80rem;
-      align-self: center;
-      font-size: 1.6rem;
-    }
-
-    & ul,
-    ol {
-      max-width: 80rem;
-      align-self: center;
-      font-size: 1.6rem;
-      width: 100%;
-      padding-left: 3rem;
-      padding-bottom: 2rem;
-    }
-
-    & img {
-      object-fit: cover;
-      height: auto;
-      width: 100%;
-      margin: 3rem 0;
-    }
-    & p {
-      width: 100%;
-    }
-
-    & h2,
-    h3,
-    h4,
-    h5 {
-      align-self: center;
-      display: block;
-      width: 100%;
-      max-width: 80rem;
-      color: $color-primary;
-      font-weight: 600;
-    }
-
-    & h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    & h3 {
-      font-size: 2.5rem;
-      letter-spacing: 0rem;
-    }
-
-    & a:link,
-    a:visited {
-      text-decoration: none;
-      color: $color-supporting;
-      transition: all 0.2s;
-    }
-    & a:hover {
-      color: $color-supporting-light;
-    }
-
-    & hr {
-      align-self: center;
-      display: block;
-      width: 100%;
-      max-width: 80rem;
-      border-top: 1px solid $color-grey-light-1a;
-      font-weight: 600;
-      margin-top: 3rem;
-      margin-bottom: 6rem;
-    }
-
-    & iframe {
-      width: 100% !important;
-      height: 50rem;
-
-      @media only screen and (max-width: $bp-small) {
-        height: 35rem;
-      }
-    }
-  }
 
   &__question {
     display: flex;
@@ -365,6 +255,7 @@
     padding: 3rem 10rem;
     text-align: center;
     align-items: center;
+    margin-top: 4rem;
 
     @media only screen and (max-width: $bp-medium) {
       padding: 3rem 0rem;
@@ -427,6 +318,79 @@
     }
 
     margin-bottom: 6rem;
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 80rem;
+    color: $color-primary;
+    padding-top: 4rem;
+    &__title {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid $color-grey-light-1a;
+      padding-bottom: 1rem;
+    }
+
+    &__info {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 3rem;
+
+      @media only screen and (max-width: $bp-small) {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      &__image {
+        & img {
+          width: 12rem;
+          height: 12rem;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
+      &__text {
+        display: flex;
+        flex-direction: column;
+
+        &__name {
+          font-size: 2rem;
+          font-weight: 700;
+        }
+
+        &__description {
+          & p {
+            font-size: 1.4rem;
+          }
+          margin-bottom: 1.5rem;
+        }
+
+        &__social {
+          display: grid;
+          grid-template-columns: max-content max-content;
+          align-items: center;
+          font-size: 1.3rem;
+          margin-bottom: 0.5rem;
+
+          &:link,
+          &:visited {
+            color: currentColor;
+            text-decoration: none;
+          }
+          & svg {
+            height: 1.4rem;
+            width: 1.4rem;
+            fill: currentColor;
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
   }
 }
 

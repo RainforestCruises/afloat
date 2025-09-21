@@ -1,5 +1,24 @@
 <?php 
 
+// Custom Post Type - Authors
+function create_post_type_rfc_authors()
+{
+    register_post_type(
+        'rfc_authors',
+        array(
+            'labels' => array(
+                'name' => __('Authors'),
+                'singular_name' => __('Author'),
+            ),
+            'public' => true,
+            'rewrite' => array('slug' => 'authors'),
+            'supports' => array(
+                'title'
+            )
+        )
+    );
+}
+add_action('init', 'create_post_type_rfc_authors');
 
 
 // Custom Post Type - Deals
@@ -22,7 +41,6 @@ function create_post_type_rfc_deals()
     );
 }
 add_action('init', 'create_post_type_rfc_deals');
-
 
 
 // Custom Post Type - Deal Categories

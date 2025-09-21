@@ -46,6 +46,28 @@
             "mime_types": ""
         },
         {
+            "key": "field_68cd8c8adaae0",
+            "label": "Author",
+            "name": "author",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_authors"
+            ],
+            "taxonomy": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
             "key": "field_60abf5ae5dfe3",
             "label": "Breadcrumb Destination Page",
             "name": "breadcrumb_destination_page",
@@ -247,5 +269,5 @@
     "active": true,
     "description": "Travel Guide - CPT",
     "show_in_rest": 0,
-    "modified": 1740156942
+    "modified": 1758301358
 }
