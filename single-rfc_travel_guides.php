@@ -165,7 +165,7 @@ while (have_posts()) :
                 <?php echo $description; ?>
               </div>
               <?php if ($website) : ?>
-                <a class="travel-guide__author__info__text__social" href="<?php echo $website; ?>" target="_blank" rel="noopener">
+                <a class="travel-guide__author__info__text__social" href="<?php echo $website; ?>" target="_blank" rel="nofollow noopener">
                   <svg>
                     <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-globe"></use>
                   </svg>

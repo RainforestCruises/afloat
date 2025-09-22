@@ -183,7 +183,7 @@ if ($templateType == 'template-destinations-region.php') {
                 </div>
                 <div class="travel-guide-landing-page__content__author__links">
                     <?php if ($authorWebsite) : ?>
-                        <a class="travel-guide-landing-page__content__author__links__social" href="<?php echo $authorWebsite; ?>" target="_blank" rel="noopener">
+                        <a class="travel-guide-landing-page__content__author__links__social" href="<?php echo $authorWebsite; ?>" target="_blank" rel="nofollow noopener">
                             <svg>
                                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-globe"></use>
                             </svg>
