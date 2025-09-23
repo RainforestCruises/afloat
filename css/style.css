@@ -2000,49 +2000,46 @@ h5 {
   .travel-guide__author {
     display: flex;
     flex-direction: column;
-    width: 100%;
     max-width: 80rem;
     color: #142838;
-    padding-top: 4rem; }
-    .travel-guide__author__title {
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      border-bottom: 1px solid #e6e6e6;
-      padding-bottom: 1rem; }
-    .travel-guide__author__info {
-      display: grid;
-      grid-template-columns: max-content 1fr;
-      gap: 3rem; }
-      @media only screen and (max-width: 37.5em) {
-        .travel-guide__author__info {
-          grid-template-columns: 1fr;
-          gap: 1rem; } }
-      .travel-guide__author__info__image img {
-        width: 12rem;
-        height: 12rem;
-        border-radius: 50%;
-        object-fit: cover; }
-      .travel-guide__author__info__text {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid #e6e6e6;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 3rem; }
+    .travel-guide__author__image img {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      object-fit: cover; }
+    .travel-guide__author__text {
+      display: flex;
+      flex-direction: column; }
+      .travel-guide__author__text__name {
+        font-size: 2rem;
+        font-weight: 700; }
+      .travel-guide__author__text__description {
+        margin-bottom: 1.5rem; }
+        .travel-guide__author__text__description p {
+          font-size: 1.4rem; }
+      .travel-guide__author__text__social {
         display: flex;
-        flex-direction: column; }
-        .travel-guide__author__info__text__name {
-          font-size: 2rem;
-          font-weight: 700; }
-        .travel-guide__author__info__text__description {
-          margin-bottom: 1.5rem; }
-          .travel-guide__author__info__text__description p {
-            font-size: 1.4rem; }
-        .travel-guide__author__info__text__social {
+        gap: 2rem; }
+        @media only screen and (max-width: 37.5em) {
+          .travel-guide__author__text__social {
+            flex-direction: column;
+            gap: 0.5rem; } }
+        .travel-guide__author__text__social__item {
           display: grid;
           grid-template-columns: max-content max-content;
           align-items: center;
           font-size: 1.3rem;
           margin-bottom: 0.5rem; }
-          .travel-guide__author__info__text__social:link, .travel-guide__author__info__text__social:visited {
+          .travel-guide__author__text__social__item:link, .travel-guide__author__text__social__item:visited {
             color: currentColor;
             text-decoration: none; }
-          .travel-guide__author__info__text__social svg {
+          .travel-guide__author__text__social__item svg {
             height: 1.4rem;
             width: 1.4rem;
             fill: currentColor;
@@ -3395,7 +3392,7 @@ h5 {
     .bio-testimonial__stars svg {
       width: 2.5rem;
       height: 2.5rem;
-      fill: #142838; }
+      fill: #d9a402; }
 
 .bio-tips {
   display: flex;
