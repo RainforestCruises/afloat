@@ -70,7 +70,7 @@
     color: $color-gold;
     text-align: center;
     font-weight: 500;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   &__title {
@@ -431,69 +431,85 @@
   }
 
   &__author {
-    display: flex;
-    flex-direction: column;
-    
-    max-width: 80rem;
-    color: $color-primary;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    border-top: 1px solid $color-grey-light-1a;
+    margin-bottom: 3rem;
+    text-decoration: none !important;
+    color: $color-primary !important;
 
-    display: grid;
-    grid-template-columns: max-content max-content;
-    gap: 3rem;
-
-    &__image {
-      & img {
-        width: 6rem;
-        height: 6rem;
-        border-radius: 50%;
-        object-fit: cover;
-      }
+    &__by {
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
     }
 
-    &__text {
+    &__main {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      max-width: 80rem;
+      display: grid;
+      grid-template-columns: max-content max-content;
+      gap: 2rem;
 
-      &__name {
-        font-size: 2rem;
-        font-weight: 700;
+      &:link,
+      &:visited {
+        text-decoration: none !important;
+        color: $color-primary !important;
       }
 
-      &__description {
-        & p {
-          font-size: 1.4rem;
+      &__image {
+        & img {
+          width: 6rem;
+          height: 6rem;
+          border-radius: 50%;
+          object-fit: cover;
         }
-        margin-bottom: 1.5rem;
       }
 
-      &__social {
+      &__text {
         display: flex;
-        gap: 2rem;
-        @media only screen and (max-width: $bp-small) {
-          flex-direction: column;
-          gap: 0.5rem;
+        flex-direction: column;
+        justify-content: center;
+        &__name {
+          font-size: 2.4rem;
+          font-weight: 700;
+          line-height: 2.4rem;
         }
 
-        &__item {
-          display: grid;
-          grid-template-columns: max-content max-content;
-          align-items: center;
-          font-size: 1.3rem;
-          margin-bottom: 0.5rem;
-
-          &:link,
-          &:visited {
-            color: currentColor;
-            text-decoration: none;
+        &__description {
+          & p {
+            font-size: 1.4rem;
           }
-          & svg {
-            height: 1.4rem;
-            width: 1.4rem;
-            fill: currentColor;
-            margin-right: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        &__social {
+          display: flex;
+          gap: 2rem;
+          font-size: 1.5rem;
+          @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            gap: 0.5rem;
+          }
+
+          &__item {
+            display: grid;
+            grid-template-columns: max-content max-content;
+            align-items: center;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+
+            &:link,
+            &:visited {
+              color: currentColor;
+              text-decoration: none;
+            }
+            & svg {
+              height: 1.4rem;
+              width: 1.4rem;
+              fill: currentColor;
+              margin-right: 1rem;
+            }
           }
         }
       }

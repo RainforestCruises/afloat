@@ -21,7 +21,7 @@ $toc = generateIndex($content)['index'];
 
 while (have_posts()) :
   the_post();
-  $image  = get_field('featured_image');
+  $featured_image  = get_field('featured_image');
   $categories  = get_field('categories');
   $displayCategory = "";
 
@@ -109,9 +109,6 @@ while (have_posts()) :
         <li>
           <a href=" <?php echo $breadcrumbTravelGuideURL; ?>"><?php echo $breadcrumbTravelGuideText; ?> Travel Guide</a>
         </li>
-        <li>
-          <?php echo get_field('navigation_title'); ?>
-        </li>
       </ol>
 
       <h1 class="travel-guide__title">
@@ -129,42 +126,33 @@ while (have_posts()) :
         $name = get_the_title($author);
         $website = get_field('website', $author);
         $twitter = get_field('twitter', $author);
+        $author_page = get_field('author_page', $author);
 
       ?>
         <div class="travel-guide__author">
-          <div class="travel-guide__author__image">
-            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+          <div class="travel-guide__author__by">
+            By
           </div>
-          <div class="travel-guide__author__text">
-            <div class="travel-guide__author__text__name">
-              By <?php echo $name; ?>
+          <a class="travel-guide__author__main" href="<?php echo $author_page; ?>">
+            <div class="travel-guide__author__main__image">
+              <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
             </div>
-            <div class="travel-guide__author__text__social">
-              <?php if ($website) : ?>
-                <a class="travel-guide__author__text__social__item" href="<?php echo $website; ?>" target="_blank" rel="nofollow noopener">
-                  <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-globe"></use>
-                  </svg>
-                  <?php echo $website; ?>
-                </a>
-              <?php endif; ?>
-              <?php if ($twitter) : ?>
-                <a class="travel-guide__author__text__social__item" href="<?php echo 'https://x.com/' . $twitter; ?>" target="_blank" rel="noopener">
-                  <svg>
-                    <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-twitter-x"></use>
-                  </svg>
-                  @<?php echo $twitter; ?>
-                </a>
-              <?php endif; ?>
-
+            <div class="travel-guide__author__main__text">
+              <div class="travel-guide__author__main__text__name">
+                <?php echo $name; ?>
+              </div>
+              <div class="travel-guide__author__main__text__social">
+                Guest Writer
+              </div>
             </div>
 
-          </div>
+      </a>
+
         </div>
       <?php endif; ?>
       <div class="travel-guide__image">
-        <?php if ($image) : ?>
-          <img <?php afloat_image_markup($image['ID'], 'featured-largest', array('featured-largest', 'featured-large')); ?>>
+        <?php if ($featured_image) : ?>
+          <img <?php afloat_image_markup($featured_image['ID'], 'featured-largest', array('featured-largest', 'featured-large')); ?>>
         <?php endif; ?>
       </div>
 

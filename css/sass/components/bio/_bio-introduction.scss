@@ -3,7 +3,6 @@
   @include flexPadding;
   width: 100%;
   justify-content: center;
-  padding: 6rem 0;
   &__content {
     width: 100%;
     display: flex;
@@ -11,8 +10,8 @@
     justify-content: center;
     align-items: center;
     gap: 6rem;
-    padding: 9rem 0;
-    max-width: $page-width;
+    padding: 9rem;
+    max-width: 100rem;
     @include flexPadding;
 
     &__title {
@@ -31,7 +30,7 @@
         top: 0;
         right: 0;
         z-index: -1;
-        fill: $color-grey-light-1;
+        fill: $color-grey-light-1a;
       }
     }
   }

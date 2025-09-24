@@ -34,7 +34,11 @@ wp_localize_script(
         get_template_part('template-parts/bio/content', 'bio-destination');
         ?>
     </section>
-
+    <section class="bio-page__section-cruise-picks">
+        <?php
+        get_template_part('template-parts/bio/content', 'bio-cruise-picks');
+        ?>
+    </section>
     <section class="bio-page__section-destination">
         <?php
         get_template_part('template-parts/bio/content', 'bio-destination-part2');

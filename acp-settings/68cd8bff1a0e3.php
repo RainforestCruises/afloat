@@ -5,7 +5,7 @@ return array (
   'title' => 'Authors',
   'type' => 'rfc_authors',
   'id' => '68cd8bff1a0e3',
-  'updated' => 1758301183,
+  'updated' => 1758729402,
   'columns' => 
   array (
     'title' => 
@@ -91,6 +91,24 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '68cd8befba1cac',
+    ),
+    '68d414a63a5e34' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Author Page',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_68d4146c0fc9f',
+      'post_property_display' => 'title',
+      'post_link_to' => 'edit_post',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '68d414a63a5e34',
     ),
   ),
   'settings' => 
