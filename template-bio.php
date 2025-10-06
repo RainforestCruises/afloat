@@ -46,7 +46,7 @@ wp_localize_script(
     </section>
     <section class="bio-page__section-reviews">
         <?php
-        get_template_part('template-parts/bio/content', 'bio-reviews');
+        get_template_part('template-parts/bio/content', 'bio-reviews-embed');
         ?>
     </section>
     <section class="bio-page__section-schedule">

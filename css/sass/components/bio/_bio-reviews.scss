@@ -22,8 +22,8 @@
   &__testimonials {
      @include flexPadding;
     width: 100%;
-    display: flex;
-    justify-content: center;
+    //display: flex;
+    //justify-content: center;
     &__slider {
       width: 100%;
       max-width: 114rem;
