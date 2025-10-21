@@ -12,6 +12,8 @@ wp_localize_script(
     )
 );
 
+$hide_reviews = get_field('hide_reviews')
+
 
 ?>
 
@@ -46,7 +48,9 @@ wp_localize_script(
     </section>
     <section class="bio-page__section-reviews">
         <?php
-        get_template_part('template-parts/bio/content', 'bio-reviews-embed');
+        if($hide_reviews) : 
+            get_template_part('template-parts/bio/content', 'bio-reviews-embed'); 
+        endif;
         ?>
     </section>
     <section class="bio-page__section-schedule">
