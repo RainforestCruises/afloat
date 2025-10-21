@@ -48,7 +48,7 @@ $hide_reviews = get_field('hide_reviews')
     </section>
     <section class="bio-page__section-reviews">
         <?php
-        if($hide_reviews) : 
+        if(!$hide_reviews) : 
             get_template_part('template-parts/bio/content', 'bio-reviews-embed'); 
         endif;
         ?>
