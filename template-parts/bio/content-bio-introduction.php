@@ -10,8 +10,8 @@ $agent_gallery = get_field('agent_gallery');
 
         <div class="bio-introduction__content__image-area">
             <div class="image-collage">
-                <img class="image-collage__primary" <?php afloat_image_markup($agent_gallery[1]['id'], 'featured-medium', array('featured-medium', 'featured-small')); ?>>
-                <img class="image-collage__secondary" <?php afloat_image_markup($agent_gallery[2]['id'], 'featured-small', array('featured-small')); ?>>
+                <img class="image-collage__primary" <?php afloat_image_markup($agent_gallery[0]['id'], 'featured-medium', array('featured-medium', 'featured-small')); ?>>
+                <img class="image-collage__secondary" <?php afloat_image_markup($agent_gallery[1]['id'], 'featured-small', array('featured-small')); ?>>
             </div>
         </div>
         <div class="bio-introduction__content__quote-area">
