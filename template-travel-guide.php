@@ -100,7 +100,7 @@ if ($destination_type == 'rfc_locations') {
 
 if ($destination_type == 'rfc_top') {
     $args = array(
-        'posts_per_page' => -1,
+        'posts_per_page' => 30,
         'post_type' => 'rfc_travel_guides'
     );
 
