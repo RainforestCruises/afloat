@@ -79,5 +79,16 @@
         color: $color-supporting;
       }
     }
+
+        &__meet {
+      display: flex;
+      justify-content: center;
+      padding-top: 1rem;
+      & a:link,
+      & a:visited {
+        color: $color-white;
+        text-decoration: none;
+      }
+    }
   }
 }

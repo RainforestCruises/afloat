@@ -50,14 +50,18 @@ $headerText = get_field('team_header');
                         </div>
                         <?php if ($hasPhone) : ?>
                             <div>
-
                                 <a class="team-card__content__phone" href="tel:<?php echo $member['phone_number']; ?>">
                                     <?php echo $member['phone_display']; ?>
                                 </a>
                             </div>
-
                         <?php endif ?>
-
+                            <?php if ($hasBioPage) : ?>
+                                <div class="team-card__content__meet">
+                                    <a class="btn-cta-round btn-cta-round--small" href="<?php echo $member['bio_page_link']; ?>">
+                                        Meet Me
+                                    </a>
+                                </div>
+                            <?php endif ?>
                     </div>
                 </div>
 
