@@ -25,7 +25,7 @@ function specialist_review_shortcode($atts)
             <img src="' . esc_url($atts['avatar']) . '" alt="' . esc_attr($atts['name']) . '" class="custom-review__person__avatar">
             <div class="custom-review__person__name">' . esc_html($atts['name']) . '</div>
             <div class="custom-review__person__title">' . esc_html($atts['title']) . '</div>
-        </div>
+        </a>
         <div class="custom-review__quote">
             <div class="custom-review__quote__start-quote">
                 <svg>
