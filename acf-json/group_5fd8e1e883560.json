@@ -455,6 +455,35 @@
             "step": ""
         },
         {
+            "key": "field_691c8a4a74165",
+            "label": "Features",
+            "name": "features",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "single": "Single Dedicated Cabins",
+                "triple": "Triple Occupancy",
+                "quad": "Quad Occupancy",
+                "wifi": "Wi-Fi",
+                "connecting": "Interconnected Cabins",
+                "balconies": "Balconies"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 1,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_65a69803387ca",
             "label": "Landing Page",
             "name": "",
@@ -683,5 +712,5 @@
     "active": true,
     "description": "Search - Page",
     "show_in_rest": 0,
-    "modified": 1705416996
+    "modified": 1763567244
 }

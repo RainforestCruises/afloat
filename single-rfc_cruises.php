@@ -19,7 +19,8 @@ while (have_posts()) :
 
 
   $cruise_data = get_field('cruise_data');
-  console_log($cruise_data);
+
+
   //Time Variables
   $currentYear = date("Y");
   $currentMonth = date("m");
@@ -55,9 +56,8 @@ while (have_posts()) :
   }
 
   $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, true);
-  if($lowestPrice == 0){
-      $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, false);
-
+  if ($lowestPrice == 0) {
+    $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, false);
   }
   //Get Deals
   $dealPosts = listDealsForProduct(get_post(), $charter_view);
@@ -173,7 +173,7 @@ while (have_posts()) :
 
 
 
-  
+
   <!-- Date Search Form -->
   <form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">
 

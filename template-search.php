@@ -175,8 +175,6 @@ if ($selectedExperiences != null) {
     $experiencesString = implode(";", $experiences);
 }
 
-
-
 //URL param
 if (isset($_GET["experiences"])) {
     if (isset($_GET["experiences"]) && $_GET["experiences"]) {
@@ -223,8 +221,31 @@ if (isset($_GET["length_max"])) {
     }
 }
 
+//--Special Features
+$features = [];
+$featuresString = "";
+$selectedFeatures = get_field('features');
+
+
+if ($selectedFeatures != null) {
+    $features = $selectedFeatures;
+    $featuresString = implode(";", $features);
+}
+
+//URL param
+if (isset($_GET["features"])) {
+    if (isset($_GET["features"]) && $_GET["features"]) {
+        $featuresParameters = htmlspecialchars($_GET["features"]);
+        $featuresString = $featuresParameters;
+        $features = explode(";", $featuresString);
+    } else {
+        $features = [];
+        $featuresString = "";
+    }
+}
+
 //first load
-$resultsObject = getSearchPosts($travelTypes,  $destinations, $experiences, $searchType, $destinationId, $regionId, $lengthMin, $lengthMax, $departures, $searchInput, $sorting, $pageNumber, $viewType);
+$resultsObject = getSearchPosts($travelTypes,  $destinations, $experiences, $searchType, $destinationId, $regionId, $lengthMin, $lengthMax, $departures, $searchInput, $sorting, $pageNumber, $viewType, $features);
 $resultCount = $resultsObject['resultsCount'];
 
 //Page arguments ------------
@@ -238,6 +259,7 @@ $args = array(
     'departures' => $departures, //preselection
     'lengthMin' => $lengthMin, //preselection
     'lengthMax' => $lengthMax, //preselection
+    'features' => $features, //preselection
     'sorting' => $sorting,
     'searchInput' => $searchInput,
     'pageNumber' => $pageNumber,
@@ -317,6 +339,8 @@ $enable_hero_content = get_field('enable_hero_content');
     <input type="hidden" name="formDates" id="formDates" value="<?php echo $departuresString ?>">
     <input type="hidden" name="formTravelStyles" id="formTravelStyles" value="<?php echo $travelTypesString ?>">
     <input type="hidden" name="formDestinations" id="formDestinations" value="<?php echo $destinationsString ?>">
+    <input type="hidden" name="formFeatures" id="formFeatures" value="<?php echo $featuresString ?>">
+
     <input type="hidden" name="formExperiences" id="formExperiences" value="<?php echo $experiencesString ?>">
     <input type="hidden" name="formMinLength" id="formMinLength" value="<?php echo $lengthMin ?>">
     <input type="hidden" name="formMaxLength" id="formMaxLength" value="<?php echo $lengthMax ?>">

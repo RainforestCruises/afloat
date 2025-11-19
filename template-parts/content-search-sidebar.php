@@ -24,6 +24,8 @@ $selectedTravelTypes = $args['travelTypes'];
 $selectedExperiences = $args['experiences'];
 $selectedDestinations = $args['destinations'];
 $selectedDepartures = $args['departures'];
+$selectedFeatures = $args['features'];
+
 $searchInput = $args['searchInput'];
 
 
@@ -45,9 +47,9 @@ if ($searchType == 'destination') {
     $destinations = get_field('locations', $destinationId); //locations
     $isBucketList = get_field('is_bucket_list', $destinationId); //to hide location filters
 
-    usort($destinations, fn ($a, $b) => strcmp($a->navigation_title, $b->navigation_title)); //sort locations
-   
-  
+    usort($destinations, fn($a, $b) => strcmp($a->navigation_title, $b->navigation_title)); //sort locations
+
+
 }
 
 
@@ -190,6 +192,9 @@ if (get_field('itinerary_length_max') != null) {
         </div>
     </div>
 
+
+
+
     <!-- Departure Date Filter -->
     <div class="filter">
         <div class="filter__heading" id="departure-filter-heading">
@@ -302,6 +307,66 @@ if (get_field('itinerary_length_max') != null) {
                 endforeach; ?>
 
             </ul>
+        </div>
+    </div>
+
+    <!-- Occupancy Filter -->
+    <div class="filter">
+        <div class="filter__heading">
+            <h5 class="filter__heading__text">
+                Ship Features
+
+                <?php $filterCount = count($selectedFeatures); ?>
+                <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="featuresFilterCount">
+                    <?php echo $filterCount; ?>
+                </div>
+            </h5>
+
+            <svg>
+                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
+            </svg>
+        </div>
+        <div class="filter__content">
+            <!-- List -->
+            <ul class="filter__content__list">
+                <li class="filter__content__list__item">
+                    <div class="form-checkbox">
+                        <input class="checkbox features-checkbox" type="checkbox" id="features-checkbox-1" value="single" <?php echo (in_array('single', $selectedFeatures) ? 'checked' : '') ?>>
+                        <label for="features-checkbox-1" tabindex="1">Single Dedicated Cabins</label>
+                    </div>
+                </li>
+                <li class="filter__content__list__item">
+                    <div class="form-checkbox">
+                        <input class="checkbox features-checkbox" type="checkbox" id="features-checkbox-2" value="triple" <?php echo (in_array('triple', $selectedFeatures) ? 'checked' : '') ?>>
+                        <label for="features-checkbox-2" tabindex="2">Triple Occupancy</label>
+                    </div>
+                </li>
+                <li class="filter__content__list__item">
+                    <div class="form-checkbox">
+                        <input class="checkbox features-checkbox" type="checkbox" id="features-checkbox-3" value="quad" <?php echo (in_array('quad', $selectedFeatures) ? 'checked' : '') ?>>
+                        <label for="features-checkbox-3" tabindex="3">Quad Occupancy</label>
+                    </div>
+                </li>
+                <li class="filter__content__list__item">
+                    <div class="form-checkbox">
+                        <input class="checkbox features-checkbox" type="checkbox" id="features-checkbox-4" value="wifi" <?php echo (in_array('wifi', $selectedFeatures) ? 'checked' : '') ?>>
+                        <label for="features-checkbox-4" tabindex="4">Wi-Fi Onboard</label>
+                    </div>
+                </li>
+                <li class="filter__content__list__item">
+                    <div class="form-checkbox">
+                        <input class="checkbox features-checkbox" type="checkbox" id="features-checkbox-5" value="connecting" <?php echo (in_array('connecting', $selectedFeatures) ? 'checked' : '') ?>>
+                        <label for="features-checkbox-5" tabindex="5">Interconnected Cabins</label>
+                    </div>
+                </li>
+                <li class="filter__content__list__item">
+                    <div class="form-checkbox">
+                        <input class="checkbox features-checkbox" type="checkbox" id="features-checkbox-6" value="balconies" <?php echo (in_array('balconies', $selectedFeatures) ? 'checked' : '') ?>>
+                        <label for="features-checkbox-6" tabindex="6">Cabins with Balconies</label>
+                    </div>
+                </li>
+            </ul>
+            <!-- Extras here, button etc-->
         </div>
     </div>
 

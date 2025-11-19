@@ -1,6 +1,6 @@
 <?php
 //Upper bounded list of products for search results
-function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray, $searchInput, $sorting, $pageNumber, $viewType)
+function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray, $searchInput, $sorting, $pageNumber, $viewType, $features)
 {
 
     $charterFilter = false;
@@ -14,12 +14,10 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
         }
     }
 
-
     $args = array(
         'posts_per_page' => -1,
         'post_type' => $travelStyles,
     );
-
 
 
     if ($charterFilter == true) {
@@ -31,9 +29,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
     }
 
 
-
     //Get destinations by destination
-
     if ($searchType == 'destination') { //DESTINATION
         if ($destinations != null) { //selection - (Get Lima, Cusco, Amazon)
 
@@ -135,7 +131,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
     $posts = get_posts($args); //Stage I posts
-    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting, $searchInput, $viewType); //Stage II metadata
+    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting, $searchInput, $viewType, $features); //Stage II metadata
 
 
 
@@ -183,7 +179,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
 //Stage II - metadata
-function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting, $searchInput, $viewType)
+function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting, $searchInput, $viewType, $features)
 {
 
     $results = [];
@@ -296,6 +292,54 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                 $itineraryPriceValues = [];
                 $itineraryPriceValuesCharter = [];
 
+
+                // Skip if features requirements don't match
+                if (!empty($features)) {
+                    $featuresMatch = false;
+
+                    foreach ($features as $featureType) {
+                        $featureType = strtolower(trim($featureType));
+
+                        if ($featureType === 'single' && !empty($cruiseData['SingleOccupancy'])) {
+                            $featuresMatch = true;
+                            break;
+                        }
+                        if ($featureType === 'triple' && !empty($cruiseData['TripleOccupancy'])) {
+                            $featuresMatch = true;
+                            break;
+                        }
+                        if ($featureType === 'quad' && !empty($cruiseData['QuadOccupancy'])) {
+                            $featuresMatch = true;
+                            break;
+                        }
+
+                        $shipFeatures = get_field('features', $p);
+                        $wifi_available = $shipFeatures['wifi_available'];
+                        $connecting_cabins = $shipFeatures['connecting_cabins'];
+                        $cabins_with_balconies = $shipFeatures['cabins_with_balconies'];
+
+                        if ($featureType === 'wifi' && $wifi_available) {
+                            $featuresMatch = true;
+                            break;
+                        }
+
+                        if ($featureType === 'connecting' && $connecting_cabins) {
+                            $featuresMatch = true;
+                            break;
+                        }
+
+                        if ($featureType === 'balconies' && $cabins_with_balconies) {
+                            $featuresMatch = true;
+                            break;
+                        }
+                    }
+
+                    // Skip this post if no types matched
+                    if (!$featuresMatch) {
+                        continue;
+                    }
+                }
+
                 if (array_key_exists("Itineraries", $cruiseData)) {
                     foreach ($cruiseData['Itineraries'] as $itinerary) {
 
@@ -394,8 +438,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                 $charterDisplayFullPrice = get_field('charter_display_full_price', $p);
                 $itineraryLengthDisplayCharter =  $itineraryLengthCharter . " Days +";
                 if ($charterDisplayFullPrice && $charterOnly == false) { // wont be accurate if charter only and display full price
-                    $itineraryLengthDisplayCharter =  min($itineraryLengthValues) . " Days +";
-                    $itineraryLengthCharter = min($itineraryLengthValues);
+                    $itineraryLengthDisplayCharter = !empty($itineraryLengthValues) ? min($itineraryLengthValues) . " Days +" : "N/A";
+                    $itineraryLengthCharter = !empty($itineraryLengthValues) ? min($itineraryLengthValues) : 0;
                 };
             } else { //LODGES
                 $productTypeDisplay = 'Lodge Stay';

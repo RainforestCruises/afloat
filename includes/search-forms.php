@@ -48,20 +48,18 @@ function search_filter_home_search()
     $travelDate = null;
     if (isset($_POST['formDates']) && $_POST['formDates']) {
         $travelDate = $_POST['formDates'];
-
-        
     }
 
     $pageLink = null;
 
-    if($destinationId == 'anywhere'){
+    if ($destinationId == 'anywhere') {
         $pageLink = get_field('top_level_search_page', 'option');
-    }else {
+    } else {
         $destinationPost = get_post($destinationId);
         $pageLink = get_field('default_search_link', $destinationPost);
     }
 
-    
+
 
     if ($pageLink != null) {
 
@@ -70,7 +68,6 @@ function search_filter_home_search()
         } else {
             wp_redirect($pageLink);
         }
-        
     } else {
         wp_redirect(home_url());
     }
@@ -130,6 +127,13 @@ function search_filter_primary_search()
         $formExperiences = explode(";", $stringValue);
     }
 
+    //--features / occupancy
+    $formFeatures = [];
+    if (isset($_POST['formFeatures']) && $_POST['formFeatures']) {
+        $stringValue = $_POST['formFeatures'];
+        $formFeatures = explode(";", $stringValue);
+    }
+
     //--dates
     $formDates = null;
     if (isset($_POST['formDates']) && $_POST['formDates']) {
@@ -150,7 +154,7 @@ function search_filter_primary_search()
 
 
 
-    $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId, $formMinLength, $formMaxLength, $formDates, $formSearchInput, $sorting, $pageNumber, $viewType);
+    $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId, $formMinLength, $formMaxLength, $formDates, $formSearchInput, $sorting, $pageNumber, $viewType, $formFeatures);
 
 
 

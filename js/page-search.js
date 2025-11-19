@@ -22,16 +22,13 @@ jQuery(document).ready(function ($) {
 
   //SCROLLING
   const downArrow = document.querySelector("#down-arrow-button");
-  if(downArrow){
+  if (downArrow) {
     downArrow.addEventListener("click", (event) => {
       var target = $("#about-section").offset().top;
       $("html, body").animate({ scrollTop: target }, 500);
       event.preventDefault();
     });
   }
-
-
-
 
   function showMobileFilters() {
     searchSidebar.classList.add("show");
@@ -135,6 +132,8 @@ jQuery(document).ready(function ($) {
   const formDates = document.querySelector("#formDates");
   const formTravelStyles = document.querySelector("#formTravelStyles");
   const formDestinations = document.querySelector("#formDestinations");
+  const formFeatures = document.querySelector("#formFeatures");
+
   const formExperiences = document.querySelector("#formExperiences");
   const formMinLength = document.querySelector("#formMinLength");
   const formMaxLength = document.querySelector("#formMaxLength");
@@ -431,6 +430,40 @@ jQuery(document).ready(function ($) {
     });
   });
 
+  // features / occupancy selections
+  let featuresString = formFeatures.value;
+  const featuresArray = [...document.querySelectorAll(".features-checkbox")];
+  featuresArray.forEach((item) => {
+    item.addEventListener("click", () => {
+      featuresString = "";
+      let count = 0;
+      featuresArray.forEach((checkbox) => {
+        const itemValue = checkbox.value;
+
+        if (checkbox.checked) {
+          if (count > 0) {
+            featuresString += ";";
+          }
+          featuresString += itemValue;
+          count++;
+        }
+      });
+
+      //filter count
+      let featuresFilterCount = document.getElementById("featuresFilterCount");
+      if (count > 0) {
+        featuresFilterCount.classList.add("show");
+        featuresFilterCount.innerHTML = count;
+      } else {
+        featuresFilterCount.classList.remove("show");
+        featuresFilterCount.innerHTML = count;
+      }
+
+      formFeatures.value = featuresString;
+      reloadResults();
+    });
+  });
+
   var lengthSliderMin = 1;
   var lengthSliderMax = 21;
 
@@ -549,6 +582,10 @@ jQuery(document).ready(function ($) {
 
     if (experiencesString != null) {
       params.set("experiences", experiencesString);
+    }
+
+    if (formFeatures.value != null) {
+      params.set("features", formFeatures.value);
     }
 
     if (formMinLength.value != null) {
