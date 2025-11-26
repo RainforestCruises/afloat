@@ -477,8 +477,17 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
 
             //Lowest Price
             if (count($itineraryPriceValues) > 0) {
-                // possibly, exclude zero prices
-                $productLowestPrice = min($itineraryPriceValues);
+                // Filter out zero values
+                $nonZeroPrices = array_filter($itineraryPriceValues, function ($price) {
+                    return $price > 0;
+                });
+                console_log('prices');
+
+                console_log($itineraryPriceValues);
+
+                if (count($nonZeroPrices) > 0) {
+                    $productLowestPrice = min($nonZeroPrices);
+                }
             }
             if ($charterOnly == true) {
                 $productLowestPrice = $productLowestCharterPrice;
