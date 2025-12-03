@@ -40,17 +40,18 @@ jQuery(document).ready(function ($) {
   var iframe = document.getElementById("modal-video-iframe");
   if (iframe) {
     const vimeoPlayer = new Vimeo.Player(iframe);
-
-    // video modal
     const videoModal = document.querySelector("#videoModal");
-    const videoPlayButton = document.querySelector(".video-play-button");
+    const videoPlayButtons = [...document.querySelectorAll(".video-play-button")];
 
     // -- open / play
-    videoPlayButton.addEventListener("click", () => {
-      videoModal.style.display = "flex";
-      $body.addClass("no-scroll");
-      console.log("play");
-      vimeoPlayer.play();
+    videoPlayButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        videoModal.style.display = "flex";
+        $body.addClass("no-scroll");
+        vimeoPlayer.play();
+
+        
+      });
     });
 
     // -- stop playing
@@ -67,8 +68,6 @@ jQuery(document).ready(function ($) {
     };
   }
 
-
-
   //Flickity
   var flickitySlider = new Flickity(".destination-hero__bg-slider", {
     prevNextButtons: false,
@@ -77,29 +76,8 @@ jQuery(document).ready(function ($) {
     lazyLoad: true,
     selectedAttraction: 0.01,
     friction: 0.15,
-    // options
   });
 
-  // //Flickity Nav
-  // var flickitySliderNav = new Flickity('.destination-hero__content__location__slider', {
-  //     prevNextButtons: true,
-  //     pageDots: false,
-  //     selectedAttraction: 0.01,
-  //     friction: 0.15,
-  //     fade: true,
-  //     //lazyLoad: true,
-  //     asNavFor: '.destination-hero__bg-slider'
-  //     // options
-  // });
-
-  // $(".destination-hero__content__location__slider .next").on("click", function () {
-  //     // Changing items of the main div
-  //     flickitySlider.next();
-  // });
-  // $(".destination-hero__content__location__slider .previous").on("click", function () {
-  //     // Changing items of the main div
-  //     flickitySlider.previous();
-  // });
 
   //location slider
   counter = new Odometer({

@@ -381,6 +381,33 @@
             "maxlength": ""
         },
         {
+            "key": "field_69305097326a4",
+            "label": "Video Hero Card",
+            "name": "video_hero_card",
+            "type": "file",
+            "instructions": "upload .mp4",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_679a68cd6cd4b",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_5ffe195b09668",
             "label": "Cruises Section",
             "name": "",
@@ -1417,5 +1444,5 @@
     "active": true,
     "description": "Destination (Cruise) - Page",
     "show_in_rest": 0,
-    "modified": 1752063434
+    "modified": 1764774074
 }

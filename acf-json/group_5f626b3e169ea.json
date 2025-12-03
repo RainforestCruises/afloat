@@ -381,6 +381,33 @@
             "maxlength": ""
         },
         {
+            "key": "field_69303d8f8d175",
+            "label": "Video Hero Card",
+            "name": "video_hero_card",
+            "type": "file",
+            "instructions": "upload short .mp4 video",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_679a60927face",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_5ffe0ed2decc1",
             "label": "Tour Packages Section",
             "name": "",
@@ -1354,5 +1381,5 @@
     "active": true,
     "description": "Destination (Destination) - Page",
     "show_in_rest": 0,
-    "modified": 1738170598
+    "modified": 1764769282
 }
