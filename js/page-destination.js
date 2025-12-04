@@ -41,7 +41,7 @@ jQuery(document).ready(function ($) {
   if (iframe) {
     const vimeoPlayer = new Vimeo.Player(iframe);
     const videoModal = document.querySelector("#videoModal");
-    const videoPlayButtons = [...document.querySelectorAll(".video-play-button")];
+    const videoPlayButtons = [...document.querySelectorAll(".destination-video-play-button")];
 
     // -- open / play
     videoPlayButtons.forEach((button) => {

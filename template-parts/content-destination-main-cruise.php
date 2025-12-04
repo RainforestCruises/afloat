@@ -33,23 +33,20 @@ $video_hero_card = get_field('video_hero_card');
                     <?php echo get_field('intro_text') ?>
                 </div>
                 <?php if ($has_video) : ?>
-                    <div class="destination-main__intro__description__text__play-mobile">
-                        <button class="btn-outline btn-outline--dark video-play-button" style="margin: none">Watch Video</button>
-                    </div>
                     <div class="destination-main__intro__description__text__video">
                         <video class="destination-main__intro__description__text__video__source" muted autoplay loop id="hero-video-card">
                             <source src="<?php echo esc_url($video_hero_card); ?>" type="video/mp4">
                         </video>
                         <div class="destination-main__intro__description__text__video__cta">
-                            <button class="video-play-button dark">
-                                <div class="video-play-button__icon-area">
-                                    <div class="video-play-button__icon-area__inner">
+                            <button class="destination-video-play-button dark">
+                                <div class="destination-video-play-button__icon-area">
+                                    <div class="destination-video-play-button__icon-area__inner">
                                         <svg>
                                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-button-play"></use>
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="video-play-button__text">
+                                <div class="destination-video-play-button__text">
                                     Watch The Video
                                 </div>
                             </button>
