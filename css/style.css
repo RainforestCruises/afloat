@@ -12179,7 +12179,7 @@ h5 {
         display: none; } }
 
 .header {
-  z-index: 100;
+  z-index: 1000;
   position: fixed;
   width: 100%;
   user-select: none;

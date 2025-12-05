@@ -1,5 +1,5 @@
 .header {
-  z-index: 100;
+  z-index: 1000; // must be highter than sticky bar which is 999
   position: fixed;
   width: 100%;
 
