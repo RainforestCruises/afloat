@@ -1,45 +1,37 @@
 // COLOR VARIABLES
+$color-primary: #254715;
+$color-primary-dark: #293523;
+$color-primary-light: #356326;
+$color-footer: #254715;
 
-$color-primary: #142838;
-$color-primary-dark: #1d2225;
 
-$color-footer: #1d2225;
-
-$color-primary-light: #1f3f5a;
-$color-tertiary: #108054;
-
-$color-supporting: #305a7c;
-$color-supporting-light: #40739c;
-$color-supporting-selection: #d4dfe8;
-
-$color-supporting-light-2: #4381b3;
-$color-supporting-light-3: #6da9db;
-
+$color-supporting: #356326;
+$color-supporting-light: #57754d;
+$color-supporting-selection: #afc48c;
+$color-supporting-light-2: #356326;
+$color-supporting-light-3: #356326;
 
 $color-green: #00a84b;
 $color-red: #de5c52;
 $color-gold: #d9a402;
 
-$color-gold-dark-1: #bb8e06;
-$color-gold-dark: #8e7d2e;
-$color-gold-light: #fbcf00;
-//ca8e4e
-$color-khaki: #a06f3c;
+$color-gold-dark-1: #ae712d;
+$color-gold-dark: #ae712d;
+$color-gold-light: #ae712d;
+$color-khaki: #ae712d;
 
 $color-nav: #fff;
-
 $color-white: #fff; 
-$color-black: #1e1e1e;
-$color-black-highlight: #353535;
-
-$color-charcoal: #1d2225;
+$color-black: #12100b;
+$color-black-highlight: #12100b;
+$color-charcoal: #12100b;
 
 $color-grey-light-1: #f8f8f8;
 $color-grey-light-1a: #e6e6e6;
 $color-grey-light-2: #c2c6c9;
 
-$color-beige-1: #f8f7f5;
-$color-beige-2: #f6f4f0; 
+$color-beige-1: #f4efec;
+$color-beige-2: #f4efec; 
 
 $color-grey-1: #9ea0a4;
 $color-grey-2: #919598;
@@ -77,12 +69,26 @@ $inner-border-light: inset 0px 0px 0px 1px $color-grey-light-1a;
 @include font("Playfair Display", "../fonts/PlayfairDisplay/static/PlayfairDisplay-Bold", 700);
 @include font("Playfair Display", "../fonts/PlayfairDisplay/static/PlayfairDisplay-ExtraBold", 800);
  
+@include font("Sorts Mill Goudy", "../fonts/SortsMillGoudy/SortsMillGoudy-Regular", 400);
+@include font("Sorts Mill Goudy", "../fonts/SortsMillGoudy/SortsMillGoudy-Regular", 500);
+@include font("Sorts Mill Goudy", "../fonts/SortsMillGoudy/SortsMillGoudy-Regular", 600);
+@include font("Sorts Mill Goudy", "../fonts/SortsMillGoudy/SortsMillGoudy-Regular", 700);
+@include font("Sorts Mill Goudy", "../fonts/SortsMillGoudy/SortsMillGoudy-Regular", 800);
+
+
+@include font("Almarai", "../fonts/Almarai/Almarai-latin-300-normal", 300);
+@include font("Almarai", "../fonts/Almarai/Almarai-latin-400-normal", 400);
+@include font("Almarai", "../fonts/Almarai/Almarai-latin-400-normal", 500);
+@include font("Almarai", "../fonts/Almarai/Almarai-latin-700-normal", 600);
+@include font("Almarai", "../fonts/Almarai/Almarai-latin-700-normal", 700);
+@include font("Almarai", "../fonts/Almarai/Almarai-latin-800-normal", 800);
 
 // FONT VARIABLES
-$font-primary: "Metropolis", sans-serif;
-$font-secondary: "Playfair Display", serif;
+// $font-primary: "Metropolis", sans-serif;
+// $font-secondary: "Playfair Display", serif;
 
-
+$font-primary: "Almarai", sans-serif;
+$font-secondary: "Sorts Mill Goudy", serif;
 
 //shadows
 $shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
