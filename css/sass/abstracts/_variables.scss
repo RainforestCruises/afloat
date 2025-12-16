@@ -76,12 +76,12 @@ $inner-border-light: inset 0px 0px 0px 1px $color-grey-light-1a;
 @include font("Sorts Mill Goudy", "../fonts/SortsMillGoudy/SortsMillGoudy-Regular", 800);
 
 
-@include font("Almarai", "../fonts/Almarai/Almarai-latin-300-normal", 300);
-@include font("Almarai", "../fonts/Almarai/Almarai-latin-400-normal", 400);
-@include font("Almarai", "../fonts/Almarai/Almarai-latin-400-normal", 500);
-@include font("Almarai", "../fonts/Almarai/Almarai-latin-700-normal", 600);
-@include font("Almarai", "../fonts/Almarai/Almarai-latin-700-normal", 700);
-@include font("Almarai", "../fonts/Almarai/Almarai-latin-800-normal", 800);
+@include font("Almarai", "../fonts/Almarai/almarai-latin-300-normal", 300);
+@include font("Almarai", "../fonts/Almarai/almarai-latin-400-normal", 400);
+@include font("Almarai", "../fonts/Almarai/almarai-latin-400-normal", 500);
+@include font("Almarai", "../fonts/Almarai/almarai-latin-700-normal", 600);
+@include font("Almarai", "../fonts/Almarai/almarai-latin-700-normal", 700);
+@include font("Almarai", "../fonts/Almarai/almarai-latin-800-normal", 800);
 
 // FONT VARIABLES
 // $font-primary: "Metropolis", sans-serif;
