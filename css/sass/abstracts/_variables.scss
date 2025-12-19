@@ -1,19 +1,20 @@
 // COLOR VARIABLES
 $color-primary: #254715;
-$color-primary-dark: #293523;
+$color-primary-dark: #254715;
 $color-primary-light: #356326;
 $color-footer: #254715;
-
+$color-tertiary: #afc48c;
+$color-tertiary-rgb: rgb(175, 196, 140);
+$color-supporting-selection: #afc48c;
 
 $color-supporting: #356326;
 $color-supporting-light: #57754d;
-$color-supporting-selection: #afc48c;
 $color-supporting-light-2: #356326;
 $color-supporting-light-3: #356326;
 
 $color-green: #00a84b;
 $color-red: #de5c52;
-$color-gold: #d9a402;
+$color-gold: #ae712d;
 
 $color-gold-dark-1: #ae712d;
 $color-gold-dark: #ae712d;
@@ -83,12 +84,20 @@ $inner-border-light: inset 0px 0px 0px 1px $color-grey-light-1a;
 @include font("Almarai", "../fonts/Almarai/almarai-latin-700-normal", 700);
 @include font("Almarai", "../fonts/Almarai/almarai-latin-800-normal", 800);
 
+@include font("Broadsheet", "../fonts/Broadsheet/Broadsheet_Regular", 300);
+@include font("Broadsheet", "../fonts/Broadsheet/Broadsheet_Regular", 400);
+@include font("Broadsheet", "../fonts/Broadsheet/Broadsheet_Regular", 500);
+@include font("Broadsheet", "../fonts/Broadsheet/Broadsheet_Regular", 600);
+@include font("Broadsheet", "../fonts/Broadsheet/Broadsheet_Regular", 700);
+@include font("Broadsheet", "../fonts/Broadsheet/Broadsheet_Regular", 800);
+
 // FONT VARIABLES
 // $font-primary: "Metropolis", sans-serif;
 // $font-secondary: "Playfair Display", serif;
 
 $font-primary: "Almarai", sans-serif;
 $font-secondary: "Sorts Mill Goudy", serif;
+$font-tertiary: "Broadsheet", serif;
 
 //shadows
 $shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);

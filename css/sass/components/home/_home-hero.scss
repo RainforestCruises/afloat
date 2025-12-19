@@ -145,7 +145,7 @@
         &__title-group {
             display: flex;
             flex-direction: column;
-            max-width: 55rem;
+            max-width: 70rem;
             color: $color-white;
             position: relative;
             margin-bottom: 5rem;
@@ -156,7 +156,7 @@
             }
 
             &__title {
-                font-size: 6rem;
+                font-size: 5.5rem;
                 line-height: 6.5rem;
                 font-family: $font-secondary;
                 letter-spacing: 0.2rem;
@@ -164,7 +164,7 @@
                 margin-bottom: 2.5rem;
                 @media only screen and (max-width: $bp-small) {
                     font-size: 4rem;
-                    line-height: 4.5rem;
+                    line-height: 6rem;
                     letter-spacing: 0.1rem;
                 }
 
@@ -285,19 +285,16 @@
 
 .home-search {
     width: 38rem;
-    //width: min-content;
     height: min-content;
 
     display: flex;
     padding: 0.5rem 1rem;
     padding-left: 3rem;
-    //padding-bottom: 0rem;
     background-color: transparent;
     border: 2px solid $color-gold;
     border-radius: 10rem;
 
     transition: all 0.3s;
-    //justify-content: space-between;
     align-items: center;
 
     @media only screen and (max-width: $bp-large) {
@@ -338,9 +335,7 @@
             line-height: 1.6rem;
             font-weight: 400;
             height: 4rem;
-            //padding-left: 1rem;
             color: $color-gold;
-            //display: flex;
             align-items: center;
             text-transform: uppercase;
             display: none;
@@ -358,7 +353,7 @@
 
         &__input {
             position: relative;
-            color: rgba($color-white, 0.95);
+            color: rgba($color-supporting-selection, 0.95);
             font-family: $font-primary;
             letter-spacing: 0.1rem;
             font-size: 1.6rem;
