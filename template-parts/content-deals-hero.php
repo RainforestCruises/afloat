@@ -80,32 +80,7 @@
 
 
     </div>
-    <!-- Feature Row -->
-    <div class="deals-hero__row">
-        <?php
-        $cardImage = get_field('feature_item')['image'];
-        $cardTitle = get_field('feature_item')['title'];
-        $cardLink = get_field('feature_item')['link'];
-        ?>
-
-        <!-- Feature-->
-        <a class="deal-card deal-card--wide" href="<?php echo $cardLink ?>">
-            <div class="deal-card__image">
-                <img <?php afloat_image_markup($cardImage, 'pill-large'); ?>>
-            </div>
-            <div class="deal-card__content">
-                <h2 class="deal-card__content__title">
-                    <?php echo $cardTitle ?>
-                </h2>
-                <div class="deal-card__content__cta">
-                    <button class="btn-cta-round btn-cta-round--white btn-cta-round--medium">
-                        View Deals
-                    </button>
-                </div>
-            </div>
-        </a>
-    </div>
-
+ 
     <!-- B -->
     <!-- Triple Row -->
     <div class="deals-hero__row">
@@ -179,30 +154,6 @@
 
 
     </div>
-    <!-- Feature Row -->
-    <div class="deals-hero__row">
-        <?php
-        $cardImage = get_field('feature_item_b')['image'];
-        $cardTitle = get_field('feature_item_b')['title'];
-        $cardLink = get_field('feature_item_b')['link'];
-        ?>
 
-        <!-- Feature-->
-        <a class="deal-card deal-card--wide" href="<?php echo $cardLink ?>">
-            <div class="deal-card__image">
-                <img <?php afloat_image_markup($cardImage, 'pill-large'); ?>>
-            </div>
-            <div class="deal-card__content">
-                <h2 class="deal-card__content__title">
-                    <?php echo $cardTitle ?>
-                </h2>
-                <div class="deal-card__content__cta">
-                    <button class="btn-cta-round btn-cta-round--white btn-cta-round--medium">
-                        View Deals
-                    </button>
-                </div>
-            </div>
-        </a>
-    </div>
 
 </div>

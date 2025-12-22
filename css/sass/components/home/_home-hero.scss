@@ -291,7 +291,7 @@
     padding: 0.5rem 1rem;
     padding-left: 3rem;
     background-color: transparent;
-    border: 2px solid $color-gold;
+    border: 2px solid $color-tertiary;
     border-radius: 10rem;
 
     transition: all 0.3s;
@@ -320,11 +320,10 @@
         border: 2px solid $color-white;
     }
 
-    //DESTINATION FIELD
+    // DESTINATION FIELD
     &__destination {
         display: flex;
         position: relative;
-        //align-items: center;
         @media only screen and (max-width: $bp-large) {
             height: 100vh;
         }
@@ -335,7 +334,8 @@
             line-height: 1.6rem;
             font-weight: 400;
             height: 4rem;
-            color: $color-gold;
+            color: $color-tertiary;
+            //display: flex;
             align-items: center;
             text-transform: uppercase;
             display: none;
@@ -347,13 +347,13 @@
             & svg {
                 height: 2.8rem;
                 width: 2.8rem;
-                fill: $color-gold;
+                fill: $color-tertiary;
             }
         }
 
         &__input {
             position: relative;
-            color: rgba($color-supporting-selection, 0.95);
+            color: rgba($color-white, 0.95);
             font-family: $font-primary;
             letter-spacing: 0.1rem;
             font-size: 1.6rem;
@@ -574,8 +574,8 @@
                 }
 
                 &:hover {
-                    background-color: rgba(#353535, 1);
-                    color: $color-gold;
+                    background-color: $color-gold;
+                    color: $color-white;
                 }
 
                 &.closed {
@@ -653,7 +653,7 @@
             font-weight: 400;
             height: 4rem;
             //padding-left: 1rem;
-            color: $color-gold;
+            color: $color-tertiary;
             //display: flex;
             align-items: center;
             text-transform: uppercase;
@@ -667,7 +667,7 @@
                 //stroke-width: 3;
                 height: 2.2rem;
                 width: 2.2rem;
-                fill: $color-gold;
+                fill: $color-tertiary;
             }
         }
 
@@ -804,7 +804,7 @@
 
                 &__year {
                     font-size: 1.8rem;
-                    color: $color-gold;
+                    color: $color-tertiary;
                     letter-spacing: 0.2rem;
                     width: 100%;
                     text-align: center;
@@ -822,7 +822,7 @@
                         transform: translateX(-50%);
                         width: 6rem;
                         height: 1px;
-                        background-color: $color-gold;
+                        background-color: $color-tertiary;
                         opacity: 0;
                     }
 
@@ -923,7 +923,7 @@
                     width: 5rem;
                     padding: 0.5rem 1rem;
                     margin: 0.5rem;
-                    border: 1px solid $color-gold;
+                    border: 1px solid $color-tertiary;
                     border-radius: 3rem;
                     box-sizing: border-box;
                     display: flex;
@@ -933,13 +933,13 @@
                     transition: all 0.2s;
                     cursor: pointer;
                     &:hover {
-                        background-color: $color-gold;
+                        background-color: $color-white;
                         color: $color-black;
                         font-weight: 500;
                     }
 
                     &.selected {
-                        background-color: $color-gold;
+                        background-color: $color-white;
                         color: $color-black;
                         font-weight: 500;
                     }
@@ -974,13 +974,13 @@
                         transition: all 0.2s;
                         cursor: pointer;
                         &:hover {
-                            background-color: $color-gold;
+                            background-color: $color-tertiary;
                             color: $color-black;
                             font-weight: 500;
                         }
 
                         &.selected {
-                            background-color: $color-gold;
+                            background-color: $color-tertiary;
                             color: $color-black;
                             font-weight: 500;
                         }
@@ -1046,7 +1046,7 @@
             &.active {
                 width: 14rem;
                 justify-content: space-between;
-                background-color: $color-gold;
+                background-color: $color-tertiary;
                 transition: all 0.3s;
                 padding-left: 0.5rem;
                 padding-right: 1.5rem;
@@ -1061,7 +1061,7 @@
                 }
 
                 &:hover {
-                    background-color: $color-gold-light;
+                    background-color: $color-tertiary-light;
                     transition-delay: 0s;
                 }
             }
@@ -1092,7 +1092,7 @@
         display: flex;
 
         background-color: transparent;
-        border: 2px solid $color-gold;
+        border: 2px solid $color-tertiary;
         border-radius: 10rem;
 
         width: max-content;
@@ -1123,7 +1123,7 @@
         &:hover {
             transition: all 0.3s;
             color: $color-black;
-            background-color: $color-gold;
+            background-color: $color-tertiary;
             font-weight: 600;
         }
     }

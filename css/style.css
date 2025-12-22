@@ -8983,7 +8983,7 @@ h5 {
   padding: 0.5rem 1rem;
   padding-left: 3rem;
   background-color: transparent;
-  border: 2px solid #ae712d;
+  border: 2px solid #afc48c;
   border-radius: 10rem;
   transition: all 0.3s;
   align-items: center; }
@@ -9013,7 +9013,7 @@ h5 {
       line-height: 1.6rem;
       font-weight: 400;
       height: 4rem;
-      color: #ae712d;
+      color: #afc48c;
       align-items: center;
       text-transform: uppercase;
       display: none; }
@@ -9022,10 +9022,10 @@ h5 {
       .home-search__destination__label svg {
         height: 2.8rem;
         width: 2.8rem;
-        fill: #ae712d; }
+        fill: #afc48c; }
     .home-search__destination__input {
       position: relative;
-      color: rgba(175, 196, 140, 0.95);
+      color: rgba(255, 255, 255, 0.95);
       font-family: "Almarai", sans-serif;
       letter-spacing: 0.1rem;
       font-size: 1.6rem;
@@ -9170,8 +9170,8 @@ h5 {
           letter-spacing: 0.1rem;
           color: #c2c6c9; }
         .home-search__destination__list li:hover {
-          background-color: #353535;
-          color: #ae712d; }
+          background-color: #ae712d;
+          color: #fff; }
         .home-search__destination__list li.closed {
           max-height: 0;
           overflow: hidden;
@@ -9228,7 +9228,7 @@ h5 {
       line-height: 1.6rem;
       font-weight: 400;
       height: 4rem;
-      color: #ae712d;
+      color: #afc48c;
       align-items: center;
       text-transform: uppercase;
       display: none; }
@@ -9237,7 +9237,7 @@ h5 {
       .home-search__dates__label svg {
         height: 2.2rem;
         width: 2.2rem;
-        fill: #ae712d; }
+        fill: #afc48c; }
     .home-search__dates__input {
       position: relative;
       color: rgba(255, 255, 255, 0.95);
@@ -9328,7 +9328,7 @@ h5 {
             border-bottom: 1px solid #c2c6c9; } }
         .home-search__dates__list__years__year {
           font-size: 1.8rem;
-          color: #ae712d;
+          color: #afc48c;
           letter-spacing: 0.2rem;
           width: 100%;
           text-align: center;
@@ -9345,7 +9345,7 @@ h5 {
             transform: translateX(-50%);
             width: 6rem;
             height: 1px;
-            background-color: #ae712d;
+            background-color: #afc48c;
             opacity: 0; }
           .home-search__dates__list__years__year:hover {
             background-color: #12100b; }
@@ -9416,7 +9416,7 @@ h5 {
           width: 5rem;
           padding: 0.5rem 1rem;
           margin: 0.5rem;
-          border: 1px solid #ae712d;
+          border: 1px solid #afc48c;
           border-radius: 3rem;
           box-sizing: border-box;
           display: flex;
@@ -9426,11 +9426,11 @@ h5 {
           transition: all 0.2s;
           cursor: pointer; }
           .home-search__dates__list__months li:hover {
-            background-color: #ae712d;
+            background-color: #fff;
             color: #12100b;
             font-weight: 500; }
           .home-search__dates__list__months li.selected {
-            background-color: #ae712d;
+            background-color: #fff;
             color: #12100b;
             font-weight: 500; }
           .home-search__dates__list__months li.disabled {
@@ -9461,11 +9461,11 @@ h5 {
               transition: all 0.2s;
               cursor: pointer; }
               .home-search__dates__list__months li:hover {
-                background-color: #ae712d;
+                background-color: #afc48c;
                 color: #12100b;
                 font-weight: 500; }
               .home-search__dates__list__months li.selected {
-                background-color: #ae712d;
+                background-color: #afc48c;
                 color: #12100b;
                 font-weight: 500; }
               .home-search__dates__list__months li.disabled {
@@ -9510,7 +9510,7 @@ h5 {
       .home-search__cta__button.active {
         width: 14rem;
         justify-content: space-between;
-        background-color: #ae712d;
+        background-color: #afc48c;
         transition: all 0.3s;
         padding-left: 0.5rem;
         padding-right: 1.5rem;
@@ -9521,7 +9521,7 @@ h5 {
           animation-delay: 0.2s;
           transition: all 0.3s; }
         .home-search__cta__button.active:hover {
-          background-color: #ae712d;
+          background-color: #c3da9e;
           transition-delay: 0s; }
       .home-search__cta__button svg {
         height: 2rem;
@@ -9541,7 +9541,7 @@ h5 {
     height: min-content;
     display: flex;
     background-color: transparent;
-    border: 2px solid #ae712d;
+    border: 2px solid #afc48c;
     border-radius: 10rem;
     width: max-content;
     justify-content: space-between;
@@ -9563,7 +9563,7 @@ h5 {
     .home-search-mobile button:hover {
       transition: all 0.3s;
       color: #12100b;
-      background-color: #ae712d;
+      background-color: #afc48c;
       font-weight: 600; }
 
 .scroll-down {
@@ -9694,7 +9694,7 @@ h5 {
         font-weight: 600;
         margin-bottom: 2rem;
         color: #ae712d;
-        font-family: "Broadsheet", serif; }
+        font-family: "Sorts Mill Goudy", serif; }
         @media only screen and (max-width: 37.5em) {
           .home-intro__top__content__pretitle {
             font-size: 1.3rem; } }
@@ -12342,7 +12342,7 @@ h5 {
       .header__main.active .header__main__nav__list__item {
         color: #254715; }
         .header__main.active .header__main__nav__list__item:hover {
-          color: #57754d; }
+          color: #ae712d; }
       .header__main.active .header__main__right {
         color: #254715; }
         .header__main.active .header__main__right__search {
@@ -12354,7 +12354,7 @@ h5 {
         .header__main.active .header__main__right__contact-link:link, .header__main.active .header__main__right__contact-link:visited {
           color: #254715; }
         .header__main.active .header__main__right__contact-link:hover {
-          color: #57754d; }
+          color: #ae712d; }
         .header__main.active .header__main__right__language .trp-language-switcher {
           cursor: pointer;
           color: #254715; }
@@ -12419,7 +12419,7 @@ h5 {
           text-decoration: none;
           margin-right: 3rem; }
         .header__main__nav__list__item__link:hover {
-          color: #57754d; }
+          color: #ae712d; }
     .header__main__right {
       transition: all 0.3s;
       margin-right: 4rem;
@@ -12450,7 +12450,7 @@ h5 {
           color: currentColor;
           text-decoration: none; }
           .header__main__right__agents a:hover {
-            color: #57754d; }
+            color: #ae712d; }
       .header__main__right__search {
         color: #e6e6e6; }
         @media only screen and (max-width: 62.5em) {
@@ -12735,7 +12735,7 @@ h5 {
       .nav-mobile__content-panel--sub.slide-center {
         transform: translateX(0%); }
     .nav-mobile__content-panel .nav-mobile__content-panel__button {
-      color: #ae712d;
+      color: #fff;
       font-size: 1.5rem;
       letter-spacing: 0.2rem;
       font-weight: 600;
@@ -12798,7 +12798,7 @@ h5 {
       display: flex;
       align-items: center;
       font-size: 1.5rem;
-      color: #ae712d;
+      color: #fff;
       z-index: 9999999; }
       .nav-mobile__content-panel .mobile-language-switch svg {
         transform: translateY(-2px);
@@ -12883,7 +12883,7 @@ h5 {
       text-align: center;
       position: relative; }
       .nav-mega__nav__link:hover {
-        color: #57754d; }
+        color: #ae712d; }
       .nav-mega__nav__link:not(:last-child):after {
         content: "";
         height: 100%;
@@ -12906,7 +12906,7 @@ h5 {
             color: #254715;
             text-decoration: none; }
           .nav-mega__nav__main__sub-group__title:hover {
-            color: #57754d; }
+            color: #ae712d; }
         .nav-mega__nav__main__sub-group__list {
           color: #747474;
           margin-top: 0.75rem;
@@ -12924,7 +12924,7 @@ h5 {
             font-weight: 400;
             color: #747474; }
           .nav-mega__nav__main__sub-group__link:hover, .nav-mega__nav__main__sub-group__link:active {
-            color: #57754d; }
+            color: #ae712d; }
     .nav-mega__nav__all {
       margin-bottom: 2rem;
       display: flex;
@@ -12967,9 +12967,9 @@ h5 {
                 width: 2rem;
                 color: currentColor; }
             .nav-mega__nav-arctic__menu__list__item__link:hover {
-              color: #57754d; }
+              color: #ae712d; }
             .nav-mega__nav-arctic__menu__list__item__link.active {
-              color: #57754d !important; }
+              color: #ae712d !important; }
     .nav-mega__nav-arctic__content-area {
       height: 100%;
       width: 100%; }
@@ -13069,7 +13069,7 @@ h5 {
           color: #254715;
           font-weight: 700; }
         .nav-secondary__main__title-area__title:hover {
-          color: #57754d; }
+          color: #ae712d; }
       .nav-secondary__main__title-area::after {
         content: "";
         position: absolute;
@@ -13148,9 +13148,9 @@ h5 {
             transition: color 0.3s;
             font-weight: 600; }
           .nav-secondary__main__links li a:hover {
-            color: #57754d; }
+            color: #ae712d; }
           .nav-secondary__main__links li a.current {
-            color: #57754d; }
+            color: #ae712d; }
     .nav-secondary__main__cta {
       flex-grow: 1;
       width: max-content;
@@ -13360,14 +13360,14 @@ h5 {
       background-color: #254715;
       padding: 0 1rem; }
       .footer__first__social__link:link, .footer__first__social__link:visited {
-        color: #fff;
+        color: #254715;
         transition: all 0.2s; }
       .footer__first__social__link:hover {
         color: #ae712d; }
       .footer__first__social__link svg {
         height: 3rem;
         width: 3rem;
-        fill: currentColor;
+        fill: #fff;
         margin: 0rem 1rem; }
       @media only screen and (max-width: 37.5em) {
         .footer__first__social {
@@ -13416,7 +13416,7 @@ h5 {
         text-transform: uppercase;
         padding: 1.8rem 3.6rem;
         font-family: "Almarai", sans-serif;
-        color: #fff;
+        color: #ae712d;
         white-space: nowrap;
         font-size: 1.5rem;
         letter-spacing: 0.3rem;
@@ -13428,8 +13428,8 @@ h5 {
         .footer__explore__cta__button:link, .footer__explore__cta__button:visited {
           text-decoration: none; }
         .footer__explore__cta__button:hover {
-          background-color: #ae712d;
-          color: #12100b; }
+          background-color: #254715;
+          color: #fff; }
     .footer__explore__phone {
       display: flex;
       justify-content: center;
@@ -13481,9 +13481,12 @@ h5 {
           left: 0;
           background-color: #f8f8f8;
           transition: all 0.2s; }
-        .footer__navigation__group__nav__list__item a:hover::after {
-          content: "";
-          width: 100%; }
+        .footer__navigation__group__nav__list__item a:hover {
+          color: #fff; }
+          .footer__navigation__group__nav__list__item a:hover::after {
+            content: "";
+            width: 100%;
+            color: #ae712d; }
   .footer__logo {
     grid-row: 4 / span 1;
     grid-column: center-start / span 2;

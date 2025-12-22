@@ -2,7 +2,7 @@
     grid-row: footer-start / footer-end;
     grid-column: full-start / full-end;
 
-    background-color: $color-primary-dark;
+    background-color: $color-primary;
 
     display: grid;
     grid-template-columns: $page-container;
@@ -44,7 +44,7 @@
         position: relative;
 
         &__compass {
-            background-color: $color-primary-dark;
+            background-color: $color-primary;
             padding: 0 2rem;
             & svg {
                 transform: translateY(0.5rem);
@@ -57,13 +57,13 @@
 
         &__social {
             display: flex;
-            background-color: $color-primary-dark;
+            background-color: $color-primary;
             padding: 0 1rem;
 
             &__link {
                 &:link,
                 &:visited {
-                    color: $color-white;
+                    color: $color-primary;
                     transition: all 0.2s;
                 }
                 &:hover {
@@ -73,7 +73,7 @@
                 & svg {
                     height: 3rem;
                     width: 3rem;
-                    fill: currentColor;
+                    fill: $color-white;
                     margin: 0rem 1rem;
                 }
             }
@@ -135,7 +135,7 @@
                 text-transform: uppercase;
                 padding: 1.8rem 3.6rem;
                 font-family: $font-primary;
-                color: $color-white;
+                color: $color-gold;
                 white-space: nowrap;
                 font-size: 1.5rem;
                 letter-spacing: 0.3rem;
@@ -153,8 +153,8 @@
                 transition: all 0.2s;
 
                 &:hover {
-                    background-color: $color-gold;
-                    color: $color-black;
+                    background-color: $color-primary;
+                    color: $color-white;
                 }
             }
         }
@@ -230,9 +230,11 @@
                             }
 
                             &:hover {
+                                color: $color-white;
                                 &::after {
                                     content: "";
                                     width: 100%;
+                                    color: $color-gold;
                                 }
                             }
                         }

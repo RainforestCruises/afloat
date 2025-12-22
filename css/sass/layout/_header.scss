@@ -16,9 +16,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-
     height: 9rem;
-
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
@@ -66,7 +64,7 @@
           &__item {
             color: $color-primary;
             &:hover {
-              color: $color-supporting-light;
+              color: $color-gold;
             }
           }
         }
@@ -94,7 +92,7 @@
             color: $color-primary;
           }
           &:hover {
-            color: $color-supporting-light;
+            color: $color-gold;
           }
         }
 
@@ -201,7 +199,7 @@
           }
 
           &__link:hover {
-            color: $color-supporting-light;
+            color: $color-gold;
           }
         }
       }
@@ -243,7 +241,7 @@
           color: currentColor;
           text-decoration: none;
           &:hover {
-            color: $color-supporting-light;
+            color: $color-gold;
           }
         }
       }
@@ -644,7 +642,7 @@
 
     & .nav-mobile__content-panel__button {
       //button
-      color: $color-gold;
+      color: $color-white;
 
       font-size: 1.5rem;
       letter-spacing: 0.2rem;
@@ -731,7 +729,7 @@
       display: flex;
       align-items: center;
       font-size: 1.5rem;
-      color: $color-gold;
+      color: $color-white;
       z-index: 9999999;
 
       & svg {
@@ -843,7 +841,7 @@
       text-align: center;
       position: relative;
       &:hover {
-        color: $color-supporting-light;
+        color: $color-gold;
       }
 
       &:not(:last-child) {
@@ -881,7 +879,7 @@
           }
 
           &:hover {
-            color: $color-supporting-light;
+            color: $color-gold;
           }
         }
 
@@ -911,7 +909,7 @@
           }
           &:hover,
           &:active {
-            color: $color-supporting-light;
+            color: $color-gold;
           }
         }
       }
@@ -975,10 +973,10 @@
               }
             }
             &:hover {
-              color: $color-supporting-light;
+              color: $color-gold;
             }
             &.active {
-              color: $color-supporting-light !important;
+              color: $color-gold !important;
             }
           }
         }
@@ -1126,7 +1124,7 @@
         }
 
         &:hover {
-          color: $color-supporting-light;
+          color: $color-gold;
         }
       }
 
@@ -1235,11 +1233,11 @@
             font-weight: 600;
           }
           &:hover {
-            color: $color-supporting-light;
+            color: $color-gold;
           }
 
           &.current {
-            color: $color-supporting-light;
+            color: $color-gold;
           }
         }
       }
