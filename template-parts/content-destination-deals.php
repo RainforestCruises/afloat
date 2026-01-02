@@ -71,10 +71,8 @@ $posts = $args['deals'];
 
                         </div>
                         <div class="deal-slide__bottom__snippet">
-                            <?php
-                            $description = get_field('description', $p);
-                            echo $description ;
-                            ?>
+                            <?php echo wp_trim_words(get_field('description', $p), 100, '...'); ?>
+
                         </div>
                         <?php if ($applicable_to == 'broadCategory') :
                             $serp_link = get_field('serp_link', $p);
