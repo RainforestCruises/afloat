@@ -416,6 +416,7 @@
   &__experiences-title {
     margin-top: 4rem;
     margin-bottom: 2rem;
+    font-family: $font-secondary;;
   }
 
   &__experiences-sub-text {
@@ -434,7 +435,7 @@
   }
 
   &__lengths {
-    margin-top: 4rem;
+    //margin-top: 4rem;
     //grid-row: 4 / span 1;
     grid-column: center-start / center-end;
     display: flex;

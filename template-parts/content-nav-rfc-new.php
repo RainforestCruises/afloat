@@ -33,29 +33,21 @@ $alwaysActiveHeader = checkActiveHeader(); //return true/false depending on if c
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
             </svg>
             <span>
-                Cruises
+                Destinations
             </span>
         </a>
 
-        <a class="nav-mobile__content-panel__button nav-mobile__content-panel__button--forward" menuLinkTo="mobile-nav-packages">
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
-            </svg>
-            <span>
-                Packages
-            </span>
-        </a>
+        <a class="nav-mobile__content-panel__button mobile-link" href="<?php echo $top_level_packages_page ?>">Extensions</a>
 
         <a class="nav-mobile__content-panel__button nav-mobile__content-panel__button--forward" menuLinkTo="mobile-nav-experiences">
             <svg>
                 <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_chevron_right_36px"></use>
             </svg>
             <span>
-                Experiences
+                Deals
             </span>
         </a>
 
-        <a class="nav-mobile__content-panel__button mobile-link" href="<?php echo $top_level_deals_page ?>">Deals</a>
         <a class="nav-mobile__content-panel__button mobile-link" href="<?php echo $top_level_guides_page ?>">Guide</a>
         <a class="nav-mobile__content-panel__button mobile-link" href="<?php echo $top_level_about_page ?>">About</a>
         <a class="nav-mobile__content-panel__button mobile-link divider" href="<?php echo get_field('top_level_search_page', 'option'); ?>">Search</a>
@@ -236,16 +228,13 @@ $alwaysActiveHeader = checkActiveHeader(); //return true/false depending on if c
         <nav class="header__main__nav">
             <div class="header__main__nav__list">
                 <li class="header__main__nav__list__item">
-                    <span class="header__main__nav__list__item__link mega" navelement="cruises">Cruises</a>
+                    <span class="header__main__nav__list__item__link mega" navelement="cruises">Destinations</a>
                 </li>
                 <li class="header__main__nav__list__item">
-                    <span class="header__main__nav__list__item__link mega" navelement="packages">Packages</a>
+                    <a class="header__main__nav__list__item__link no-mega" href="<?php echo $top_level_packages_page ?>">Extensions</a>
                 </li>
                 <li class="header__main__nav__list__item">
-                    <span class="header__main__nav__list__item__link mega" navelement="experiences">Experiences</a>
-                </li>
-                <li class="header__main__nav__list__item">
-                    <a class="header__main__nav__list__item__link no-mega" href="<?php echo $top_level_deals_page ?>">Deals</a>
+                    <span class="header__main__nav__list__item__link mega" navelement="experiences">Deals</a>
                 </li>
                 <li class="header__main__nav__list__item">
                     <a class="header__main__nav__list__item__link no-mega" href="<?php echo $top_level_guides_page ?>">Guide</a>

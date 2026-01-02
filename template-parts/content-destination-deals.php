@@ -10,10 +10,16 @@ $posts = $args['deals'];
 
 
 <div class="deals-featured">
-    <h2 class="deals-featured__title">
-        <?php echo get_field('featured_slider_title') ?>
-    </h2>
-    <div class="deals-featured__slider" id="featured-slider">
+    <div class="destination-main__packages__header">
+        <h2 class="destination-main__packages__header__title page-divider">
+            Deals
+        </h2>
+        <div class="destination-main__packages__header__sub-text">
+            <?php echo get_field('deals_title_subtext') ?>
+        </div>
+    </div>
+
+    <div class="deals-featured__slider" id="deals-slider">
         <?php
         if ($posts) :
 

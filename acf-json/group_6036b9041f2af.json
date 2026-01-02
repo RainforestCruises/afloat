@@ -789,7 +789,7 @@
         },
         {
             "key": "field_6874f132181b4",
-            "label": "Packages",
+            "label": "Packages (Destinations)",
             "name": "packages",
             "type": "repeater",
             "instructions": "",
@@ -909,7 +909,7 @@
         },
         {
             "key": "field_6874eed4181af",
-            "label": "Cruises",
+            "label": "Cruises (Deprecated)",
             "name": "cruises",
             "type": "repeater",
             "instructions": "",
@@ -1050,7 +1050,7 @@
         },
         {
             "key": "field_687546f7c5c8d",
-            "label": "Experiences",
+            "label": "Experiences (Deals)",
             "name": "experiences",
             "type": "repeater",
             "instructions": "",
@@ -1222,5 +1222,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1752518781
+    "modified": 1767368591
 }

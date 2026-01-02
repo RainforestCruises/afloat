@@ -180,7 +180,23 @@ $video_hero_card = get_field('video_hero_card');
 
     </div>
 
+    <?php
+    $cruise_lengths = get_field('cruise_lengths');
+    ?>
 
+    <div class="destination-main__lengths">
+        <?php if ($cruise_lengths) : ?>
+            <?php foreach ($cruise_lengths as $length) :
+                $link = $length['link'];
+                $buttonText = $length['button_text'];
+            ?>
+                <a class="btn-outline btn-outline--small " href="<?php echo $link; ?>"><?php echo $buttonText ?></a>
+        <?php endforeach;
+        endif;
+        ?>
+
+        <a class="btn-outline btn-outline--dark btn-outline--small" href="<?php echo get_field('cruise_search_link'); ?>">View All Cruises</a>
+    </div>
 
     <!-- destination tiles -->
     <?php $hideDesinations = get_field('hide_cruise_destinations') ?>
@@ -231,7 +247,7 @@ $video_hero_card = get_field('video_hero_card');
 
     <!-- experiences -->
     <h2 class="sub-divider destination-main__experiences-title">
-        <?php echo $title ?> Experiences
+        Cruise Styles
     </h2>
     <div class="destination-main__experiences-sub-text">
         <?php echo get_field('cruise_experience_title_subtext') ?>
@@ -280,27 +296,7 @@ $video_hero_card = get_field('video_hero_card');
         ?>
     </div>
 
-    <?php
-    $cruise_lengths = get_field('cruise_lengths');
-    ?>
 
-    <div class="destination-main__lengths">
-        <?php if ($cruise_lengths) : ?>
-            <?php foreach ($cruise_lengths as $length) :
-                $link = $length['link'];
-                $buttonText = $length['button_text'];
-            ?>
-                <a class="btn-outline btn-outline--small " href="<?php echo $link; ?>"><?php echo $buttonText ?></a>
-        <?php endforeach;
-        endif;
-        ?>
-
-        <a class="btn-outline btn-outline--dark btn-outline--small" href="<?php echo get_field('cruise_search_link'); ?>">View All Cruises</a>
-        <?php $deal_page_link = get_field('deal_page_link');
-        if ($deal_page_link != '') : ?>
-            <a class="btn-outline btn-outline--green btn-outline--small" href="<?php echo get_field('deal_page_link'); ?>">View Deals</a>
-        <?php endif; ?>
-    </div>
 </div>
 
 <?php if ($has_video) : ?>

@@ -84,6 +84,54 @@ foreach ($cruises as $cruise) {
 $title = $destination->post_title;
 
 
+
+
+// Deals
+
+//If Destniation Page Type
+$dealArgs = array(
+    'posts_per_page' => -1,
+    'post_type' => 'rfc_deals',
+    'meta_key' => 'value_rating',
+    'orderby' => 'meta_value_num',
+    'order' => 'DESC',
+    'meta_query' => array(
+        array(
+            'key' => 'destinations', // name of custom field
+            'value' => '"' . $destination->ID . '"',
+            'compare' => 'LIKE'
+        )
+    )
+);
+
+
+
+
+$dealPosts  = get_posts($dealArgs); //Stage I posts
+$validDeals = array();
+
+// Filter deals based on expiration date
+foreach ($dealPosts as $deal) {
+    $expiration_date = get_field('expiration_date', $deal->ID);
+
+    // If no expiration date is set, include the deal
+    if (empty($expiration_date)) {
+        $validDeals[] = $deal;
+        continue;
+    }
+
+    // Convert d/m/Y date to timestamp
+    $expiration_timestamp = DateTime::createFromFormat('d/m/Y', $expiration_date)->getTimestamp();
+
+    // Include deal if expiration date is in the future
+    if ($expiration_timestamp >= $current_timestamp) {
+        $validDeals[] = $deal;
+    }
+}
+
+console_log($validDeals);
+
+
 $args = array(
     'destination' => $destination,
     'locations' => $locations,
@@ -96,7 +144,8 @@ $args = array(
     'title' => $title,
     'destinationType' => $destinationType,
     'show_charters' => $show_charters,
-    'show_tours' => $show_tours
+    'show_tours' => $show_tours,
+    'deals' => $validDeals
 
 );
 
@@ -116,6 +165,14 @@ $args = array(
         get_template_part('template-parts/content', 'destination-main-cruise', $args);
         ?>
     </section>
+
+    <!-- Deals -->
+    <section class="destination-page__section-deals" id="deals">
+        <?php
+        get_template_part('template-parts/content', 'destination-deals', $args);
+        ?>
+    </section>
+
 
     <?php if ($show_charters) : ?>
         <!-- Private Charters -->

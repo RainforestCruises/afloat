@@ -521,9 +521,8 @@ p {
   text-align: center;
   display: flex;
   flex-direction: row;
-  font-size: 3rem;
-  line-height: 3.8rem;
-  text-transform: uppercase;
+  font-size: 4rem;
+  line-height: 4.8rem;
   color: #254715;
   letter-spacing: 0.3rem;
   font-weight: 600;
@@ -8335,7 +8334,8 @@ h5 {
           opacity: 0; }
   .destination-main__experiences-title {
     margin-top: 4rem;
-    margin-bottom: 2rem; }
+    margin-bottom: 2rem;
+    font-family: "Sorts Mill Goudy", serif; }
   .destination-main__experiences-sub-text {
     grid-column: center-start / center-end;
     text-align: center;
@@ -8348,7 +8348,6 @@ h5 {
     justify-content: center;
     flex-wrap: wrap; }
   .destination-main__lengths {
-    margin-top: 4rem;
     grid-column: center-start / center-end;
     display: flex;
     justify-content: center;

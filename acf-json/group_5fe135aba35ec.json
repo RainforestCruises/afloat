@@ -813,10 +813,10 @@
         },
         {
             "key": "field_61fc3d3f042ff",
-            "label": "Deal Page Link",
-            "name": "deal_page_link",
-            "type": "page_link",
-            "instructions": "Link to Deal page for this destination",
+            "label": "Deals Title Subtext",
+            "name": "deals_title_subtext",
+            "type": "wysiwyg",
+            "instructions": "subtext for deals section",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -824,15 +824,11 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "page"
-            ],
-            "taxonomy": [
-                "category:deals"
-            ],
-            "allow_null": 0,
-            "allow_archives": 0,
-            "multiple": 0
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_5ffe19db0966b",
@@ -1444,5 +1440,5 @@
     "active": true,
     "description": "Destination (Cruise) - Page",
     "show_in_rest": 0,
-    "modified": 1764774074
+    "modified": 1767370210
 }
