@@ -10,8 +10,8 @@ $tour_experiences = get_field('tour_experiences');
 
 <div class="destination-secondary">
     <div class="destination-secondary__header">
-        <h2 class="destination-secondary__header__title page-divider" id="packages">
-            Cruise Packages
+        <h2 class="destination-secondary__header__title page-divider" id="extensions">
+            Cruise Extensions
         </h2>
         <div class="destination-secondary__header__sub-text">
             <?php echo get_field('tour_package_title_subtext') ?>

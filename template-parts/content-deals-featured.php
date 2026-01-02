@@ -1,10 +1,5 @@
 <?php
-
-
 $posts = $args['deals'];
-
-
-
 ?>
 
 
@@ -16,7 +11,6 @@ $posts = $args['deals'];
     <div class="deals-featured__slider" id="featured-slider">
         <?php
         if ($posts) :
-
             foreach ($posts as $p) :
                 $featured_image = get_field('featured_image', $p);
                 $applicable_to = get_field('applicable_to', $p);
@@ -27,9 +21,7 @@ $posts = $args['deals'];
                     $imageID = $featured_image['ID'];
                 }
 
-
                 $guideCategories = get_field('categories', $p);
-
 
                 $isoClasses = '';
                 if ($guideCategories) {

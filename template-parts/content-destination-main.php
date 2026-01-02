@@ -86,10 +86,10 @@ $video_hero_card = get_field('video_hero_card');
     </div>
 
     <!-- Packages -->
-    <div class="destination-main__packages" id="packages">
+    <div class="destination-main__packages" id="extensions">
         <div class="destination-main__packages__header">
             <h2 class="destination-main__packages__header__title page-divider">
-                <?php echo $title ?> <?php echo ($is_bucket_list) ? ' Tour Packages' : ' Vacation Packages' ?>
+                <?php echo $title ?> <?php echo ($is_bucket_list) ? ' Extensions' : ' Extensions' ?>
             </h2>
             <div class="destination-main__packages__header__sub-text">
                 <?php echo get_field('tour_package_title_subtext') ?>

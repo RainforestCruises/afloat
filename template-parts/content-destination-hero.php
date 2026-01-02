@@ -72,7 +72,7 @@
                       <!-- Order depending on template type -->
                       <?php if ($destinationType == 'region' || $destinationType == 'destination') { ?>
                           <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#packages" class="destination-hero__content__page-nav__list__item__link page-nav-template">Packages</a>
+                              <a href="#extensions" class="destination-hero__content__page-nav__list__item__link page-nav-template">Extensions</a>
                           </li>
 
                           <?php if ($destinationType == 'destination') {
@@ -121,7 +121,7 @@
                           <?php endif; ?>
                           <?php if ($show_tours) : ?>
                           <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#packages" class="destination-hero__content__page-nav__list__item__link page-nav-template">Packages</a>
+                              <a href="#extensions" class="destination-hero__content__page-nav__list__item__link page-nav-template">Extensions</a>
                           </li>
                           <?php endif; ?>
                       <?php } ?>
