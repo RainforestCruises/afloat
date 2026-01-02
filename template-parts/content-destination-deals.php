@@ -73,7 +73,7 @@ $posts = $args['deals'];
                         <div class="deal-slide__bottom__snippet">
                             <?php
                             $description = get_field('description', $p);
-                            echo mb_substr($description, 0, 300) . (mb_strlen($description) > 300 ? '...' : '');
+                            echo $description ;
                             ?>
                         </div>
                         <?php if ($applicable_to == 'broadCategory') :
