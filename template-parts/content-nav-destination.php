@@ -60,17 +60,20 @@ endif; ?>
                     $hide_cruises = get_field('hide_cruises');
                     if (!$hide_cruises) : ?>
                         <li>
-                            <a href="#cruises">Cruises</a>
+                            <a href="#ships">Ships</a>
                         </li>
                     <?php endif;
                     if ($show_charters) : ?>
                         <li>
-                            <a href="#charters">Private Charters</a>
+                            <a href="#charters">Charters</a>
                         </li>
                     <?php endif; ?>
+                    <li>
+                        <a href="#deals">Deals</a>
+                    </li>
                 <?php } else { ?>
                     <li>
-                        <a href="#cruises">Cruises</a>
+                        <a href="#ships">Ships</a>
                     </li>
                 <?php } ?>
 
@@ -89,13 +92,16 @@ endif; ?>
 
             <?php } else if ($destinationType == 'cruise') { ?>
                 <li>
-                    <a href="#cruises">Cruises</a>
+                    <a href="#ships">Ships</a>
                 </li>
                 <?php if ($show_charters) : ?>
                     <li>
-                        <a href="#charters">Private Charters</a>
+                        <a href="#charters">Charters</a>
                     </li>
                 <?php endif; ?>
+                <li>
+                    <a href="#deals">Deals</a>
+                </li>
                 <?php if ($show_tours) : ?>
                     <li>
                         <a href="#extensions">Extensions</a>
@@ -105,7 +111,7 @@ endif; ?>
             <?php } ?>
 
             <li>
-                <a href="#travel-guide">Travel Guide</a>
+                <a href="#travel-guide">Guide</a>
             </li>
             <?php if (get_field('show_testimonials') == true) { ?>
                 <li>
@@ -139,17 +145,21 @@ endif; ?>
                 $hide_cruises = get_field('hide_cruises');
                 if (!$hide_cruises) { ?>
                     <li class="nav-secondary-mobile__list__item">
-                        <a href="#cruises" class="nav-secondary-mobile__list__item__link">Cruises</a>
+                        <a href="#ships" class="nav-secondary-mobile__list__item__link">Ships</a>
                     </li>
                 <?php }
                 if ($show_charters) : ?>
                     <li class="nav-secondary-mobile__list__item">
-                        <a href="#charters" class="nav-secondary-mobile__list__item__link">Private Charters</a>
+                        <a href="#charters" class="nav-secondary-mobile__list__item__link">Charters</a>
                     </li>
-                <?php endif;
+                <?php endif; ?>
+                <li class="nav-secondary-mobile__list__item">
+                    <a href="#deals " class="nav-secondary-mobile__list__item__link">Deals</a>
+                </li>
+            <?php
             } else { ?>
                 <li class="nav-secondary-mobile__list__item">
-                    <a href="#cruises" class="nav-secondary-mobile__list__item__link">Cruises</a>
+                    <a href="#ships" class="nav-secondary-mobile__list__item__link">Ships</a>
                 </li>
             <?php } ?>
 
@@ -168,13 +178,16 @@ endif; ?>
 
         <?php } else if ($destinationType == 'cruise') { ?>
             <li class="nav-secondary-mobile__list__item">
-                <a href="#cruises" class="nav-secondary-mobile__list__item__link">Cruises</a>
+                <a href="#ships" class="nav-secondary-mobile__list__item__link">Ships</a>
             </li>
             <?php if ($show_charters) : ?>
                 <li class="nav-secondary-mobile__list__item">
-                    <a href="#charters" class="nav-secondary-mobile__list__item__link">Private Charters</a>
+                    <a href="#charters" class="nav-secondary-mobile__list__item__link">Charters</a>
                 </li>
             <?php endif; ?>
+            <li class="nav-secondary-mobile__list__item">
+                <a href="#deals " class="nav-secondary-mobile__list__item__link">Deals</a>
+            </li>
             <?php if ($show_tours) : ?>
                 <li class="nav-secondary-mobile__list__item">
                     <a href="#extensions" class="nav-secondary-mobile__list__item__link">Extensions</a>
@@ -183,7 +196,7 @@ endif; ?>
         <?php } ?>
 
         <li class="nav-secondary-mobile__list__item">
-            <a href="#travel-guide" class="nav-secondary-mobile__list__item__link">Travel Guide</a>
+            <a href="#travel-guide" class="nav-secondary-mobile__list__item__link">Guide</a>
         </li>
 
         <?php if (get_field('show_testimonials') == true) { ?>

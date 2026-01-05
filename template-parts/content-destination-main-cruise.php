@@ -1,6 +1,9 @@
 <?php
 $destination = $args['destination'];
-$title = $args['title'];
+$defaultTitle = $args['title'];
+$cruise_title = get_field('cruise_title');
+
+
 $cruise_locations = get_field('cruise_countries');
 
 $cruises = $args['cruises'];
@@ -78,10 +81,10 @@ $video_hero_card = get_field('video_hero_card');
     </div>
 
     <!-- Cruises -->
-    <div class="destination-main__packages" id="cruises">
+    <div class="destination-main__packages" id="ships">
         <div class="destination-main__packages__header">
             <h2 class="destination-main__packages__header__title page-divider">
-                <?php echo $title ?> Cruises
+                <?php echo $cruise_title == "" ? $defaultTitle . ' Cruises' : $cruise_title; ?>
             </h2>
             <div class="destination-main__packages__header__sub-text">
                 <?php echo get_field('cruise_title_subtext') ?>
@@ -174,7 +177,7 @@ $video_hero_card = get_field('video_hero_card');
                         </div>
                     </a>
 
-              <?php endforeach; ?>
+                <?php endforeach; ?>
             </div>
         </div>
 
@@ -182,6 +185,8 @@ $video_hero_card = get_field('video_hero_card');
 
     <?php
     $cruise_lengths = get_field('cruise_lengths');
+    $top_level_cruises_page = get_field('top_level_cruises_page', 'options');
+
     ?>
 
     <div class="destination-main__lengths">
@@ -195,7 +200,7 @@ $video_hero_card = get_field('video_hero_card');
         endif;
         ?>
 
-        <a class="btn-outline btn-outline--dark btn-outline--small" href="<?php echo get_field('cruise_search_link'); ?>">View All Cruises</a>
+        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $top_level_cruises_page . '?destinations=' . $destination->ID; ?>">View All Cruises</a>
     </div>
 
     <!-- destination tiles -->

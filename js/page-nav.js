@@ -58,10 +58,16 @@ jQuery(document).ready(function ($) {
     }
 
     //Get top distance
-    function getTargetTop(elem) {
-        var id = elem.attr("href");
-        return $(id).offset().top;
+function getTargetTop(elem) {
+    var id = elem.attr("href");
+    var target = $(id);
+    
+    if (target.length === 0) {
+        return 0; // or return null, or handle as needed
     }
+    
+    return target.offset().top;
+}
 
     // On Click - Nav Links, href change position
     $('.page-nav-template, .nav-secondary__main__links li a,  .nav-secondary-mobile__list li a, #nav-secondary-title,  #down-arrow-button').click(function (event) {

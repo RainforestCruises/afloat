@@ -166,12 +166,7 @@ $args = array(
         ?>
     </section>
 
-    <!-- Deals -->
-    <section class="destination-page__section-deals" id="deals">
-        <?php
-        get_template_part('template-parts/content', 'destination-deals', $args);
-        ?>
-    </section>
+
 
 
     <?php if ($show_charters) : ?>
@@ -182,6 +177,13 @@ $args = array(
             ?>
         </section>
     <?php endif; ?>
+
+    <!-- Deals -->
+    <section class="destination-page__section-deals" id="deals">
+        <?php
+        get_template_part('template-parts/content', 'destination-deals', $args);
+        ?>
+    </section>
 
     <?php if ($show_tours) : ?>
 

@@ -145,7 +145,7 @@ $args = array(
 
     <!-- Cruises-->
     <?php if (get_field('hide_cruises') == false) { ?>
-        <section class="destination-page__section-secondary" id="cruises">
+        <section class="destination-page__section-secondary" id="ships">
             <?php
             get_template_part('template-parts/content', 'destination-secondary', $args);
             ?>
@@ -161,6 +161,12 @@ $args = array(
         </section>
     <?php endif; ?>
 
+        <!-- Deals -->
+    <section class="destination-page__section-deals" id="deals">
+        <?php
+        get_template_part('template-parts/content', 'destination-deals', $args);
+        ?>
+    </section>
 
     <?php if (get_field('hide_accommodations') == false) { ?>
         <!-- Accommodations -->

@@ -52,8 +52,67 @@
             "ui": 1
         },
         {
+            "key": "field_695af665125f2",
+            "label": "Breadcrumb",
+            "name": "breadcrumb",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_695af67c125f3",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_695af68d125f4",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": "",
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "allow_archives": 0,
+                    "multiple": 0
+                }
+            ]
+        },
+        {
             "key": "field_6052316fa143f",
-            "label": "Breadcrumb Link",
+            "label": "Breadcrumb Link (DEPRECATED)",
             "name": "breadcrumb_link",
             "type": "page_link",
             "instructions": "Select the parent landing page for the link",
@@ -77,7 +136,7 @@
         },
         {
             "key": "field_605233023a2f2",
-            "label": "Breadcrumb Name",
+            "label": "Breadcrumb Name  (DEPRECATED)",
             "name": "breadcrumb_name",
             "type": "text",
             "instructions": "The breadcrumb link text",
@@ -1381,5 +1440,5 @@
     "active": true,
     "description": "Destination (Destination) - Page",
     "show_in_rest": 0,
-    "modified": 1764769282
+    "modified": 1767569145
 }

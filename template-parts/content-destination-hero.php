@@ -7,6 +7,7 @@
     $accommodationDisplayText = 'Lodges';
     $show_charters = get_field('show_charters');
     $show_tours = get_field('show_tours');
+    $breadcrumb = get_field('breadcrumb');
 
     if ($destinationType == 'destination' || $destinationType == 'region')
         $accommodationDisplayText = get_field('accommodations_label');
@@ -34,20 +35,29 @@
       </div>
       <div class="destination-hero__content">
 
-          <!-- Breadcrumb -->
           <ol class="destination-hero__content__breadcrumb">
               <li>
-                  <a href="<?php echo get_home_url(); ?>">Home</a>
+                  <a href="<?php echo home_url() ?>">Home</a>
               </li>
-              <?php if ($destinationType != 'region') : ?>
-                  <li>
-                      <a href="<?php echo get_field('breadcrumb_link') ?>"><?php echo get_field('breadcrumb_name') ?></a>
-                  </li>
-              <?php endif; ?>
-              <li>
-                  <?php echo get_field('navigation_title', $destination) ?>
-              </li>
+              <?php
+                if ($breadcrumb) :
+                    foreach ($breadcrumb as $b) :
+                        if ($b['link'] != null) : ?>
+                          <li>
+                              <a href=" <?php echo $b['link']  ?>"><?php echo $b['title'] ?></a>
+                          </li>
+                      <?php else : ?>
+                          <li>
+                              <?php echo $b['title'] ?>
+                          </li>
+              <?php endif;
+                    endforeach;
+                endif; ?>
+
           </ol>
+
+
+
 
 
           <!-- Title -->
@@ -79,20 +89,22 @@
                                 $hide_cruises = get_field('hide_cruises');
                                 if (!$hide_cruises) : ?>
                                   <li class="destination-hero__content__page-nav__list__item">
-                                      <a href="#cruises" class="destination-hero__content__page-nav__list__item__link page-nav-template">Cruises</a>
+                                      <a href="#ships" class="destination-hero__content__page-nav__list__item__link page-nav-template">Ships</a>
                                   </li>
                               <?php endif; ?>
                               <?php if ($show_charters) : ?>
                                   <li class="destination-hero__content__page-nav__list__item">
-                                      <a href="#charters" class="destination-hero__content__page-nav__list__item__link page-nav-template">Private Charters</a>
+                                      <a href="#charters" class="destination-hero__content__page-nav__list__item__link page-nav-template">Charters</a>
                                   </li>
                               <?php endif; ?>
                           <?php } else { ?>
                               <li class="destination-hero__content__page-nav__list__item">
-                                  <a href="#cruises" class="destination-hero__content__page-nav__list__item__link page-nav-template">Cruises</a>
+                                  <a href="#ships" class="destination-hero__content__page-nav__list__item__link page-nav-template">Ships</a>
                               </li>
                           <?php } ?>
-
+                          <li class="destination-hero__content__page-nav__list__item">
+                              <a href="#deals" class="destination-hero__content__page-nav__list__item__link page-nav-template">Deals</a>
+                          </li>
 
                           <?php if ($destinationType == 'destination'  || $destinationType == 'region') {
                                 $hide_accommodations = get_field('hide_accommodations');
@@ -112,24 +124,27 @@
 
                         ?>
                           <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#cruises" class="destination-hero__content__page-nav__list__item__link page-nav-template">Cruises</a>
+                              <a href="#ships" class="destination-hero__content__page-nav__list__item__link page-nav-template">Ships</a>
                           </li>
                           <?php if ($show_charters) : ?>
                               <li class="destination-hero__content__page-nav__list__item">
-                                  <a href="#charters" class="destination-hero__content__page-nav__list__item__link page-nav-template">Private Charters</a>
+                                  <a href="#charters" class="destination-hero__content__page-nav__list__item__link page-nav-template">Charters</a>
                               </li>
                           <?php endif; ?>
-                          <?php if ($show_tours) : ?>
                           <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#extensions" class="destination-hero__content__page-nav__list__item__link page-nav-template">Extensions</a>
+                              <a href="#deals" class="destination-hero__content__page-nav__list__item__link page-nav-template">Deals</a>
                           </li>
+                          <?php if ($show_tours) : ?>
+                              <li class="destination-hero__content__page-nav__list__item">
+                                  <a href="#extensions" class="destination-hero__content__page-nav__list__item__link page-nav-template">Extensions</a>
+                              </li>
                           <?php endif; ?>
                       <?php } ?>
 
 
 
                       <li class="destination-hero__content__page-nav__list__item">
-                          <a href="#travel-guide" class="destination-hero__content__page-nav__list__item__link page-nav-template">Travel Guide</a>
+                          <a href="#travel-guide" class="destination-hero__content__page-nav__list__item__link page-nav-template">Guide</a>
                       </li>
                       <?php if (get_field('show_testimonials') == true) { ?>
                           <li class="destination-hero__content__page-nav__list__item">

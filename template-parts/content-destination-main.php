@@ -187,7 +187,7 @@ $video_hero_card = get_field('video_hero_card');
     </div>
     <?php
     $tour_lengths = get_field('tour_lengths');
-    $tour_search_link = get_field('tour_search_link');
+    $top_level_packages_page = get_field('top_level_packages_page', 'options');
     ?>
 
     <div class="destination-main__lengths">
@@ -200,7 +200,7 @@ $video_hero_card = get_field('video_hero_card');
         <?php endforeach;
         endif;
         ?>
-        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $tour_search_link; ?>">View All Tours</a>
+        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $top_level_packages_page . '?destinations=' . $destination->ID; ?>">View All Extensions</a>
         <?php $deal_page_link = get_field('deal_page_link');
         if ($deal_page_link != '') : ?>
             <a class="btn-outline btn-outline--green btn-outline--small" href="<?php echo get_field('deal_page_link'); ?>">View Deals</a>

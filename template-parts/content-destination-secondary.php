@@ -3,7 +3,7 @@
 $cruises = $args['cruises'];
 $currentYear = date("Y");
 
-console_log($cruises);
+$destination = get_field('destination_post');
 
 ?>
 
@@ -114,10 +114,10 @@ console_log($cruises);
         </div>
     </div>
     <?php
-    $cruise_search_link = get_field('cruise_search_link');
+    $top_level_cruises_page = get_field('top_level_cruises_page', 'options');
     ?>
 
     <div class="destination-secondary__btn ">
-        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $cruise_search_link; ?>">View All Cruises</a>
+        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $top_level_cruises_page . '?destinations=' . $destination->ID ; ?>">View All Cruises</a>
     </div>
 </div>
