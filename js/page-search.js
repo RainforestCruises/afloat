@@ -135,6 +135,8 @@ jQuery(document).ready(function ($) {
   const formFeatures = document.querySelector("#formFeatures");
 
   const formExperiences = document.querySelector("#formExperiences");
+  const formMinSize = document.querySelector("#formMinSize");
+  const formMaxSize = document.querySelector("#formMaxSize");
   const formMinLength = document.querySelector("#formMinLength");
   const formMaxLength = document.querySelector("#formMaxLength");
   const formSort = document.querySelector("#formSort");
@@ -464,6 +466,27 @@ jQuery(document).ready(function ($) {
     });
   });
 
+  var sizeSliderMin = 1;
+  var sizeSliderMax = 50;
+
+  //size Slider
+  $("#size-slider").ionRangeSlider({
+    skin: "round",
+    type: "double",
+    min: sizeSliderMin, //default
+    max: sizeSliderMax, //default
+    from: formMinSize.value,
+    to: formMaxSize.value,
+    postfix: " Guest",
+    max_postfix: "+",
+    onFinish: function () {
+      formMinSize.value = $("#size-slider").data("from");
+      formMaxSize.value = $("#size-slider").data("to");
+
+      reloadResults();
+    },
+  });
+
   var lengthSliderMin = 1;
   var lengthSliderMax = 21;
 
@@ -515,6 +538,15 @@ jQuery(document).ready(function ($) {
     formTravelStyles.value = null;
     formDestinations.value = null;
     formExperiences.value = null;
+
+    formMinSize.value = sizeSliderMin;
+    formMaxSize.value = sizeSliderMax;
+
+    var sizeSlider = $("#size-slider").data("ionRangeSlider");
+    sizeSlider.update({
+      from: sizeSliderMin,
+      to: sizeSliderMax,
+    });
 
     formMinLength.value = lengthSliderMin;
     formMaxLength.value = lengthSliderMax;
@@ -586,6 +618,14 @@ jQuery(document).ready(function ($) {
 
     if (formFeatures.value != null) {
       params.set("features", formFeatures.value);
+    }
+
+    if (formMinSize.value != null) {
+      params.set("size_min", formMinSize.value);
+    }
+
+    if (formMinSize.value != null) {
+      params.set("size_max", formMaxSize.value);
     }
 
     if (formMinLength.value != null) {
@@ -871,6 +911,13 @@ jQuery(document).ready(function ($) {
       filtersApplied = true;
     }
     if (formMaxLength.value != lengthSliderMax) {
+      filtersApplied = true;
+    }
+
+    if (formMinSize.value != sizeSliderMin) {
+      filtersApplied = true;
+    }
+    if (formMaxSize.value != sizeSliderMax) {
       filtersApplied = true;
     }
 

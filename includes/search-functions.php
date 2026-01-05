@@ -1,6 +1,6 @@
 <?php
 //Upper bounded list of products for search results
-function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength, $datesArray, $searchInput, $sorting, $pageNumber, $viewType, $features)
+function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength,  $minSize, $maxSize, $datesArray, $searchInput, $sorting, $pageNumber, $viewType, $features)
 {
 
     $charterFilter = false;
@@ -131,7 +131,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
     $posts = get_posts($args); //Stage I posts
-    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting, $searchInput, $viewType, $features); //Stage II metadata
+    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, $datesArray, $charterFilter, $sorting, $searchInput, $viewType, $features); //Stage II metadata
 
 
 
@@ -179,7 +179,7 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
 //Stage II - metadata
-function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charterFilter, $sorting, $searchInput, $viewType, $features)
+function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, $datesArray, $charterFilter, $sorting, $searchInput, $viewType, $features)
 {
 
     $results = [];
@@ -267,6 +267,15 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
             if ($postType  == 'rfc_cruises') { //CRUISES 
                 $productTypeCta = 'Cruise';
 
+                // ship size
+                $vessel_capacity = get_field('vessel_capacity', $p);
+                if($maxSize != 50 && $vessel_capacity > $maxSize){
+                    continue;
+                }
+                if($vessel_capacity < $minSize){
+                    continue;
+                }
+
 
                 //Charter Filters
                 $charterAvailable = get_field('charter_available', $p);
@@ -312,6 +321,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $datesArray, $charte
                             $featuresMatch = true;
                             break;
                         }
+
+                        
 
                         $shipFeatures = get_field('features', $p);
                         $wifi_available = $shipFeatures['wifi_available'];

@@ -370,6 +370,25 @@ if (get_field('itinerary_length_max') != null) {
         </div>
     </div>
 
+    <!-- Ship Size Filter -->
+    <div class="filter">
+        <div class="filter__heading">
+            <h5 class="filter__heading__text">
+                Ship Size
+            </h5>
+            <svg>
+                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
+            </svg>
+        </div>
+
+        <div class="filter__content">
+            <input class="filter__content__range-slider" type="text" name="size-slider" id="size-slider">
+            <div class="filter__content__fine-print">
+                Drag slider to modify range
+            </div>
+        </div>
+    </div>
+
     <!-- Length Filter -->
     <div class="filter">
         <div class="filter__heading">
@@ -382,10 +401,9 @@ if (get_field('itinerary_length_max') != null) {
         </div>
 
         <div class="filter__content">
-            <!-- List -->
             <input class="filter__content__range-slider" type="text" name="range-slider" id="range-slider">
             <div class="filter__content__fine-print">
-                Drag sliders to modify range
+                Drag slider to modify range
             </div>
         </div>
     </div>

@@ -413,6 +413,48 @@
             "ui": 1
         },
         {
+            "key": "field_695bfd4c5f65d",
+            "label": "Ship Size Min",
+            "name": "ship_size_min",
+            "type": "number",
+            "instructions": "For preselected ship sizes",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 50,
+            "step": ""
+        },
+        {
+            "key": "field_695bfcee5f65c",
+            "label": "Ship Size Max",
+            "name": "ship_size_max",
+            "type": "number",
+            "instructions": "For preselected ship sizes - enter 50 for no limit.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 50,
+            "step": ""
+        },
+        {
             "key": "field_5fd8e1e88b56a",
             "label": "Itinerary Length Min",
             "name": "itinerary_length_min",
@@ -712,5 +754,5 @@
     "active": true,
     "description": "Search - Page",
     "show_in_rest": 0,
-    "modified": 1763567244
+    "modified": 1767636351
 }

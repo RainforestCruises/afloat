@@ -81,12 +81,6 @@ if (isset($_GET["viewType"]) && $_GET["viewType"]) {
 
 
 
-//--Length Max
-$lengthMax = 21;
-$selectedLengthMax = get_field('itinerary_length_max');
-if ($selectedLengthMax != null) {
-    $lengthMax = $selectedLengthMax;
-}
 
 
 
@@ -187,6 +181,48 @@ if (isset($_GET["experiences"])) {
     }
 }
 
+
+
+
+
+//--Size Min
+$sizeMin = 1;
+$selectedSizeMin = get_field('ship_size_min');
+if ($selectedSizeMin != null) {
+    $sizeMin = $selectedSizeMin;
+}
+
+//URL param
+if (isset($_GET["size_min"])) {
+    if (isset($_GET["size_min"]) && $_GET["size_min"]) {
+        $sizeMinParameters = htmlspecialchars($_GET["size_min"]);
+        $sizeMin = $sizeMinParameters;
+    } else {
+        $sizeMin = 1;
+    }
+}
+
+//--size Max
+$sizeMax = 50;
+$selectedSizeMax = get_field('ship_size_max');
+if ($selectedSizeMax != null) {
+    $sizeMax = $selectedSizeMax;
+}
+
+//URL param
+if (isset($_GET["size_max"])) {
+    if (isset($_GET["size_max"]) && $_GET["size_max"]) {
+        $sizeMaxParameters = htmlspecialchars($_GET["size_max"]);
+        $sizeMax = $sizeMaxParameters;
+    } else {
+        $sizeMax = 50;
+    }
+}
+
+
+
+
+
 //--Length Min
 $lengthMin = 1;
 $selectedLengthMin = get_field('itinerary_length_min');
@@ -245,7 +281,7 @@ if (isset($_GET["features"])) {
 }
 
 //first load
-$resultsObject = getSearchPosts($travelTypes,  $destinations, $experiences, $searchType, $destinationId, $regionId, $lengthMin, $lengthMax, $departures, $searchInput, $sorting, $pageNumber, $viewType, $features);
+$resultsObject = getSearchPosts($travelTypes,  $destinations, $experiences, $searchType, $destinationId, $regionId, $lengthMin, $lengthMax, $sizeMin, $sizeMax, $departures, $searchInput, $sorting, $pageNumber, $viewType, $features);
 $resultCount = $resultsObject['resultsCount'];
 
 //Page arguments ------------
@@ -259,6 +295,8 @@ $args = array(
     'departures' => $departures, //preselection
     'lengthMin' => $lengthMin, //preselection
     'lengthMax' => $lengthMax, //preselection
+    'sizeMin' => $sizeMin, //preselection
+    'sizeMax' => $sizeMax, //preselection
     'features' => $features, //preselection
     'sorting' => $sorting,
     'searchInput' => $searchInput,
@@ -344,6 +382,8 @@ $enable_hero_content = get_field('enable_hero_content');
     <input type="hidden" name="formExperiences" id="formExperiences" value="<?php echo $experiencesString ?>">
     <input type="hidden" name="formMinLength" id="formMinLength" value="<?php echo $lengthMin ?>">
     <input type="hidden" name="formMaxLength" id="formMaxLength" value="<?php echo $lengthMax ?>">
+    <input type="hidden" name="formMinSize" id="formMinSize" value="<?php echo $sizeMin ?>">
+    <input type="hidden" name="formMaxSize" id="formMaxSize" value="<?php echo $sizeMax ?>">
     <input type="hidden" name="formSort" id="formSort" value="<?php echo $sorting ?>">
     <input type="hidden" name="formPageNumber" id="formPageNumber" value="<?php echo $pageNumber ?>">
 

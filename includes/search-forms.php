@@ -142,6 +142,15 @@ function search_filter_primary_search()
     }
 
 
+    //--size
+    $formMinSize = null;
+    $formMaxSize = null;
+    if (isset($_POST['formMinSize']) && $_POST['formMinSize']) {
+        $formMinSize = $_POST['formMinSize'];
+        $formMaxSize = $_POST['formMaxSize'];
+    }
+
+
 
     //--length
     $formMinLength = null;
@@ -154,7 +163,7 @@ function search_filter_primary_search()
 
 
 
-    $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId, $formMinLength, $formMaxLength, $formDates, $formSearchInput, $sorting, $pageNumber, $viewType, $formFeatures);
+    $posts = getSearchPosts($formTravelStyles, $formDestinations, $formExperiences, $searchType, $destinationId, $regionId, $formMinLength, $formMaxLength, $formMinSize, $formMaxSize, $formDates, $formSearchInput, $sorting, $pageNumber, $viewType, $formFeatures);
 
 
 
