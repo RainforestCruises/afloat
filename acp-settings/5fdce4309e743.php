@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.5.1',
+  'version' => '5.6.4',
   'title' => 'Tours',
   'type' => 'rfc_tours',
   'id' => '5fdce4309e743',
-  'updated' => 1622062652,
+  'updated' => 1768234082,
   'columns' => 
   array (
     'title' => 
@@ -73,6 +73,22 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '5fdce46352681',
+    ),
+    '69651c4099db24' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Example Tour',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_69651b3d3a126',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '69651c4099db24',
     ),
     '5fdce577c60fe' => 
     array (
@@ -255,39 +271,6 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '5fdce577c610a',
-    ),
-    '5fdce577c610d' => 
-    array (
-      'type' => 'column-author_name',
-      'label' => 'Author',
-      'width' => '',
-      'width_unit' => '%',
-      'display_author_as' => 'display_name',
-      'user_link_to' => 'edit_user',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'off',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-      'name' => '5fdce577c610d',
-    ),
-    'date' => 
-    array (
-      'type' => 'date',
-      'label' => 'Date',
-      'width' => '',
-      'width_unit' => '%',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'off',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-      'filter_format' => '',
-      'name' => 'date',
     ),
   ),
   'settings' => 

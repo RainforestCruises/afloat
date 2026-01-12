@@ -13,6 +13,7 @@ $top_level_guides_page = get_field('top_level_guides_page', 'options');
 $top_level_about_page = get_field('top_level_about_page', 'options');
 $top_level_cruises_page = get_field('top_level_cruises_page', 'options');
 $top_level_packages_page = get_field('top_level_packages_page', 'options');
+$top_level_charter_page = get_field('top_level_charter_page', 'options');
 
 $alwaysActiveHeader = checkActiveHeader(); //return true/false depending on if current template header bar should never be transparent
 ?>
@@ -36,6 +37,7 @@ $alwaysActiveHeader = checkActiveHeader(); //return true/false depending on if c
                 Destinations
             </span>
         </a>
+        <a class="nav-mobile__content-panel__button mobile-link" href="<?php echo $top_level_charter_page ?>">Charters</a>
 
         <a class="nav-mobile__content-panel__button mobile-link" href="<?php echo $top_level_packages_page ?>">Extensions</a>
 
@@ -229,6 +231,9 @@ $alwaysActiveHeader = checkActiveHeader(); //return true/false depending on if c
             <div class="header__main__nav__list">
                 <li class="header__main__nav__list__item">
                     <span class="header__main__nav__list__item__link mega" navelement="cruises">Destinations</a>
+                </li>
+                <li class="header__main__nav__list__item">
+                    <a class="header__main__nav__list__item__link no-mega" href="<?php echo $top_level_charter_page ?>">Charters</a>
                 </li>
                 <li class="header__main__nav__list__item">
                     <a class="header__main__nav__list__item__link no-mega" href="<?php echo $top_level_packages_page ?>">Extensions</a>

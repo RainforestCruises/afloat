@@ -221,6 +221,25 @@
             "endpoint": 0
         },
         {
+            "key": "field_69651b3d3a126",
+            "label": "Example Tour",
+            "name": "example_tour",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_618c2c5d184c4",
             "label": "Show Notification",
             "name": "show_notification",
@@ -1735,5 +1754,5 @@
     "active": true,
     "description": "Tour - CPT",
     "show_in_rest": 0,
-    "modified": 1707757456
+    "modified": 1768233907
 }
