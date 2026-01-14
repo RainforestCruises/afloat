@@ -342,9 +342,7 @@ $alwaysActiveHeader = checkActiveHeader(); //return true/false depending on if c
                 <?php endforeach; ?>
             </div>
 
-            <div class="nav-mega__nav__all">
-                <a class="btn-outline btn-outline--dark  btn-outline--xsmall" href="<?php echo $top_level_cruises_page ?>">View All Cruises</a>
-            </div>
+  
 
         </div>
         <!-- Packages -->
