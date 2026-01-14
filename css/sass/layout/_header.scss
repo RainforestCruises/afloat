@@ -298,6 +298,11 @@
         text-decoration: none;
         cursor: pointer;
         transition: color 0.3s;
+
+        & svg {
+          color: currentColor;
+        }
+
         &:link,
         &:visited {
           color: $color-grey-light-1a;
@@ -863,7 +868,6 @@
       justify-content: space-between;
 
       &__sub-group {
-
         position: relative;
         &:not(:last-child) {
           margin-right: 6rem;

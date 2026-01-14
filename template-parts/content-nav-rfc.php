@@ -230,6 +230,8 @@ foreach ($menuitems as $m) {
         <!-- Right Side -->
         <div class="header__main__right">
 
+         
+
 
             <!-- Contact Mail -->
             <a href="<?php echo get_home_url(); ?>/contact" class="header__main__right__contact-link">
@@ -264,7 +266,6 @@ foreach ($menuitems as $m) {
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-ic_translate_24px"></use>
                     </svg>
                     <span>
-
                         <?php echo do_shortcode("[language-switcher]"); ?>
                     </span>
                 </div>

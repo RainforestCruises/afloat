@@ -515,7 +515,8 @@
                 "quad": "Quad Occupancy",
                 "wifi": "Wi-Fi",
                 "connecting": "Interconnected Cabins",
-                "balconies": "Balconies"
+                "balconies": "Balconies",
+                "diving": "Diving Gear"
             },
             "default_value": [],
             "allow_null": 1,
@@ -754,5 +755,5 @@
     "active": true,
     "description": "Search - Page",
     "show_in_rest": 0,
-    "modified": 1767636351
+    "modified": 1768323761
 }

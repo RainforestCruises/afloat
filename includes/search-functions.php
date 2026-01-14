@@ -269,10 +269,10 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
 
                 // ship size
                 $vessel_capacity = get_field('vessel_capacity', $p);
-                if($maxSize != 50 && $vessel_capacity > $maxSize){
+                if ($maxSize != 50 && $vessel_capacity > $maxSize) {
                     continue;
                 }
-                if($vessel_capacity < $minSize){
+                if ($vessel_capacity < $minSize) {
                     continue;
                 }
 
@@ -322,12 +322,15 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
                             break;
                         }
 
-                        
+
 
                         $shipFeatures = get_field('features', $p);
                         $wifi_available = $shipFeatures['wifi_available'];
                         $connecting_cabins = $shipFeatures['connecting_cabins'];
                         $cabins_with_balconies = $shipFeatures['cabins_with_balconies'];
+
+                        $shipEquipment = get_field('equipment', $p);
+                        $diving_gear = $shipEquipment['diving_gear'];
 
                         if ($featureType === 'wifi' && $wifi_available) {
                             $featuresMatch = true;
@@ -340,6 +343,11 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
                         }
 
                         if ($featureType === 'balconies' && $cabins_with_balconies) {
+                            $featuresMatch = true;
+                            break;
+                        }
+
+                        if ($featureType === 'diving' && $diving_gear) {
                             $featuresMatch = true;
                             break;
                         }

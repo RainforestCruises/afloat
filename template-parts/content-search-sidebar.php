@@ -193,6 +193,43 @@ if (get_field('itinerary_length_max') != null) {
     </div>
 
 
+    <!-- Destinations/Locations Filter -->
+    <div class="filter">
+        <div class="filter__heading">
+            <h5 class="filter__heading__text">
+
+                <?php
+                echo ($searchType == 'top') ? 'Regions' : 'Destinations';
+                $filterCount = count($selectedDestinations);
+                ?>
+                <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="destinationsFilterCount">
+                    <?php echo $filterCount; ?>
+                </div>
+
+            </h5>
+            <svg>
+                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
+            </svg>
+        </div>
+        <div class="filter__content">
+            <!-- List -->
+            <ul class="filter__content__list">
+
+                <?php
+                $count = 1;
+                foreach ($destinations as $d) : ?>
+                    <li class="filter__content__list__item <?php echo (get_field('non_cruise_destination', $d) == true ? 'no-cruise' : '') ?>">
+                        <div class="form-checkbox">
+                            <input class="checkbox destination-checkbox" type="checkbox" id="destination-checkbox-<?php echo $count; ?>" value="<?php echo $d->ID ?>" <?php echo ($selectedDestinations != null ? (in_array($d->ID, $selectedDestinations) ? 'checked' : '') : '') ?>>
+                            <label for="destination-checkbox-<?php echo $count; ?>"><?php echo get_field('navigation_title', $d) ?></label>
+                        </div>
+                    </li>
+                <?php $count++;
+                endforeach; ?>
+
+            </ul>
+        </div>
+    </div>
 
 
     <!-- Departure Date Filter -->
@@ -235,48 +272,11 @@ if (get_field('itinerary_length_max') != null) {
         </div>
     </div>
 
-    <!-- Destinations/Locations Filter -->
-    <div class="filter">
-        <div class="filter__heading">
-            <h5 class="filter__heading__text">
-
-                <?php
-                echo ($searchType == 'top') ? 'Regions' : 'Destinations';
-                $filterCount = count($selectedDestinations);
-                ?>
-                <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="destinationsFilterCount">
-                    <?php echo $filterCount; ?>
-                </div>
-
-            </h5>
-            <svg>
-                <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-chevron-down"></use>
-            </svg>
-        </div>
-        <div class="filter__content">
-            <!-- List -->
-            <ul class="filter__content__list">
-
-                <?php
-                $count = 1;
-                foreach ($destinations as $d) : ?>
-                    <li class="filter__content__list__item <?php echo (get_field('non_cruise_destination', $d) == true ? 'no-cruise' : '') ?>">
-                        <div class="form-checkbox">
-                            <input class="checkbox destination-checkbox" type="checkbox" id="destination-checkbox-<?php echo $count; ?>" value="<?php echo $d->ID ?>" <?php echo ($selectedDestinations != null ? (in_array($d->ID, $selectedDestinations) ? 'checked' : '') : '') ?>>
-                            <label for="destination-checkbox-<?php echo $count; ?>"><?php echo get_field('navigation_title', $d) ?></label>
-                        </div>
-                    </li>
-                <?php $count++;
-                endforeach; ?>
-
-            </ul>
-        </div>
-    </div>
 
 
 
     <!-- Experiences Filter -->
-    <div class="filter">
+    <div class="filter" style="display: none;">
         <div class="filter__heading">
             <h5 class="filter__heading__text">
                 Experiences
@@ -363,6 +363,12 @@ if (get_field('itinerary_length_max') != null) {
                     <div class="form-checkbox">
                         <input class="checkbox features-checkbox" type="checkbox" id="features-checkbox-6" value="balconies" <?php echo (in_array('balconies', $selectedFeatures) ? 'checked' : '') ?>>
                         <label for="features-checkbox-6" tabindex="6">Cabins with Balconies</label>
+                    </div>
+                </li>
+                <li class="filter__content__list__item">
+                    <div class="form-checkbox">
+                        <input class="checkbox features-checkbox" type="checkbox" id="features-checkbox-7" value="diving" <?php echo (in_array('diving', $selectedFeatures) ? 'checked' : '') ?>>
+                        <label for="features-checkbox-7" tabindex="7">Diving Gear</label>
                     </div>
                 </li>
             </ul>

@@ -12493,6 +12493,8 @@ h5 {
         text-decoration: none;
         cursor: pointer;
         transition: color 0.3s; }
+        .header__main__right__contact-link svg {
+          color: currentColor; }
         .header__main__right__contact-link:link, .header__main__right__contact-link:visited {
           color: #e6e6e6; }
           .header__main__right__contact-link:link svg, .header__main__right__contact-link:visited svg {
