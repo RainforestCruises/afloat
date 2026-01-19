@@ -3,29 +3,38 @@
 function getSearchPosts($travelStyles, $destinations, $experiences, $searchType, $destinationId, $regionId, $minLength, $maxLength,  $minSize, $maxSize, $datesArray, $searchInput, $sorting, $pageNumber, $viewType, $features)
 {
 
+    // Default to non-extension cruises
     $charterFilter = false;
-    if ($travelStyles == null) {
-        $travelStyles = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
-    } else {
-
-        if ($travelStyles[0] == 'charter_cruises') {
-            $travelStyles = array('rfc_cruises');
-            $charterFilter = true;
-        }
-    }
+    $travelStyle = ($travelStyles && count($travelStyles) > 0) ? $travelStyles[0] : 'rfc_cruises';
 
     $args = array(
         'posts_per_page' => -1,
-        'post_type' => $travelStyles,
     );
 
+    switch ($travelStyle) {
+        case 'rfc_cruises':
+            $args['post_type'] = 'rfc_cruises';
+            break;
 
-    if ($charterFilter == true) {
-        $args['meta_query'][] = array(
-            'key' => 'charter_available',
-            'value' => true,
-            'compare' => 'LIKE'
-        );
+        case 'rfc_tours':
+            $args['post_type'] = 'rfc_tours';
+            break;
+
+        case 'extensions':
+            $args['post_type'] = array('rfc_cruises', 'rfc_tours', 'rfc_lodges');
+            break;
+
+        case 'charter_cruises':
+            $charterFilter = true;
+            $args['post_type'] = 'rfc_cruises';
+            $args['meta_query'] = array(
+                array(
+                    'key' => 'charter_available',
+                    'value' => true,
+                    'compare' => '='
+                )
+            );
+            break;
     }
 
 
@@ -131,10 +140,35 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
     $posts = get_posts($args); //Stage I posts
-    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, $datesArray, $charterFilter, $sorting, $searchInput, $viewType, $features); //Stage II metadata
+
+    // Filter extensions if needed
+    if (!empty($posts)) {
+        $filtered_posts = array();
+        foreach ($posts as $post) {
+            $post_type = get_post_type($post);
+
+            if ($travelStyle == 'extensions') {
+                // Always include lodges, only include cruises/tours if is_extension is true
+                if ($post_type == 'rfc_lodges' || get_field('is_extension', $post->ID)) {
+                    $filtered_posts[] = $post;
+                }
+            } elseif (in_array($travelStyle, ['rfc_cruises', 'rfc_tours'])) {
+                // Only include if is_extension is NOT true
+                if (!get_field('is_extension', $post->ID)) {
+                    $filtered_posts[] = $post;
+                }
+            } else {
+                // charter_cruises - include all (already filtered by meta_query)
+                $filtered_posts[] = $post;
+            }
+        }
+        $posts = $filtered_posts;
+    }
 
 
 
+
+    $formattedPosts = formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, $datesArray, $charterFilter, $sorting, $searchInput, $viewType, $features, $travelStyle); //Stage II metadata
 
 
     $resultsPerPage = 8;
@@ -179,11 +213,10 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
 
 //Stage II - metadata
-function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, $datesArray, $charterFilter, $sorting, $searchInput, $viewType, $features)
+function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, $datesArray, $charterFilter, $sorting, $searchInput, $viewType, $features, $travelStyle)
 {
 
     $results = [];
-
 
     //loop through posts (travel type, experience, destinations --> already filtered)
     foreach ($posts as $p) {
@@ -245,8 +278,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
                 }
             }
 
-            $productTypeCta = 'Tour';
-            $productTypeDisplay = 'Private Tour';
+            $productTypeCta = $travelStyle == 'extensions' ? 'Extension' : 'Tour';
+            $productTypeDisplay = $travelStyle == 'extensions' ? 'Extension' : 'Example Tour';
 
 
             //Price / Length -- (no itinerary count on tours)
@@ -265,8 +298,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
 
 
             if ($postType  == 'rfc_cruises') { //CRUISES 
-                $productTypeCta = 'Cruise';
-
+                $productTypeCta = $travelStyle == 'extensions' ? 'Extension' : 'Cruise';
+                
                 // ship size
                 $vessel_capacity = get_field('vessel_capacity', $p);
                 if ($maxSize != 50 && $vessel_capacity > $maxSize) {
@@ -291,7 +324,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
                     $productTypeDisplay = 'Private Charter';
                 } else {
                     $cruiseType = get_field('cruise_type', $p); //River Cruise / Coastal Cruise
-                    $productTypeDisplay = $cruiseType . ' Cruise';
+                    $productTypeDisplay = $travelStyle == 'extensions' ? 'Extension' : $cruiseType . ' Cruise';
                 }
 
                 //Price / Length
@@ -306,6 +339,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
                 if (!empty($features)) {
                     $featuresMatch = false;
 
+                    
                     foreach ($features as $featureType) {
                         $featureType = strtolower(trim($featureType));
 
@@ -461,8 +495,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
                     $itineraryLengthCharter = !empty($itineraryLengthValues) ? min($itineraryLengthValues) : 0;
                 };
             } else { //LODGES
-                $productTypeDisplay = 'Lodge Stay';
-                $productTypeCta = 'Lodge';
+                $productTypeDisplay = 'Extension';
+                $productTypeCta = 'Extension';
 
                 $itineraryCount = 0;
                 $itineraryLengthValues = [];
@@ -500,9 +534,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
                 $nonZeroPrices = array_filter($itineraryPriceValues, function ($price) {
                     return $price > 0;
                 });
-                console_log('prices');
 
-                console_log($itineraryPriceValues);
 
                 if (count($nonZeroPrices) > 0) {
                     $productLowestPrice = min($nonZeroPrices);

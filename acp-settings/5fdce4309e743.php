@@ -5,7 +5,7 @@ return array (
   'title' => 'Tours',
   'type' => 'rfc_tours',
   'id' => '5fdce4309e743',
-  'updated' => 1768234082,
+  'updated' => 1768511091,
   'columns' => 
   array (
     'title' => 
@@ -77,7 +77,7 @@ return array (
     '69651c4099db24' => 
     array (
       'type' => 'column-acf_field',
-      'label' => 'Example Tour',
+      'label' => 'Is Extension',
       'width' => '',
       'width_unit' => '%',
       'field' => 'field_69651b3d3a126',

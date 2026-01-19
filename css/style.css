@@ -7096,7 +7096,7 @@ h5 {
   border-radius: 0.4rem;
   padding: 1.5rem;
   display: grid;
-  grid-template-columns: 29rem 1fr 15rem;
+  grid-template-columns: 29rem 1fr 16rem;
   column-gap: 2.5rem;
   transition: all 0.3s;
   height: min-content !important;
@@ -12898,7 +12898,8 @@ h5 {
       width: 100%;
       justify-content: space-between; }
       .nav-mega__nav__main__sub-group {
-        position: relative; }
+        position: relative;
+        padding-bottom: 1.5rem; }
         .nav-mega__nav__main__sub-group:not(:last-child) {
           margin-right: 6rem; }
         .nav-mega__nav__main__sub-group__title {

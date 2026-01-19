@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'version' => '5.5.1',
+  'version' => '5.6.4',
   'title' => 'Cruises',
   'type' => 'rfc_cruises',
   'id' => '5fdbe431766d9',
-  'updated' => 1622061868,
+  'updated' => 1768511016,
   'columns' => 
   array (
     'title' => 
@@ -152,38 +152,21 @@ return array (
       'filter_label' => '',
       'name' => '60aeb31bf645a0',
     ),
-    '5fdbe4e7a668a' => 
+    '696955f9e31270' => 
     array (
-      'type' => 'column-author_name',
-      'label' => 'Author',
+      'type' => 'column-acf_field',
+      'label' => 'Is Extension',
       'width' => '',
       'width_unit' => '%',
-      'display_author_as' => 'display_name',
-      'user_link_to' => 'edit_user',
+      'field' => 'field_6969552ada03f',
       'export' => 'off',
       'sort' => 'on',
-      'edit' => 'off',
+      'edit' => 'on',
       'bulk_edit' => 'on',
       'search' => 'on',
       'filter' => 'off',
       'filter_label' => '',
-      'name' => '5fdbe4e7a668a',
-    ),
-    'date' => 
-    array (
-      'type' => 'date',
-      'label' => 'Date',
-      'width' => '',
-      'width_unit' => '%',
-      'export' => 'off',
-      'sort' => 'on',
-      'edit' => 'off',
-      'bulk_edit' => 'on',
-      'search' => 'on',
-      'filter' => 'off',
-      'filter_label' => '',
-      'filter_format' => '',
-      'name' => 'date',
+      'name' => '696955f9e31270',
     ),
     '609305e9428f5c' => 
     array (

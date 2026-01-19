@@ -102,11 +102,13 @@ $video_hero_card = get_field('video_hero_card');
         $filteredTours = [];
         $tourCount = 0;
         foreach ($tours as $t) {
-            $best_selling = ($destinationType != 'region') ? get_field('best_selling', $t) : get_field('best_selling_regional', $t);
-            if ($best_selling && $tourCount <= 12) {
-                $filteredTours[] = $t;
-                $tourCount++;
-            }
+            // $best_selling = ($destinationType != 'region') ? get_field('best_selling', $t) : get_field('best_selling_regional', $t);
+            // if ($best_selling && $tourCount <= 12) {
+            //     $filteredTours[] = $t;
+            //     $tourCount++;
+            // }
+            $filteredTours[] = $t;
+            $tourCount++;
         }
 
         ?>

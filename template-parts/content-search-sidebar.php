@@ -165,28 +165,31 @@ if (get_field('itinerary_length_max') != null) {
             <ul class="filter__content__list">
                 <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-1" value="rfc_tours" <?php echo (in_array('rfc_tours', $selectedTravelTypes) ? 'checked' : '') ?>>
-                        <label for="travel-style-checkbox-1" tabindex="1">Tours</label>
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-1" value="rfc_cruises" <?php echo (in_array('rfc_cruises', $selectedTravelTypes) ? 'checked' : '') ?>>
+                        <label for="travel-style-checkbox-1" tabindex="1">Cruises</label>
                     </div>
                 </li>
                 <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-2" value="rfc_cruises" <?php echo (in_array('rfc_cruises', $selectedTravelTypes) ? 'checked' : '') ?>>
-                        <label for="travel-style-checkbox-2" tabindex="2">Cruises</label>
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-2" value="charter_cruises" <?php echo (in_array('charter_cruises', $selectedTravelTypes) ? 'checked' : '') ?>>
+                        <label for="travel-style-checkbox-2" tabindex="2">Charters</label>
                     </div>
                 </li>
                 <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-3" value="rfc_lodges" <?php echo (in_array('rfc_lodges', $selectedTravelTypes) ? 'checked' : '') ?>>
-                        <label for="travel-style-checkbox-3" tabindex="3">Lodges</label>
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-3" value="extensions" <?php echo (in_array('extensions', $selectedTravelTypes) ? 'checked' : '') ?>>
+                        <label for="travel-style-checkbox-3" tabindex="3">Extensions</label>
                     </div>
                 </li>
-                <li class="filter__content__list__item filter__content__list__item--divider">
+                <li class="filter__content__list__item">
                     <div class="form-checkbox">
-                        <input class="checkbox travel-style-checkbox" type="checkbox" id="charterCheckbox" value="charter_cruises" <?php echo (in_array('charter_cruises', $selectedTravelTypes) ? 'checked' : '') ?>>
-                        <label for="charterCheckbox" tabindex="4">Private Charters</label>
+                        <input class="checkbox travel-style-checkbox" type="checkbox" id="travel-style-checkbox-4" value="rfc_tours" <?php echo (in_array('rfc_tours', $selectedTravelTypes) ? 'checked' : '') ?>>
+                        <label for="travel-style-checkbox-4" tabindex="4">Tours</label>
                     </div>
                 </li>
+
+
+
             </ul>
             <!-- Extras here, button etc-->
         </div>
@@ -310,8 +313,8 @@ if (get_field('itinerary_length_max') != null) {
         </div>
     </div>
 
-    <!-- Occupancy Filter -->
-    <div class="filter">
+    <!-- Ship Features Filter -->
+    <div class="filter" id="shipFeaturesFilters" style="<?php echo (in_array('extensions', $selectedTravelTypes) || in_array('rfc_tours', $selectedTravelTypes) ? 'display: none' : 'display: block') ?>" >
         <div class="filter__heading">
             <h5 class="filter__heading__text">
                 Ship Features
@@ -377,7 +380,7 @@ if (get_field('itinerary_length_max') != null) {
     </div>
 
     <!-- Ship Size Filter -->
-    <div class="filter">
+    <div class="filter" id="shipSizeFilters" style="<?php echo (in_array('extensions', $selectedTravelTypes) || in_array('rfc_tours', $selectedTravelTypes) ? 'display: none' : 'display: block') ?>">
         <div class="filter__heading">
             <h5 class="filter__heading__text">
                 Ship Size

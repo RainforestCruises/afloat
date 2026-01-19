@@ -308,7 +308,7 @@
             "label": "Travel Type",
             "name": "travel_type",
             "type": "select",
-            "instructions": "Choose one if there is a pre-selection, for example Peru + Cruises (NOTE: if charter cruises is selected, it must be selected by itself)",
+            "instructions": "Choose a preselected travel style (default will be cruises)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -317,14 +317,14 @@
                 "id": ""
             },
             "choices": {
-                "rfc_tours": "Tours",
                 "rfc_cruises": "Cruises",
-                "rfc_lodges": "Lodges",
+                "rfc_tours": "Tours",
+                "extensions": "Extensions",
                 "charter_cruises": "Charter Cruises"
             },
-            "default_value": [],
-            "allow_null": 1,
-            "multiple": 1,
+            "default_value": "rfc_cruises",
+            "allow_null": 0,
+            "multiple": 0,
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
@@ -755,5 +755,5 @@
     "active": true,
     "description": "Search - Page",
     "show_in_rest": 0,
-    "modified": 1768323761
+    "modified": 1768594495
 }

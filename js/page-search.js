@@ -5,7 +5,7 @@ jQuery(document).ready(function ($) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
   }
 
-  //Element variables
+  // element variables
   const searchMobileCTA = document.getElementById("search-filter-mobile-cta");
   const searchFilterBar = document.getElementById("search-filter-bar");
   const searchSortControl = document.getElementById("sort-control");
@@ -20,7 +20,7 @@ jQuery(document).ready(function ($) {
 
   const showResultsButton = document.getElementById("search-filter-mobile-cta-button");
 
-  //SCROLLING
+  // SCROLLING
   const downArrow = document.querySelector("#down-arrow-button");
   if (downArrow) {
     downArrow.addEventListener("click", (event) => {
@@ -56,7 +56,7 @@ jQuery(document).ready(function ($) {
     searchResultsTop.appendChild(searchSortControl);
   }
 
-  //move elements on resize
+  // move elements on resize
   $(window).resize(function () {
     if ($(window).width() < 1000) {
       //mobile view
@@ -306,25 +306,22 @@ jQuery(document).ready(function ($) {
   const travelStylesArray = [...document.querySelectorAll(".travel-style-checkbox")];
   travelStylesArray.forEach((item) => {
     item.addEventListener("click", () => {
-      //if charterCruises = selected --> make unselected
-      if (item.value != "charter_cruises") {
-        const charterCheckbox = document.getElementById("charterCheckbox");
-        charterCheckbox.checked = false;
-      } else {
-        //if this is charterCruises (and not selected) --> unselect all the other checkboxes
-        if (item.checked == true) {
-          travelStylesArray.forEach((checkboxItem) => {
-            checkboxItem.checked = false;
-          });
-          charterCheckbox.checked = true;
-        }
-      }
+      travelStylesArray.forEach((checkbox) => {
+        checkbox.checked = false;
+      });
+      item.checked = true;
 
       travelStylesString = "";
       let count = 0;
       travelStylesArray.forEach((checkbox) => {
         const itemValue = checkbox.value;
         if (checkbox.checked) {
+          if (checkbox.value == "extensions" || checkbox.value == "rfc_tours") {
+            hideShipFilters();
+          } else {
+            showShipFilters();
+          }
+
           if (count > 0) {
             travelStylesString += ";";
           }
@@ -348,6 +345,19 @@ jQuery(document).ready(function ($) {
       reloadResults();
     });
   });
+
+  const shipFeaturesFilters = document.getElementById("shipFeaturesFilters");
+  const shipSizeFilters = document.getElementById("shipSizeFilters");
+
+  function hideShipFilters() {
+    shipFeaturesFilters.style.display = "none";
+    shipSizeFilters.style.display = "none";
+  }
+
+  function showShipFilters() {
+    shipFeaturesFilters.style.display = "block";
+    shipSizeFilters.style.display = "block";
+  }
 
   checkNonCruiseDestinations();
   function checkNonCruiseDestinations() {
@@ -398,7 +408,7 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  //Experiences selections
+  // experiences selections
   let experiencesString = formExperiences.value;
   const experiencesArray = [...document.querySelectorAll(".experience-checkbox")];
   experiencesArray.forEach((item) => {

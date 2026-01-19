@@ -109,7 +109,7 @@ if (isset($_GET["departures"])) {
 //--Travel style
 $travelTypes = [];
 $travelTypesString = "";
-$selectedTravelTypes = get_field('travel_type');
+$selectedTravelTypes = (array) get_field('travel_type');
 if ($selectedTravelTypes != null) {
     $travelTypes = $selectedTravelTypes;
     $travelTypesString = implode(";", $travelTypes);
@@ -289,7 +289,7 @@ $args = array(
     'searchType' => $searchType,
     'destinationId' => $destinationId,
     'regionId' => $regionId,
-    'travelTypes' => $travelTypes, //preselection
+    'travelTypes' => (array) $travelTypes, //preselection
     'experiences' => $experiences, //preselection
     'destinations' => $destinations, //preselection
     'departures' => $departures, //preselection

@@ -21,18 +21,24 @@ $tour_experiences = get_field('tour_experiences');
         <div class="destination-main__packages__best-selling">
 
             <div class="destination-main__packages__best-selling__slider" id="main-slider">
-                <?php foreach ($tours as $t) : ?>
-                    <?php
+                <?php foreach ($tours as $t) : 
                     $best_selling = get_field('best_selling', $t);
+                    $hero_image = get_field('best_selling_image', $t);
+                    $countries  = get_field('destinations', $t);
+                    $price_packages = get_field('price_packages', $t);
+                    $lowest = lowest_tour_price($price_packages, $currentYear);
 
-                    if ($best_selling) :
-                        $hero_image = get_field('best_selling_image', $t);
-                        $countries  = get_field('destinations', $t);
-                        $price_packages = get_field('price_packages', $t);
-                        $lowest = lowest_tour_price($price_packages, $currentYear);
+                    $dealPosts = listDealsForProduct($t);
+                    $hasDeals = (count($dealPosts) > 0) ? true : false;
 
-                        $dealPosts = listDealsForProduct($t);
-                        $hasDeals = (count($dealPosts) > 0) ? true : false;
+                    // if ($best_selling) :
+                    //     $hero_image = get_field('best_selling_image', $t);
+                    //     $countries  = get_field('destinations', $t);
+                    //     $price_packages = get_field('price_packages', $t);
+                    //     $lowest = lowest_tour_price($price_packages, $currentYear);
+
+                    //     $dealPosts = listDealsForProduct($t);
+                    //     $hasDeals = (count($dealPosts) > 0) ? true : false;
 
                     ?>
                         <!-- Tour Card -->
@@ -81,8 +87,7 @@ $tour_experiences = get_field('tour_experiences');
                                 </div>
                             </div>
                         </a>
-                <?php endif;
-                endforeach; ?>
+                <?php  endforeach; ?>
             </div>
         </div>
     </div>
@@ -93,7 +98,7 @@ $tour_experiences = get_field('tour_experiences');
 
     <div class="destination-main__lengths">
 
-        <a class="btn-outline btn-outline--dark btn-outline--small" href="<?php echo $top_level_packages_page . '?destinations=' . $destination->ID ; ?>">View All Extensions</a>
+        <a class="btn-outline btn-outline--dark btn-outline--small" href="<?php echo $top_level_packages_page . '?destinations=' . $destination->ID; ?>">View All Extensions</a>
     </div>
 
 

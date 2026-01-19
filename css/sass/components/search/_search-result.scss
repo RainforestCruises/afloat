@@ -5,13 +5,13 @@
     padding: 1.5rem;
 
     display: grid;
-    grid-template-columns: 29rem 1fr 15rem;
+    grid-template-columns: 29rem 1fr 16rem;
     column-gap: 2.5rem;
     //cursor: pointer;
     transition: all 0.3s;
     height: min-content !important;
     width: 100%;
-
+ 
     @media only screen and (max-width: $bp-medium) {
         display: flex;
         flex-direction: column;
