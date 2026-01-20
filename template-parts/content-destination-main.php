@@ -204,92 +204,93 @@ $video_hero_card = get_field('video_hero_card');
         ?>
         <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $top_level_packages_page . '?destinations=' . $destination->ID; ?>">View All Extensions</a>
         <?php $deal_page_link = get_field('deal_page_link');
-        if ($deal_page_link != '') : ?>
+        if ($deal_page_link != '' && $destinationType != "destination") : ?>
             <a class="btn-outline btn-outline--green btn-outline--small" href="<?php echo get_field('deal_page_link'); ?>">View Deals</a>
         <?php endif; ?>
     </div>
 
-    <h2 class="sub-divider destination-main__experiences-title">
-        <?php echo $title ?> Experiences
-    </h2>
-    <div class="destination-main__experiences-sub-text">
-        <?php echo get_field('tour_experience_title_subtext') ?>
-    </div>
     <!-- experiences -->
-    <div class="destination-main__experiences">
-        <?php
-        if ($tour_experiences) {
-            foreach ($tour_experiences as $e) {
-                $experience = $e['experience'];
-                $background_image = $e['background_image'];
-                $search_link = $e['search_link'];
-                $is_charter = false;
-                $include_cruises = get_field('include_cruises', $experience);
-                if ($destinationType == 'region') { //destination variant template doesnt have charter option
-                    $is_charter = $e['is_charter'];
-                }
+    <?php if ($destinationType != 'destination') : ?>
+        <h2 class="sub-divider destination-main__experiences-title">
+            <?php echo $title ?> Experiences
+        </h2>
+        <div class="destination-main__experiences-sub-text">
+            <?php echo get_field('tour_experience_title_subtext') ?>
+        </div>       
+        <div class="destination-main__experiences">
+            <?php
+            if ($tour_experiences) {
+                foreach ($tour_experiences as $e) {
+                    $experience = $e['experience'];
+                    $background_image = $e['background_image'];
+                    $search_link = $e['search_link'];
+                    $is_charter = false;
+                    $include_cruises = get_field('include_cruises', $experience);
+                    if ($destinationType == 'region') { //destination variant template doesnt have charter option
+                        $is_charter = $e['is_charter'];
+                    }
 
-        ?>
-                <a class="category-card" href="<?php echo $search_link ?>">
-                    <div class="category-card__image">
-                        <?php if ($background_image) : ?>
-                            <img <?php afloat_image_markup($background_image['id'], 'pill-large'); ?>>
-                        <?php endif; ?>
-                    </div>
+            ?>
+                    <a class="category-card" href="<?php echo $search_link ?>">
+                        <div class="category-card__image">
+                            <?php if ($background_image) : ?>
+                                <img <?php afloat_image_markup($background_image['id'], 'pill-large'); ?>>
+                            <?php endif; ?>
+                        </div>
 
-                    <div class="category-card__content">
-                        <h3 class="category-card__content__title">
-                            <?php if ($is_charter) :
-                                echo 'Charter Cruises';
-                            else :
-
-                                if ($include_cruises) {
-                                    echo get_the_title($experience) . ' Cruises'; // for solo 
-                                } else {
-                                    echo get_the_title($experience) . ' Tours';
-                                }
-
-
-                            endif; ?>
-
-                        </h3>
-                        <div class="category-card__content__availability">
-                            <?php if ($destinationType == 'region') {
-
-                                if ($is_charter) :
-                                    echo cruises_available_region($destination, null, true) . ' Cruises Available'; //destination is region in this case
+                        <div class="category-card__content">
+                            <h3 class="category-card__content__title">
+                                <?php if ($is_charter) :
+                                    echo 'Charter Cruises';
                                 else :
 
-                                    $crusiesAvailable = cruises_available_region($destination, $experience, false);
-                                    $toursAvailable = tours_available_region($destination, $experience);
-                                    $totalAvailable = $crusiesAvailable + $toursAvailable;
-
                                     if ($include_cruises) {
-                                        $plurality = $totalAvailable == 1 ? ' Cruise' : ' Cruises';
-                                        echo $totalAvailable . $plurality  . ' Available'; //destination is region in this case
+                                        echo get_the_title($experience) . ' Cruises'; // for solo 
                                     } else {
-                                        $plurality = $totalAvailable == 1 ? ' Tour' : ' Tours';
-                                        echo $totalAvailable . $plurality . ' Available'; //destination is region in this case
+                                        echo get_the_title($experience) . ' Tours';
                                     }
 
 
-                                endif;
-                            } else if ($destinationType == 'destination') {
-                                $crusiesAvailable = cruises_available_experience($destination, $experience);
-                                $toursAvailable = tours_available($destination, $experience);
-                                $totalAvailable = $crusiesAvailable + $toursAvailable;
-                                $plurality = $totalAvailable == 1 ? ' Tour' : ' Tours';
-                                echo $totalAvailable . $plurality . ' Available';
-                            } ?>
-                        </div>
-                    </div>
-                </a>
-        <?php
-            }
-        }
-        ?>
-    </div>
+                                endif; ?>
 
+                            </h3>
+                            <div class="category-card__content__availability">
+                                <?php if ($destinationType == 'region') {
+
+                                    if ($is_charter) :
+                                        echo cruises_available_region($destination, null, true) . ' Cruises Available'; //destination is region in this case
+                                    else :
+
+                                        $crusiesAvailable = cruises_available_region($destination, $experience, false);
+                                        $toursAvailable = tours_available_region($destination, $experience);
+                                        $totalAvailable = $crusiesAvailable + $toursAvailable;
+
+                                        if ($include_cruises) {
+                                            $plurality = $totalAvailable == 1 ? ' Cruise' : ' Cruises';
+                                            echo $totalAvailable . $plurality  . ' Available'; //destination is region in this case
+                                        } else {
+                                            $plurality = $totalAvailable == 1 ? ' Tour' : ' Tours';
+                                            echo $totalAvailable . $plurality . ' Available'; //destination is region in this case
+                                        }
+
+
+                                    endif;
+                                } else if ($destinationType == 'destination') {
+                                    $crusiesAvailable = cruises_available_experience($destination, $experience);
+                                    $toursAvailable = tours_available($destination, $experience);
+                                    $totalAvailable = $crusiesAvailable + $toursAvailable;
+                                    $plurality = $totalAvailable == 1 ? ' Tour' : ' Tours';
+                                    echo $totalAvailable . $plurality . ' Available';
+                                } ?>
+                            </div>
+                        </div>
+                    </a>
+            <?php
+                }
+            }
+            ?>
+        </div>
+    <?php endif; ?>
 </div>
 
 <?php if ($has_video) : ?>

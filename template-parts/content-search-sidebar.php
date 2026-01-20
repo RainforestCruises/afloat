@@ -236,7 +236,7 @@ if (get_field('itinerary_length_max') != null) {
 
 
     <!-- Departure Date Filter -->
-    <div class="filter">
+    <div class="filter" id="departureDateFilters" style="<?php echo (in_array('extensions', $selectedTravelTypes) || in_array('rfc_tours', $selectedTravelTypes) ? 'display: none' : 'display: block') ?>">
         <div class="filter__heading" id="departure-filter-heading">
             <h5 class="filter__heading__text">
                 Departure Date

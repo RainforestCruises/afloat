@@ -102,10 +102,11 @@
                                   <a href="#ships" class="destination-hero__content__page-nav__list__item__link page-nav-template">Ships</a>
                               </li>
                           <?php } ?>
-                          <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#deals" class="destination-hero__content__page-nav__list__item__link page-nav-template">Deals</a>
-                          </li>
-
+                          <?php if ($destinationType != 'destination') : ?>
+                              <li class="destination-hero__content__page-nav__list__item">
+                                  <a href="#deals" class="destination-hero__content__page-nav__list__item__link page-nav-template">Deals</a>
+                              </li>
+                          <?php endif; ?>
                           <?php if ($destinationType == 'destination'  || $destinationType == 'region') {
                                 $hide_accommodations = get_field('hide_accommodations');
                                 if (!$hide_accommodations) { ?>
@@ -131,9 +132,11 @@
                                   <a href="#charters" class="destination-hero__content__page-nav__list__item__link page-nav-template">Charters</a>
                               </li>
                           <?php endif; ?>
-                          <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#deals" class="destination-hero__content__page-nav__list__item__link page-nav-template">Deals</a>
-                          </li>
+                          <?php if ($desinationType != 'destination') : ?>
+                              <li class="destination-hero__content__page-nav__list__item">
+                                  <a href="#deals" class="destination-hero__content__page-nav__list__item__link page-nav-template">Deals</a>
+                              </li>
+                          <?php endif; ?>
                           <?php if ($show_tours) : ?>
                               <li class="destination-hero__content__page-nav__list__item">
                                   <a href="#extensions" class="destination-hero__content__page-nav__list__item__link page-nav-template">Extensions</a>

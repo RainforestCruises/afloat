@@ -1,13 +1,52 @@
 <?php
-$queryArgs = array(
-    'post_type' => array('rfc_destinations', 'rfc_regions'),
+// Get all rfc_regions
+$regionsArgs = array(
+    'post_type' => 'rfc_regions',
     'meta_key' => 'navigation_title',
     'orderby' => 'meta_value',
     'order' => 'ASC',
     'posts_per_page' => -1
 );
 
-$destinations = get_posts($queryArgs);
+$regions = get_posts($regionsArgs);
+
+// Get rfc_destinations where non_cruise_destination is false or null
+$destinationsArgs = array(
+    'post_type' => 'rfc_destinations',
+    'meta_key' => 'navigation_title',
+    'orderby' => 'meta_value',
+    'order' => 'ASC',
+    'posts_per_page' => -1,
+    'meta_query' => array(
+        'relation' => 'OR',
+        array(
+            'key' => 'non_cruise_destination',
+            'compare' => 'NOT EXISTS'
+        ),
+        array(
+            'key' => 'non_cruise_destination',
+            'value' => '0',
+            'compare' => '='
+        ),
+        array(
+            'key' => 'non_cruise_destination',
+            'value' => '',
+            'compare' => '='
+        )
+    )
+);
+
+$destinations = get_posts($destinationsArgs);
+
+// Combine both arrays
+$allPosts = array_merge($regions, $destinations);
+
+// Re-sort the combined array by navigation_title
+usort($allPosts, function($a, $b) {
+    $titleA = get_field('navigation_title', $a->ID);
+    $titleB = get_field('navigation_title', $b->ID);
+    return strcasecmp($titleA, $titleB);
+});
 
 $hero_title = get_field('hero_title');
 $hero_subtitle = get_field('hero_subtitle');
@@ -76,7 +115,7 @@ $currentYear = date("Y");
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-location-pin"></use>
                         </svg>
                     </label>
-                    <input class="home-search__destination__input" id="destination-input" value="" placeholder="Where would you like to go?" autocomplete="off">
+                    <input class="home-search__destination__input" id="destination-input" value="" placeholder="Where would you like to cruise?" autocomplete="off">
                     <button class="home-search__destination__clear">
                         <svg>
                             <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-cross"></use>
@@ -85,7 +124,7 @@ $currentYear = date("Y");
 
                     <ul class="home-search__destination__list" id="destination-list">
                         <li postid="anywhere" class="anywhere">Anywhere</li>
-                        <?php foreach ($destinations as $d) : ?>
+                        <?php foreach ($allPosts as $d) : ?>
                             <li postid="<?php echo $d->ID ?>"><?php echo get_field('navigation_title', $d) ?></li>
                         <?php endforeach; ?>
                     </ul>
@@ -156,7 +195,7 @@ $currentYear = date("Y");
             <!-- Search Container / button Mobile -->
             <div class="home-search-mobile">
                 <button id="mobile-search-button">
-                    Where would you like to go?
+                    Where would you like to cruise?
 
                     <svg>
                         <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-magnifying-glass"></use>

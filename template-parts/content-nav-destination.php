@@ -68,9 +68,11 @@ endif; ?>
                             <a href="#charters">Charters</a>
                         </li>
                     <?php endif; ?>
-                    <li>
-                        <a href="#deals">Deals</a>
-                    </li>
+                    <?php if ($destinationType != 'destination') : ?>
+                        <li>
+                            <a href="#deals">Deals</a>
+                        </li>
+                    <?php endif; ?>
                 <?php } else { ?>
                     <li>
                         <a href="#ships">Ships</a>
@@ -99,9 +101,11 @@ endif; ?>
                         <a href="#charters">Charters</a>
                     </li>
                 <?php endif; ?>
-                <li>
-                    <a href="#deals">Deals</a>
-                </li>
+                <?php if ($destinationType != 'destination') : ?>
+                    <li>
+                        <a href="#deals">Deals</a>
+                    </li>
+                <?php endif; ?>
                 <?php if ($show_tours) : ?>
                     <li>
                         <a href="#extensions">Extensions</a>
@@ -153,9 +157,11 @@ endif; ?>
                         <a href="#charters" class="nav-secondary-mobile__list__item__link">Charters</a>
                     </li>
                 <?php endif; ?>
-                <li class="nav-secondary-mobile__list__item">
-                    <a href="#deals " class="nav-secondary-mobile__list__item__link">Deals</a>
-                </li>
+                <?php if ($destinationType != 'destination') : ?>
+                    <li class="nav-secondary-mobile__list__item">
+                        <a href="#deals " class="nav-secondary-mobile__list__item__link">Deals</a>
+                    </li>
+                <?php endif; ?>
             <?php
             } else { ?>
                 <li class="nav-secondary-mobile__list__item">
@@ -185,9 +191,11 @@ endif; ?>
                     <a href="#charters" class="nav-secondary-mobile__list__item__link">Charters</a>
                 </li>
             <?php endif; ?>
-            <li class="nav-secondary-mobile__list__item">
-                <a href="#deals " class="nav-secondary-mobile__list__item__link">Deals</a>
-            </li>
+            <?php if ($destinationType != 'destination') : ?>
+                <li class="nav-secondary-mobile__list__item">
+                    <a href="#deals " class="nav-secondary-mobile__list__item__link">Deals</a>
+                </li>
+            <?php endif; ?>
             <?php if ($show_tours) : ?>
                 <li class="nav-secondary-mobile__list__item">
                     <a href="#extensions" class="nav-secondary-mobile__list__item__link">Extensions</a>

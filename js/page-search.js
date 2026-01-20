@@ -348,15 +348,18 @@ jQuery(document).ready(function ($) {
 
   const shipFeaturesFilters = document.getElementById("shipFeaturesFilters");
   const shipSizeFilters = document.getElementById("shipSizeFilters");
+  const departureDateFilters = document.getElementById("departureDateFilters");
 
   function hideShipFilters() {
     shipFeaturesFilters.style.display = "none";
     shipSizeFilters.style.display = "none";
+    departureDateFilters.style.display = "none";
   }
 
   function showShipFilters() {
     shipFeaturesFilters.style.display = "block";
     shipSizeFilters.style.display = "block";
+    departureDateFilters.style.display = "block";
   }
 
   checkNonCruiseDestinations();

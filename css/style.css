@@ -10739,7 +10739,8 @@ h5 {
       line-height: 6.8rem;
       font-weight: 700;
       margin-bottom: 2rem;
-      color: #254715; }
+      color: #254715;
+      font-family: "Sorts Mill Goudy", serif; }
     .about-mission__intro__text {
       font-size: 1.6rem; }
   .about-mission__imagery {
@@ -10875,7 +10876,8 @@ h5 {
     font-size: 3.5rem;
     color: #254715;
     margin-bottom: 6rem;
-    font-weight: 700; }
+    font-weight: 700;
+    font-family: "Sorts Mill Goudy", serif; }
   .about-difference__slider-area {
     width: 100%; }
     .about-difference__slider-area__slider {
@@ -10978,7 +10980,8 @@ h5 {
     font-size: 3.5rem;
     color: #254715;
     margin-bottom: 6rem;
-    font-weight: 700; }
+    font-weight: 700;
+    font-family: "Sorts Mill Goudy", serif; }
   .about-team__grid {
     width: 100%;
     display: grid;
@@ -11067,6 +11070,7 @@ h5 {
     .about-partners__content__title {
       width: 50%;
       color: #254715;
+      font-family: "Sorts Mill Goudy", serif;
       margin-right: 6rem;
       display: flex;
       flex-direction: column;
@@ -11158,7 +11162,8 @@ h5 {
           line-height: 4rem;
           font-weight: 700;
           color: #254715;
-          margin-bottom: 3rem; }
+          margin-bottom: 3rem;
+          font-family: "Sorts Mill Goudy", serif; }
         .about-corporate__grey__content__corporate-info__snippet {
           font-size: 1.6rem; }
       .about-corporate__grey__content__contact-details {

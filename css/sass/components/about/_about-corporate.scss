@@ -40,7 +40,7 @@
             width: 50%;
 
             color: $color-primary;
-
+font-family: $font-secondary ;
             margin-right: 6rem;
             display: flex;
             flex-direction: column;
@@ -160,6 +160,7 @@
                     font-weight: 700;
                     color: $color-primary;
                     margin-bottom: 3rem;
+                    font-family: $font-secondary ;
                 }
 
                 &__snippet {
