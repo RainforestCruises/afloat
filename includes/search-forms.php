@@ -50,27 +50,36 @@ function search_filter_home_search()
         $travelDate = $_POST['formDates'];
     }
 
-    $pageLink = null;
+    $pageLink = get_field('top_level_search_page', 'option');
 
-    if ($destinationId == 'anywhere') {
-        $pageLink = get_field('top_level_search_page', 'option');
+    if ($destinationId != 'anywhere') {
+        $pageLink .= '?destination=' . $destinationId;
     } else {
-        $destinationPost = get_post($destinationId);
-        $pageLink = get_field('default_search_link', $destinationPost);
+        $pageLink .= '?destination=';
+    }
+
+    // else {
+    //     $destinationPost = get_post($destinationId);
+    //     $pageLink = get_field('default_search_link', $destinationPost);
+    // }
+
+    if ($travelDate != null) {
+        wp_redirect($pageLink . "&departures=" . $travelDate);
+    } else {
+        wp_redirect($pageLink);
     }
 
 
+    // if ($pageLink != null) {
 
-    if ($pageLink != null) {
-
-        if ($travelDate != null) {
-            wp_redirect($pageLink . "?departures=" . $travelDate);
-        } else {
-            wp_redirect($pageLink);
-        }
-    } else {
-        wp_redirect(home_url());
-    }
+    //     if ($travelDate != null) {
+    //         wp_redirect($pageLink . "?departures=" . $travelDate);
+    //     } else {
+    //         wp_redirect($pageLink);
+    //     }
+    // } else {
+    //     wp_redirect(home_url());
+    // }
 
 
 

@@ -148,9 +148,9 @@ if ($selectedDestinations != null) {
 }
 
 //URL param
-if (isset($_GET["destinations"])) {
-    if (isset($_GET["destinations"]) && $_GET["destinations"]) {
-        $destinationsParameters = htmlspecialchars($_GET["destinations"]);
+if (isset($_GET["destination"])) {
+    if (isset($_GET["destination"]) && $_GET["destination"]) {
+        $destinationsParameters = htmlspecialchars($_GET["destination"]);
         $destinationsString = $destinationsParameters;
         $destinations = explode(";", $destinationsString);
     } else {

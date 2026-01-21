@@ -34,9 +34,7 @@
             "post_type": [
                 "page"
             ],
-            "taxonomy": [
-                "category:search"
-            ],
+            "taxonomy": "",
             "allow_null": 0,
             "allow_archives": 0,
             "multiple": 0
@@ -1243,5 +1241,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1768233625
+    "modified": 1768958602
 }
