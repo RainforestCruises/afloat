@@ -110,7 +110,7 @@ $video_hero_card = get_field('video_hero_card');
 
                     <?php foreach ($tours as $t) : ?>
                         <?php
-
+                        $extension_name =  get_post_type($t) == 'rfc_tours' ? get_field('tour_name', $t) : get_the_title($t);
                         $hero_image =  get_post_type($t) == 'rfc_tours' ? get_field('best_selling_image', $t) : get_field('featured_image', $t);
                         $countries  = get_field('destinations', $t);
                         $price_packages = get_field('price_packages', $t);
@@ -156,7 +156,7 @@ $video_hero_card = get_field('video_hero_card');
                                         endforeach; ?>
                                     </div>
                                     <h3 class="wide-slider-card__content__text-area__title">
-                                        <?php echo get_field('tour_name', $t) ?>
+                                        <?php echo $extension_name ?>
                                     </h3>
                                     <div class="wide-slider-card__content__text-area__info">
                                         <div class="wide-slider-card__content__text-area__info__length">
