@@ -1002,6 +1002,41 @@
             "multiple": 0
         },
         {
+            "key": "field_6973be51055e8",
+            "label": "Tours (extensions)",
+            "name": "tours",
+            "type": "relationship",
+            "instructions": "Select extensions to appear in slider",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_686e5d63ade50",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_cruises",
+                "rfc_lodges",
+                "rfc_tours"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
             "key": "field_64ecd2f1dee69",
             "label": "Private Charters Section",
             "name": "",
@@ -1518,5 +1553,5 @@
     "active": true,
     "description": "Destination (Cruise) - Page",
     "show_in_rest": 0,
-    "modified": 1767568651
+    "modified": 1769193165
 }

@@ -22,6 +22,7 @@ $region = get_field('region_post'); //actually a region
 
 $activities = get_field('activities', $region);
 $locations = get_field('destinations_list'); //locations (actually destinations) list 
+$show_tours = get_field('show_tours');
 
 
 $tour_experiences = get_field('tour_experiences');
@@ -62,15 +63,8 @@ foreach ($destinationIds as $d) {
 
 $sliderLimit = 36;
 //TOURS
-$tourCriteria = array(
-    'posts_per_page' => -1,
-    'post_type' => 'rfc_tours',
-    'meta_key' => 'search_rank',
-    'orderby' => 'meta_value_num',
-    'order' => 'DESC',
-    'meta_query' => $queryargs
-);
-$tours = get_posts($tourCriteria);
+$tours = get_field('tours');
+
 
 //CRUISES
 $cruiseCriteria = array(
@@ -112,6 +106,7 @@ $args = array(
     'destination' => $region, //exception - all template parts expect destination
     'locations' => $locations,
     'activities' => $activities,
+    'show_tours' => $show_tours,
 
     'tours' => $tours,
     'tour_experiences' => $tour_experiences,

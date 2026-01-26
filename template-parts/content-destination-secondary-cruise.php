@@ -22,23 +22,17 @@ $tour_experiences = get_field('tour_experiences');
 
             <div class="destination-main__packages__best-selling__slider" id="main-slider">
                 <?php foreach ($tours as $t) : 
-                    $best_selling = get_field('best_selling', $t);
-                    $hero_image = get_field('best_selling_image', $t);
+
+      
+                    $hero_image =  get_post_type($t) == 'rfc_tours' ? get_field('best_selling_image', $t) : get_field('featured_image', $t);
                     $countries  = get_field('destinations', $t);
                     $price_packages = get_field('price_packages', $t);
-                    $lowest = lowest_tour_price($price_packages, $currentYear);
+                    $cruise_data = get_field('cruise_data', $t);
 
+                    $lowest = get_post_type($t) == 'rfc_tours' ? lowest_tour_price($price_packages, $currentYear) : lowest_property_price($cruise_data, 0, $currentYear, true);
+                    $length =  get_post_type($t) == 'rfc_tours' ? get_field('length', $t) . ' Days' : itineraryRange($cruise_data, " - ") . ' Days';
                     $dealPosts = listDealsForProduct($t);
                     $hasDeals = (count($dealPosts) > 0) ? true : false;
-
-                    // if ($best_selling) :
-                    //     $hero_image = get_field('best_selling_image', $t);
-                    //     $countries  = get_field('destinations', $t);
-                    //     $price_packages = get_field('price_packages', $t);
-                    //     $lowest = lowest_tour_price($price_packages, $currentYear);
-
-                    //     $dealPosts = listDealsForProduct($t);
-                    //     $hasDeals = (count($dealPosts) > 0) ? true : false;
 
                     ?>
                         <!-- Tour Card -->
@@ -77,7 +71,7 @@ $tour_experiences = get_field('tour_experiences');
                                     </h3>
                                     <h5 class="wide-slider-card__content__text-area__info">
                                         <div class="wide-slider-card__content__text-area__info__length">
-                                            <?php echo get_field('length', $t) ?>-Day Tour
+                                            <?php echo $length ?>
                                         </div>
                                         <div class="wide-slider-card__content__text-area__info__price">
                                             From <?php echo "$" . number_format($lowest, 0); ?> <span>USD</span>
@@ -98,7 +92,7 @@ $tour_experiences = get_field('tour_experiences');
 
     <div class="destination-main__lengths">
 
-        <a class="btn-outline btn-outline--dark btn-outline--small" href="<?php echo $top_level_packages_page . '?destinations=' . $destination->ID; ?>">View All Extensions</a>
+        <a class="btn-outline btn-outline--dark btn-outline--small" href="<?php echo $top_level_packages_page . '?destination=' . $destination->ID; ?>">View All Extensions</a>
     </div>
 
 

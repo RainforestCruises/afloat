@@ -10,47 +10,22 @@ wp_localize_script(
         'templateUrl' =>  $templateUrl
     )
 );
-?>
-
-<?php
 get_header();
-?>
 
-<?php
 $destinationType = 'cruise';
-
 $destination = get_field('destination_post');
 $show_charters = get_field('show_charters');
 $show_tours = get_field('show_tours');
-
 $activities = get_field('activities_list');
 $locations = get_field('locations_list');
-
 $tour_experiences = get_field('tour_experiences');
 $sliderContent = get_field('hero_slider');
 $title = $destination->post_title;
-
-
 $has_video = get_field('has_video');
 $vimeo_link = get_field('vimeo_link');
-
 $sliderLimit = 36;
-//TOURS
-$tourCriteria = array(
-    'posts_per_page' => -1, //must be all to filter best selling
-    'post_type' => 'rfc_tours',
-    'meta_key' => 'search_rank',
-    'orderby' => 'meta_value_num',
-    'order' => 'DESC',
-    'meta_query' => array(
-        array(
-            'key' => 'destinations',
-            'value' => '"' . $destination->ID . '"',
-            'compare' => 'LIKE'
-        )
-    )
-);
-$tours = get_posts($tourCriteria);
+
+$tours = get_field('tours');
 
 //CRUISES
 $cruiseCriteria = array(
@@ -106,7 +81,6 @@ $dealArgs = array(
 
 
 
-
 $dealPosts  = get_posts($dealArgs); //Stage I posts
 $validDeals = array();
 
@@ -129,7 +103,6 @@ foreach ($dealPosts as $deal) {
     }
 }
 
-console_log($validDeals);
 
 
 $args = array(
@@ -184,10 +157,9 @@ $args = array(
         get_template_part('template-parts/content', 'destination-deals', $args);
         ?>
     </section>
-
+    
+    <!-- Tours-->
     <?php if ($show_tours) : ?>
-
-        <!-- Tours-->
         <section class="destination-page__section-secondary">
             <?php
             get_template_part('template-parts/content', 'destination-secondary-cruise', $args);

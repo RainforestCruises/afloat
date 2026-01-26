@@ -42,23 +42,10 @@ $vimeo_link = get_field('vimeo_link');
 
 
 $sliderLimit = 36;
+$show_tours = get_field('show_tours');
 
 //TOURS
-$tourCriteria = array(
-    'posts_per_page' => -1,
-    'post_type' => 'rfc_tours',
-    'meta_key' => 'search_rank',
-    'orderby' => 'meta_value_num',
-    'order' => 'DESC',
-    'meta_query' => array(
-        array(
-            'key' => 'destinations',
-            'value' => '"' . $destination->ID . '"',
-            'compare' => 'LIKE'
-        )
-    )
-);
-$tours = get_posts($tourCriteria);
+$tours = get_field('tours');
 
 //CRUISES -- sort doesnt unclude null
 $cruiseCriteria = array(
@@ -116,7 +103,7 @@ $args = array(
     'locations' => $locations,
     'activities' => $activities,
     'charters' => $charters,
-
+    'show_tours' => $show_tours,
     'tours' => $tours,
     'tour_experiences' => $tour_experiences,
     'cruises' => $cruises,
@@ -136,6 +123,7 @@ $args = array(
         get_template_part('template-parts/content', 'destination-hero', $args);
         ?>
     </section>
+
 
     <section class="destination-page__section-main">
         <?php

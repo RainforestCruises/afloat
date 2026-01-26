@@ -81,10 +81,11 @@
                   <ul class="destination-hero__content__page-nav__list">
                       <!-- Order depending on template type -->
                       <?php if ($destinationType == 'region' || $destinationType == 'destination') { ?>
-                          <li class="destination-hero__content__page-nav__list__item">
-                              <a href="#extensions" class="destination-hero__content__page-nav__list__item__link page-nav-template">Extensions</a>
-                          </li>
-
+                          <?php if ($show_tours) : ?>
+                              <li class="destination-hero__content__page-nav__list__item">
+                                  <a href="#extensions" class="destination-hero__content__page-nav__list__item__link page-nav-template">Extensions</a>
+                              </li>
+                          <?php endif; ?>
                           <?php if ($destinationType == 'destination') {
                                 $hide_cruises = get_field('hide_cruises');
                                 if (!$hide_cruises) : ?>

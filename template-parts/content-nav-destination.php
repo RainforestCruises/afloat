@@ -53,9 +53,11 @@ endif; ?>
 
             <!-- Order depending on template type -->
             <?php if ($destinationType == 'region' || $destinationType == 'destination') { ?>
-                <li>
-                    <a href="#extensions">Extensions</a>
-                </li>
+                <?php if ($show_tours) : ?>
+                    <li>
+                        <a href="#extensions">Extensions</a>
+                    </li>
+                <?php endif; ?>
                 <?php if ($destinationType == 'destination') {
                     $hide_cruises = get_field('hide_cruises');
                     if (!$hide_cruises) : ?>
@@ -142,9 +144,11 @@ endif; ?>
 
         <!-- Order depending on template type -->
         <?php if ($destinationType == 'region' || $destinationType == 'destination') { ?>
-            <li class="nav-secondary-mobile__list__item">
-                <a href="#extensions" class="nav-secondary-mobile__list__item__link">Extensions</a>
-            </li>
+            <?php if ($show_tours) : ?>
+                <li class="nav-secondary-mobile__list__item">
+                    <a href="#extensions" class="nav-secondary-mobile__list__item__link">Extensions</a>
+                </li>
+            <?php endif; ?>
             <?php if ($destinationType == 'destination') {
                 $hide_cruises = get_field('hide_cruises');
                 if (!$hide_cruises) { ?>

@@ -2,7 +2,7 @@
 $queryArgs = array(
     'post_type' => get_post_type(),
     'posts_per_page' => -1,
-    'post__not_in' => array($post->ID),
+    'post_not_in' => array($post->ID),
     'meta_key' => 'search_rank',
     'orderby' => 'meta_value_num',
     'order' => 'DESC',

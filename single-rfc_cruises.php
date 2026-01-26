@@ -62,6 +62,7 @@ while (have_posts()) :
   //Get Deals
   $dealPosts = listDealsForProduct(get_post(), $charter_view);
   $hasDeals = (count($dealPosts) > 0) ? true : false;
+  $extensions = get_field('extensions');
 
 
   $args = array(
@@ -81,7 +82,9 @@ while (have_posts()) :
     'charter_min_days' => $charter_min_days,
     'charter_only' => $charter_only,
     'hasDeals' => $hasDeals,
-    'dealPosts' => $dealPosts
+    'dealPosts' => $dealPosts,
+    'extensions' => $extensions
+
 
   );
 
@@ -141,6 +144,16 @@ while (have_posts()) :
       </section>
     <?php } ?>
 
+    <!-- Extensions -->
+    <?php if (get_field('show_extensions') == true) { ?>
+
+      <section class="product-page__section-related" id="extensions">
+        <?php
+        get_template_part('template-parts/content', 'product-extensions', $args);
+        ?>
+      </section>
+    <?php } ?>
+
     <!-- Related Travel -->
     <section class="product-page__section-related">
       <?php
@@ -172,20 +185,15 @@ while (have_posts()) :
   <?php endif ?>
 
 
-
-
   <!-- Date Search Form -->
   <form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="search-form">
-
     <!-- Direct to function within functions.php -->
     <input type="hidden" name="testfield" id="testfield" value="test">
     <input type="hidden" name="form-itinerary" id="form-itinerary" value="">
     <input type="hidden" name="form-year" id="form-year" value="">
     <input type="hidden" name="form-month" id="form-month" value="">
-
     <input type="hidden" name="action" value="productsearch">
     <input type="hidden" name="productId" value="<?php echo get_the_ID() ?>">
-
   </form>
 
 

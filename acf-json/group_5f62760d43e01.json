@@ -347,6 +347,60 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_6976802a72adc",
+            "label": "Show Extensions",
+            "name": "show_extensions",
+            "type": "true_false",
+            "instructions": "Display extension section",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_69767b3f213fa",
+            "label": "Extensions",
+            "name": "extensions",
+            "type": "relationship",
+            "instructions": "Select posts to appear in slider",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6976802a72adc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_cruises",
+                "rfc_tours",
+                "rfc_lodges"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
             "key": "field_618c23e9ce2d2",
             "label": "Show Notification",
             "name": "show_notification",
@@ -2678,5 +2732,5 @@
     "active": true,
     "description": "Cruise - CPT",
     "show_in_rest": 0,
-    "modified": 1768510836
+    "modified": 1769373810
 }

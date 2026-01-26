@@ -1,7 +1,7 @@
 <?php
 $productTitle = "";
 $showOverview = true; //always true for Cruise / Lodge -- optional for Tour
-
+$show_extensions = get_field('show_extensions');
 if (get_post_type() == 'rfc_tours') :
     $productTitle = get_field('tour_name');
     $showOverview  = get_field('show_overview');
@@ -41,6 +41,11 @@ endif;
             <li>
                 <a href="#accommodations">Accommodations</a>
             </li>
+            <?php if ($show_extensions) : ?>
+                <li>
+                    <a href="#extensions">Extensions</a>
+                </li>
+            <?php endif; ?>
         </ul>
         <div class="nav-secondary__main__cta">
             <button class="btn-cta-round btn-cta-round--small" id="nav-secondary-cta">
@@ -66,5 +71,10 @@ endif;
         <li class="nav-secondary-mobile__list__item">
             <a class="nav-secondary-mobile__list__item__link" href="#accommodations">Accommodations</a>
         </li>
+        <?php if ($show_extensions) : ?>
+            <li class="nav-secondary-mobile__list__item">
+                <a class="nav-secondary-mobile__list__item__link" href="#extensions">Extensions</a>
+            </li>
+        <?php endif; ?>
     </ul>
 </nav>

@@ -4,6 +4,7 @@ $featured_image = get_field('featured_image');
 
 $productTitle = get_the_title();
 $breadcrumb = get_field('breadcrumb');
+$show_extensions = get_field('show_extensions');
 
 $showOverview = true;
 if (get_post_type() == 'rfc_tours') {
@@ -129,11 +130,16 @@ $images = get_field('highlight_gallery');
                             </li>
                         <?php endif; ?>
                         <li class="product-hero__top__content__nav__list__item <?php echo ($showOverview ? '' : 'current') ?>">
-                            <a href="#itineraries" class="product-hero__top__content__nav__list__item__link page-nav-template"><?php echo (get_post_type() != 'rfc_tours') ? ('Itineraries & Prices') : ('Itinerary & Prices'); ?></a>
+                            <a href="#itineraries" class="product-hero__top__content__nav__list__item__link page-nav-template"><?php echo (get_post_type() != 'rfc_tours') ? ('Itineraries') : ('Itinerary & Prices'); ?></a>
                         </li>
                         <li class="product-hero__top__content__nav__list__item ">
                             <a href="#accommodations" class="product-hero__top__content__nav__list__item__link page-nav-template">Accommodations</a>
                         </li>
+                        <?php if ($show_extensions) : ?>
+                            <li class="product-hero__top__content__nav__list__item">
+                                <a href="#extensions" class="product-hero__top__content__nav__list__item__link page-nav-template">Extensions</a>
+                            </li>
+                        <?php endif; ?>
 
                     </ul>
                 </nav>

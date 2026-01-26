@@ -413,13 +413,40 @@
             "endpoint": 0
         },
         {
+            "key": "field_6977a4f5caf57",
+            "label": "Show Tours",
+            "name": "show_tours",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5ffe1d0b91480",
             "label": "Tour Package Title Subtext",
             "name": "tour_package_title_subtext",
             "type": "wysiwyg",
             "instructions": "Snippet under the title",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6977a4f5caf57",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -438,7 +465,15 @@
             "type": "wysiwyg",
             "instructions": "Snippet under the Experiences title",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6977a4f5caf57",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -451,13 +486,56 @@
             "delay": 0
         },
         {
+            "key": "field_697674fa50b60",
+            "label": "Tours (extensions)",
+            "name": "tours",
+            "type": "relationship",
+            "instructions": "Select extensions to appear in slider",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6977a4f5caf57",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "rfc_cruises",
+                "rfc_tours",
+                "rfc_lodges"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
             "key": "field_5fdb9a4879399",
             "label": "Tour Experiences",
             "name": "tour_experiences",
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6977a4f5caf57",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -577,7 +655,15 @@
             "type": "repeater",
             "instructions": "Lengths of tour itineraries, buttons that link to search pages",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6977a4f5caf57",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -640,7 +726,15 @@
             "type": "page_link",
             "instructions": "Select search page - Region + Tour (Travel Type)",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6977a4f5caf57",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -663,7 +757,15 @@
             "type": "page_link",
             "instructions": "Link to deal landing page",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6977a4f5caf57",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1227,5 +1329,5 @@
     "active": true,
     "description": "Destination (Region) - Page",
     "show_in_rest": 0,
-    "modified": 1767569288
+    "modified": 1769448788
 }
