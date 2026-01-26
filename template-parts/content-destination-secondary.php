@@ -118,6 +118,6 @@ $destination = get_field('destination_post');
     ?>
 
     <div class="destination-secondary__btn ">
-        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $top_level_cruises_page . '?destinations=' . $destination->ID ; ?>">View All Cruises</a>
+        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $top_level_cruises_page . '?destination=' . $destination->ID ; ?>">View All Cruises</a>
     </div>
 </div>

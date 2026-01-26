@@ -622,7 +622,7 @@ jQuery(document).ready(function ($) {
     }
 
     if (destinationsString != null) {
-      params.set("destinations", destinationsString);
+      params.set("destination", destinationsString);
     }
 
     if (experiencesString != null) {
