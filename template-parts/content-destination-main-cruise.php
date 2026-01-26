@@ -200,7 +200,7 @@ $video_hero_card = get_field('video_hero_card');
         endif;
         ?>
 
-        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $top_level_cruises_page . '?destinations=' . $destination->ID; ?>">View All Cruises</a>
+        <a class="btn-outline btn-outline--dark  btn-outline--small" href="<?php echo $top_level_cruises_page . '?destination=' . $destination->ID; ?>">View All Cruises</a>
     </div>
 
     <!-- destination tiles -->
