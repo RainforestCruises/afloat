@@ -136,10 +136,8 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
 
         $args['meta_query'][] = $queryargs;
     }
-
-
-
     $posts = get_posts($args); //Stage I posts
+
 
     // Filter extensions if needed
     if (!empty($posts)) {
@@ -157,9 +155,12 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
                 if (!get_field('is_extension', $post->ID)) {
                     $filtered_posts[] = $post;
                 }
+                
             } else {
                 // charter_cruises - include all (already filtered by meta_query)
-                $filtered_posts[] = $post;
+                if (!get_field('is_extension', $post->ID)) {
+                    $filtered_posts[] = $post;
+                }
             }
         }
         $posts = $filtered_posts;
@@ -309,6 +310,10 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
                     continue;
                 }
 
+                if($travelStyle == "rfc_cruises" && get_field('charter_only', $p)) {
+                    continue; // skip if only charter 
+                }
+                
 
                 //Charter Filters
                 $charterAvailable = get_field('charter_available', $p);

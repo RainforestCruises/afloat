@@ -62,16 +62,27 @@ $cruiseCriteria = array(
         )
     )
 );
-$cruises = get_posts($cruiseCriteria);
+$allCruises = get_posts($cruiseCriteria);
 
-//CHARTERS
+// FIT Cruises
+$cruises = [];
+foreach ($allCruises as $cruise) {
+    $charter_only = get_field('charter_only', $cruise);
+    if (!$charter_only) {
+        $cruises[] = $cruise;
+    }
+}
+
+
+// Charter Cruises
 $charters = [];
-foreach ($cruises as $cruise) {
+foreach ($allCruises as $cruise) {
     $charter_available = get_field('charter_available', $cruise);
     if ($charter_available) {
         $charters[] = $cruise;
     }
 }
+
 
 
 
