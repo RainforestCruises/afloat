@@ -58,7 +58,9 @@ foreach ($allCruises as $cruise) {
 $charters = [];
 foreach ($allCruises as $cruise) {
     $charter_available = get_field('charter_available', $cruise);
-    if ($charter_available) {
+    $is_extension = get_field('is_extension', $cruise);
+
+    if ($charter_available && !$is_extension) {
         $charters[] = $cruise;
     }
 }
@@ -167,7 +169,7 @@ $args = array(
         get_template_part('template-parts/content', 'destination-deals', $args);
         ?>
     </section>
-    
+
     <!-- Tours-->
     <?php if ($show_tours) : ?>
         <section class="destination-page__section-secondary">

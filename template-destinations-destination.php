@@ -78,11 +78,12 @@ foreach ($allCruises as $cruise) {
 $charters = [];
 foreach ($allCruises as $cruise) {
     $charter_available = get_field('charter_available', $cruise);
-    if ($charter_available) {
+    $is_extension = get_field('is_extension', $cruise);
+
+    if ($charter_available && !$is_extension) {
         $charters[] = $cruise;
     }
 }
-
 
 
 
