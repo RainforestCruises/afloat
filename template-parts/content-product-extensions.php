@@ -1,6 +1,6 @@
 <?php
 $extensions = get_field('extensions');
-
+$currentYear = date("Y");
 
 $resultCount = 0;
 
@@ -21,6 +21,8 @@ $resultCount = 0;
                 $cruise_data = get_field('cruise_data', $extension);
 
                 $lowest = get_post_type($extension) == 'rfc_tours' ? lowest_tour_price($price_packages, $currentYear) : lowest_property_price($cruise_data, 0, $currentYear, true);
+
+      
                 $length =  get_post_type($extension) == 'rfc_tours' ? get_field('length', $extension) . ' Days' : itineraryRange($cruise_data, " - ") . ' Days';
                 $dealPosts = listDealsForProduct($extension);
                 $hasDeals = (count($dealPosts) > 0) ? true : false;

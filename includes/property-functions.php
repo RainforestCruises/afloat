@@ -5,6 +5,9 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear, $currentYea
 
     $prices = [];
     $lowestPrice = 0;
+
+    $charterPrices = [];
+    $lowestCharterPrice = 0;
     if (array_key_exists('Itineraries', $cruise_data)) {
         $itineraries = $cruise_data['Itineraries'];
 
@@ -14,6 +17,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear, $currentYea
                 // needs to check If lodge and Is Sample then skip
 
                 if ($i['LengthInDays'] >= $fromLength) {
+                    $charterPrices[] = $i['CharterAmount'];
                     $rateYears = $i['RateYears'];
                     foreach ($rateYears as $r) {
 
@@ -48,7 +52,7 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear, $currentYea
                     }
                 }
             }
-
+            $lowestCharterPrice = min($charterPrices);
             if (count($prices) > 0) {
                 $lowestPrice = min($prices);
             } else {
@@ -59,9 +63,9 @@ function lowest_property_price($cruise_data, $fromLength, $fromYear, $currentYea
         }
     }
 
+    $combinedLowestPrice = $lowestPrice == 0 ? $lowestCharterPrice : $lowestPrice;
 
-
-    return $lowestPrice;
+    return $combinedLowestPrice;
 }
 
 
@@ -76,9 +80,9 @@ function itineraryRange($cruise_data, $separator, $onlyMin = false)
 
         if (count($itineraries) > 0) {
             foreach ($itineraries as $i) {
-                if ($i['IsCharterOnly'] == false) {
+                //if ($i['IsCharterOnly'] == false) {
                     $itineraryValues[] = $i['LengthInDays'];
-                }
+                //}
             }
 
             $rangeFrom = min($itineraryValues);
