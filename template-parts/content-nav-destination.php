@@ -20,15 +20,61 @@ if (is_page_template('template-destinations-region.php')) :
     $navTitle = get_field('navigation_title', $r);
     $destinationType = "region";
 elseif (is_page_template('template-destinations-destination.php')) :
-    $d = get_field('destination_post');
-    $navTitle = get_field('navigation_title', $d);
+    $destination = get_field('destination_post');
+    $navTitle = get_field('navigation_title', $destination);
     $destinationType = "destination";
 
 else :
-    $d = get_field('destination_post');
-    $navTitle = get_field('navigation_title', $d);
+    $destination = get_field('destination_post');
+    $navTitle = get_field('navigation_title', $destination);
     $destinationType = "cruise";
-endif; ?>
+endif; 
+
+
+
+//Filter deals based on expiration date
+$dealArgs = array(
+    'posts_per_page' => -1,
+    'post_type' => 'rfc_deals',
+    'meta_key' => 'value_rating',
+    'orderby' => 'meta_value_num',
+    'order' => 'DESC',
+    'meta_query' => array(
+        array(
+            'key' => 'destinations', // name of custom field
+            'value' => '"' . $destination->ID . '"',
+            'compare' => 'LIKE'
+        )
+    )
+);
+
+$dealPosts  = get_posts($dealArgs); //Stage I posts
+$validDeals = array();
+
+
+foreach ($dealPosts as $deal) {
+    $expiration_date = get_field('expiration_date', $deal->ID);
+
+    // If no expiration date is set, include the deal
+    if (empty($expiration_date)) {
+        $validDeals[] = $deal;
+        continue;
+    }
+
+    // Convert d/m/Y date to timestamp
+    $expiration_timestamp = DateTime::createFromFormat('d/m/Y', $expiration_date)->getTimestamp();
+
+    // Include deal if expiration date is in the future
+    if ($expiration_timestamp >= $current_timestamp) {
+        $validDeals[] = $deal;
+    }
+}
+
+
+?>
+
+
+
 
 <nav class="nav-secondary" id="nav-secondary">
     <div class="nav-secondary__main">
@@ -70,7 +116,7 @@ endif; ?>
                             <a href="#charters">Charters</a>
                         </li>
                     <?php endif; ?>
-                    <?php if ($destinationType != 'destination') : ?>
+                    <?php if ($destinationType != 'destination' && $validDeals)  : ?>
                         <li>
                             <a href="#deals">Deals</a>
                         </li>
@@ -103,7 +149,7 @@ endif; ?>
                         <a href="#charters">Charters</a>
                     </li>
                 <?php endif; ?>
-                <?php if ($destinationType != 'destination') : ?>
+                <?php if ($destinationType != 'destination' && $validDeals) : ?>
                     <li>
                         <a href="#deals">Deals</a>
                     </li>
@@ -161,7 +207,7 @@ endif; ?>
                         <a href="#charters" class="nav-secondary-mobile__list__item__link">Charters</a>
                     </li>
                 <?php endif; ?>
-                <?php if ($destinationType != 'destination') : ?>
+                <?php if ($destinationType != 'destination' && $validDeals) : ?>
                     <li class="nav-secondary-mobile__list__item">
                         <a href="#deals " class="nav-secondary-mobile__list__item__link">Deals</a>
                     </li>
@@ -195,7 +241,7 @@ endif; ?>
                     <a href="#charters" class="nav-secondary-mobile__list__item__link">Charters</a>
                 </li>
             <?php endif; ?>
-            <?php if ($destinationType != 'destination') : ?>
+            <?php if ($destinationType != 'destination' && $validDeals) : ?>
                 <li class="nav-secondary-mobile__list__item">
                     <a href="#deals " class="nav-secondary-mobile__list__item__link">Deals</a>
                 </li>

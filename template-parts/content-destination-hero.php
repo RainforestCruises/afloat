@@ -103,7 +103,7 @@
                                   <a href="#ships" class="destination-hero__content__page-nav__list__item__link page-nav-template">Ships</a>
                               </li>
                           <?php } ?>
-                          <?php if ($destinationType != 'destination') : ?>
+                          <?php if ($destinationType != 'destination' && $args['deals'] ) : ?>
                               <li class="destination-hero__content__page-nav__list__item">
                                   <a href="#deals" class="destination-hero__content__page-nav__list__item__link page-nav-template">Deals</a>
                               </li>
@@ -133,7 +133,7 @@
                                   <a href="#charters" class="destination-hero__content__page-nav__list__item__link page-nav-template">Charters</a>
                               </li>
                           <?php endif; ?>
-                          <?php if ($desinationType != 'destination') : ?>
+                          <?php if ($desinationType != 'destination' && $args['deals']) : ?>
                               <li class="destination-hero__content__page-nav__list__item">
                                   <a href="#deals" class="destination-hero__content__page-nav__list__item__link page-nav-template">Deals</a>
                               </li>

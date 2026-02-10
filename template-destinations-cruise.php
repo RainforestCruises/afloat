@@ -96,7 +96,7 @@ $dealArgs = array(
 $dealPosts  = get_posts($dealArgs); //Stage I posts
 $validDeals = array();
 
-// Filter deals based on expiration date
+//Filter deals based on expiration date
 foreach ($dealPosts as $deal) {
     $expiration_date = get_field('expiration_date', $deal->ID);
 
@@ -164,11 +164,13 @@ $args = array(
     <?php endif; ?>
 
     <!-- Deals -->
-    <section class="destination-page__section-deals" id="deals">
-        <?php
-        get_template_part('template-parts/content', 'destination-deals', $args);
-        ?>
-    </section>
+    <?php if ($args['deals']) : ?>
+        <section class="destination-page__section-deals" id="deals">
+            <?php
+            get_template_part('template-parts/content', 'destination-deals', $args);
+            ?>
+        </section>
+    <?php endif; ?>
 
     <!-- Tours-->
     <?php if ($show_tours) : ?>
