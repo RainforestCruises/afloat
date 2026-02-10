@@ -200,9 +200,8 @@ if (get_field('itinerary_length_max') != null) {
     <div class="filter">
         <div class="filter__heading">
             <h5 class="filter__heading__text">
-
+                Destinations
                 <?php
-                echo ($searchType == 'top') ? 'Regions' : 'Destinations';
                 $filterCount = count($selectedDestinations);
                 ?>
                 <div class="filter__heading__text__count <?php echo ($filterCount > 0 ? 'show' : '') ?>" id="destinationsFilterCount">

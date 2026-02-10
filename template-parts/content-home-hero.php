@@ -1,14 +1,14 @@
 <?php
-// Get all rfc_regions
-$regionsArgs = array(
-    'post_type' => 'rfc_regions',
-    'meta_key' => 'navigation_title',
-    'orderby' => 'meta_value',
-    'order' => 'ASC',
-    'posts_per_page' => -1
-);
+// // Get all rfc_regions
+// $regionsArgs = array(
+//     'post_type' => 'rfc_regions',
+//     'meta_key' => 'navigation_title',
+//     'orderby' => 'meta_value',
+//     'order' => 'ASC',
+//     'posts_per_page' => -1
+// );
 
-$regions = get_posts($regionsArgs);
+// $regions = get_posts($regionsArgs);
 
 // Get rfc_destinations where non_cruise_destination is false or null
 $destinationsArgs = array(
@@ -39,10 +39,10 @@ $destinationsArgs = array(
 $destinations = get_posts($destinationsArgs);
 
 // Combine both arrays
-$allPosts = array_merge($regions, $destinations);
+//$allPosts = array_merge($regions, $destinations);
 
 // Re-sort the combined array by navigation_title
-usort($allPosts, function($a, $b) {
+usort($destinations, function($a, $b) {
     $titleA = get_field('navigation_title', $a->ID);
     $titleB = get_field('navigation_title', $b->ID);
     return strcasecmp($titleA, $titleB);
@@ -124,7 +124,7 @@ $currentYear = date("Y");
 
                     <ul class="home-search__destination__list" id="destination-list">
                         <li postid="anywhere" class="anywhere">Anywhere</li>
-                        <?php foreach ($allPosts as $d) : ?>
+                        <?php foreach ($destinations as $d) : ?>
                             <li postid="<?php echo $d->ID ?>"><?php echo get_field('navigation_title', $d) ?></li>
                         <?php endforeach; ?>
                     </ul>
