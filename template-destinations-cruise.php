@@ -92,6 +92,7 @@ $dealArgs = array(
 );
 
 
+$current_timestamp = current_time('timestamp');
 
 $dealPosts  = get_posts($dealArgs); //Stage I posts
 $validDeals = array();
@@ -115,6 +116,7 @@ foreach ($dealPosts as $deal) {
     }
 }
 
+console_log($validDeals);
 
 
 $args = array(
