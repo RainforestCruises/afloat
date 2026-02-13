@@ -1146,13 +1146,40 @@
             "endpoint": 0
         },
         {
+            "key": "field_698f3e12eeaad",
+            "label": "Show Travel Guide",
+            "name": "show_travel_guide",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5ffe1a2a0966f",
             "label": "Travel Guide Title Subtext",
             "name": "travel_guide_title_subtext",
             "type": "wysiwyg",
             "instructions": "Snippet below title",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_698f3e12eeaad",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1171,7 +1198,15 @@
             "type": "repeater",
             "instructions": "Select 6 travel guides to highlight. Order as needed",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_698f3e12eeaad",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1214,7 +1249,15 @@
             "type": "page_link",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_698f3e12eeaad",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1553,5 +1596,5 @@
     "active": true,
     "description": "Destination (Cruise) - Page",
     "show_in_rest": 0,
-    "modified": 1769193165
+    "modified": 1770995305
 }

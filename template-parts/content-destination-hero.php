@@ -103,7 +103,7 @@
                                   <a href="#ships" class="destination-hero__content__page-nav__list__item__link page-nav-template">Ships</a>
                               </li>
                           <?php } ?>
-                          <?php if ($destinationType != 'destination' && $args['deals'] ) : ?>
+                          <?php if ($destinationType != 'destination' && $args['deals']) : ?>
                               <li class="destination-hero__content__page-nav__list__item">
                                   <a href="#deals" class="destination-hero__content__page-nav__list__item__link page-nav-template">Deals</a>
                               </li>
@@ -146,10 +146,11 @@
                       <?php } ?>
 
 
-
-                      <li class="destination-hero__content__page-nav__list__item">
-                          <a href="#travel-guide" class="destination-hero__content__page-nav__list__item__link page-nav-template">Guide</a>
-                      </li>
+                      <?php if (get_field('show_travel_guide') == true) { ?>
+                          <li class="destination-hero__content__page-nav__list__item">
+                              <a href="#travel-guide" class="destination-hero__content__page-nav__list__item__link page-nav-template">Guide</a>
+                          </li>
+                      <?php } ?>
                       <?php if (get_field('show_testimonials') == true) { ?>
                           <li class="destination-hero__content__page-nav__list__item">
                               <a href="#testimonials" class="destination-hero__content__page-nav__list__item__link page-nav-template">Testimonials</a>

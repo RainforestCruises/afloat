@@ -28,7 +28,7 @@ else :
     $destination = get_field('destination_post');
     $navTitle = get_field('navigation_title', $destination);
     $destinationType = "cruise";
-endif; 
+endif;
 
 
 
@@ -118,7 +118,7 @@ foreach ($dealPosts as $deal) {
                             <a href="#charters">Charters</a>
                         </li>
                     <?php endif; ?>
-                    <?php if ($destinationType != 'destination' && $validDeals)  : ?>
+                    <?php if ($destinationType != 'destination' && $validDeals) : ?>
                         <li>
                             <a href="#deals">Deals</a>
                         </li>
@@ -163,10 +163,11 @@ foreach ($dealPosts as $deal) {
                 <?php endif; ?>
 
             <?php } ?>
-
-            <li>
-                <a href="#travel-guide">Guide</a>
-            </li>
+            <?php if (get_field('show_travel_guide') == true) { ?>
+                <li>
+                    <a href="#travel-guide">Guide</a>
+                </li>
+            <?php } ?>
             <?php if (get_field('show_testimonials') == true) { ?>
                 <li>
                     <a href="#testimonials">Testimonials</a>
@@ -255,10 +256,11 @@ foreach ($dealPosts as $deal) {
             <?php endif; ?>
         <?php } ?>
 
-        <li class="nav-secondary-mobile__list__item">
-            <a href="#travel-guide" class="nav-secondary-mobile__list__item__link">Guide</a>
-        </li>
-
+        <?php if (get_field('show_travel_guide') == true) { ?>
+            <li class="nav-secondary-mobile__list__item">
+                <a href="#travel-guide" class="nav-secondary-mobile__list__item__link">Guide</a>
+            </li>
+        <?php } ?>
         <?php if (get_field('show_testimonials') == true) { ?>
             <li class="nav-secondary-mobile__list__item">
                 <a href="#testimonials" class="nav-secondary-mobile__list__item__link">Testimonials</a>

@@ -16,6 +16,7 @@ $destinationType = 'cruise';
 $destination = get_field('destination_post');
 $show_charters = get_field('show_charters');
 $show_tours = get_field('show_tours');
+
 $activities = get_field('activities_list');
 $locations = get_field('locations_list');
 $tour_experiences = get_field('tour_experiences');
@@ -184,12 +185,13 @@ $args = array(
     <?php endif; ?>
 
     <!-- Travel Guides -->
-    <section class="destination-page__section-travel-guides" id="travel-guide">
-        <?php
-        get_template_part('template-parts/content', 'destination-guides', $args);
-        ?>
-    </section>
-
+    <?php if (get_field('show_travel_guide') == true) { ?>
+        <section class="destination-page__section-travel-guides" id="travel-guide">
+            <?php
+            get_template_part('template-parts/content', 'destination-guides', $args);
+            ?>
+        </section>
+    <?php } ?>
 
     <!-- Testimonials -->
     <?php if (get_field('show_testimonials') == true) { ?>
