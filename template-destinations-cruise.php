@@ -24,13 +24,15 @@ $sliderContent = get_field('hero_slider');
 $title = $destination->post_title;
 $has_video = get_field('has_video');
 $vimeo_link = get_field('vimeo_link');
-$sliderLimit = 36;
 
 $tours = get_field('tours');
 
+$sliderLimit = 24;
+
+
 // All Cruises
 $cruiseCriteria = array(
-    'posts_per_page' => $sliderLimit,
+    'posts_per_page' => -1,
     'post_type' => 'rfc_cruises',
     'meta_key' => 'search_rank',
     'orderby' => 'meta_value_num',
@@ -48,6 +50,7 @@ $allCruises = get_posts($cruiseCriteria);
 // FIT Cruises
 $cruises = [];
 foreach ($allCruises as $cruise) {
+    if (count($cruises) >= $sliderLimit) break;
     $charter_only = get_field('charter_only', $cruise);
     if (!$charter_only) {
         $cruises[] = $cruise;
@@ -58,6 +61,7 @@ foreach ($allCruises as $cruise) {
 // Charter Cruises
 $charters = [];
 foreach ($allCruises as $cruise) {
+    if (count($charters) >= $sliderLimit) break;
     $charter_available = get_field('charter_available', $cruise);
     $is_extension = get_field('is_extension', $cruise);
 

@@ -41,7 +41,7 @@ $vimeo_link = get_field('vimeo_link');
 
 
 
-$sliderLimit = 36;
+$sliderLimit = 24;
 $show_tours = get_field('show_tours');
 
 //TOURS
@@ -67,6 +67,8 @@ $allCruises = get_posts($cruiseCriteria);
 // FIT Cruises
 $cruises = [];
 foreach ($allCruises as $cruise) {
+    if (count($cruises) >= $sliderLimit) break;
+
     $charter_only = get_field('charter_only', $cruise);
     if (!$charter_only) {
         $cruises[] = $cruise;
@@ -77,6 +79,8 @@ foreach ($allCruises as $cruise) {
 // Charter Cruises
 $charters = [];
 foreach ($allCruises as $cruise) {
+    if (count($charters) >= $sliderLimit) break;
+
     $charter_available = get_field('charter_available', $cruise);
     $is_extension = get_field('is_extension', $cruise);
 
