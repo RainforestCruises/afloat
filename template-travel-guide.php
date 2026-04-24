@@ -100,8 +100,20 @@ if ($destination_type == 'rfc_locations') {
 
 if ($destination_type == 'rfc_top') {
     $args = array(
-        'posts_per_page' => 30,
-        'post_type' => 'rfc_travel_guides'
+        'posts_per_page' => -1,
+        'post_type' => 'rfc_travel_guides',
+        'meta_query' => array(
+            array(
+                'key' => 'region', // name of custom field
+                'value' => $region->ID, // strangely will not work with quotes around
+                'compare' => 'LIKE'
+            ),
+            array(
+                'key' => 'is_region_level', // name of custom field
+                'value' => true,
+                'compare' => 'LIKE'
+            )
+        )
     );
 
     $categories = get_posts(array(
