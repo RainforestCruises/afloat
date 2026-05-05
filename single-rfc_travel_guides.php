@@ -164,7 +164,7 @@ while (have_posts()) :
       </div>
 
 
-      <div class="travel-guide__content drop-cap-1a">
+      <div class="travel-guide__content">
         <?php echo generateIndex($content)['html']; ?>
       </div>
 

@@ -101,7 +101,7 @@
 
       &__breadcrumb {
         margin-top: 3rem;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         letter-spacing: 0.2rem;
         justify-self: flex-start;
         font-weight: 400;
@@ -186,9 +186,9 @@
           & span {
             color: $color-white;
             text-transform: uppercase;
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             letter-spacing: 0.3rem;
-            line-height: 1.5rem;
+            line-height: 1.8rem;
             font-weight: 600;
 
           }
@@ -232,7 +232,7 @@
             grid-column: 1 / span 1;
             grid-row: 2 / span 1;
             user-select: none;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
 
             font-weight: 600;
             letter-spacing: 0.2rem;
@@ -267,7 +267,7 @@
           }
         }
         &__subtitle {
-          font-size: 1.4rem;
+          font-size: 1.6rem;
           font-weight: 300;
           letter-spacing: 0.1rem;
           display: block;
@@ -307,7 +307,7 @@
               display: block;
               position: relative;
 
-              font-size: 1.2rem;
+              font-size: 1.4rem;
               font-weight: 600;
               letter-spacing: 0.3rem;
               text-transform: uppercase;
@@ -447,7 +447,7 @@
 
         background-color: $color-grey-3;
         color: $color-grey-light-1a;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
         padding: 1rem 1.5rem;
@@ -621,7 +621,7 @@
               position: absolute;
               bottom: -1.3rem;
               left: 0;
-              font-size: 1.1rem;
+              font-size: 1.2rem;
               letter-spacing: .1rem;
               text-align: start;
               white-space: nowrap;
@@ -761,7 +761,7 @@
 
           &__item {
             text-transform: uppercase;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             position: relative;
             cursor: pointer;
@@ -930,7 +930,7 @@
 
   &__text {
       color: $color-white;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       text-transform: uppercase;
       white-space: nowrap;
       font-weight: 600;

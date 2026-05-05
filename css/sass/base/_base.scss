@@ -77,14 +77,13 @@ body.overlay {
 p a {
     &:link,
     &:visited {
-        color: $color-supporting;
+        color: $color-gold-dark;
         transition: all 0.2s;
-        text-decoration: none;
         font-weight: 500;
     }
 
     &:hover {
-        color: $color-supporting-light;
+        color: $color-gold-light;
     }
 }
 

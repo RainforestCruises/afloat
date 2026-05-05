@@ -46,7 +46,7 @@
     }
     & ul {
       margin-left: 2rem;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: $color-primary;
       font-weight: 600;
 
@@ -101,7 +101,7 @@
 
   &__breadcrumb {
     margin-bottom: 2rem;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     letter-spacing: 0.1rem;
     justify-self: flex-start;
     font-weight: 400;
@@ -160,35 +160,35 @@
     flex-direction: column;
     margin-bottom: 2rem;
     hyphens: auto;
-    & p:not(.wp-caption-text):first-of-type {
-      font-size: 2.5rem;
-      text-align: center;
-      position: relative;
-      line-height: 3.2rem;
-      &::after {
-        content: "";
-        position: absolute;
-        height: 1px;
-        width: 60%;
-        background-color: $color-grey-light-1a;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      //padding: 5rem 0;
-      padding: 4rem 0;
-      padding-top: 2rem;
-      margin-bottom: 4rem;
+    // & p:not(.wp-caption-text):first-of-type {
+    //   font-size: 2.5rem;
+    //   text-align: center;
+    //   position: relative;
+    //   line-height: 3.2rem;
+    //   &::after {
+    //     content: "";
+    //     position: absolute;
+    //     height: 1px;
+    //     width: 60%;
+    //     background-color: $color-grey-light-1a;
+    //     bottom: 0;
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    //   }
+    //   //padding: 5rem 0;
+    //   padding: 4rem 0;
+    //   padding-top: 2rem;
+    //   margin-bottom: 4rem;
 
-      @media only screen and (max-width: $bp-small) {
-        padding-top: 1rem;
-        padding-bottom: 4rem;
-        margin-bottom: 4rem;
-        font-size: 2rem;
-      }
-    }
+    //   @media only screen and (max-width: $bp-small) {
+    //     padding-top: 1rem;
+    //     padding-bottom: 4rem;
+    //     margin-bottom: 4rem;
+    //     font-size: 2rem;
+    //   }
+    // }
 
-    & p:not(:first-child) {
+    & p {
       max-width: 80rem;
       align-self: center;
       font-size: 1.6rem;
@@ -237,12 +237,11 @@
 
     & a:link,
     a:visited {
-      text-decoration: none;
-      color: $color-supporting;
+      color: $color-gold-dark;
       transition: all 0.2s;
     }
     & a:hover {
-      color: $color-supporting-light;
+      color: $color-gold-light;
     }
 
     & hr {
@@ -292,7 +291,7 @@
       margin-bottom: 3rem;
     }
     &__button {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-family: $font-primary;
       color: $color-primary;
       background-color: transparent;
@@ -372,7 +371,7 @@
     }
 
     & p {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       line-height: 2rem;
     }
 
@@ -436,7 +435,7 @@
     color: $color-primary !important;
 
     &__by {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
       display: flex;
       justify-content: center;
@@ -486,7 +485,7 @@
         &__social {
           display: flex;
           gap: 2rem;
-          font-size: 1.5rem;
+          font-size: 1.6rem;
           @media only screen and (max-width: $bp-small) {
             flex-direction: column;
             gap: 0.5rem;
@@ -496,7 +495,7 @@
             display: grid;
             grid-template-columns: max-content max-content;
             align-items: center;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
 
             &:link,
@@ -639,7 +638,7 @@
 
   border: 1px solid $color-grey-light-1a;
   border-radius: 0.4rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: $color-primary;
   width: 45rem;
   display: grid;
@@ -661,7 +660,7 @@
   }
 
   &__warning {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 
     @media only screen and (max-width: $bp-small) {
       display: flex;
@@ -674,7 +673,7 @@
     }
 
     & button {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-family: $font-primary;
       background-color: transparent;
       border: none;

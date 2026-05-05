@@ -135,7 +135,7 @@
                 }
 
                 &__subtitle {
-                    font-size: 1.2rem;
+                    font-size: 1.4rem;
                     font-weight: 600;
                     text-transform: uppercase;
                     align-self: end;
@@ -154,8 +154,8 @@
                 }
             }
             &__snippet {
-                font-size: 1.2rem;
-                line-height: 1.6rem;
+                font-size: 1.4rem;
+                line-height: 1.8rem;
             }
             padding-bottom: 1.5rem;
             border-bottom: 1px solid $color-grey-light-1a;
@@ -165,7 +165,7 @@
             padding-top: 0.5rem;
             display: flex;
             flex-direction: column;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             &__details {
                 padding: 1rem 0;
                 &__group {
@@ -207,7 +207,7 @@
             
             display: flex;
 
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
             text-transform: uppercase;
             //color: $color-grey-1;
@@ -278,8 +278,8 @@
                     }
 
                     &__text {
-                        font-size: 1.1rem;
-                        line-height: 1.1rem;
+                        font-size: 1.2rem;
+                        line-height: 1.2rem;
                         padding-bottom: .8rem;
                     }
 
@@ -295,7 +295,7 @@
                         }
 
                         & span {
-                            font-size: 1.3rem;
+                            font-size: 1.4rem;
                             text-transform: uppercase;
                             color: $color-primary;
                             font-weight: 600;
@@ -358,7 +358,7 @@
                                 width: max-content;
 
                                 & .sub-attribute {
-                                    font-size: 1.1rem;
+                                    font-size: 1.2rem;
                                     line-height: 1.6rem;
                                     font-weight: 600;
                                 }
@@ -367,7 +367,7 @@
                             & ul {
                                 list-style: none;
                                 display: flex;
-                                font-size: 1.2rem;
+                                font-size: 1.4rem;
                             }
                         }
                     }

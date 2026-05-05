@@ -279,13 +279,12 @@ body.overlay {
     animation-fill-mode: both; }
 
 p a:link, p a:visited {
-  color: #356326;
+  color: #ae712d;
   transition: all 0.2s;
-  text-decoration: none;
   font-weight: 500; }
 
 p a:hover {
-  color: #57754d; }
+  color: #c9873b; }
 
 a[href^="tel"] {
   color: inherit;
@@ -418,7 +417,7 @@ p {
   .attention-box li {
     text-align: start;
     font-family: "Almarai", sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     padding: 1rem; }
   @media only screen and (max-width: 50em) {
     .attention-box {
@@ -620,7 +619,7 @@ p {
   margin: 0.5rem;
   letter-spacing: 0.1rem;
   outline: none;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 400;
   position: relative;
   display: inline-block; }
@@ -985,7 +984,7 @@ h5 {
     border-width: 1px; }
   .btn-outline--small {
     padding: 1rem 2rem;
-    font-size: 1.3rem; }
+    font-size: 1.4rem; }
   .btn-outline--dark::after {
     border: 2px solid #254715; }
   .btn-outline--blue {
@@ -1097,7 +1096,7 @@ h5 {
   z-index: 0;
   outline: none;
   font-family: "Almarai", sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #254715; }
   .btn-circle svg {
@@ -1287,7 +1286,7 @@ h5 {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  font-size: 1.32rem;
+  font-size: 1.4rem;
   letter-spacing: 0.1rem; }
   .btn-underline::after {
     content: "";
@@ -1304,7 +1303,7 @@ h5 {
       width: 100%; }
 
 .text-button {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-family: "Almarai", sans-serif;
   background-color: transparent;
   border: none;
@@ -1317,15 +1316,15 @@ h5 {
     color: #356326; }
   .text-button svg {
     margin-left: 0.1rem;
-    height: 1.2rem;
-    width: 1.2rem;
+    height: 1.4rem;
+    width: 1.4rem;
     fill: currentColor; }
   .text-button--large {
-    font-size: 1.4rem; }
+    font-size: 1.6rem; }
     .text-button--large svg {
       margin-left: 0.2rem;
-      height: 1.4rem;
-      width: 1.4rem; }
+      height: 1.6rem;
+      width: 1.6rem; }
 
 .goto-button {
   font-size: 1.8rem;
@@ -1353,11 +1352,11 @@ h5 {
     fill: currentColor;
     transition: all 0.2s; }
   .goto-button--small {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     letter-spacing: 0.2rem; }
     .goto-button--small svg {
-      height: 1.3rem;
-      width: 1.3rem;
+      height: 1.4rem;
+      width: 1.4rem;
       stroke-width: 1;
       stroke: currentColor; }
   .goto-button--dark {
@@ -1384,7 +1383,7 @@ h5 {
   letter-spacing: 0.3rem;
   cursor: pointer;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-family: "Almarai", sans-serif;
   text-transform: uppercase;
   font-weight: 500;
@@ -1836,7 +1835,7 @@ h5 {
       border-bottom: 1px solid #e6e6e6; }
     .travel-guide__toc ul {
       margin-left: 2rem;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: #254715;
       font-weight: 600; }
       .travel-guide__toc ul a {
@@ -1874,7 +1873,7 @@ h5 {
       box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.2); }
   .travel-guide__breadcrumb {
     margin-bottom: 2rem;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     letter-spacing: 0.1rem;
     justify-self: flex-start;
     font-weight: 400;
@@ -1916,30 +1915,7 @@ h5 {
     flex-direction: column;
     margin-bottom: 2rem;
     hyphens: auto; }
-    .travel-guide__content p:not(.wp-caption-text):first-of-type {
-      font-size: 2.5rem;
-      text-align: center;
-      position: relative;
-      line-height: 3.2rem;
-      padding: 4rem 0;
-      padding-top: 2rem;
-      margin-bottom: 4rem; }
-      .travel-guide__content p:not(.wp-caption-text):first-of-type::after {
-        content: "";
-        position: absolute;
-        height: 1px;
-        width: 60%;
-        background-color: #e6e6e6;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%); }
-      @media only screen and (max-width: 37.5em) {
-        .travel-guide__content p:not(.wp-caption-text):first-of-type {
-          padding-top: 1rem;
-          padding-bottom: 4rem;
-          margin-bottom: 4rem;
-          font-size: 2rem; } }
-    .travel-guide__content p:not(:first-child) {
+    .travel-guide__content p {
       max-width: 80rem;
       align-self: center;
       font-size: 1.6rem; }
@@ -1976,11 +1952,10 @@ h5 {
       letter-spacing: 0rem; }
     .travel-guide__content a:link,
     .travel-guide__content a:visited {
-      text-decoration: none;
-      color: #356326;
+      color: #ae712d;
       transition: all 0.2s; }
     .travel-guide__content a:hover {
-      color: #57754d; }
+      color: #c9873b; }
     .travel-guide__content hr {
       align-self: center;
       display: block;
@@ -2017,7 +1992,7 @@ h5 {
       margin-top: 2rem;
       margin-bottom: 3rem; }
     .travel-guide__question__button {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-family: "Almarai", sans-serif;
       color: #254715;
       background-color: transparent;
@@ -2081,7 +2056,7 @@ h5 {
       .travel-guide__disclaimer {
         padding: 3rem 0rem; } }
     .travel-guide__disclaimer p {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       line-height: 2rem; }
     .travel-guide__disclaimer::before {
       content: "";
@@ -2124,7 +2099,7 @@ h5 {
     text-decoration: none !important;
     color: #254715 !important; }
     .travel-guide__author__by {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
       display: flex;
       justify-content: center; }
@@ -2159,7 +2134,7 @@ h5 {
         .travel-guide__author__main__text__social {
           display: flex;
           gap: 2rem;
-          font-size: 1.5rem; }
+          font-size: 1.6rem; }
           @media only screen and (max-width: 37.5em) {
             .travel-guide__author__main__text__social {
               flex-direction: column;
@@ -2168,7 +2143,7 @@ h5 {
             display: grid;
             grid-template-columns: max-content max-content;
             align-items: center;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 0.5rem; }
             .travel-guide__author__main__text__social__item:link, .travel-guide__author__main__text__social__item:visited {
               color: currentColor;
@@ -2264,7 +2239,7 @@ h5 {
   padding-bottom: 1rem;
   border: 1px solid #e6e6e6;
   border-radius: 0.4rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #254715;
   width: 45rem;
   display: grid;
@@ -2282,7 +2257,7 @@ h5 {
     width: 5rem;
     fill: currentColor; }
   .disclaimer-box__warning {
-    font-size: 1.3rem; }
+    font-size: 1.4rem; }
     @media only screen and (max-width: 37.5em) {
       .disclaimer-box__warning {
         display: flex;
@@ -2291,7 +2266,7 @@ h5 {
     .disclaimer-box__warning span {
       color: #9ea0a4; }
     .disclaimer-box__warning button {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-family: "Almarai", sans-serif;
       background-color: transparent;
       border: none;
@@ -4017,7 +3992,7 @@ h5 {
           text-align: center; } }
       .product-hero__top__content__breadcrumb {
         margin-top: 3rem;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         letter-spacing: 0.2rem;
         justify-self: flex-start;
         font-weight: 400;
@@ -4080,9 +4055,9 @@ h5 {
           .product-hero__top__content__title-group__badge-area span {
             color: #fff;
             text-transform: uppercase;
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             letter-spacing: 0.3rem;
-            line-height: 1.5rem;
+            line-height: 1.8rem;
             font-weight: 600; }
         .product-hero__top__content__title-group__title {
           font-size: 6rem;
@@ -4113,7 +4088,7 @@ h5 {
             grid-column: 1 / span 1;
             grid-row: 2 / span 1;
             user-select: none;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 600;
             letter-spacing: 0.2rem;
             color: rgba(53, 99, 38, 0.8);
@@ -4139,7 +4114,7 @@ h5 {
               position: absolute;
               right: 2rem; }
         .product-hero__top__content__title-group__subtitle {
-          font-size: 1.4rem;
+          font-size: 1.6rem;
           font-weight: 300;
           letter-spacing: 0.1rem;
           display: block;
@@ -4167,7 +4142,7 @@ h5 {
             .product-hero__top__content__nav__list__item__link {
               display: block;
               position: relative;
-              font-size: 1.2rem;
+              font-size: 1.4rem;
               font-weight: 600;
               letter-spacing: 0.3rem;
               text-transform: uppercase;
@@ -4205,7 +4180,7 @@ h5 {
         right: 6rem;
         background-color: #747474;
         color: #e6e6e6;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
         padding: 1rem 1.5rem;
@@ -4329,7 +4304,7 @@ h5 {
               position: absolute;
               bottom: -1.3rem;
               left: 0;
-              font-size: 1.1rem;
+              font-size: 1.2rem;
               letter-spacing: .1rem;
               text-align: start;
               white-space: nowrap; }
@@ -4421,7 +4396,7 @@ h5 {
             height: 100%; }
           .product-hero__bottom__content__nav__list__item {
             text-transform: uppercase;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             position: relative;
             cursor: pointer;
@@ -4535,7 +4510,7 @@ h5 {
         color: #254715; }
   .video-play-button__text {
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     text-transform: uppercase;
     white-space: nowrap;
     font-weight: 600; }
@@ -7188,7 +7163,7 @@ h5 {
           font-weight: 700;
           color: #254715; }
         .search-result__content__top__title-group__subtitle {
-          font-size: 1.2rem;
+          font-size: 1.4rem;
           font-weight: 600;
           text-transform: uppercase;
           align-self: end;
@@ -7200,13 +7175,13 @@ h5 {
             .search-result__content__top__title-group__subtitle span.current {
               display: block; }
       .search-result__content__top__snippet {
-        font-size: 1.2rem;
-        line-height: 1.6rem; }
+        font-size: 1.4rem;
+        line-height: 1.8rem; }
     .search-result__content__bottom {
       padding-top: 0.5rem;
       display: flex;
       flex-direction: column;
-      font-size: 1.2rem; }
+      font-size: 1.4rem; }
       .search-result__content__bottom__details {
         padding: 1rem 0; }
         .search-result__content__bottom__details__group__title {
@@ -7227,7 +7202,7 @@ h5 {
     padding-top: .5rem; }
     .search-result__detail__header {
       display: flex;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 700;
       text-transform: uppercase;
       color: #254715;
@@ -7279,8 +7254,8 @@ h5 {
             justify-content: center;
             padding-bottom: 1rem; } }
         .search-result__detail__panel__info__price-from__text {
-          font-size: 1.1rem;
-          line-height: 1.1rem;
+          font-size: 1.2rem;
+          line-height: 1.2rem;
           padding-bottom: .8rem; }
         .search-result__detail__panel__info__price-from__price {
           font-size: 2.2rem;
@@ -7292,7 +7267,7 @@ h5 {
               font-size: 2.8rem;
               line-height: 3.4rem; } }
           .search-result__detail__panel__info__price-from__price span {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             text-transform: uppercase;
             color: #254715;
             font-weight: 600; }
@@ -7336,13 +7311,13 @@ h5 {
               text-transform: uppercase;
               width: max-content; }
               .search-result__detail__panel__info__attributes__item__data__text .sub-attribute {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
                 line-height: 1.6rem;
                 font-weight: 600; }
             .search-result__detail__panel__info__attributes__item__data ul {
               list-style: none;
               display: flex;
-              font-size: 1.2rem; }
+              font-size: 1.4rem; }
       .search-result__detail__panel__cta {
         width: 100%;
         display: flex;
@@ -8179,7 +8154,7 @@ h5 {
             display: flex;
             opacity: 1; }
       .destination-main__intro__description__highlights-title {
-        font-size: 1.4rem;
+        font-size: 1.6em;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
         font-weight: 600;
@@ -8213,7 +8188,7 @@ h5 {
             color: #254715 !important;
             stroke-width: 3; }
           .destination-main__intro__description__highlights li span p {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             line-height: 2rem; }
     .destination-main__intro__lists {
       display: grid;
@@ -11427,7 +11402,7 @@ h5 {
         color: #254715;
         margin-bottom: 0.5rem; }
     .product-card__bottom__text {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin-top: 0.5rem;
       margin-bottom: 0.5rem;
       padding-bottom: 1.5rem;
@@ -12240,7 +12215,7 @@ h5 {
   align-items: center;
   position: relative; }
   .publications__title {
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-top: 5rem;
     margin-bottom: 2rem;
@@ -12323,7 +12298,7 @@ h5 {
     justify-content: center;
     align-items: center;
     height: 9rem;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     font-weight: 600;
@@ -12575,7 +12550,7 @@ h5 {
               padding: 1.5rem 3rem;
               align-items: center; }
               .header__main__right__phone-desktop .phone-popover__container__content__header {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
                 text-transform: uppercase;
                 letter-spacing: 0.2rem;
                 color: #9ea0a4;
@@ -12746,7 +12721,7 @@ h5 {
         transform: translateX(0%); }
     .nav-mobile__content-panel .nav-mobile__content-panel__button {
       color: #fff;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       letter-spacing: 0.2rem;
       font-weight: 600;
       background-color: transparent;
@@ -12807,7 +12782,7 @@ h5 {
       right: 4rem;
       display: flex;
       align-items: center;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: #fff;
       z-index: 9999999; }
       .nav-mobile__content-panel .mobile-language-switch svg {
@@ -12882,9 +12857,9 @@ h5 {
     color: #254715;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     text-transform: uppercase;
-    letter-spacing: 0.2rem; }
+    letter-spacing: 0.1rem; }
     .nav-mega__nav__link {
       text-decoration: none;
       color: currentColor;
@@ -12942,84 +12917,6 @@ h5 {
       justify-content: flex-end; }
       .nav-mega__nav__all a::after {
         border-width: 1px !important; }
-  .nav-mega__nav-arctic {
-    justify-self: center;
-    display: flex;
-    width: 100%;
-    max-width: 120rem;
-    color: #254715;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem; }
-    .nav-mega__nav-arctic__menu {
-      border-left: 1px solid #e6e6e6;
-      padding: 2rem 4rem;
-      padding-top: 0;
-      margin: 2rem 0;
-      width: 35rem; }
-      .nav-mega__nav-arctic__menu__title {
-        font-weight: 300;
-        font-size: 1.1rem;
-        padding-bottom: 1rem; }
-      .nav-mega__nav-arctic__menu__list {
-        list-style: none; }
-        .nav-mega__nav-arctic__menu__list__item {
-          padding-bottom: 1rem; }
-          .nav-mega__nav-arctic__menu__list__item__link {
-            text-decoration: none; }
-            .nav-mega__nav-arctic__menu__list__item__link:link, .nav-mega__nav-arctic__menu__list__item__link:visited {
-              color: #3b3b3b; }
-              .nav-mega__nav-arctic__menu__list__item__link:link svg, .nav-mega__nav-arctic__menu__list__item__link:visited svg {
-                transform: translateY(-1px);
-                stroke-width: 4;
-                height: 2rem;
-                width: 2rem;
-                color: currentColor; }
-            .nav-mega__nav-arctic__menu__list__item__link:hover {
-              color: #ae712d; }
-            .nav-mega__nav-arctic__menu__list__item__link.active {
-              color: #ae712d !important; }
-    .nav-mega__nav-arctic__content-area {
-      height: 100%;
-      width: 100%; }
-      .nav-mega__nav-arctic__content-area__panel {
-        display: none;
-        grid-template-columns: 50rem 1fr;
-        height: 100%;
-        width: 100%; }
-        .nav-mega__nav-arctic__content-area__panel.active {
-          display: grid; }
-        .nav-mega__nav-arctic__content-area__panel__description {
-          border-left: 1px solid #e6e6e6;
-          padding: 2rem 4rem;
-          padding-top: 0;
-          margin: 2rem 0; }
-          .nav-mega__nav-arctic__content-area__panel__description__title {
-            font-size: 1.8rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1rem;
-            margin-bottom: 1rem; }
-          .nav-mega__nav-arctic__content-area__panel__description__snippet {
-            font-size: 1.6rem;
-            font-weight: 400;
-            text-transform: none;
-            letter-spacing: 0rem;
-            margin-bottom: 3rem; }
-        .nav-mega__nav-arctic__content-area__panel__image-area {
-          border-left: 1px solid #e6e6e6;
-          padding: 2rem 4rem;
-          padding-top: 0;
-          margin-top: 2rem;
-          width: 100%; }
-          .nav-mega__nav-arctic__content-area__panel__image-area.ship {
-            border-left: none; }
-          .nav-mega__nav-arctic__content-area__panel__image-area img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px; }
 
 .nav-secondary {
   width: 100%;
@@ -13039,7 +12936,7 @@ h5 {
   .nav-secondary__main {
     flex-grow: 1;
     display: flex;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     font-weight: 600;
@@ -13429,7 +13326,7 @@ h5 {
         font-family: "Almarai", sans-serif;
         color: #ae712d;
         white-space: nowrap;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         letter-spacing: 0.3rem;
         font-weight: 500;
         text-align: center;
@@ -13444,7 +13341,7 @@ h5 {
     .footer__explore__phone {
       display: flex;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       letter-spacing: 0.3rem;
       font-weight: 500;
       width: 100%; }
@@ -13476,7 +13373,7 @@ h5 {
         .footer__navigation__group__nav__list__item a:link, .footer__navigation__group__nav__list__item a:visited {
           text-decoration: none;
           letter-spacing: 0.1rem;
-          font-size: 1.5rem;
+          font-size: 1.6rem;
           font-weight: 300;
           color: #fff;
           position: relative; }
@@ -13520,7 +13417,7 @@ h5 {
     justify-content: center;
     align-items: flex-end;
     letter-spacing: 0.1rem;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 300; }
     @media only screen and (max-width: 50em) {
       .footer__copyright {
@@ -13541,7 +13438,7 @@ h5 {
     text-transform: uppercase;
     justify-content: start;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     height: 100%;
     cursor: pointer;
     padding: 1.5rem 3rem;
@@ -13583,7 +13480,7 @@ h5 {
         z-index: 40; }
     .page-nav__collapse__list {
       list-style: none;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       letter-spacing: 0.4rem;
       text-transform: uppercase;
       background-color: #fff;
@@ -13610,7 +13507,7 @@ h5 {
 .page-nav-title {
   color: #57754d;
   font-weight: 500;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   letter-spacing: 0.3rem;
   text-transform: uppercase;
   align-items: center;
@@ -13654,7 +13551,7 @@ h5 {
     #page-nav ul li a:link, #page-nav ul li a:visited {
       color: #9ea0a4;
       font-weight: 500;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       letter-spacing: 0.3rem;
       text-transform: uppercase; }
     #page-nav ul li a:hover {
