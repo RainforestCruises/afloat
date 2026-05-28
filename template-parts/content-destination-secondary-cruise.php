@@ -5,13 +5,15 @@ $currentYear = date("Y");
 
 $destination = get_field('destination_post');
 $tour_experiences = get_field('tour_experiences');
+$extensions_title = get_field('extensions_title') ? get_field('extensions_title') : "Cruise Extensions";
+
 ?>
 
 
 <div class="destination-secondary">
     <div class="destination-secondary__header">
         <h2 class="destination-secondary__header__title page-divider" id="extensions">
-            Cruise Extensions
+            <?php echo $extensions_title; ?>
         </h2>
         <div class="destination-secondary__header__sub-text">
             <?php echo get_field('tour_package_title_subtext') ?>

@@ -2,12 +2,14 @@
 $destination = $args['destination'];
 $cruises_image = get_field('cruises_image');
 $travel_guide_posts = get_field('travel_guide_posts');
+$travel_guide_title = get_field('travel_guide_title') ? get_field('travel_guide_title') : "Travel Guide";
+
 
 ?>
 
 <div class="destination-guides">
     <h2 class="destination-guides__header page-divider page-divider--padding">
-        Travel Guide
+        <?php echo $travel_guide_title ?>
     </h2>
     <div class="destination-guides__sub-text">
         <?php echo get_field('travel_guide_title_subtext') ?>

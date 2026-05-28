@@ -890,6 +890,41 @@
             "multiple": 0
         },
         {
+            "key": "field_6a187642975df",
+            "label": "Deals",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6a18762c975de",
+            "label": "Deals Title",
+            "name": "deals_title",
+            "type": "text",
+            "instructions": "subtext for deals section",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_61fc3d3f042ff",
             "label": "Deals Title Subtext",
             "name": "deals_title_subtext",
@@ -942,6 +977,33 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_6a1872a4f22b5",
+            "label": "Tour Package Title",
+            "name": "tour_package_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_686e5d63ade50",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_5ffe19a60966a",
@@ -1000,6 +1062,33 @@
             "allow_null": 0,
             "allow_archives": 0,
             "multiple": 0
+        },
+        {
+            "key": "field_6a187661975e0",
+            "label": "Extensions Title",
+            "name": "extensions_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_686e5d63ade50",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_6973be51055e8",
@@ -1070,6 +1159,33 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_6a1872bbf22b6",
+            "label": "Charter Title",
+            "name": "charter_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64ecd320dee6b",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_64ecd300dee6a",
@@ -1163,6 +1279,33 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_6a1872cdf22b7",
+            "label": "Travel Guide Title",
+            "name": "travel_guide_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_698f3e12eeaad",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_5ffe1a2a0966f",
@@ -1596,5 +1739,5 @@
     "active": true,
     "description": "Destination (Cruise) - Page",
     "show_in_rest": 0,
-    "modified": 1770995305
+    "modified": 1779988104
 }

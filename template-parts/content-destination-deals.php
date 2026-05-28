@@ -2,6 +2,7 @@
 
 
 $posts = $args['deals'];
+$deals_title = get_field('deals_title') ? get_field('deals_title') : "Deals";
 
 
 
@@ -12,7 +13,7 @@ $posts = $args['deals'];
 <div class="deals-featured">
     <div class="destination-main__packages__header">
         <h2 class="destination-main__packages__header__title page-divider">
-            Deals
+            <?php echo $deals_title ?>
         </h2>
         <div class="destination-main__packages__header__sub-text">
             <?php echo get_field('deals_title_subtext') ?>

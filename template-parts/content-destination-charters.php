@@ -4,7 +4,7 @@ $charters = $args['charters'];
 $currentYear = date("Y");
 $charter_search_link = get_field('charter_search_link');
 $charter_title_subtext = get_field('charter_title_subtext');
-console_log($charters);
+$charter_title = get_field('charter_title') ? get_field('charter_title') : "Private Charters";
 
 ?>
 
@@ -12,7 +12,7 @@ console_log($charters);
 <div class="destination-secondary">
     <div class="destination-secondary__header">
         <h2 class="destination-secondary__header__title page-divider">
-            Private Charters
+            <?php echo $charter_title; ?>
         </h2>
         <div class="destination-secondary__header__sub-text">
             <?php echo $charter_title_subtext; ?>
