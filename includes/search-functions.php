@@ -155,7 +155,6 @@ function getSearchPosts($travelStyles, $destinations, $experiences, $searchType,
                 if (!get_field('is_extension', $post->ID)) {
                     $filtered_posts[] = $post;
                 }
-                
             } else {
                 // charter_cruises - include all (already filtered by meta_query)
                 if (!get_field('is_extension', $post->ID)) {
@@ -256,6 +255,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
         $itineraryCharterValues = []; // this would be the way to improve 
 
         $vesselCapacityDisplay = "";
+        $vesselCapacityDisplayCharter = "";
         $numberOfCabinsDisplay = "";
 
         $charterAvailable = false;
@@ -300,9 +300,10 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
 
             if ($postType  == 'rfc_cruises') { //CRUISES 
                 $productTypeCta = $travelStyle == 'extensions' ? 'Extension' : 'Cruise';
-                
+
                 // ship size
-                $vessel_capacity = get_field('vessel_capacity', $p);
+                $charter_capacity = get_field('charter_capacity', $p) > 0 ? get_field('charter_capacity', $p) : get_field('vessel_capacity', $p);
+                $vessel_capacity = $charterFilter ? $charter_capacity : get_field('vessel_capacity', $p);
                 if ($maxSize != 50 && $vessel_capacity > $maxSize) {
                     continue;
                 }
@@ -310,10 +311,10 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
                     continue;
                 }
 
-                if($travelStyle == "rfc_cruises" && get_field('charter_only', $p)) {
+                if ($travelStyle == "rfc_cruises" && get_field('charter_only', $p)) {
                     continue; // skip if only charter 
                 }
-                
+
 
                 //Charter Filters
                 $charterAvailable = get_field('charter_available', $p);
@@ -344,7 +345,7 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
                 if (!empty($features)) {
                     $featuresMatch = false;
 
-                    
+
                     foreach ($features as $featureType) {
                         $featureType = strtolower(trim($featureType));
 
@@ -565,6 +566,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
 
             //Capacity Attributes Display -- (Cruise /Lodge)
             $vesselCapacity = get_field('vessel_capacity', $p);
+            $charterCapacity = get_field('charter_capacity', $p) > 0 ? get_field('charter_capacity', $p) : $vesselCapacity; // if charter capacity is set, use that for display and filtering
+
             $numberOfCabins = get_field('number_of_cabins', $p);
 
             if ($numberOfCabins) {
@@ -572,6 +575,9 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
             }
             if ($vesselCapacity) {
                 $vesselCapacityDisplay = $vesselCapacity . " Guests";
+            }
+            if ($charterCapacity) {
+                $vesselCapacityDisplayCharter = $charterCapacity . " Guests";
             }
         }
 
@@ -619,6 +625,8 @@ function formatFilterSearch($posts, $minLength, $maxLength, $minSize, $maxSize, 
             'charterAvailable' => $charterAvailable,
             'vesselCapacity' => $vesselCapacity,
             'vesselCapacityDisplay' => $vesselCapacityDisplay,
+            'vesselCapacityCharter' => $charterCapacity,
+            'vesselCapacityDisplayCharter' => $vesselCapacityDisplayCharter,
             'numberOfCabins' => $numberOfCabins,
             'numberOfCabinsDisplay' => $numberOfCabinsDisplay,
             'searchRank' => $searchRank

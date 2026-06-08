@@ -5,7 +5,7 @@ $featured_image = get_field('featured_image');
 $productTitle = get_the_title();
 $breadcrumb = get_field('breadcrumb');
 $show_extensions = get_field('show_extensions');
-
+$capacity = $args['vessel_capacity'];
 $showOverview = true;
 if (get_post_type() == 'rfc_tours') {
     $productTitle = get_field('tour_name');
@@ -320,7 +320,7 @@ $images = get_field('highlight_gallery');
                                     <?php endif; ?>
                                 </div>
                                 <div class="product-hero__bottom__content__info-group__attributes__item__data__text">
-                                    <?php echo get_field('vessel_capacity') . ' Guests'; ?>
+                                    <?php echo $capacity . ' Guests'; ?>
                                     <div class="sub-attribute">
                                         <?php echo get_field('number_of_cabins') . ' Cabins'; ?>
                                     </div>

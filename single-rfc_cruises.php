@@ -55,6 +55,11 @@ while (have_posts()) :
     $charter_view = true;
   }
 
+  $charter_capacity = get_field('charter_capacity');
+  if ($charter_view == true && $charter_capacity > 0) {
+    $vessel_capacity = $charter_capacity;
+  }
+
   $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, true);
   if ($lowestPrice == 0) {
     $lowestPrice = lowest_property_price($cruise_data, 0, $currentYear, false);

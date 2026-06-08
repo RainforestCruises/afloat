@@ -274,7 +274,7 @@ if ($results) :
                                                     </svg>
                                                 </div>
                                                 <div class="search-result__detail__panel__info__attributes__item__data__text">
-                                                    <?php echo $result->vesselCapacityDisplay; ?>
+                                                    <?php echo $result->vesselCapacityDisplayCharter; ?>
                                                     <div class="sub-attribute">
                                                         <?php echo $result->numberOfCabinsDisplay; ?>
                                                     </div>

@@ -2500,6 +2500,35 @@
             "maxlength": 50
         },
         {
+            "key": "field_6a26f7d3e9b01",
+            "label": "Charter Capacity",
+            "name": "charter_capacity",
+            "type": "number",
+            "instructions": "leave blank if the capacity is the same as the regular FIT capacity",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_602bf565511a0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_6511c09d7b89f",
             "label": "Charter Display Full Price",
             "name": "charter_display_full_price",
@@ -2732,5 +2761,5 @@
     "active": true,
     "description": "Cruise - CPT",
     "show_in_rest": 0,
-    "modified": 1769373810
+    "modified": 1780938756
 }
