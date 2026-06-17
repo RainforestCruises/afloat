@@ -597,7 +597,7 @@ endforeach;
                                                         if (array_key_exists("CharterAmount", $itinerary)  && $itinerary['CharterAmount'] != 0) {
                                                             echo "$ " . number_format($itinerary['LengthInDays'] * $itinerary['CharterAmount'], 0);
                                                         } else {
-                                                            echo 'TBA'; //not updated from DF
+                                                            echo 'POA'; //not updated from DF
                                                         }
                                                         ?>
                                                     </div>
@@ -611,7 +611,7 @@ endforeach;
                                                         if (array_key_exists("CharterAmount", $itinerary) && $itinerary['CharterAmount'] != 0) {
                                                             echo "$ " . number_format($itinerary['CharterAmount'], 0);
                                                         } else {
-                                                            echo 'TBA'; //not updated from DF
+                                                            echo 'POA'; //not updated from DF
                                                         }
                                                         ?>
 

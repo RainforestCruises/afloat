@@ -228,7 +228,7 @@ if ($results) :
                                 <div class="search-result__detail__panel__info__price-from">
 
                                     <div class="search-result__detail__panel__info__price-from__price">
-                                        <?php echo $charterPrice == 0 ? "TBA" : "$" . number_format($charterPrice, 0);  ?>
+                                        <?php echo $charterPrice == 0 ? "POA" : "$" . number_format($charterPrice, 0);  ?>
                                         
                                         <span>
                                             USD

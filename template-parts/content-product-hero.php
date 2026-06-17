@@ -253,7 +253,7 @@ $images = get_field('highlight_gallery');
                                 if ($charter_display_full_price) {
                                     $heroPrice = get_field('charter_min_days') * $args['charter_daily_price'];
                                 }
-                                echo $heroPrice == 0 ? "TBA" : "$" . number_format($heroPrice, 0);
+                                echo $heroPrice == 0 ? "POA" : "$" . number_format($heroPrice, 0);
 
                                 ?>
                                 <span class="u-small-text"><?php echo $charter_display_full_price ? get_field('charter_min_days') . "-Day" : " / Day" ?></span>
