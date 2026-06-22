@@ -52,8 +52,8 @@ if ($results) :
 
 
                         <div class="search-result__content__top__title-group">
-                            <div class="search-result__content__top__title-group__subtitle">
-                                <span class="subtitle-fit <?php echo ($charterFilter == false) ? 'current' : ''; ?>"><?php echo $result->productTypeDisplay ?></span>
+                            <div class="search-result__content__top__title-group__subtitle" style="display: none;">
+                                <span class="subtitle-fit <?php echo ($charterFilter == false) ? 'current' : ''; ?>"></span>
                                 <span class="subtitle-charter <?php echo ($charterFilter == true) ? 'current' : ''; ?>">Private Charter</span>
                             </div>
                             <h2 class="search-result__content__top__title-group__title">
