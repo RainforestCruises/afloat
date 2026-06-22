@@ -373,7 +373,7 @@ if ($results) :
                             if (!$charterFilter && !$result->charterOnly) :
                                 echo "$" . number_format($result->lowestPrice, 0) . '+';
                             else :
-                                echo "$" . number_format($result->lowestCharterPrice, 0) . '+';
+                                echo $result->lowestCharterPrice == 0 ? "POA" : "$" . number_format($result->lowestCharterPrice, 0) . '+';
                             endif;
                             ?>
 
