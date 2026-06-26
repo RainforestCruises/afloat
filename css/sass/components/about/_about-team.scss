@@ -7,7 +7,7 @@
 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  //align-items: center;
 
   @media only screen and (max-width: $bp-small) {
     margin-bottom: 6rem;
@@ -18,7 +18,7 @@
     color: $color-primary;
     margin-bottom: 6rem;
     font-weight: 700;
-    font-family: $font-secondary ;
+    font-family: $font-secondary;
   }
 
   &__grid {
@@ -81,7 +81,7 @@
       }
     }
 
-        &__meet {
+    &__meet {
       display: flex;
       justify-content: center;
       padding-top: 1rem;
@@ -89,6 +89,58 @@
       & a:visited {
         color: $color-white;
         text-decoration: none;
+      }
+    }
+  }
+}
+
+.expert-grid {
+  align-items: start;
+
+}
+
+.expert-card {
+  margin-bottom: 6rem;
+  &__description {
+    text-align: start;
+  }
+  &__avatar {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 2rem;
+    align-content: center;
+    text-decoration: none;
+    color: $color-primary;
+    width: max-content;
+    &__image-area {
+      width: min-content;
+      margin-bottom: 1rem;
+
+      & img {
+        height: 12rem;
+        width: 12rem;
+        object-fit: contain;
+        border-radius: 50%;
+      }
+    }
+
+    &__title-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: $font-secondary;
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 4rem;
+      &__name {
+        color: $color-primary;
+        font-size: 3.2rem;
+        line-height: 3.8rem;
+      }
+
+      &__position {
+        font-size: 2rem;
+        line-height: 3rem;
       }
     }
   }

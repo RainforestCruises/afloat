@@ -103,6 +103,9 @@
         @media only screen and (max-width: $bp-small) {
             padding: 1.5rem 2rem;
         }
+        a {
+            text-decoration: none;
+        }
 
         &__title {
             font-size: 3.5rem;
@@ -111,7 +114,8 @@
             margin-bottom: 1.5rem;
             font-family: $font-secondary;
             letter-spacing: .2rem;
-            color: currentColor;
+            color: $color-white;
+            text-decoration: none;
             @media only screen and (max-width: $bp-small) {
                 font-size: 2.5rem;
                 line-height: 3rem;
