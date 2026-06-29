@@ -44,7 +44,5 @@ $team = get_field('team');
         ?>
     </div>
 
-    <h2 class="destination-main__packages__header__title page-divider" style="margin-bottom: 4rem; margin-top: 8rem;">
-        Reach Out
-    </h2>
+
 </div>

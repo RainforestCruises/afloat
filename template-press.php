@@ -42,17 +42,14 @@ get_header();
         ?>
     </section>
 
-
-
-</main>
-
-
     <!-- Newsletter -->
-    <section class="experience-page__section-newsletter">
+    <section class="about-page__section-newsletter" id="newsletter">
         <?php
-        get_template_part('template-parts/content', 'shared-newsletter');
+        get_template_part('template-parts/press/content', 'press-newsletter');
         ?>
     </section>
+
+</main>
 
 
 <?php get_footer(); ?>
