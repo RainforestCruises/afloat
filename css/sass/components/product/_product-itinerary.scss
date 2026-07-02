@@ -904,6 +904,12 @@
       & .slick-dots {
         & li {
           user-select: none;
+          white-space: nowrap;
+          width: max-content;
+          & a {
+            padding: 5px 10px;
+            color: $color-grey-2;
+          }
         }
       }
 

@@ -5270,7 +5270,12 @@ h5 {
     .product-itinerary-slide__bottom__days {
       position: relative; }
       .product-itinerary-slide__bottom__days .slick-dots li {
-        user-select: none; }
+        user-select: none;
+        white-space: nowrap;
+        width: max-content; }
+        .product-itinerary-slide__bottom__days .slick-dots li a {
+          padding: 5px 10px;
+          color: #919598; }
       .product-itinerary-slide__bottom__days__item {
         display: flex !important; }
         @media only screen and (max-width: 50em) {

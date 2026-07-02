@@ -11,7 +11,7 @@ jQuery(document).ready(function ($) {
 
   var estimatedTravelDates = document.querySelector(".estimated-travel-dates");
   if (estimatedTravelDates) {
-    estimatedTravelDates.style.display = "none"; 
+    estimatedTravelDates.style.display = "none";
   }
 
   //Deals Slider
@@ -140,7 +140,9 @@ jQuery(document).ready(function ($) {
       prevArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--left"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_left_36px"></use></svg></button>',
       nextArrow: '<button class="product-itinerary-slide__bottom__days__btn product-itinerary-slide__bottom__days__btn--right"><svg><use xlink:href="' + templateUrl + '/css/img/sprite.svg#icon-ic_chevron_right_36px"></use></svg></button>',
       customPaging: function (slider, i) {
-        return '<a class="dot">' + (i + 1) + "</a>";
+        //return '<a class="dot">' + (i + 1) + "</a>";
+        var label = $(slider.$slides[i]).find('.product-itinerary-slide__bottom__days__item').data('day-label') || (i + 1);
+        return '<a class="dot" tabindex="0">' + label + '</a>';
       },
 
       responsive: [
@@ -522,7 +524,7 @@ jQuery(document).ready(function ($) {
     ],
   });
 
-    //extensions  Slider
+  //extensions  Slider
   $("#extensions-slider").slick({
     infinite: true,
     slidesToShow: 3,

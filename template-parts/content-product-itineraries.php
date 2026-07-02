@@ -739,14 +739,10 @@ endforeach;
                             $dayImages = $itinerary['DayImageDTOs'];
                             $dayCount = 1;
 
-
                             if ($days) :
                                 $dayNumber = array_column($days, 'DayNumber');
                                 array_multisort($dayNumber, SORT_ASC, $days);
-
-
-                                foreach ($days as $day) : ?>
-                                    <?php
+                                foreach ($days as $day) :
                                     $img = null;
                                     foreach ($dayImages as $dayImage) {
                                         if ($dayCount == $dayImage['DayNumber']) {
@@ -757,7 +753,7 @@ endforeach;
                                     ?>
 
                                     <!-- Day Slide -->
-                                    <div class="product-itinerary-slide__bottom__days__item">
+                                    <div class="product-itinerary-slide__bottom__days__item"<?php echo !empty($day['DayNumberOverride']) ? ' data-day-label="' . htmlspecialchars($day['DayNumberOverride']) . '"' : ''; ?>>
 
                                         <!-- Content -->
                                         <div class="product-itinerary-slide__bottom__days__item__content">
@@ -790,7 +786,7 @@ endforeach;
                                                         Day
                                                     </div>
                                                     <div class="product-itinerary-slide__bottom__days__item__side__detail__item__data">
-                                                        <span><?php echo $day['DayNumber']; ?></span> / <?php echo $itinerary['LengthInDays']; ?>
+                                                        <?php echo !empty($day['DayNumberOverride']) ? htmlspecialchars($day['DayNumberOverride']) : $day['DayNumber']; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -804,7 +800,6 @@ endforeach;
                                 endforeach;
                             endif; ?>
                         </div>
-                        <span class="product-itinerary-slide__bottom__counter">1 / <?php echo ($dayCount - 1); ?></span>
 
                     </div>
                 </div>
