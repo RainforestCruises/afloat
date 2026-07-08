@@ -5,7 +5,7 @@ return array (
   'title' => 'Travel Guides',
   'type' => 'rfc_travel_guides',
   'id' => '5feced60af61d',
-  'updated' => 1758301433,
+  'updated' => 1783534948,
   'columns' => 
   array (
     'title' => 
@@ -180,6 +180,22 @@ return array (
       'filter' => 'off',
       'filter_label' => '',
       'name' => '5feced9f1658c',
+    ),
+    '6a4e9544122d10' => 
+    array (
+      'type' => 'column-acf_field',
+      'label' => 'Is Press Release',
+      'width' => '',
+      'width_unit' => '%',
+      'field' => 'field_6a4e93f0714d7',
+      'export' => 'off',
+      'sort' => 'on',
+      'edit' => 'on',
+      'bulk_edit' => 'on',
+      'search' => 'on',
+      'filter' => 'off',
+      'filter_label' => '',
+      'name' => '6a4e9544122d10',
     ),
     '60708ec7a45a1c' => 
     array (

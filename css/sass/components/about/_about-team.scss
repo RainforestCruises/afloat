@@ -96,52 +96,75 @@
 
 .expert-grid {
   align-items: start;
-
 }
 
 .expert-card {
-  margin-bottom: 6rem;
-  &__description {
-    text-align: start;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $color-grey-light-1a;
   }
-  &__avatar {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    gap: 2rem;
-    align-content: center;
-    text-decoration: none;
-    color: $color-primary;
-    width: max-content;
-    &__image-area {
-      width: min-content;
-      margin-bottom: 1rem;
 
-      & img {
-        height: 12rem;
-        width: 12rem;
-        object-fit: contain;
-        border-radius: 50%;
+  display: grid;
+  grid-template-columns: 1fr 25rem;
+  gap: 10rem;
+  width: 100%;
+
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__description {
+      text-align: start;
+    }
+    &__avatar {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 2rem;
+      align-content: center;
+      text-decoration: none;
+      color: $color-primary;
+      width: max-content;
+      &__image-area {
+        width: min-content;
+        margin-bottom: 1rem;
+
+        & img {
+          height: 12rem;
+          width: 12rem;
+          object-fit: contain;
+          border-radius: 50%;
+        }
+      }
+
+      &__title-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: $font-secondary;
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 4rem;
+        &__name {
+          color: $color-primary;
+          font-size: 3.2rem;
+          line-height: 3.8rem;
+        }
+
+        &__position {
+          font-size: 2rem;
+          line-height: 3rem;
+        }
       }
     }
+  }
 
-    &__title-group {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-family: $font-secondary;
-      font-weight: 700;
-      font-size: 3rem;
-      line-height: 4rem;
-      &__name {
-        color: $color-primary;
-        font-size: 3.2rem;
-        line-height: 3.8rem;
-      }
-
-      &__position {
-        font-size: 2rem;
-        line-height: 3rem;
-      }
-    }
+  &__video {
   }
 }

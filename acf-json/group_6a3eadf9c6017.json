@@ -356,6 +356,25 @@
                     "allow_null": 0,
                     "allow_archives": 0,
                     "multiple": 0
+                },
+                {
+                    "key": "field_6a4e973a98c00",
+                    "label": "Video",
+                    "name": "video",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         },
@@ -477,5 +496,5 @@
     "active": true,
     "description": "About Page",
     "show_in_rest": 0,
-    "modified": 1782758481
+    "modified": 1783535433
 }

@@ -11027,40 +11027,55 @@ h5 {
   align-items: start; }
 
 .expert-card {
-  margin-bottom: 6rem; }
-  .expert-card__description {
-    text-align: start; }
-  .expert-card__avatar {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    gap: 2rem;
-    align-content: center;
-    text-decoration: none;
-    color: #254715;
-    width: max-content; }
-    .expert-card__avatar__image-area {
-      width: min-content;
-      margin-bottom: 1rem; }
-      .expert-card__avatar__image-area img {
-        height: 12rem;
-        width: 12rem;
-        object-fit: contain;
-        border-radius: 50%; }
-    .expert-card__avatar__title-group {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-family: "Sorts Mill Goudy", serif;
-      font-weight: 700;
-      font-size: 3rem;
-      line-height: 4rem; }
-      .expert-card__avatar__title-group__name {
-        color: #254715;
-        font-size: 3.2rem;
-        line-height: 3.8rem; }
-      .expert-card__avatar__title-group__position {
-        font-size: 2rem;
-        line-height: 3rem; }
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 25rem;
+  gap: 10rem;
+  width: 100%; }
+  .expert-card:not(:last-child) {
+    border-bottom: 1px solid #e6e6e6; }
+  @media only screen and (max-width: 37.5em) {
+    .expert-card {
+      grid-template-columns: 1fr;
+      gap: 3rem; } }
+  .expert-card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .expert-card__content__description {
+      text-align: start; }
+    .expert-card__content__avatar {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 2rem;
+      align-content: center;
+      text-decoration: none;
+      color: #254715;
+      width: max-content; }
+      .expert-card__content__avatar__image-area {
+        width: min-content;
+        margin-bottom: 1rem; }
+        .expert-card__content__avatar__image-area img {
+          height: 12rem;
+          width: 12rem;
+          object-fit: contain;
+          border-radius: 50%; }
+      .expert-card__content__avatar__title-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: "Sorts Mill Goudy", serif;
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 4rem; }
+        .expert-card__content__avatar__title-group__name {
+          color: #254715;
+          font-size: 3.2rem;
+          line-height: 3.8rem; }
+        .expert-card__content__avatar__title-group__position {
+          font-size: 2rem;
+          line-height: 3rem; }
 
 .about-partners {
   width: 100%;

@@ -249,6 +249,25 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_6a4e93f0714d7",
+            "label": "Is Press Release",
+            "name": "is_press_release",
+            "type": "true_false",
+            "instructions": "Check to hide the disclaimer and newsletter signup",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -269,5 +288,5 @@
     "active": true,
     "description": "Travel Guide - CPT",
     "show_in_rest": 0,
-    "modified": 1758301358
+    "modified": 1783534615
 }

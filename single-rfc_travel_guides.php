@@ -22,6 +22,8 @@ $toc = generateIndex($content)['index'];
 while (have_posts()) :
   the_post();
   $featured_image  = get_field('featured_image');
+  $is_press_release  = get_field('is_press_release');
+
   $categories  = get_field('categories');
   $displayCategory = "";
 
@@ -146,7 +148,7 @@ while (have_posts()) :
               </div>
             </div>
 
-      </a>
+          </a>
 
         </div>
       <?php endif; ?>
@@ -169,16 +171,18 @@ while (have_posts()) :
       </div>
 
 
+      <?php if (!$is_press_release) : ?>
+        <div class="travel-guide__disclaimer">
+          <h5 class="travel-guide__disclaimer__header">
+            Disclaimer
+          </h5>
+          <?php echo get_field('disclaimer', 'options'); ?>
+        </div>
+        <div class="travel-guide__entry">
+          This entry was posted <?php echo get_the_date(); ?>
+        </div>
 
-      <div class="travel-guide__disclaimer">
-        <h5 class="travel-guide__disclaimer__header">
-          Disclaimer
-        </h5>
-        <?php echo get_field('disclaimer', 'options'); ?>
-      </div>
-      <div class="travel-guide__entry">
-        This entry was posted <?php echo get_the_date(); ?>
-      </div>
+      <?php endif; ?>
 
     </div>
     <div class="travel-guide-related">
@@ -232,13 +236,15 @@ while (have_posts()) :
 
 
   </div>
-  <div class="travel-guide-newsletter">
-    <?php
-    get_template_part('template-parts/content', 'shared-newsletter');
-    ?>
 
-  </div>
+  <?php if (!$is_press_release) : ?>
+    <div class="travel-guide-newsletter">
+      <?php
+      get_template_part('template-parts/content', 'shared-newsletter');
+      ?>
 
+    </div>
+  <?php endif; ?>
 
   <section class="guide-menu-area">
     <div class="guide-menu-area__content">
