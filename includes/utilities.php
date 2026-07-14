@@ -379,7 +379,7 @@ function structuredData($templateType)
 
 
             //landing page
-            $itemString2 = '{"@type": "ListItem", "position": 2, "name": "' . $itemTitle2 . '", "item": "' . $itemLink2 . '" },'; //parent breadcrumb
+            $itemString2 = '{"@type": "ListItem", "position": 3, "name": "' . $itemTitle2 . '", "item": "' . $itemLink2 . '" },'; //parent breadcrumb
             $returnString .= $itemString2;
 
 

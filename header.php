@@ -39,8 +39,10 @@
     <?php endif; ?>
 
 
-    <!-- Structured Data / Rich Snippets -->
+    <!-- Custom Structured Data / Rich Snippets -->
+     
     <?php
+
     //Destination
     if (is_page_template('template-destinations-destination.php') || is_page_template('template-destinations-cruise.php') || is_page_template('template-destinations-region.php')) {
         echo structuredData('destination'); //Breadcrumbs
