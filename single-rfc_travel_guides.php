@@ -16,7 +16,7 @@ wp_enqueue_script('page-toc', get_template_directory_uri() . '/js/page-toc.js', 
 $query = get_post(get_the_ID());
 $content = apply_filters('the_content', $query->post_content);
 $toc = generateIndex($content)['index'];
-
+$top_level_press_page = get_field("top_level_press_page", "options");
 
 
 while (have_posts()) :
@@ -101,17 +101,25 @@ while (have_posts()) :
   <div class="travel-guide-page">
     <div class="travel-guide">
       <!-- Breadcrumb -->
+
       <ol class="travel-guide__breadcrumb">
         <li>
           <a href="<?php echo home_url() ?>">Home</a>
         </li>
-        <li>
-          <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
-        </li>
-        <li>
-          <a href=" <?php echo $breadcrumbTravelGuideURL; ?>"><?php echo $breadcrumbTravelGuideText; ?> Travel Guide</a>
-        </li>
+        <?php if (!$is_press_release) : ?>
+          <li>
+            <a href=" <?php echo $breadcrumbDestinationURL; ?>"><?php echo $breadcrumbDestinationText; ?></a>
+          </li>
+          <li>
+            <a href=" <?php echo $breadcrumbTravelGuideURL; ?>"><?php echo $breadcrumbTravelGuideText; ?> Travel Guide</a>
+          </li>
+        <?php else : ?>
+          <li>
+            <a href=" <?php echo $top_level_press_page; ?>">Press</a>
+          </li>
+        <?php endif; ?>
       </ol>
+
 
       <h1 class="travel-guide__title">
         <?php echo get_field('navigation_title'); ?>
@@ -158,15 +166,17 @@ while (have_posts()) :
         <?php endif; ?>
       </div>
 
-      <div class="travel-guide__toc">
-        <div class="travel-guide__toc__header">
-          Jump to Section
+      <?php if ($toc != "<ul></ul>") : ?>
+        <div class="travel-guide__toc">
+          <div class="travel-guide__toc__header">
+            Jump to Section
+          </div>
+          <?php echo $toc; ?>
         </div>
-        <?php echo $toc; ?>
-      </div>
+      <?php endif; ?>
 
 
-      <div class="travel-guide__content">
+      <div class="travel-guide__content" style="<?php echo $is_press_release ? 'margin-bottom: 8rem;' : ''; ?>">
         <?php echo generateIndex($content)['html']; ?>
       </div>
 
@@ -246,26 +256,28 @@ while (have_posts()) :
     </div>
   <?php endif; ?>
 
-  <section class="guide-menu-area">
-    <div class="guide-menu-area__content">
+  <?php if ($toc != "<ul></ul>") : ?>
 
-      <div class="guide-menu">
-        <div class="guide-menu__button">
-          <svg>
-            <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-plus"></use>
-          </svg>
-          Sections
-        </div>
-        <div class="guide-menu__menu">
-          <?php echo $toc; ?>
+    <section class="guide-menu-area">
+      <div class="guide-menu-area__content">
+
+        <div class="guide-menu">
+          <div class="guide-menu__button">
+            <svg>
+              <use xlink:href="<?php echo bloginfo('template_url') ?>/css/img/sprite.svg#icon-plus"></use>
+            </svg>
+            Sections
+          </div>
+          <div class="guide-menu__menu">
+            <?php echo $toc; ?>
+          </div>
+
         </div>
 
       </div>
 
-    </div>
-
-  </section>
-
+    </section>
+  <?php endif; ?>
 <?php
 endwhile;
 ?>

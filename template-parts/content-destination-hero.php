@@ -8,6 +8,7 @@
     $show_charters = get_field('show_charters');
     $show_tours = get_field('show_tours');
     $breadcrumb = get_field('breadcrumb');
+    $seasonal_sub_title = get_field('seasonal_sub_title');
 
     if ($destinationType == 'destination' || $destinationType == 'region')
         $accommodationDisplayText = get_field('accommodations_label');
@@ -62,6 +63,7 @@
 
           <!-- Title -->
           <div class="destination-hero__content__title-group">
+              <span><?php echo $seasonal_sub_title ?></span>
               <h1 class="destination-hero__content__title-group__title" id="page-title">
                   <?php echo get_the_title(); ?>
               </h1>

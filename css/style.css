@@ -7660,6 +7660,9 @@ h5 {
     .destination-hero__content__title-group {
       height: min-content;
       align-self: center; }
+      .destination-hero__content__title-group span {
+        font-size: 1.4rem;
+        letter-spacing: .3rem; }
       @media only screen and (max-width: 62.5em) {
         .destination-hero__content__title-group {
           display: flex;
@@ -11930,6 +11933,8 @@ h5 {
       letter-spacing: 0.3rem;
       font-weight: 300;
       color: #fff; }
+      .home-destination-card__title-area__subtitle--seasonal {
+        font-size: 1.1rem; }
 
 .guide-featured-item {
   position: relative; }

@@ -188,6 +188,11 @@
             height: min-content;
             align-self: center;
 
+            & span {
+                font-size: 1.4rem;
+                letter-spacing: .3rem;
+            }
+
             @media only screen and (max-width: $bp-large) {
                 display: flex;
                 flex-direction: column;

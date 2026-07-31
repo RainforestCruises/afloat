@@ -23,15 +23,19 @@ $destinations_subtext = get_field('destinations_title_subtext');
                     $image = $d['image'];
                 ?>
                     <a href="<?php echo $d['page_link'] ?>" class="home-destination-card">
-                    
+
                         <img <?php afloat_image_markup($image['id'], 'vertical-small'); ?>>
 
                         <div class="home-destination-card__title-area">
                             <h3 class="home-destination-card__title-area__title">
                                 <?php echo get_field('navigation_title', $destinationPost) ?>
                             </h3>
+
                             <div class="home-destination-card__title-area__subtitle">
                                 <?php echo $d['sub_title'] ?>
+                            </div>
+                            <div class="home-destination-card__title-area__subtitle home-destination-card__title-area__subtitle--seasonal">
+                                <?php echo $d['seasonal_sub_title'] ?>
                             </div>
                         </div>
                     </a>

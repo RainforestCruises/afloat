@@ -52,6 +52,25 @@
             "ui": 1
         },
         {
+            "key": "field_6a6cdcebeff78",
+            "label": "Seasonal Sub Title",
+            "name": "seasonal_sub_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_695af473d84e5",
             "label": "Breadcrumb",
             "name": "breadcrumb",
@@ -1739,5 +1758,5 @@
     "active": true,
     "description": "Destination (Cruise) - Page",
     "show_in_rest": 0,
-    "modified": 1779988104
+    "modified": 1785519376
 }

@@ -774,6 +774,11 @@
             letter-spacing: 0.3rem;
             font-weight: 300;
             color: $color-white;
+
+            &--seasonal {
+                font-size: 1.1rem;
+                //letter-spacing: .1rem;
+            }
         }
     }
 }
