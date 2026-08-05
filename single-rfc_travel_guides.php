@@ -78,18 +78,29 @@ while (have_posts()) :
     'post__not_in' => array($post->ID)
   );
 
-  $queryArgsDestination = array();
-  $queryArgsDestination['relation'] = 'OR';
-  $destinations = get_field('destinations');
-  if ($destinations) {
-    foreach ($destinations as $d) {
-      $queryArgsDestination[] = array(
-        'key'     => 'destinations',
-        'value'   =>  '"' . $d->ID . '"',
-        'compare' => 'LIKE'
-      );
-    }
-  };
+  if ($is_press_release) {
+    // Press releases: relate to other press releases, ignore destinations entirely
+    $queryArgs['meta_query'][] = array(
+      'key'     => 'is_press_release',
+      'value'   => '1',
+      'compare' => '='
+    );
+  } else {
+    $queryArgsDestination = array();
+    $queryArgsDestination['relation'] = 'OR';
+    $destinations = get_field('destinations');
+    if ($destinations) {
+      foreach ($destinations as $d) {
+        $queryArgsDestination[] = array(
+          'key'     => 'destinations',
+          'value'   =>  '"' . $d->ID . '"',
+          'compare' => 'LIKE'
+        );
+      }
+    };
+
+    $queryArgs['meta_query'][] = $queryArgsDestination;
+  }
 
   $queryArgs['meta_query'][] = $queryArgsDestination;
   $travelGuidePosts = new WP_Query($queryArgs);

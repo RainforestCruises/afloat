@@ -1953,6 +1953,9 @@ h5 {
     .travel-guide__content h3 {
       font-size: 2.5rem;
       letter-spacing: 0rem; }
+    .travel-guide__content h4 {
+      font-size: 2.5rem;
+      letter-spacing: 0rem; }
     .travel-guide__content a:link,
     .travel-guide__content a:visited {
       color: #ae712d;

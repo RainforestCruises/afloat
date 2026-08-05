@@ -469,7 +469,7 @@ function removePtags($text)
 // Table Of Contents Generator
 function generateIndex($html)
 {
-    preg_match_all('/<h([1-6])([^>]*)>(.*?)<\/h[1-6]>/i', $html, $matches, PREG_SET_ORDER);
+    preg_match_all('/<h([1-3])([^>]*)>(.*?)<\/h[1-3]>/i', $html, $matches, PREG_SET_ORDER);
     $index = "<ul>";
     $prev = 2;
     foreach ($matches as $match) {
