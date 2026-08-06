@@ -44,12 +44,9 @@ $newsletter_image = get_field('newsletter_image');
             </button>
             <div class="contact__wrapper__intro">
                 <div class="contact__wrapper__intro__title">
-                    Join Our Newsletter
+                    How Can We Assist?
                 </div>
 
-                <div class="contact__wrapper__intro__introtext">
-                    Please fill in the form beneath and you’ll be added to our newsletter.
-                </div>
             </div>
 
             <div class="contact__wrapper__form">
