@@ -63,10 +63,11 @@
 
           <!-- Title -->
           <div class="destination-hero__content__title-group">
-              <span><?php echo $seasonal_sub_title ?></span>
               <h1 class="destination-hero__content__title-group__title" id="page-title">
                   <?php echo get_the_title(); ?>
               </h1>
+                            <span><?php echo $seasonal_sub_title ?></span>
+
           </div>
 
           <!-- Nav -->
