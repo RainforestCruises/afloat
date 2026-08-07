@@ -1729,12 +1729,15 @@ h5 {
       padding-top: 7rem; } }
   .search-page--hero .experience-page__section-hero {
     width: 100%; }
+  .search-page--hero .experience-page__section-intro {
+    width: 100%; }
   .search-page--hero .experience-hero {
     height: calc(100vh - 9rem); }
   .search-page--hero .experience-intro {
-    margin-bottom: 6rem;
+    padding-top: 6rem;
     padding-bottom: 6rem;
-    border-bottom: 1px solid #e6e6e6; }
+    border-bottom: 1px solid #e6e6e6;
+    width: 100%; }
     @media only screen and (max-width: 37.5em) {
       .search-page--hero .experience-intro {
         margin-bottom: 3rem;

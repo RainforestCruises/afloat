@@ -323,12 +323,9 @@ $enable_hero_content = get_field('enable_hero_content');
     <?php endif; ?>
 
     <section class="search-page__intro" id="search-page-intro">
-
-
-
-        <?php if (!$enable_hero_content) :
+        <?php 
             get_template_part('template-parts/content', 'search-intro', $args);
-        endif; ?>
+       ?>
     </section>
 
 

@@ -649,8 +649,8 @@
         },
         {
             "key": "field_65a698a1387cf",
-            "label": "Features",
-            "name": "features",
+            "label": "Search KSPs",
+            "name": "search_ksps",
             "type": "repeater",
             "instructions": "Create 3 USPs",
             "required": 0,
@@ -755,5 +755,5 @@
     "active": true,
     "description": "Search - Page",
     "show_in_rest": 0,
-    "modified": 1768594495
+    "modified": 1786136942
 }

@@ -3,7 +3,7 @@
 $hero_image = get_field('hero_image');
 $hero_title = get_field('hero_title');
 $hero_snippet = get_field('hero_snippet');
-$features = get_field('features');
+$search_ksps = get_field('search_ksps');
 
 ?>
 
@@ -50,7 +50,7 @@ $features = get_field('features');
 <section class="experience-page__section-intro" id="about-section">
     <!--  Intro -->
     <div class="experience-intro">
-        <?php foreach ($features as $feature) : ?>
+        <?php foreach ($search_ksps as $feature) : ?>
             <div class="experience-intro__feature">
                 <div class="experience-intro__feature__icon">
                     <?php echo $feature['icon']; ?>
